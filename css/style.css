@@ -196,7 +196,7 @@ body {
 }
 
 .header  .header__link {
-    font-size: calc(var(--base-font-size) * 1.5);
+    font-size: calc(var(--base-font-size) * 1.25);
     color: #fff;
 }
 
