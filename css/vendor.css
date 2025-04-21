@@ -123,16 +123,32 @@
 
 .vendors_page .advantages__list{
     display: flex;
+    margin-bottom: calc(var(--base-gap) * 4);
     gap: calc(var(--base-gap) * 2);
 }
 
 .vendors_page .advantages__item{
     width: calc((100% - (var(--base-gap) *2)) /3 );
 }
+
+.vendors_page .advantages__item-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .vendors_page .advantages__text{
     margin: 0;
     font-size: calc(var(--base-font-size) * 1.25);
     line-height: calc(var(--base-font-line-height)* 1.5);
+}
+
+.vendors_page .advantages__img{
+    margin-bottom: calc(var(--base-gap) * 1.25);
+    width: 144px;
+    height: 144px;
+
 }
 
 @media (max-width: 1199px) {
