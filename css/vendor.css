@@ -1,9 +1,13 @@
 /* vendors_page */
 
 .vendors_page {
-    padding: 24px 0;
+    padding: 0 0 24px 0;
 }
-.vendors_page .title h2{
+.vendors_page .title__block{
+    margin-bottom: 32px;
+    }
+
+.vendors_page .title {
     margin: 0 0 var(--base-gap) 0;
     font-size: calc(var(--base-font-size)* 3.0);
     line-height: calc(var(--base-font-line-height)* 1.25);
@@ -27,11 +31,13 @@
 
 .vendors_page .description{
     display: flex;;
+    margin: 0 0 calc(var(--base-gap) * 3.5);
     gap: var(--base-gap);
     justify-content: space-between;
 }
 
-.vendors_page .description__block {    
+.vendors_page .description__block { 
+    max-width: calc((100% / 10) * 6);   
     max-width: 864px;
     width: 100%;
 }
@@ -73,7 +79,7 @@
     font-size: calc(var(--base-font-size)* 3.0);
     line-height: calc(var(--base-font-line-height)* 1.25);
     font-family: var(--base-bold-font);
-    color:var(--base-color-6)
+    color:var(--base-color-6);
 }
 
 .vendors_page .description__banner div{    
@@ -98,9 +104,30 @@
 .vendors_page .description__banner-text{
     color:#fff
 }
+/* advantages */
+.vendors_page .advantages{
+    margin-bottom: calc(var(--base-gap) * 2);
+}
+
+.vendors_page .advantages__subtitle{
+    margin: 0 0 calc(var(--base-font-size) * 3.5) 0;
+    font-size: calc(var(--base-font-size)* 2.0);
+    line-height: calc(var(--base-font-line-height)* 1);
+    font-family: var(--base-bold-font);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    display: inline-block;
+}
+
+.vendors_page .advantages__list{
+    display: flex;
+    gap: calc(var(--base-gap) * 2);
+}
 
 @media (max-width: 1199px) {
-    .vendors_page .title h2 {
+    .vendors_page .title {
         font-size: calc(var(--base-font-size)* 2);
     }
 
@@ -109,12 +136,9 @@
     }
 
     .vendors_page .description__block {
-        max-width: 478px;
+        max-width: calc((100% / 12) * 7);  
     }
 
-    /* .vendors_page .description__banner-title{
-        font-size: calc(var(--base-font-size)* 2);
-    } */
 }
 
 @media (max-width: 1020px) {
@@ -124,7 +148,7 @@
     }
 
     .vendors_page .description__block {
-        max-width: 1000px;
+        max-width: 100%;
     }
 
     .vendors_page .description__banner {
