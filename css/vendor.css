@@ -126,6 +126,15 @@
     gap: calc(var(--base-gap) * 2);
 }
 
+.vendors_page .advantages__item{
+    width: calc((100% - (var(--base-gap) *2)) /3 );
+}
+.vendors_page .advantages__text{
+    margin: 0;
+    font-size: calc(var(--base-font-size) * 1.25);
+    line-height: calc(var(--base-font-line-height)* 1.5);
+}
+
 @media (max-width: 1199px) {
     .vendors_page .title {
         font-size: calc(var(--base-font-size)* 2);
