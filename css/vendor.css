@@ -18,15 +18,17 @@
 
 .vendors_page .container {
     display: flex;
+    margin: 0 calc(var(--base-gap) * 4);
+    padding: 0 calc(var(--base-gap) * 8);
     flex-direction: column;
-    max-width: 1314px;
-    margin: 0 auto;
+   
+    /* margin: 0 auto; */
 }
 
 .vendors_page .description{
-    display: flex;
-    margin-top: calc(var(--base-gap)*2);
-    gap: var(--base-font-size);
+    display: flex;;
+    gap: var(--base-gap);
+    justify-content: space-between;
 }
 
 .vendors_page .description__block {    
@@ -40,9 +42,9 @@
     border-radius: 32px;
     background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
 }
+
 .vendors_page .description__text{
     margin: 0;
-
     font-size: calc(var(--base-font-size) * 1.25);
     line-height: calc(var(--base-font-line-height)* 1.5);
 }
@@ -78,7 +80,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     height: 40%;
+    width: 100%;
     padding: 16px 32px 32px;
     background-color: var(--base-color-6);
     border-bottom-left-radius: 32px;
@@ -93,4 +97,48 @@
 
 .vendors_page .description__banner-text{
     color:#fff
+}
+
+@media (max-width: 1199px) {
+    .vendors_page .title h2 {
+        font-size: calc(var(--base-font-size)* 2);
+    }
+
+    .vendors_page .container {
+       padding: 0;
+    }
+
+    .vendors_page .description__block {
+        max-width: 478px;
+    }
+
+    /* .vendors_page .description__banner-title{
+        font-size: calc(var(--base-font-size)* 2);
+    } */
+}
+
+@media (max-width: 1020px) {
+    .vendors_page .description {
+        flex-direction: column;
+        gap: calc(var(--base-gap) * 3);
+    }
+
+    .vendors_page .description__block {
+        max-width: 1000px;
+    }
+
+    .vendors_page .description__banner {
+        min-height: 434px;
+}
+
+@media (max-width: 1020px) {
+
+    .vendors_page .description{
+        margin-bottom: calc(var(--base-font-size) * 2);
+    }
+
+    .vendors_page .description__text:not(:last-child){
+        margin-bottom: calc(var(--base-font-size) * 2);
+    }
+}
 }
