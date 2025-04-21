@@ -1,38 +1,19 @@
 :root {
     --main-background-color: rgba(255, 255, 255, 1);
-    --background-white: rgba(255, 255, 255, 1);
-    --background-gray: rgba(239, 239, 239, 1);
-    --headers-text-color: rgba(51, 51, 51, 1);
-    --white-text-color: rgba(255, 255, 255, 1);
     --main-text-color: rgba(51, 51, 51, 1);
     --sub-text-color: rgba(153, 153, 153, 1);
     --border-color: rgba(153, 153, 153, 1);
     --base-color-1: rgba(5, 55, 200, 1);
-    --base-color-2: rgba(91, 197, 242, 1);
+    --base-color-2: #005BAA;
+    --base-color-4: #3762CF;
     --base-color-3: rgba(5, 202, 5, 1);
-    --base-color-4: rgba(187, 250, 155, 1);
-    --base-color-5: rgba(120, 3, 158, 1);
-    --base-color-6: #005BAA;
-    --base-color-7: #3762CF;
-    --link-color-1: rgba(5, 55, 200, 1);
-    --link-visited-color-1: rgba(120, 3, 158, 1);
     --link-black-color: rgba(51, 51, 51, 1);
-    --link-visited-black-color: rgba(153, 153, 153, 1);
-    --link-white-color: rgba(255, 255, 255, 1);
-    --link-visited-white-color: rgba(255, 255, 255, 1);
-    --sucsess-color-4: rgba(5, 202, 5, 1);
-    --warning-color-4: rgba(255, 237, 167, 1);
-    --error-color-4: rgba(243, 71, 71, 1);
     --base-font: 'Fors';
     --base-bold-font: 'Fors ExtraBold';
     --base-font-size: 1em;
     --base-font-line-height: 1em;
     --base-gap: 1em;
-    --button-color-1: rgba(5, 202, 5, 1);
-    --button-color-2: rgba(5, 55, 200, 1);
     --base-border-radius: 1em;
-    --background-1-opacity-80: rgba(5, 55, 200, 0.8);
-    --background-2-opacity-80: rgba(5, 202, 5, 0.8);
 }
 
 @font-face {
@@ -121,21 +102,6 @@ body {
     margin: 0;
 }
 
-.bread_crumbs {
-    margin-bottom: calc(var(--base-gap)* 1);
-    color: var(--sub-text-color);
-}
-
-.bread_crumbs a {
-    color: var(--sub-text-color);
-    border-bottom: 1px solid var(--sub-text-color);
-}
-
-.bread_crumbs a:visited {
-    color: var(--sub-text-color);
-    border-bottom: 1px solid var(--sub-text-color);
-}
-
 /* Header */
 
 .header .header__block {
@@ -172,7 +138,7 @@ body {
     letter-spacing: -3%;
     font-family: var(--base-bold-font);
     font-weight: 700;
-    color: var(--base-color-6);
+    color: var(--base-color-2);
 }
 
 .header  .header__logo-description {
@@ -180,7 +146,7 @@ body {
     line-height: 21px;
     font-family: var(--base-font);
     font-weight: 400;
-    color: var(--base-color-6);
+    color: var(--base-color-2);
 
 }
 
@@ -209,7 +175,7 @@ body {
     padding: 16px 84px;
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(135deg, var(--background-1-opacity-80) 0%, var(--background-2-opacity-80) 100%);
+    background: linear-gradient(to right, var(--base-color-4), var(--base-color-3));
     border-radius: 32px;
 }
 
@@ -325,7 +291,7 @@ body {
         left: 0;
         width: 100%;
         height: 80px;
-        background: linear-gradient(135deg, var(--background-1-opacity-80) 0%, var(--background-2-opacity-80) 100%);
+        background: linear-gradient(to right, var(--base-color-4), var(--base-color-3));
         z-index: -5;
     }
 
@@ -358,3 +324,15 @@ body {
 
 }
 
+/* vendors_page */
+
+.vendors_page{
+ padding: 24px 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1314px;
+    margin: 0 auto;
+}

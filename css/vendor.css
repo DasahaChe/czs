@@ -1,0 +1,96 @@
+/* vendors_page */
+
+.vendors_page {
+    padding: 24px 0;
+}
+.vendors_page .title h2{
+    margin: 0 0 var(--base-gap) 0;
+    font-size: calc(var(--base-font-size)* 3.0);
+    line-height: calc(var(--base-font-line-height)* 1.25);
+    font-family: var(--base-bold-font);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-3));
+    display: inline-block;
+}
+
+
+.vendors_page .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1314px;
+    margin: 0 auto;
+}
+
+.vendors_page .description{
+    display: flex;
+    margin-top: calc(var(--base-gap)*2);
+    gap: var(--base-font-size);
+}
+
+.vendors_page .description__block {    
+    max-width: 864px;
+    width: 100%;
+}
+
+.vendors_page .description__button {
+    margin-bottom: calc(var(--base-font-size) * 3);
+    color: #fff;
+    border-radius: 32px;
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+}
+.vendors_page .description__text{
+    margin: 0;
+
+    font-size: calc(var(--base-font-size) * 1.25);
+    line-height: calc(var(--base-font-line-height)* 1.5);
+}
+
+.vendors_page .description__text:not(:last-child){
+    margin-bottom: calc(var(--base-font-size) * 3);
+}
+
+.vendors_page .description__span {
+    font-weight: 600;
+}
+
+.vendors_page .description__banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 32px;   
+    background-image: url('../img/image.webp');
+    background-size: cover;
+    background-position: center -50px;
+}
+
+.vendors_page .description__banner-title{
+    margin: calc(var(--base-font-size) * 0.5) auto 0;
+    font-size: calc(var(--base-font-size)* 3.0);
+    line-height: calc(var(--base-font-line-height)* 1.25);
+    font-family: var(--base-bold-font);
+    color:var(--base-color-6)
+}
+
+.vendors_page .description__banner div{    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40%;
+    padding: 16px 32px 32px;
+    background-color: var(--base-color-6);
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+}
+
+.vendors_page .description__banner-button{
+    background-color: #fff;
+    border-radius: 32px;
+    color:var(--base-color-6);
+}
+
+.vendors_page .description__banner-text{
+    color:#fff
+}
