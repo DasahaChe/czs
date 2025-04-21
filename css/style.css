@@ -192,7 +192,7 @@ body {
 
 .header  .header__link-top {
     color: var(--base-color-1);
-    font-size: calc(var(--base-font-size) * 1.5);
+    font-size: calc(var(--base-font-size) * 1.25);
 }
 
 .header  .header__link {
