@@ -379,15 +379,10 @@ body {
     .header .header__list-top {
         align-self: flex-start;
         flex-wrap: wrap;
-        align-items: end;
+        align-items: center;
         justify-content: space-between;
 
     }
-/* 
-    .header .header__menu {
-        display: none;
-    } */
-
 
     .header .header__menu {
         display: block;
@@ -402,7 +397,7 @@ body {
         top: calc(var(--base-gap) * 9.25);
         left: 0;
         width: 100%;
-        height: calc(var(--base-gap) * 5);
+        height: calc(var(--base-gap) * 4.5);
         background: linear-gradient(135deg, var(--background-1-opacity-80) 0%, var(--background-2-opacity-80) 100%);
         z-index: -5;
     }
