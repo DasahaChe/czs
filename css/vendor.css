@@ -167,6 +167,10 @@
     border-radius: 32px;
 }
 
+.vendors_page .display-none {
+    display:  none;
+}
+
 @media (max-width: 1199px) {
     .vendors_page .title {
         font-size: calc(var(--base-font-size)* 2);

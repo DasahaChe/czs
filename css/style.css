@@ -175,7 +175,7 @@ body {
     color: var(--base-color-6);
 }
 
-.header  .header__logo-description {
+.header .header__logo-description {
     font-size: 21px;
     line-height: 21px;
     font-family: var(--base-font);
@@ -184,28 +184,28 @@ body {
 
 }
 
-.header  .header__logo-img {
+.header .header__logo-img {
     display: flex;
     width: 98px;
     height: 106px;
 }
 
-.header  .header__link-top {
+.header .header__link-top {
     color: var(--base-color-1);
     font-size: calc(var(--base-font-size) * 1.25);
 }
 
-.header  .header__link {
+.header .header__link {
     position: relative;
     font-size: calc(var(--base-font-size) * 1.25);
     color: #fff;
 }
 
-.header .header__link::after{
+.header .header__link::after {
     content: "";
     position: absolute;
-    top:-3px;
-    left:-3px;
+    top: -3px;
+    left: -3px;
     width: calc(100% + 5px);
     height: 26px;
     border-bottom: transparent;
@@ -213,23 +213,23 @@ body {
 
 }
 
-.header .header__link:hover::after{
+.header .header__link:hover::after {
     content: "";
     position: absolute;
-    top:-3px;
-    left:-3px;
+    top: -3px;
+    left: -3px;
     width: calc(100% + 5px);
     height: 26px;
     border-bottom: 1px solid #fff;
     transition: 0.3;
-    
+
 }
 
-.header  .header__list-top {
+.header .header__list-top {
     gap: calc(var(--base-gap) * 2);
 }
 
-.header  .header__menu {
+.header .header__menu {
     margin: 24px 0 0;
     padding: calc(var(--base-gap)* 1.5) calc(var(--base-gap)* 4);
     /* padding: 16px 84px; */
@@ -239,22 +239,31 @@ body {
     border-radius: 32px;
 }
 
-.header  .header__list-menu {
+.header .header__list-menu {
+    display: flex;
     width: 100%;
     flex-wrap: wrap;
-
     justify-content: space-around;
     gap: calc(var(--base-gap) * 2);
 }
 
-.header .header__link-top{
+.header .header__list-burger {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: calc(var(--base-gap) * 2);
+}
+
+.header .header__link-top {
     position: relative;
 }
-.header .header__link-top::after{
+
+.header .header__link-top::after {
     content: "";
     position: absolute;
-    top:-3px;
-    left:-3px;
+    top: -3px;
+    left: -3px;
     width: calc(100% + 5px);
     height: 26px;
     border-bottom: transparent;
@@ -262,26 +271,27 @@ body {
 
 }
 
-.header .header__link-top:hover::after{
+.header .header__link-top:hover::after {
     content: "";
     position: absolute;
-    top:-3px;
-    left:-3px;
+    top: -3px;
+    left: -3px;
     width: calc(100% + 5px);
     height: 26px;
     border-bottom: 1px solid var(--base-color-1);
     transition: 0.3;
-    
+
 }
-.header  .header__link-top:hover {
+
+.header .header__link-top:hover {
     color: var(--base-color-3);
 }
 
-.header  .header__link:hover {
+.header .header__link:hover {
     color: var(--base-color-1);
 }
 
-.header  .header__burger {
+.header .header__burger {
     display: none;
 }
 
@@ -303,7 +313,7 @@ body {
         flex-direction: column;
         gap: 16px;
         margin-bottom: 32px;
-     }
+    }
 
     .header .header__logo {
         align-self: start;
@@ -311,10 +321,10 @@ body {
 
     .header .header__list-top {
         align-self: end;
-        gap:calc(var(--base-gap) *2);
+        gap: calc(var(--base-gap) *2);
     }
 
-   
+
     .header .header__menu {
         margin: 0px calc(var(--base-gap) * -4);
         border-radius: 0;
@@ -326,7 +336,7 @@ body {
 @media (max-width: 610px) {
 
 
-    
+
     .header .header__block {
         margin: 0 0 32px 0;
         padding: 20px 32px 24px 32px
@@ -348,8 +358,8 @@ body {
     }
 
     .header .header__burger {
-        display: block; 
-        margin-top: 16px;       
+        display: block;
+        margin-top: 16px;
         width: 40px;
         height: 40px;
         color: #fff;
@@ -364,13 +374,22 @@ body {
         flex-wrap: wrap;
         align-items: end;
         justify-content: space-between;
-      
+
     }
 
     .header .header__menu {
         display: none;
     }
 
+
+    .header .header__menu-burger {
+        display: block;
+        padding: 32px;
+        margin: 24px calc(var(--base-gap) * -2) 0px;
+        background: var(--base-color-6);
+    }
+
+   
     .tel {
         max-width: 590px;
         width: 100%;
@@ -405,6 +424,10 @@ body {
         color: var(--base-color-1);
     }
 
+    .header .header__link:hover {
+        color: #fff;
+    }
+
     .tel {
         max-width: 590px;
         width: 100%;
@@ -416,4 +439,3 @@ body {
     }
 
 }
-
