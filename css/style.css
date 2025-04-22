@@ -329,7 +329,7 @@ body {
     
     .header .header__block {
         margin: 0 0 32px 0;
-        padding: 20px 20px 24px 20px
+        padding: 20px 32px 24px 32px
     }
 
     .header .header__top {
@@ -360,10 +360,11 @@ body {
     }
 
     .header .header__list-top {
+        align-self: flex-start;
         flex-wrap: wrap;
         align-items: end;
         justify-content: space-between;
-        width: 100%;
+      
     }
 
     .header .header__menu {
