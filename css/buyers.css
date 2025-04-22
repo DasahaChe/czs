@@ -1,0 +1,259 @@
+/* vendors_page */
+
+.buyers_page {
+    padding: 0 0 calc(var(--base-gap) * 1.5) 0;
+}
+
+.buyers_page .title__block {
+    margin-bottom: calc(var(--base-gap) * 2);
+}
+
+.buyers_page .title {
+    margin: 0 0 var(--base-gap) 0;
+    font-size: calc(var(--base-font-size)* 3.0);
+    line-height: calc(var(--base-font-line-height)* 1.25);
+    font-family: var(--base-bold-font);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-3));
+    display: inline-block;
+}
+
+
+.buyers_page .container {
+    display: flex;
+    margin: 0 calc(var(--base-gap) * 4);
+    padding: 0 calc(var(--base-gap) * 8);
+    flex-direction: column;
+
+    /* margin: 0 auto; */
+}
+
+.buyers_page .description {
+    display: flex;
+    ;
+    margin: 0 0 calc(var(--base-gap) * 3.5);
+    gap: var(--base-gap);
+    justify-content: space-between;
+}
+
+.buyers_page .description__block {
+    max-width: 40%;
+    width: 100%;
+}
+
+.buyers_page .description__button {
+    margin-bottom: calc(var(--base-font-size) * 3);
+    color: #fff;
+    border-radius: calc(var(--base-font-size) * 2);
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+}
+
+.buyers_page .description__text {
+    margin: 0;
+    font-size: calc(var(--base-font-size) * 1.25);
+    line-height: calc(var(--base-font-line-height)* 1.5);
+}
+
+.buyers_page .description__text:not(:last-child) {
+    margin-bottom: calc(var(--base-font-size) * 3);
+}
+
+.buyers_page .description__span {
+    font-weight: 600;
+}
+.buyers_page .description__foto{
+    width: 40%;
+    border-radius: calc(var(--base-font-size) * 2);
+    background-image: url('../img/image1.jpg');
+    background-size: cover;
+    background-position: center 0px;
+}
+.buyers_page .description__banner {    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 20%;
+    border-radius: calc(var(--base-font-size) * 2);
+    background-image: url('../img/image.webp');
+    background-size: cover;
+    background-position: center -50px;
+}
+
+.buyers_page .description__banner-title {
+    margin: calc(var(--base-font-size) * 0.5) auto 0;
+    font-size: calc(var(--base-font-size)* 3.0);
+    line-height: calc(var(--base-font-line-height)* 1.25);
+    font-family: var(--base-bold-font);
+    color: var(--base-color-6);
+}
+
+.buyers_page .description__banner div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 40%;
+    width: 100%;
+    padding: calc(var(--base-gap) * 1) calc(var(--base-gap) * 2) calc(var(--base-gap) * 2);
+    background-color: var(--base-color-6);
+    border-bottom-left-radius: calc(var(--base-font-size) * 2);
+    border-bottom-right-radius: calc(var(--base-font-size) * 2);
+}
+
+.buyers_page .description__banner-button {
+    background-color: #fff;
+    border-radius: calc(var(--base-font-size) * 2);
+    color: var(--base-color-6);
+}
+
+.buyers_page .description__banner-text {
+    color: #fff
+}
+
+/* advantages */
+.buyers_page .advantages {
+    margin-bottom: calc(var(--base-gap) * 4);
+}
+
+.buyers_page .advantages__subtitle {
+    margin: 0 0 calc(var(--base-font-size) * 3.5) 0;
+    font-size: calc(var(--base-font-size)* 2.0);
+    line-height: calc(var(--base-font-line-height)* 1);
+    font-family: var(--base-bold-font);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    display: inline-block;
+}
+
+.buyers_page .advantages__list {
+    display: flex;
+    gap: calc(var(--base-gap) * 2);
+}
+
+.buyers_page .advantages__item {
+    width: calc((100% - (var(--base-gap) *2)) /3);
+}
+
+.buyers_page .advantages__item-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.buyers_page .advantages__text {
+    margin: 0;
+    font-size: calc(var(--base-font-size) * 1.25);
+    line-height: calc(var(--base-font-line-height)* 1.5);
+}
+.buyers_page .advantages__text-main {
+    margin-bottom: calc(var(--base-gap) * 2);
+}
+
+.buyers_page .advantages__img {
+    margin-bottom: calc(var(--base-gap) * 1.25);
+    width: calc(var(--base-font-size) * 7.5);
+    height: calc(var(--base-font-size) * 7.5);
+
+}
+
+.buyers_page .foto__list {
+    display: flex;
+    gap: var(--base-gap);
+}
+
+.buyers_page .foto_item {
+    width: 50%;
+}
+
+
+.buyers_page .foto__img {
+    border-radius: calc(var(--base-font-size) * 2);
+}
+
+.buyers_page .display-none {
+    display:  none;
+}
+
+@media (max-width: 1199px) {
+    .buyers_page .title {
+        font-size: calc(var(--base-font-size)* 2);
+    }
+
+    .buyers_page .advantages__subtitle {
+        font-size: calc(var(--base-font-size) * 1.5);
+    }
+
+    .buyers_page .container {
+        padding: 0;
+    }
+
+    .buyers_page .description__block {
+        max-width: calc((100% / 12) * 7);
+    }
+
+}
+
+@media (max-width: 1020px) {
+    .buyers_page .description {
+        flex-direction: column;
+        gap: calc(var(--base-gap) * 3);
+    }
+
+    .buyers_page .description__block {
+        max-width: 100%;
+    }
+
+    .buyers_page .description__banner {
+        min-height: calc(var(--base-font-size) * 27.125);
+    }
+
+    .buyers_page .foto__list {
+        flex-direction: column;
+    }
+
+    .buyers_page .foto_item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 850px) {
+    .buyers_page .advantages__list {
+        flex-direction: column;
+    }
+
+    .buyers_page .advantages__item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 610px) {
+    .buyers_page .container {
+        margin: 0 calc(var(--base-gap) * 2);
+    }
+
+    .buyers_page .description__text:not(:last-child) {
+        margin-bottom: calc(var(--base-font-size) * 2);
+    }
+
+    .buyers_page .advantages__img {
+        /* margin-bottom: calc(var(--base-gap) * 4); */
+        width: calc(var(--base-font-size) * 5.625);
+        height: calc(var(--base-font-size) * 5.625);
+    }
+}
+
+@media (max-width: 350px) {
+    .buyers_page .container {       
+        margin: 0 calc(var(--base-gap) * 1.25);
+    }
+
+    .buyers_page .description__text, .buyers_page .advantages__text {
+        font-size: calc(var(--base-font-size) * 1);
+    }
+}
