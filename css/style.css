@@ -295,6 +295,17 @@ body {
     display: none;
 }
 
+.header__burger-close {
+    display: none;
+}
+
+.open {
+    display: block;
+    margin-top: 16px;
+    width: 40px;
+    height: 40px;
+}
+
 @media (max-width: 1199px) {
 
     .header .header__menu {
@@ -389,7 +400,7 @@ body {
         background: var(--base-color-6);
     }
 
-   
+
     .tel {
         max-width: 590px;
         width: 100%;
