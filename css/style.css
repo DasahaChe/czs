@@ -259,6 +259,7 @@ body {
 
     .header .header__list-top {
         align-self: end;
+        gap:calc(var(--base-gap) *2);
     }
 
     .header .header__menu {
@@ -347,7 +348,7 @@ body {
     }
 
     .header .header__link-top:hover {
-        color: var(--base-color-3);
+        color: var(--base-color-1);
     }
 
     .tel {
