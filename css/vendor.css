@@ -1,11 +1,11 @@
 /* vendors_page */
 
 .vendors_page {
-    padding: 0 0 24px 0;
+    padding: 0 0 calc(var(--base-gap) * 1.5) 0;
 }
 
 .vendors_page .title__block {
-    margin-bottom: 32px;
+    margin-bottom: calc(var(--base-gap) * 2);
 }
 
 .vendors_page .title {
@@ -40,14 +40,14 @@
 
 .vendors_page .description__block {
     max-width: calc((100% / 10) * 6);
-    max-width: 864px;
+    max-width: calc(var(--base-font-size) * 54);
     width: 100%;
 }
 
 .vendors_page .description__button {
     margin-bottom: calc(var(--base-font-size) * 3);
     color: #fff;
-    border-radius: 32px;
+    border-radius: calc(var(--base-font-size) * 2);
     background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
 }
 
@@ -70,7 +70,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    border-radius: 32px;
+    border-radius: calc(var(--base-font-size) * 2);
     background-image: url('../img/image.webp');
     background-size: cover;
     background-position: center -50px;
@@ -91,15 +91,15 @@
     justify-content: space-between;
     height: 40%;
     width: 100%;
-    padding: 16px 32px 32px;
+    padding: calc(var(--base-gap) * 1) calc(var(--base-gap) * 2) calc(var(--base-gap) * 2);
     background-color: var(--base-color-6);
-    border-bottom-left-radius: 32px;
-    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: calc(var(--base-font-size) * 2);
+    border-bottom-right-radius: calc(var(--base-font-size) * 2);
 }
 
 .vendors_page .description__banner-button {
     background-color: #fff;
-    border-radius: 32px;
+    border-radius: calc(var(--base-font-size) * 2);
     color: var(--base-color-6);
 }
 
@@ -148,8 +148,8 @@
 
 .vendors_page .advantages__img {
     margin-bottom: calc(var(--base-gap) * 1.25);
-    width: 120px;
-    height: 120px;
+    width: calc(var(--base-font-size) * 7.5);
+    height: calc(var(--base-font-size) * 7.5);
 
 }
 
@@ -164,7 +164,7 @@
 
 
 .vendors_page .foto__img {
-    border-radius: 32px;
+    border-radius: calc(var(--base-font-size) * 2);
 }
 
 .vendors_page .display-none {
@@ -201,7 +201,7 @@
     }
 
     .vendors_page .description__banner {
-        min-height: 434px;
+        min-height: calc(var(--base-font-size) * 27.125);
     }
 
     .vendors_page .foto__list {
@@ -234,14 +234,14 @@
 
     .vendors_page .advantages__img {
         /* margin-bottom: calc(var(--base-gap) * 4); */
-        width: 90px;
-        height: 90px;
+        width: calc(var(--base-font-size) * 5.625);
+        height: calc(var(--base-font-size) * 5.625);
     }
 }
 
 @media (max-width: 350px) {
     .vendors_page .container {       
-        margin: 0 20px;
+        margin: 0 calc(var(--base-gap) * 1.25);
     }
 
     .vendors_page .description__text, .vendors_page .advantages__text {

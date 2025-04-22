@@ -257,13 +257,20 @@ body {
 
     .header .header__burger {
         display: block;
-        margin-top: 16px;
-        width: 40px;
-        height: 40px;
         color: #fff;
     }
 
+    .header .open {
+        display: block;
+        color: #fff;
+    }
+
+
     .header .header__burger:hover {
+        color: var(--base-color-1);
+    }
+
+    .header .open:hover {
         color: var(--base-color-1);
     }
 
@@ -323,7 +330,3 @@ body {
     }
 
 }
-
-
-
-

@@ -1,6 +1,20 @@
+let headerMenu = document.querySelector('.header__menu');
+function checkScreenSize() {
+    if (window.innerWidth <= 610) {
+        headerMenu.classList.add('visually-hidden');
+    } else {
+        headerMenu.classList.remove('visually-hidden');
+    }
+}
+
+window.addEventListener('resize', checkScreenSize);
+checkScreenSize();
+
 let burgerOpen = document.querySelector('.header__burger');
 let burgerClose = document.querySelector('.header__burger-close');
-let headerMenu = document.querySelector('.header__menu-burger');
+// let headerMenu = document.querySelector('.header__menu-burger');
+
+
 
 burgerOpen.addEventListener('click', function() {
     headerMenu.classList.remove('visually-hidden');
@@ -17,3 +31,5 @@ burgerOpen.addEventListener('click', function() {
 
     document.body.style.overflow = 'auto';
   })
+
+  
