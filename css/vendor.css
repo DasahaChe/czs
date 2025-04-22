@@ -238,3 +238,13 @@
         height: 90px;
     }
 }
+
+@media (max-width: 350px) {
+    .vendors_page .container {       
+        margin: 0 20px;
+    }
+
+    .vendors_page .description__text, .vendors_page .advantages__text {
+        font-size: calc(var(--base-font-size) * 1);
+    }
+}

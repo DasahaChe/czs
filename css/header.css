@@ -324,15 +324,6 @@ body {
 
 }
 
-/* vendors_page */
 
-.vendors_page {
-    padding: 24px 0;
-}
 
-.container {
-    display: flex;
-    flex-direction: column;
-    max-width: 1314px;
-    margin: 0 auto;
-}
+
