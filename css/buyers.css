@@ -251,19 +251,28 @@
     }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 992px) {
     .buyers_page .advantages__list {
-        flex-direction: column;
+       flex-wrap: wrap;      
     }
 
     .buyers_page .advantages__item {
-        width: 100%;
+        width: calc((100% / 2) - var(--base-gap) );
     }
 }
 
 @media (max-width: 610px) {
     .buyers_page .container {
         margin: 0 calc(var(--base-gap) * 2);
+    }
+
+    .buyers_page .advantages__list {
+        flex-direction: column;
+        gap: calc(var(--base-gap) * 4);
+    }
+
+    .buyers_page .advantages__item {
+        width: 100%;
     }
 
     .buyers_page .description__block-picture {
