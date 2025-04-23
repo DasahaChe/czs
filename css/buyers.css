@@ -196,7 +196,7 @@
     display: flex;
     gap: calc(var(--base-gap)* 4);
     font-weight: bold;
-    font-size: calc(var(--base-font-size)* 1.25);
+    font-size: calc(var(--base-font-size)* 1);
 }
 
 .buyers_page .category-group__title {
@@ -233,7 +233,6 @@
     flex-wrap: wrap;
     gap: calc(var(--base-gap)* 1);
     font-size: calc(var(--base-font-size)* 1.25);
-    padding: 0 calc(var(--base-gap)* 4);
 }
 
 .buyers_page .category__list .category__item label {
@@ -313,7 +312,6 @@
 
     .buyers_page .category__list {
         font-size: calc(var(--base-font-size) * 1);
-        padding: 0;
     }
 }
 

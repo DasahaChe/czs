@@ -149,9 +149,12 @@
     margin-bottom: calc(var(--base-gap) * 1.25);
     width: calc(var(--base-font-size) * 7.5);
     height: calc(var(--base-font-size) * 7.5);
-
+    color:var(--base-color-6);
 }
 
+.vendors_page .advantages__img:hover {
+    color: var(--base-color-3);
+}
 .vendors_page .foto__list {
     display: flex;
     gap: var(--base-gap);
@@ -177,7 +180,7 @@
     display: flex;
     gap: calc(var(--base-gap)* 4);
     font-weight: bold;
-    font-size: calc(var(--base-font-size)* 1.25);
+    font-size: calc(var(--base-font-size)* 1);
 }
 
 .vendors_page .category-group__title {
@@ -214,7 +217,6 @@
     flex-wrap: wrap;
     gap: calc(var(--base-gap)* 1);
     font-size: calc(var(--base-font-size)* 1.25);
-    padding: 0 calc(var(--base-gap)* 4);
 }
 
 .vendors_page .category__list .category__item label {
@@ -276,7 +278,6 @@
 
     .vendors_page .category__list {
         font-size: calc(var(--base-font-size) * 1);
-        padding: 0;
     }
 }
 
@@ -303,6 +304,7 @@
         /* margin-bottom: calc(var(--base-gap) * 4); */
         width: calc(var(--base-font-size) * 5.625);
         height: calc(var(--base-font-size) * 5.625);
+       
     }
 
     .vendors_page .category_group__list {

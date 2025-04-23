@@ -33,6 +33,7 @@
     --base-border-radius: 1em;
     --background-1-opacity-80: rgba(5, 55, 200, 0.8);
     --background-2-opacity-80: rgba(5, 202, 5, 0.8);
+    --svgGradient:linear-gradient(to right, var(--base-color-1), var(--base-color-2));
 }
 
 @font-face {
@@ -154,7 +155,8 @@ body {
 .header .header__logo {
     display: flex;
     justify-content: space-between;
-    max-width: 396px;
+    /* max-width: 396px; */
+    max-width: 406px;
     width: 100%;
 }
 
