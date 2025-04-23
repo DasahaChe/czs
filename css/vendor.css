@@ -39,9 +39,7 @@
 }
 
 .vendors_page .description__block {
-    max-width: calc((100% / 10) * 6);
-    max-width: calc(var(--base-font-size) * 54);
-    width: 100%;
+    width: 60%;
 }
 
 .vendors_page .description__button {
@@ -70,6 +68,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    width: 40%;
     border-radius: calc(var(--base-font-size) * 2);
     background-image: url('../img/image.webp');
     background-size: cover;
@@ -185,7 +184,7 @@
     }
 
     .vendors_page .description__block {
-        max-width: calc((100% / 12) * 7);
+        width: calc((100% / 12) * 7);
     }
 
 }
@@ -197,10 +196,11 @@
     }
 
     .vendors_page .description__block {
-        max-width: 100%;
+       width: 100%;
     }
 
     .vendors_page .description__banner {
+        width: 100%;
         min-height: calc(var(--base-font-size) * 27.125);
     }
 
