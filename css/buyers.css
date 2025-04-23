@@ -218,7 +218,7 @@
 
 .buyers_page .category__subtitle {
     margin: 0;
-    font-size: calc(var(--base-font-size)* 3.0);
+    font-size: calc(var(--base-font-size)* 2.0);
     line-height: calc(var(--base-font-line-height)* 3);
     font-family: var(--base-bold-font);
     color: transparent;
@@ -260,7 +260,7 @@
         font-size: calc(var(--base-font-size)* 2);
     }
 
-    .buyers_page .advantages__subtitle {
+    .buyers_page .advantages__subtitle, .buyers_page .category__subtitle  {
         font-size: calc(var(--base-font-size) * 1.5);
     }
 

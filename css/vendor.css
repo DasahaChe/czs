@@ -202,7 +202,7 @@
 
 .vendors_page .category__subtitle {
     margin: 0;
-    font-size: calc(var(--base-font-size)* 3.0);
+    font-size: calc(var(--base-font-size)* 2);
     line-height: calc(var(--base-font-line-height)* 4);
     font-family: var(--base-bold-font);
     color: transparent;
@@ -234,7 +234,7 @@
         font-size: calc(var(--base-font-size)* 2);
     }
 
-    .vendors_page .advantages__subtitle {
+    .vendors_page .advantages__subtitle, .vendors_page .category__subtitle {
         font-size: calc(var(--base-font-size) * 1.5);
     }
 
