@@ -233,6 +233,21 @@
     color: var(--sub-text-color);
 }
 
+.vendors_page .category__subtitle-group{
+    margin: 0 0 calc(var(--base-gap) * 2) 0;
+}
+.vendors_page .category__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: calc(var(--base-gap) * 4);
+}
+
+.vendors_page .category__item {
+    flex: 0 0 calc((100% / 3) - (var(--base-gap)* 2));
+    max-height: calc(var(--base-font-size) * 5);
+    overflow: hidden;
+}
+
 /* catalog */
 .vendors_page .catalog {
     margin: calc(var(--base-gap) * 2) 0;
