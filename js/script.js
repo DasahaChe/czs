@@ -26,6 +26,19 @@ burgerOpen.addEventListener('click', function() {
     burgerOpen.classList.remove('visually-hidden');
 
     document.body.style.overflow = 'auto';
-  })
+  });
+
+  let catalogBlock = document.querySelector('.vendors_page .catalog__block-zacupki');
+  let readMoreButton = document.querySelector('.vendors_page .read-more');
+  
+  if (catalogBlock.offsetHeight > catalogBlock.scrollHeight) {
+      readMoreButton.style.display = 'block';
+  }
+  
+  readMoreButton.addEventListener('click', function() {
+    catalogBlock.style.maxHeight = 'none';
+      readMoreButton.style.display = 'none';
+      catalogBlock.querySelector('.catalog__list-zacupki').style.display = 'block';
+  });
 
   

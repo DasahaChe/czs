@@ -250,13 +250,13 @@
     display: inline-block;
 }
 
-.vendors_page .catelog__list{
-display: flex;
-gap: calc(var(--base-gap) * 2.5);
+.vendors_page .catelog__list {
+    display: flex;
+    gap: calc(var(--base-gap) * 2.5);
 
 }
 
-.vendors_page .catalog__aticle{
+.vendors_page .catalog__aticle {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -313,29 +313,38 @@ gap: calc(var(--base-gap) * 2.5);
 }
 
 .vendors_page .catalog__list-zacupki {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: calc(var(--base-gap)* 2);
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Установите количество строк, которые будут видны */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-wrap: wrap;   
     gap: calc(var(--base-gap)* 0.5);
 }
 
 .vendors_page .catalog__button-zacupki {
-    /* padding: calc(var(--base-gap)* 0.5) calc(var(--base-gap)* 1);
-    border: 1px solid var(--base-color-3); */
-    color: var(--base-color-3);
-    /* border-radius: calc(var(--base-border-radius)* 0.25); */
+    color: var(--sub-text-color);
+    font-size: calc(var(--base-font-size)* 0.75);
+}
+
+.vendors_page .read-more {
+    padding: 0;
+    padding-top: var(--base-gap);   
+}
+
+.vendors_page .catalog__block-zacupki {
+    max-height: calc(var(--base-font-size) * 6);
+    overflow: hidden;
 }
 
 .vendors_page .catalog__button {
-    margin: 0;
+    margin: calc(var(--base-gap)* 1) 0;
     padding: calc(var(--base-gap)* 0.5) calc(var(--base-gap)* 1);
-    display: inline-block;    
+    display: inline-block;
     text-align: center;
-    width: calc(var(--base-font-size) *  14);
+    width: calc(var(--base-font-size) * 14);
     font-size: calc(var(--base-font-size)* 1.0);
     border-radius: calc(var(--base-border-radius)* 2);
     color: var(--white-text-color);
-    
     background: linear-gradient(135deg, var(--base-color-1) 0%, var(--base-color-2) 100%);
 }
 
