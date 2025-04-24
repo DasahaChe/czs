@@ -335,14 +335,14 @@
     display: none;
 }
 .vendors_page .catalog__block-zacupki {
-    max-height: calc(var(--base-font-size) * 6);
+    max-height: calc(var(--base-font-size) * 10);
     overflow: hidden;
 }
 
 .vendors_page .catalog__button {
     margin: calc(var(--base-gap)* 1) 0;
     padding: calc(var(--base-gap)* 0.5) calc(var(--base-gap)* 1);
-    display: inline-block;
+    display: block;
     text-align: center;
     width: calc(var(--base-font-size) * 14);
     font-size: calc(var(--base-font-size)* 1.0);
