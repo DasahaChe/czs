@@ -279,7 +279,7 @@
     height: 100%;
     padding: calc(var(--base-gap) * 2) var(--base-gap);
     border-radius: calc(var(--base-gap) / 2);
-    border: 1px solid #dadada;
+    border: 1px solid var(--item-border);
 }
 
 .vendors_page .catalog__block-logo {
@@ -337,8 +337,9 @@
 .vendors_page .read-les{
     padding: 0;
     border-radius: 0;
-    border-bottom: 1px dashed rgb(0 0 0);
+    border-bottom: 1px dashed var(--sub-text-color);
     margin-top:  calc(var(--base-gap)* 1);
+    color: var(--sub-text-color);
     font-size: calc(var(--base-font-size) * 1);
     display: none;
 }
