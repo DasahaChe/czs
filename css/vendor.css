@@ -264,6 +264,8 @@
 }
 
 .vendors_page .catalog__title-company {
+    margin: 0;
+    margin-bottom: var(--base-font-size);
     font-size: calc(var(--base-font-size)* 1.5);
     line-height: calc(var(--base-font-line-height)* 1.25);
     font-family: var(--base-bold-font);
@@ -277,7 +279,7 @@
     height: 100%;
     padding: calc(var(--base-gap) * 2) var(--base-gap);
     border-radius: calc(var(--base-gap) / 2);
-    border: 1px solid #999;
+    border: 1px solid #cacaca;
 }
 
 .vendors_page .catalog__block-logo {
@@ -327,14 +329,17 @@
 .vendors_page .read-more {
     padding: 0;
     border-radius: 0;
-    border-bottom: 1px dashed rgb(0 0 0);
+    border-bottom: 1px dashed var(--sub-text-color);
     margin-top:  calc(var(--base-gap)* 1);
+    color: var(--sub-text-color);
+    font-size: calc(var(--base-font-size) * 1);
 }
 .vendors_page .read-les{
     padding: 0;
     border-radius: 0;
     border-bottom: 1px dashed rgb(0 0 0);
     margin-top:  calc(var(--base-gap)* 1);
+    font-size: calc(var(--base-font-size) * 1);
     display: none;
 }
 .vendors_page .catalog__block-zacupki {
@@ -344,10 +349,10 @@
 
 .vendors_page .catalog__button {
     margin: calc(var(--base-gap)* 1) 0;
-    padding: calc(var(--base-gap)* 0.5) calc(var(--base-gap)* 1);
+    padding: calc(var(--base-gap)* 0.5) ;
     display: block;
     text-align: center;
-    width: calc(var(--base-font-size) * 15);
+    width: calc(var(--base-font-size) * 12);
     font-size: calc(var(--base-font-size)* 1.0);
     border-radius: calc(var(--base-border-radius)* 2);
     color: var(--white-text-color);
