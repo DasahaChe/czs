@@ -278,8 +278,8 @@
     margin-bottom: calc(var(--base-gap) * 2);
     height: 100%;
     padding: calc(var(--base-gap) * 2) var(--base-gap);
-    border-radius: calc(var(--base-gap) / 2);
-    border: 1px solid var(--item-border);
+    /* border-radius: calc(var(--base-gap) / 2);
+    border: 1px solid var(--item-border); */
 }
 
 .vendors_page .catalog__block-logo {
