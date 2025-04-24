@@ -279,7 +279,7 @@
     height: 100%;
     padding: calc(var(--base-gap) * 2) var(--base-gap);
     border-radius: calc(var(--base-gap) / 2);
-    border: 1px solid #cacaca;
+    border: 1px solid #dadada;
 }
 
 .vendors_page .catalog__block-logo {
@@ -323,7 +323,7 @@
 
 .vendors_page .catalog__button-zacupki {
     color: var(--sub-text-color);
-    font-size: calc(var(--base-font-size)* 0.75);
+    font-size: calc(var(--base-font-size)* 1);
 }
 
 .vendors_page .read-more {
@@ -348,7 +348,7 @@
 }
 
 .vendors_page .catalog__button {
-    margin: calc(var(--base-gap)* 1) 0;
+    margin: calc(var(--base-gap)* 2) 0 calc(var(--base-gap)* 1) 0;
     padding: calc(var(--base-gap)* 0.5) ;
     display: block;
     text-align: center;
