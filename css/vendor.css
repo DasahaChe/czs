@@ -275,6 +275,9 @@
     gap: calc(var(--base-gap) * 2);
     margin-bottom: calc(var(--base-gap) * 2);
     height: 100%;
+    padding: calc(var(--base-gap) * 2) var(--base-gap);
+    border-radius: calc(var(--base-gap) / 2);
+    border: 1px solid #999;
 }
 
 .vendors_page .catalog__block-logo {
@@ -311,7 +314,7 @@
 
 .vendors_page .catalog__list-zacupki {
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Установите количество строк, которые будут видны */
+    -webkit-line-clamp: 3; 
     -webkit-box-orient: vertical;
     overflow: hidden;   
 }
