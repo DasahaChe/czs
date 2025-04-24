@@ -256,9 +256,10 @@
 
 }
 
-.vendors_page .catalog__aticle {
+.vendors_page .catalog__block-description{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100%;
 }
 
@@ -268,11 +269,12 @@
     font-family: var(--base-bold-font);
 }
 
-.vendors_page .catalog__block {
+.vendors_page .catalog__aticle{
     display: flex;
     flex-direction: row;
     gap: calc(var(--base-gap) * 2);
     margin-bottom: calc(var(--base-gap) * 2);
+    height: 100%;
 }
 
 .vendors_page .catalog__block-logo {
@@ -326,12 +328,14 @@
 }
 
 .vendors_page .read-more {
-    padding: 0;
-    padding-top: var(--base-gap);   
+    border-radius: calc(var(--base-font-size) * 0.25);
+    border: 1px solid var(--sub-text-color);
+    margin-top: 16px;
 }
 .vendors_page .read-les{
-    padding: 0;
-    padding-top: var(--base-gap); 
+    border-radius: calc(var(--base-font-size) * 0.25);
+    border: 1px solid var(--sub-text-color);
+    margin-top: 16px;
     display: none;
 }
 .vendors_page .catalog__block-zacupki {
@@ -344,7 +348,7 @@
     padding: calc(var(--base-gap)* 0.5) calc(var(--base-gap)* 1);
     display: block;
     text-align: center;
-    width: calc(var(--base-font-size) * 14);
+    width: calc(var(--base-font-size) * 15);
     font-size: calc(var(--base-font-size)* 1.0);
     border-radius: calc(var(--base-border-radius)* 2);
     color: var(--white-text-color);
