@@ -28,25 +28,29 @@ burgerOpen.addEventListener('click', function() {
     document.body.style.overflow = 'auto';
   });
 
-  let catalogBlock = document.querySelector('.vendors_page .catalog__block-zacupki');
-  let readMoreButton = document.querySelector('.vendors_page .read-more');
-  let readLesButton = document.querySelector('.vendors_page .read-les');
-  
-  if (catalogBlock.offsetHeight > catalogBlock.scrollHeight) {
-      readMoreButton.style.display = 'block';
-  }
-  
-  readMoreButton.addEventListener('click', function() {
-    catalogBlock.style.maxHeight = 'none';
-      readMoreButton.style.display = 'none';
-      readLesButton.style.display = 'block';
-      catalogBlock.querySelector('.catalog__list-zacupki').style.display = 'block';      
-  });
+let catalogBlocks = document.querySelectorAll('.vendors_page .catalog__block-zacupki');
+let readMoreButtons = document.querySelectorAll('.vendors_page .read-more');
+let readLesButtons = document.querySelectorAll('.vendors_page .read-les');
 
-  readLesButton.addEventListener('click', function() {
-      readMoreButton.style.display = 'block';
-      readLesButton.style.display = 'none';
-      catalogBlock.querySelector('.catalog__list-zacupki').style.display = '-webkit-box';      
-  });
+for (let i = 0; i < catalogBlocks.length; i++) {
+    let catalogBlock = catalogBlocks[i];
+    let readMoreButton = readMoreButtons[i];
+    let readLesButton = readLesButtons[i];
 
-  
+    if (catalogBlock.offsetHeight > catalogBlock.scrollHeight) {
+        readMoreButton.style.display = 'block';
+    }
+
+    readMoreButton.addEventListener('click', function() {
+        catalogBlock.style.maxHeight = 'none';
+        readMoreButton.style.display = 'none';
+        readLesButton.style.display = 'block';
+        catalogBlock.querySelector('.catalog__list-zacupki').style.display = 'block';      
+    });
+
+    readLesButton.addEventListener('click', function() {
+        readMoreButton.style.display = 'block';
+        readLesButton.style.display = 'none';
+        catalogBlock.querySelector('.catalog__list-zacupki').style.display = '-webkit-box';      
+    });
+}
