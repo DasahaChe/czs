@@ -259,7 +259,6 @@
 .vendors_page .catalog__aticle {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100%;
 }
 
@@ -330,7 +329,11 @@
     padding: 0;
     padding-top: var(--base-gap);   
 }
-
+.vendors_page .read-les{
+    padding: 0;
+    padding-top: var(--base-gap); 
+    display: none;
+}
 .vendors_page .catalog__block-zacupki {
     max-height: calc(var(--base-font-size) * 6);
     overflow: hidden;

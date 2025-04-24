@@ -30,6 +30,7 @@ burgerOpen.addEventListener('click', function() {
 
   let catalogBlock = document.querySelector('.vendors_page .catalog__block-zacupki');
   let readMoreButton = document.querySelector('.vendors_page .read-more');
+  let readLesButton = document.querySelector('.vendors_page .read-les');
   
   if (catalogBlock.offsetHeight > catalogBlock.scrollHeight) {
       readMoreButton.style.display = 'block';
@@ -38,7 +39,14 @@ burgerOpen.addEventListener('click', function() {
   readMoreButton.addEventListener('click', function() {
     catalogBlock.style.maxHeight = 'none';
       readMoreButton.style.display = 'none';
-      catalogBlock.querySelector('.catalog__list-zacupki').style.display = 'block';
+      readLesButton.style.display = 'block';
+      catalogBlock.querySelector('.catalog__list-zacupki').style.display = 'block';      
+  });
+
+  readLesButton.addEventListener('click', function() {
+      readMoreButton.style.display = 'block';
+      readLesButton.style.display = 'none';
+      catalogBlock.querySelector('.catalog__list-zacupki').style.display = '-webkit-box';      
   });
 
   
