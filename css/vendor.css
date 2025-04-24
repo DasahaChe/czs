@@ -412,9 +412,7 @@
     .vendors_page .catalog__block-logo {
         width: 30%;
     }
-    .vendors_page .catalog__block-logo {
-        width: 30%;
-    }
+    
 }
 
 @media (max-width: 1020px) {
