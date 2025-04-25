@@ -587,6 +587,14 @@
     }
 }
 
+@media (max-width: 700px) {
+    .buyers_page .category__item {
+        flex: 0 0 100%;
+        max-height: calc(var(--base-font-size) * 5);
+        overflow: hidden;
+    }
+}
+
 @media (max-width: 610px) {
     .buyers_page .container {
         margin: 0 calc(var(--base-gap) * 2);
