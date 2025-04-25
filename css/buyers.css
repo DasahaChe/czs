@@ -241,8 +241,7 @@
 }
 
 .buyers_page .category__list .category__item label {
-    display: inline-block;
-    margin-left: 0.5em;
+    display: inline-block;  
     line-height: 1.25em;
 }
 
@@ -290,13 +289,6 @@
     background-clip: text;
     background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
     display: inline-block;
-}
-
-
-.buyers_page .category__list .category__item label {
-    display: inline-block;
-    margin-left: 0.5em;
-    line-height: 1.25em;
 }
 
 .buyers_page .category__list .category__item sup {

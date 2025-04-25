@@ -228,11 +228,8 @@
     font-size: calc(var(--base-font-size)* 1.25);
 }
 
-
-
 .vendors_page .category__list .category__item label {
     display: inline-block;
-    margin-left: 0.5em;
     line-height: 1.25em;
 }
 
