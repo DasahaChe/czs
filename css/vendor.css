@@ -380,6 +380,10 @@
     background: linear-gradient(135deg, var(--base-color-1) 0%, var(--base-color-2) 100%);
 }
 
+.vendors_page .category__checkbox{
+    margin-right: 0.5em;
+}
+
 @media (max-width: 1199px) {
     .vendors_page .title {
         font-size: calc(var(--base-font-size)* 2);

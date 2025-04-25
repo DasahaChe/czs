@@ -451,6 +451,10 @@
     color: var(--white-text-color);
     background: linear-gradient(135deg, var(--base-color-1) 0%, var(--base-color-2) 100%);
 }
+
+.buyers_page .category__checkbox{
+    margin-right: 0.5em;
+}
 @media (max-width: 1700px) {
     .buyers_page .description__foto {
         display: none;
