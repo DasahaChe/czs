@@ -246,11 +246,7 @@
 }
 
 .vendors_page .category__item:not(:last-child) {
-    /* flex: 0 0 calc((100% / 3) - (var(--base-gap)* 2));
-    max-height: calc(var(--base-font-size) * 5);
-    overflow: hidden;
-    overflow-x: hidden; */
-    margin-bottom: calc(var(--base-gap) * 1.25);
+    margin-bottom: calc(var(--base-gap) * 1.0);
 }
 
 /* catalog */

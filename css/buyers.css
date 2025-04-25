@@ -304,7 +304,7 @@
 }
 
 .buyers_page .category__item:not(:last-child)  {
-    margin-bottom: calc(var(--base-gap) * 1.25);
+    margin-bottom: calc(var(--base-gap) * 1.0);
 }
 
 /* catalog */
