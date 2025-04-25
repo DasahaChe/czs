@@ -435,7 +435,7 @@
     color: var(--sub-text-color);
     font-size: calc(var(--base-font-size) * 1);
     outline: none;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .buyers_page .read-les {
@@ -447,7 +447,7 @@
     color: var(--sub-text-color);
     font-size: calc(var(--base-font-size) * 1);
     outline: none;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease, color 0.5s ease;
     display: none;
 }
 
