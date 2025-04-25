@@ -648,17 +648,16 @@
         row-gap: calc(var(--base-gap)* 3);
     }
 
-    .buyers_page .catalog__aticle {
-        flex-direction: column;
-    }
-
     .buyers_page .catalog__block-logo {
         width: 30%;
         min-height: 1em;
         margin-bottom: calc(var(--base-gap)* 1.5);
     }
+    
     .buyers_page .catalog__aticle {
+        flex-direction: column;
         margin-bottom: 0;
+        padding: calc(var(--base-gap) * 2) 0;
     }
     
     .buyers_page .catalog__item {

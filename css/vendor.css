@@ -47,6 +47,7 @@
     color: #fff;
     border-radius: calc(var(--base-font-size) * 2);
     background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    transition: background-color 0.7s ease;
 }
 
 .vendors_page .description__text {
@@ -519,13 +520,11 @@
         flex-direction: column;
         row-gap: calc(var(--base-gap)* 3);
     }
-
+    
     .vendors_page .catalog__aticle {
         flex-direction: column;
-    }
-
-    .vendors_page .catalog__aticle {
         margin-bottom: 0;
+        padding: calc(var(--base-gap) * 2) 0;
     }
 
     .vendors_page .catalog__block-logo {
@@ -550,3 +549,14 @@
         font-size: calc(var(--base-font-size) * 1);
     }
 }
+
+@media (any-hover: hover) {
+
+    .vendors_page .description__button:hover {
+       
+        color: #fff;
+        background: linear-gradient(to right, var(--base-color-2), var(--base-color-6));
+    }
+
+       
+}  
