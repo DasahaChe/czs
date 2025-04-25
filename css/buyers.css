@@ -235,9 +235,8 @@
 }
 
 .buyers_page .category__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: calc(var(--base-gap)* 1);
+    display: block;
+    columns: 3;
     font-size: calc(var(--base-font-size)* 1.25);
 }
 
@@ -293,14 +292,6 @@
     display: inline-block;
 }
 
-.buyers_page .category__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: calc(var(--base-gap)* 1);
-    font-size: calc(var(--base-font-size)* 1.25);
-}
-
-
 
 .buyers_page .category__list .category__item label {
     display: inline-block;
@@ -320,11 +311,8 @@
     margin-bottom: calc(var(--base-gap) * 4);
 }
 
-.buyers_page .category__item {
-    flex: 0 0 calc((100% / 3) - (var(--base-gap)* 2));
-    max-height: calc(var(--base-font-size) * 5);
-    overflow: hidden;
-    overflow-x: hidden;
+.buyers_page .category__item:not(:last-child)  {
+    margin-bottom: calc(var(--base-gap) * 1.25);
 }
 
 /* catalog */
@@ -513,6 +501,10 @@
         align-items: center;
     }
 
+    .buyers_page .category__list{
+        columns: 2;
+    }
+
 }
 
 @media (max-width: 1020px) {
@@ -552,10 +544,6 @@
         gap: calc(var(--base-gap)* 2);
     }
 
-    .buyers_page .category__list {
-        font-size: calc(var(--base-font-size) * 1);
-    }
-
     .buyers_page .catelog__list {
         flex-wrap: wrap;
         gap: 0;
@@ -563,12 +551,6 @@
 
     .buyers_page .catalog__item {
         width: 100%;
-    }
-
-    .buyers_page .category__item {
-        flex: 0 0 calc((100% / 2) - (var(--base-gap)* 1));
-        max-height: calc(var(--base-font-size) * 5);
-        overflow: hidden;
     }
 
     .buyers_page .catalog__aticle {
@@ -609,10 +591,12 @@
 }
 
 @media (max-width: 700px) {
-    .buyers_page .category__item {
-        flex: 0 0 100%;
-        max-height: calc(var(--base-font-size) * 5);
-        overflow: hidden;
+    .buyers_page .category__list{
+        columns: 1;
+    }
+
+    .vendors_page .category__list {
+        columns: 1;
     }
 }
 
@@ -700,50 +684,52 @@
 
 @media (any-hover: hover) {
 
-    .buyers_page .description__button:hover { 
-        border-color:  var(--base-color-1);
+    .buyers_page .description__button:hover {
+        border-color: var(--base-color-1);
     }
 
-    .buyers_page .catalog__button:hover {        
-            border-color:  var(--base-color-1);       
+    .buyers_page .catalog__button:hover {
+        border-color: var(--base-color-1);
     }
 
-    .buyers_page .description__button:focus-visible { 
-        border-color:  var(--base-color-1);
+    .buyers_page .description__button:focus-visible {
+        border-color: var(--base-color-1);
     }
 
-    .buyers_page .catalog__button:focus-visible {        
-            border-color:  var(--base-color-1);       
-    }
-    
-    .buyers_page .description__button:active { 
-        border-color:  var(--base-color-5);
+    .buyers_page .catalog__button:focus-visible {
+        border-color: var(--base-color-1);
     }
 
-    .buyers_page .catalog__button:active {        
-            border-color:  var(--base-color-5);       
-    }  
+    .buyers_page .description__button:active {
+        border-color: var(--base-color-5);
+    }
 
-    .buyers_page .description__banner-button:hover, .buyers_page .description__banner-button:focus-visible {
-        background-color:  var(--base-color-2);
-        color:#fff;
+    .buyers_page .catalog__button:active {
+        border-color: var(--base-color-5);
+    }
+
+    .buyers_page .description__banner-button:hover,
+    .buyers_page .description__banner-button:focus-visible {
+        background-color: var(--base-color-2);
+        color: #fff;
     }
 
 
     .buyers_page .category__checkbox:hover {
         border: 2px solid #000;
-        
+
     }
 
     .buyers_page .category__checkbox:focus-visible {
         outline: 2px solid var(--base-color-2);
-        
+
     }
 
-    .buyers_page .read-more:hover, .buyers_page .read-les:hover{
-        color:#fff;
+    .buyers_page .read-more:hover,
+    .buyers_page .read-les:hover {
+        color: #fff;
         background-color: var(--base-color-2);
     }
 
-   
-} 
+
+}

@@ -223,9 +223,8 @@
 }
 
 .vendors_page .category__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: calc(var(--base-gap)* 1);
+    display: block;
+    columns: 3;
     font-size: calc(var(--base-font-size)* 1.25);
 }
 
@@ -249,11 +248,12 @@
     margin-bottom: calc(var(--base-gap) * 4);
 }
 
-.vendors_page .category__item {
-    flex: 0 0 calc((100% / 3) - (var(--base-gap)* 2));
+.vendors_page .category__item:not(:last-child) {
+    /* flex: 0 0 calc((100% / 3) - (var(--base-gap)* 2));
     max-height: calc(var(--base-font-size) * 5);
     overflow: hidden;
-    overflow-x: hidden;
+    overflow-x: hidden; */
+    margin-bottom: calc(var(--base-gap) * 1.25);
 }
 
 /* catalog */
@@ -423,11 +423,15 @@
         width: calc((100% / 12) * 7);
     }
 
-    .vendors_page .category__item {
+    .vendors_page .category__list {       
+        columns: 2;
+    }
+
+    /* .vendors_page .category__item {
         flex: 0 0 calc((100% / 2) - (var(--base-gap)* 1));
         max-height: calc(var(--base-font-size) * 5);
         overflow: hidden;
-    }
+    } */
 
     .vendors_page .catalog__aticle {
         display: flex;
@@ -503,11 +507,14 @@
 }
 
 @media (max-width: 700px) {
-    .vendors_page .category__item {
+    .vendors_page .category__list {       
+        columns: 1;
+    }
+    /* .vendors_page .category__item {
         flex: 0 0 100%;
         max-height: calc(var(--base-font-size) * 5);
         overflow: hidden;
-    }
+    } */
 }
 
 
