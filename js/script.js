@@ -28,9 +28,9 @@ burgerOpen.addEventListener('click', function() {
     document.body.style.overflow = 'auto';
   });
 
-let catalogBlocks = document.querySelectorAll('.vendors_page .catalog__block-zacupki');
-let readMoreButtons = document.querySelectorAll('.vendors_page .read-more');
-let readLesButtons = document.querySelectorAll('.vendors_page .read-les');
+let catalogBlocks = document.querySelectorAll('.catalog__block-zacupki');
+let readMoreButtons = document.querySelectorAll('.read-more');
+let readLesButtons = document.querySelectorAll('.read-les');
 
 for (let i = 0; i < catalogBlocks.length; i++) {
     let catalogBlock = catalogBlocks[i];
