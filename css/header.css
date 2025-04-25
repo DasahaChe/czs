@@ -184,6 +184,8 @@ body {
 }
 
 .header .header__logo-description {
+    display: block;
+    justify-self: end;
     font-size: 21px;
     line-height: 21px;
     font-family: var(--base-font);
