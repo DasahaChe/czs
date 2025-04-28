@@ -658,26 +658,29 @@
     .buyers_page .description__banner {
         width: 100%;
     }
-
+    
     .buyers_page .advantages__img {
         /* margin-bottom: calc(var(--base-gap) * 4); */
         width: calc(var(--base-font-size) * 5.625);
         height: calc(var(--base-font-size) * 5.625);
     }
 
+    .buyers_page .category {
+        margin: 0 0;
+    }
+    
+    .buyers_page .category_group__list {
+        flex-direction: column;
+        row-gap: calc(var(--base-gap)* 3);
+    }
+
+    .buyers_page .category_group__list {
+        flex-direction: column;
+        row-gap: calc(var(--base-gap)* 3);
+    }
+
     .buyers_page .catelog__subtitle {
         line-height: calc(var(--base-font-line-height) * 1.5);
-    }
-
-    .buyers_page .category_group__list {
-        flex-direction: column;
-        row-gap: calc(var(--base-gap)* 3);
-    }
-
-
-    .buyers_page .category_group__list {
-        flex-direction: column;
-        row-gap: calc(var(--base-gap)* 3);
     }
 
     .buyers_page .catalog__block-logo {
