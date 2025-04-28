@@ -32,7 +32,7 @@
 
 .buyers_page .description {
     display: flex;
-    /* margin: 0 0 calc(var(--base-gap) * 3.5); */
+    margin: 0 0 calc(var(--base-gap) * 3.5);
     gap: var(--base-gap);
     justify-content: space-between;
 }
@@ -213,9 +213,6 @@
 
 }
 
-.buyers_page .foto {
-    margin: calc(var(--base-gap) * 2) 0;
-}
 .buyers_page .foto__list {
     display: flex;
     gap: var(--base-gap);
