@@ -38,8 +38,8 @@
 }
 
 .buyers_page .description__block {
-    max-width: calc(var(--base-font-size) * 36);
-    width: 100%;
+    /* max-width: calc(var(--base-font-size) * 36); */
+    width: 60%;
 }
 
 .buyers_page .description__button {
@@ -92,13 +92,13 @@
 
 .buyers_page .description__banner-block {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     height: 100%;
     width: 100%;
     padding: calc(var(--base-gap) * 1) calc(var(--base-gap) * 2);
-    border-radius: calc(var(--base-font-size) * 2);
+    border-radius: calc(var(--base-font-size) * 0.5);
     background-size: cover;
 }
 
@@ -111,8 +111,8 @@
 }
 
 .buyers_page .description__banner-img {
-    width: 80%;
-    margin-top: calc(var(--base-gap) * 2);
+    width: 40%;
+    margin-bottom: calc(var(--base-font-size) * 1);
 }
 
 .buyers_page .description__banner-title {
@@ -142,9 +142,10 @@
 }
 
 .buyers_page .description__banner-text {
+    padding-left: 0.5em;
     font-size: calc(var(--base-font-size) * 1.0);
     line-height: calc(var(--base-font-size) * 1.25);
-    margin: 0 0 calc(var(--base-gap) * 2) 0;
+    margin: 0 0 calc(var(--base-gap) * 1) 0;
     color: #fff;
     text-align: center;
 }
@@ -286,7 +287,7 @@
 
 /* category */
 .buyers_page .category {
-    margin: calc(var(--base-gap) * 2) 0;
+    margin:0 0 calc(var(--base-gap) * 2) 0;
 }
 
 .buyers_page .category-group {
@@ -490,13 +491,13 @@
     margin-right: 0.5em;
 }
 
-@media (max-width: 1700px) {
-    .buyers_page .description__foto {
-        display: none;
+@media (max-width: 1300px) {
+    .buyers_page .description__banner-block {
+        flex-direction: column;
     }
 
-    .buyers_page .description__banner {
-        width: 100%;
+    .buyers_page .description__banner-img {
+        width: 60%;
     }
 }
 
@@ -547,14 +548,19 @@
 
     .buyers_page .description__block {
         max-width: 100%;
-    }
-
-    .buyers_page .description__block-picture {
         width: 100%;
     }
 
-    .buyers_page .description__banner {
-        width: 50%;      
+    .buyers_page .description__banner{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .buyers_page .description__banner-img{
+       margin-bottom: calc(var(--base-gap)* 2);
+    }
+    .buyers_page .description__block-picture {
+        max-width: 100%;
     }
 
     .buyers_page .foto__list {
@@ -665,10 +671,6 @@
         height: calc(var(--base-font-size) * 5.625);
     }
 
-    .buyers_page .category {
-        margin: 0 0;
-    }
-    
     .buyers_page .category_group__list {
         flex-direction: column;
         row-gap: calc(var(--base-gap)* 3);

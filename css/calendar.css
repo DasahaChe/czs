@@ -1,0 +1,28 @@
+.events {
+    padding: 0 0 calc(var(--base-gap) * 1.5) 0;
+}
+
+.events .title__block {
+    margin-bottom: calc(var(--base-gap) * 2);
+}
+
+.events .title {
+    margin: 0 0 var(--base-gap) 0;
+    font-size: calc(var(--base-font-size)* 3.0);
+    line-height: calc(var(--base-font-line-height)* 1.25);
+    font-family: var(--base-bold-font);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-3));
+    display: inline-block;
+}
+
+
+.events .container {
+    display: flex;
+    margin: 0 calc(var(--base-gap) * 4);
+    padding: 0 calc(var(--base-gap) * 8);
+    flex-direction: column;
+    /* margin: 0 auto; */
+}
