@@ -26,7 +26,6 @@
     margin: 0 calc(var(--base-gap) * 4);
     padding: 0 calc(var(--base-gap) * 8);
     flex-direction: column;
-
     /* margin: 0 auto; */
 }
 
@@ -65,7 +64,7 @@
 .vendors_page .description__span {
     font-weight: 600;
 }
-
+/* banner */
 .vendors_page .description__banner {
     display: flex;
     flex-direction: column;
