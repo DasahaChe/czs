@@ -64,6 +64,7 @@
 .vendors_page .description__span {
     font-weight: 600;
 }
+
 /* banner */
 .vendors_page .description__banner {
     display: flex;
@@ -512,6 +513,9 @@
         border-bottom: 3px solid #d2b175;
     }
 
+    .vendors_page .foto {
+        margin: 0 0;
+    }
     .vendors_page .foto__list {
         flex-direction: column;
     }
@@ -520,6 +524,13 @@
         width: 100%;
     }
 
+    .vendors_page .foto__img {
+        border-radius: calc(var(--base-border-radius)* 0.5);
+    }
+
+    .vendors_page .category {
+        margin: 0 0;
+    }
     .vendors_page .category-group {
         flex-direction: column;
         gap: calc(var(--base-gap)* 2);
