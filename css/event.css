@@ -78,6 +78,17 @@
     background-image: url(../img/event-fon/foodfon.png);
 }
 
+.events .two {
+    background-image: url(../img/event-fon/flauerfon.png);
+}
+
+.events .tree {
+    background-image: url(../img/event-fon/neva.png);
+}
+
+.events .four {
+    background-image: url(../img/event-fon/ritailfon.png);
+}
 .events .event__logo {
     width: 260px;
 }
@@ -86,7 +97,9 @@
     text-align: center;
     font-size: calc(var(--base-font-size)* 1.25);
 }
-
+.events .event__date-day{
+text-transform: capitalize;
+}
 .events .event__date p {
     margin: 0;
     line-height: calc(var(--base-gap) * 1.25);
@@ -192,6 +205,10 @@
     margin-bottom: calc(var(--base-gap) * 1);
 }
 
+.events .white {
+    color:#fff;
+}
+
 @media (max-width: 1300px) {
     .events .event__item {
         flex-direction: column;
@@ -199,6 +216,18 @@
 
     .events .one {
         background-image: url(../img/event-fon/foodfon-line.png);
+    }
+
+    .events .two {
+        background-image: url(../img/event-fon/flauer-line.png);
+    }
+
+    .events .tree {
+        background-image: url(../img/event-fon/neva-line.png);
+    }
+
+    .events .four {
+        background-image: url(../img/event-fon/retalion-line.png);
     }
 
     .events .event__block {
@@ -275,6 +304,18 @@
 
     .events .one {
         background-image: url(../img/event-fon/foodfon.png);
+    }
+
+    .events .two {
+        background-image: url(../img/event-fon/flauerfon.png);
+    }
+
+    .events .tree {
+        background-image: url(../img/event-fon/neva.png);
+    }
+
+    .events .four {
+        background-image: url(../img/event-fon/ritailfon.png);
     }
 
     .events .event__banners {
