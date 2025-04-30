@@ -38,13 +38,15 @@
     grid-template-columns: repeat(12, 1fr);
     gap: var(--base-gap);
 }
-.events .event__list{
+
+.events .event__list {
     grid-column: 1/8;
     display: flex;
     flex-wrap: wrap;
     gap: var(--base-gap);
     justify-content: space-between;
 }
+
 .events .event__item {
     display: flex;
     gap: calc(var(--base-gap) * 2);
@@ -62,8 +64,8 @@
     flex-direction: column;
     justify-content: space-between;
     padding: calc(var(--base-gap) * 5) calc(var(--base-gap) * 2);
-    min-height: calc(var(--base-gap) * 21.75); 
-    height: 100%;   
+    min-height: calc(var(--base-gap) * 21.75);
+    height: 100%;
     width: calc(var(--base-gap) * 21);
     background-size: cover;
     background-repeat: no-repeat;
@@ -130,10 +132,11 @@
 .events .event__bottom {
     margin-top: auto;
 }
+
 .events .event__buttons {
     display: flex;
     flex-wrap: wrap;
-    gap:20px;
+    gap: 20px;
     row-gap: calc(var(--base-gap) / 2);
 }
 
@@ -161,7 +164,7 @@
     padding: calc(var(--base-gap) / 2) calc(var(--base-gap) * 1.5);
     color: var(--sub-text-color);
     border: 1px solid var(--sub-text-color);
-    border-radius: calc(var(--base-gap) / 2);   
+    border-radius: calc(var(--base-gap) / 2);
 }
 
 .events .event__button-main {
@@ -241,14 +244,14 @@
 }
 
 @media (max-width: 850px) {
-    .events .event__list{
-       grid-column: 1/13;
+    .events .event__list {
+        grid-column: 1/13;
     }
 
-    .events .event__banners{
+    .events .event__banners {
         order: 1;
         grid-column: 1/13;
-     }
+    }
 
     .events .event {
         flex-direction: column;
@@ -315,7 +318,10 @@
     }
 }
 
-@media (max-width: 610px) {    
+@media (max-width: 610px) {
+    .events .container {
+        margin: 0 calc(var(--base-gap) * 2);
+    }
 
     .events .event__item {
         flex-direction: column;
@@ -333,6 +339,7 @@
         border-top-left-radius: var(--base-gap);
         border-bottom-left-radius: 0;
     }
+
     .events .event__logo {
         width: 100px;
     }
@@ -345,11 +352,22 @@
         padding: calc(var(--base-gap) * 1) calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 1.5);
         /* min-height: calc(var(--base-gap) * 16.5); */
     }
+
     .events .event__text {
         margin-bottom: calc(var(--base-font-size)* 1.5);
     }
-    
+
     .events .event__button-main {
         width: 100%;
+    }
+
+    .events .event__buttons {
+        gap: calc(var(--base-gap) / 1);
+    }
+}
+
+@media (max-width: 350px) {
+    .events .container {
+        margin: 0 calc(var(--base-gap) * 1.25);
     }
 }
