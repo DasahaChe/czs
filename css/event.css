@@ -1,0 +1,174 @@
+.events {
+    padding: 0 0 calc(var(--base-gap) * 1.5) 0;
+}
+
+.events .title__block {
+    margin-bottom: calc(var(--base-gap) * 2);
+}
+
+.events .title {
+    margin: 0 0 var(--base-gap) 0;
+    font-size: calc(var(--base-font-size)* 3.0);
+    line-height: calc(var(--base-font-line-height)* 1.25);
+    font-family: var(--base-bold-font);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-3));
+    display: inline-block;
+}
+
+.events .container {
+    display: flex;
+    margin: 0 calc(var(--base-gap) * 4);
+    padding: 0 calc(var(--base-gap) * 8);
+    flex-direction: column;
+}
+
+.events .container {
+    display: flex;
+    margin: 0 calc(var(--base-gap) * 4);
+    padding: 0 calc(var(--base-gap) * 8);
+    flex-direction: column;
+}
+
+.events .event {
+    display: flex;
+    gap: var(--base-gap);
+}
+
+.event__item {
+    display: flex;
+    gap: calc(var(--base-gap) * 2);
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #dadada;
+    border-radius: var(--base-font-size);
+    width: 100%;
+}
+
+/* картинка */
+
+.events .event__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: calc(var(--base-gap) * 5) calc(var(--base-gap) * 2);
+    min-height: calc(var(--base-gap) * 21.75);
+    height: 100%;
+    width: calc(var(--base-gap) * 21);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top-left-radius: var(--base-font-size);
+    border-bottom-left-radius: var(--base-font-size);
+    overflow: hidden;
+}
+
+.events .one {
+    background-image: url(../img/event-fon/foodfon.png);
+}
+
+.events .event__logo {
+    width: 260px;
+}
+
+.events .event__date {
+    text-align: center;
+    font-size: calc(var(--base-font-size)* 1.25);
+}
+
+.events .event__date p {
+    margin: 0;
+}
+
+.events .event__date p:not(:last-child) {
+    margin-bottom: calc(var(--base-gap) / 4);
+}
+
+/* текст */
+.events .event__description {
+    display: flex;
+    padding: calc(var(--base-gap) * 2) calc(var(--base-gap) * 2.5) calc(var(--base-gap) * 2) 0;
+    flex-direction: column;
+    min-height: calc(var(--base-gap) * 21.75);
+    height: 100%;
+}
+
+.events .event__title-main {
+    margin: 0;
+    margin-bottom: calc(var(--base-gap) / 2);
+    font-size: calc(var(--base-font-size)* 1.5);
+    line-height: calc(var(--base-font-line-height)* 1.5);
+    font-family: var(--base-bold-font);
+}
+
+.events .event__title {
+    margin: 0;
+    margin-bottom: calc(var(--base-gap) / 2);
+    font-family: var(--base-font);
+    font-weight: 400;
+    color: var(--events-acsent);
+}
+
+.events .event__text {
+    margin: 0;
+    font-size: calc(var(--base-font-size)* 1.25);
+    line-height: calc(var(--base-font-line-height)* 1.0);
+    color: var(--main-text-color);
+}
+
+.events .event__buttons {
+    margin-top: auto;
+}
+
+.events .event__text-count {
+    margin: 0;
+    margin-bottom: calc(var(--base-gap) / 2);
+    font-size: calc(var(--base-font-size)* 1.5);
+}
+
+.events .event__text-caterory {
+    margin: 0;
+    margin-bottom: calc(var(--base-gap) * 1.5);
+    font-size: calc(var(--base-font-size)* 1.0);
+    color: var(--sub-text-color);
+}
+
+.events .event__button {
+    padding: calc(var(--base-gap) / 2) calc(var(--base-gap) * 1.5);
+    color: var(--sub-text-color);
+    border: 1px solid var(--sub-text-color);
+    border-radius: calc(var(--base-gap) / 2);
+    margin: 0 calc(var(--base-gap) * 1.5) 5px 0;
+}
+
+.events .event__button-main {
+    color: #fff;
+    border-color: #fff;
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    outline: none;
+    transition: border-color 0.5s ease;
+}
+
+/* баннеры */
+
+.events .event__banners {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.events .event__banners-img {
+    width: 560px;
+}
+
+.events .event__banners-img:not(:last-child) {
+    margin-bottom: calc(var(--base-gap) * 1);
+}
+
+@media (max-width: 1300px) {
+
+    .event__item {
+        flex-direction: column;
+    }
+}

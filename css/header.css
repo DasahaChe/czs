@@ -35,6 +35,7 @@
     --background-2-opacity-80: rgba(5, 202, 5, 0.8);
     --svgGradient: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
     --item-border: #dadada;
+    --events-acsent: #02ad35;
 }
 
 @font-face {
