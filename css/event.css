@@ -319,7 +319,7 @@ text-transform: capitalize;
     }
 
     .events .event__banners {
-        flex-direction: row;
+        /* flex-direction: row; */
         align-items: flex-start;
     }
 
