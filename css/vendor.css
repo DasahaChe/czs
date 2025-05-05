@@ -444,7 +444,7 @@
     }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1220px) {
     .vendors_page .title {
         font-size: calc(var(--base-font-size)* 2);
     }
