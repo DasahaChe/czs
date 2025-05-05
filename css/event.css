@@ -178,6 +178,8 @@ text-transform: capitalize;
     color: var(--sub-text-color);
     border: 1px solid var(--sub-text-color);
     border-radius: calc(var(--base-gap) / 2);
+    background-color:#fff;
+    transition: border-color 0.5s ease, color 0.5s ease, background-color 0.5s ease;
 }
 
 .events .event__button-main {
@@ -411,4 +413,33 @@ text-transform: capitalize;
     .events .container {
         margin: 0 calc(var(--base-gap) * 1.25);
     }
+}
+
+@media (any-hover: hover) {
+
+    .events .event__button:hover,
+    .events .event__button:focus-visible {
+        background-color: var(--base-color-2);
+        color: #fff;
+        border-color: var(--sub-text-color);
+    }
+
+    .events .event__button:active{
+        background-color: var(--base-color-2);
+        color: #fff;
+        border-color: var(--base-color-5);
+    }
+
+    .events .event__button-main:hover {
+        border-color: var(--base-color-1);
+    }
+
+    .events .event__button-main:focus-visible {
+        border-color: var(--base-color-1);
+    }
+
+    .events .event__button-main:active {
+        border-color: var(--base-color-5);
+    }
+ 
 }
