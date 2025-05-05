@@ -54,3 +54,26 @@ for (let i = 0; i < catalogBlocks.length; i++) {
         catalogBlock.querySelector('.catalog__list-zacupki').style.display = '-webkit-box';      
     });
 }
+
+let newItems = document.querySelectorAll('.new__list .new__item');
+let showMoreButton = document.querySelector('.show-more');
+
+let itemsToShow = window.innerWidth > 1640 ? 6 : 4;
+
+for (let i = itemsToShow; i < newItems.length; i++) {
+    newItems[i].style.display = 'none';
+}
+
+showMoreButton.addEventListener('click', function() {
+    for (let i = 0; i < itemsToShow ; i++) {
+        if (newItems[i]) {
+            newItems[i].style.display = 'none';
+        }
+    }
+    for (let i = itemsToShow; i < itemsToShow + 6; i++) {
+        if (newItems[i]) {
+            newItems[i].style.display = 'block';
+        }
+    }
+    itemsToShow += 6;
+});

@@ -31,11 +31,14 @@
 }
 
 /* общее */
+.news .news__block {
+width: calc(100% - calc(var(--base-font-size) * 21));
+}
 .news .new__list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: calc(var(--base-gap) * 1);
-    width: calc(100% - calc(var(--base-font-size) * 21));
+    /* width: calc(100% - calc(var(--base-font-size) * 21)); */
 }
 
 .news .new__item {
@@ -144,9 +147,12 @@
 
     .news .new__list {
         grid-template-columns: 1fr 1fr 1fr;
-        width: 100%;
+        /* width: 100%; */
     }
 
+    .news .news__block {
+        width: 100%;
+        }
     .news .new__banners {
         display: none;
     }
