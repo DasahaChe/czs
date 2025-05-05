@@ -56,24 +56,39 @@ for (let i = 0; i < catalogBlocks.length; i++) {
 }
 
 let newItems = document.querySelectorAll('.new__list .new__item');
-let showMoreButton = document.querySelector('.show-more');
-
 let itemsToShow = window.innerWidth > 1640 ? 6 : 4;
 
 for (let i = itemsToShow; i < newItems.length; i++) {
     newItems[i].style.display = 'none';
 }
 
-showMoreButton.addEventListener('click', function() {
-    for (let i = 0; i < itemsToShow ; i++) {
-        if (newItems[i]) {
-            newItems[i].style.display = 'none';
-        }
+function createNextButton(count) {
+    let showMoreButton = document.createElement('button');
+    showMoreButton.className = 'show-more';
+    showMoreButton.textContent = `${count}`;
+    if (count === 1) {
+        showMoreButton.classList.add('show-now');
     }
-    for (let i = itemsToShow; i < itemsToShow + 6; i++) {
-        if (newItems[i]) {
-            newItems[i].style.display = 'block';
+    document.querySelector('.new__block-button').appendChild(showMoreButton);
+    showMoreButton.addEventListener('click', function() {
+        let showNowButton = document.querySelector('.show-now');
+        if (showNowButton) {
+            showNowButton.classList.remove('show-now');
         }
-    }
-    itemsToShow += 6;
-});
+        showMoreButton.classList.add('show-now');
+        for (let i = 0; i < newItems.length; i++) {
+            if (i >= (count * itemsToShow - itemsToShow) && i < (count * itemsToShow)) {
+                newItems[i].style.display = 'block';
+            } else {
+                newItems[i].style.display = 'none';
+            }
+        }
+    });
+}
+
+let count = Math.ceil(newItems.length / itemsToShow);
+
+for (let i = 1; i <= count; i++) {
+    createNextButton(i);
+}
+
