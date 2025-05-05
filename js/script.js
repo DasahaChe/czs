@@ -78,7 +78,7 @@ function createNextButton(count) {
         showMoreButton.classList.add('show-now');
         for (let i = 0; i < newItems.length; i++) {
             if (i >= (count * itemsToShow - itemsToShow) && i < (count * itemsToShow)) {
-                newItems[i].style.display = 'block';
+                newItems[i].style.display = 'flex';
             } else {
                 newItems[i].style.display = 'none';
             }
