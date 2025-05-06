@@ -1,6 +1,6 @@
 let headerNav = document.querySelector('.nav');
 function checkScreenSize() {
-    if (window.innerWidth <= 560) {
+    if (window.innerWidth <= 580) {
         headerNav.classList.add('visually-hidden');
     } else {
         headerNav.classList.remove('visually-hidden');
