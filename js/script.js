@@ -13,7 +13,7 @@ checkScreenSize();
 let burgerOpen = document.querySelector('.header__burger');
 let burgerClose = document.querySelector('.header__burger-close');
 burgerOpen.addEventListener('click', function() {
-    headerMenu.classList.remove('visually-hidden');
+    headerMenu.classList.remove('visually-hidden');    
     burgerClose.classList.add('open');
     burgerOpen.classList.add('visually-hidden');
 

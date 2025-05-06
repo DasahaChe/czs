@@ -51,6 +51,97 @@
     font-style: normal;
 }
 
+button {
+    color: var(--white-text-color);
+    padding: var(--base-gap);
+    background: var(--button-color-1);
+    font-family: var(--base-bold-font);
+    font-size: calc(var(--base-font-size) * 1); 
+    border-radius: var(--base-border-radius);
+    border:0;
+}
+
+button:hover {
+    padding: var(--base-gap);
+    background: var(--button-color-2);
+    cursor:pointer;
+}
+
+button.delete {
+    color: var(--white-text-color);
+    padding: var(--base-gap);
+    background: var(--error-color-4);
+    font-family: var(--base-bold-font);
+    font-size: calc(var(--base-font-size) * 1); 
+    border-radius: var(--base-border-radius);
+    border:0;
+}
+
+button.delete:hover {
+    padding: var(--base-gap);
+    background: var(--button-color-2);
+    cursor:pointer;
+}
+
+p {
+    padding: calc(var(--base-gap) / 2) 0;
+    line-height: calc(var(--base-font-line-height) * 1.5);
+}
+
+textarea {
+    width:100%; 
+    height:6em; 
+    font-family: var(--base-bold-font);
+} 
+
+hr {
+    border:0px; 
+    height:1px;
+    background:var(--border-color);
+    margin-bottom: var(--base-gap); 
+    margin-top: var(--base-gap); 
+}
+
+blockquote {
+    border-left:calc(var(--base-gap) / 4) solid var(--border-color); 
+    margin: var(--base-gap) 0px; 
+    padding-left: var(--base-gap); ; 
+    font-weight:bold;
+}
+
+input {
+    padding:0px; 
+    font-family: var(--base-font);
+}
+
+input[type=text], input[type=number] {
+    padding:calc(var(--base-gap) / 2);  
+    font-family: var(--base-font);
+    font-size: calc(var(--base-font-size) * 1); 
+    border:1px solid var(--border-color);
+    border-radius:calc(var(--base-gap) / 4);
+}
+
+ul {
+	padding: calc(var(--base-gap) / 2) 0;
+}
+
+ul li {
+	list-style-type: disc;
+	margin: calc(var(--base-gap) / 4) var(--base-gap);
+	padding: calc(var(--base-gap) / 4) calc(var(--base-gap) / 2);
+}
+
+ol {
+	padding: calc(var(--base-gap) / 4) 0;
+}
+
+ol li {
+	list-style-type: decimal;
+	margin: calc(var(--base-gap) / 4) var(--base-gap);
+	padding: calc(var(--base-gap) / 4) calc(var(--base-gap) / 2);
+}
+
 html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
