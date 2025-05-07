@@ -200,6 +200,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: calc(var(--base-gap) * 2);
 }
+
 .start_page .section_2 .stat .block_2 {
     grid-column: 1/2;
 }
@@ -343,7 +344,8 @@
     grid-template-columns: repeat(2, 1fr);
     gap: calc(var(--base-gap) * 2);
     border-radius: calc(var(--base-border-radius) * 4);
-    padding: calc(var(--base-gap) * 5);
+    padding: calc(var(--base-gap) * 4);
+    padding-bottom: 0;
     align-items: flex-start;
 }
 
@@ -390,6 +392,7 @@
     line-height: calc(var(--base-font-line-height) * 1.25);
     font-family: var(--base-bold-font);
     text-align: center;
+    margin: calc(var(--base-font-size) * 2) 0;
 }
 
 .start_page .section_6 .events_list {
@@ -592,6 +595,7 @@
     /* 4 секция */
     /* 5 секция */
 
+
 }
 
 @media (max-width: 1639px) {
@@ -613,7 +617,9 @@
 
     /* 5 секция */
     .start_page .section_5 .media {
-        padding: calc(var(--base-gap) * 4) 0;
+        padding: 0;
+        padding-top: calc(var(--base-gap) * 4);
+
     }
 }
 
@@ -622,6 +628,9 @@
         padding: calc(var(--base-gap) * 2);
     }
 
+    .start_page .section_title {
+        margin:calc(var(--base-font-size) * 1.0) 0 ;
+    }
     .start_page .section_1 .content {
         padding: calc(var(--base-gap) * 3);
     }
@@ -660,7 +669,7 @@
     }
 
     /* третья секция */
-    
+
 
     .start_page .section_3 .benefits .box .title {
         font-size: calc(var(--base-font-size) * 1.25);
@@ -683,6 +692,7 @@
     .start_page .section_4 .promo_steps .block_1 {
         text-align: center;
     }
+
     .start_page .section_4 .promo_steps {
         grid-template-columns: 1fr;
     }
@@ -784,7 +794,7 @@
     .start_page .section_3 .benefits .block_1 {
         grid-column: 1 / 2;
     }
-    
+
     .start_page .section_3 .benefits .block_2 {
         grid-column: 1 / 2;
     }
@@ -817,10 +827,10 @@
     }
 
     .start_page .section_5 .media {
-        padding: calc(var(--base-gap) * 2) 0 0 0;
+        padding: calc(var(--base-gap) * 4) 0 0 0;
     }
 
-    
+
     /* 6 секция */
     .start_page .section_6 .events_list .event {
         min-width: calc(var(--base-gap) * 16);
@@ -953,9 +963,9 @@
         font-size: calc(var(--base-font-size) * 1.0);
     }
 
-       /* 5 секция */
+    /* 5 секция */
     .start_page .section_5 .media {
-        padding: calc(var(--base-gap) * 2);
+        padding: calc(var(--base-gap) * 4) calc(var(--base-gap) * 2);
         padding-bottom: 0;
     }
 
@@ -970,6 +980,7 @@
     .start_page .section_6 .events_list {
         border-radius: 0;
         padding: calc(var(--base-gap) * 2);
+
     }
 
     .start_page .section_6 .events_list .event .actions {
@@ -1053,6 +1064,7 @@
         padding: calc(var(--base-gap) * 1.5);
         border-radius: calc(var(--base-border-radius) / 2);
     }
+
     .start_page .section_4 .promo_steps .box .title {
         font-size: calc(var(--base-font-size) * 1.25);
     }
