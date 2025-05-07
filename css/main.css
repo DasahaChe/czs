@@ -631,6 +631,7 @@
     .start_page .section_title {
         margin:calc(var(--base-font-size) * 1.0) 0 ;
     }
+
     .start_page .section_1 .content {
         padding: calc(var(--base-gap) * 3);
     }
@@ -688,6 +689,10 @@
         padding: calc(var(--base-gap) * 2);
     }
 
+    .start_page .section_3 .benefits .box .icon img {
+        width: calc(var(--base-border-radius) * 7);
+        height: calc(var(--base-border-radius) * 7);
+    }
     /* 4 секция */
     .start_page .section_4 .promo_steps .block_1 {
         text-align: center;
