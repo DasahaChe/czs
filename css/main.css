@@ -480,7 +480,7 @@
 .start_page .section_6 .events_list .event .actions {
     gap: calc(var(--base-gap) * 1);
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .start_page .section_6 .events_list .event .actions .tarif {
@@ -615,7 +615,7 @@
 
     /* 5 секция */
     .start_page .section_5 .media {
-        padding: calc(var(--base-gap) * 5) 0;
+        padding: calc(var(--base-gap) * 4) 0;
     }
 }
 
@@ -662,7 +662,7 @@
     }
 
     /* третья секция */
-   
+
     .start_page .section_3 .benefits .box .title {
         font-size: calc(var(--base-font-size) * 1.25);
     }
@@ -681,6 +681,9 @@
     }
 
     /* 4 секция */
+    .start_page .section_4 .promo_steps .block_1 {
+        text-align: center;
+    }
     .start_page .section_4 .promo_steps {
         grid-template-columns: 1fr;
     }
@@ -699,7 +702,7 @@
         grid-auto-rows: 1fr 1fr;
     }
 
-    
+
 
 }
 
@@ -716,7 +719,7 @@
     }
 
     .start_page {
-        gap: calc(var(--base-gap) * 2);
+        gap: calc(var(--base-gap) * 4);
     }
 
     .start_page .section_1 .content {
@@ -787,8 +790,52 @@
 
     .start_page .section_4 .promo_steps .box .descr {
         font-size: calc(var(--base-font-size) * 1.0);
-}
-/* 5 секция */
+    }
+
+    .start_page .section_title {
+        padding: 0 calc(var(--base-gap) * 2);
+        font-size: calc(var(--base-font-size) * 2.0);
+    }
+
+    .start_page .section_5 .media {
+        padding: calc(var(--base-gap) * 2) 0 0 0;
+    }
+
+    /* 6 секция */
+    .start_page .section_6 .events_list .event {
+        min-width: calc(var(--base-gap) * 16);
+    }
+
+    .start_page .section_6 .events_list .event .info .fld {
+        font-size: calc(var(--base-font-size) * 1.5);
+    }
+
+    /* .start_page .section_6 .events_list .event .info .category {
+        gap: calc(var(--base-gap) * 1.5);
+    } */
+
+    .start_page .section_6 .events_list .event .info .category .food,
+    .start_page .section_6 .events_list .event .info .category .nonfood {
+        padding: 0;
+        border: 0;
+    }
+
+    .start_page .section_6 .events_list .event .title .event_ttl {
+        font-size: calc(var(--base-font-size) * 1.5);
+    }
+
+    .start_page .section_6 .events_list .event .actions .tarif,
+    .start_page .section_6 .events_list .event .actions .custmers,
+    .start_page .section_6 .events_list .event .actions .reg {
+        font-size: calc(var(--base-font-size) * 0.75);
+        padding: calc(var(--base-gap) * 0.5) calc(var(--base-gap) * 1.25);
+    }
+
+    .start_page .section_6 .events_list .event .actions .tarif,
+    .start_page .section_6 .events_list .event .actions .custmers {
+        padding: calc(var(--base-gap) * 0.5) calc(var(--base-gap) * 1.25);
+    }
+
 }
 
 @media (max-width: 700px) {
@@ -885,9 +932,11 @@
     .start_page .section_4 .promo_steps .box .title {
         font-size: calc(var(--base-font-size) * 1.0);
     }
+
     /* 5 секция */
     .start_page .section_5 .media {
         padding: calc(var(--base-gap) * 2);
+        padding-bottom: 0;
     }
 
     .start_page .section_5 .media .block_1 {
@@ -897,6 +946,16 @@
     .start_page .section_5 .media .block_2 .photo {
         border-radius: calc(var(--base-border-radius) / 2);
     }
+
+    .start_page .section_6 .events_list {
+        border-radius: 0;
+        padding: calc(var(--base-gap) * 2);
+    }
+
+    .start_page .section_6 .events_list .event .actions {
+        justify-content: flex-start;
+    }
+
 }
 
 @media (max-width: 580px) {
@@ -987,12 +1046,31 @@
         grid-template-columns: 1fr;
     }
 
-    .start_page .section_5 .media .block_2 .photo:first-child{
+    .start_page .section_5 .media .block_2 .photo:first-child {
         width: 100%;
     }
-    
-    .start_page .section_5 .media .block_2 .photo:not(:first-child){
+
+    .start_page .section_5 .media .block_2 .photo:not(:first-child) {
         display: none;
+    }
+
+    /* 6 секция */
+    .start_page .section_6 .events_list .event .title .common {
+        font-size: calc(var(--base-font-size) * 1.0);
+    }
+
+    .start_page .section_6 .events_list .event .actions .tarif,
+    .start_page .section_6 .events_list .event .actions .custmers,
+    .start_page .section_6 .events_list .event .actions .reg {
+        border-radius: calc(var(--base-border-radius) / 2);
+    }
+
+    .start_page .section_6 .events_list .event {
+        border-radius: calc(var(--base-gap) / 2);
+    }
+
+    .start_page .section_title {
+        font-size: calc(var(--base-font-size) * 1.5);
     }
 }
 
@@ -1005,6 +1083,6 @@
         font-size: calc(var(--base-font-size) * 0.85);
     }
 
-   
-    
+
+
 }
