@@ -288,10 +288,6 @@
 .start_page .section_4 .promo_steps {
     background: linear-gradient(135deg, var(--background-1-opacity-80) 0%, var(--background-2-opacity-80) 100%);
     display: grid;
-    grid-template-areas:
-        "section_4_block_1 section_4_block_2 section_4_block_3"
-        "section_4_block_1 section_4_block_4 section_4_block_5"
-    ;
     grid-template-columns: repeat(3, 1fr);
     gap: calc(var(--base-gap) * 2);
     color: var(--white-text-color);
@@ -300,26 +296,21 @@
     align-items: flex-start;
 }
 
+.start_page .section_4 .promo_steps ul {
+    grid-column: 2/4;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--base-gap) * 2);
+}
+
+.start_page .section_4 .promo_steps ul li {
+    width: calc(50% - var(--base-gap));
+}
+
 .start_page .section_4 .promo_steps .block_1 {
-    grid-area: section_4_block_1;
+    grid-column: 1/2;
     font-size: calc(var(--base-font-size) * 1.5);
     line-height: calc(var(--base-font-line-height) * 1.5);
-}
-
-.start_page .section_4 .promo_steps .block_2 {
-    grid-area: section_4_block_2;
-}
-
-.start_page .section_4 .promo_steps .block_3 {
-    grid-area: section_4_block_3;
-}
-
-.start_page .section_4 .promo_steps .block_4 {
-    grid-area: section_4_block_4;
-}
-
-.start_page .section_4 .promo_steps .block_5 {
-    grid-area: section_4_block_5;
 }
 
 .start_page .section_4 .promo_steps .box {
@@ -331,6 +322,7 @@
     display: flex;
     flex-direction: column;
     gap: calc(var(--base-gap) * 2);
+    height: 100%;
 }
 
 .start_page .section_4 .promo_steps .box .title {
@@ -532,6 +524,8 @@
     color: #fff;
 }
 
+
+
 @media (max-width: 1700px) {
     .start_page .section_1 {
         aspect-ratio: 16 / 7;
@@ -597,7 +591,7 @@
         transform: translateX(-50%);
     }
 
-    /* третья секция */
+    /* 4 секция */
 
 }
 
@@ -608,6 +602,14 @@
 
     .start_page .section_2 .stat .box .title {
         font-size: calc(var(--base-font-size) * 2.0);
+    }
+
+    .start_page .section_3 .benefits {
+        gap: calc(var(--base-gap) * 2) 0;
+    }
+
+    .start_page .section_4 .promo_steps .box .title {
+        font-size: calc(var(--base-font-size) * 1.25);
     }
 }
 
@@ -654,10 +656,7 @@
     }
 
     /* третья секция */
-    .start_page .section_3 .benefits {
-        gap: calc(var(--base-gap) * 2) 0;
-    }
-
+   
     .start_page .section_3 .benefits .box .title {
         font-size: calc(var(--base-font-size) * 1.25);
     }
@@ -675,7 +674,20 @@
         padding: calc(var(--base-gap) * 2);
     }
 
+    /* 4 секция */
+    .start_page .section_4 .promo_steps {
+        grid-template-columns: 1fr;
+    }
+
+    .start_page .section_4 .promo_steps ul {
+        grid-column: 1 / 2;
+    }
+
+    .start_page .section_4 .promo_steps .box .title {
+        font-size: calc(var(--base-font-size) * 1.5);
+    }
 }
+
 
 @media (max-width: 1020px) {
     .start_page .section_3 .benefits {
@@ -745,10 +757,23 @@
 
     /* третья секция */
     .start_page .section_3 .benefits .block_1 {
-    margin-bottom: calc(var(--base-gap) * 2);
+        margin-bottom: calc(var(--base-gap) * 2);
     }
-}
 
+    /* 4 секция */
+
+    .start_page .section_4 .promo_steps {
+        padding: calc(var(--base-gap) * 2);
+    }
+
+    .start_page .section_4 .promo_steps .box .title {
+        font-size: calc(var(--base-font-size) * 1.25);
+    }
+
+    .start_page .section_4 .promo_steps .box .descr {
+        font-size: calc(var(--base-font-size) * 1.0);
+}
+}
 @media (max-width: 700px) {
     .start_page {
         padding: 0;
@@ -836,7 +861,14 @@
         font-size: calc(var(--base-font-size) * 1.25);
     }
 
-    /* третья секция */
+    /* 4 секция */
+    .start_page .section_4 .promo_steps {
+        border-radius: 0;
+    }
+
+    .start_page .section_4 .promo_steps .box .title {
+        font-size: calc(var(--base-font-size) * 1.0);
+    }
 }
 
 @media (max-width: 580px) {
@@ -905,6 +937,22 @@
         max-width: 280px;
     }
 
+    /* 4 секция */
+    .start_page .section_4 .promo_steps ul li {
+        width: 100%;
+    }
+
+    .start_page .section_4 .promo_steps .box {
+        padding: calc(var(--base-gap) * 1.5);
+    }
+
+    .start_page .section_4 .promo_steps .box .title {
+        font-size: calc(var(--base-font-size) * 1.25);
+    }
+
+    .start_page .section_4 .promo_steps .block_1 {
+        line-height: calc(var(--base-font-line-height) * 1.25);
+    }
 }
 
 @media (max-width: 350px) {
@@ -915,4 +963,5 @@
     .start_page .section_1 .content .reg a {
         font-size: calc(var(--base-font-size) * 0.85);
     }
+    
 }
