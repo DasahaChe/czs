@@ -151,16 +151,17 @@
 }
 
 .start_page .section_2 .stat {
-    grid-template-areas:
+    /* grid-template-areas:
         "section_2_block_1 section_2_block_1 section_2_block_1"
         "section_2_block_2 section_2_block_3 section_2_block_4"
-    ;
+    ; */
     grid-template-columns: repeat(3, 1fr);
     gap: calc(var(--base-gap) * 2);
 }
 
 .start_page .section_2 .stat .block_1 {
-    grid-area: section_2_block_1;
+    /* grid-area: section_2_block_1; */
+    grid-column: 1/4;
 
 }
 
@@ -195,8 +196,12 @@
     line-height: calc(var(--base-font-line-height) * 1.25);
 }
 
+.start_page .section_3 .benefits {
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--base-gap) * 2);
+}
 .start_page .section_2 .stat .block_2 {
-    grid-area: section_2_block_2;
+    grid-column: 1/2;
 }
 
 .start_page .section_3 .benefits .box .descr ul {
@@ -205,25 +210,18 @@
 }
 
 .start_page .section_2 .stat .block_3 {
-    grid-area: section_2_block_3;
+    grid-column: 2/3;
 }
 
 .start_page .section_2 .stat .block_4 {
-    grid-area: section_2_block_4;
+    grid-column: 3/4;
 }
 
 
-.start_page .section_3 .benefits {
-    grid-template-areas:
-        "section_3_block_1 section_3_block_1 section_3_block_1"
-        "section_3_block_2 section_3_block_3 section_3_block_4"
-    ;
-    grid-template-columns: repeat(3, 1fr);
-    gap: calc(var(--base-gap) * 2);
-}
+
 
 .start_page .section_3 .benefits .block_1 {
-    grid-area: section_3_block_1;
+    grid-column: 1/4;
     background: var(--background-white);
 }
 
@@ -272,15 +270,15 @@
 }
 
 .start_page .section_3 .benefits .block_2 {
-    grid-area: section_3_block_2;
+    grid-column: 1/2;
 }
 
 .start_page .section_3 .benefits .block_3 {
-    grid-area: section_3_block_3;
+    grid-column: 2/3;
 }
 
 .start_page .section_3 .benefits .block_4 {
-    grid-area: section_3_block_4;
+    grid-column: 3/4;
 }
 
 
@@ -662,6 +660,7 @@
     }
 
     /* третья секция */
+    
 
     .start_page .section_3 .benefits .box .title {
         font-size: calc(var(--base-font-size) * 1.25);
@@ -778,6 +777,26 @@
         margin-bottom: calc(var(--base-gap) * 2);
     }
 
+    .start_page .section_3 .benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .start_page .section_3 .benefits .block_1 {
+        grid-column: 1 / 2;
+    }
+    
+    .start_page .section_3 .benefits .block_2 {
+        grid-column: 1 / 2;
+    }
+
+    .start_page .section_3 .benefits .block_3 {
+        grid-column: 1 / 2;
+    }
+
+    .start_page .section_3 .benefits .block_4 {
+        grid-column: 1 / 2;
+    }
+
     /* 4 секция */
 
     .start_page .section_4 .promo_steps {
@@ -801,6 +820,7 @@
         padding: calc(var(--base-gap) * 2) 0 0 0;
     }
 
+    
     /* 6 секция */
     .start_page .section_6 .events_list .event {
         min-width: calc(var(--base-gap) * 16);
@@ -933,7 +953,7 @@
         font-size: calc(var(--base-font-size) * 1.0);
     }
 
-    /* 5 секция */
+       /* 5 секция */
     .start_page .section_5 .media {
         padding: calc(var(--base-gap) * 2);
         padding-bottom: 0;
@@ -1031,8 +1051,8 @@
 
     .start_page .section_4 .promo_steps .box {
         padding: calc(var(--base-gap) * 1.5);
+        border-radius: calc(var(--base-border-radius) / 2);
     }
-
     .start_page .section_4 .promo_steps .box .title {
         font-size: calc(var(--base-font-size) * 1.25);
     }
