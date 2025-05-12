@@ -465,17 +465,17 @@
 }
 
 .start_page .section_6 .events_list .event .info .category .food {
-    padding: calc(var(--base-gap) * 0.5) calc(var(--base-gap) * 1);
-    border: 1px solid var(--base-color-3);
-    color: var(--base-color-3);
-    border-radius: calc(var(--base-border-radius) * 0.25);
+    padding: calc(var(--base-gap) * 0.5) calc(var(--base-gap) * 0);
+    /* border: 1px solid var(--base-color-3); */
+    color: var(--sub-text-color);
+    /* border-radius: calc(var(--base-border-radius) * 0.25); */
 }
 
 .start_page .section_6 .events_list .event .info .category .nonfood {
-    padding: calc(var(--base-gap) * 0.5) calc(var(--base-gap) * 1);
-    border: 1px solid var(--base-color-2);
-    color: var(--base-color-2);
-    border-radius: calc(var(--base-border-radius) * 0.25);
+    padding: calc(var(--base-gap) * 0.5) calc(var(--base-gap) * 0);
+    /* border: 1px solid var(--base-color-2); */
+    color: var(--sub-text-color);
+    /* border-radius: calc(var(--base-border-radius) * 0.25); */
 }
 
 .start_page .section_6 .events_list .event .actions {
