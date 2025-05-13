@@ -373,7 +373,7 @@
         margin-bottom: 0;
         margin-top: calc(var(--base-gap) * 2);
     }
-    
+
     .education .banner__text-logo {
         width: calc(var(--base-font-size) * 17);
     }
@@ -383,6 +383,33 @@
     .education .container {
         margin: 0 calc(var(--base-gap) * 2);
     }
+    .education .banner__grid {
+        padding: 0;
+    }
+    
+    .education .banner {
+        background-image: url(../img/480.png);    
+        height: calc(var(--base-font-size) * 47);
+    }
+    .education .banner__block {
+        height: calc(var(--base-font-size) * 20);
+    }
+
+    .education .banner__block-right {
+        order: -1;
+    }
+
+    .education .banner__list {
+        flex-direction: column;
+    }
+    .education .banner__text-logo {
+        width: calc(var(--base-font-size) * 8);
+    }
+    .education .banner__item {
+        margin-bottom: calc(var(--base-gap) * 2);
+        margin-top: 0;
+    }
+
 }
 
 @media (max-width: 350px) {
