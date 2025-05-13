@@ -54,6 +54,7 @@
 .vendors_page .description__text {
     margin: 0;
     font-size: calc(var(--base-font-size) * 1.25);
+    font-weight: 400;
     line-height: calc(var(--base-font-line-height)* 1.5);
 }
 
