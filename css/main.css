@@ -69,6 +69,7 @@
 }
 
 .start_page .section_1 .content .title {
+    margin: 0;
     font-size: calc(var(--base-font-size) * 4.5);
     line-height: calc(var(--base-font-line-height) * 1.25);
     font-family: var(--base-bold-font);
@@ -252,6 +253,7 @@
 }
 
 .start_page .section_3 .benefits .box .title {
+    margin: 0;
     font-size: calc(var(--base-font-size) * 2);
     line-height: calc(var(--base-font-line-height) * 1.25);
     font-family: var(--base-bold-font);
@@ -307,8 +309,10 @@
 }
 
 .start_page .section_4 .promo_steps .block_1 {
+    margin: 0;
     grid-column: 1/2;
     font-size: calc(var(--base-font-size) * 1.5);
+    font-weight: 400;
     line-height: calc(var(--base-font-line-height) * 1.5);
 }
 
@@ -388,6 +392,7 @@
 }
 
 .start_page .section_title {
+    margin: 0;
     font-size: calc(var(--base-font-size) * 2.5);
     line-height: calc(var(--base-font-line-height) * 1.25);
     font-family: var(--base-bold-font);
