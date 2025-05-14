@@ -368,7 +368,7 @@
     }
 
     .education .program__logo {
-        align-self: left;
+        align-self: flex-start;
         width: 30%;
         height: 30%;
     }
