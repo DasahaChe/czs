@@ -363,8 +363,8 @@
 
 .buyers_page .catelog__list {
     display: flex;
+    flex-wrap: wrap;
     gap: calc(var(--base-gap) * 2.5);
-
 }
 
 .buyers_page .catalog__block-description {
@@ -412,7 +412,7 @@
 .buyers_page .catalog__item {
     display: flex;
     flex-direction: column;
-    width: calc(50% - (var(--base-gap)/2));
+    width: calc(50% - calc(var(--base-gap) * 2));
 }
 
 .buyers_page .catalog__text,
@@ -590,7 +590,6 @@
     }
 
     .buyers_page .catelog__list {
-        flex-wrap: wrap;
         gap: 0;
     }
 
@@ -610,11 +609,6 @@
 }
 
 @media (max-width: 992px) {
-    .buyers_page .catelog__list {
-        flex-wrap: wrap;
-        gap: 0;
-    }
-
     .buyers_page .advantages__list {
         flex-wrap: wrap;
     }

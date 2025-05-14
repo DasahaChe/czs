@@ -305,8 +305,8 @@
 
 .vendors_page .catelog__list {
     display: flex;
+    flex-wrap: wrap;
     gap: calc(var(--base-gap) * 2.5);
-
 }
 
 .vendors_page .catalog__block-description {
@@ -354,7 +354,7 @@
 .vendors_page .catalog__item {
     display: flex;
     flex-direction: column;
-    width: calc(50% - (var(--base-gap)/2));
+    width: calc(50% - calc(var(--base-gap) * 2));
 }
 
 .vendors_page .catalog__text,
@@ -550,8 +550,7 @@
         align-items: start;
     }
 
-    .vendors_page .catelog__list {
-        flex-wrap: wrap;
+    .vendors_page .catelog__list {        
         gap: 0;
     }
 

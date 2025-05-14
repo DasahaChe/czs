@@ -1,0 +1,77 @@
+.about {
+    padding: 0 0 calc(var(--base-gap) * 1.5) 0;
+}
+
+.about .title__block {
+    margin-bottom: calc(var(--base-gap) * 2);
+}
+
+.about .title {
+    margin: 0 0 var(--base-gap) 0;
+    font-size: calc(var(--base-font-size)* 3.0);
+    line-height: calc(var(--base-font-line-height)* 1.25);
+    font-family: var(--base-bold-font);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-3));
+    display: inline-block;
+}
+
+.about .container {
+    display: flex;
+    margin: 0 calc(var(--base-gap) * 4);
+    padding: 0 calc(var(--base-gap) * 8);
+    flex-direction: column;
+}
+
+.about .description__title {
+    margin: 0 0 calc(var(--base-font-size) * 3.5) 0;
+    font-size: calc(var(--base-font-size) * 2.0);
+    line-height: calc(var(--base-font-line-height) * 1);
+    font-family: var(--base-bold-font);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    display: inline-block;
+}
+
+.about .description__subtitle {
+    margin: 0 0 calc(var(--base-font-size) * 3.5) 0;
+    font-size: calc(var(--base-font-size) * 2.0);
+    line-height: calc(var(--base-font-line-height) * 1);
+    font-family: var(--base-bold-font);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    display: inline-block;
+}
+
+@media (max-width: 1220px) {
+    .about .container {
+        padding: 0;
+    }
+
+    .about .title {
+        font-size: calc(var(--base-font-size) * 2);
+    }
+
+    .about .description__title {
+        font-size: calc(var(--base-font-size) * 1.5);
+    }
+}
+
+
+@media (max-width: 610px) {
+    .about .container {
+        margin: 0 calc(var(--base-gap) * 2);
+    }
+}
+
+@media (max-width: 350px) {
+    .about .container {
+        margin: 0 calc(var(--base-gap) * 1.25);
+    }
+}
