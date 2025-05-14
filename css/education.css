@@ -115,9 +115,9 @@
 }
 
 .education .seach__title {
-    margin: 0;
+    margin:calc(var(--base-font-size) * 2) 0;
     font-size: calc(var(--base-font-size) * 2);
-    line-height: calc(var(--base-font-line-height) * 4);
+    line-height: calc(var(--base-font-line-height) * 1);
     font-family: var(--base-bold-font);
     color: transparent;
     -webkit-background-clip: text;
@@ -459,6 +459,7 @@
     .education .program__item {
         max-width: 100%;
         border: none;
+        padding: var(--base-gap) calc(var(--base-gap) * 2);
     }
 
     .education .program__button {
