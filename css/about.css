@@ -25,9 +25,33 @@
     flex-direction: column;
 }
 
+.about .description {
+    display: flex;
+    flex-direction: row;    
+}
+
+.about .description__block{
+    width: 100%;
+    margin-right: calc(var(--base-gap) * 2.0);   
+}
+
 .about .description__title {
-    margin: 0 0 calc(var(--base-font-size) * 3.5) 0;
+    display: block;
+    margin: 0 0 calc(var(--base-font-size) * 1.25) 0;
     font-size: calc(var(--base-font-size) * 2.0);
+    line-height: calc(var(--base-font-line-height) * 1);
+    font-family: var(--base-bold-font);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+
+}
+
+.about .description__subtitle {
+    display: block;
+    margin: 0 0 calc(var(--base-font-size) * 1.25) 0;
+    font-size: calc(var(--base-font-size) * 1.5);
     line-height: calc(var(--base-font-line-height) * 1);
     font-family: var(--base-bold-font);
     color: transparent;
@@ -37,21 +61,30 @@
     display: inline-block;
 }
 
-.about .description__subtitle {
-    margin: 0 0 calc(var(--base-font-size) * 3.5) 0;
-    font-size: calc(var(--base-font-size) * 2.0);
-    line-height: calc(var(--base-font-line-height) * 1);
-    font-family: var(--base-bold-font);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
-    display: inline-block;
+.about .description__text,
+.about .description__list {
+    margin: 0;
+    margin-bottom: calc(var(--base-font-size) * 2);
+    font-size: calc(var(--base-font-size) * 1.25);
+    line-height: calc(var(--base-font-size) * 1.25);
+    color: var(--main-text-color);
+}
+
+.about .description__item {
+    margin-bottom: calc(var(--base-font-size) * 1.25);
+}
+
+.about .description__item:last-child {
+    margin-bottom: 0;
 }
 
 @media (max-width: 1220px) {
     .about .container {
         padding: 0;
+    }
+
+    .about .description {
+        flex-direction: column;
     }
 
     .about .title {
@@ -60,6 +93,7 @@
 
     .about .description__title {
         font-size: calc(var(--base-font-size) * 1.5);
+        margin-bottom: calc(var(--base-font-size) * 2);
     }
 }
 
