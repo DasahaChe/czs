@@ -37,7 +37,7 @@
     padding: calc(var(--base-gap) * 4) calc(var(--base-gap) * 8);
     color: #fff;
     height: 100%;
-    gap:calc(var(--base-gap) * 2);
+    gap: calc(var(--base-gap) * 2);
 }
 
 .education .banner__block {
@@ -150,6 +150,7 @@
 
 .education .seach__list {
     display: flex;
+    flex-wrap: wrap;
     gap: calc(var(--base-gap) * 1.25);
 }
 
@@ -171,7 +172,7 @@
 .education .program__list {
     display: flex;
     gap: calc(var(--base-gap) * 2);
-    width: calc(100% - (var(--base-font-size) * 18) - calc(var(--base-gap) * 2));
+    width: calc(70% - calc(var(--base-gap) * 2));
 }
 
 .education .program__item {
@@ -181,7 +182,7 @@
     justify-content: space-between;
     border: 1px solid var(--item-border);
     border-radius: calc(var(--base-gap) / 2);
-    padding: calc(var(--base-gap) * 2) calc(var(--base-gap) * 4);
+    padding: calc(var(--base-gap) * 2);
 }
 
 .education .program__block {
@@ -203,18 +204,18 @@
 
 .education .program__block-user {
     display: flex;
-    gap: calc(var(--base-font-size) * 2);
-    margin-bottom: calc(var(--base-font-size) * 2);
+    gap: calc(var(--base-font-size) * 1.5);
+    margin-bottom: calc(var(--base-font-size) * 1);
 }
 
 .education .program__logo {
-    width: calc(var(--base-font-size) * 8.75);
-    height: calc(var(--base-font-size) * 8.75);
+    width: 30%;
+    height: 30%;
     border-radius: 50%;
 }
 
 .education .program__text-name {
-    margin: 0 0 calc(var(--base-gap) * 2) 0;
+    margin: 0;
     font-size: calc(var(--base-font-size) * 1.875);
     line-height: calc(var(--base-font-size) * 1);
     font-weight: 700;
@@ -249,7 +250,7 @@
 }
 
 .education .program__button {
-    margin: calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 1) -2px;
+    margin: 0;
     padding: calc(var(--base-gap) * 0.5) calc(var(--base-gap) * 2);
     display: block;
     text-align: center;
@@ -263,7 +264,7 @@
 }
 
 .education .program__banners {
-    width: calc(var(--base-font-size) * 18);
+    width: 30%;
 }
 
 .education .program__banners-img {
@@ -271,7 +272,7 @@
 }
 
 @media (max-width: 1440px) {
-.education .banner {
+    .education .banner {
         height: calc(var(--base-font-size) * 30);
     }
 
@@ -299,6 +300,31 @@
     .education .banner__img {
         height: calc(var(--base-font-size) * 24);
     }
+
+    .education .program__block-user {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .education .program__logo {
+        align-self: center;
+        width: 50%;
+        height: 50%;
+    }
+
+    .education .program__text-name {
+        text-align: center;
+        font-size: calc(var(--base-font-size) * 1.5);
+    }
+
+    .education .program__title {
+        font-size: calc(var(--base-font-size) * 1.75);
+    }
+
+    .education .program__text-user {
+        font-size: calc(var(--base-font-size) * 1.0);
+    }
+
 }
 
 @media (max-width: 1220px) {
@@ -307,7 +333,7 @@
     }
 
     .education .banner__grid {
-        padding: calc(var(--base-gap) * 3);        
+        padding: calc(var(--base-gap) * 3);
     }
 
     .education .banner__title {
@@ -331,11 +357,37 @@
         padding: calc(var(--base-font-size) * 0.5) calc(var(--base-font-size) * 2.0);
     }
 
+    .education .program__list {
+        width: 100%;
+        flex-wrap: wrap;
+    }
 
+    .education .program__block-user {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .education .program__logo {
+        align-self: left;
+        width: 30%;
+        height: 30%;
+    }
+
+    .education .program__text-name {
+        text-align: left;
+    }
+
+    .education .program__banners {
+        display: flex;
+        width: 100%;
+        background-color: var(--item-border);
+        justify-content: center;
+        gap: calc(var(--base-font-size) * 0.5);
+    }
 }
 
 @media (max-width: 1020px) {
-   .education .banner__grid {
+    .education .banner__grid {
         padding: calc(var(--base-gap) * 3) calc(var(--base-gap) * 0);
     }
 
@@ -351,6 +403,27 @@
         font-size: calc(var(--base-font-size) * 1.0);
     }
 
+    .education .program__list {
+        gap: var(--base-gap);
+    }
+
+    .education .program__item {
+        max-width: calc(50% - var(--base-gap) / 2);
+    }
+
+    .education .program__block-user {
+        flex-direction: column;
+    }
+
+    .education .program__logo {
+        align-self: center;
+        width: 50%;
+        height: 50%;
+    }
+
+    .education .program__text-name {
+        text-align: center;
+    }
 }
 
 @media (max-width: 750px) {
@@ -379,6 +452,19 @@
         height: 308px;
     }
 
+    .education .program__list {
+        gap: 0;
+    }
+
+    .education .program__item {
+        max-width: 100%;
+        border: none;
+    }
+
+    .education .program__button {
+        border-radius: calc(var(--base-border-radius) / 2);
+        margin-bottom: calc(var(--base-border-radius) * 2);
+    }
 }
 
 @media (max-width: 350px) {
