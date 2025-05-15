@@ -76,6 +76,9 @@ svg {
     max-width: 100%;
 }
 
+.img{
+    width: 100%;
+}
 .visually-hidden {
     position: absolute;
     width: 1px;

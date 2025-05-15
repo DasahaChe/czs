@@ -60,7 +60,7 @@
     overflow: hidden;
 }
 .events .event__logo {
-    width: 260px;
+    width: 320px;
 }
 
 .events .event__date {
@@ -89,6 +89,7 @@ text-transform: capitalize;
     padding: calc(var(--base-gap) * 2) calc(var(--base-gap) * 2.5) calc(var(--base-gap) * 2) 0;
     flex-direction: column;
     height: 100%;
+    width: calc(100% - var(--base-gap) * 20);
 }
 
 .events .event__title-main {
@@ -215,6 +216,7 @@ text-transform: capitalize;
 
     .events .event__description {
         padding: calc(var(--base-gap) *1.5) calc(var(--base-gap) * 2);
+        width: 100%;
     }
 
     .events .event__buttons {
@@ -268,7 +270,7 @@ text-transform: capitalize;
 
     .events .event__description {
         padding: calc(var(--base-gap) * 1) calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 1) 0;
-        
+        width: calc(100% - var(--base-gap) * 10);
     }
 
     .events .event__date {
@@ -278,7 +280,7 @@ text-transform: capitalize;
     }
 
     .events .event__logo {
-        width: 150px;
+        width: 160px;
         margin-bottom: var(--base-gap);
     }
 

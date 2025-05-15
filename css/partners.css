@@ -73,11 +73,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: calc(var(--base-font-size) * 2);
 }
 
-/* .partner .partners__item {
-   
-} */
+.partner .partners__item {
+   width: calc(var(--base-font-size) * 18.625);
+   height: calc(var(--base-font-size) * 9.25);
+   /* border: 1px solid var(--item-border); */
+}
 
 
 @media (max-width: 1220px) {
