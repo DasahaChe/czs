@@ -1,11 +1,9 @@
 .events {
     padding: 0 0 calc(var(--base-gap) * 1.5) 0;
 }
-
 .events .title__block {
     margin-bottom: calc(var(--base-gap) * 2);
 }
-
 .events .title {
     margin: 0 0 var(--base-gap) 0;
     font-size: calc(var(--base-font-size)* 3.0);
@@ -17,22 +15,18 @@
     background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-3));
     display: inline-block;
 }
-
 .events .container {
     display: flex;
     margin: 0 calc(var(--base-gap) * 4);
     padding: 0 calc(var(--base-gap) * 8);
     flex-direction: column;
 }
-
-
 .events .event {
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: repeat(12, 1fr);
     gap: var(--base-gap);
 }
-
 .events .event__list {
     grid-column: 1/8;
     display: flex;
@@ -40,7 +34,6 @@
     gap: var(--base-gap);
     justify-content: space-between;
 }
-
 .events .event__item {
     display: flex;
     gap: calc(var(--base-gap) * 2);
@@ -57,39 +50,26 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: calc(var(--base-gap) * 5) calc(var(--base-gap) * 2);
     min-height: calc(var(--base-gap) * 21.75);
     height: 100%;
     width: calc(var(--base-gap) * 21);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: var(--events-fon);
+    color: #fff;
     border-top-left-radius: var(--base-font-size);
     border-bottom-left-radius: var(--base-font-size);
     overflow: hidden;
-}
-
-.events .one {
-    background-image: url(../img/event-fon/foodfon.png);
-}
-
-.events .two {
-    background-image: url(../img/event-fon/flauerfon.png);
-}
-
-.events .tree {
-    background-image: url(../img/event-fon/neva.png);
-}
-
-.events .four {
-    background-image: url(../img/event-fon/ritailfon.png);
 }
 .events .event__logo {
     width: 260px;
 }
 
 .events .event__date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:calc(var(--base-gap) * 1.25);
     text-align: center;
-    font-size: calc(var(--base-font-size)* 1.25);
+    font-size: calc(var(--base-font-size)* 1.0);
 }
 .events .event__date-day{
 text-transform: capitalize;
@@ -108,7 +88,6 @@ text-transform: capitalize;
     display: flex;
     padding: calc(var(--base-gap) * 2) calc(var(--base-gap) * 2.5) calc(var(--base-gap) * 2) 0;
     flex-direction: column;
-    /* min-height: calc(var(--base-gap) * 21.75); */
     height: 100%;
 }
 
@@ -210,29 +189,14 @@ text-transform: capitalize;
         flex-direction: column;
     }
 
-    .events .one {
-        background-image: url(../img/event-fon/foodfon-line.png);
-    }
-
-    .events .two {
-        background-image: url(../img/event-fon/flauer-line.png);
-    }
-
-    .events .tree {
-        background-image: url(../img/event-fon/neva-line.png);
-    }
-
-    .events .four {
-        background-image: url(../img/event-fon/retalion-line.png);
-    }
-
     .events .event__block {
         flex-direction: row;
-        padding: calc(var(--base-gap) * 2.5) calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 2);
         min-height: calc(var(--base-gap) * 10);
         width: 100%;
         gap: var(--base-gap);
         justify-content: flex-start;
+        background-color: var(--events-fon);
+        color: #fff;
         border-top-right-radius: var(--base-gap);
         border-top-left-radius: var(--base-gap);
         border-bottom-left-radius: 0;
@@ -288,31 +252,14 @@ text-transform: capitalize;
     }
 
     .events .event__block {
-        flex-direction: column;
-        justify-content: space-between;
-        padding: calc(var(--base-gap) * 2) calc(var(--base-gap) * 1);
+        flex-direction: column;   
         min-height: calc(var(--base-gap) * 16.5);
-        width: calc(var(--base-gap) * 12.5);
+        width: calc(var(--base-gap) * 10);
         border-top-left-radius: var(--base-font-size);
         border-top-right-radius: 0;
         border-bottom-left-radius: var(--base-font-size);
     }
 
-    .events .one {
-        background-image: url(../img/event-fon/foodfon.png);
-    }
-
-    .events .two {
-        background-image: url(../img/event-fon/flauerfon.png);
-    }
-
-    .events .tree {
-        background-image: url(../img/event-fon/neva.png);
-    }
-
-    .events .four {
-        background-image: url(../img/event-fon/ritailfon.png);
-    }
 
     .events .event__banners {
         flex-direction: row;
@@ -321,7 +268,13 @@ text-transform: capitalize;
 
     .events .event__description {
         padding: calc(var(--base-gap) * 1) calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 1) 0;
-        /* min-height: calc(var(--base-gap) * 16.5); */
+        
+    }
+
+    .events .event__date {
+        text-align: left;
+        font-size: calc(var(--base-font-size) * 0.75);
+        padding-bottom: calc(var(--base-font-size) * 2);
     }
 
     .events .event__logo {
@@ -366,19 +319,19 @@ text-transform: capitalize;
     }
 
     .events .event__block {
-        padding: calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 2);
+        flex-direction: row;
         min-height: calc(var(--base-gap) * 4);
         width: 100%;
         height: 60%;
-        gap: var(--base-gap);
-        justify-content: space-between;
+        gap: var(--base-gap);        
         border-top-right-radius: var(--base-gap);
         border-top-left-radius: var(--base-gap);
         border-bottom-left-radius: 0;
     }
 
     .events .event__logo {
-        width: 100px;
+        width: 120px;
+        margin-bottom: 0;
     }
 
     .events .event__date {
@@ -387,7 +340,7 @@ text-transform: capitalize;
 
     .events .event__description {
         padding: calc(var(--base-gap) * 1) calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 1.5);
-        /* min-height: calc(var(--base-gap) * 16.5); */
+        
     }
 
     .events .event__text {

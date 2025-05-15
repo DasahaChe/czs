@@ -36,6 +36,7 @@
     --svgGradient: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
     --item-border: #dadada;
     --events-acsent: #02ad35;
+    --events-fon: #2e3444;
 }
 
 @font-face {
