@@ -64,9 +64,9 @@
 .about .description p{
     margin: 0;
     padding: 0;
-    margin-bottom: calc(var(--base-font-size) * 2);
+    margin-bottom: calc(var(--base-font-size) * 1);
     font-size: calc(var(--base-font-size) * 1.25);
-    line-height: calc(var(--base-font-size) * 1.25);
+    line-height: calc(var(--base-font-size) * 1.5);
     color: var(--main-text-color);
 }
 .about .description ul {
