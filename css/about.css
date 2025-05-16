@@ -35,7 +35,7 @@
     margin-right: calc(var(--base-gap) * 2.0);   
 }
 
-.about .description__title {
+.about .description h2 {
     display: block;
     margin: 0 0 calc(var(--base-font-size) * 1.25) 0;
     font-size: calc(var(--base-font-size) * 2.0);
@@ -48,7 +48,7 @@
 
 }
 
-.about .description__subtitle {
+.about .description h3 {
     display: block;
     margin: 0 0 calc(var(--base-font-size) * 1.25) 0;
     font-size: calc(var(--base-font-size) * 1.5);
@@ -61,21 +61,29 @@
     display: inline-block;
 }
 
-.about .description__text,
-.about .description__list {
+.about .description p{
     margin: 0;
     padding: 0;
-    margin-bottom: calc(var(--base-font-size) * 1);
+    margin-bottom: calc(var(--base-font-size) * 2);
+    font-size: calc(var(--base-font-size) * 1.25);
+    line-height: calc(var(--base-font-size) * 1.25);
+    color: var(--main-text-color);
+}
+.about .description ul {
+    margin: 0;
+    padding: 0;
+    padding-left: calc(var(--base-font-size) * 2);
+    margin-bottom: calc(var(--base-font-size) * 2);
     font-size: calc(var(--base-font-size) * 1.25);
     line-height: calc(var(--base-font-size) * 1.25);
     color: var(--main-text-color);
 }
 
-.about .description__item {
+.about .description li {
     margin-bottom: calc(var(--base-font-size) * 1.25);
 }
 
-.about .description__item:last-child {
+.about .description li:last-child {
     margin-bottom: 0;
 }
 
@@ -92,7 +100,7 @@
         font-size: calc(var(--base-font-size) * 2);
     }
 
-    .about .description__title {
+    .about .description h2 {
         font-size: calc(var(--base-font-size) * 1.5);
         margin-bottom: calc(var(--base-font-size) * 2);
     }
