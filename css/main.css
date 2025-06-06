@@ -122,7 +122,7 @@
         padding: 0 calc(var(--base-gap) * 2);
     }
 
-        .start_page .header .header__logo-name {
+    .start_page .header .header__logo-name {
         font-size: calc(var(--base-font-size) * 1.38);
         line-height: calc(var(--base-font-size) * 1.0);
     }
@@ -175,10 +175,12 @@
         width: var(--base-font-size) * 1;
         height: var(--base-font-size) * 1;
         color: #fff;
+        transition: color 0.3s ease;
     }
 
     .start_page .header .header__list-top {
-        gap: 0;
+        gap: calc(var(--base-gap) / 2);
+        justify-content: flex-start;
     }
 
     .start_page .header .header__tel {
@@ -186,16 +188,17 @@
     }
 
     .start_page .header .header__button {
-        padding: calc(var(--base-gap) / 2) calc(var(--base-gap) * 1.75);
+        padding: calc(var(--base-gap) / 4) calc(var(--base-gap) * 1.5);
         border: none;
         font-size: var(--base-font-size);
         color: #fff;
     }
 
-    .start_page .header .header__menu {
-        display: none;
+    .start_page .header .header__top .header__button:hover {
+        color: var(--base-color-2);
+        background-color: transparent;
+        border-color: transparent;
     }
-
 }
 
 @media (any-hover: hover) {
@@ -208,6 +211,9 @@
     .start_page .header .header__tel:hover {
         color: var(--base-color-2);
         background-image: url(../img/phoneB.png);
+    }
+    .start_page .header .header__top .header__burger:hover {
+        color: var(--base-color-2);
     }
 
 }
