@@ -1,9 +1,9 @@
-let headerNav = document.querySelector('.nav');
+let headerMenu = document.querySelector('.header__menu');
 function checkScreenSize() {
-    if (window.innerWidth <= 580) {
-        headerNav.classList.add('visually-hidden');
+    if (window.innerWidth <= 750) {
+        headerMenu.classList.add('visually-hidden');
     } else {
-        headerNav.classList.remove('visually-hidden');
+        headerMenu.classList.remove('visually-hidden');
     }
 }
 
@@ -13,7 +13,7 @@ checkScreenSize();
 let burgerOpen = document.querySelector('.header__burger');
 let burgerClose = document.querySelector('.header__burger-close');
 burgerOpen.addEventListener('click', function() {
-    headerNav.classList.remove('visually-hidden');
+    headerMenu.classList.remove('visually-hidden');    
     burgerClose.classList.add('open');
     burgerOpen.classList.add('visually-hidden');
 
@@ -21,10 +21,9 @@ burgerOpen.addEventListener('click', function() {
 });
 
   burgerClose.addEventListener('click', function() {
-    headerNav.classList.add('visually-hidden');
+    headerMenu.classList.add('visually-hidden');
     burgerClose.classList.remove('open');
     burgerOpen.classList.remove('visually-hidden');
 
     document.body.style.overflow = 'auto';
   });
-

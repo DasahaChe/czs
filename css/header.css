@@ -351,6 +351,8 @@ body {
     .header .open {
         display: block;
         color: #fff;
+        width: var(--base-font-size);
+        height: var(--base-font-size);
     }
 
     .header .header__list-top {
