@@ -37,6 +37,7 @@
     --item-border: #dadada;
     --events-acsent: #02ad35;
     --events-fon: #2e3444;
+    --go-button: #00AD6E;
 }
 
 @font-face {
@@ -257,8 +258,8 @@ body {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: calc(var(--base-gap) * 2);
+    justify-content: center;
+    gap: calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 3);
 }
 
 .header .header__list-burger {
