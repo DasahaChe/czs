@@ -172,10 +172,62 @@
     width: 100%;
 }
 
+.start_page .main .advantage {
+    padding: calc(var(--base-gap) * 2) 0;
+}
 
+.start_page .main .advantage__list {
+    display: flex;
+    flex-direction: row;
+    gap: calc(var(--base-gap) * 2);
+}
 
+.start_page .main .advantage__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: calc(var(--base-gap) * 2) 0;
+}
 
+.start_page .main .advantage__title {
+    padding: 0;
+    margin: 0 0 32px 0;
+    font-family: var(--base-bold-font);
+    font-size: calc(var(--base-font-size) * 3);
+    line-height: var(--base-font-size);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-3));
+    display: inline-block;
+}
 
+.start_page .main .advantage__subtitle {
+    margin: 0;
+    margin-bottom: calc(var(--base-gap) * 1.25);
+    font-size: calc(var(--base-font-size) * 1.25);
+    font-family: var(--base-bold-font);
+    color: var(--base-color-6);
+}
+
+.start_page .main .advantage__text {
+    padding: 0;
+    margin: 0;
+    font-size: calc(var(--base-font-size) * 1.25);
+    line-height: calc(var(--base-font-size) * 1.25);
+}
+
+.start_page .main .advantage__img {
+    max-width: 100%;
+    height: auto;
+    height: calc(var(--base-font-size) * 10);
+    margin-bottom: calc(var(--base-gap) * 4);
+}
+
+.start_page .main .advantage__span {
+    font-family: var(--base-bold-font);
+}
 
 
 
@@ -247,6 +299,15 @@
 
     .start_page .main .about__block-video {
         flex-direction: column;
+    }
+
+    .start_page .main .advantage__list {
+        flex-direction: column;
+    }
+
+    .start_page .main .advantage__img {
+        height: calc(var(--base-font-size) * 10);
+        margin-bottom: calc(var(--base-gap) * 4);
     }
 }
 
@@ -378,6 +439,10 @@
         margin: 0 0 calc(var(--base-gap) * 1.25) 0;
         font-size: calc(var(--base-font-size) * 1.0);
     }
+
+.start_page .main .advantage__title {
+    font-size: calc(var(--base-font-size) * 2);
+}
 }
 
 
