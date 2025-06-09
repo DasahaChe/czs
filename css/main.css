@@ -116,7 +116,7 @@
 .start_page .main .about__title {
     padding: 0;
     margin: 0 0 calc(var(--base-font-size) / 3.0) 0;
-    font-size: calc(var(--base-font-size) * 3.0);
+    font-size: calc(var(--base-font-size) * 3.5);
     line-height: calc(var(--base-font-size) * 1);
     font-family: var(--base-bold-font);
     color: transparent;
@@ -141,11 +141,11 @@
 
 .start_page .main .about__button {
     padding: var(--base-font-size) calc(var(--base-font-size) * 2);
-    margin-left: -2px;
     width: calc(var(--base-font-size) * 22.75);
+    font-size: calc(var(--base-font-size) * 0.75);
     color: #fff;
     border-radius: calc(var(--base-font-size) * 2);
-    border: 2px solid #fff;
+    border: 1px solid var(--base-color-6);
     background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
     outline: none;
     transition: border-color 0.5s ease;
@@ -153,7 +153,7 @@
 
 .start_page .main .about__video {
     width: calc(var(--base-font-size) * 35);
-    margin-bottom: calc(var(--base-gap) * 1);
+    /* margin-bottom: calc(var(--base-gap) * 1); */
 }
 
 .start_page .main .about__video-button {
