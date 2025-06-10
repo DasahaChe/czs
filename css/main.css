@@ -133,7 +133,7 @@
     line-height: calc(var(--base-font-size) * 1.25);
 }
 
-.start_page .main .about__video-btn{
+.start_page .main .about__video-btn {
     display: flex;
     gap: calc(var(--base-gap) * 1);
     flex-wrap: wrap;
@@ -156,7 +156,8 @@
     /* margin-bottom: calc(var(--base-gap) * 1); */
 }
 
-.start_page .main .about__video-button, .start_page .main .review__button {
+.start_page .main .about__video-button,
+.start_page .main .review__button {
     padding: var(--base-font-size) calc(var(--base-font-size) * 2);
     width: calc(var(--base-font-size) * 22);
     color: var(--base-color-6);
@@ -167,9 +168,11 @@
     outline: none;
     transition: border-color 0.5s ease, color 0.5s ease;
 }
+
 .start_page .main .review__button {
     justify-self: center;
 }
+
 .start_page .main .about__video-description {
     width: 100%;
 }
@@ -196,7 +199,8 @@
 }
 
 .start_page .main .advantage__title,
-.start_page .main .review__title {
+.start_page .main .review__title,
+.start_page .main .steps__title {
     padding: 0;
     margin: 0 0 64px 0;
     font-family: var(--base-bold-font);
@@ -251,7 +255,7 @@
 
 .start_page .main .banner {
     display: flex;
-    margin-bottom:  calc(var(--base-gap) * 4);
+    margin-bottom: calc(var(--base-gap) * 2);
     width: 100%;
     justify-content: center;
     padding: calc(var(--base-gap) * 6) 0;
@@ -312,43 +316,75 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
-.start_page .main .review__list{
+
+.start_page .main .review {
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--base-gap) * 2) 0;
+}
+
+.start_page .main .review__list {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     gap: calc(var(--base-gap) * 2);
 }
 
-.start_page .main .review__item{
-width: calc((100% / 3) - (var(--base-gap) * 2));
+.start_page .main .review__item {
+    width: calc((100% / 3) - (var(--base-gap) * 2));
 }
 
-.start_page .main .review__logo{
+.start_page .main .review__logo {
     height: calc(var(--base-gap) * 5);
     margin-bottom: calc(var(--base-gap) * 2);
 }
 
-.start_page .main .review__video{
+.start_page .main .review__video {
     margin-bottom: calc(var(--base-gap) * 2);
 }
 
-.start_page .main .review__subtitle{
+.start_page .main .review__subtitle {
     margin: 0 0 32px 0;
     padding: 0;
     font-size: calc(var(--base-font-size) * 1.25);
     font-family: var(--base-bold-font);
 }
 
-.start_page .main .review__text{
+.start_page .main .review__text {
     margin: 0 0 32px 0;
     padding: 0;
     font-size: calc(var(--base-font-size) * 1.25);
     line-height: calc(var(--base-font-size) * 1.25);
 }
 
+.start_page .main .review__button {
+    align-self: center;
+}
 
+.start_page .main .steps__subtitle {
+    padding: 0;
+    margin: 0 0 48px 0;
+    font-family: var(--base-bold-font);
+    font-size: calc(var(--base-font-size) * 2);
+    line-height: var(--base-font-size);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-3));
+    display: inline-block;
+}
 
-
+.start_page .main .steps__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--base-gap) * 2);
+}
+.start_page .main .steps__item{
+    padding: calc(var(--base-gap) * 4);
+    width: calc(100% / 2 - var(--base-gap));
+    background-color: #E4F0F5;
+    border-radius: calc(var(--base-font-size) * 2);
+}
 
 
 
@@ -429,6 +465,15 @@ width: calc((100% / 3) - (var(--base-gap) * 2));
 
     .start_page .main .banner__title {
         font-size: calc(var(--base-font-size) * 2.0);
+    }
+
+    .start_page .main .review__item:nth-child(3),
+    .start_page .main .review__item:nth-child(6) {
+        display: none;
+    }
+
+    .start_page .main .review__item {
+        width: calc((100% / 2) - (var(--base-gap) * 1));
     }
 }
 
@@ -530,14 +575,16 @@ width: calc((100% / 3) - (var(--base-gap) * 2));
         background-color: transparent;
         border-color: transparent;
     }
-.start_page .main .about {
-    padding-bottom: 0;
-}
+
+    .start_page .main .about {
+        padding-bottom: 0;
+    }
+
     .start_page .main .about__video {
         width: 100%;
     }
 
-    .start_page .main .about__button{
+    .start_page .main .about__button {
         align-self: center;
         padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
         max-width: calc(var(--base-font-size) * 20);
@@ -545,7 +592,7 @@ width: calc((100% / 3) - (var(--base-gap) * 2));
         width: 100%;
     }
 
-    .start_page .main .about__video-button, .start_page .main .review__button {
+    .start_page .main .about__video-button {
         padding: 0;
         width: calc(var(--base-font-size) * 13);
         border: none;
@@ -561,7 +608,10 @@ width: calc((100% / 3) - (var(--base-gap) * 2));
         font-size: calc(var(--base-font-size) * 1.0);
     }
 
-    .start_page .main .advantage__title, .start_page .main .review__title  {
+    .start_page .main .about__title,
+    .start_page .main .advantage__title,
+    .start_page .main .review__title,
+    .start_page .main .steps__title {
         font-size: calc(var(--base-font-size) * 2);
     }
 
@@ -571,8 +621,37 @@ width: calc((100% / 3) - (var(--base-gap) * 2));
         margin-bottom: calc(var(--base-gap) * 2);
     }
 
-.start_page .main .banner {
-    margin-bottom: calc(var(--base-gap) * 1.5);
+    .start_page .main .banner {
+        margin-bottom: calc(var(--base-gap) * 1.5);
+    }
+
+    .start_page .main .banner__item,
+    .start_page .main .banner__text,
+    .start_page .main .review__text,
+    .start_page .main .advantage__text,
+    .start_page .main .about__text,
+    .start_page .main .review__subtitle {
+        font-size: calc(var(--base-font-size) * 1.0);
+    }
+
+    .start_page .main .review__list {
+        flex-direction: column;
+    }
+
+    .start_page .main .review__item:nth-child(3),
+    .start_page .main .review__item:nth-child(6) {
+        display: block;
+    }
+
+    .start_page .main .review__item {
+        width: 100%;
+    }
+
+    .start_page .main .review__item {
+        width: 100%;
+    }
+.start_page .main .steps{
+    padding: calc(var(--base-gap) * 2) 0;
 }
 }
 
@@ -607,8 +686,7 @@ width: calc((100% / 3) - (var(--base-gap) * 2));
     .start_page .main .review__button:hover,
     .start_page .main .about__video-button:hover,
     .start_page .main .advantage__button:hover,
-    .start_page .main .banner__button:hover
-     {
+    .start_page .main .banner__button:hover {
         color: #fff;
         background: var(--base-color-2);
         border-color: var(--base-color-2);
