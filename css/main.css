@@ -201,7 +201,8 @@
 
 .start_page .main .advantage__title,
 .start_page .main .review__title,
-.start_page .main .steps__title {
+.start_page .main .steps__title,
+.start_page .main .photo__title {
     padding: 0;
     margin: 0 0 64px 0;
     font-family: var(--base-bold-font);
@@ -318,7 +319,9 @@
     background-size: contain;
 }
 
-.start_page .main .review {
+.start_page .main .review,
+.start_page .main .steps,
+.start_page .main .photo {
     display: flex;
     flex-direction: column;
     padding: calc(var(--base-gap) * 2) 0;
@@ -412,9 +415,34 @@
     border-radius: 50%;
 }
 
+.start_page .main .event{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: calc(var(--base-gap) * 4) 0;
+    color: #fff;
+    background: linear-gradient(to right, var(--background-2-opacity-80), var(--background-1-opacity-80));
+}
 
+.start_page .main .event__title{
+    margin: 0 0 32px 0;
+    font-family: var(--base-bold-font);
+    font-size: calc(var(--base-font-size) * 3);
+    line-height: calc(var(--base-font-size) * 1.0);
+}
+.start_page .main .event__list{
+    display: flex;
+    gap: calc(var(--base-gap) * 2);
+    flex-wrap: wrap;
+}
 
-
+.start_page .main .event__item{
+    width: calc((100% / 3) - (var(--base-gap) * 2));
+    height: calc(var(--base-font-size) * 20);
+    background: #4565ad;
+    border-radius: calc(var(--base-font-size) * 2);
+}
 
 
 
@@ -470,6 +498,10 @@
     .start_page .main .steps__item {
         padding: calc(var(--base-gap) * 2);
     }
+
+    .start_page .main .event__item{
+    width: calc((100% / 2) - (var(--base-gap) * 1));
+    }
 }
 
 @media (max-width: 1020px) {
@@ -517,6 +549,10 @@
 
     .start_page .main .steps__item {
         width: 100%;
+    }
+
+    .start_page .main .event__item{
+    width: 100%;
     }
 }
 
@@ -654,7 +690,9 @@
     .start_page .main .about__title,
     .start_page .main .advantage__title,
     .start_page .main .review__title,
-    .start_page .main .steps__title {
+    .start_page .main .steps__title,
+    .start_page .main .photo__title,
+    .start_page .main .event__title {
         font-size: calc(var(--base-font-size) * 2);
     }
 
@@ -702,6 +740,11 @@
 
     .start_page .main .steps__button {
         min-width: 180px;
+    }
+
+    .start_page .main .steps__logo {
+    width: calc(var(--base-gap) * 6);
+    height: calc(var(--base-gap) * 6);
     }
 }
 
