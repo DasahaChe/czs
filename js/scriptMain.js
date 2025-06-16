@@ -27,3 +27,32 @@ burgerOpen.addEventListener('click', function() {
 
     document.body.style.overflow = 'auto';
   });
+
+var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 3,
+    centeredSlides: true,
+    spaceBetween: 8,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+         2540: {
+            slidesPerView: 3,
+        },
+        1020: {
+            slidesPerView: 2,
+        },
+        750: {
+            slidesPerView: 1,
+        },
+         481: {
+            slidesPerView: 1,
+        },
+    },
+});
+

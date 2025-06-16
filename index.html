@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <title>Платформа ЦЗС</title>
 </head>
 
@@ -287,6 +290,25 @@
                 </section>
                 <section class="photo">
                     <h2 class="photo__title">Фотоотчеты наших мероприятий</h2>
+                    <div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="img/image1.jpg" alt="photo"></div>
+        <div class="swiper-slide">
+            <img src="img/image2.webp" alt="photo"></div>
+        <div class="swiper-slide">
+            <img src="img/image3.webp" alt="photo"></div>
+        <div class="swiper-slide">
+            <img src="img/image4.jpg" alt="photo"></div>
+            <div class="swiper-slide">
+            <img src="img/image4.jpg" alt="photo"></div>
+            <div class="swiper-slide">
+            <img src="img/image4.jpg" alt="photo"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
                 </section>
             </div>
             <section class="event">
@@ -294,78 +316,80 @@
                     <h2 class="event__title">Ближайшие мероприятия</h2>
                     <ul class="event__list list-reset">
                         <li class="event__item">
-                        <div class="event__block">
-                            <img class="event__logo" src="img/event-logo/food.png" alt="wold-food_logo">
-                            <div class="event__date">
-                                <p class="event__date-day">2-3 ИЮЛЯ 2025г</p>
-                                <p class="event__date-place">Москва, Крокус Экспо</p>
-                            </div>
-                        </div>
-                        <div class="event__description">
-                            <h2 class="event__title-description">WorldFood Moscow 2025</h2>
-                            <h3 class="event__subtitle-description">2-3 июля, Москва, Крокус Экспо</h3>
-                            <p class="event__text">Большая закупка продуктов и товаров в федеральные и региональные
-                                торговые сети</p>
-                            <div class="event__bottom">
-                                <p class="event__text-count">более 100 закупщиков</p>
-                                <p class="event__text-caterory">В категориях: food</p>
-                                <div class="event__buttons">
-                                    <button class="event__button btn-reset">Тарифы</button>
-                                    <button class="event__button btn-reset">Участники</button>
-                                    <button
-                                        class="event__button event__button-main btn-reset">Зарегистрироваться</button>
+                            <div class="event__block">
+                                <img class="event__logo" src="img/event-logo/food.png" alt="wold-food_logo">
+                                <div class="event__date">
+                                    <p class="event__date-day">2-3 ИЮЛЯ 2025г</p>
+                                    <p class="event__date-place">Москва, Крокус Экспо</p>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="event__item">
-                        <div class="event__block">
-                            <img class="event__logo" src="img/event-logo/flowers.png" alt="flowers_logo">
-                            <div class="event__date">
-                                <p class="event__date-day">9 СЕНТЯБРЯ 2025г</p>
-                                <p class="event__date-place">Москва, Крокус Экспо</p>
-                            </div>
-                        </div>
-                        <div class="event__description">
-                            <h2 class="event__title-description">Цветы Экспо 2025</h2>
-                            <h3 class="event__subtitle-description">9 сентября, Москва, Крокус Экспо</h3>
-                            <p class="event__text">Фишка события в пяти восьми словах, неочевидная выгода (форум, семинар, персона)</p>
-                            <div class="event__bottom">
-                                <p class="event__text-count">120 закупщиков</p>
-                                <p class="event__text-caterory">В категориях: nonfood</p>
-                                <div class="event__buttons">
-                                    <button class="event__button btn-reset">Тарифы</button>
-                                    <button class="event__button btn-reset">Участники</button>
-                                    <button
-                                        class="event__button event__button-main btn-reset">Зарегистрироваться</button>
+                            <div class="event__description">
+                                <h2 class="event__title-description">WorldFood Moscow 2025</h2>
+                                <h3 class="event__subtitle-description">2-3 июля, Москва, Крокус Экспо</h3>
+                                <p class="event__text">Большая закупка продуктов и товаров в федеральные и региональные
+                                    торговые сети</p>
+                                <div class="event__bottom">
+                                    <p class="event__text-count">более 100 закупщиков</p>
+                                    <p class="event__text-caterory">В категориях: food</p>
+                                    <div class="event__buttons">
+                                        <button class="event__button btn-reset">Тарифы</button>
+                                        <button class="event__button btn-reset">Участники</button>
+                                        <button
+                                            class="event__button event__button-main btn-reset">Зарегистрироваться</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                     <li class="event__item">
-                        <div class="event__block">
-                            <img class="event__logo" src="img/event-logo/neva.png" alt="neva">
-                            <div class="event__date">
-                                <p class="event__date-day">2-3 ИЮЛЯ 2025г</p>
-                                <p class="event__date-place">Санкт-Петербург DAA EXPO</p>
-                            </div>
-                        </div>
-                        <div class="event__description">
-                            <h2 class="event__title-description">NEVA BUYERS WEEK 2025</h2>
-                            <h3 class="event__subtitle-description">2-3 июля, Санкт-Петербург DAA EXPO</h3>
-                            <p class="event__text">Фишка события в пяти восьми словах, неочевидная выгода (форум, семинар, персона)</p>
-                            <div class="event__bottom">
-                                <p class="event__text-count">160 закупщиков</p>
-                                <p class="event__text-caterory">В категориях: food, nonfood</p>
-                                <div class="event__buttons">
-                                    <button class="event__button btn-reset">Тарифы</button>
-                                    <button class="event__button btn-reset">Участники</button>
-                                    <button
-                                        class="event__button event__button-main btn-reset">Зарегистрироваться</button>
+                        </li>
+                        <li class="event__item">
+                            <div class="event__block">
+                                <img class="event__logo" src="img/event-logo/flowers.png" alt="flowers_logo">
+                                <div class="event__date">
+                                    <p class="event__date-day">9 СЕНТЯБРЯ 2025г</p>
+                                    <p class="event__date-place">Москва, Крокус Экспо</p>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                            <div class="event__description">
+                                <h2 class="event__title-description">Цветы Экспо 2025</h2>
+                                <h3 class="event__subtitle-description">9 сентября, Москва, Крокус Экспо</h3>
+                                <p class="event__text">Фишка события в пяти восьми словах, неочевидная выгода (форум,
+                                    семинар, персона)</p>
+                                <div class="event__bottom">
+                                    <p class="event__text-count">120 закупщиков</p>
+                                    <p class="event__text-caterory">В категориях: nonfood</p>
+                                    <div class="event__buttons">
+                                        <button class="event__button btn-reset">Тарифы</button>
+                                        <button class="event__button btn-reset">Участники</button>
+                                        <button
+                                            class="event__button event__button-main btn-reset">Зарегистрироваться</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="event__item">
+                            <div class="event__block">
+                                <img class="event__logo" src="img/event-logo/neva.png" alt="neva">
+                                <div class="event__date">
+                                    <p class="event__date-day">2-3 ИЮЛЯ 2025г</p>
+                                    <p class="event__date-place">Санкт-Петербург DAA EXPO</p>
+                                </div>
+                            </div>
+                            <div class="event__description">
+                                <h2 class="event__title-description">NEVA BUYERS WEEK 2025</h2>
+                                <h3 class="event__subtitle-description">2-3 июля, Санкт-Петербург DAA EXPO</h3>
+                                <p class="event__text">Фишка события в пяти восьми словах, неочевидная выгода (форум,
+                                    семинар, персона)</p>
+                                <div class="event__bottom">
+                                    <p class="event__text-count">160 закупщиков</p>
+                                    <p class="event__text-caterory">В категориях: food, nonfood</p>
+                                    <div class="event__buttons">
+                                        <button class="event__button btn-reset">Тарифы</button>
+                                        <button class="event__button btn-reset">Участники</button>
+                                        <button
+                                            class="event__button event__button-main btn-reset">Зарегистрироваться</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </section>
