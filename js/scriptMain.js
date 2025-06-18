@@ -28,50 +28,39 @@ burgerOpen.addEventListener('click', function() {
     document.body.style.overflow = 'auto';
   });
 
-var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 3,
-    centeredSlides: true,
-    spaceBetween: 0,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-         2540: {
-            slidesPerView: 3,
-        },
-         750: {
-            slidesPerView: 2,
-        },
-        
-         481: {
-            slidesPerView: 1,
-        },
-         319: {
-            slidesPerView: 1,
-        },
-    },
-    
-});
-let swiperPagination = document.querySelector('.swiper-pagination');
-let swiperButtonPrev = document.querySelector('.swiper-button-prev');
-let swiperButtonNext = document.querySelector('.swiper-button-next');
-
-swiperPagination.addEventListener('click', () => {
-    let swiperSlideActive = document.querySelector('.swiper-slide-active');
-    swiperSlideActive.style.transform = 'scale(1.2)';
-});
-
-swiperButtonPrev.addEventListener('click', () => {
-    let swiperSlideActive = document.querySelector('.swiper-slide-active');
-    swiperSlideActive.style.transform = 'scale(1.2)';
-});
-
-swiperButtonNext.addEventListener('click', () => {
-    let swiperSlideActive = document.querySelector('.swiper-slide-active');
-    swiperSlideActive.style.transform = 'scale(1.2)';
-});
+ document.addEventListener('DOMContentLoaded', function() {
+const swiper = new Swiper('.swiper', {
+                
+                slidesPerView: 3,
+                spaceBetween: 20,
+                centeredSlides: true,
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+              
+                effect: 'coverflow',
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 2,
+                    slideShadows: false,
+                },
+              
+                breakpoints: {
+                    318: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                        centeredSlides: true,
+                    },
+                   
+                    1024: {
+                        slidesPerView: 2,
+                        spaceBetween: 15,
+                        centeredSlides: true,
+                    }
+                }
+            });
+        });

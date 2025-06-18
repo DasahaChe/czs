@@ -544,44 +544,70 @@
     transition: border-color 0.5s ease;
 }
 
-
-.swiper-container {
-    position: relative;
-    display: flex;
+.gallery-container {
     width: 100%;
-    overflow: hidden;
-}
-
-.swiper-slide {
-     display: flex;
-    width: calc(100% / 3);
-    height: 100%;
-}
-
-
-.swiper-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
     position: relative;
-     display: flex;
 }
 
-.swiper-slide-prev, .swiper-slide-next{
-    opacity: 0.2;
+.swiper {
+    width: 100%;
+    height: 400px;
 }
 
 .swiper-slide {
-  width: 200px; 
-  background-color: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавляем плавный переход */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+
 }
 
 .swiper-slide-active {
-  transform: scale(1.2);
-  z-index: 1; /* Увеличиваем z-index, чтобы активный слайд был поверх остальных */
+    opacity: 1;
+    transform: scale(1.1);
+    z-index: 1;
+    filter: none;
 }
 
+.swiper-slide-prev,
+.swiper-slide-next {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    transform: scale(0.9);
+    filter: grayscale(10%);
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-slide-prev:hover,
+.swiper-slide-next:hover {
+    color: #333333;
+}
 
 @media (max-width: 1199px) {
     .start_page {
@@ -636,8 +662,8 @@
     }
 
     .start_page .main .event__item:nth-child(3) {
-    display: none;
-}
+        display: none;
+    }
 }
 
 @media (max-width: 1020px) {
@@ -692,8 +718,8 @@
     }
 
     .start_page .main .event__item:nth-child(3) {
-    display: flex;
-}
+        display: flex;
+    }
 
 
 }
@@ -890,14 +916,15 @@
     }
 
     .start_page .main .event__block {
-   
-    gap: calc(var(--base-gap) * 1);
-}
+
+        gap: calc(var(--base-gap) * 1);
+    }
+
     .start_page .main .event__date {
         font-size: calc(var(--base-font-size) * 0.75);
     }
 
-   
+
 }
 
 
