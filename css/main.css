@@ -567,6 +567,22 @@
 .swiper-slide-prev, .swiper-slide-next{
     opacity: 0.2;
 }
+
+.swiper-slide {
+  width: 200px; 
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавляем плавный переход */
+}
+
+.swiper-slide-active {
+  transform: scale(1.2);
+  z-index: 1; /* Увеличиваем z-index, чтобы активный слайд был поверх остальных */
+}
+
+
 @media (max-width: 1199px) {
     .start_page {
         padding-top: calc(var(--base-gap) * 3);

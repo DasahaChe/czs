@@ -31,7 +31,7 @@ burgerOpen.addEventListener('click', function() {
 var swiper = new Swiper('.swiper-container', {
     slidesPerView: 3,
     centeredSlides: true,
-    spaceBetween: 8,
+    spaceBetween: 0,
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -44,15 +44,34 @@ var swiper = new Swiper('.swiper-container', {
          2540: {
             slidesPerView: 3,
         },
-        1020: {
+         750: {
             slidesPerView: 2,
         },
-        750: {
-            slidesPerView: 1,
-        },
+        
          481: {
             slidesPerView: 1,
         },
+         319: {
+            slidesPerView: 1,
+        },
     },
+    
+});
+let swiperPagination = document.querySelector('.swiper-pagination');
+let swiperButtonPrev = document.querySelector('.swiper-button-prev');
+let swiperButtonNext = document.querySelector('.swiper-button-next');
+
+swiperPagination.addEventListener('click', () => {
+    let swiperSlideActive = document.querySelector('.swiper-slide-active');
+    swiperSlideActive.style.transform = 'scale(1.2)';
 });
 
+swiperButtonPrev.addEventListener('click', () => {
+    let swiperSlideActive = document.querySelector('.swiper-slide-active');
+    swiperSlideActive.style.transform = 'scale(1.2)';
+});
+
+swiperButtonNext.addEventListener('click', () => {
+    let swiperSlideActive = document.querySelector('.swiper-slide-active');
+    swiperSlideActive.style.transform = 'scale(1.2)';
+});
