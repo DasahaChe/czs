@@ -1,0 +1,40 @@
+:root {
+    --base: 1em;
+    --white: #fff;
+    --text:#D9D9D9;
+}
+@font-face {
+    font-family: 'Fors';
+    src: local('TT Fors'), url('../fonts/TT_Fors_Regular.woff2') format('woff2'), url('../fonts/TT_Fors_Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fors ExtraBold';
+    src: local('TT Fors ExtraBold'), url('../fonts/TT_Fors_ExtraBold.woff2') format('woff2'), url('../fonts/TT_Fors_ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+body{
+    margin: calc(var(--base) * 5);
+    color: var(--text);
+    font-family: 'Fors';
+    background-color: #1B283A;
+}
+
+.dinamics{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(var(--base) * 32.5);
+    font-size: calc(var(--base) * 1.75);
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(var(--base) * 62.5);
+}
