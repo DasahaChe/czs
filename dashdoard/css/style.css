@@ -2,6 +2,12 @@
     --base: 1em;
     --white: #fff;
     --text: #D9D9D9;
+    --base-font: 'Fors';
+    --base-bold-font: 'Fors ExtraBold';
+
+    --gold: #C2AE63;
+    --fon: #1B283A;
+    --grey: #999;
 }
 
 @font-face {
@@ -24,19 +30,18 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     color: var(--text);
     font-family: 'Fors';
-    background-color: #1B283A;
+    background-color: var(--fon);
 }
 
 .dinamics {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 32%;
+    width: 27%;
     height: 100%;
-    margin-right: 120px;
+    margin-right: 32px;
     font-size: calc(var(--base) * 1.75);
 }
 
@@ -51,6 +56,7 @@ body {
 .logo__img {
     width: 100px;
     height: 100px;
+    margin-right: 16px;
 }
 
 .logo__brand {
@@ -59,6 +65,7 @@ body {
     align-items: end;
     width: 282px;
     height: 107px;
+    color: var(--white);
 }
 
 .logo__description {
@@ -76,7 +83,6 @@ body {
     line-height: 37px;
     letter-spacing: -3%;
     font-family: 'Fors extraBold';
-    font-weight: 700;
     color: var(--base-color-6);
 }
 
@@ -90,12 +96,303 @@ body {
 .info__title,
 .info__subtitle,
 .info__text {
-    margin: 0;
-    padding: 0;
     margin-bottom: calc(var(--base) * 1);
+}
+
+.info__title,
+.info__subtitle {
+    font-family: 'Fors extraBold';
 }
 
 .main {
     display: flex;
-    width: 52%;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 74%;
+}
+
+.main__text {
+    margin-bottom: calc(var(--base) * 6);
+    color: var(--gold);
+}
+
+.main__result {
+    font-family: 'Fors ExtraBold';
+    font-size: calc(var(--base) * 8.5);
+    margin-bottom: 184px;
+    color: var(--white);
+}
+
+.main__count,
+.main__block {
+    display: flex;
+    justify-content: space-between;
+    width: 1120px;
+}
+
+.main__count {
+    margin-bottom: 84px;
+}
+
+.main__count-block {
+    text-align: center;
+}
+
+.all-sum,
+.success-sum,
+.procent-sum {
+    font-size: calc(var(--base) * 3);
+    color: var(--gold);
+}
+
+.main__text,
+.all-text,
+.success-text,
+.procent-text {
+    font-size: calc(var(--base) * 1.75);
+}
+
+.main__block-clock {
+    width: 240px;
+    height: 136px;
+    border-right: 2px solid #D9D9D9;
+}
+
+.main__block-now {
+    display: flex;
+    justify-content: center;
+    width: 540px;
+    height: 136px;
+    border-right: 2px solid #D9D9D9;
+}
+
+.main__block-text {
+    width: 340px;
+    height: 136px;
+    margin-left: 40px;
+}
+
+.footer {
+    align-self: center;
+}
+
+.sk-img {
+    width: 20px;
+    height: 20px;
+}
+
+.hours-block,
+.hour-top {
+    display: inline-block;
+}
+
+.hours {
+    display: inline-block;
+    margin-right: 16px;
+    font-size: 62px;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.hours-text {
+    display: inline-block;
+    font-size: 28px;
+}
+
+.hour-bottom {
+    font-size: 14px;
+}
+
+.minutes,
+.minutes-text {
+    display: inline-block;
+    font-size: 28px;
+}
+
+.minutes{
+    margin-right: 16px;
+    color: var(--gold);
+}
+
+
+.main__now{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 80px;
+}
+.now-title{
+    display: block;
+    font-family: var(--base-bold-font);
+    width: 100%;
+    font-size: 48px;
+    margin-bottom: 32px;
+    color: var(--gold);
+}
+
+.now-day, .now-time{
+    display: inline-block;
+    font-size: 28px;
+    color: var(--gold);    
+}
+
+.user-count, .user-text, .kp-count, .kp-text{
+    display: inline-block;
+    font-size: 28px;
+}
+
+.user-count,.kp-count{
+    margin-right: 16px;
+    color: var(--gold);
+}
+
+.now-clock{
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    
+}
+.now-clock{
+    display: block;
+    
+}
+
+.text-kp{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.clock-block {
+    display: inline-block;
+    position: relative;
+    width: 19px;
+    height: 28px;
+}
+
+.clock-top {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    left: 0;
+    bottom: 19px;
+    background-color: var(--gold);
+    z-index: -1;
+}
+
+.clock-bottom {
+    position: absolute;
+    height: 0px;
+    width: 100%;
+    left: 0;
+    bottom: 10px;
+    background-color: var(--gold);
+    z-index: -2;
+}
+
+.clock-face {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5000;
+}
+
+.clock-center {
+    position: absolute;
+    height: 7px;
+    width: 55%;
+    left: 0;
+    bottom: 8px;
+    border-right: 1px dashed var(--gold);
+}
+
+.success-block {
+    --p: 20;
+    --b: 8px;
+    --w: 40px;
+    --c: var(--gold);
+    --f: #414158;
+
+    width: var(--w);
+    aspect-ratio: 1;
+    position: relative;
+    display: inline-grid;
+    place-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.success-block:before,
+.success-block:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.success-block:before {
+    inset: 0;
+    background: radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b) var(--b) no-repeat, conic-gradient(var(--c) calc(var(--p) * 1%), var(--f) 0);
+    mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+}
+
+.success-block:after {
+    inset: calc(50% - var(--b) / 2);
+    background: var(--c);
+    transform: rotate(calc(var(--p) * 3.6deg)) translateY(calc(50% - var(--w) / 2));
+}
+
+.no-round:before {
+    background-size: 0 0, auto;
+}
+
+.no-round:after {
+    content: none;
+}
+
+/* Анимация */
+@property --p {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+}
+
+.success-blockanimate {
+    animation: p 1s .5s both;
+}
+
+@keyframes p {
+    from {
+        --p: 0
+    }
 }
