@@ -1,15 +1,15 @@
 :root {
     --base: 1em;
     --white: #fff;
-    --text: #D9D9D9;
-    --main-text: #D9D9D9;
+    --text: #b2b2b2;
+    --main-text: #b2b2b2;
     --base-font: 'Fors';
     --base-bold-font: 'Fors ExtraBold';
---gold: #f96e6e;
+/* --gold: #f96e6e; */
 /* --gold: #fd6044; */
-    /* --gold: #C2AE63; */
-    /* --fon: #1B283A; */
-    --fon:#181d2d;
+    --gold: #C2AE63;
+    --fon: #1B283A;
+    /* --fon:#181d2d; */
     --grey: #999;
 
 }
@@ -42,7 +42,7 @@ body {
 .dinamics {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 27%;
     height: 100%;
     margin-right: 32px;
@@ -94,7 +94,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: auto;
 }
 
 .info__title,
@@ -105,9 +104,28 @@ body {
 
 .info__title,
 .info__subtitle {
-    font-family: 'Fors extraBold';
+    font-weight: 700;
 }
 
+.info__title {
+    font-family: 'Fors ExtraBold';
+}
+.info__photo{
+    margin-bottom: calc(var(--base) * 1);
+}
+
+.info__img{
+        border-radius: calc(var(--base) / 2);
+}
+
+.info__table td:first-child {
+    width: 360px;
+    position: relative;
+}
+
+.info__table td:last-child {
+    width: 60px;
+}
 .main {
     display: flex;
     position: relative;
@@ -203,9 +221,11 @@ body {
 .hours {
     display: inline-block;
     margin-right: 16px;
+    width: 36px;
     font-size: 62px;
     color: var(--gold);
     font-weight: 700;
+    text-align: right;
 }
 
 .hours-text {
@@ -219,12 +239,14 @@ body {
 
 .minutes,
 .minutes-text {
+    text-align: right;
     display: inline-block;
     font-size: 28px;
     color: var(--main-text);
 }
 
 .minutes{
+    width: 36px;
     margin-right: 16px;
     color: var(--gold);
     font-weight: 700;
@@ -283,35 +305,12 @@ body {
 
 .bg-img{
     position: absolute;
-    top: 25px;
-    left: -325px;
-    opacity: 0.3;
+    top: 5px;
+    left: -292px;
+    opacity: 0.2;
     z-index: -10;
-    animation: moveAndFade 2s linear;
+    /* animation: moveAndFade 2s linear; */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .clock-block {
@@ -358,7 +357,7 @@ body {
 }
 
 .success-block {
-    --p: 20;
+    --p: 0;
     --b: 8px;
     --w: 40px;
     --c: var(--gold);
@@ -418,7 +417,7 @@ body {
     }
 }
 
-@keyframes moveAndFade {
+/* @keyframes moveAndFade {
     0% {
         top: 50px;
         left: -400px;
@@ -429,7 +428,7 @@ body {
         left: -325px;
         opacity: 0.3;
     }
-}
+} */
 
 .line {
     position: absolute;
