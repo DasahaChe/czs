@@ -2,12 +2,15 @@
     --base: 1em;
     --white: #fff;
     --text: #D9D9D9;
+    --main-text: #D9D9D9;
     --base-font: 'Fors';
     --base-bold-font: 'Fors ExtraBold';
-
-    --gold: #C2AE63;
+--gold: #f96e6e;
+/* --gold: #fd6044; */
+    /* --gold: #C2AE63; */
     --fon: #1B283A;
     --grey: #999;
+
 }
 
 @font-face {
@@ -106,6 +109,7 @@ body {
 
 .main {
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: flex-end;
     width: 74%;
@@ -121,6 +125,7 @@ body {
     font-size: calc(var(--base) * 8.5);
     margin-bottom: 184px;
     color: var(--white);
+     z-index: 1;
 }
 
 .main__count,
@@ -128,6 +133,7 @@ body {
     display: flex;
     justify-content: space-between;
     width: 1120px;
+    margin-bottom: 64px;
 }
 
 .main__count {
@@ -142,6 +148,7 @@ body {
 .success-sum,
 .procent-sum {
     font-size: calc(var(--base) * 3);
+    font-weight: 700;
     color: var(--gold);
 }
 
@@ -150,11 +157,12 @@ body {
 .success-text,
 .procent-text {
     font-size: calc(var(--base) * 1.75);
+    color: var(--main-text);
 }
 
 .main__block-clock {
     width: 240px;
-    height: 136px;
+    height: 106px;
     border-right: 2px solid #D9D9D9;
 }
 
@@ -162,14 +170,15 @@ body {
     display: flex;
     justify-content: center;
     width: 540px;
-    height: 136px;
+    height: 106px;
     border-right: 2px solid #D9D9D9;
 }
 
 .main__block-text {
     width: 340px;
-    height: 136px;
+    height: 106px;
     margin-left: 40px;
+    color: var(--main-text);
 }
 
 .footer {
@@ -179,11 +188,13 @@ body {
 .sk-img {
     width: 20px;
     height: 20px;
+    vertical-align: middle;
 }
 
 .hours-block,
 .hour-top {
     display: inline-block;
+    color: var(--main-text);
 }
 
 .hours {
@@ -196,7 +207,7 @@ body {
 
 .hours-text {
     display: inline-block;
-    font-size: 28px;
+    font-size: 28px;   
 }
 
 .hour-bottom {
@@ -207,11 +218,13 @@ body {
 .minutes-text {
     display: inline-block;
     font-size: 28px;
+    color: var(--main-text);
 }
 
 .minutes{
     margin-right: 16px;
     color: var(--gold);
+    font-weight: 700;
 }
 
 
@@ -226,24 +239,27 @@ body {
     font-family: var(--base-bold-font);
     width: 100%;
     font-size: 48px;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     color: var(--gold);
 }
 
 .now-day, .now-time{
     display: inline-block;
     font-size: 28px;
-    color: var(--gold);    
+    color: var(--gold);
+    font-weight: 700;   
 }
 
 .user-count, .user-text, .kp-count, .kp-text{
     display: inline-block;
     font-size: 28px;
+    margin-bottom: 8px;
 }
 
 .user-count,.kp-count{
     margin-right: 16px;
     color: var(--gold);
+    font-weight: 700;
 }
 
 .now-clock{
@@ -259,11 +275,16 @@ body {
 
 .text-kp{
     display: flex;
-    justify-content: space-between;
-    
+    justify-content: space-between;    
 }
 
-
+.bg-img{
+    position: absolute;
+    top: 25px;
+    left: -325px;
+    opacity: 0.3;
+    z-index: -10;
+}
 
 
 
@@ -332,7 +353,7 @@ body {
     height: 7px;
     width: 55%;
     left: 0;
-    bottom: 8px;
+    bottom: 10px;
     border-right: 1px dashed var(--gold);
 }
 

@@ -1,9 +1,9 @@
 let clockTop = document.querySelector('.clock-top');
 let clockBottom = document.querySelector('.clock-bottom');
 let clockCenter = document.querySelector('.clock-center');
-let start = 13; //размер увеличения, уменьшения высоты блоков
+let start = 13; 
 let finish = 15;
-let t  = (((finish - start) * 3600000) / 4); //1/25 от прйденного времени
+let t  = (((finish - start) * 3600000) / 4); //1/4 от прйденного времени
 let interval = setInterval(function() {
     let clockTopHeight = parseInt(window.getComputedStyle(clockTop).height);
     let clockBottomHeight = parseInt(window.getComputedStyle(clockBottom).height);
