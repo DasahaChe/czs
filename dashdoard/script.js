@@ -28,3 +28,16 @@ let intervals = setInterval(function() {
     index = (index + 1) % dataArray.length;
 }, 1000);
 
+let lineLeft = document.querySelector('.line.left');
+let lineRight = document.querySelector('.line.right');
+
+lineLeft.style.left = '0';
+lineRight.style.right = '0';
+
+let responsData ={
+    count:[ 5.00, 25.72, 65.81,  101.76, 113.88],
+    finish:[5, 75, 179, 1678, 3886],
+    sucsess:[4, 70, 172, 1600, 3468],
+    all:696,
+    kp:367
+}
