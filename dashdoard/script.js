@@ -35,7 +35,7 @@ let responsData = {
 
 // заполнения данными полей главного блока
 
-let mainResult = document.querySelector('.main__result');
+let mainResult = document.querySelector('.main-result');
 let allSum = document.querySelector('.all-sum');
 let successSum = document.querySelector('.success-sum');
 let procentSum = document.querySelector('.procent-sum');
