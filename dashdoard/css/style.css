@@ -2,13 +2,15 @@
     --base: 1em;
     --white: #fff;
     --text: #b2b2b2;
-    --main-text: #b2b2b2;
+    --main-text: #fff;
+    /* --main-text: #52a7e5; */
+    /* --main-text: #b2b2b2; */
     --base-font: 'Fors';
     --base-bold-font: 'Fors ExtraBold';
-/* --gold: #f96e6e; */
-/* --gold: #fd6044; */
-    --gold: #C2AE63;
-    --fon: #1B283A;
+/* --gold: #FF664B; */
+--gold: #f15959;
+    /* --gold: #C2AE63; */
+    --fon: #1e2745;
     /* --fon:#181d2d; */
     --grey: #999;
 
@@ -43,7 +45,7 @@ body {
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
-    width: 27%;
+    width: 35%;
     height: 100%;
     margin-right: 32px;
     font-size: calc(var(--base) * 1.75);
@@ -52,14 +54,14 @@ body {
 .logo {
     display: flex;
     justify-content: space-between;
-    max-width: 406px;
+    max-width: 386px;
     width: 100%;
-    margin-bottom: calc(var(--base) * 2);
+    margin-bottom: calc(var(--base) * 4);
 }
 
 .logo__img {
-    width: 100px;
-    height: 100px;
+    width: 88px;
+    height: 88px;
     margin-right: 16px;
 }
 
@@ -79,7 +81,7 @@ body {
     line-height: 21px;
     font-family: var(--base-font);
     font-weight: 400;
-    color: var(--white);
+    color: var(--text);
 }
 
 .logo__name {
@@ -87,7 +89,7 @@ body {
     line-height: 37px;
     letter-spacing: -3%;
     font-family: 'Fors extraBold';
-    color: var(--base-color-6);
+    color: var(--text);
 }
 
 .info {
@@ -119,7 +121,7 @@ body {
 }
 
 .info__table td:first-child {
-    width: 360px;
+    width: 480px;
     position: relative;
 }
 
@@ -131,12 +133,13 @@ body {
     position: relative;
     flex-direction: column;
     align-items: flex-end;
-    width: 74%;
+    width: 75%;
 }
 
 .main__text {
     margin-bottom: calc(var(--base) * 6);
-    color: var(--gold);
+    font-size: calc(var(--base) * 1.75);
+    color: var(--text);
 }
 
 .main__result {
@@ -173,7 +176,6 @@ body {
     color: var(--gold);
 }
 
-.main__text,
 .all-text,
 .success-text,
 .procent-text {
@@ -265,13 +267,13 @@ body {
     width: 100%;
     font-size: 48px;
     margin-bottom: 16px;
-    color: var(--gold);
+    color: var(--white);
 }
 
 .now-day, .now-time{
     display: inline-block;
     font-size: 28px;
-    color: var(--gold);
+    color: var(--white);
     font-weight: 700;   
 }
 
@@ -312,7 +314,9 @@ body {
     /* animation: moveAndFade 2s linear; */
 }
 
-
+.color{
+    color: var(--gold);
+}
 .clock-block {
     display: inline-block;
     position: relative;
@@ -358,9 +362,9 @@ body {
 
 .success-block {
     --p: 0;
-    --b: 8px;
-    --w: 40px;
-    --c: var(--gold);
+    --b: 6px;
+    --w: 32px;
+    --c: var(--text);
     --f: #414158;
 
     width: var(--w);
@@ -435,16 +439,18 @@ body {
     top: 50%;
     width: 2px;
     height: 2px;
-    background-color: var(--gold);   
+    
 }
 
 .left {
     left: 0;
+    background-color: var(--gold);
     animation: grow 7s linear infinite;
 }
 
 .right {
     left: 100px;
+    background-color: #00f4ff;
     animation: growR 7s linear infinite;
 }
 

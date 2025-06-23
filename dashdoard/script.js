@@ -51,8 +51,9 @@ let intervals2 = setInterval(function () {
     users.innerHTML = responsData.all[i];
     kp.innerHTML = responsData.kp[i];
     let procentData = Math.round(responsData.sucsess[i] / responsData.finish[i] * 100)
-    procentSum.innerHTML = procentData + '%';
-    procentSum.innerHTML += '<div class="success-block no-round pieanimate"></div>';
+    
+    procentSum.innerHTML = '<div class="success-block no-round pieanimate"></div>';
+    procentSum.innerHTML += ' ' + procentData + '%';
     let successBlock = document.querySelector('.success-block');
     successBlock.style.setProperty('--p', procentData);
     i++;
