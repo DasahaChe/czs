@@ -44,7 +44,6 @@ body {
 .dinamics {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     width: 35%;
     height: 100%;
     margin-right: 32px;
@@ -56,7 +55,7 @@ body {
     justify-content: space-between;
     max-width: 386px;
     width: 100%;
-    margin-bottom: calc(var(--base) * 4);
+    margin-bottom: 92px;
 }
 
 .logo__img {
@@ -120,25 +119,7 @@ body {
 .info__img {
     border-radius: calc(var(--base) / 2);
 }
-/* .info__table{
-    width: 520px;
-}
 
-
-.info__table td:first-child {
-    position: relative;
-    border-bottom: 1px dashed #999;
-    width: 480px;
-}
-
-.info__table td:last-child {
-    width: 60px;
-}
-
-.info-line {
-    
-    border-bottom: 1px dashed #999;
-} */
 
 .toc-table {
     display: flex;
@@ -150,7 +131,8 @@ body {
     display: flex;
     justify-content: space-between;
     width: 520px;
-    padding: 8px 0;
+    padding: 4px 0;
+    
 }
 
 .toc-dots {
@@ -162,12 +144,10 @@ body {
 }
 
 .toc-left {
-    padding: 8px;
+    
 }
 
-.toc-right {
-justify-self: end;
-    padding: 8px;
+.toc-right {    
     width: 60px;
 }
 .main {

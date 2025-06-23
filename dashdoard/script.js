@@ -26,7 +26,7 @@ lineRight.style.right = '0';
 //иметация базы данных
 
 let responsData = {
-    count: [5.00, 25.72, 65.81, 101.76, 113.88],
+    count: [5000, 257200, 65810000, 101760000000, 113880000000],
     finish: [5, 75, 179, 1678, 3886],
     sucsess: [4, 70, 172, 1600, 3468],
     all: [694, 694, 695, 696, 696],
@@ -45,7 +45,20 @@ let kp = document.querySelector('.kp-count');
 let i = 0;
 
 let intervals2 = setInterval(function () {
-    mainResult.innerHTML = responsData.count[i] + ' МЛРД ₽';
+    let count = responsData.count[i];
+    let countStr = count.toString();
+    let countLength = countStr.length;
+    let countResult = '';
+    if (count >= 1000 && count < 1000000) {
+        countResult = countStr.slice(0, -3) + ', ' + countStr.slice(-3, -1) + ' ТЫС';
+    } else if (count >= 1000000 && count < 1000000000) {
+        countResult = countStr.slice(0, -6) + ', ' + countStr.slice(-6, -4) + ' МЛН';
+    } else if (count >= 1000000000) {
+        countResult = countStr.slice(0, -9) + ', ' + countStr.slice(-9, -7) + ' МЛРД';
+    } else {
+        countResult = count;
+    }
+    mainResult.innerHTML = countResult + ' ₽';
     allSum.innerHTML = responsData.finish[i];
     successSum.innerHTML = responsData.sucsess[i];
     users.innerHTML = responsData.all[i];
