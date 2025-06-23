@@ -50,11 +50,11 @@ let intervals2 = setInterval(function () {
     let countLength = countStr.length;
     let countResult = '';
     if (count >= 1000 && count < 1000000) {
-        countResult = countStr.slice(0, -3) + ', ' + countStr.slice(-3, -1) + ' ТЫС';
+        countResult = countStr.slice(0, -3) + ',' + countStr.slice(-3, -1) + ' ТЫС';
     } else if (count >= 1000000 && count < 1000000000) {
-        countResult = countStr.slice(0, -6) + ', ' + countStr.slice(-6, -4) + ' МЛН';
+        countResult = countStr.slice(0, -6) + ',' + countStr.slice(-6, -4) + ' МЛН';
     } else if (count >= 1000000000) {
-        countResult = countStr.slice(0, -9) + ', ' + countStr.slice(-9, -7) + ' МЛРД';
+        countResult = countStr.slice(0, -9) + ',' + countStr.slice(-9, -7) + ' МЛРД';
     } else {
         countResult = count;
     }

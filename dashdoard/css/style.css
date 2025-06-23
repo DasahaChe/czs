@@ -39,6 +39,7 @@ body {
     color: var(--text);
     font-family: 'Fors';
     background-color: var(--fon);
+    overflow: hidden;
 }
 
 .dinamics {
