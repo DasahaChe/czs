@@ -149,10 +149,10 @@ let dinamicData = {
 // заполнения данными полей главного блока
 
 
-let infoTitle = document.querySelector('.info__title');
-let infoSubtitle = document.querySelector('.info__subtitle');
-let infoText = document.querySelector('.info__text');
-let infoImg = document.querySelector('.info__img');
+let infoTitle = document.querySelector('.info-title');
+let infoSubtitle = document.querySelector('.info-subtitle');
+let infoText = document.querySelector('.info-text');
+let infoImg = document.querySelector('.info-img');
 let infoTable = document.querySelector('.toc-table');
 
 let j = 1;

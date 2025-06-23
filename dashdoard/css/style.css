@@ -58,13 +58,13 @@ body {
     margin-bottom: 92px;
 }
 
-.logo__img {
+.logo-img {
     width: 88px;
     height: 88px;
     margin-right: 16px;
 }
 
-.logo__brand {
+.logo-brand {
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -73,7 +73,7 @@ body {
     color: var(--white);
 }
 
-.logo__description {
+.logo-description {
     display: block;
     justify-self: end;
     font-size: 21px;
@@ -83,7 +83,7 @@ body {
     color: var(--text);
 }
 
-.logo__name {
+.logo-name {
     font-size: 34px;
     line-height: 37px;
     letter-spacing: -3%;
@@ -97,26 +97,26 @@ body {
     justify-content: space-between;
 }
 
-.info__title,
-.info__subtitle,
-.info__text {
+.info-title,
+.info-subtitle,
+.info-text {
     margin-bottom: calc(var(--base) * 1);
 }
 
-.info__title,
-.info__subtitle {
+.info-title,
+.info-subtitle {
     font-weight: 700;
 }
 
-.info__title {
+.info-title {
     font-family: 'Fors ExtraBold';
 }
 
-.info__photo {
+.info-photo {
     margin-bottom: calc(var(--base) * 1);
 }
 
-.info__img {
+.info-img {
     border-radius: calc(var(--base) / 2);
 }
 
