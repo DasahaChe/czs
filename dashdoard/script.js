@@ -121,7 +121,7 @@ let intervalth = setInterval(function() {
 }, msh);
 
 // заполнение даты и времени реальной
-
+let intervaltime = setInterval(function() {
 let dateText = document.querySelector('.now-day');
 let timeText = document.querySelector('.now-time');
 let date = new Date();
@@ -135,7 +135,7 @@ let nowMinutes = date.getMinutes();
 
 dateText.innerHTML = day + ' ' + monthName;
 timeText.innerHTML = nowHours + ' : ' + nowMinutes;
-
+}, 1000);
 //иметация базы данных 
 
 let dinamicData = {
