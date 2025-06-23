@@ -120,7 +120,7 @@ body {
 .info__img {
     border-radius: calc(var(--base) / 2);
 }
-.info__table{
+/* .info__table{
     width: 520px;
 }
 
@@ -138,8 +138,38 @@ body {
 .info-line {
     
     border-bottom: 1px dashed #999;
+} */
+
+.toc-table {
+    display: flex;
+    width: 520px;
+    border-collapse: collapse;
 }
 
+.toc-row {
+    display: flex;
+    justify-content: space-between;
+    width: 520px;
+    padding: 8px 0;
+}
+
+.toc-dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted #999;
+    margin: 0 8px;
+    position: relative;
+    top: -4px;
+}
+
+.toc-left {
+    padding: 8px;
+}
+
+.toc-right {
+justify-self: end;
+    padding: 8px;
+    width: 60px;
+}
 .main {
     display: flex;
     position: relative;

@@ -140,7 +140,7 @@ let infoTitle = document.querySelector('.info__title');
 let infoSubtitle = document.querySelector('.info__subtitle');
 let infoText = document.querySelector('.info__text');
 let infoImg = document.querySelector('.info__img');
-let infoTable = document.querySelector('.info__table');
+let infoTable = document.querySelector('.toc-table');
 
 let j = 1;
 
@@ -174,8 +174,9 @@ let intervalData = setInterval(function() {
         let table = '';
         for (let key in data.table) {
             let row = data.table[key];
-            table += '<tr><td>' + row.name + '</td><td>' + row.count + '</td></tr>';
+            table += '<tr><td colspan="2"><div class="toc-row"><span class="toc-left">' + row.name + '</span><span class="toc-dots"></span><span class="toc-right">' + row.count + '</span></div></td></tr>';
         }
+       
         infoTable.innerHTML = table;
         infoTable.style.display = 'block';
     } else {
