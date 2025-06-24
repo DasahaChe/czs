@@ -65,20 +65,16 @@ let intervals2 = setInterval(function () {
         countResult = count;
     }
     
-    // Анимация плавного появления
-    
-        
+    mainResult.innerHTML = countResult + ' ₽';
     allSum.innerHTML = responsData.finish[i];
     successSum.innerHTML = responsData.sucsess[i];
     users.innerHTML = responsData.all[i];
     kp.innerHTML = responsData.kp[i];
-    let procentData = Math.round(responsData.sucsess[i] / responsData.finish[i] * 100)
-    
+    let procentData = Math.round(responsData.sucsess[i] / responsData.finish[i] * 100);
     procentSum.innerHTML = '<div class="success-block no-round pieanimate"></div>';
     procentSum.innerHTML += ' ' + procentData + '%';
     let successBlock = document.querySelector('.success-block');
     successBlock.style.setProperty('--p', procentData);
-    
     i++;
     if (i >= responsData.count.length) {
         i = 0;
