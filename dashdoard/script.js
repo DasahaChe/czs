@@ -44,6 +44,9 @@ let kp = document.querySelector('.kp-count');
 
 let i = 0;
 
+
+
+
 let intervals2 = setInterval(function () {
     let count = responsData.count[i];
     let countStr = count.toString();
@@ -54,14 +57,17 @@ let intervals2 = setInterval(function () {
         countResult = countStr.slice(0, -3) + ' ТЫС';
     } else if (count >= 1000000 && count < 1000000000) {
         // countResult = countStr.slice(0, -6) + ',' + countStr.slice(-6, -4) + ' МЛН';
-        countResult = countStr.slice(0, -6) + ' МЛН';
+         countResult = countStr.slice(0, -6) + ' МЛН';
     } else if (count >= 1000000000) {
         // countResult = countStr.slice(0, -9) + ',' + countStr.slice(-9, -7) + ' МЛРД';
         countResult = countStr.slice(0, -9) + ' МЛРД';
     } else {
         countResult = count;
     }
-    mainResult.innerHTML = countResult + ' ₽';
+    
+    // Анимация плавного появления
+    
+        
     allSum.innerHTML = responsData.finish[i];
     successSum.innerHTML = responsData.sucsess[i];
     users.innerHTML = responsData.all[i];
@@ -72,6 +78,7 @@ let intervals2 = setInterval(function () {
     procentSum.innerHTML += ' ' + procentData + '%';
     let successBlock = document.querySelector('.success-block');
     successBlock.style.setProperty('--p', procentData);
+    
     i++;
     if (i >= responsData.count.length) {
         i = 0;

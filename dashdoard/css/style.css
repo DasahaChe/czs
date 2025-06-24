@@ -530,3 +530,7 @@ body {
         left: 1100px;
     }
 }
+
+#mainResult {
+    transition: opacity 1s ease-in-out;
+}
