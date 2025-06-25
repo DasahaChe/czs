@@ -107,16 +107,15 @@ body {
 	top:0;
 	left:0;
 	z-index:2;
-	background: rgb(5,55,200,0.8);
-	 
-	display: grid;
-    grid-template-areas: "logo title title title";
+	background: rgb(5,55,200,0.8);	 
+	/* display: grid;
+    grid-template-areas: "logo title title title"; */
 	/* "field-1 field-1 field-2 field-2"; */
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1em;
 	color:#ffffff;
 	border-radius:1em;
-	padding:2em;
+	padding:2em 4em;
 	height:100%;
 	width:100%;
 	overflow:hidden;
@@ -142,7 +141,7 @@ body {
 }
 
 .main.stat .top .logo_field .logo {
-	grid-area: logo;
+	/* grid-area: logo; */
 	padding-right:1em;
 }
 
@@ -151,14 +150,15 @@ body {
 }
 
 .main.stat .top .logo_field .title {
-	grid-area: title;
+	/* grid-area: title; */
 	font-size:1.5em;
 	
 }
 .main.stat .top .logo_field .title-main {
-	grid-area: title;
+	/* grid-area: title; */
 	font-size:2em;
 	font-family: 'Fors ExtraBold';
+	margin-bottom: 1em;
 }
 
 .main.stat .top .logo_field .field-1 {
@@ -787,7 +787,8 @@ body {
 
 .main.stat .top .logo_field .title-top{	
     display: block;
-	font-size: 0.75em;	
+	font-size: 1em;	
+	margin: 8px;
 }
 
 
@@ -925,9 +926,8 @@ body {
 .toc-row {
     display: flex;
     justify-content: space-between;
-    width: 326px;
     padding: 4px 0;
-    
+    margin-bottom: 1.0em;
 }
 
 .toc-rows {
@@ -940,7 +940,7 @@ body {
 
 .toc-dots {
     flex-grow: 1;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px dotted #ffffff;
     margin: 0 8px;
     position: relative;
     top: -4px;
@@ -948,10 +948,8 @@ body {
 
 
 .toc-right { 
-	margin-top: auto; 
-	text-align: right;  
-    width: 60px;
-	font-size: 1.5em;
+	font-weight: 700;
+    width: 60px;	
 }
 
 .toc-tableR {
@@ -997,4 +995,7 @@ body {
 	margin: 3em 4.5em;
 }
 
-.main.stat .middle .vendor_field .list .item .sname {}
+.toc-top{
+	display: flex;
+	justify-content: space-between;
+}
