@@ -138,14 +138,10 @@ body {
 
 .toc-dots {
     flex-grow: 1;
-    border-bottom: 1px dotted #999;
+    border-bottom: 1px dotted #ececec;
     margin: 0 8px;
     position: relative;
     top: -4px;
-}
-
-.toc-left {
-    
 }
 
 .toc-right {    

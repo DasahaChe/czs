@@ -9,6 +9,7 @@
     --border-color: rgba(153, 153, 153, 1);
     --base-color-1: rgba(5, 55, 200, 1);
     --base-color-2: rgba(91, 197, 242, 1);
+    --base-color-2d:rgb(78, 137, 172, 1);
     --base-color-3: rgba(5, 202, 5, 1);
     --base-color-4: rgba(187, 250, 155, 1);
     --base-color-5: rgba(120, 3, 158, 1);
@@ -32,12 +33,14 @@
     --button-color-2: rgba(5, 55, 200, 1);
     --base-border-radius: 1em;
     --background-1-opacity-80: rgba(5, 55, 200, 0.8);
-    --background-2-opacity-80: rgba(5, 202, 5, 0.8);
+    --background-2-opacity-80: rgba(13, 86, 117, 1);
     --svgGradient: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
     --item-border: #dadada;
     --events-acsent: #02ad35;
     --events-fon: #2e3444;
-    --go-button: #00AD6E;
+    --go-button: #0d5774;
+    --newGray:#6c7a93;
+    /* --go-button: #00AD6E; */
 }
 
 @font-face {
@@ -249,7 +252,8 @@ body {
     padding: calc(var(--base-gap)* 1.5) calc(var(--base-gap)* 4);
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(135deg, var(--background-1-opacity-80) 0%, var(--background-2-opacity-80) 100%);
+    background: linear-gradient(135deg,var(--background-2-opacity-80) 0%, var(--background-1-opacity-80) 100%);
+    /* background: linear-gradient(135deg, var(--background-1-opacity-80) 0%, var(--background-2-opacity-80) 100%); */
     border-radius: calc(var(--base-gap) * 2);
     
 }
@@ -420,7 +424,7 @@ body {
 
     .header .header__link:hover::after {
         width: calc(100% + 5px);
-        border-bottom-color: #fff;
+        border-bottom-color: var(--base-color-2);
         transform: translateX(-50%);
     }
 

@@ -1,0 +1,107 @@
+
+.timetable {
+	width:calc(100vw - 4em);
+    height:100vh;
+}
+
+.timetable table{ 
+    border-spacing: 0px; 
+    border-collapse: collapse; 
+    z-index: -5;
+}
+
+.timetable .scrollable {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.timetable .net__img {
+    max-width: 100px;
+    max-height: 40px;
+}
+
+.timetable table tr{
+    padding: 0;
+    margin: 0;
+    height: 80px;    
+    font-size: var(--base-font-size)*2;
+    text-transform: capitalize;
+}
+
+.timetable table td {    
+    text-align: center;
+	vertical-align: top;
+    padding: 1em 0.5em;
+    width: 200px;
+    border-bottom: 1px solid rgb(224, 182, 67, 0.5);
+    border-right: 1px solid rgb(224, 182, 67, 0.5);
+}
+
+.timetable table td .vendor_ttl {
+	font-size:0.9em;
+}
+
+.timetable table td .number {
+	margin-bottom: 1em;
+}
+.timetable table td .number span {
+	line-height:1em;
+	width:3em;
+	height:3em;
+	padding:1.05em 0;
+	background: #ffffff;
+	border-radius: 2em;
+	display:block;
+	margin:auto;
+	font-size:0.8em;
+	text-align: center;
+	border: 1px solid #efefef;
+}
+
+.timetable table tbody tr:nth-child(odd){
+    background-color: #fff8e4;
+}
+
+.timetable table td:first-child { 
+    position: sticky;
+    left: 0;
+    text-align: center;
+    background-color: rgba(12, 12, 80);
+    color: #ffffff; 
+    white-space: nowrap;
+}
+
+.timetable table thead:first-child {
+    margin-top: auto;
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.timetable table thead tr {
+    position: sticky;
+    top: 0;
+    height: 150px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(224, 182, 67, 1);
+}
+
+.timetable table td:first-child { 
+    text-align: center;
+    background-color: rgba(12, 12, 80);
+    color: #ffffff; 
+    white-space: nowrap;
+}
+
+.timetable table td:first-child p{
+    width: 80px;
+}
+
+
+.timetable table td p{
+    width: 150px;
+}
+
+.timetable .wrap{
+    position: relative;
+}
