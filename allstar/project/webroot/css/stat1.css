@@ -1111,14 +1111,13 @@ body {
 }
 .toc-rowH{
 	height: 40px;
-    border-bottom: 1px solid #d8d8d8;
 }
 .toc-times::after {
 	content: '|';
 	position: absolute;
 	top: 14px;
 	left: -4px;
-	color:#d8d8d8;
+	color:#999;
 }
 
 .toc-times::before {
@@ -1126,7 +1125,7 @@ body {
 	position: absolute;
 	top: 14px;
 	right: -4px;
-	color:#d8d8d8;
+	color:#999;
 }
 
 .logo-block {
