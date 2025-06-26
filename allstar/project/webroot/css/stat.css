@@ -1052,19 +1052,19 @@ width: 60%;
 .toc-rightR {
 	/* vertical-align: bottom; */
 	text-align: right;
-	font-size: 0.75em;
+	font-size: 0.65em;
 
 }
 
 .toc-leftR {
 	margin-top: auto;
 	max-width: 220px;
-	font-size: 0.75em;
+	font-size: 0.65em;
 }
 
 .toc-number {
-	width: 20px;
-	font-size: 0.75em;
+	width: 32px;
+	font-size: 0.65em;
 	text-align: center;
 }
 
