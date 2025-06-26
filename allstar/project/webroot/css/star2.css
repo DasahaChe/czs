@@ -1103,9 +1103,7 @@ body {
 	text-align: center;
 	color: #000000;
 }
-.toc-timesB{
-	color: #000000;
-}
+
 .sub-text {
 	text-align: center;
 	font-size: 0.6em;
@@ -1113,8 +1111,9 @@ body {
 }
 .toc-rowH{
 	height: 40px;
+    border-bottom: 1px solid #d8d8d8;
 }
-/* .toc-times::after {
+.toc-times::after {
 	content: '|';
 	position: absolute;
 	top: 14px;
@@ -1128,7 +1127,7 @@ body {
 	top: 14px;
 	right: -4px;
 	color:#999;
-} */
+}
 
 .logo-block {
 	height: 100%;
