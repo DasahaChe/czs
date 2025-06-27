@@ -675,7 +675,7 @@ body {
 
 .main.stat .middle .buyer_field .ttl {
 	text-align: center;
-	margin-bottom: 0.5em;
+	/* margin-bottom: 0.5em; */
 	font-size: 1.5em;
 	font-family: 'Fors ExtraBold';
 	/* background: url("/project/webroot/images/wreath.png") no-repeat center bottom;
@@ -1039,13 +1039,10 @@ body {
 
 .toc-tableR {
 	width: 100%;
-	margin-top: 40px;
 	border-collapse: collapse;
 	font-size: 1.5em;
 }
-.vendor_field .toc-tableR {
-	margin-top: 0;
-}
+
 .toc-rowR {
 	display: table-row;
 	height: 52px;
