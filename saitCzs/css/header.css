@@ -179,8 +179,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: end;
-    width: 282px;
-    height: 107px;
+    /* width: 282px;
+    height: 107px; */
 }
 
 .header .header__logo-name {
@@ -343,9 +343,9 @@ body {
         flex-wrap: wrap;
     }
 
-    .header .header__logo-brand {
+    /* .header .header__logo-brand {
         width: calc(var(--base-gap) * 12.25);
-    }
+    } */
 
     .header .header__burger {
         display: block;
