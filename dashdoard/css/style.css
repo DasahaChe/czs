@@ -7,8 +7,9 @@
     /* --main-text: #b2b2b2; */
     --base-font: 'Fors';
     --base-bold-font: 'Fors ExtraBold';
-    /* --gold: #FF664B; */
     --gold: #f15959;
+    /* --gold: #028dff; */
+    /* --gold: #FF664B; */
     /* --gold: #C2AE63; */
     --fon: #1e2745;
     /* --fon:#181d2d; */
@@ -176,7 +177,7 @@ body {
     display: flex;
     justify-content: space-between;
     width: 1120px;
-    margin-bottom: 64px;
+    margin-bottom: 128px;
 }
 
 .main-count {
