@@ -166,7 +166,7 @@ body {
 .header .header__logo{
     display: flex;
     justify-content: space-between;
-    max-width: 406px;
+    max-width: 380px;
     width: 100%;
 }
 
@@ -205,9 +205,9 @@ body {
 
 .header .header__logo-img {
     display: flex;
-    width: calc(var(--base-font-size) * 6.125);
+    width: calc(var(--base-font-size) * 5);
     ;
-    height: calc(var(--base-font-size) * 6.625);
+    height: calc(var(--base-font-size) * 6.0);
     ;
 }
 
