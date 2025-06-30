@@ -33,12 +33,12 @@
     --button-color-2: rgba(5, 55, 200, 1);
     --base-border-radius: 1em;
     --background-1-opacity-80: rgba(5, 55, 200, 0.8);
-    --background-2-opacity-80: rgba(13, 86, 117, 1);
+    --background-2-opacity-80: rgba(80, 200, 255, 1);
     --svgGradient: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
     --item-border: #dadada;
     --events-acsent: #02ad35;
     --events-fon: #2e3444;
-    --go-button: #0d5774;
+    --go-button: #005BAA;
     --newGray:#6c7a93;
     /* --go-button: #00AD6E; */
 }
@@ -424,7 +424,7 @@ body {
 
     .header .header__link:hover::after {
         width: calc(100% + 5px);
-        border-bottom-color: var(--base-color-2);
+        border-bottom-color: #fff;
         transform: translateX(-50%);
     }
 
