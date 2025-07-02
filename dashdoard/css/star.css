@@ -1,0 +1,63 @@
+:root {
+    --base-font: 'Fors';
+    --base-bold-font: 'Fors ExtraBold';
+    --base-font-size: 1em;
+    --base-font-line-height: 1em;
+    --base-gap: 1em;
+    --background-1-opacity-80: rgba(5, 55, 200, 0.8);
+    --gold: #C2AE63;
+    --fon: #f8f8f8; 
+    --grey: #525252; 
+    --blue: #005BAA;  
+}
+
+@font-face {
+    font-family: 'Fors';
+    src: local('TT Fors'), url('../fonts/fors/TT Fors Trial Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fors ExtraBold';
+    src: local('TT Fors ExtraBold'), url('../fonts/fors/TT Fors Trial ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+body{
+    padding: 180px 200px 0 200px;
+    background-color: var(--fon);
+}
+.star-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;  
+    padding: 20px;
+}
+.star-title{
+
+    margin: 0 0 120px  0;
+    font-family: var(--base-bold-font);
+    font-size: 100px;
+    color: var(--blue);
+}
+.star-text{
+   
+    margin: 0 0 60px  0;
+     font-family: var(--base-bold-font);
+    font-size: 54px;
+    color: var(--grey);
+}
+
+.star{
+  
+font-size: 120px;
+color: var(--gold);
+}
+
+.star-point{
+    width: 120px;
+    height: 120px;
+}
