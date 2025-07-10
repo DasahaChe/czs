@@ -169,12 +169,35 @@ color: var(--base-color-6);
     color: var(--grafite);
     
 }
-
 .vendor_page .content__block-info p{
     margin: 0;
     padding: 0;
     line-height: calc(var(--base-font-size) * 1.5);
 }
+.vendor_page .content__block-tel p{
+    margin: 0 0  calc(var(--base-gap) * 2) 0;
+    padding: 0;
+    line-height: calc(var(--base-font-size) * 1.5);
+    text-align: center;
+}
+
+.vendor_page .content__block-tel{
+    display: flex;  
+    flex-direction: column;
+    position: relative; 
+    align-items: center; 
+    justify-content: center;
+    font-size: calc(var(--base-font-size) * 1.5);
+    line-height: calc(var(--base-font-size) * 1.5);
+    padding: calc(var(--base-gap) * 2) calc(var(--base-gap) * 12);
+    height: calc(var(--base-font-size) * 14);
+    background-image: url(../img/телФон\ копия.jpg);
+    background-size: cover;
+    color: var(--grafite);
+    
+}
+
+
 
 .vendor_page .content__title::after {
     content: '';
@@ -193,13 +216,6 @@ color: var(--base-color-6);
         left: 0px;
     }
 
-    /* 50% {
-        width: 250px;
-        height: 2px;
-        top: 94px;
-        left: 500px;
-    } */
-
     100% {
         width: 700px;
         height: 2px;
@@ -207,6 +223,9 @@ color: var(--base-color-6);
         left: 1920px;
     }
 }
+
+
+
 
 
 
