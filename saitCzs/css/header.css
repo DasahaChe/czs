@@ -26,12 +26,12 @@
     --error-color-4: rgba(243, 71, 71, 1);
     --base-font: 'Fors';
     --base-bold-font: 'Fors ExtraBold';
-    --base-font-size: 1em;
-    --base-font-line-height: 1em;
-    --base-gap: 1em;
+    --base-font-size: 1rem;
+    --base-font-line-height: 1rem;
+    --base-gap: 1rem;
     --button-color-1: rgba(5, 202, 5, 1);
     --button-color-2: rgba(5, 55, 200, 1);
-    --base-border-radius: 1em;
+    --base-border-radius: 1rem;
     --background-1-opacity-80: rgba(5, 55, 200, 0.8);
     --background-2-opacity-80: rgba(80, 200, 255, 1);
     --svgGradient: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
@@ -41,6 +41,8 @@
     --go-button: #005BAA;
     --newGray:#6c7a93;
     --lightBlue:#E6F4FF;
+    --darkBlue:#7DB3E3;
+    --grafite:#24252D;
     /* --go-button: #00AD6E; */
 }
 
@@ -206,9 +208,9 @@ body {
 
 .header .header__logo-img {
     display: flex;
-    width: calc(var(--base-font-size) * 5);
+    width: calc(var(--base-font-size) * 14);
     ;
-    height: calc(var(--base-font-size) * 6.0);
+    height: calc(var(--base-font-size) * 2.5);
     ;
 }
 
