@@ -6,9 +6,9 @@
     --base-gap: 1em;
     --background-1-opacity-80: rgba(5, 55, 200, 0.8);
     --gold: #C2AE63;
-    --fon: #f8f8f8; 
-    --grey: #525252; 
-    --blue: #005BAA;  
+    --fon: #f8f8f8;
+    --grey: #525252;
+    --blue: #005BAA;
 }
 
 @font-face {
@@ -24,44 +24,53 @@
     font-weight: 800;
     font-style: normal;
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 
-body{
+body {
     padding: 180px 200px 0 200px;
     background-color: var(--fon);
     height: 100vh;
     box-sizing: border-box;
 }
+
 .star-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    text-align: center;  
+    align-items: center;
+    text-align: center;
     padding: 20px;
 }
-.star-title{
 
-    margin: 0 0 120px  0;
+.star-title {
+
+    margin: 0 0 120px 0;
     font-family: var(--base-bold-font);
     font-size: 100px;
     color: var(--blue);
 }
-.star-text{
-   position: relative;
-    margin: 0 0 60px  0;
-     font-family: var(--base-bold-font);
+
+.star-text {
+    position: relative;
+    margin: 0 0 60px 0;
+    font-family: var(--base-bold-font);
     font-size: 54px;
     color: var(--blue);
 }
 
-.star{
- position : absolute;
- top: 760px;
- left: 860px;
-font-size: 120px;
-color: var(--gold);
+.star {
+    position: relative;
+    font-size: 120px;
+    color: var(--gold);
 }
 
-.star-point{
+.star-point {
+    position: absolute;
+    top: 740px;
+    left: 1110px;
     width: 120px;
     height: 120px;
 }
