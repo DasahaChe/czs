@@ -210,7 +210,7 @@
     /* font-family: var(--base-bold-font); */
     font-weight: 700;
     font-size: calc(var(--base-font-size) * 3);
-    line-height: var(--base-font-size);
+    line-height: calc(var(--base-font-size) * 3);
     color: var(--newGray);
     /* color: transparent;
     -webkit-background-clip: text;
@@ -775,7 +775,7 @@
     .start_page .header .header__top {
         flex-direction: column;
         margin-bottom: calc(var(--base-gap) * 2);
-        gap: calc(var(--base-gap) * 2);
+        gap: calc(var(--base-gap) * 0.5);
     }
 
     .start_page .main .about {

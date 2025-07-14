@@ -529,7 +529,7 @@
 
 .vendor_page .future__block-date {
     width: 55%;
-    padding: calc(var(--base-gap) * 1.25) 0;
+    padding: calc(var(--base-gap) * 1.25);
     color: var(--newGray);
 }
 
@@ -648,7 +648,7 @@
     .vendor_page .header .header__top {
         flex-direction: column;
         margin-bottom: calc(var(--base-gap) * 2);
-        gap: calc(var(--base-gap) * 2);
+        gap: calc(var(--base-gap) * 0.5);
     }
 
     .vendor_page .new__title,
