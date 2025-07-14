@@ -1,5 +1,6 @@
 .vendor_page {
     padding-top: calc(var(--base-gap) * 2);
+    font-family: var(--base-font);
 }
 
 .vendor_page .container {
@@ -195,7 +196,7 @@
 .vendor_page .new__block-tel p {
     margin: 0 0 calc(var(--base-gap) * 2) 0;
     padding: 0;
-    width:calc(var(--base-font-size) * 24) ;
+    width: calc(var(--base-font-size) * 24);
     line-height: calc(var(--base-font-size) * 1.25);
     text-align: center;
 }
@@ -208,7 +209,7 @@
     justify-content: center;
     font-size: calc(var(--base-font-size) * 1.0);
     line-height: calc(var(--base-font-size) * 1.25);
-    padding: calc(var(--base-gap) * 2) ;
+    padding: calc(var(--base-gap) * 2);
     height: calc(var(--base-font-size) * 14);
     background-image: url(../img/телФон\ копия.jpg);
     background-size: cover;
@@ -238,7 +239,7 @@
     transition: color 0.5s ease, background-color 0.5s ease;
 }
 
-@keyframes grow {
+/* @keyframes grow {
     0% {
         width: 2px;
         height: 2px;
@@ -259,7 +260,7 @@
         top: 72px;
         left: 920px;
     }
-}
+} */
 
 .vendor_page .event__list,
 .vendor_page .last__list,
@@ -315,7 +316,8 @@
 .vendor_page .event__title {
     margin: 0;
     padding: 0;
-    font-size: calc(var(--base-font-size) * 1.25);
+    /* font-size: calc(var(--base-font-size) * 1.25); */
+    line-height: calc(var(--base-font-size) * 1.5);
     font-weight: 700;
     color: var(--base-color-6);
     margin-bottom: calc(var(--base-font-size) / 2);
@@ -366,7 +368,6 @@
     width: calc(var(--base-font-size) * 12.5);
     text-align: center;
     vertical-align: middle;
-    background-color: var(--newGray);
     border-bottom-left-radius: calc(var(--base-gap) / 2);
 }
 
@@ -421,7 +422,7 @@
 .vendor_page .last__item {
     display: flex;
     flex-direction: column;
-    width: calc(var(--base-gap) * 17.80) ;
+    width: calc(var(--base-gap) * 17.80);
     border-radius: calc(var(--base-gap) / 2);
     background-color: #fff;
     border: 1px solid var(--lightBlue);
@@ -517,7 +518,7 @@
 }
 
 .vendor_page .future__block-img {
-    width:45%;
+    width: 45%;
     border-top-left-radius: calc(var(--base-gap) / 2);
 }
 
@@ -551,7 +552,6 @@
     justify-content: space-between;
     height: 100%;
     padding: calc(var(--base-gap) * 2);
-    w
 }
 
 .vendor_page .future__description {
@@ -619,7 +619,7 @@
     background-color: #fff;
 }
 
-.vendor_page .future__button{
+.vendor_page .future__button {
     padding-right: var(--base-gap);
     color: #fff;
     background-color: var(--base-color-6);
@@ -640,9 +640,105 @@
 
 
 
+@media (max-width: 1199px) {
+    .vendor_page .header .header__logo {
+        align-self: flex-start;
+    }
 
+    .vendor_page .header .header__top {
+        flex-direction: column;
+        margin-bottom: calc(var(--base-gap) * 2);
+        gap: calc(var(--base-gap) * 2);
+    }
 
+    .vendor_page .new__title,
+    .vendor_page .last__title-main,
+    .vendor_page .future__title-main {
+        margin: 0 0 calc(var(--base-gap) * 0) 0;
+        font-size: calc(var(--base-font-size) * 2);
+    }
 
+    .vendor_page .new__block-info {
+        padding: calc(var(--base-gap) * 1.5);
+        padding-left: calc(var(--base-gap) * 10);
+        height: 100%;
+        background-image: url(../img/звездаФон1024.jpg);
+    }
+
+    .vendor_page .new__block-tel {
+        padding: calc(var(--base-gap) * 1.5);
+        height: 100%;
+        background-image: url(../img/телФон2.jpg);
+    }
+
+    .vendor_page .event__block {
+        padding: calc(var(--base-gap) * 1);
+    }
+
+    .vendor_page .event__item {
+        width: calc(var(--base-gap) * 14.75);
+    }
+
+    .vendor_page .event__img {
+        width: calc(var(--base-font-size) * 2);
+        height: calc(var(--base-font-size) * 2);
+    }
+
+    .vendor_page .event__span {
+        display: block;
+    }
+
+    .vendor_page .event__block-title,
+    .vendor_page .event__block-role {
+        margin-left: 0;
+    }
+
+    .vendor_page .event__button {
+        flex-direction: column;
+        padding: calc(var(--base-gap) / 2);
+        height: 100%;
+    }
+
+    .vendor_page .event__button-img {
+        text-align: left;
+    }
+
+    .vendor_page .event__button-img img {
+        width: calc(var(--base-font-size) * 6);
+        border-radius: calc(var(--base-gap) / 2);
+
+    }
+
+    .event__btn-img {
+        height: calc(var(--base-font-size) * 2);
+    }
+
+    .vendor_page .last__item {
+        width: calc(var(--base-gap) * 14.75);
+    }
+
+    .vendor_page .last__item:nth-child(3) {
+        display: none;
+    }
+
+    .vendor_page .future__item {
+        width: 100%;
+    }
+
+    .vendor_page .content {
+        gap: calc(var(--base-gap) * 2);
+    }
+}
+
+@media (max-width: 1020px) {
+    .vendor_page .container {
+        padding: 0 calc(var(--base-gap) * 3.5);
+    }
+
+    .vendor_page .header .header__button {
+        padding: calc(var(--base-gap) / 2) calc(var(--base-gap) * 3);
+    }
+}
 
 
 
@@ -814,7 +910,7 @@
     }
 
     .vendor_page .header .header__top .header__burger:hover,
-    .vendor_page .future__link:hover .future__title{
+    .vendor_page .future__link:hover .future__title {
         color: var(--base-color-2);
     }
 

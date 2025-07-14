@@ -48,14 +48,14 @@
 
 @font-face {
     font-family: 'Fors';
-    src: local('TT Fors'), url('../fonts/fors/TT Fors Trial Regular.woff') format('woff');
+    src: local('TT Fors'), url('../fonts/fors/TT\ Fors\ Trial\ Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Fors ExtraBold';
-    src: local('TT Fors ExtraBold'), url('../fonts/fors/TT Fors Trial ExtraBold.woff') format('woff');
+    src: local('TT Fors ExtraBold'), url('../fonts/fors/TT\ Fors\ Trial\ ExtraBold.woff') format('woff');
     font-weight: 800;
     font-style: normal;
 }
@@ -191,7 +191,7 @@ body {
     line-height: 37px;
     letter-spacing: -3%;
     font-family: var(--base-bold-font);
-    font-weight: 700;
+    /* font-weight: 700; */
     color: var(--base-color-6);
 }
 
