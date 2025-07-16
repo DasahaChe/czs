@@ -275,7 +275,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: calc(var(--base-gap) * 27.55);
+    width: calc((100% - 32px) / 2);
     border-radius: calc(var(--base-gap) / 2);
     border: 1px solid var(--lightBlue);
 }
@@ -422,7 +422,7 @@
 .vendor_page .last__item {
     display: flex;
     flex-direction: column;
-    width: calc(var(--base-gap) * 17.80);
+    width: calc((100% - 64px) / 3);
     border-radius: calc(var(--base-gap) / 2);
     background-color: #fff;
     border: 1px solid var(--lightBlue);
@@ -443,11 +443,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
     padding: calc(var(--base-gap) * 1.25);
 }
 
 .vendor_page .last__description {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     margin-bottom: calc(var(--base-gap) * 1.25);
+    
 }
 
 .vendor_page .last__data {
@@ -650,7 +655,7 @@
     .vendor_page .header .header__top {
         flex-direction: column;
         margin-bottom: calc(var(--base-gap) * 2);
-        gap: calc(var(--base-gap) * 0.5);
+        gap: calc(var(--base-gap) * 2);
     }
 
     .vendor_page .new__title,
@@ -665,6 +670,7 @@
         padding-left: calc(var(--base-gap) * 10);
         height: 100%;
         background-image: url(../img/звездаФон1024.jpg);
+        background-position: center;
     }
 
     .vendor_page .new__block-tel {
@@ -675,10 +681,6 @@
 
     .vendor_page .event__block {
         padding: calc(var(--base-gap) * 1);
-    }
-
-    .vendor_page .event__item {
-        width: calc(var(--base-gap) * 14.75);
     }
 
     .vendor_page .event__img {
@@ -712,11 +714,12 @@
     }
 
     .event__btn-img {
+        width: calc(var(--base-font-size) * 2);
         height: calc(var(--base-font-size) * 2);
     }
 
     .vendor_page .last__item {
-        width: calc(var(--base-gap) * 14.75);
+        width: calc((100% - 32px) / 2);
     }
 
     .vendor_page .last__item:nth-child(3) {
@@ -730,9 +733,16 @@
     .vendor_page .content {
         gap: calc(var(--base-gap) * 2);
     }
+   
 }
 
+
+
 @media (max-width: 1020px) {
+
+    .vendor_page .new__block-info {
+        background-image: url(../img/звездаФон1020.png);
+    }
     .vendor_page .container {
         padding: 0 calc(var(--base-gap) * 3.5);
         flex-direction: column;
@@ -791,63 +801,56 @@
         margin-top: 0;
         margin-left: var(--base-gap);
     }
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 1199px) {
-    .vendor_page .header .header__logo {
-        align-self: flex-start;
+    .vendor_page .event__button {
+        flex-direction: row;
+        padding: 0;
+        padding-right: var(--base-gap);
+        gap: calc(var(--base-gap) / 2);
+        height: calc(var(--base-font-size) * 4);
+        background-color: var(--lightBlue);
+        border-bottom-left-radius: calc(var(--base-gap) / 2);
+        border-bottom-right-radius: 0;
     }
 
-    .vendor_page .header .header__top {
-        flex-direction: column;
-        margin-bottom: calc(var(--base-gap) * 2);
-        gap: calc(var(--base-gap) * 2);
-    }
-}
-
-@media (max-width: 1020px) {
-    .vendor_page .container {
-
-        padding: 0 calc(var(--base-gap) * 3.5);
+    .vendor_page .event__button-img img {
+        border-radius: 0;
+        width: 100%;
+        height: calc(var(--base-font-size) * 4);
+        border-bottom-left-radius: calc(var(--base-gap) / 2);
     }
 
-    .vendor_page .header .header__button {
-        padding: calc(var(--base-gap) / 2) calc(var(--base-gap) * 3);
+    .vendor_page .event__btn-img {
+        height: calc(var(--base-font-size) * 1.25);
+    }
+
+    .vendor_page .event__btn {
+        height: calc(var(--base-font-size) * 3.0);
+    }
+
+    .vendor_page .new__block-tel {
+        background-image: url(../img/телФон\ копия.jpg);
+    }
+
+    .vendor_page .last__list {
+        gap: var(--base-gap);
+    }
+
+    .vendor_page .last__item {
+        width: calc((100% - 48px) / 3);
+    }
+
+    .vendor_page .last__item:nth-child(3) {
+        display: flex;
+    }
+
+    .vendor_page .last__btn-img {
+        width: calc(var(--base-font-size) * 2);
+        height: calc(var(--base-font-size) * 1.75);
     }
 }
+
+
 
 @media (max-width: 750px) {
     .vendor_page {
@@ -861,10 +864,12 @@
     .vendor_page .header {
         margin-bottom: calc(var(--base-gap) * 1.5);
     }
+
     .vendor_page .header .header__logo-img {
         width: 100%;
         height: 100%;
     }
+
     .vendor_page .header .header__logo-name {
         font-size: calc(var(--base-font-size) * 1.38);
         line-height: calc(var(--base-font-size) * 1.0);
@@ -948,10 +953,37 @@
         padding: calc(var(--base-gap) / 2) var(--base-gap);
     }
 
-    .vendor_page .future__button{
+    .vendor_page .future__button {
         width: 100%;
     }
+
+    .vendor_page .last__item {
+        width: 100%;
+        flex-direction: row;
+    }
+
+.vendor_page .last__block-img {    
+    width: 30%;
+    border-top-left-radius: calc(var(--base-gap) / 2);
+    border-top-right-radius: 0;
+    border-bottom-left-radius: calc(var(--base-gap) / 2);
+    background-color: var(--newGray);
+    }
+
+     .vendor_page .last__btn-img {
+        width: calc(var(--base-font-size) * 2);
+        height: calc(var(--base-font-size) * 2);
+    }
+
+    .vendor_page .last__img {
+    border-top-right-radius: 0;
+    }
 }
+
+
+
+
+
 
 @media (max-width: 430px) {
     .vendor_page .future__block-top {
@@ -961,7 +993,7 @@
     }
 
     .vendor_page .future__block-img {
-        min-width: 100%;        
+        min-width: 100%;
     }
 
     .vendor_page .future__img {
@@ -973,6 +1005,21 @@
     .vendor_page .future__block-date {
         display: none;
     }
+
+    .vendor_page .last__item {
+        flex-direction: column;
+    }
+
+    .vendor_page .last__block-img {
+        width: 100%;
+        background-color: transparent;
+    }
+
+    .vendor_page .last__img {
+        width: 100%;
+        border-top-right-radius: calc(var(--base-gap) / 2);
+    }
+
 }
 
 
@@ -1031,5 +1078,6 @@
     .vendor_page .last__link:hover {
         color: var(--base-color-2);
     }
+
 
 }
