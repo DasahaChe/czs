@@ -452,7 +452,7 @@
     flex-direction: column;
     height: 100%;
     margin-bottom: calc(var(--base-gap) * 1.25);
-    
+
 }
 
 .vendor_page .last__data {
@@ -733,7 +733,7 @@
     .vendor_page .content {
         gap: calc(var(--base-gap) * 2);
     }
-   
+
 }
 
 
@@ -743,6 +743,7 @@
     .vendor_page .new__block-info {
         background-image: url(../img/звездаФон1020.png);
     }
+
     .vendor_page .container {
         padding: 0 calc(var(--base-gap) * 3.5);
         flex-direction: column;
@@ -962,25 +963,51 @@
         flex-direction: row;
     }
 
-.vendor_page .last__block-img {    
-    width: 30%;
-    border-top-left-radius: calc(var(--base-gap) / 2);
-    border-top-right-radius: 0;
-    border-bottom-left-radius: calc(var(--base-gap) / 2);
-    background-color: var(--newGray);
+    .vendor_page .last__block-img {
+        width: 30%;
+        border-top-left-radius: calc(var(--base-gap) / 2);
+        border-top-right-radius: 0;
+        border-bottom-left-radius: calc(var(--base-gap) / 2);
+        background-color: var(--newGray);
     }
 
-     .vendor_page .last__btn-img {
+    .vendor_page .last__btn-img {
         width: calc(var(--base-font-size) * 2);
         height: calc(var(--base-font-size) * 2);
     }
 
     .vendor_page .last__img {
-    border-top-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .vendor_page .new__block-info {
+        padding-left: calc(var(--base-gap) * 1.5);
+        background-image: none;
+        background-color: var(--lightBlue);
+    }
+
+    .vendor_page .event__item {
+        width: 100%;
+    }
+
+    .vendor_page .event__block-title,
+    .vendor_page .event__block-role {
+        margin-left: calc(var(--base-gap) * 3.0);
+    }
+
+    .vendor_page .event__btn-img {
+        height: calc(var(--base-font-size) * 2);
+    }
+    .vendor_page .new__block-tel {
+        background-image: url(../img/телФон3.jpg);
+    }
+
+    .vendor_page .new__title,
+    .vendor_page .last__title-main,
+    .vendor_page .future__title-main {
+        line-height: calc(var(--base-font-size) * 2);
     }
 }
-
-
 
 
 
@@ -1020,6 +1047,29 @@
         border-top-right-radius: calc(var(--base-gap) / 2);
     }
 
+    .vendor_page .event__block-title,
+    .vendor_page .event__block-role {
+        margin-left: 0;
+    }
+
+    .vendor_page .event__button {
+        flex-direction: column;
+        padding: calc(var(--base-gap) / 2);
+        height: 100%;
+    }
+
+    .vendor_page .event__button-img img {
+        width: calc(var(--base-font-size) * 6);
+        border-radius: calc(var(--base-gap) / 2);
+    }
+
+    .vendor_page .new__block-tel p {
+        width: 100%;
+    }
+
+    .vendor_page .new__block-tel {
+        background-image: url(../img/телФон4.jpg);
+    }
 }
 
 
