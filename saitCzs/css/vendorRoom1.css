@@ -73,6 +73,12 @@
 
 }
 
+/*icon in line*/
+.vendor_page .menu__mobil {
+    display: none;
+}
+
+/*main left menu*/
 .vendor_page .menu__list {
     min-width: calc(var(--base-gap) * 20);
     padding: var(--base-gap);
@@ -99,7 +105,7 @@
     background-color: var(--lightBlue);
     border-radius: 50%;
     margin-right: var(--base-gap);
-    transition: color 0.5s ease;
+    color: var(--base-color-6);
 }
 
 .vendor_page .menu__link {
@@ -115,6 +121,7 @@
     display: flex;
     margin-top: var(--base-gap);
     justify-content: space-between;
+    gap: var(--base-gap);
 
 }
 
@@ -761,61 +768,160 @@
         padding: 0 calc(var(--base-gap) * 3.5);
     }
 
-/* меню со скролом 
+    .menu__list-icon .menu__img {
+        transition: fill 0.3s ease;
+        fill: currentColor;
+        cursor: pointer;
+    }
+
+    /* Показываем пункты меню */
+    .menu__item-mobil {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        padding: 8px;
+        z-index: 10;
+        min-width: 150px;
+    }
 
 
-    .vendor_page .menu {
+
+   .vendor_page  .menu__item-mobil.show {
+        display: block;
+    }
+
+    .vendor_page .menu__mobil {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-self: center;
+        background-color: var(--lightBlue);
+        border-radius: calc(var(--base-gap) / 2);
+    }
+
+    .vendor_page .menu__list-icon {
+        display: flex;
         flex-direction: row;
-        margin-right: 0;
-        overflow-x: auto;
-        /* Позволяет прокручивать */
-        /* -webkit-overflow-scrolling: touch; */
-        /* Плавный скролл на мобильных устройствах */
-        /* scroll-behavior: smooth; */
-        /* Плавный скролл */
-        /* padding-bottom: 10px;
+        justify-content: space-between;
+        align-self: center;
+        width: 60%;
+        padding: calc(var(--base-gap) / 2);
+        margin-bottom: calc(var(--base-gap) * 0);
     }
 
     .vendor_page .menu__list {
-        display: flex;
-        align-items: stretch;
-        min-width: fit-content;
-        white-space: nowrap; */
-        /* Запрещает перенос элементов на новую строку */
-    /* }
-
-    .vendor_page .menu__item {
-        display: flex;
-        align-items: center;
-        min-width: calc(var(--base-gap) * 16);
-        height: 100%;
-        flex-grow: 0;
-        flex-shrink: 0;
+        display: none;
     }
 
-    .vendor_page .menu__item:not(:last-child) {
-        margin-right: var(--base-gap);
-        margin-bottom: 0;
+    .vendor_page .menu {
+        margin-right: 0;
+        margin-bottom: calc(var(--base-gap) * 2);
+    }
+
+
+    .vendor_page .menu__img {
+        width: calc(var(--base-font-size) * 2);
+        height: calc(var(--base-font-size) * 2);
+        margin-right: 0;
+        background-color: #fff;
+    }
+
+
+
+
+
+
+
+
+   .vendor_page  .menu__list-icon .menu__img {
+        transition: fill 0.3s ease;
+        fill: currentColor;
+        cursor: pointer;
+    }
+
+    /* Показываем пункты меню */
+   .vendor_page  .menu__item-mobil {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        padding: 8px;
+        z-index: 10;
+        min-width: 150px;
+    }
+
+    .vendor_page .menu__item-mobil.show {
+        display: block;
+    }
+
+
+
+
+    .vendor_page .menu__item-mobil .menu__btn {
+        display: inline-block;
+        padding: 0;
+        border-radius: 0;
+        background-color: transparent;
+        border: none;
+        text-decoration: underline;
+        transition: color 0.5s ease, border-color 0.5s ease;
+
     }
 
     .vendor_page .menu__block {
-        display: flex;
-        gap: var(--base-gap);
-        flex-direction: column;
         margin-top: 0;
-        margin-left: var(--base-gap);
-    } */
+    }
 
 
-    /* меню иконками*/
 
-   .vendor_page .menu__list{
-        opacity: 0;
-        visibility: hidden;
+
+
+    .vendor_page .mobil__item:not(:last-child) {
+        margin-right: calc(var(--base-gap) * 0.75);
+    }
+
+    .vendor_page .menu__item-mobil {
         position: absolute;
-        z-index: -1;
-        width: 0;
-        height: 0;
+        display: flex;
+        align-items: center;
+        top: 42px;
+        left: 0;
+        padding: calc(var(--base-gap) * 1);
+        width: 100%;
+        height: calc(var(--base-gap) * 5);
+        border-radius: calc(var(--base-gap) / 2);
+        background-color: var(--base-color-2);
+        border-color: var(--base-color-2);
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .menu__list-mobil .menu__item,
+    .menu__list-mobil .menu__item-mobil {
+        display: none;
+    }
+
+    .menu__list-mobil .menu__item-mobil.show {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu__list-mobil .menu__item,
+    .menu__list-mobil .menu__item-mobil {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+
+    .menu__list-mobil .menu__item-mobil.show {
+        opacity: 1;
+        transform: translateY(0);
+        color: #fff;
     }
 
     .vendor_page .event__button {
@@ -964,6 +1070,14 @@
         border-color: transparent;
     }
 
+    .vendor_page .menu__list-icon {
+        position: relative;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        color: var(--base-color-6);
+    }
+
     .vendor_page .future__btn {
         width: calc(50% - var(--base-font-size) * 0.7);
         padding: calc(var(--base-gap) / 2) var(--base-gap);
@@ -1013,6 +1127,7 @@
     .vendor_page .event__btn-img {
         height: calc(var(--base-font-size) * 2);
     }
+
     .vendor_page .new__block-tel {
         background-image: url(../img/телФон3.jpg);
     }
@@ -1113,7 +1228,10 @@
     .vendor_page .future__btn:hover .future__btn-img,
     .vendor_page .banner__button:hover .new__img,
     .vendor_page .last__btn:hover,
+    .vendor_page .menu__list-icon .menu__img:hover,
+    .vendor_page .menu__item-mobil.show+.menu__list-icon .menu__img,
     .vendor_page .menu__item:hover .menu__img,
+    .vendor_page .menu__list-icon .menu__img:hover,
     .vendor_page .menu__item:hover .menu__btn {
         color: var(--base-color-2);
         background-color: #fff;
@@ -1146,4 +1264,9 @@
     }
 
 
+}
+
+.menu__item-mobil.show,
+.menu__item-mobil.hover {
+    display: block;
 }

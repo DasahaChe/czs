@@ -92,3 +92,19 @@ for (let i = 1; i <= count; i++) {
     createNextButton(i);
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const activeItem = document.querySelector('.menu__item.menu__item-active');
+    const otherItems = document.querySelectorAll('.menu__item:not(.menu__item-active)');
+
+    if (window.innerWidth < 768) {
+        otherItems.forEach(item => item.style.display = 'none');
+        activeItem.addEventListener('mouseenter', () => {
+            otherItems.forEach(item => item.style.display = 'flex');
+        });
+
+        // Закрытие при выходе из области
+        activeItem.addEventListener('mouseleave', () => {
+            otherItems.forEach(item => item.style.display = 'none');
+        });
+    }
+});
