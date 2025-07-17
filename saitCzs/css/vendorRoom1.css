@@ -246,7 +246,7 @@
     transition: color 0.5s ease, background-color 0.5s ease;
 }
 
-/* @keyframes grow {
+@keyframes grow {
     0% {
         width: 2px;
         height: 2px;
@@ -267,7 +267,7 @@
         top: 72px;
         left: 920px;
     }
-} */
+}
 
 .vendor_page .event__list,
 .vendor_page .last__list,
