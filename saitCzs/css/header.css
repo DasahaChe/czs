@@ -208,10 +208,10 @@ body {
 
 .header .header__logo-img {
     display: flex;
+    margin-bottom: 12px;
     width: calc(var(--base-font-size) * 14);
-    ;
     height: calc(var(--base-font-size) * 2.5);
-    ;
+
 }
 
 .header .header__link-top {

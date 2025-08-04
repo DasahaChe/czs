@@ -1,14 +1,16 @@
-.footer{    
+.footer {
     width: 100%;
     padding: var(--base-gap) 0;
     background-color: var(--newGray);
 }
 
-.footer__wrapper{
+.footer__wrapper {
     display: grid;
+    width: 100%;
+    justify-content: space-between;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 64px 48px;
-    padding-left: 352px;
+    column-gap: calc(var(--base-gap) * 2);
     color: #fff;
 }
 
@@ -20,33 +22,39 @@
     width: 100%;
 }
 
-.footer__block-name{
+.footer__block-name {
     grid-column: 1/2;
 }
-.footer__block-text{
+
+.footer__block-text {
     grid-column: 1/2;
 }
-.footer__block-contact{
+
+.footer__block-contact {
     grid-column: 2/3;
     grid-row: 1;
 }
 
-.footer__block-contact p{
-padding: 0;
-margin: 0 0 8px 0;
+.footer__block-contact p {
+    padding: 0;
+    margin: 0 0 8px 0;
 }
-.footer__block-icon{
+
+.footer__block-icon {
     display: flex;
     /* justify-content: flex-end; */
     grid-column: 2/3;
 }
-.footer__icon{
+
+.footer__icon {
     width: 32px;
     height: 32px;
     margin-right: 16px;
 }
 
-
+.footer__link{
+    transition: color .5s;
+}
 
 
 
@@ -60,17 +68,55 @@ margin: 0 0 8px 0;
     .footer.container {
         padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 4);
     }
+
+    .footer__wrapper {
+        padding-left: 16px;
+    }
 }
 
-@media (max-width: 750px) {  
-    
-        .footer .container {
+@media (max-width: 750px) {
+
+    .footer .container {
         padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 4);
+    }
+
+    .footer__wrapper {
+        grid-template-rows: repeat(4, auto);
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: var(--base-gap);
+        font-size: calc(var(--base-font-size) * 0.75);
+    }
+
+    .footer__block-name {
+        grid-column: 1/2;
+        grid-row: 1;
+    }
+
+    .footer__block-text {
+        grid-column: 1/2;
+        grid-row: 2;
+    }
+
+    .footer__block-contact {
+        grid-column: 1/2;
+        grid-row: 3;
+    }
+
+    .footer__block-icon {
+        grid-column: 1/2;
+        grid-row: 4;
     }
 }
 
 @media (max-width: 430px) {
-   .vendor_page .main .container {
+    .vendor_page .main .container {
         padding: 0 8px 0 48px;
+    }
+}
+
+@media (any-hover: hover) {
+    .footer__link:hover {
+        color: var(--base-color-2);
     }
 }
