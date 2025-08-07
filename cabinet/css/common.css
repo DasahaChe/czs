@@ -307,6 +307,10 @@ body.menu-hide .header .nav div img {
     border-bottom: 1px solid #ffffff;
 }
 
+.header .user a:hover {
+    border-bottom: 1px solid var(--base-color-2);
+}
+
 .header .user img{
     width: 28px;
     height: 28px;
@@ -1345,12 +1349,12 @@ body.menu-hide .header .nav div img {
 
 .cabinet>.links li a {
     color: #ffffff;
-    border-bottom: 1px solid #ffffff;
+    /* border-bottom: 1px solid #ffffff; */
 }
 
 .cabinet>.links li a:hover {
     color: #ffffff;
-    border-bottom: 0px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
 }
 
 /* .cabinet > .links li a {
