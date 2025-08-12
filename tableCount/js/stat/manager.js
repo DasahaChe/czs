@@ -85,7 +85,7 @@ $(document).ready(function() {
 
     // Генерация таблицы с суммами
     let summaryTable = "<div class='cat_contract_field'><table class='contract-table'>";
-    summaryTable += "<thead><tr><th>Поставщик</th><th>Общая сумма контрактов</th></tr></thead>";
+    summaryTable += "<thead><tr><th>Поставщик</th><th>Общая сумма контрактов млн. ₽/год</th></tr></thead>";
     summaryTable += "<tbody>";
     sortedVendors.forEach(item => {
         summaryTable += "<tr><td class='cat_vendor'>" + item.ven + "</td><td class='cat_count'>" + item.sum.toFixed(2) + "</td></tr>";
