@@ -62,10 +62,10 @@ $(document).ready(function () {
         let cat = $(this).text();
 
         // Начало формирования данных для вывода
-        let stat_data = "<div class='cat_name'>" + cat + "</div>";
+        // let stat_data = "<div class='cat_name'>" + cat + "</div>";
 
         // Добавляем таблицу с данными по каждому контракту
-        stat_data += "<div class='cat_data_field'><table class='cat_data'>";
+        let stat_data = "<div class='cat_data_field'><table class='cat_data'>";
         stat_data += "<thead><tr><th>Поставщик</th><th>Закупщик</th><th>Сумма контракта млн. ₽/год</th></tr></thead>";
 
         $.each($(".result .category_list .category"), function (index) {
@@ -115,7 +115,7 @@ $(document).ready(function () {
         summaryTable += "</tbody></table></div>";
 
         // Добавляем таблицу сразу после .cat_name
-        stat_data = "<div class='cat_name'>" + cat + "</div>" + summaryTable + tempContainer.innerHTML;
+       stat_data = "<div class='cat_name'>" + cat + "</div>" + summaryTable + tempContainer.innerHTML;
 
         // Вставка в DOM
         $(".cat_result").css("display", "block");
