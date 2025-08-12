@@ -24,18 +24,15 @@ function createVenSumArray() {
     }));
 }
 
-// Функция для генерации и вставки таблицы
 function insertSummaryTable() {
     const venSumArray = createVenSumArray();
 
-    // Сортируем по убыванию суммы
+
     venSumArray.sort((a, b) => b.sum - a.sum);
 
-    // Создаём HTML-таблицу
     const table = document.createElement('table');
     table.className = 'contract-table';
 
-    // Заголовок таблицы
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
     const headers = ['Поставщик', 'Общая сумма контрактов'];
@@ -47,7 +44,6 @@ function insertSummaryTable() {
     thead.appendChild(headerRow);
     table.appendChild(thead);
 
-    // Тело таблицы
     const tbody = document.createElement('tbody');
     venSumArray.forEach(item => {
         const row = document.createElement('tr');
@@ -65,12 +61,12 @@ function insertSummaryTable() {
     });
     table.appendChild(tbody);
 
-    // Вставляем таблицу перед таблицей .cat_data
+
     const targetTable = document.querySelector('.cat_data');
     if (targetTable && targetTable.parentNode) {
         targetTable.parentNode.insertBefore(table, targetTable);
     }
 }
 
-// Вызов функции при загрузке страницы
+
 document.addEventListener('DOMContentLoaded', insertSummaryTable);
