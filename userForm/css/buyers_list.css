@@ -117,17 +117,29 @@ body {
 
 .main {
 	grid-area: main;
-	background: rgb(65,103,213);
-    background: radial-gradient(circle, rgba(65,103,213,1) 0%, rgba(5,55,200,1) 100%);
+	background-color: #005BAA;	
 }
 
+.headerForAll{
+	background-color: #fff;
+}
 .version {
-	padding:1em 2em;
+	position: relative;
+	padding:0em;
+}
+.lang-block{
+	position: absolute;
+	top: 16px;
+	left: 16px;
 }
 
 .version .change_lang  {
+	display: inline-block;
 	color:#ffffff;
 	cursor:pointer;
+	height: 16px;
+	width: 21px;
+	box-shadow: 0 0 8px 2px rgba(189, 189, 189, 0.2);
 }
 
 .version .change_lang.active  {
@@ -171,19 +183,20 @@ body {
 
 .buyer_list .grid {
 	display:grid;
-	grid-template-areas: "program-title program-description" "slogan program-description";
+	grid-template-areas: "program-title program-description" "slogan program-description ";
 	grid-template-columns: repeat(2, 1fr);
 	gap:0 2em;
 	margin-bottom:2em;
 }
 
-.buyer_list .program-title {
-	font-size:2em;
-	/* font-family: 'Fors ExtraBold';
-	text-align: left; */
+.buyer_list .program-title {	
 	grid-area: program-title;
+	margin-bottom: 32px;
 } 
-
+.program-ttl{
+	font-size:2.5em;
+    font-weight: 700;
+}
 .buyer_list .program-description {
 	font-size:1em;
 	text-align: left;
@@ -205,15 +218,37 @@ body {
 
 .buyer_list .program-description .program-txt {
 	font-size:1.0em;
-    color: var(--newGray);
+    color: var(--newGray);	
+}
+
+.buyer_list .program-description .program-txt ul{
+	margin: 0;
+	padding: 0;
+	margin-top: 16px;
+	list-style:none;
+	font-size: 1.0em;
+	
+}
+.buyer_list .program-description .program-txt li{
+	text-wrap: nowrap;
+   
+}
+
+.buyer_list .program-description .program-txt .tel{
+	padding: 0 0 0 24px;
+	margin-bottom: 16px;
+	 color:var(--grafite);
+	background-repeat: no-repeat;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-telephone-fill' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z'/%3E%3C/svg%3E");
+
+
 }
 .buyer_list .program-description .program-txt span{
-	text-wrap: nowrap;
+	padding: 4px 40px;
     color:var(--grafite);
+    border: 1px solid var(--grafite);
 }
-.buyer_list .program-description .program-txt span a{
-	color:var(--base-color-6);
-}
+
 .buyer_list .ttl {
 	font-size:1.0em;
 	text-align: center;
@@ -229,7 +264,7 @@ body {
 
 .buyer_list .slogan {
 	margin: 0;
-	font-size:1.8em;
+	font-size:1.5em;
     line-height: 1.2em;
     font-weight: 700;
     color:#152d58;
@@ -328,8 +363,6 @@ body {
 }
 
 .open_enroll_window {
-	color:var(--base-color-6);
-	border-bottom:1px solid var(--base-color-6);
 	cursor:pointer;
 }
 
@@ -342,7 +375,7 @@ body {
 .buyer_list .cat-list-field  {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	gap: 2em;
+	gap: 2em;	
 }
 
 .buyer_list .cat-list-field .cat-list-el {
@@ -362,9 +395,7 @@ body {
 	column-count: 2;
 	column-gap: 1%;
 	margin-bottom:2em;
-	/* padding:2em;
-	border:1px solid #efefef;
-	border-radius:1em; */
+	color: var(--newGray);
 }
 
 .buyer_list .cat-list .cat_group {
@@ -618,6 +649,7 @@ body {
 	.buyer_list .program-description .program-dscr {
 		font-size: 1em;
 		margin-bottom: 1em;
+		color:var(--newGray);
 	}
 
 	.buyer_list .program-description .program-txt {

@@ -1137,7 +1137,7 @@
         width: calc(100% + var(--base-gap) * 6);
         margin-left: calc(var(--base-gap) * -4);
         padding-left: calc(var(--base-gap) * 4.5);
-        background: linear-gradient(to right, var(--base-color-1), var(--base-color-6));
+        background: linear-gradient(to right, var(--base-color-1), var(--go-button));
     }
 
 
