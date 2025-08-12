@@ -57,43 +57,15 @@ $(document).ready(function() {
 
 
 
-    
-    
+    $('.cat_list .cat').on("click", function (event) {
+    let el = $(this);
+    let cat = $(this).text();
 
-    $('.cat_list .cat').on("click",function (event) {
+    // Начало формирования данных для вывода
+    let stat_data = "<div class='cat_name'>" + cat + "</div>";
 
-        
-            let el = $(this);
-            let cat = $(this).text();
-            let status_confirm = 0;
-            let status_rebuild = 0;
-            let status_reject = 0;
-            let total_contract_summ = 0;
-            let communication_way_phone = 0;
-            let communication_way_email = 0;
-            let stat_data = "<div class='cat_name'>"+cat+"</div>";
-            stat_data += "<div class='cat_data_field'><table class='cat_data'>";
-            stat_data += "<thead><tr><th>Поставщик</th><th>Закупщик</th><th>Сумма контракта млн. ₽/год</th></tr></thead>";
-
-            $.each($(" .result .category_list .category"), function(index) {
-                if($(this).text() == cat) {
-                    let parent = $(this).parents(".result");
-                    stat_data += "<tr ><td>"+$(".vendor_title",parent).text()+"</td><td>"+$(".buyer_title",parent).text()+"</td><td>"+(Number($(".pt_contract_summ",parent).text())*12/1000000)+"</td></tr>";
-                }
-            });
-
-            stat_data += "</div></table>";
-
-
-            /* stat_data = "<div class='wrap'><div>Статус Подтвердить интерес: "+status_confirm+"</div><div>Статус Отправить КП на доработку: "+status_rebuild+"</div><div>Статус Отказать: "+status_reject+"</div><div>Общая сумма контрактов: "+total_contract_summ+"</div><div>Связаться по телефону: "+communication_way_phone+"</div><div>Связаться по эл. почте: "+communication_way_email+"</div>"; */
-
-        
-
-        $(".cat_result").css("display","block");
-        $(".cat_result .res_field").html(stat_data);
-        $(".cat_data").tablesorter(); 
-
-        const vendorsSum = {};
+    // Подсчёт суммы по поставщикам
+    const vendorsSum = {};
     $.each($(".result .category_list .category"), function(index) {
         if ($(this).text() == cat) {
             let parent = $(this).parents(".result");
@@ -106,62 +78,83 @@ $(document).ready(function() {
         }
     });
 
-    // Сортируем по убыванию
+    // Сортировка по убыванию
     const sortedVendors = Object.keys(vendorsSum)
         .map(key => ({ ven: key, sum: vendorsSum[key] }))
         .sort((a, b) => b.sum - a.sum);
 
-    // Добавляем таблицу с суммами
-    let summaryTable = "<table class='contract-table'>";
+    // Генерация таблицы с суммами
+    let summaryTable = "<div class='cat_contract_field'><table class='contract-table'>";
     summaryTable += "<thead><tr><th>Поставщик</th><th>Общая сумма контрактов</th></tr></thead>";
     summaryTable += "<tbody>";
     sortedVendors.forEach(item => {
         summaryTable += "<tr><td class='cat_vendor'>" + item.ven + "</td><td class='cat_count'>" + item.sum.toFixed(2) + "</td></tr>";
     });
-    summaryTable += "</tbody></table>";
+    summaryTable += "</tbody></table></div>";
 
-    // Вставляем всё в DOM
-    $(".cat_result").css("display", "block");
-    $(".cat_result .res_field").html(summaryTable + stat_data);
-    $(".cat_data").tablesorter();
+    // Добавляем таблицу сразу после .cat_name
+    stat_data += summaryTable;
+
+    // Добавляем таблицу с данными по каждому контракту
+    stat_data += "<div class='cat_data_field'><table class='cat_data'>";
+    stat_data += "<thead><tr><th>Поставщик</th><th>Закупщик</th><th>Сумма контракта млн. ₽/год</th></tr></thead>";
+
+    $.each($(".result .category_list .category"), function(index) {
+        if ($(this).text() == cat) {
+            let parent = $(this).parents(".result");
+            stat_data += "<tr><td>" + $(".vendor_title", parent).text() + "</td><td>" + $(".buyer_title", parent).text() + "</td><td>" + (Number($(".pt_contract_summ", parent).text()) * 12 / 1000000).toFixed(2) + "</td></tr>";
+        }
     });
 
+    stat_data += "</table></div>";
+
+    // Вставка в DOM
+    $(".cat_result").css("display", "block");
+    $(".cat_result .res_field").html(stat_data);
+    $(".cat_data").tablesorter();
+});
+    
 
 
+
+    // Закрытие результата
     $('.cat_result .close').click(function () {
         $(".cat_result").css("display","none");
         $(".cat_result .res_field").html("");
     });
 
-
+    // Генерация предложения
     $('.gen_prop').click(function () {
-
         let proposal_json_data = {};
-        if($(".cat_list .action input:checked").length == 0) {
+        if ($(".cat_list .action input:checked").length == 0) {
             alert("Выберите категорию");
             return false;
         }
 
         let el = $(this);
-        el.attr("disabled","disabled");
-            
-        $.each($(" .cat_list .action input:checked"), function(key) {
+        el.attr("disabled", "disabled");
+
+        $.each($(".cat_list .action input:checked"), function(key) {
             let prnt = $(this).parents(".data");
-            let cat = $(".cat",prnt).text();
-            let count = $(".count",prnt).text();
-            let sum = $(".sum",prnt).text();
-            let vendors = $(".vendors",prnt).text();
-            let buyers = $(".buyers",prnt).text();
-            proposal_json_data[key] = {"cat":""+cat,"count":""+count,"sum":""+sum,"vendors":""+vendors,"buyers":""+buyers};
+            let cat = $(".cat", prnt).text();
+            let count = $(".count", prnt).text();
+            let sum = $(".sum", prnt).text();
+            let vendors = $(".vendors", prnt).text();
+            let buyers = $(".buyers", prnt).text();
+            proposal_json_data[key] = {
+                "cat": ""+cat,
+                "count": ""+count,
+                "sum": ""+sum,
+                "vendors": ""+vendors,
+                "buyers": ""+buyers
+            };
         });
 
         let formData = new FormData();
-		
         formData.append("proposal_json_data", JSON.stringify(proposal_json_data));
 
-        AjaxFunc('/project/webroot/ajax/ajax_stat_manager.php','post',formData,"json",false,true,false,false, (msg) => {
-
-            if(msg.success !== "") {
+        AjaxFunc('/project/webroot/ajax/ajax_stat_manager.php', 'post', formData, "json", false, true, false, false, function(msg) {
+            if (msg.success !== "") {
                 var w = window.open('about:blank');
                 setTimeout(function(){ 
                     w.document.body.appendChild(w.document.createElement('iframe')).src = msg.success;
@@ -169,14 +162,10 @@ $(document).ready(function() {
                     w.document.getElementsByTagName("iframe")[0].style.height = '100%';
                 }, 0);
             } else {
-                alert(msg.error)
+                alert(msg.error);
             }
 
             el.removeAttr("disabled");
-            
         });
-
     });
-
-
 });
