@@ -788,6 +788,7 @@ body {
 	left:0em;
 	background:#333333;
 	color:#ffffff;
+    width: calc(100% / 3);
 }
 
 .manager_stat .cat_result .res_field .cat_data td,

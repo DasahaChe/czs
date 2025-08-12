@@ -61,59 +61,65 @@ $(document).ready(function() {
     let el = $(this);
     let cat = $(this).text();
 
-    // Начало формирования данных для вывода
-    let stat_data = "<div class='cat_name'>" + cat + "</div>";
+     // Начало формирования данных для вывода
+        let stat_data = "<div class='cat_name'>" + cat + "</div>";
 
-    // Подсчёт суммы по поставщикам
-    const vendorsSum = {};
-    $.each($(".result .category_list .category"), function(index) {
-        if ($(this).text() == cat) {
-            let parent = $(this).parents(".result");
-            let vendor = $(".vendor_title", parent).text();
-            let sumStr = Number($(".pt_contract_summ", parent).text()) * 12 / 1000000;
-            if (!vendorsSum[vendor]) {
-                vendorsSum[vendor] = 0;
+        // Подсчёт суммы и количества контрактов по поставщикам
+        const vendorsSum = {};
+        const vendorsCount = {};
+        $.each($(".result .category_list .category"), function(index) {
+            if ($(this).text() == cat) {
+                let parent = $(this).parents(".result");
+                let vendor = $(".vendor_title", parent).text();
+                let sumStr = Number($(".pt_contract_summ", parent).text()) * 12 / 1000000;
+                if (!vendorsSum[vendor]) {
+                    vendorsSum[vendor] = 0;
+                    vendorsCount[vendor] = 0;
+                }
+                vendorsSum[vendor] += sumStr;
+                vendorsCount[vendor]++;
             }
-            vendorsSum[vendor] += sumStr;
-        }
+        });
+
+        // Сортировка по убыванию
+        const sortedVendors = Object.keys(vendorsSum)
+            .map(key => ({
+                ven: key,
+                sum: vendorsSum[key],
+                contract: vendorsCount[key]
+            }))
+            .sort((a, b) => b.sum - a.sum);
+
+        // Генерация таблицы с суммами
+        let summaryTable = "<div class='cat_contract_field'><table class='contract-table'>";
+        summaryTable += "<thead><tr><th>Поставщик</th><th>Количество контрактов</th><th>Общая сумма контрактов млн. ₽/год</th></tr></thead>";
+        summaryTable += "<tbody>";
+        sortedVendors.forEach(item => {
+            summaryTable += "<tr><td class='cat_vendor'>" + item.ven + "</td><td class='cat_count'>" + item.contract + "</td><td>" + item.sum.toFixed(0) + "</td></tr>";
+        });
+        summaryTable += "</tbody></table></div>";
+
+        // Добавляем таблицу сразу после .cat_name
+        stat_data += summaryTable;
+
+        // Добавляем таблицу с данными по каждому контракту
+        stat_data += "<div class='cat_data_field'><table class='cat_data'>";
+        stat_data += "<thead><tr><th>Поставщик</th><th>Закупщик</th><th>Сумма контракта млн. ₽/год</th></tr></thead>";
+
+        $.each($(".result .category_list .category"), function(index) {
+            if ($(this).text() == cat) {
+                let parent = $(this).parents(".result");
+                stat_data += "<tr><td>" + $(".vendor_title", parent).text() + "</td><td>" + $(".buyer_title", parent).text() + "</td><td>" + (Number($(".pt_contract_summ", parent).text()) * 12 / 1000000).toFixed(0) + "</td></tr>";
+            }
+        });
+
+        stat_data += "</table></div>";
+
+        // Вставка в DOM
+        $(".cat_result").css("display", "block");
+        $(".cat_result .res_field").html(stat_data);
+        $(".cat_data").tablesorter();
     });
-
-    // Сортировка по убыванию
-    const sortedVendors = Object.keys(vendorsSum)
-        .map(key => ({ ven: key, sum: vendorsSum[key] }))
-        .sort((a, b) => b.sum - a.sum);
-
-    // Генерация таблицы с суммами
-    let summaryTable = "<div class='cat_contract_field'><table class='contract-table'>";
-    summaryTable += "<thead><tr><th>Поставщик</th><th>Общая сумма контрактов млн. ₽/год</th></tr></thead>";
-    summaryTable += "<tbody>";
-    sortedVendors.forEach(item => {
-        summaryTable += "<tr><td class='cat_vendor'>" + item.ven + "</td><td class='cat_count'>" + item.sum.toFixed(2) + "</td></tr>";
-    });
-    summaryTable += "</tbody></table></div>";
-
-    // Добавляем таблицу сразу после .cat_name
-    stat_data += summaryTable;
-
-    // Добавляем таблицу с данными по каждому контракту
-    stat_data += "<div class='cat_data_field'><table class='cat_data'>";
-    stat_data += "<thead><tr><th>Поставщик</th><th>Закупщик</th><th>Сумма контракта млн. ₽/год</th></tr></thead>";
-
-    $.each($(".result .category_list .category"), function(index) {
-        if ($(this).text() == cat) {
-            let parent = $(this).parents(".result");
-            stat_data += "<tr><td>" + $(".vendor_title", parent).text() + "</td><td>" + $(".buyer_title", parent).text() + "</td><td>" + (Number($(".pt_contract_summ", parent).text()) * 12 / 1000000).toFixed(2) + "</td></tr>";
-        }
-    });
-
-    stat_data += "</table></div>";
-
-    // Вставка в DOM
-    $(".cat_result").css("display", "block");
-    $(".cat_result .res_field").html(stat_data);
-    $(".cat_data").tablesorter();
-});
-    
 
 
 
