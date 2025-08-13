@@ -679,9 +679,13 @@ body {
 	font-family: 'Fors ExtraBold';
 }
 
- 
+.manager_stat .allCat_list td{
+	padding: 1em;
+	background-color: #fcf6d3;
+} 
 
-.manager_stat .cat_list .header {
+.manager_stat .cat_list .header,
+.manager_stat .allCat_list .header{
 	font-weight:bold;
 	text-align:left;
 	padding: 1em;
@@ -691,7 +695,11 @@ body {
 	top: 0;
 }
 
-.manager_stat .cat_list .header:hover {
+.manager_stat .allCat_list .header{
+	width: calc(100% / 3);
+}
+
+.manager_stat .cat_list .header:hover{
 	cursor:pointer;
 }
 
@@ -704,7 +712,8 @@ body {
 	cursor:pointer;
 }
 
-.manager_stat .cat_list .data td.sum:after {
+.manager_stat .cat_list .data td.sum:after,
+.manager_stat .allCat_list  td#sumContract:after {
 	content: " млрд. руб.";
 }
 
