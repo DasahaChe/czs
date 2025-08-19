@@ -1,4 +1,14 @@
-/* vendors_page */
+.buyers-wrapper {
+    padding-top: calc(var(--base-gap) * 2);
+}
+
+.buyers-wrapper .container {
+    display: flex;
+    justify-content: center;
+    padding: 0 calc(var(--base-gap) * 5.25);
+    max-width: calc(var(--base-font-size) * 90);
+    width: 100%;
+}
 
 .buyers_page {
     padding: 0 0 calc(var(--base-gap) * 1.5) 0;
@@ -22,12 +32,9 @@
 
 
 .buyers_page .container {
-    display: flex;
-    margin: 0 calc(var(--base-gap) * 4);
-    padding: 0 calc(var(--base-gap) * 8);
     flex-direction: column;
+    justify-self: center;
 
-    /* margin: 0 auto; */
 }
 
 .buyers_page .description {
@@ -164,6 +171,7 @@
     height: calc(var(--base-gap) * 1.25);
     border-bottom: 3px solid #d2b175;
 }
+
 /* advantages */
 .buyers_page .advantages {
     margin-bottom: calc(var(--base-gap) * 4);
@@ -278,7 +286,7 @@
 }
 
 .buyers_page .category__list .category__item label {
-    display: inline-block;  
+    display: inline-block;
     line-height: 1.25em;
 }
 
@@ -288,7 +296,7 @@
 
 /* category */
 .buyers_page .category {
-    margin:0 0 calc(var(--base-gap) * 2) 0;
+    margin: 0 0 calc(var(--base-gap) * 2) 0;
 }
 
 .buyers_page .category-group {
@@ -340,7 +348,7 @@
     margin-bottom: calc(var(--base-gap) * 4);
 }
 
-.buyers_page .category__item:not(:last-child)  {
+.buyers_page .category__item:not(:last-child) {
     margin-bottom: calc(var(--base-gap) * 1.0);
 }
 
@@ -530,7 +538,7 @@
         align-items: center;
     }
 
-    .buyers_page .category__list{
+    .buyers_page .category__list {
         columns: 2;
     }
 
@@ -552,13 +560,13 @@
         width: 100%;
     }
 
-    .buyers_page .description__banner{
+    .buyers_page .description__banner {
         max-width: 100%;
         width: 100%;
     }
 
-    .buyers_page .description__banner-img{        
-       margin-bottom: calc(var(--base-gap)* 2);
+    .buyers_page .description__banner-img {
+        margin-bottom: calc(var(--base-gap)* 2);
     }
 
     .buyers_page .description__block-picture {
@@ -576,14 +584,15 @@
     .buyers_page .foto_item {
         width: 100%;
     }
+
     .buyers_page .foto__img {
-    border-radius: calc(var(--base-font-size) * 0.5); 
-    }  
-    
-    .buyers_page .hide{
+        border-radius: calc(var(--base-font-size) * 0.5);
+    }
+
+    .buyers_page .hide {
         display: none;
     }
-    
+
     .buyers_page .category-group {
         flex-direction: column;
         gap: calc(var(--base-gap)* 2);
@@ -630,7 +639,7 @@
 }
 
 @media (max-width: 700px) {
-    .buyers_page .category__list{
+    .buyers_page .category__list {
         columns: 1;
     }
 
@@ -671,10 +680,11 @@
     .buyers_page .description__banner {
         width: 100%;
     }
-    
+
     .buyers_page .foto {
         margin: calc(var(--base-gap) * 2) 0 0 0;
     }
+
     .buyers_page .advantages__img {
         /* margin-bottom: calc(var(--base-gap) * 4); */
         width: calc(var(--base-font-size) * 5.625);
