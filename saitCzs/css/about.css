@@ -1,3 +1,16 @@
+.about-wrapper{    
+    padding-top: calc(var(--base-gap) * 2);
+}
+
+.about-wrapper .container {
+    display: flex;
+    justify-content: center;
+    padding: 0 calc(var(--base-gap) * 5.25);
+    max-width: calc(var(--base-font-size) * 90);
+    width: 100%;
+}
+
+/*выше переносить на все страницы*/
 .about {
     padding: 0 0 calc(var(--base-gap) * 1.5) 0;
 }
@@ -19,9 +32,7 @@
 }
 
 .about .container {
-    display: flex;
-    margin: 0 calc(var(--base-gap) * 4);
-    padding: 0 calc(var(--base-gap) * 8);
+    justify-self: center;
     flex-direction: column;
 }
 

@@ -7,9 +7,9 @@
     --main-text-color: rgba(51, 51, 51, 1);
     --sub-text-color: rgba(153, 153, 153, 1);
     --border-color: rgba(153, 153, 153, 1);
-    --base-color-1: rgba(5, 55, 200, 1);
-    --base-color-2: rgba(91, 197, 242, 1);
-    --base-color-2d:rgb(78, 137, 172, 1);
+    --base-color-1: #0537c8;
+    --base-color-2: #5bc5f2;
+    --base-color-2d: rgb(78, 137, 172, 1);
     --base-color-3: rgba(5, 202, 5, 1);
     --base-color-4: rgba(187, 250, 155, 1);
     --base-color-5: rgba(120, 3, 158, 1);
@@ -39,10 +39,10 @@
     --events-acsent: #02ad35;
     --events-fon: #2e3444;
     --go-button: #005BAA;
-    --newGray:#6c7a93;
-    --lightBlue:#E6F4FF;
-    --darkBlue:#7DB3E3;
-    --grafite:#24252D;
+    --newGray: #6c7a93;
+    --lightBlue: #E6F4FF;
+    --darkBlue: #7DB3E3;
+    --grafite: #24252D;
     /* --go-button: #00AD6E; */
 }
 
@@ -83,9 +83,10 @@ svg {
     max-width: 100%;
 }
 
-.img{
+.img {
     width: 100%;
 }
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -151,6 +152,68 @@ body {
     border-bottom: 1px solid var(--sub-text-color);
 }
 
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: calc(var(--base-gap) * 4);
+}
+
+.header .header__menu {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    justify-content: center;
+    padding: calc(var(--base-gap) * 1.5) 0;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--background-2-opacity-80) 0%, var(--background-1-opacity-80) 100%);
+
+}
+
+.header .header__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header .header__top {
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.header .header__tel {
+    padding: calc(var(--base-gap) / 4) 0 calc(var(--base-gap) / 4) calc(var(--base-gap) * 1.5);
+    margin-right: calc(var(--base-gap) * 1.5);
+    font-size: calc(var(--base-font-size) * 1.25);
+    color: var(--go-button);
+    background-image: url(../img/phone.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    transition: color 0.3s ease, background-image 0.3s ease;
+}
+
+.header .header__button {
+    padding: calc(var(--base-gap) / 2) calc(var(--base-gap) / 1);
+    font-size: calc(var(--base-font-size) * 1.25);
+    background-color: transparent;
+    color: var(--go-button);
+    border: 1px solid var(--go-button);
+    transition: background-color 0.5s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
 /* Header */
 
 .header .header__block {
@@ -166,14 +229,14 @@ body {
     align-items: center;
 }
 
-.header .header__logo{
+.header .header__logo {
     display: flex;
     justify-content: space-between;
     max-width: 380px;
     width: 100%;
 }
 
-.header .header__logo-link{
+.header .header__logo-link {
     outline: none;
     transition: outline 0.5s ease;
 }
@@ -224,12 +287,13 @@ body {
     position: relative;
     font-size: calc(var(--base-font-size) * 1.25);
     color: #fff;
-    transition: color 0.3s ease;       
+    transition: color 0.3s ease;
 }
 
-.header .header__link a{
+.header .header__link a {
     outline: none;
 }
+
 .header .header__link-top::after,
 .header .header__link::after {
     content: "";
@@ -250,16 +314,7 @@ body {
     gap: calc(var(--base-gap) * 2);
 }
 
-.header .header__menu {
-    margin: calc(var(--base-gap) * 1.5) 0 0;
-    padding: calc(var(--base-gap)* 1.5) calc(var(--base-gap)* 4);
-    display: flex;
-    justify-content: space-between;
-    background: linear-gradient(135deg,var(--background-2-opacity-80) 0%, var(--background-1-opacity-80) 100%);
-    /* background: linear-gradient(135deg, var(--background-1-opacity-80) 0%, var(--background-2-opacity-80) 100%); */
-    border-radius: calc(var(--base-gap) * 2);
-    
-}
+
 
 .header .header__list-menu {
     display: flex;
@@ -435,6 +490,7 @@ body {
         background-color: #fff;
         color: #005BAA;
     }
+
     .header .header__link-top:hover::after {
         width: calc(100% + 5px);
         border-bottom-color: var(--base-color-3);
@@ -454,16 +510,16 @@ body {
     }
 
     .header__logo-link:focus-visible {
-        outline:1px solid var(--base-color-1);
+        outline: 1px solid var(--base-color-1);
         outline-offset: 2px;
     }
 
-    .header .header__link a:focus-visible{
+    .header .header__link a:focus-visible {
         outline: 1px solid #fff;
         outline-offset: 5px;
     }
 
-    .header .header__link-top a:focus-visible{
+    .header .header__link-top a:focus-visible {
         outline: 1px solid var(--base-color-1);
         outline-offset: 5px;
     }
@@ -477,4 +533,4 @@ body {
         outline-offset: 5px;
     }
 
-   }
+}
