@@ -58,7 +58,7 @@
 .about .description h3 {
     display: block;
     margin: calc(var(--base-font-size) * 0.25) 0 calc(var(--base-font-size) * 1.25) 0;
-    font-size: calc(var(--base-font-size) * 1.5);
+    font-size: calc(var(--base-font-size) * 1.25);
     line-height: calc(var(--base-font-line-height) * 1);
     font-weight: 700;
     color: var(--base-color-6);
@@ -105,6 +105,7 @@
 
     .about .description h2 {
         font-size: calc(var(--base-font-size) * 1.5);
+        line-height: calc(var(--base-font-size) * 1.5);
         margin-bottom: calc(var(--base-font-size) * 2);
     }
 
