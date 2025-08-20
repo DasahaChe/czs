@@ -120,7 +120,7 @@ svg {
 
 .btn {
     padding: calc(var(--base-gap) * 1) calc(var(--base-gap) * 2);
-    border-radius: calc(var(--base-font-size) * 1);
+    /* border-radius: calc(var(--base-font-size) * 1); */
     background-color: transparent;
     cursor: pointer;
 }

@@ -112,26 +112,66 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+let catalogBlocks = document.querySelectorAll('.catalog__block-zacupki');
+let readMoreButtons = document.querySelectorAll('.read-more');
+let readLesButtons = document.querySelectorAll('.read-les');
 
+for (let i = 0; i < catalogBlocks.length; i++) {
+    let catalogBlock = catalogBlocks[i];
+    let readMoreButton = readMoreButtons[i];
+    let readLesButton = readLesButtons[i];
 
-//         document.addEventListener("DOMContentLoaded", function () {
-//     const icons = document.querySelectorAll('.menu__list-icon .menu__img');
-//     const menuItems = document.querySelectorAll('.menu__list-mobil .menu__item-mobil');
+    if (catalogBlock.offsetHeight > catalogBlock.scrollHeight) {
+        readMoreButton.style.display = 'block';
+    }
 
-//     icons.forEach((icon, index) => {
-//         const targetIndex = index + 1; // иконки начинаются с 1, так как data-index=1
-//         const targetItem = document.querySelector(`.menu__list-mobil .menu__item-mobil[data-index="${targetIndex}"]`);
+    readMoreButton.addEventListener('click', function() {
+        catalogBlock.style.maxHeight = 'none';
+        readMoreButton.style.display = 'none';
+        readLesButton.style.display = 'block';
+        catalogBlock.querySelector('.catalog__list-zacupki').style.display = 'block';      
+    });
 
-//         icon.addEventListener('mouseenter', () => {
-//             menuItems.forEach(item => item.classList.remove('show'));
-//             if (targetItem) {
-//                 targetItem.classList.add('show');
-//             }
-//         });
+    readLesButton.addEventListener('click', function() {
+        readMoreButton.style.display = 'block';
+        readLesButton.style.display = 'none';
+        catalogBlock.querySelector('.catalog__list-zacupki').style.display = '-webkit-box';      
+    });
+}
 
-//         // Скрываем при уходе мыши
-//         icon.addEventListener('mouseleave', () => {
-//             menuItems.forEach(item => item.classList.remove('show'));
-//         });
-//     });
-// });
+let newItems = document.querySelectorAll('.new__list .new__item');
+let itemsToShow = window.innerWidth > 1640 ? 6 : 4;
+
+for (let i = itemsToShow; i < newItems.length; i++) {
+    newItems[i].style.display = 'none';
+}
+
+function createNextButton(count) {
+    let showMoreButton = document.createElement('button');
+    showMoreButton.className = 'show-more';
+    showMoreButton.textContent = `${count}`;
+    if (count === 1) {
+        showMoreButton.classList.add('show-now');
+    }
+    document.querySelector('.new__block-button').appendChild(showMoreButton);
+    showMoreButton.addEventListener('click', function() {
+        let showNowButton = document.querySelector('.show-now');
+        if (showNowButton) {
+            showNowButton.classList.remove('show-now');
+        }
+        showMoreButton.classList.add('show-now');
+        for (let i = 0; i < newItems.length; i++) {
+            if (i >= (count * itemsToShow - itemsToShow) && i < (count * itemsToShow)) {
+                newItems[i].style.display = 'flex';
+            } else {
+                newItems[i].style.display = 'none';
+            }
+        }
+    });
+}
+
+let count = Math.ceil(newItems.length / itemsToShow);
+
+for (let i = 1; i <= count; i++) {
+    createNextButton(i);
+}
