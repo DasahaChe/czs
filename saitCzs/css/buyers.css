@@ -111,60 +111,6 @@
 .buyers_page .food {
     background-image: url('../img/food.png');
 }
-/* 
-.buyers_page .description__banner-img {
-    width: 40%;
-    margin-bottom: calc(var(--base-font-size) * 1);
-}
-
-.buyers_page .description__banner-title {
-    margin: calc(var(--base-font-size) * 0.5) auto 0;
-    font-size: calc(var(--base-font-size)* 3.0);
-    line-height: calc(var(--base-font-line-height)* 1.25);
-    font-family: var(--base-bold-font);
-    color: var(--base-color-6);
-}
-
-
-.buyers_page .description__banner-button {
-    margin-bottom: var(--base-gap);
-    padding: calc(var(--base-gap) * 0.5) calc(var(--base-gap) * 2);
-    background-color: #fff;
-    border-radius: calc(var(--base-font-size) * 2);
-    color: var(--base-color-6);
-    text-align: center;
-    outline: none;
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-.buyers_page .description__banner-textBlock {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.buyers_page .description__banner-text {
-    padding-left: 0.5em;
-    font-size: calc(var(--base-font-size) * 1.0);
-    line-height: calc(var(--base-font-size) * 1.25);
-    margin: 0 0 calc(var(--base-gap) * 1) 0;
-    color: #fff;
-    text-align: center;
-}
-
-.buyers_page .description__banner-textDecor {
-    position: relative;
-}
-
-.buyers_page .description__banner-textDecor::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 100%;
-    height: calc(var(--base-gap) * 1.25);
-    border-bottom: 3px solid #d2b175;
-} */
 
 /* advantages */
 .buyers_page .advantages {
@@ -173,7 +119,7 @@
 
 .buyers_page .advantages__subtitle {
     padding: 0;
-    margin: 0 0 32px 0;
+    margin: 0 0 64px 0;
     font-weight: 700;
     font-size: calc(var(--base-font-size) * 2.5);
     line-height: calc(var(--base-font-size) * 3);
@@ -210,8 +156,8 @@
 
 .buyers_page .advantages__img {
     margin-bottom: calc(var(--base-gap) * 1.25);
-    width: calc(var(--base-font-size) * 7.5);
-    height: calc(var(--base-font-size) * 7.5);
+    width: calc(var(--base-font-size) * 8.5);
+    height: calc(var(--base-font-size) * 8.5);
 
 }
 
@@ -258,7 +204,7 @@
 }
 
 .buyers_page .category__subtitle,
-.buyers_page .catalog__subtitle  {
+.buyers_page .catalog__subtitle {
     display: block;
     margin: calc(var(--base-font-size) * 0.25) 0 calc(var(--base-font-size) * 2) 0;
     font-size: calc(var(--base-font-size) * 1.25);
@@ -478,7 +424,6 @@
     .buyers_page .category__subtitle {
         font-size: calc(var(--base-font-size) * 1.5);
         line-height: calc(var(--base-font-line-height) * 1.5);
-        margin-bottom: calc(var(--base-gap) * 2);
     }
 
     .buyers_page .description__block {
@@ -505,6 +450,7 @@
     .start_page .container {
         padding: 0 calc(var(--base-gap) * 3.5);
     }
+
     .buyers_page .description {
         flex-direction: column;
         gap: calc(var(--base-gap) * 3);
@@ -638,16 +584,6 @@
     .buyers_page .description__banner {
         width: 100%;
         flex-direction: column;
-    }
-
-    .buyers_page .foto {
-        margin: calc(var(--base-gap) * 2) 0 0 0;
-    }
-
-    .buyers_page .advantages__img {
-        /* margin-bottom: calc(var(--base-gap) * 4); */
-        width: calc(var(--base-font-size) * 5.625);
-        height: calc(var(--base-font-size) * 5.625);
     }
 
     .buyers_page .category_group__list {
