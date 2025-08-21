@@ -221,6 +221,7 @@
 
 .buyers_page .category__list .category__item label {
     display: inline-block;
+    font-size: var(--base-font-size);
     line-height: 1.25em;
 }
 
@@ -388,13 +389,13 @@
 }
 
 .buyers_page .catalog__button {
-    margin: calc(var(--base-gap)* 2) 0 calc(var(--base-gap)* 1) -2px;
+    margin: calc(var(--base-gap)* 2) 0 calc(var(--base-gap)* 1) -1px;
     padding: calc(var(--base-gap)* 0.5);
     display: block;
     text-align: center;
     width: calc(var(--base-font-size) * 12);
     font-size: calc(var(--base-font-size)* 1.0);
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     color: var(--white-text-color);
     background: linear-gradient(135deg, var(--base-color-1) 0%, var(--base-color-2) 100%);
     outline: none;
@@ -447,7 +448,7 @@
 }
 
 @media (max-width: 1020px) {
-    .start_page .container {
+    .buyers_pag .container {
         padding: 0 calc(var(--base-gap) * 3.5);
     }
 
