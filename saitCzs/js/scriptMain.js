@@ -112,6 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//разворот списка в каталоге
+
 let catalogBlocks = document.querySelectorAll('.catalog__block-zacupki');
 let readMoreButtons = document.querySelectorAll('.read-more');
 let readLesButtons = document.querySelectorAll('.read-les');
@@ -139,6 +141,7 @@ for (let i = 0; i < catalogBlocks.length; i++) {
     });
 }
 
+//новости + кнопка
 let newItems = document.querySelectorAll('.new__list .new__item');
 let itemsToShow = window.innerWidth > 1640 ? 6 : 4;
 
@@ -175,3 +178,30 @@ let count = Math.ceil(newItems.length / itemsToShow);
 for (let i = 1; i <= count; i++) {
     createNextButton(i);
 }
+//видео
+document.addEventListener('DOMContentLoaded', function () {
+    const videoBlocks = document.querySelectorAll('.review__video-block');
+
+    videoBlocks.forEach(block => {
+        const video = block.querySelector('.review__video-treck');
+        let isPlaying = false;
+
+        block.addEventListener('click', function () {
+            if (!isPlaying) {
+                // Запуск видео
+                video.play().then(() => {
+                    isPlaying = true;
+                    block.classList.add('playing');
+                }).catch(error => {
+                    console.error("Ошибка воспроизведения:", error);
+                });
+            } else {
+                // Остановка видео
+                video.pause();
+                video.currentTime = 0;
+                isPlaying = false;
+                block.classList.remove('playing');
+            }
+        });
+    });
+});

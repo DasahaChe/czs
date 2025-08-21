@@ -51,7 +51,7 @@
     border: 1px solid rgba(5, 55, 200, 1);
     background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
     outline: none;
-    transition: border-color 0.5s ease;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .buyers_page .description__text {
@@ -632,11 +632,13 @@
 @media (any-hover: hover) {
 
     .buyers_page .description__button:hover {
-        border-color: var(--base-color-1);
+        border-color: var(--base-color-2);
+        background-color: var(--base-color-2);
     }
 
     .buyers_page .catalog__button:hover {
-        border-color: var(--base-color-1);
+        border-color: var(--base-color-2);
+        background-color: var(--base-color-2);
     }
 
     .buyers_page .description__button:focus-visible {

@@ -200,7 +200,7 @@
     border: 1px solid var(--base-color-6);
     background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
     outline: none;
-    transition: border-color 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .start_page .main .banner {
@@ -324,10 +324,39 @@
     margin: 0;
 }
 
-.start_page .main .review__video-treck {
-width: 100%;
+.review__video-block {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    cursor: pointer;
 }
 
+.review__video-treck {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.review__video-block::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 24px 0 24px 40px;
+    border-color: transparent transparent transparent white;
+    opacity: 1;
+    /* transition: opacity 0.2s ease; */
+}
+
+/* Скрытие треугольника */
+.review__video-block.playing::after {
+    opacity: 0;
+}
 .start_page .main .review__button {
     align-self: center;
 }
@@ -706,6 +735,14 @@ width: 100%;
     background-color: var(--base-color-6);
 }
 
+.review__video-block::after {
+    opacity: var(--show-play, 0.8); /* По умолчанию показан */
+}
+
+
+
+
+
 @media (max-width: 1199px) {
 
     .start_page .main .about {
@@ -1043,26 +1080,7 @@ width: 100%;
     .start_page .future__link:hover .future__title {
         color: var(--base-color-2);
     }
-        
+      .start_page .main .review__video-block:hover::after {
+    opacity: 0.8;
+}  
 }
-
-/* @media (max-width: 350px) {
-    .start_page .future__block-top {
-        flex-direction: column;
-        height: 100%;
-        background-color: transparent;
-    }
-
-    .start_page .future__block-img {
-        width: 100%;        
-    }
-
-    .start_page .future__img {
-        max-height: calc(var(--base-font-size) * 12);
-        border-top-right-radius: calc(var(--base-gap) / 2);
-    }
-
-    .start_page .future__block-date {
-        display: none;
-    }
-} */
