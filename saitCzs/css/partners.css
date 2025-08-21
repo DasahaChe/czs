@@ -120,11 +120,6 @@
     }
 }
 
-/* @media (max-width: 610px) {
-    .partner .container {
-        margin: 0 calc(var(--base-gap) * 2);
-    }
-} */
 
 @media (max-width: 350px) {
     .partner .container {
