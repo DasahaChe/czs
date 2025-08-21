@@ -448,7 +448,7 @@
 }
 
 @media (max-width: 1020px) {
-    .buyers_pag .container {
+    .buyers_page .container {
         padding: 0 calc(var(--base-gap) * 3.5);
     }
 

@@ -24,8 +24,7 @@
     font-size: calc(var(--base-font-size) * 3.5);
     line-height: calc(var(--base-font-size) * 3.5);
     color: var(--newGray);
-    display: inline-block;
-   
+    display: inline-block;  
 }
 
 
