@@ -70,18 +70,11 @@
     font-size: calc(var(--base-font-size) * 3.5);
     line-height: calc(var(--base-font-size) * 3.5);
     color: var(--newGray);
-    /* font-family: var(--base-bold-font);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-3));
-    display: inline-block; */
 }
 
 .start_page .main .about__text {
     margin: 0 0 32px 0;
     font-size: calc(var(--base-font-size) * 1.0);
-    /* font-size: calc(var(--base-font-size) * 1.25); */
     color: var(--main-text-color);
     line-height: calc(var(--base-font-size) * 1.25);
 }
@@ -157,16 +150,10 @@
 .start_page .main .photo__title {
     padding: 0;
     margin: 0 0 64px 0;
-    /* font-family: var(--base-bold-font); */
     font-weight: 700;
     font-size: calc(var(--base-font-size) * 3);
     line-height: calc(var(--base-font-size) * 3);
     color: var(--newGray);
-    /* color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-3));
-    display: inline-block; */
 }
 
 .start_page .main .advantage__title {
@@ -344,15 +331,9 @@
 .start_page .main .steps__subtitle {
     padding: 0;
     margin: 0 0 48px 0;
-    /* font-family: var(--base-bold-font); */
     font-size: calc(var(--base-font-size) * 2);
     line-height: calc(var(--base-font-size) * 2);
     color: var(--base-color-6);
-    /* color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-image: linear-gradient(to right, var(--base-color-1), var(--base-color-3));
-    display: inline-block; */
 }
 
 .start_page .main .steps__list {
