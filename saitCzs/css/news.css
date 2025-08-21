@@ -142,7 +142,8 @@
 .news .show-now {
     background-color: var(--base-color-7);
     color: #fff;
-    border-color: var(--base-color-1);
+    border-color: var(--newGray);
+    background-color: var(--newGray);
 }
 
 /* баннеры */
@@ -269,7 +270,7 @@
     }
 
     .news .show-now:hover {
-        border-color: var(--base-color-1);
+        border-color: var(--base-color-2);
     }
 
     .news .show-now:focus-visible {

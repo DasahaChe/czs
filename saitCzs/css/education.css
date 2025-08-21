@@ -86,6 +86,7 @@
     font-size: var(--base-font-size);
     color: #fff;
     width: calc(var(--base-font-size)* 10);
+    transition: border-color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 
@@ -255,7 +256,7 @@
     color: var(--white-text-color);
     background: linear-gradient(135deg, var(--base-color-1) 0%, var(--base-color-2) 100%);
     outline: none;
-    transition: border-color 0.5s ease;
+    transition: border-color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 .education .program__banners {
@@ -479,15 +480,23 @@
 @media (any-hover: hover) {
 
     .education .program__button:hover {
-        border-color: var(--base-color-1);
+        border-color: #fff;
+        background: var(--base-color-2);
     }
 
     .education .program__button:focus-visible {
         border-color: var(--base-color-1);
+        background: var(--base-color-2);
     }
-
+.education .banner__button:active,
     .education .program__button:active {
         border-color: var(--base-color-5);
+        background: var(--base-color-2);
     }
 
+.education .banner__button:focus-visible,
+    .education .banner__button:hover {
+        border-color: var(--base-color-2);
+        background: var(--base-color-2);
+    }
 }

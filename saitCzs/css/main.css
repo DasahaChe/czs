@@ -324,6 +324,10 @@
     margin: 0;
 }
 
+.start_page .main .review__video-treck {
+width: 100%;
+}
+
 .start_page .main .review__button {
     align-self: center;
 }
