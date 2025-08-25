@@ -320,9 +320,11 @@ body {
 .header__burger-close {
     display: none;
 }
-.header .header__menu .container{
+
+.header .header__menu .container {
     padding: 0;
 }
+
 .header .header__list-menu {
     display: flex;
     width: 100%;
@@ -337,7 +339,8 @@ body {
     color: #fff;
     transition: color 0.3s ease;
     cursor: pointer;
-    padding: 0; /* Сбросим внутренний отступ */
+    padding: 0;
+    /* Сбросим внутренний отступ */
 }
 
 .header .header__list-menu li.header__link a {
@@ -500,11 +503,7 @@ body {
         color: #fff;
     }
 
-    .header .header__top .header__button:hover {
-        color: var(--base-color-2);
-        background-color: transparent;
-        border-color: transparent;
-    }
+
 }
 
 
@@ -555,9 +554,9 @@ body {
         outline-offset: 2px;
     }
 
-.header .header__list-menu li.header__link:focus a {
-    color: var(--base-color-1);
-}
+    .header .header__list-menu li.header__link:focus a {
+        color: var(--base-color-1);
+    }
 
 
     .header .header__link a:focus-visible {
@@ -565,10 +564,10 @@ body {
         outline-offset: 5px;
     }
 
-.header .header__list-menu li.header__link:hover::after {
-    width: 100%;
-    background-color: #fff;
-}
+    .header .header__list-menu li.header__link:hover::after {
+        width: 100%;
+        background-color: #fff;
+    }
 
     .header .header__link-top a:focus-visible {
         outline: 1px solid var(--base-color-1);
@@ -584,4 +583,14 @@ body {
         outline-offset: 5px;
     }
 
+    .header .header__top .header__button:hover {
+        color: #fff;
+        background-color: var(--base-color-2);
+        border-color: var(--base-color-2);
+    }
+
+    .header .header__tel:hover {
+        color: var(--base-color-2);
+        background-image: url(../img/phoneB.png);
+    }
 }

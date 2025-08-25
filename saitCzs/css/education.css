@@ -195,7 +195,7 @@
 
 .education .program__type {
     margin: 0 0 calc(var(--base-gap) / 2) 0;
-    font-size: calc(var(--base-font-size) * 1.25);
+    font-size: calc(var(--base-font-size) * 1.0);
     color: var(--base-color-2);
 }
 
