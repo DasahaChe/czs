@@ -1,3 +1,33 @@
+:root {
+    
+    --headers-text-color: rgba(51, 51, 51, 1);
+    --main-text-color: rgba(51, 51, 51, 1);
+    --sub-text-color: rgba(153, 153, 153, 1);
+    --border-color: rgba(153, 153, 153, 1);
+    --base-color-1: #0537c8;
+    --base-color-2: #5bc5f2;
+    --base-color-6: #005BAA;
+    --base-color-7: #3762CF;
+    --link-color-1: rgba(5, 55, 200, 1);
+    --link-visited-color-1: rgba(120, 3, 158, 1);
+    --error-color-4: rgba(243, 71, 71, 1);
+    --base-font: 'Fors';
+    --base-bold-font: 'Fors ExtraBold';
+    --base-font-size: 1rem;
+    --base-font-line-height: 1rem;
+    --base-gap: 1rem;
+    --background-1-opacity-80: rgba(5, 55, 200, 0.8);
+    --background-2-opacity-80: rgba(80, 200, 255, 1);
+    --svgGradient: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    --item-border: #dadada;
+    /* --events-acsent: #02ad35; */
+    --go-button: #005BAA;
+    --newGray: #6c7a93;
+    --lightBlue: #E6F4FF;
+    --darkBlue: #7DB3E3;
+    --grafite: #24252D;
+
+}
 @font-face {
     font-family: 'Fors';
     src: local('TT Fors'), url('../fonts/fors/TT\ Fors\ Trial\ Regular.woff') format('woff'), url('../fonts/TT\ Fors\ Trial\ Regular.woff2') format('woff2');
@@ -13,7 +43,7 @@
 }
 
 body, html {
-	background: #f8f8f8;
+	background: #fff;
 	font-family: 'Fors';
 	padding:0px; 
 	margin:0 auto; 
@@ -72,15 +102,28 @@ body {
 
 .version .change_lang {
     cursor: pointer;
-    border-bottom: 1px solid #999999;
+    border-bottom: 1px solid var(--darkBlue);
+	color: var(--newGray);
 }
 
 .version .change_lang.active {
     cursor: none;
-    border-bottom: 0px solid #999999;
+    border-bottom: 0px solid var(--base-color-2);
     font-weight: bold;
 }
+.gen_prop{
+	padding: 8px 16px;
+	font-family: var(--base-font);
+	color: #fff;
+	background-color: var(--base-color-6);
+	border: 1px solid var(--base-color-1);
+	transition: background-color 0.3s ease, --border-color 0.3s ease;
+}
 
+.gen_prop:hover{	
+	background-color: var(--base-color-2);
+	border-color: var(--base-color-2);
+}
 .main.stat {
 	margin:0em;
 }
@@ -675,13 +718,16 @@ body {
 }
 
 .manager_stat .title {
-	font-size:2em;
-	font-family: 'Fors ExtraBold';
+	padding: 0;
+    margin: 0 0 32px 0;
+    font-size: calc(var(--base-font-size) * 3.5);
+    line-height: calc(var(--base-font-size) * 3.5);
+    color: var(--newGray);
 }
 
 .manager_stat .allCat_list td{
 	padding: 1em;
-	background-color: #fcf6d3;
+	background-color: var(--lightBlue);
 } 
 
 .manager_stat .cat_list .header,
@@ -689,10 +735,11 @@ body {
 	font-weight:bold;
 	text-align:left;
 	padding: 1em;
-	background:#333333;
+	background-color:var(--newGray);
 	color:#ffffff;
 	position: sticky;
 	top: 0;
+	z-index: 5000;
 }
 
 .manager_stat .allCat_list .header{
@@ -708,9 +755,30 @@ body {
 }
 
 .manager_stat .cat_list .data td.cat {
+	position: relative;
 	color:#03509E;
 	cursor:pointer;
 }
+
+.manager_stat .cat_list .data td.cat::after {
+	content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 0;
+    height: calc(var(--base-gap) * 1.25);
+    border-bottom: 1px solid transparent;
+    background-color: transparent;
+    transition: width 0.3s ease, border-bottom-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    transform: translateX(-50%);
+}
+
+
+.manager_stat .cat_list .data td.cat:hover::after {
+        width:95%;
+        border-bottom-color: var(--darkBlue);
+        transform: translateX(-50%);
+    }
 
 .manager_stat .cat_list .data td.sum:after,
 .manager_stat .allCat_list  td#sumContract:after {
@@ -718,7 +786,7 @@ body {
 }
 
 .manager_stat .cat_list .data:nth-child(even) {
-	background:#fcf6d3;
+	background:var(--lightBlue);
 }
 
 .manager_stat .cat_result {
@@ -737,15 +805,16 @@ body {
 	position:fixed;
 	top:4em;
 	right:6em;
-	padding:1em;
-	background:#ff6565;
-	border-radius:1em;
+	padding:1em 2em;
+	color: #fff;
+	background-color:var(--base-color-6);
 	z-index:100;
+	transition: background-color 0.3s ease;
 }
 
 .manager_stat .cat_result .close:hover {
 	cursor:pointer;
-	background:#ffec83 ;
+	background-color:var(--base-color-2);
 }
 
 .manager_stat .cat_result .res_field {
@@ -764,6 +833,7 @@ body {
 	position:sticky;
 	top:0em;
 	left:0em;
+	color: var(--grafite);
 	background:#ffffff;
     z-index: 0 ;
 }
@@ -795,7 +865,7 @@ body {
 	position:sticky;
 	top:0em;
 	left:0em;
-	background:#333333;
+	background:var(--newGray);
 	color:#ffffff;
     width: calc(100% / 3);
 }
