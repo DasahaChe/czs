@@ -361,6 +361,7 @@
     .event .future__block-date {
         padding: calc(var(--base-gap) / 2);
     }
+
     .events .event__banners {
         flex-direction: column;
         align-items: flex-start;
@@ -368,15 +369,15 @@
 }
 
 @media (max-width:400px) {
-    
-.events .future__block-top {
+
+    .events .future__block-top {
         flex-direction: column;
         height: 100%;
         background-color: transparent;
     }
 
     .events .future__block-img {
-        width: 100%;        
+        width: 100%;
     }
 
     .events .future__img {
@@ -396,6 +397,19 @@
         background-color: var(--base-color-2);
         color: #fff;
         border-color: var(--sub-text-color);
+    }
+
+    .events .future__btn:hover,
+    .events .future__btn:focus-visible {
+        color: #fff;
+        background-color: var(--base-color-2);
+        border-color: var(--base-color-2);
+    }
+
+    .events .future__btn:hover .future__btn-img,
+    .events .future__btn:focus-visible .future__btn-img {
+        color: var(--base-color-2);
+        background-color: #fff;
     }
 
     .events .event__button:active {
