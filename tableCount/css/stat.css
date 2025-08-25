@@ -104,6 +104,13 @@ body {
     cursor: pointer;
     border-bottom: 1px solid var(--darkBlue);
 	color: var(--newGray);
+	transition: all 0.3s ease;
+}
+
+.version .change_lang:hover {
+   
+    border-bottom: 1px solid var(--base-color-2);
+	color: var(--base-color-2);
 }
 
 .version .change_lang.active {
@@ -799,6 +806,7 @@ body {
 	overflow-y: scroll; 
 	background:#efefef; 
 	padding:2em;
+	z-index: 7000;
 }
 
 .manager_stat .cat_result .close {
