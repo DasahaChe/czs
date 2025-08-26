@@ -531,12 +531,7 @@
         width: calc((100% / 2) - var(--base-gap));
     }
 
-    .buyers_page .category-group {
-        flex-direction: column;
-        gap: calc(var(--base-gap)* 2);
-
-    }
-
+   
     .buyers_page .category__list {
         font-size: calc(var(--base-font-size) * 1);
         padding: 0;
@@ -552,9 +547,7 @@
         columns: 1;
     }
 
-    .buyers_page .category__list {
-        columns: 1;
-    }
+   
 }
 
 @media (max-width: 610px) {
@@ -592,10 +585,7 @@
         row-gap: calc(var(--base-gap)* 3);
     }
 
-    .buyers_page .category_group__list {
-        flex-direction: column;
-        row-gap: calc(var(--base-gap)* 3);
-    }
+   
 
     .buyers_page .catalog__subtitle {
         line-height: calc(var(--base-font-line-height) * 1.5);
