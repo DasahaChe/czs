@@ -50,10 +50,11 @@
 }
 
 .login_page .login_form {
-    padding: calc(var(--base-gap) * 2);
+    
     display: flex;
     justify-content: space-between;
-    grid-template-columns: 1fr;
+    justify-self: center;
+    padding: calc(var(--base-gap) * 2);
     gap: 2em;
     align-self: start;
     max-width: 600px;
@@ -116,7 +117,10 @@ textarea {
 
 }
 
-
+.login_page .confedential {
+    color: var(--item-border);
+    text-decoration: underline;
+}
 
 
 
