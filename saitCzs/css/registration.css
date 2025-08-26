@@ -211,7 +211,7 @@ button, input, optgroup, select, textarea {
     padding: 0.5em;
     border: 1px solid  var(--item-border);
     border-radius: 0.25em;
-    max-width: 200px;
+    max-width: 190px;
 }
 
 
