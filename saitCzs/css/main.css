@@ -108,7 +108,7 @@
     padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
     min-width: calc(var(--base-font-size) * 17);
     color: var(--base-color-2d);
-    /* border-radius: calc(var(--base-font-size) * 2); */
+    cursor: pointer;
     border: 1px solid var(--base-color-2d);
     font-size: calc(var(--base-font-size) * 1);
     background: transparent;
@@ -236,7 +236,7 @@
 .start_page .main .banner__title {
     margin: 0;
     margin-bottom: 32px;
-    /* font-family: var(--base-bold-font); */
+    
     font-weight: 700;
     font-size: calc(var(--base-font-size) * 3);
     line-height: calc(var(--base-font-size) * 3);
@@ -245,7 +245,6 @@
 
 .start_page .main .banner__text {
     margin: 0;
-    /* font-family: var(--base-bold-font); */
     font-weight: 700;
     font-size: calc(var(--base-font-size) * 1.25);
     margin-bottom: 32px;
@@ -256,7 +255,6 @@
     font-size: calc(var(--base-font-size) * 0.75);
     color: #fff;
     border: 1px solid #fff;
-    /* border-radius: calc(var(--base-font-size) * 2); */
     background-color: transparent;
     transition: border-color 0.5s ease, background-color 0.5s ease, color 0.5s ease;
 }
@@ -417,7 +415,6 @@
 .start_page .main .event__title {
     color: #fff;
     margin: 0 0 32px 0;
-    /* font-family: var(--base-bold-font); */
     font-size: calc(var(--base-font-size) * 3);
     line-height: calc(var(--base-font-size) * 3);
 }
@@ -521,7 +518,6 @@
     font-size: calc(var(--base-font-size) * 0.75);
     color: var(--base-color-6);
     border: 1px solid var(--base-color-6);
-    /* border-radius: calc(var(--base-gap) * 0); */
     background-color: #fff;
     transition: border-color 0.5s ease, color 0.5s ease, background-color 0.5s ease;
 }
