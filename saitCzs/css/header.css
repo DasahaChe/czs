@@ -207,9 +207,9 @@ body {
 }
 
 .header .header__button.active{
-    background-color: var(--base-color-7);
+    background-color: var(--base-color-2);
     color: #fff;
-    border: 1px solid var(--base-color-7);
+    border: 1px solid var(--base-color-2);
    }
 
 
