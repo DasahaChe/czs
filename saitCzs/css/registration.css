@@ -33,6 +33,7 @@
 }
 .regisration_page .reg_button {
     padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
+    margin-top: 64px;
     width: calc(var(--base-font-size) * 22.75);
     font-size: calc(var(--base-font-size) * 1);
     color: #fff;
@@ -96,7 +97,7 @@
 }
 
 /* category */
-.regisration_page .category {
+/*.regisration_page .category {
     margin: 0 0 calc(var(--base-gap) * 2) 0;
 }
 
@@ -112,7 +113,7 @@
     margin: 0;
 }
 
-.regisration_page .category_group__list {
+ .regisration_page .category_group__list {
     display: flex;
     justify-content: space-between;
     max-width: calc(var(--base-font-size)*40);
@@ -145,7 +146,33 @@
 
 .regisration_page .category__checkbox {
     margin-right: 0.5em;
+} */
+
+.regisration_page .regisration_form .form_fields .data_field {
+    display: flex
+;
+    flex-direction: column;
+    gap: calc(var(--base-gap) * 1.5);
 }
+
+.regisration_page .regisration_form .form_fields .input_field .category_group {
+    margin: 1em 0;
+    font-weight: bold;
+}
+
+.regisration_page .regisration_form .form_fields .input_field .category {
+    margin-left: 1em;
+}
+
+.regisration_page .regisration_form .form_fields .input_field label {
+    display: inline-block;
+    margin: 0 0 0 0.5em;
+}
+
+
+
+
+
 
 .regisration_page .regisration_form .form_fields {
     display: grid;
@@ -195,9 +222,9 @@ button, input, optgroup, select, textarea {
         line-height: calc(var(--base-font-line-height) * 1.5);
     }
 
-    .regisration_page .category__list {
+    /* .regisration_page .category__list {
         columns: 2;
-    }
+    } */
 
     .regisration_page .title {
         font-size: calc(var(--base-font-size) * 2);
@@ -215,10 +242,10 @@ button, input, optgroup, select, textarea {
         gap: calc(var(--base-gap)* 2);
     }
 
-    .regisration_page .category__list {
+    /* .regisration_page .category__list {
         font-size: calc(var(--base-font-size) * 1);
         padding: 0;
-    }
+    } */
 
     .regisration_page .regisration_form .form_fields .field_title, .regisration_page .category__subtitle {
         font-size: calc(var(--base-font-size) * 1.5);
