@@ -27,13 +27,15 @@
     width: 100%;
     flex-direction: column;
 }
+.regisration_page .regisration_form{
+    margin-bottom: calc(var(--base-gap) * 2.5);
 
+}
 .regisration_page .reg_button {
     padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
     width: calc(var(--base-font-size) * 22.75);
     font-size: calc(var(--base-font-size) * 1);
     color: #fff;
-    /* border-radius: calc(var(--base-font-size) * 2); */
     border: 1px solid var(--base-color-6);
     background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
     outline: none;
