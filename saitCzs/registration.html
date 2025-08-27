@@ -51,8 +51,8 @@
                                         stroke-linecap="round" />
                                 </svg>
                             </li>
-                            <li class="header__button active">
-                                Регистрация
+                            <li class="header__button">
+                                <a href="https://portal.platforma-czs.ru/registration/">Регистрация</a>
                             </li>
                             <li class="header__button">
                                 <a href="https://portal.platforma-czs.ru/login/">Вход</a>
@@ -70,6 +70,9 @@
                         <li class="header__link">
                             <a href="https://portal.platforma-czs.ru/about/">О проекте</a>
                         </li>
+                         <li class="header__link">
+                            <a href="https://portal.platforma-czs.ru/#/">Отзывы</a>
+                        </li>
                         <li class="header__link">
                             <a href="https://portal.platforma-czs.ru/vendors/">Поставщикам</a>
                         </li>
@@ -77,7 +80,7 @@
                             <a href="https://portal.platforma-czs.ru/buyers/">Закупщикам</a>
                         </li>
                         <li class="header__link">
-                            <a href="https://portal.platforma-czs.ru/calendar/">Календарь мероприятий</a>
+                            <a href="https://portal.platforma-czs.ru/calendar/">Календарь ЦЗС</a>
                         </li>
                         <li class="header__link">
                             <a href="https://portal.platforma-czs.ru/news/">Новости</a>
@@ -94,11 +97,8 @@
         </header>
         <main class="regisration_page">
             <div class="container">
-               <section class="title__block">
+                <section class="title__block">
                     <h1 class="title">Регистрация</h1>
-                    <!-- <div class="bread_crumbs">
-                        <div class="bread_crumbs"><a href="/">Главная</a> / <span>Регистрация</span> / </div>
-                    </div> -->
                 </section>
 
                 <div class="regisration_form">
@@ -133,37 +133,163 @@
                             </div>
                         </div>
 
-                        <!-- <div class="description__banner">
-                        <picture>
-                            <source media="(min-width: 1020px)" srcset="img/banner/neva-502.png">
-                            <source media="(min-width: 610px)" srcset="img/banner/neva-610.png">
-                            <img src="img/banner/neva-502.png" alt="neva2025">
-                        </picture>
-                        <picture>
-                            <source media="(min-width: 1020px)" srcset="img/banner/piterfood-502.png">
-                            <source media="(min-width: 610px)" srcset="img/banner/piterfood-610.png">
-                            <img src="img/banner/piterfood-502.png" alt="neva2025">
-                        </picture> -->
-
 
                         <div class="data_field category_list">
-					<div class="field_title">Ваши категории</div>
-					<div class="input_field">
-						<div class="category_group">FOOD</div><div class="category"><input id="catid-18" type="checkbox" value="Бакалея. Зернопродукты"><label for="catid-18">Бакалея. Зернопродукты</label></div><div class="category"><input id="catid-19" type="checkbox" value="Безалкогольные напитки, соки, воды"><label for="catid-19">Безалкогольные напитки, соки, воды</label></div><div class="category"><input id="catid-20" type="checkbox" value="Вина, тихие вина, игристые вина"><label for="catid-20">Вина, тихие вина, игристые вина</label></div><div class="category"><input id="catid-21" type="checkbox" value="Готовые блюда. Салаты"><label for="catid-21">Готовые блюда. Салаты</label></div><div class="category"><input id="catid-22" type="checkbox" value="Детское питание"><label for="catid-22">Детское питание</label></div><div class="category"><input id="catid-23" type="checkbox" value="Джемы, сиропы, варенье, соусы"><label for="catid-23">Джемы, сиропы, варенье, соусы</label></div><div class="category"><input id="catid-24" type="checkbox" value="Замороженные продукты. П/ф"><label for="catid-24">Замороженные продукты. П/ф</label></div><div class="category"><input id="catid-25" type="checkbox" value="Здоровое питание"><label for="catid-25">Здоровое питание</label></div><div class="category"><input id="catid-26" type="checkbox" value="Кондитерская, хлебопекарная продукция"><label for="catid-26">Кондитерская, хлебопекарная продукция</label></div><div class="category"><input id="catid-27" type="checkbox" value="Консервация: овощная, рыбная, мясная"><label for="catid-27">Консервация: овощная, рыбная, мясная</label></div><div class="category"><input id="catid-28" type="checkbox" value="Крепкий алкоголь"><label for="catid-28">Крепкий алкоголь</label></div><div class="category"><input id="catid-29" type="checkbox" value="Макароны. Приправы. Соусы и специи"><label for="catid-29">Макароны. Приправы. Соусы и специи</label></div><div class="category"><input id="catid-30" type="checkbox" value="Мед и продукты пчеловодства"><label for="catid-30">Мед и продукты пчеловодства</label></div><div class="category"><input id="catid-31" type="checkbox" value="Молочная продукция. Сыры. Мороженое"><label for="catid-31">Молочная продукция. Сыры. Мороженое</label></div><div class="category"><input id="catid-32" type="checkbox" value="Мясные, колбасные изделия, деликатесы"><label for="catid-32">Мясные, колбасные изделия, деликатесы</label></div><div class="category"><input id="catid-33" type="checkbox" value="Овощи. Фрукты"><label for="catid-33">Овощи. Фрукты</label></div><div class="category"><input id="catid-34" type="checkbox" value="Пищевые ингредиенты"><label for="catid-34">Пищевые ингредиенты</label></div><div class="category"><input id="catid-35" type="checkbox" value="Птица. Яйцо"><label for="catid-35">Птица. Яйцо</label></div><div class="category"><input id="catid-36" type="checkbox" value="Растительные жиры"><label for="catid-36">Растительные жиры</label></div><div class="category"><input id="catid-37" type="checkbox" value="Рыба и морепродукты"><label for="catid-37">Рыба и морепродукты</label></div><div class="category"><input id="catid-38" type="checkbox" value="Слабоалкогольные напитки, пиво"><label for="catid-38">Слабоалкогольные напитки, пиво</label></div><div class="category"><input id="catid-39" type="checkbox" value="Снэки, ореxи, суxофрукты"><label for="catid-39">Снэки, ореxи, суxофрукты</label></div><div class="category"><input id="catid-40" type="checkbox" value="Спортивное питание. БАДы"><label for="catid-40">Спортивное питание. БАДы</label></div><div class="category"><input id="catid-41" type="checkbox" value="Табак и табачные изделия"><label for="catid-41">Табак и табачные изделия</label></div><div class="category"><input id="catid-42" type="checkbox" value="Творог и творожная масса"><label for="catid-42">Творог и творожная масса</label></div><div class="category"><input id="catid-43" type="checkbox" value="Товары прикассовой зоны food"><label for="catid-43">Товары прикассовой зоны food</label></div><div class="category"><input id="catid-44" type="checkbox" value="Чай, кофе, какао"><label for="catid-44">Чай, кофе, какао</label></div><div class="category"><input id="catid-45" type="checkbox" value="Другое food"><label for="catid-45">Другое food</label></div><div class="category"><input id="catid-46" type="checkbox" value="Оборудование для ритейла"><label for="catid-46">Оборудование для ритейла</label></div><div class="category_group">NON-FOOD</div><div class="category"><input id="catid-47" type="checkbox" value="Автотовары"><label for="catid-47">Автотовары</label></div><div class="category"><input id="catid-48" type="checkbox" value="Аксессуары для ванной и бани"><label for="catid-48">Аксессуары для ванной и бани</label></div><div class="category"><input id="catid-49" type="checkbox" value="Бытовая химия"><label for="catid-49">Бытовая химия</label></div><div class="category"><input id="catid-50" type="checkbox" value="Ватно-бумажная продукция"><label for="catid-50">Ватно-бумажная продукция</label></div><div class="category"><input id="catid-51" type="checkbox" value="Канцелярские товары, книги"><label for="catid-51">Канцелярские товары, книги</label></div><div class="category"><input id="catid-52" type="checkbox" value="Косметика и парфюмерия"><label for="catid-52">Косметика и парфюмерия</label></div><div class="category"><input id="catid-53" type="checkbox" value="Крупная и мелкая бытовая техника"><label for="catid-53">Крупная и мелкая бытовая техника</label></div><div class="category"><input id="catid-54" type="checkbox" value="Пеномоющие средства"><label for="catid-54">Пеномоющие средства</label></div><div class="category"><input id="catid-55" type="checkbox" value="Средства личной гигиены"><label for="catid-55">Средства личной гигиены</label></div><div class="category"><input id="catid-56" type="checkbox" value="Стройматериалы, инструменты"><label for="catid-56">Стройматериалы, инструменты</label></div><div class="category"><input id="catid-57" type="checkbox" value="Сувениры, подарки, аксессуары"><label for="catid-57">Сувениры, подарки, аксессуары</label></div><div class="category"><input id="catid-58" type="checkbox" value="Текстиль для дома, ЧНИ и обувь"><label for="catid-58">Текстиль для дома, ЧНИ и обувь</label></div><div class="category"><input id="catid-59" type="checkbox" value="Товары для детей, игрушки"><label for="catid-59">Товары для детей, игрушки</label></div><div class="category"><input id="catid-60" type="checkbox" value="Товары для дома, хоз. товары"><label for="catid-60">Товары для дома, хоз. товары</label></div><div class="category"><input id="catid-61" type="checkbox" value="Товары для животных, корма"><label for="catid-61">Товары для животных, корма</label></div><div class="category"><input id="catid-62" type="checkbox" value="Товары для кухни, посуда"><label for="catid-62">Товары для кухни, посуда</label></div><div class="category"><input id="catid-63" type="checkbox" value="Товары для сада, огорода, цветы"><label for="catid-63">Товары для сада, огорода, цветы</label></div><div class="category"><input id="catid-64" type="checkbox" value="Товары для туризма, спорта, хобби и досуга"><label for="catid-64">Товары для туризма, спорта, хобби и досуга</label></div><div class="category"><input id="catid-65" type="checkbox" value="Товары прикассовой зоны non-food"><label for="catid-65">Товары прикассовой зоны non-food</label></div><div class="category"><input id="catid-66" type="checkbox" value="Электроинструменты"><label for="catid-66">Электроинструменты</label></div><div class="category"><input id="catid-67" type="checkbox" value="Другое non-food"><label for="catid-67">Другое non-food</label></div>						
-					</div>
-				</div>
-                    </div>
-                         
-
-
-
-                        <div class="action">
-                            <button class="reg_button">Зарегистрироваться</button>
+                            <div class="field_title">Ваши категории</div>
+                            <div class="input_field">
+                                <div class="category_group">FOOD</div>
+                                <div class="category"><input id="catid-18" type="checkbox"
+                                        value="Бакалея. Зернопродукты"><label for="catid-18">Бакалея.
+                                        Зернопродукты</label></div>
+                                <div class="category"><input id="catid-19" type="checkbox"
+                                        value="Безалкогольные напитки, соки, воды"><label for="catid-19">Безалкогольные
+                                        напитки, соки, воды</label></div>
+                                <div class="category"><input id="catid-20" type="checkbox"
+                                        value="Вина, тихие вина, игристые вина"><label for="catid-20">Вина, тихие вина,
+                                        игристые вина</label></div>
+                                <div class="category"><input id="catid-21" type="checkbox"
+                                        value="Готовые блюда. Салаты"><label for="catid-21">Готовые блюда.
+                                        Салаты</label></div>
+                                <div class="category"><input id="catid-22" type="checkbox"
+                                        value="Детское питание"><label for="catid-22">Детское питание</label></div>
+                                <div class="category"><input id="catid-23" type="checkbox"
+                                        value="Джемы, сиропы, варенье, соусы"><label for="catid-23">Джемы, сиропы,
+                                        варенье, соусы</label></div>
+                                <div class="category"><input id="catid-24" type="checkbox"
+                                        value="Замороженные продукты. П/ф"><label for="catid-24">Замороженные продукты.
+                                        П/ф</label></div>
+                                <div class="category"><input id="catid-25" type="checkbox"
+                                        value="Здоровое питание"><label for="catid-25">Здоровое питание</label></div>
+                                <div class="category"><input id="catid-26" type="checkbox"
+                                        value="Кондитерская, хлебопекарная продукция"><label
+                                        for="catid-26">Кондитерская, хлебопекарная продукция</label></div>
+                                <div class="category"><input id="catid-27" type="checkbox"
+                                        value="Консервация: овощная, рыбная, мясная"><label for="catid-27">Консервация:
+                                        овощная, рыбная, мясная</label></div>
+                                <div class="category"><input id="catid-28" type="checkbox"
+                                        value="Крепкий алкоголь"><label for="catid-28">Крепкий алкоголь</label></div>
+                                <div class="category"><input id="catid-29" type="checkbox"
+                                        value="Макароны. Приправы. Соусы и специи"><label for="catid-29">Макароны.
+                                        Приправы. Соусы и специи</label></div>
+                                <div class="category"><input id="catid-30" type="checkbox"
+                                        value="Мед и продукты пчеловодства"><label for="catid-30">Мед и продукты
+                                        пчеловодства</label></div>
+                                <div class="category"><input id="catid-31" type="checkbox"
+                                        value="Молочная продукция. Сыры. Мороженое"><label for="catid-31">Молочная
+                                        продукция. Сыры. Мороженое</label></div>
+                                <div class="category"><input id="catid-32" type="checkbox"
+                                        value="Мясные, колбасные изделия, деликатесы"><label for="catid-32">Мясные,
+                                        колбасные изделия, деликатесы</label></div>
+                                <div class="category"><input id="catid-33" type="checkbox" value="Овощи. Фрукты"><label
+                                        for="catid-33">Овощи. Фрукты</label></div>
+                                <div class="category"><input id="catid-34" type="checkbox"
+                                        value="Пищевые ингредиенты"><label for="catid-34">Пищевые ингредиенты</label>
+                                </div>
+                                <div class="category"><input id="catid-35" type="checkbox" value="Птица. Яйцо"><label
+                                        for="catid-35">Птица. Яйцо</label></div>
+                                <div class="category"><input id="catid-36" type="checkbox"
+                                        value="Растительные жиры"><label for="catid-36">Растительные жиры</label></div>
+                                <div class="category"><input id="catid-37" type="checkbox"
+                                        value="Рыба и морепродукты"><label for="catid-37">Рыба и морепродукты</label>
+                                </div>
+                                <div class="category"><input id="catid-38" type="checkbox"
+                                        value="Слабоалкогольные напитки, пиво"><label for="catid-38">Слабоалкогольные
+                                        напитки, пиво</label></div>
+                                <div class="category"><input id="catid-39" type="checkbox"
+                                        value="Снэки, ореxи, суxофрукты"><label for="catid-39">Снэки, ореxи,
+                                        суxофрукты</label></div>
+                                <div class="category"><input id="catid-40" type="checkbox"
+                                        value="Спортивное питание. БАДы"><label for="catid-40">Спортивное питание.
+                                        БАДы</label></div>
+                                <div class="category"><input id="catid-41" type="checkbox"
+                                        value="Табак и табачные изделия"><label for="catid-41">Табак и табачные
+                                        изделия</label></div>
+                                <div class="category"><input id="catid-42" type="checkbox"
+                                        value="Творог и творожная масса"><label for="catid-42">Творог и творожная
+                                        масса</label></div>
+                                <div class="category"><input id="catid-43" type="checkbox"
+                                        value="Товары прикассовой зоны food"><label for="catid-43">Товары прикассовой
+                                        зоны food</label></div>
+                                <div class="category"><input id="catid-44" type="checkbox"
+                                        value="Чай, кофе, какао"><label for="catid-44">Чай, кофе, какао</label></div>
+                                <div class="category"><input id="catid-45" type="checkbox" value="Другое food"><label
+                                        for="catid-45">Другое food</label></div>
+                                <div class="category"><input id="catid-46" type="checkbox"
+                                        value="Оборудование для ритейла"><label for="catid-46">Оборудование для
+                                        ритейла</label></div>
+                                <div class="category_group">NON-FOOD</div>
+                                <div class="category"><input id="catid-47" type="checkbox" value="Автотовары"><label
+                                        for="catid-47">Автотовары</label></div>
+                                <div class="category"><input id="catid-48" type="checkbox"
+                                        value="Аксессуары для ванной и бани"><label for="catid-48">Аксессуары для ванной
+                                        и бани</label></div>
+                                <div class="category"><input id="catid-49" type="checkbox" value="Бытовая химия"><label
+                                        for="catid-49">Бытовая химия</label></div>
+                                <div class="category"><input id="catid-50" type="checkbox"
+                                        value="Ватно-бумажная продукция"><label for="catid-50">Ватно-бумажная
+                                        продукция</label></div>
+                                <div class="category"><input id="catid-51" type="checkbox"
+                                        value="Канцелярские товары, книги"><label for="catid-51">Канцелярские товары,
+                                        книги</label></div>
+                                <div class="category"><input id="catid-52" type="checkbox"
+                                        value="Косметика и парфюмерия"><label for="catid-52">Косметика и
+                                        парфюмерия</label></div>
+                                <div class="category"><input id="catid-53" type="checkbox"
+                                        value="Крупная и мелкая бытовая техника"><label for="catid-53">Крупная и мелкая
+                                        бытовая техника</label></div>
+                                <div class="category"><input id="catid-54" type="checkbox"
+                                        value="Пеномоющие средства"><label for="catid-54">Пеномоющие средства</label>
+                                </div>
+                                <div class="category"><input id="catid-55" type="checkbox"
+                                        value="Средства личной гигиены"><label for="catid-55">Средства личной
+                                        гигиены</label></div>
+                                <div class="category"><input id="catid-56" type="checkbox"
+                                        value="Стройматериалы, инструменты"><label for="catid-56">Стройматериалы,
+                                        инструменты</label></div>
+                                <div class="category"><input id="catid-57" type="checkbox"
+                                        value="Сувениры, подарки, аксессуары"><label for="catid-57">Сувениры, подарки,
+                                        аксессуары</label></div>
+                                <div class="category"><input id="catid-58" type="checkbox"
+                                        value="Текстиль для дома, ЧНИ и обувь"><label for="catid-58">Текстиль для дома,
+                                        ЧНИ и обувь</label></div>
+                                <div class="category"><input id="catid-59" type="checkbox"
+                                        value="Товары для детей, игрушки"><label for="catid-59">Товары для детей,
+                                        игрушки</label></div>
+                                <div class="category"><input id="catid-60" type="checkbox"
+                                        value="Товары для дома, хоз. товары"><label for="catid-60">Товары для дома, хоз.
+                                        товары</label></div>
+                                <div class="category"><input id="catid-61" type="checkbox"
+                                        value="Товары для животных, корма"><label for="catid-61">Товары для животных,
+                                        корма</label></div>
+                                <div class="category"><input id="catid-62" type="checkbox"
+                                        value="Товары для кухни, посуда"><label for="catid-62">Товары для кухни,
+                                        посуда</label></div>
+                                <div class="category"><input id="catid-63" type="checkbox"
+                                        value="Товары для сада, огорода, цветы"><label for="catid-63">Товары для сада,
+                                        огорода, цветы</label></div>
+                                <div class="category"><input id="catid-64" type="checkbox"
+                                        value="Товары для туризма, спорта, хобби и досуга"><label for="catid-64">Товары
+                                        для туризма, спорта, хобби и досуга</label></div>
+                                <div class="category"><input id="catid-65" type="checkbox"
+                                        value="Товары прикассовой зоны non-food"><label for="catid-65">Товары
+                                        прикассовой зоны non-food</label></div>
+                                <div class="category"><input id="catid-66" type="checkbox"
+                                        value="Электроинструменты"><label for="catid-66">Электроинструменты</label>
+                                </div>
+                                <div class="category"><input id="catid-67" type="checkbox"
+                                        value="Другое non-food"><label for="catid-67">Другое non-food</label></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="action_answer"></div>
-                </div>
 
+
+
+
+                    <div class="action">
+                        <button class="reg_button">Зарегистрироваться</button>
+                    </div>
+                </div>
+                <div class="action_answer"></div>
             </div>
         </main>
     </div>
@@ -188,7 +314,7 @@
                                 d="M22.122 10.040c0.006-0 0.014-0 0.022-0 0.209 0 0.403 0.065 0.562 0.177l-0.003-0.002c0.116 0.101 0.194 0.243 0.213 0.403l0 0.003c0.020 0.122 0.031 0.262 0.031 0.405 0 0.065-0.002 0.129-0.007 0.193l0-0.009c-0.225 2.369-1.201 8.114-1.697 10.766-0.21 1.123-0.623 1.499-1.023 1.535-0.869 0.081-1.529-0.574-2.371-1.126-1.318-0.865-2.063-1.403-3.342-2.246-1.479-0.973-0.52-1.51 0.322-2.384 0.221-0.23 4.052-3.715 4.127-4.031 0.004-0.019 0.006-0.040 0.006-0.062 0-0.078-0.029-0.149-0.076-0.203l0 0c-0.052-0.034-0.117-0.053-0.185-0.053-0.045 0-0.088 0.009-0.128 0.024l0.002-0.001q-0.198 0.045-6.316 4.174c-0.445 0.351-1.007 0.573-1.619 0.599l-0.006 0c-0.867-0.105-1.654-0.298-2.401-0.573l0.074 0.024c-0.938-0.306-1.683-0.467-1.619-0.985q0.051-0.404 1.114-0.827 6.548-2.853 8.733-3.761c1.607-0.853 3.47-1.555 5.429-2.010l0.157-0.031zM15.93 1.025c-8.302 0.020-15.025 6.755-15.025 15.060 0 8.317 6.742 15.060 15.060 15.060s15.060-6.742 15.060-15.060c0-8.305-6.723-15.040-15.023-15.060h-0.002q-0.035-0-0.070 0z" />
                         </svg></a>
 
-                    <a class="footer__link" href="https://t.me/czs_ru"><svg class="footer__icon"
+                    <a class="footer__link" href="https://vk.com/czs_ru"><svg class="footer__icon"
                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="800px" height="800px"
                             viewBox="0 0 20 20">
                             <path
