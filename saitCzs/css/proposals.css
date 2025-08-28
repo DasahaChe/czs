@@ -37,14 +37,35 @@
 }
 
 
-.proposals .new__title,
-.proposals .last__title-main,
-.proposals .future__title-main {
+.proposals .new__title {
     position: relative;
     margin: 0 0 calc(var(--base-gap) * 2) 0;
     font-size: calc(var(--base-font-size) * 3);
     line-height: calc(var(--base-font-size) * 3);
     color: var(--newGray);
+}
+
+.proposals .proposals_page div{
+     display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-bottom: 64px;
+}
+
+.proposals .proposals_page p{
+    color:var(--newGray);
+}
+
+.proposals .proposals_btn{
+    display: inline-block;
+    padding: calc(var(--base-font-size) / 2) calc(var(--base-font-size) * 2);
+    font-size: calc(var(--base-font-size) * 1);
+    color: #fff;
+    width: 250px;
+    border: 1px solid var(--base-color-6);
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    outline: none;
+    transition: border-color 0.5s ease, background-color 0.5s ease;
 }
 
 @media (max-width: 1199px) {
@@ -250,61 +271,12 @@
 
 @media (any-hover: hover) {
 
-    /* .proposals .menu__item:hover */
-    .proposals .main .event__button:hover,
-    .proposals .header .header__top .header__button:hover,
-    .proposals .main .banner__button:hover {
+ .proposals .link_btn:hover {
         color: #fff;
         background: var(--base-color-2);
         border-color: var(--base-color-2);
     }
 
-    .proposals .header .header__tel:hover {
-        color: var(--base-color-2);
-        background-image: url(../img/phoneB.png);
-    }
-
-    .proposals .header .header__top .header__burger:hover,
-    .proposals .future__link:hover .future__title {
-        color: var(--base-color-2);
-    }
-
-    /* .proposals .menu__list-icon .menu__img:hover,
-    .proposals .menu__item-mobil.show+.menu__list-icon .menu__img,
-    .proposals .menu__item:hover .menu__img,
-    .proposals .menu__list-icon .menu__img:hover,
-    .proposals .menu__item:hover .menu__btn */
-    .proposals .future__btn:hover .future__btn-img,
-    .proposals .banner__button:hover .new__img,
-    .proposals .last__btn:hover {
-        color: var(--base-color-2);
-        background-color: #fff;
-    }
-
-
-
-    .proposals .last__title:hover,
-    .proposals .event__link:hover .event__btn,
-    .proposals .event__link:hover .event__btn-img,
-    .proposals .event__link:hover .event__title {
-        color: var(--base-color-2);
-    }
-
-    .proposals .last__btn:hover .last__btn-img {
-        color: var(--base-color-2);
-    }
-
-    .proposals .future__btn:hover,
-    .proposals .last__btn:hover {
-        color: #fff;
-        background-color: var(--base-color-2);
-        border-color: var(--base-color-2);
-    }
-
-    .proposals .last__link:hover {
-        color: var(--base-color-2);
-    }
-
-
+    
 
 }
