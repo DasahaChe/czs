@@ -288,61 +288,16 @@
 
 @media (any-hover: hover) {
 
-    /* .entrance .menu__item:hover */
-    .entrance .main .event__button:hover,
-    .entrance .header .header__top .header__button:hover,
-    .entrance .main .banner__button:hover {
+ .entrance .ask_entrance:hover {
         color: #fff;
         background: var(--base-color-2);
         border-color: var(--base-color-2);
     }
 
-    .entrance .header .header__tel:hover {
-        color: var(--base-color-2);
-        background-image: url(../img/phoneB.png);
-    }
-
-    .entrance .header .header__top .header__burger:hover,
-    .entrance .future__link:hover .future__title {
+    .entrance .header .header__top .header__burger:hover{
         color: var(--base-color-2);
     }
 
-    /* .entrance .menu__list-icon .menu__img:hover,
-    .entrance .menu__item-mobil.show+.menu__list-icon .menu__img,
-    .entrance .menu__item:hover .menu__img,
-    .entrance .menu__list-icon .menu__img:hover,
-    .entrance .menu__item:hover .menu__btn */
-    .entrance .future__btn:hover .future__btn-img,
-    .entrance .banner__button:hover .banner__img,
-    .entrance .last__btn:hover {
-        color: var(--base-color-2);
-        background-color: #fff;
-    }
-
-
-
-    .entrance .last__title:hover,
-    .entrance .event__link:hover .event__btn,
-    .entrance .event__link:hover .event__btn-img,
-    .entrance .event__link:hover .event__title {
-        color: var(--base-color-2);
-    }
-
-    .entrance .last__btn:hover .last__btn-img {
-        color: var(--base-color-2);
-    }
-
-    .entrance .future__btn:hover,
-    .entrance .last__btn:hover {
-        color: #fff;
-        background-color: var(--base-color-2);
-        border-color: var(--base-color-2);
-    }
-
-    .entrance .last__link:hover {
-        color: var(--base-color-2);
-    }
-
-
+  
 
 }

@@ -301,6 +301,7 @@ body {
 
 .header .header__list-top {
     gap: calc(var(--base-gap) * 2);
+    align-items: center;
 }
 
 
@@ -409,6 +410,7 @@ body {
 
     .header .header__list-top {
         align-self: end;
+        align-items: center;
         gap: calc(var(--base-gap) *2);
     }
 

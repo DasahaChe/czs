@@ -32,14 +32,13 @@
 .profile .content {
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: calc(var(--base-gap) * 4);
     margin-left: 32px;
 }
 
 
-.profile .new__title,
-.profile .last__title-main,
-.profile .future__title-main {
+.profile .profile__title {
     position: relative;
     margin: 0 0 calc(var(--base-gap) * 2) 0;
     font-size: calc(var(--base-font-size) * 3);
@@ -47,12 +46,71 @@
     color: var(--newGray);
 }
 
+.profile .profile_page {
+    width: 100%;
+    padding: calc(var(--base-gap) * 2);
+    border-radius: 8px;
+    background-color: var(--lightBlue);
+}
+
+.profile .cat_group_ttl,
+.profile .field-group-ttl {
+    margin-bottom: 32px;
+    font-size: calc(var(--base-font-size) * 1.4);
+    line-height: calc(var(--base-font-size) * 2);
+    font-weight: 700;
+    color: var(--grafite);
+}
+
+.profile .profile_page .data_form .field-ttl {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.profile_page .data_form input[type="text"] {
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+.profile_page .data_form .field-category .cat_group_field {
+    display: none;
+}
+
+.profile_page .data_form .field-category .cat_group {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding: 4px 8px;
+    max-width: 400px;
+    width: 100%;
+    cursor: pointer;
+    color: var(--base-color-6);
+}
+
+
+.profile_page .save_user_profile {
+    padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
+    max-width: 400px;
+    width: 100%;
+    font-size: calc(var(--base-font-size) * 1);
+    color: #fff;
+    border: 1px solid var(--base-color-6);
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    outline: none;
+    transition: border-color 0.5s ease, background-color 0.5s ease;
+}
+
 @media (max-width: 1199px) {
     .profile .main {
         margin-bottom: calc(var(--base-gap) * 3);
     }
 
-    .profile .new__title {
+    .profile .profile__title {
         margin: 0 0 calc(var(--base-gap) * 0) 0;
         font-size: calc(var(--base-font-size) * 2);
         line-height: calc(var(--base-font-size) * 2);
@@ -80,7 +138,7 @@
         z-index: -1;
     }
 
-    .profile .new__title {
+    .profile .profile__title {
         margin: 0 0 calc(var(--base-gap) * 0) 0;
 
     }
@@ -250,61 +308,21 @@
 
 @media (any-hover: hover) {
 
-    /* .profile .menu__item:hover */
-    .profile .main .event__button:hover,
-    .profile .header .header__top .header__button:hover,
-    .profile .main .banner__button:hover {
+    .profile .header .header__top .header__burger:hover {
+        color: var(--base-color-2);
+    }
+
+    .profile .profile_page .save_user_profile:hover {
         color: #fff;
         background: var(--base-color-2);
         border-color: var(--base-color-2);
     }
 
-    .profile .header .header__tel:hover {
-        color: var(--base-color-2);
-        background-image: url(../img/phoneB.png);
-    }
-
-    .profile .header .header__top .header__burger:hover,
-    .profile .future__link:hover .future__title {
-        color: var(--base-color-2);
-    }
-
-    /* .profile .menu__list-icon .menu__img:hover,
-    .profile .menu__item-mobil.show+.menu__list-icon .menu__img,
-    .profile .menu__item:hover .menu__img,
-    .profile .menu__list-icon .menu__img:hover,
-    .profile .menu__item:hover .menu__btn */
-    .profile .future__btn:hover .future__btn-img,
-    .profile .banner__button:hover .new__img,
-    .profile .last__btn:hover {
-        color: var(--base-color-2);
-        background-color: #fff;
-    }
 
 
-
-    .profile .last__title:hover,
-    .profile .event__link:hover .event__btn,
-    .profile .event__link:hover .event__btn-img,
-    .profile .event__link:hover .event__title {
-        color: var(--base-color-2);
-    }
-
-    .profile .last__btn:hover .last__btn-img {
-        color: var(--base-color-2);
-    }
-
-    .profile .future__btn:hover,
-    .profile .last__btn:hover {
+    .profile .profile_page .data_form .field-category .cat_group:hover {
         color: #fff;
         background-color: var(--base-color-2);
-        border-color: var(--base-color-2);
     }
-
-    .profile .last__link:hover {
-        color: var(--base-color-2);
-    }
-
-
 
 }
