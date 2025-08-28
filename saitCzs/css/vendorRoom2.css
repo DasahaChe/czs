@@ -10,9 +10,26 @@
     width: 100%;
 }
 
+.vendor_page .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: calc(var(--base-gap) * 4);
+}
+
 .vendor_page .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+/* .vendor_page .header {
     position: fixed;
-    top: 0;
+    top: 20px;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -20,9 +37,9 @@
     width: 100%;
     background-color: #fff;
     z-index: 1000;
-}
+} */
 
-.vendor_page .header .header__menu {
+/* .vendor_page .header .header__menu {
     width: 100%;
     margin: 0;
     border-radius: 0;
@@ -81,7 +98,7 @@
     align-items: center;
     margin-top: 180px;
     margin-bottom: calc(var(--base-gap) * 4);
-}
+} */
 
 /* .vendor_page .menu {
     display: flex;
@@ -189,6 +206,7 @@
     line-height: calc(var(--base-font-size) * 3);
     color: var(--newGray);
 }
+
 
 .vendor_page .new__block-info,
 .vendor_page .new__block-tel {
@@ -655,7 +673,7 @@
 
 
 @media (max-width: 1199px) {
-    .vendor_page .header .header__logo {
+    /* .vendor_page .header .header__logo {
         align-self: flex-start;
     }
 
@@ -663,10 +681,9 @@
         flex-direction: column;
         margin-bottom: calc(var(--base-gap) * 1.25);
         gap: calc(var(--base-gap) * 0.75);
-    }
+    } */
 
     .vendor_page .main {
-        margin-top: 220px;
         margin-bottom: calc(var(--base-gap) * 3);
     }
 
@@ -793,7 +810,7 @@
     }
 
     .vendor_page .container {
-        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 4);
+        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 6);
     }
 
     .vendor_page .main .container {
@@ -805,6 +822,9 @@
         padding: calc(var(--base-gap) / 2) calc(var(--base-gap) * 3);
     }
 
+    .vendor_page .header .header__menu .container {
+        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 4);
+    }
 
     /* .menu__list-icon .menu__img {
         transition: fill 0.3s ease;
@@ -950,6 +970,10 @@
         font-size: 14px;
     } */
 
+    .vendor_page .main {
+        margin-top: calc(var(--base-gap) * 2);
+    }
+
     .vendor_page .event__button {
         padding: 0;
         padding-right: var(--base-gap);
@@ -1008,7 +1032,7 @@
 
 
     .vendor_page .container {
-        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 4);
+        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 5);
     }
 
 
@@ -1026,6 +1050,10 @@
     .vendor_page .main {
         margin-bottom: calc(var(--base-gap) * 2);
         /* margin-top: 176px; для sticky */
+    }
+
+    .vendor_page .header .header__list-top {
+        padding-left: calc(var(--base-gap) * 4.5);
     }
 
     .vendor_page .header {
@@ -1112,7 +1140,7 @@
 
     .vendor_page .header .header__tel {
         font-size: calc(var(--base-font-size) * 1);
-        /* background-image: url(../img/phoneS.png); */
+
     }
 
     .vendor_page .header .header__top .header__button:hover {
@@ -1196,7 +1224,7 @@
 
 @media (max-width: 430px) {
     .vendor_page .header .header__list-top {
-        padding-left: calc(var(--base-gap) / 1);
+        padding-left: calc(var(--base-gap) * 4);
         font-size: 12px;
     }
 
@@ -1208,7 +1236,7 @@
         width: 48px;
     } */
 
-    
+
 
     .vendor_page .main .container {
         margin-left: 0px;
@@ -1311,22 +1339,20 @@
     .vendor_page .future__link:hover .future__title {
         color: var(--base-color-2);
     }
-/* .vendor_page .menu__list-icon .menu__img:hover,
+
+    /* .vendor_page .menu__list-icon .menu__img:hover,
     .vendor_page .menu__item-mobil.show+.menu__list-icon .menu__img,
     .vendor_page .menu__item:hover .menu__img,
     .vendor_page .menu__list-icon .menu__img:hover,
     .vendor_page .menu__item:hover .menu__btn */
     .vendor_page .future__btn:hover .future__btn-img,
     .vendor_page .banner__button:hover .new__img,
-    .vendor_page .last__btn:hover
-     {
+    .vendor_page .last__btn:hover {
         color: var(--base-color-2);
         background-color: #fff;
     }
 
-    /* .vendor_page .menu__btn:hover {
-        border-color: var(--newGray);
-    } */
+
 
     .vendor_page .last__title:hover,
     .vendor_page .event__link:hover .event__btn,
@@ -1353,9 +1379,3 @@
 
 
 }
-
-/* .menu__item-mobil.show,
-.menu__item-mobil.hover {
-    display: block;
-} */
-

@@ -1,16 +1,16 @@
-.entrance {
+.profile {
     padding-top: calc(var(--base-gap) * 2);
     font-family: var(--base-font);
 }
 
-.entrance .container {
+.profile .container {
     display: flex;
     padding: 0 calc(var(--base-gap) * 5.25);
     max-width: calc(var(--base-font-size) * 90);
     width: 100%;
 }
 
-.entrance .header {
+.profile .header {
     top: 0px;
     left: 0;
     display: flex;
@@ -22,14 +22,14 @@
     z-index: 1000;
 }
 
-.entrance .main {
+.profile .main {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: calc(var(--base-gap) * 4);
 }
 
-.entrance .content {
+.profile .content {
     display: flex;
     flex-direction: column;
     gap: calc(var(--base-gap) * 4);
@@ -37,7 +37,9 @@
 }
 
 
-.entrance .banner__title {
+.profile .new__title,
+.profile .last__title-main,
+.profile .future__title-main {
     position: relative;
     margin: 0 0 calc(var(--base-gap) * 2) 0;
     font-size: calc(var(--base-font-size) * 3);
@@ -45,45 +47,15 @@
     color: var(--newGray);
 }
 
-.entrance .banner__block-info {
-    padding: calc(var(--base-gap) * 1.5);
-    padding-left: calc(var(--base-gap) * 12);
-    border-radius: 8px;
-    background-image: url(../img/fonEnter.png);
-    background-size: cover;
-    color: var(--grafite);
-}
-
-.entrance .ask_entrance {
-    padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
-    max-width: calc(var(--base-font-size) * 22.75);
-    width: 100%;
-    font-size: calc(var(--base-font-size) * 1);
-    color: #fff;
-    border: 1px solid var(--base-color-6);
-    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
-    outline: none;
-    transition: border-color 0.5s ease, background-color 0.5s ease;
-}
-
-.entrance .description__item {
-        margin-bottom: 32px;
-
-    }
-    
 @media (max-width: 1199px) {
-    .entrance .main {
+    .profile .main {
         margin-bottom: calc(var(--base-gap) * 3);
     }
 
-    .entrance .banner__title {
+    .profile .new__title {
         margin: 0 0 calc(var(--base-gap) * 0) 0;
         font-size: calc(var(--base-font-size) * 2);
         line-height: calc(var(--base-font-size) * 2);
-    }
-
-    .entrance .banner__block-info {
-        background-image: url(../img/fonEnter1024.png);
     }
 }
 
@@ -91,117 +63,113 @@
 
 
 @media (max-width: 1020px) {
-    .entrance .header {
+    .profile .header {
         margin-bottom: 0;
     }
 
-    .entrance .header .header__menu .container {
+    .profile .header .header__menu .container {
         padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 4);
     }
 
-    .entrance .header .header__button {
+    .profile .header .header__button {
         padding: calc(var(--base-gap) / 2) calc(var(--base-gap) * 3);
     }
 
-    .entrance .content {
+    .profile .content {
         margin-left: 32px;
         z-index: -1;
     }
 
-    .entrance .banner__title {
-        margin: 0 0 calc(var(--base-gap) * 2) 0;
+    .profile .new__title {
+        margin: 0 0 calc(var(--base-gap) * 0) 0;
 
     }
 
-    .entrance .container {
+    .profile .container {
         padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 6);
     }
 
-    .entrance .main .container {
+    .profile .main .container {
         padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 4);
     }
 
-    .entrance .main {
+    .profile .main {
         margin-top: calc(var(--base-gap) * 2);
-    }
-
-    .entrance .banner__block-info {
-        background-image: url(../img/fonEnter.png);
     }
 }
 
 @media (max-width: 750px) {
-    .entrance {
+    .profile {
         padding-top: calc(var(--base-gap) * 1.5);
     }
 
 
-    .entrance .container {
+    .profile .container {
         padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 5);
     }
 
-    .entrance .header .header__list-top {
+    .profile .header .header__list-top {
         padding-left: calc(var(--base-gap) * 4.5);
     }
 
-    .entrance .main .container {
+    .profile .main .container {
         padding: 0 16px 0 calc(var(--base-gap) * 4);
     }
 
-    .entrance .content {
+    .profile .content {
         margin-left: 16px;
         padding-right: 16px;
         width: 100%;
     }
 
 
-    .entrance .main {
+    .profile .main {
         margin-bottom: calc(var(--base-gap) * 2);
         /* margin-top: 176px; для sticky */
     }
 
 
-    .entrance .header {
+    .profile .header {
         margin-bottom: calc(var(--base-gap) * 1.5);
     }
 
-    .entrance .header .header__logo-img {
+    .profile .header .header__logo-img {
         width: calc(var(--base-font-size) * 14);
         height: calc(var(--base-font-size) * 2.5);
     }
 
-    .entrance .header .header__logo-name {
+    .profile .header .header__logo-name {
         font-size: calc(var(--base-font-size) * 1.38);
         line-height: calc(var(--base-font-size) * 1.0);
     }
 
 
 
-    .entrance .header .header__logo {
+    .profile .header .header__logo {
         width: calc(var(--base-font-size) * 16);
         justify-content: space-between;
     }
 
-    .entrance .header .header__logo-description {
+    .profile .header .header__logo-description {
         font-size: 14px;
         line-height: 14px;
     }
 
-    .entrance .header .header__top {
+    .profile .header .header__top {
         width: 100%;
         margin-bottom: 0;
         align-items: flex-start;
         gap: var(--base-gap);
     }
 
-    .entrance .header .header__links {
+    .profile .header .header__links {
         width: 100%;
         flex-direction: column;
         gap: var(--base-gap);
         align-items: flex-start;
     }
 
-    .entrance .header .header__list-top {
+    .profile .header .header__list-top {
         justify-content: flex-start;
         gap: calc(var(--base-gap) / 2);
         height: calc(var(--base-font-size) * 4.5);
@@ -215,7 +183,7 @@
 
 
 
-    .entrance .header .header__burger {
+    .profile .header .header__burger {
         display: inline-block;
         width: var(--base-font-size);
         height: var(--base-font-size);
@@ -223,11 +191,11 @@
         transition: color 0.5s ease;
     }
 
-    .entrance .header .header__burger-close {
+    .profile .header .header__burger-close {
         display: none;
     }
 
-    .entrance .header .open {
+    .profile .header .open {
         display: block;
         color: #fff;
         width: var(--base-font-size);
@@ -235,52 +203,46 @@
     }
 
 
-    .entrance .header .header__button,
-    .entrance .header .User-name {
+    .profile .header .header__button,
+    .profile .header .User-name {
         padding: calc(var(--base-gap) / 4) calc(var(--base-gap) * 1.0);
         border: none;
         color: #fff;
         font-size: calc(var(--base-font-size) * 1);
     }
 
-    .entrance .header .header__tel {
+    .profile .header .header__tel {
         font-size: calc(var(--base-font-size) * 1);
 
     }
 
-    .entrance .header .header__top .header__button:hover {
+    .profile .header .header__top .header__button:hover {
         color: var(--base-color-2);
         background-color: transparent;
         border-color: transparent;
     }
 
-    .entrance .banner__block-info {
-        padding: 1em;
-        background-image: none;
-        background-color: var(--lightBlue);
-    }
 
-    
 }
 
 
 @media (max-width: 430px) {
-    .entrance .header .header__list-top {
+    .profile .header .header__list-top {
         padding-left: calc(var(--base-gap) * 4);
         font-size: 12px;
     }
 
-    .entrance .main .container {
+    .profile .main .container {
         padding: 0 8px 0 48px;
     }
 
-    /* .entrance .menu {
+    /* .profile .menu {
         width: 48px;
     } */
 
 
 
-    .entrance .main .container {
+    .profile .main .container {
         margin-left: 0px;
     }
 }
@@ -288,58 +250,58 @@
 
 @media (any-hover: hover) {
 
-    /* .entrance .menu__item:hover */
-    .entrance .main .event__button:hover,
-    .entrance .header .header__top .header__button:hover,
-    .entrance .main .banner__button:hover {
+    /* .profile .menu__item:hover */
+    .profile .main .event__button:hover,
+    .profile .header .header__top .header__button:hover,
+    .profile .main .banner__button:hover {
         color: #fff;
         background: var(--base-color-2);
         border-color: var(--base-color-2);
     }
 
-    .entrance .header .header__tel:hover {
+    .profile .header .header__tel:hover {
         color: var(--base-color-2);
         background-image: url(../img/phoneB.png);
     }
 
-    .entrance .header .header__top .header__burger:hover,
-    .entrance .future__link:hover .future__title {
+    .profile .header .header__top .header__burger:hover,
+    .profile .future__link:hover .future__title {
         color: var(--base-color-2);
     }
 
-    /* .entrance .menu__list-icon .menu__img:hover,
-    .entrance .menu__item-mobil.show+.menu__list-icon .menu__img,
-    .entrance .menu__item:hover .menu__img,
-    .entrance .menu__list-icon .menu__img:hover,
-    .entrance .menu__item:hover .menu__btn */
-    .entrance .future__btn:hover .future__btn-img,
-    .entrance .banner__button:hover .banner__img,
-    .entrance .last__btn:hover {
+    /* .profile .menu__list-icon .menu__img:hover,
+    .profile .menu__item-mobil.show+.menu__list-icon .menu__img,
+    .profile .menu__item:hover .menu__img,
+    .profile .menu__list-icon .menu__img:hover,
+    .profile .menu__item:hover .menu__btn */
+    .profile .future__btn:hover .future__btn-img,
+    .profile .banner__button:hover .new__img,
+    .profile .last__btn:hover {
         color: var(--base-color-2);
         background-color: #fff;
     }
 
 
 
-    .entrance .last__title:hover,
-    .entrance .event__link:hover .event__btn,
-    .entrance .event__link:hover .event__btn-img,
-    .entrance .event__link:hover .event__title {
+    .profile .last__title:hover,
+    .profile .event__link:hover .event__btn,
+    .profile .event__link:hover .event__btn-img,
+    .profile .event__link:hover .event__title {
         color: var(--base-color-2);
     }
 
-    .entrance .last__btn:hover .last__btn-img {
+    .profile .last__btn:hover .last__btn-img {
         color: var(--base-color-2);
     }
 
-    .entrance .future__btn:hover,
-    .entrance .last__btn:hover {
+    .profile .future__btn:hover,
+    .profile .last__btn:hover {
         color: #fff;
         background-color: var(--base-color-2);
         border-color: var(--base-color-2);
     }
 
-    .entrance .last__link:hover {
+    .profile .last__link:hover {
         color: var(--base-color-2);
     }
 
