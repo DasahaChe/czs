@@ -137,6 +137,7 @@ body {
 
 .bread_crumbs {
     margin-bottom: calc(var(--base-gap)* 1);
+    line-height: 1.5em;
     color: var(--sub-text-color);
 }
 

@@ -106,11 +106,6 @@
 }
 
 /* Плейсхолдер стилизация */
-.generator .title::placeholder {
-    color: #a0aec0;
-    font-style: italic;
-}
-
 
 .generator .input_field input[type="file"] {
     display: flex;
