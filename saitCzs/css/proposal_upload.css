@@ -62,7 +62,7 @@ padding: calc(var(--base-gap) * 1.5);
     color: var(--grafite);
 }
 
-.proposal_master .file_field input[type=file] {
+.proposal_upload .proposal_master .file_field input[type=file] {
     display: inline-block;
     background: var(--lightBlue);
     border-radius: 4px;
@@ -75,7 +75,7 @@ padding: calc(var(--base-gap) * 1.5);
     cursor: pointer;
 }
 
-.file_field input[type="file"]::file-selector-button {
+.proposal_upload .file_field input[type="file"]::file-selector-button {
     padding: 8px 16px;
     background: var(--base-color-6);
     color: white;
@@ -85,17 +85,17 @@ padding: calc(var(--base-gap) * 1.5);
     margin-right: 10px;
 }
 
-.proposal_master input[type=file] button{
+.proposal_upload .proposal_master input[type=file] button{
     background: #fff;
     border: 1px solid var(--lightBlue);
 }
-.proposal_master .cat_group {
+.proposal_upload .proposal_master .cat_group {
     font-weight: 700;
     margin: 0 0 1em 0;
     color: var(--base-color-6);
 }
 
-.proposal_master .cat_group_field {
+.proposal_upload .proposal_master .cat_group_field {
     margin: 0 0 0 0em;
     padding-left: 2em;
     border-left: 1px solid #cccccc;
@@ -111,14 +111,14 @@ padding: calc(var(--base-gap) * 1.5);
     padding: 0;
 }
 
-.proposal_master .user_events_list {
+.proposal_upload .proposal_master .user_events_list {
     display: flex;
     flex-direction: column;
     margin: 0 0 calc(var(--base-gap) * 2) 0;
     gap: calc(var(--base-gap) * 1);
     color:var(--newGray);
 }
-.proposal_master  .org_events{
+.proposal_upload .proposal_master  .org_events{
     margin-bottom: 32px;
 }
 .proposal_master .add_proposal {
@@ -134,13 +134,13 @@ padding: calc(var(--base-gap) * 1.5);
     transition: border-color 0.5s ease, background-color 0.5s ease;
 }
 
-.proposal_master .user_events_list input[type="checkbox"]:focus,
-.proposal_master .category_input input[type="checkbox"]:focus,
-.proposal_master.input_field input[type="file"]:focus
-.proposal_master  input[type="text"]:focus,
-.proposal_master input[type="number"]:focus,
-.proposal_master .org_clients textarea:focus,
-.proposal_master .title:focus {
+.proposal_upload .proposal_master .user_events_list input[type="checkbox"]:focus,
+.proposal_upload .proposal_master .category_input input[type="checkbox"]:focus,
+.proposal_upload .proposal_master.input_field input[type="file"]:focus
+.proposal_upload .proposal_master  input[type="text"]:focus,
+.proposal_upload .proposal_master input[type="number"]:focus,
+.proposal_upload .proposal_master .org_clients textarea:focus,
+.proposal_upload .proposal_master .title:focus {
     outline: none;
     border-color: var(--base-color-2);
     box-shadow: 0 0 0 3px rgba(126, 143, 218, 0.1);
@@ -363,7 +363,7 @@ padding: calc(var(--base-gap) * 1.5);
 
 @media (any-hover: hover) {
 
-.proposal_master .add_proposal:hover {
+    .proposal_upload .proposal_master .add_proposal:hover {
         color: #fff;
         background: var(--base-color-2);
         border-color: var(--base-color-2);
@@ -374,7 +374,7 @@ padding: calc(var(--base-gap) * 1.5);
         border-color: transparent;
     }
 
-    .file_field input[type="file"]::file-selector-button:hover {
+    .proposal_upload .file_field input[type="file"]::file-selector-button:hover {
     background: var(--base-color-2);
-}
+    }
 }
