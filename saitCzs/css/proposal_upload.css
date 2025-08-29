@@ -32,14 +32,14 @@
 .proposal_upload .content {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--base-gap) * 4);
+    gap: calc(var(--base-gap) * 1);
     margin-left: 32px;
 }
 
 
 .proposal_upload .new__title {
     position: relative;
-    margin: 0 0 calc(var(--base-gap) * 2) 0;
+    margin: 0;
     font-size: calc(var(--base-font-size) * 3);
     line-height: calc(var(--base-font-size) * 3);
     color: var(--newGray);
@@ -62,6 +62,13 @@ padding: calc(var(--base-gap) * 1.5);
     color: var(--grafite);
 }
 
+.proposal_upload .block-info{
+    margin: 0 0 calc(var(--base-gap) * 2) 0;
+    padding: 0;
+    font-size: 1em;
+    line-height: 1em;
+    color: var(--newGray);
+}
 .proposal_upload .proposal_master .file_field input[type=file] {
     display: inline-block;
     background: var(--lightBlue);
