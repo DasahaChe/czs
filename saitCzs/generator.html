@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <title>Профиль поставщика</title>
+    <title>Генератор КП</title>
 </head>
 
 <body>
@@ -29,11 +29,11 @@
                         </a>
                     </div>
                     <div class="header__links">
-                       
+
                         <!-- <div class="header__tel">
                             <a href="#">+7 000 00 00</a>
                         </div> -->
-                        
+
                         <ul class="header__list-top list-reset flex">
                             <li class="header__burger">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 34 34"
@@ -55,7 +55,7 @@
                                         stroke-linecap="round" />
                                 </svg>
                             </li>
-                            <li class="User-name">                                
+                            <li class="User-name">
                                 И.О. Закупщиков
                             </li>
                             <li class="header__button">
@@ -67,7 +67,7 @@
             </div>
             <nav class="header__menu">
                 <div class="container">
-                   <ul class="header__list-menu list-reset flex">
+                    <ul class="header__list-menu list-reset flex">
                         <li class="header__link">
                             <a href="https://portal.platforma-czs.ru/">Главная</a>
                         </li>
@@ -151,7 +151,7 @@
                                     </g>
                                 </svg>
                                 Паспорт поставщика</a> </li>
-                        <li class="menu__item menu__item-active"><a class="menu__link" href="/services/vendor/events/">
+                        <li class="menu__item"><a class="menu__link" href="/services/vendor/events/">
                                 <svg class="menu__img" xmlns="http://www.w3.org/2000/svg" version="1.0"
                                     width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
                                     preserveAspectRatio="xMidYMid meet">
@@ -244,7 +244,7 @@
                                 <div class="menu__btn"><a class="menu__link"
                                         href="/services/vendor/proposal_upload/"><span>Загрузить&ensp;КП</span></a>
                                 </div>
-                                <div class="menu__btn"><a class="menu__link"
+                                <div class="menu__btn  menu__item-active"><a class="menu__link"
                                         href="/services/vendor/generator/"><span>Генератор&ensp;КП</span></a> </div>
 
                             </div>
@@ -292,10 +292,9 @@
                                                 d="M1782 3667 c-2 -2331 -5 -2199 47 -2227 33 -17 33 -11 -1 19 l-33 29 -5 2169 -5 2168 -3 -2158z" />
                                         </g>
                                     </svg></a></li>
-                            <li class="mobil__item"><a class="menu__link menu__item-active"
-                                    href="/services/vendor/events/"><svg id="3" class="menu__img"
-                                        xmlns="http://www.w3.org/2000/svg" version="1.0" width="512.000000pt"
-                                        height="512.000000pt" viewBox="0 0 512.000000 512.000000"
+                            <li class="mobil__item"><a class="menu__link" href="/services/vendor/events/"><svg id="3"
+                                        class="menu__img" xmlns="http://www.w3.org/2000/svg" version="1.0"
+                                        width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
                                         preserveAspectRatio="xMidYMid meet">
 
                                         <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
@@ -336,7 +335,7 @@
                                                 d="M865 2510 l0 -1335 29 -59 c35 -71 97 -134 163 -167 l48 -24 1445 0 1445 0 -1445 5 -1445 5 -53 29 c-66 37 -116 92 -151 165 l-26 56 -5 1330 -5 1330 0 -1335z" />
                                         </g>
                                     </svg></a></li>
-                            <li class="mobil__item"><a class="menu__link" href="/services/vendor/generator/"><svg id="4"
+                            <li class="mobil__item"><a class="menu__link" href="/services/vendor/scaner/"><svg id="4"
                                         class="menu__img" xmlns="http://www.w3.org/2000/svg" version="1.0"
                                         width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
                                         preserveAspectRatio="xMidYMid meet">
@@ -366,9 +365,9 @@
                                                 d="M350 1335 c0 -8 -4 -15 -10 -15 -19 0 -10 -29 13 -44 12 -9 45 -20 73 -26 l51 -11 17 -87 c10 -48 20 -100 22 -117 3 -16 14 -70 24 -120 11 -49 26 -124 33 -165 14 -75 13 -75 -12 -107 -14 -18 -32 -33 -38 -33 -19 0 -16 -45 5 -63 13 -12 35 -15 90 -13 56 3 72 0 72 -10 0 -8 -7 -14 -16 -14 -26 0 -84 -70 -84 -101 0 -31 40 -85 71 -94 55 -18 146 54 135 107 -8 41 -35 77 -63 84 -13 4 -22 11 -20 18 6 17 409 16 415 -1 2 -7 -2 -13 -10 -13 -7 0 -30 -16 -51 -36 -48 -47 -48 -75 1 -124 l38 -38 49 13 c39 9 54 19 69 45 18 30 18 36 5 74 -10 29 -24 46 -46 57 -50 25 -28 41 53 38 l69 -3 0 30 0 29 -347 3 c-192 1 -348 5 -348 8 0 12 42 49 58 51 26 2 218 15 292 19 36 2 85 4 109 4 24 0 49 4 55 8 6 5 33 10 60 11 26 1 52 3 56 6 4 3 15 35 25 72 9 38 25 100 36 139 11 39 22 82 24 95 3 14 11 47 19 74 14 44 14 51 -1 67 -15 17 -44 18 -393 18 l-376 0 -15 62 c-15 69 -8 63 -138 102 -66 20 -71 20 -71 1z" />
                                         </g>
                                     </svg></a></li>
-                            <li class="mobil__item"><a class="menu__link" href="/services/vendor/proposals/"><svg id="6"
-                                        class="menu__img" class="menu__img" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                            <li class="mobil__item  menu__item-active"><a class="menu__link"
+                                    href="/services/vendor/proposals/"><svg id="6" class="menu__img" class="menu__img"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                         xmlns:xodm="http://www.corel.com/coreldraw/odm/2003" xml:space="preserve"
                                         width="100mm" height="100mm" version="1.1" viewBox="0 0 10000 10000">
                                         <g fill="currentcolor" stroke="none">
@@ -396,153 +395,698 @@
                                             href="/services/vendor/proposal_upload/"><span>Загрузить&ensp;КП</span></a>
                                     </div>
                                     <div class="menu__btn"><a class="menu__link"
-                                            href="/services/vendor/generator/"><span>Генератор&ensp;КП</span></a></div>
+                                            href="/services/vendor/generator/"><span>Генератор&ensp;КП</span></a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
-
                 <div class="content">
-                    <div class="new">
-                        <h1 class="new__title">Ваши мероприятия</h1>
-                        <div class="new__block-info">
-                            <p>Вы можете посмотреть подробную информацию о предстоящих мероприятиях или итоги прошедших
-                                событий или кликнув на карточку. Вы можете посмотреть подробную информацию о предстоящих
-                                мероприятиях или итоги прошедших событий или кликнув на карточку.</p>
-                        </div>
 
-                        <ul class="event__list list-reset">
-                            <li class="event__item">
-                                <div class="event__block">
-                                    <div class="event__block-data">
-                                        <svg class="event__img" xmlns="http://www.w3.org/2000/svg" version="1.0"
-                                            width="1194.000000pt" height="1184.000000pt"
-                                            viewBox="0 0 1194.000000 1184.000000" preserveAspectRatio="xMidYMid meet">
-                                            <g transform="translate(0.000000,1184.000000) scale(0.100000,-0.100000)"
-                                                fill="currentcolor" stroke="none">
-                                                <path
-                                                    d="M4273 9170 c-44 -10 -76 -33 -110 -76 l-28 -37 -3 -254 -3 -253 -442 0 c-495 0 -529 -4 -657 -66 -99 -48 -220 -169 -267 -265 -68 -139 -63 67 -63 -2611 0 -1713 3 -2443 11 -2480 33 -162 163 -330 309 -401 149 -73 -102 -67 2922 -67 1929 0 2743 3 2780 11 208 43 398 226 452 435 14 56 16 307 16 2496 0 2681 5 2480 -62 2618 -45 94 -168 215 -268 264 -128 62 -161 66 -657 66 l-443 0 0 240 c0 268 -3 284 -63 337 -71 62 -169 64 -246 6 -64 -50 -71 -79 -71 -345 l0 -238 -620 0 -620 0 0 237 c0 220 -1 240 -21 280 -55 114 -200 144 -295 61 -67 -59 -68 -67 -72 -335 l-4 -243 -619 0 -619 0 0 238 c0 210 -3 242 -19 278 -22 49 -70 88 -126 103 -44 12 -47 12 -92 1z m677 -2760 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m-2860 -1020 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m-2860 -1020 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z" />
-                                            </g>
-                                        </svg>
-                                        <div class="event__block-time">
-                                            <p class="event__text">2 июля 2025
-                                                <span class="event__span"> 10 00 - 18 00</span>
-                                            </p>
-                                            <p class="event__text">3 июля 2025
-                                                <span class="event__span"> 10 00 - 17 00</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="event__block-title">
-                                        <p class="event__title-name">Центр Закупок Сетей™</p>
-                                        <a class="event__link" href="#">
-                                            <h3 class="event__title">ЦЗС «NEVA BUYERS WEEK 2025»</h3>
-                                        </a>
-                                        <p class="event__title-plase">Санкт-Петербург, DAA EXPO</p>
-                                    </div>
-                                    <div class="event__block-role">
-                                        <p class="event__text">Поставщик</p>
-                                    </div>
-                                </div>
-                                <a class="event__link" href="#">
-                                    <div class="event__button">
-
-                                        <div class="event__button-img">
-                                            <img src="img/event-logo/neva-logo.png" alt="">
-                                        </div>
-                                        <button class="event__btn btn-reset">
-                                            <svg class="event__btn-img" xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
-                                                xml:space="preserve" width="100mm" height="100mm" version="1.1"
-                                                viewBox="0 0 10000 10000">
-                                                <g fill="currentcolor" stroke="none">
-                                                    <path class="fil0"
-                                                        d="M5490.93 2192.6c825.38,175.6 1539.72,647.42 1960.62,1343.47l-1122.17 0c-286.56,-581.23 -691.38,-1011.35 -975.24,-1240.36 -150.75,-121.62 -105,-154.55 136.79,-103.11zm1.18 5622.4c825.38,-175.6 1539.72,-647.42 1960.62,-1343.47l-1122.17 0c-286.56,581.23 -691.38,1011.35 -975.24,1240.36 -150.75,121.62 -105,154.55 136.79,103.11zm593.13 -1343.47l-975.39 0 0 1064.96c0.08,29.08 1.03,97.16 104.4,8.14 244.61,-210.63 604.6,-574.28 870.99,-1073.1zm1775.32 -1323.32c0.57,-10.44 1.09,-20.89 1.55,-31.35l-0.3 0 -1204.42 0 -7.2 0c-24.08,433.75 -105.35,807.25 -220.58,1128.55l2.36 0 1143.97 0 12.12 0c158.97,-335.12 254.97,-705.93 272.5,-1097.2zm-1422.37 -31.35l-7.63 0 -1320.71 0 -1.18 0 0 1128.55 1.18 0 1084.33 0 0.67 0c143.2,-328.19 240.09,-705.77 243.34,-1128.55zm1424.8 -226.12c-13.69,-402.82 -110.54,-784.49 -273.75,-1128.55l-14.48 0 -1143.97 0c115.23,321.3 196.5,694.8 220.58,1128.55l4.84 0 1204.72 0 2.06 0zm-1667.63 -1128.55l-1.69 0 -1083.82 0 -1.18 0 0 1128.55 1.18 0 1321.89 0 5.27 0c-3.13,-407.78 -93.39,-773.5 -228.28,-1093.42 -4.41,-11.78 -8.86,-23.5 -13.37,-35.13zm-3791.01 0c-158.97,335.12 -254.97,705.93 -272.5,1097.2 -0.57,10.44 -1.09,20.89 -1.55,31.35l0.3 0 1204.19 0 9.38 0c27.17,-434.51 111.89,-807.94 230.39,-1128.55l-26.86 0 -1131.23 0 -12.12 0zm2478.2 1128.55l1.18 0 0 -1128.55 -1.18 0 -1071.56 0 -27.22 0c-139.18,329.02 -231.18,706.52 -229.66,1128.55l9.73 0 1318.71 0zm-1097.6 1354.67l24.86 0 1072.74 0 1.18 0 0 -1128.55 -1.18 0 -1319.89 0 -7.37 0c-1.52,422.03 90.48,799.53 229.66,1128.55zm-1244.09 226.12c22.66,37.48 46.16,74.4 70.46,110.72 406.7,607.97 1039.6,1051.77 1778.37,1210.99 356.13,76.75 370.74,44.29 178.15,-111.2 -275.16,-222.16 -616.32,-613.73 -875.72,-1119.79 -15.29,-29.84 -30.31,-60.09 -45.01,-90.72l-120.3 0 -886.36 0 -99.59 0zm2342.87 1043.8l0 -1043.8 -992.33 0c280.94,540.56 672.46,905.21 923.68,1112.03 70.67,58.19 68.77,-53.61 68.65,-68.23zm1200.33 -3979.26l-975.39 0 0 -1064.96c0.08,-29.08 1.03,-97.16 104.4,-8.14 244.61,210.63 604.6,574.28 870.99,1073.1zm-3680.89 2709.34c-163.21,-344.06 -260.06,-725.73 -273.75,-1128.55l2.06 0 1204.49 0 7.02 0c27.17,434.51 111.89,807.94 230.39,1128.55l-24.5 0 -1131.23 0 -14.48 0zm136.51 -2709.34c22.66,-37.48 46.16,-74.4 70.46,-110.72 406.7,-607.97 1039.6,-1051.77 1778.37,-1210.99 356.13,-76.75 370.74,-44.29 178.15,111.2 -275.16,222.16 -616.32,613.73 -875.72,1119.79 -15.29,29.84 -30.31,60.09 -45.01,90.72l-120.3 0 -886.36 0 -99.59 0zm2342.87 -1043.8l0 1043.8 -992.33 0c280.94,-540.56 672.46,-905.21 923.68,-1112.03 70.67,-58.19 68.77,53.61 68.65,68.23z" />
-                                                </g>
-                                            </svg>
-                                            <span class="event__btn-text">Перейти на сайт события</span>
-                                        </button>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="event__item">
-                                <div class="event__block">
-                                    <div class="event__block-data">
-                                        <svg class="event__img" xmlns="http://www.w3.org/2000/svg" version="1.0"
-                                            width="1194.000000pt" height="1184.000000pt"
-                                            viewBox="0 0 1194.000000 1184.000000" preserveAspectRatio="xMidYMid meet">
-                                            <g transform="translate(0.000000,1184.000000) scale(0.100000,-0.100000)"
-                                                fill="currentcolor" stroke="none">
-                                                <path
-                                                    d="M4273 9170 c-44 -10 -76 -33 -110 -76 l-28 -37 -3 -254 -3 -253 -442 0 c-495 0 -529 -4 -657 -66 -99 -48 -220 -169 -267 -265 -68 -139 -63 67 -63 -2611 0 -1713 3 -2443 11 -2480 33 -162 163 -330 309 -401 149 -73 -102 -67 2922 -67 1929 0 2743 3 2780 11 208 43 398 226 452 435 14 56 16 307 16 2496 0 2681 5 2480 -62 2618 -45 94 -168 215 -268 264 -128 62 -161 66 -657 66 l-443 0 0 240 c0 268 -3 284 -63 337 -71 62 -169 64 -246 6 -64 -50 -71 -79 -71 -345 l0 -238 -620 0 -620 0 0 237 c0 220 -1 240 -21 280 -55 114 -200 144 -295 61 -67 -59 -68 -67 -72 -335 l-4 -243 -619 0 -619 0 0 238 c0 210 -3 242 -19 278 -22 49 -70 88 -126 103 -44 12 -47 12 -92 1z m677 -2760 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m-2860 -1020 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m-2860 -1020 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z m1430 0 l0 -320 -435 0 -435 0 0 320 0 320 435 0 435 0 0 -320z" />
-                                            </g>
-                                        </svg>
-                                        <div class="event__block-time">
-                                            <p class="event__text">2 июля 2025
-                                                <span class="event__span"> 10 00 - 18 00</span>
-                                            </p>
-                                            <p class="event__text">3 июля 2025
-                                                <span class="event__span"> 10 00 - 17 00</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="event__block-title">
-                                        <p class="event__title-name">Выставка</p>
-                                        <a class="event__link" href="#">
-                                            <h3 class="event__title">«NEVA BUYERS WEEK 2025» </h3>
-                                        </a>
-                                        <p class="event__title-plase">Санкт-Петербург, DAA EXPO</p>
-                                    </div>
-                                    <div class="event__block-role">
-                                        <p class="event__text">Экспонент</p>
-                                    </div>
-                                </div>
-                                <a class="event__link" href="#">
-                                    <div class="event__button">
-
-                                        <div class="event__button-img">
-                                            <img src="img/event-logo/neva-logo.png" alt="">
-                                        </div>
-                                        <button class="event__btn btn-reset">
-                                            <svg class="event__btn-img" xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
-                                                xml:space="preserve" width="100mm" height="100mm" version="1.1"
-                                                viewBox="0 0 10000 10000">
-
-                                                <g fill="currentcolor" stroke="none">
-                                                    <path class="fil0"
-                                                        d="M5490.93 2192.6c825.38,175.6 1539.72,647.42 1960.62,1343.47l-1122.17 0c-286.56,-581.23 -691.38,-1011.35 -975.24,-1240.36 -150.75,-121.62 -105,-154.55 136.79,-103.11zm1.18 5622.4c825.38,-175.6 1539.72,-647.42 1960.62,-1343.47l-1122.17 0c-286.56,581.23 -691.38,1011.35 -975.24,1240.36 -150.75,121.62 -105,154.55 136.79,103.11zm593.13 -1343.47l-975.39 0 0 1064.96c0.08,29.08 1.03,97.16 104.4,8.14 244.61,-210.63 604.6,-574.28 870.99,-1073.1zm1775.32 -1323.32c0.57,-10.44 1.09,-20.89 1.55,-31.35l-0.3 0 -1204.42 0 -7.2 0c-24.08,433.75 -105.35,807.25 -220.58,1128.55l2.36 0 1143.97 0 12.12 0c158.97,-335.12 254.97,-705.93 272.5,-1097.2zm-1422.37 -31.35l-7.63 0 -1320.71 0 -1.18 0 0 1128.55 1.18 0 1084.33 0 0.67 0c143.2,-328.19 240.09,-705.77 243.34,-1128.55zm1424.8 -226.12c-13.69,-402.82 -110.54,-784.49 -273.75,-1128.55l-14.48 0 -1143.97 0c115.23,321.3 196.5,694.8 220.58,1128.55l4.84 0 1204.72 0 2.06 0zm-1667.63 -1128.55l-1.69 0 -1083.82 0 -1.18 0 0 1128.55 1.18 0 1321.89 0 5.27 0c-3.13,-407.78 -93.39,-773.5 -228.28,-1093.42 -4.41,-11.78 -8.86,-23.5 -13.37,-35.13zm-3791.01 0c-158.97,335.12 -254.97,705.93 -272.5,1097.2 -0.57,10.44 -1.09,20.89 -1.55,31.35l0.3 0 1204.19 0 9.38 0c27.17,-434.51 111.89,-807.94 230.39,-1128.55l-26.86 0 -1131.23 0 -12.12 0zm2478.2 1128.55l1.18 0 0 -1128.55 -1.18 0 -1071.56 0 -27.22 0c-139.18,329.02 -231.18,706.52 -229.66,1128.55l9.73 0 1318.71 0zm-1097.6 1354.67l24.86 0 1072.74 0 1.18 0 0 -1128.55 -1.18 0 -1319.89 0 -7.37 0c-1.52,422.03 90.48,799.53 229.66,1128.55zm-1244.09 226.12c22.66,37.48 46.16,74.4 70.46,110.72 406.7,607.97 1039.6,1051.77 1778.37,1210.99 356.13,76.75 370.74,44.29 178.15,-111.2 -275.16,-222.16 -616.32,-613.73 -875.72,-1119.79 -15.29,-29.84 -30.31,-60.09 -45.01,-90.72l-120.3 0 -886.36 0 -99.59 0zm2342.87 1043.8l0 -1043.8 -992.33 0c280.94,540.56 672.46,905.21 923.68,1112.03 70.67,58.19 68.77,-53.61 68.65,-68.23zm1200.33 -3979.26l-975.39 0 0 -1064.96c0.08,-29.08 1.03,-97.16 104.4,-8.14 244.61,210.63 604.6,574.28 870.99,1073.1zm-3680.89 2709.34c-163.21,-344.06 -260.06,-725.73 -273.75,-1128.55l2.06 0 1204.49 0 7.02 0c27.17,434.51 111.89,807.94 230.39,1128.55l-24.5 0 -1131.23 0 -14.48 0zm136.51 -2709.34c22.66,-37.48 46.16,-74.4 70.46,-110.72 406.7,-607.97 1039.6,-1051.77 1778.37,-1210.99 356.13,-76.75 370.74,-44.29 178.15,111.2 -275.16,222.16 -616.32,613.73 -875.72,1119.79 -15.29,29.84 -30.31,60.09 -45.01,90.72l-120.3 0 -886.36 0 -99.59 0zm2342.87 -1043.8l0 1043.8 -992.33 0c280.94,-540.56 672.46,-905.21 923.68,-1112.03 70.67,-58.19 68.77,53.61 68.65,68.23z" />
-                                                </g>
-                                            </svg>
-                                            <span class="event__btn-text">Перейти на сайт события</span>
-                                        </button>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="new__block-tel">
-                            <p>При возникновении вопросов по событию мы можете связаться с нашим менеджером по телефону
-                            </p>
-                            <button class="banner__button btn-reset btn-tel">
-                                <svg class="new__img" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    xmlns:xodm="http://www.corel.com/coreldraw/odm/2003" xml:space="preserve"
-                                    width="100mm" height="100mm" version="1.1"
-                                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                                    viewBox="0 0 10000 10000">
-                                    <g fill="currentcolor" stroke="none">
-                                        <path class="fil0"
-                                            d="M4545.41 7433.19c708.95,860.98 2032.61,972.92 3005.11,79.29 425.24,-390.74 181.32,-697.55 181.32,-697.55 0,0 -438.91,-549.91 -759.16,-828.33 -320.23,-278.43 -477.48,-172.34 -578.16,-110.5 -100.68,61.84 -555.59,272.52 -589.47,593.71 -33.87,321.16 -451.09,221.7 -505.79,166 -108.82,-110.81 -216.72,-199.4 -291.91,-297.34 -427.3,-556.57 -811.62,-1032.01 -1252.27,-1570.62 -78.19,-95.57 -139.81,-220.85 -222.85,-352.1 -41.74,-65.96 -43.32,-494.87 277.09,-454.53 320.44,40.35 629.42,-354.45 712.61,-438.35 83.2,-83.9 222.38,-212.78 24.42,-588.12 -197.95,-375.35 -633.13,-928.22 -633.13,-928.22 0,0 -243.02,-307.52 -720.53,17.28 -1092.05,742.79 -1285.27,2057.05 -608.89,2943.84 685.08,898.2 1246.62,1597.24 1961.61,2465.54z" />
-                                    </g>
-                                </svg>
-                                +7 (800) 000-00-00</button>
-                        </div>
-
+                    <h1 class="new__title">Генератор КП</h1>
+                    <div class="banner__block-info">
+                        <p>Сервис генерации коммерческих предложений на платформе центра закупок сетей предоставляет
+                            поставщикам удобный инструмент
+                            для быстрого создания профессиональных и структурированных предложений. Благодаря
+                            автоматизации
+                            процесса, поставщики
+                            могут сэкономить время на подготовке документов, минимизировать ошибки и повысить качество
+                            презентации своей продукции.
+                            Платформа предлагает шаблоны и подсказки, что облегчает процесс создания предложений даже
+                            для
+                            тех, кто не имеет опыта
+                            работы с подобными документами.</p>
+                        <p>Еще одним преимуществом является возможность адаптации предложений под требования конкретных
+                            сетей, что повышает шансы
+                            на успешное заключение сделки. Это позволяет поставщикам быстрее и эффективнее откликаться
+                            на
+                            запросы сетей, улучшая
+                            свою конкурентоспособность на рынке.</p>
                     </div>
-                   
+
+                    <div class="box proposal_master_v2">
+
+                        <div class="field org_title">
+                            <div class="ttl trnslt subtitle">Название компании</div>
+                            <div class="input_field"><input class="title" type="text" value=""></div>
+                        </div>
+                        <div class="field org_profile">
+                            <div class="ttl trnslt subtitle">Профиль компании</div>
+                            <div class="input_field"><input id="profile1" type="checkbox" value="Производитель"> <label
+                                    for="profile1" class="trnslt">Производитель</label></div>
+                            <div class="input_field"><input id="profile2" type="checkbox" value="Дистрибьютор"> <label
+                                    for="profile2" class="trnslt">Дистрибьютор</label></div>
+                            <div class="input_field"><input id="profile3" type="checkbox" value="Оптовая компания">
+                                <label for="profile3" class="trnslt">Оптовая компания</label>
+                            </div>
+                        </div>
+                        <div class="field org_logo">
+                            <div class="ttl trnslt">Логотип (В формате jpg, png. Размер до 2 Мб)</div>
+                            <div class="input_field"><input class="logo img2upload" type="file"></div>
+                        </div>
+                        <div class="field org_category">
+                            <div class="ttl trnslt subtitle">Выберите ваши категории</div>
+
+                            <div class="cat_group">FOOD</div>
+                            <div class="cat_group_field">
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_18" type="checkbox"
+                                                name="category[]" value="18;Бакалея. Зернопродукты"> <label
+                                                for="cat_FOOD_18" class="trnslt">Бакалея.
+                                                Зернопродукты</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_18" for="18;Бакалея. Зернопродукты"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_19" type="checkbox"
+                                                name="category[]" value="19;Безалкогольные напитки, соки, воды"> <label
+                                                for="cat_FOOD_19" class="trnslt">Безалкогольные напитки, соки,
+                                                воды</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_19"
+                                            for="19;Безалкогольные напитки, соки, воды" style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_20" type="checkbox"
+                                                name="category[]" value="20;Вина, тихие вина, игристые вина"> <label
+                                                for="cat_FOOD_20" class="trnslt">Вина,
+                                                тихие вина, игристые вина</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_20"
+                                            for="20;Вина, тихие вина, игристые вина" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_21" type="checkbox"
+                                                name="category[]" value="21;Готовые блюда. Салаты"> <label
+                                                for="cat_FOOD_21" class="trnslt">Готовые блюда.
+                                                Салаты</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_21" for="21;Готовые блюда. Салаты"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_22" type="checkbox"
+                                                name="category[]" value="22;Детское питание"> <label for="cat_FOOD_22"
+                                                class="trnslt">Детское питание</label>
+                                        </div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_22" for="22;Детское питание"
+                                            style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_23" type="checkbox"
+                                                name="category[]" value="23;Джемы, сиропы, варенье, соусы"> <label
+                                                for="cat_FOOD_23" class="trnslt">Джемы,
+                                                сиропы, варенье, соусы</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_23"
+                                            for="23;Джемы, сиропы, варенье, соусы" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_24" type="checkbox"
+                                                name="category[]" value="24;Замороженные продукты. П/ф"> <label
+                                                for="cat_FOOD_24" class="trnslt">Замороженные
+                                                продукты. П/ф</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_24"
+                                            for="24;Замороженные продукты. П/ф" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_25" type="checkbox"
+                                                name="category[]" value="25;Здоровое питание"> <label for="cat_FOOD_25"
+                                                class="trnslt">Здоровое
+                                                питание</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_25" for="25;Здоровое питание"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_26" type="checkbox"
+                                                name="category[]" value="26;Кондитерская, хлебопекарная продукция">
+                                            <label for="cat_FOOD_26" class="trnslt">Кондитерская, хлебопекарная
+                                                продукция</label>
+                                        </div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_26"
+                                            for="26;Кондитерская, хлебопекарная продукция" style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_27" type="checkbox"
+                                                name="category[]" value="27;Консервация: овощная, рыбная, мясная">
+                                            <label for="cat_FOOD_27" class="trnslt">Консервация: овощная, рыбная,
+                                                мясная</label>
+                                        </div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_27"
+                                            for="27;Консервация: овощная, рыбная, мясная" style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_28" type="checkbox"
+                                                name="category[]" value="28;Крепкий алкоголь"> <label for="cat_FOOD_28"
+                                                class="trnslt">Крепкий
+                                                алкоголь</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_28" for="28;Крепкий алкоголь"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_29" type="checkbox"
+                                                name="category[]" value="29;Макароны. Приправы. Соусы и специи"> <label
+                                                for="cat_FOOD_29" class="trnslt">Макароны. Приправы. Соусы и
+                                                специи</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_29"
+                                            for="29;Макароны. Приправы. Соусы и специи" style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_30" type="checkbox"
+                                                name="category[]" value="30;Мед и продукты пчеловодства"> <label
+                                                for="cat_FOOD_30" class="trnslt">Мед и
+                                                продукты пчеловодства</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_30"
+                                            for="30;Мед и продукты пчеловодства" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_31" type="checkbox"
+                                                name="category[]" value="31;Молочная продукция. Сыры. Мороженое"> <label
+                                                for="cat_FOOD_31" class="trnslt">Молочная продукция. Сыры.
+                                                Мороженое</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_31"
+                                            for="31;Молочная продукция. Сыры. Мороженое" style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_32" type="checkbox"
+                                                name="category[]" value="32;Мясные, колбасные изделия, деликатесы">
+                                            <label for="cat_FOOD_32" class="trnslt">Мясные, колбасные изделия,
+                                                деликатесы</label>
+                                        </div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_32"
+                                            for="32;Мясные, колбасные изделия, деликатесы" style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_33" type="checkbox"
+                                                name="category[]" value="33;Овощи. Фрукты"> <label for="cat_FOOD_33"
+                                                class="trnslt">Овощи. Фрукты</label>
+                                        </div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_33" for="33;Овощи. Фрукты"
+                                            style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_34" type="checkbox"
+                                                name="category[]" value="34;Пищевые ингредиенты"> <label
+                                                for="cat_FOOD_34" class="trnslt">Пищевые
+                                                ингредиенты</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_34" for="34;Пищевые ингредиенты"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_35" type="checkbox"
+                                                name="category[]" value="35;Птица. Яйцо"> <label for="cat_FOOD_35"
+                                                class="trnslt">Птица. Яйцо</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_35" for="35;Птица. Яйцо"
+                                            style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_36" type="checkbox"
+                                                name="category[]" value="36;Растительные жиры"> <label for="cat_FOOD_36"
+                                                class="trnslt">Растительные
+                                                жиры</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_36" for="36;Растительные жиры"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_37" type="checkbox"
+                                                name="category[]" value="37;Рыба и морепродукты"> <label
+                                                for="cat_FOOD_37" class="trnslt">Рыба и
+                                                морепродукты</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_37" for="37;Рыба и морепродукты"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_38" type="checkbox"
+                                                name="category[]" value="38;Слабоалкогольные напитки, пиво"> <label
+                                                for="cat_FOOD_38" class="trnslt">Слабоалкогольные напитки, пиво</label>
+                                        </div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_38"
+                                            for="38;Слабоалкогольные напитки, пиво" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_39" type="checkbox"
+                                                name="category[]" value="39;Снэки, ореxи, суxофрукты"> <label
+                                                for="cat_FOOD_39" class="trnslt">Снэки, ореxи,
+                                                суxофрукты</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_39" for="39;Снэки, ореxи, суxофрукты"
+                                            style="display:none">Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_40" type="checkbox"
+                                                name="category[]" value="40;Спортивное питание. БАДы"> <label
+                                                for="cat_FOOD_40" class="trnslt">Спортивное
+                                                питание. БАДы</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_40" for="40;Спортивное питание. БАДы"
+                                            style="display:none">Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_41" type="checkbox"
+                                                name="category[]" value="41;Табак и табачные изделия"> <label
+                                                for="cat_FOOD_41" class="trnslt">Табак и
+                                                табачные изделия</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_41" for="41;Табак и табачные изделия"
+                                            style="display:none">Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_42" type="checkbox"
+                                                name="category[]" value="42;Творог и творожная масса"> <label
+                                                for="cat_FOOD_42" class="trnslt">Творог и
+                                                творожная масса</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_42" for="42;Творог и творожная масса"
+                                            style="display:none">Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_43" type="checkbox"
+                                                name="category[]" value="43;Товары прикассовой зоны food"> <label
+                                                for="cat_FOOD_43" class="trnslt">Товары
+                                                прикассовой зоны food</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_43"
+                                            for="43;Товары прикассовой зоны food" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_44" type="checkbox"
+                                                name="category[]" value="44;Чай, кофе, какао"> <label for="cat_FOOD_44"
+                                                class="trnslt">Чай, кофе,
+                                                какао</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_44" for="44;Чай, кофе, какао"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_45" type="checkbox"
+                                                name="category[]" value="45;Другое food"> <label for="cat_FOOD_45"
+                                                class="trnslt">Другое food</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_45" for="45;Другое food"
+                                            style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_FOOD_46" type="checkbox"
+                                                name="category[]" value="46;Оборудование для ритейла"> <label
+                                                for="cat_FOOD_46" class="trnslt">Оборудование
+                                                для ритейла</label></div>
+                                        <div class="add_sku trnslt" rel="cat_FOOD_46" for="46;Оборудование для ритейла"
+                                            style="display:none">Добавить товар</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cat_group">NON-FOOD</div>
+                            <div class="cat_group_field">
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_47" type="checkbox"
+                                                name="category[]" value="47;Автотовары"> <label for="cat_NON-FOOD_47"
+                                                class="trnslt">Автотовары</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_47" for="47;Автотовары"
+                                            style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_48" type="checkbox"
+                                                name="category[]" value="48;Аксессуары для ванной и бани"> <label
+                                                for="cat_NON-FOOD_48" class="trnslt">Аксессуары для ванной и
+                                                бани</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_48"
+                                            for="48;Аксессуары для ванной и бани" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_49" type="checkbox"
+                                                name="category[]" value="49;Бытовая химия"> <label for="cat_NON-FOOD_49"
+                                                class="trnslt">Бытовая химия</label>
+                                        </div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_49" for="49;Бытовая химия"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_50" type="checkbox"
+                                                name="category[]" value="50;Ватно-бумажная продукция"> <label
+                                                for="cat_NON-FOOD_50" class="trnslt">Ватно-бумажная продукция</label>
+                                        </div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_50"
+                                            for="50;Ватно-бумажная продукция" style="display:none">Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_51" type="checkbox"
+                                                name="category[]" value="51;Канцелярские товары, книги"> <label
+                                                for="cat_NON-FOOD_51" class="trnslt">Канцелярские товары, книги</label>
+                                        </div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_51"
+                                            for="51;Канцелярские товары, книги" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_52" type="checkbox"
+                                                name="category[]" value="52;Косметика и парфюмерия"> <label
+                                                for="cat_NON-FOOD_52" class="trnslt">Косметика и
+                                                парфюмерия</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_52"
+                                            for="52;Косметика и парфюмерия" style="display:none">Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_53" type="checkbox"
+                                                name="category[]" value="53;Крупная и мелкая бытовая техника"> <label
+                                                for="cat_NON-FOOD_53" class="trnslt">Крупная и мелкая бытовая
+                                                техника</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_53"
+                                            for="53;Крупная и мелкая бытовая техника" style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_54" type="checkbox"
+                                                name="category[]" value="54;Пеномоющие средства"> <label
+                                                for="cat_NON-FOOD_54" class="trnslt">Пеномоющие
+                                                средства</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_54" for="54;Пеномоющие средства"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_55" type="checkbox"
+                                                name="category[]" value="55;Средства личной гигиены"> <label
+                                                for="cat_NON-FOOD_55" class="trnslt">Средства
+                                                личной гигиены</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_55"
+                                            for="55;Средства личной гигиены" style="display:none">Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_56" type="checkbox"
+                                                name="category[]" value="56;Стройматериалы, инструменты"> <label
+                                                for="cat_NON-FOOD_56" class="trnslt">Стройматериалы, инструменты</label>
+                                        </div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_56"
+                                            for="56;Стройматериалы, инструменты" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_57" type="checkbox"
+                                                name="category[]" value="57;Сувениры, подарки, аксессуары"> <label
+                                                for="cat_NON-FOOD_57" class="trnslt">Сувениры, подарки,
+                                                аксессуары</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_57"
+                                            for="57;Сувениры, подарки, аксессуары" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_58" type="checkbox"
+                                                name="category[]" value="58;Текстиль для дома, ЧНИ и обувь"> <label
+                                                for="cat_NON-FOOD_58" class="trnslt">Текстиль для дома, ЧНИ и
+                                                обувь</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_58"
+                                            for="58;Текстиль для дома, ЧНИ и обувь" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_59" type="checkbox"
+                                                name="category[]" value="59;Товары для детей, игрушки"> <label
+                                                for="cat_NON-FOOD_59" class="trnslt">Товары для
+                                                детей, игрушки</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_59"
+                                            for="59;Товары для детей, игрушки" style="display:none">Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_60" type="checkbox"
+                                                name="category[]" value="60;Товары для дома, хоз. товары"> <label
+                                                for="cat_NON-FOOD_60" class="trnslt">Товары
+                                                для дома, хоз. товары</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_60"
+                                            for="60;Товары для дома, хоз. товары" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_61" type="checkbox"
+                                                name="category[]" value="61;Товары для животных, корма"> <label
+                                                for="cat_NON-FOOD_61" class="trnslt">Товары
+                                                для животных, корма</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_61"
+                                            for="61;Товары для животных, корма" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_62" type="checkbox"
+                                                name="category[]" value="62;Товары для кухни, посуда"> <label
+                                                for="cat_NON-FOOD_62" class="trnslt">Товары для
+                                                кухни, посуда</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_62"
+                                            for="62;Товары для кухни, посуда" style="display:none">Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_63" type="checkbox"
+                                                name="category[]" value="63;Товары для сада, огорода, цветы"> <label
+                                                for="cat_NON-FOOD_63" class="trnslt">Товары для сада, огорода,
+                                                цветы</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_63"
+                                            for="63;Товары для сада, огорода, цветы" style="display:none">Добавить товар
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_64" type="checkbox"
+                                                name="category[]" value="64;Товары для туризма, спорта, хобби и досуга">
+                                            <label for="cat_NON-FOOD_64" class="trnslt">Товары для туризма, спорта,
+                                                хобби и досуга</label>
+                                        </div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_64"
+                                            for="64;Товары для туризма, спорта, хобби и досуга" style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_65" type="checkbox"
+                                                name="category[]" value="65;Товары прикассовой зоны non-food"> <label
+                                                for="cat_NON-FOOD_65" class="trnslt">Товары прикассовой зоны
+                                                non-food</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_65"
+                                            for="65;Товары прикассовой зоны non-food" style="display:none">Добавить
+                                            товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_66" type="checkbox"
+                                                name="category[]" value="66;Электроинструменты"> <label
+                                                for="cat_NON-FOOD_66" class="trnslt">Электроинструменты</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_66" for="66;Электроинструменты"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="category">
+                                        <div class="category_input"><input id="cat_NON-FOOD_67" type="checkbox"
+                                                name="category[]" value="67;Другое non-food"> <label
+                                                for="cat_NON-FOOD_67" class="trnslt">Другое
+                                                non-food</label></div>
+                                        <div class="add_sku trnslt" rel="cat_NON-FOOD_67" for="67;Другое non-food"
+                                            style="display:none">
+                                            Добавить товар</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="field org_price">
+                            <div class="ttl trnslt subtitle">Ссылка на прайс</div>
+                            <div class="input_field"><input type="text" value="" maxlength="500"></div>
+                        </div>
+                        <div class="field org_region">
+                            <div class="ttl trnslt subtitle">Регион производства</div>
+                            <div class="input_field"><input type="text" value="" maxlength="100"></div>
+                        </div>
+                        <div class="field org_capable">
+                            <div class="ttl trnslt subtitle">Номинальные мощности</div>
+                            <div class="input_field"><input type="text" value="" maxlength="100"></div>
+                        </div>
+                        <div class="field org_sales">
+                            <div class="ttl trnslt subtitle">Продажи за последний год</div>
+                            <div class="input_field"><input type="number" value="" maxlength="100"></div>
+                        </div>
+                        <div class="field org_manufacture_photo">
+                            <div class="ttl trnslt subtitle">Загрузите фото производства</div>
+                            <div class="input_field"><input class="manufacture_photo img2upload" type="file"></div>
+                        </div>
+
+                        <div class="field org_work_scheme">
+                            <div class="ttl trnslt subtitle">Логистика</div>
+                            <div class="input_field"><input id="work_scheme1" type="checkbox" value="Работаем напрямую">
+                                <label for="work_scheme1" class="trnslt">Работаем напрямую</label>
+                            </div>
+                            <div class="input_field"><input id="work_scheme2" type="checkbox"
+                                    value="Через дистрибьютора"> <label for="work_scheme2" class="trnslt">Через
+                                    дистрибьютора</label></div>
+                            <div class="input_field"><input id="work_scheme3" type="checkbox"
+                                    value="Готовы поставлять на РЦ"> <label for="work_scheme3" class="trnslt">Готовы
+                                    поставлять на Распределительный центр</label></div>
+                        </div>
+
+                        <div class="field org_quant">
+                            <div class="ttl trnslt subtitle">Минимальный квант поставки</div>
+                            <div class="input_field"><input type="text" value="" maxlength="100"></div>
+                        </div>
+
+
+                        <div class="field org_clients">
+                            <div class="ttl trnslt subtitle">Ваши клиенты</div>
+                            <div class="textarea"><textarea maxlength="300"></textarea></div>
+                        </div>
+
+                        <div class="field org_description">
+                            <div class="ttl trnslt subtitle">Общее описание компании</div>
+                            <div class="field_wrap">
+                                <div class="input_field"><textarea class="description"></textarea></div>
+                                <!--<div><button class="gen_by_neyro trnslt">Создать описание с помощью нейросети</button></div>-->
+                            </div>
+                        </div>
+
+                        <div class="field org_contacts">
+                            <div class="ttl trnslt subtitle">Наши контакты</div>
+                            <div class="input_field site"><input value="" type="text" maxlength="50"> — <span
+                                    class="trnslt">Сайт</span>
+                            </div>
+                            <div class="input_field fio"><input value="" type="text" maxlength="50"> — <span
+                                    class="trnslt">Фамилия,
+                                    имя</span></div>
+                            <div class="input_field email"><input value="" type="text" maxlength="50"> — <span
+                                    class="trnslt">Эл.
+                                    почта</span></div>
+                            <div class="input_field tel"><input value="" type="text" maxlength="50"> — <span
+                                    class="trnslt">Телефон</span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="field org_events">
+                            <div class="ttl trnslt subtitle">Прикрепить презентацию к событию</div>
+                            <div class="user_events_list">
+                                <div><input id="event-24" type="checkbox" value="24"> <label for="event-24">NEVA BUYERS
+                                        WEEK 2024</label>
+                                </div>
+                                <div><input id="event-24" type="checkbox" value="24"> <label for="event-24">NEVA BUYERS
+                                        WEEK 2024</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="send_sku trnslt">Сгенерировать</div>
+                        <div id="result"></div>
+                    </div>
+
+                    <div id="result"></div>
                 </div>
             </div>
         </main>

@@ -37,15 +37,119 @@
 }
 
 
-.proposal_upload .new__title,
-.proposal_upload .last__title-main,
-.proposal_upload .future__title-main {
+.proposal_upload .new__title {
     position: relative;
     margin: 0 0 calc(var(--base-gap) * 2) 0;
     font-size: calc(var(--base-font-size) * 3);
     line-height: calc(var(--base-font-size) * 3);
     color: var(--newGray);
 }
+
+.proposal_upload .subtitle{
+    font-size: 1.5em;
+    line-height: 1.5em;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+    color:var(--grafite);
+}
+
+.proposal_upload .banner__block-info{
+padding: calc(var(--base-gap) * 1.5);
+    padding-left: calc(var(--base-gap) * 8.5);
+    border-radius: 8px;
+    background-image: url(../img/fonLoadL.png);
+    background-size: cover;
+    color: var(--grafite);
+}
+
+.proposal_master .file_field input[type=file] {
+    display: inline-block;
+    background: var(--lightBlue);
+    border-radius: 4px;
+    padding: 1em 2em; 
+    max-width: 800px;
+    width: 100%;
+    margin: 1em 0 2em 0;
+    color: var(--newGray);
+    font-size: 0.9em;    
+    cursor: pointer;
+}
+
+.file_field input[type="file"]::file-selector-button {
+    padding: 8px 16px;
+    background: var(--base-color-6);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.proposal_master input[type=file] button{
+    background: #fff;
+    border: 1px solid var(--lightBlue);
+}
+.proposal_master .cat_group {
+    font-weight: 700;
+    margin: 0 0 1em 0;
+    color: var(--base-color-6);
+}
+
+.proposal_master .cat_group_field {
+    margin: 0 0 0 0em;
+    padding-left: 2em;
+    border-left: 1px solid #cccccc;
+}
+
+.proposal_master .category {
+    margin: 0 0 1em 0;
+    color: var(--newGray);
+}
+[type="checkbox"], [type="radio"]
+ {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.proposal_master .user_events_list {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 calc(var(--base-gap) * 2) 0;
+    gap: calc(var(--base-gap) * 1);
+    color:var(--newGray);
+}
+.proposal_master  .org_events{
+    margin-bottom: 32px;
+}
+.proposal_master .add_proposal {
+    display: inline-block;
+     padding: var(--base-font-size) calc(var(--base-font-size) * 4.5);   
+    width: 100%;
+    font-size: calc(var(--base-font-size) * 1);
+    color: #fff;
+    border: 1px solid var(--base-color-6);
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    outline: none;
+        text-align: center;
+    transition: border-color 0.5s ease, background-color 0.5s ease;
+}
+
+.proposal_master .user_events_list input[type="checkbox"]:focus,
+.proposal_master .category_input input[type="checkbox"]:focus,
+.proposal_master.input_field input[type="file"]:focus
+.proposal_master  input[type="text"]:focus,
+.proposal_master input[type="number"]:focus,
+.proposal_master .org_clients textarea:focus,
+.proposal_master .title:focus {
+    outline: none;
+    border-color: var(--base-color-2);
+    box-shadow: 0 0 0 3px rgba(126, 143, 218, 0.1);
+}
+
+
+
+
+
 
 @media (max-width: 1199px) {
     .proposal_upload .main {
@@ -56,6 +160,10 @@
         margin: 0 0 calc(var(--base-gap) * 0) 0;
         font-size: calc(var(--base-font-size) * 2);
         line-height: calc(var(--base-font-size) * 2);
+    }
+
+    .proposal_upload .banner__block-info {
+        background-image: url(../img/fonLoad.png);
     }
 }
 
@@ -95,6 +203,10 @@
 
     .proposal_upload .main {
         margin-top: calc(var(--base-gap) * 2);
+    }
+
+    .proposal_upload .banner__block-info {
+        background-image: url(../img/fonLoadL.png);
     }
 }
 
@@ -216,10 +328,11 @@
 
     }
 
-    .proposal_upload .header .header__top .header__button:hover {
-        color: var(--base-color-2);
-        background-color: transparent;
-        border-color: transparent;
+
+ .proposal_upload .banner__block-info {
+        padding: 1em;
+        background-image: none;
+        background-color: var(--lightBlue);
     }
 
 
@@ -250,61 +363,18 @@
 
 @media (any-hover: hover) {
 
-    /* .proposal_upload .menu__item:hover */
-    .proposal_upload .main .event__button:hover,
-    .proposal_upload .header .header__top .header__button:hover,
-    .proposal_upload .main .banner__button:hover {
+.proposal_master .add_proposal:hover {
         color: #fff;
         background: var(--base-color-2);
         border-color: var(--base-color-2);
     }
-
-    .proposal_upload .header .header__tel:hover {
+    .proposal_upload .header .header__top .header__button:hover {
         color: var(--base-color-2);
-        background-image: url(../img/phoneB.png);
+        background-color: transparent;
+        border-color: transparent;
     }
 
-    .proposal_upload .header .header__top .header__burger:hover,
-    .proposal_upload .future__link:hover .future__title {
-        color: var(--base-color-2);
-    }
-
-    /* .proposal_upload .menu__list-icon .menu__img:hover,
-    .proposal_upload .menu__item-mobil.show+.menu__list-icon .menu__img,
-    .proposal_upload .menu__item:hover .menu__img,
-    .proposal_upload .menu__list-icon .menu__img:hover,
-    .proposal_upload .menu__item:hover .menu__btn */
-    .proposal_upload .future__btn:hover .future__btn-img,
-    .proposal_upload .banner__button:hover .new__img,
-    .proposal_upload .last__btn:hover {
-        color: var(--base-color-2);
-        background-color: #fff;
-    }
-
-
-
-    .proposal_upload .last__title:hover,
-    .proposal_upload .event__link:hover .event__btn,
-    .proposal_upload .event__link:hover .event__btn-img,
-    .proposal_upload .event__link:hover .event__title {
-        color: var(--base-color-2);
-    }
-
-    .proposal_upload .last__btn:hover .last__btn-img {
-        color: var(--base-color-2);
-    }
-
-    .proposal_upload .future__btn:hover,
-    .proposal_upload .last__btn:hover {
-        color: #fff;
-        background-color: var(--base-color-2);
-        border-color: var(--base-color-2);
-    }
-
-    .proposal_upload .last__link:hover {
-        color: var(--base-color-2);
-    }
-
-
-
+    .file_field input[type="file"]::file-selector-button:hover {
+    background: var(--base-color-2);
+}
 }
