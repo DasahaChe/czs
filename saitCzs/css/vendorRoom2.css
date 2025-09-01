@@ -428,6 +428,7 @@
 .vendor_page .event__link .event__title,
 .vendor_page .event__link:hover .event__btn,
 .vendor_page .event__link:hover .event__btn-img {
+    border: 1px solid transparent;
     transition: color 0.5s ease;
 }
 
@@ -657,7 +658,16 @@
     background-color: var(--base-color-6);
 }
 
-
+.vendor_page .future__link,
+.vendor_page .future__btn,
+.vendor_page .last__link,
+.vendor_page .last__btn,
+.vendor_page .banner__button,
+.vendor_page .event__link,
+.vendor_page .event__button,
+.vendor_page .event__btn {
+    outline: none;
+}
 
 
 
@@ -1353,12 +1363,35 @@
     }
 
 
+    /* .vendor_page .future__link,
+.vendor_page .future__btn,
+.vendor_page .last__link,
+.vendor_page .last__btn,
+.vendor_page .banner__button,
+.vendor_page .event__link,
+.vendor_page .event__button,
+.vendor_page .event__btn{
+    outline: none;
+} */
 
+    .vendor_page .last__title:focus-visible,
     .vendor_page .last__title:hover,
     .vendor_page .event__link:hover .event__btn,
     .vendor_page .event__link:hover .event__btn-img,
     .vendor_page .event__link:hover .event__title {
         color: var(--base-color-2);
+    }
+.vendor_page .future__btn:focus-visible,
+    .vendor_page .future__link:focus-visible .future__title,
+    .vendor_page .event__link:focus-visible .event__title,
+    .vendor_page .last__link:focus-visible .last__btn,
+    .vendor_page .last__link:focus-visible .last__title,
+    .vendor_page .banner__button:focus-visible,
+    .vendor_page .event__link:focus-visible,
+    .vendor_page .event__link:focus-visible .event__btn,
+    .vendor_page .event__link:focus-visible .event__btn-img {
+        color: var(--base-color-1);
+        background-color: var(--base-color-2);
     }
 
     .vendor_page .last__btn:hover .last__btn-img {
@@ -1375,7 +1408,6 @@
     .vendor_page .last__link:hover {
         color: var(--base-color-2);
     }
-
 
 
 }

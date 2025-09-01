@@ -54,6 +54,7 @@
 }
 
 .footer__link{
+    outline: none;
     transition: color .5s;
 }
 
@@ -70,7 +71,9 @@
     color: var(--base-color-2); 
 }
 
-
+.footer .footer__block-contact a{
+    outline: none;
+}
 
 
 
@@ -127,7 +130,11 @@
 }
 
 @media (any-hover: hover) {
-    .footer__link:hover {
+    .footer .footer__block-contact a:focus-visible,
+    .footer__link:hover,
+    .footer__link:focus-visible {
         color: var(--base-color-2);
     }
+
+   
 }

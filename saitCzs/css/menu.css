@@ -43,6 +43,7 @@
   .menu__link {
       display: flex;
      align-items: center;
+     outline: none;
 
   }
 
@@ -279,7 +280,10 @@
       .menu__btn:hover {
           border-color: var(--newGray);
       }
-
+  .menu__link:focus-visible {
+        border: 1px solid var(--base-color-6);
+        background-color: var(--base-color-2);
+    }
   }
 
   .menu__item-mobil.show,
