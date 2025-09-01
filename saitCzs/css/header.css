@@ -602,6 +602,7 @@ body {
 
     .header .header__button a:focus-visible {
         color: var(--base-color-2);
+        background-color: var(--base-color-1);
     }
 
     .header .header__tel:hover {
