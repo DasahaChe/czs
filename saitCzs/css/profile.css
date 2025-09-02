@@ -91,7 +91,7 @@
      .profile .content {
         gap: 40px;
     }
-    
+
     .profile .main {
         margin-bottom: calc(var(--base-gap) * 3);
     }
@@ -137,9 +137,7 @@
         padding: 0 calc(var(--base-gap) * 1) 0 calc(var(--base-gap) * 5.5);
     }
 
-    .profile .main {
-        margin-bottom: calc(var(--base-gap) * 2);
-    }
+   
 }
 
 

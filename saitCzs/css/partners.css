@@ -1,7 +1,3 @@
-.partner-wrapper {
-    padding-top: calc(var(--base-gap) * 2);
-}
-
 .partner-wrapper .container {
     display: flex;
     justify-content: center;

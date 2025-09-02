@@ -1,6 +1,3 @@
-.news-wrapper {
-    padding-top: calc(var(--base-gap) * 2);
-}
 
 .news-wrapper .container {
     display: flex;

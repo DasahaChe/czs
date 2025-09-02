@@ -1,7 +1,3 @@
-.education-wrapper {
-    padding-top: calc(var(--base-gap) * 2);
-}
-
 .education-wrapper .container {
     display: flex;
     justify-content: center;

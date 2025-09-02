@@ -1041,7 +1041,7 @@
 @media (any-hover: hover) {
 
     .start_page .main .event__button:hover,
-    .start_page .header .header__top .header__button:hover,
+    
     .start_page .main .about__button:hover,
     .start_page .main .steps__button:hover,
     .start_page .main .review__button:hover,
@@ -1053,14 +1053,6 @@
         border-color: var(--base-color-2);
     }
 
-    .start_page .header .header__tel:hover {
-        color: var(--base-color-2);
-        background-image: url(../img/phoneB.png);
-    }
-
-    .start_page .header .header__top .header__burger:hover {
-        color: var(--base-color-2);
-    }
 
     .start_page .future__btn:hover {
         color: #fff;
