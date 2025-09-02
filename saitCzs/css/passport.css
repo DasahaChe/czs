@@ -26,9 +26,6 @@
     }
 }
 
-
-
-
 @media (max-width: 1020px) {
 
     .passport .new__title {
@@ -39,7 +36,6 @@
     .passport .main .container .container {
         padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 5.5);
     }
-
 
 }
 
