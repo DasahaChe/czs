@@ -1,7 +1,3 @@
-.login-wrapper {
-    padding-top: calc(var(--base-gap) * 2);
-}
-
 .login_page {
     padding: 0 0 calc(var(--base-gap) * 1.5) 0;
 }
@@ -26,7 +22,7 @@
 
 .login_page .login_button {
     padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
-    width: calc(var(--base-font-size) * 22.75);
+    width: calc(var(--base-font-size) * 22.0);
     font-size: calc(var(--base-font-size) * 1);
     color: #fff;
     border: 1px solid var(--base-color-6);
@@ -113,6 +109,11 @@ textarea {
     justify-content: center;
 }
 
+.login_page .action {
+    display: flex;
+    justify-content: center;
+}
+
 .login_page .restore_pass {
     font-size: var(--base-font-size);
     color: var(--grafite);
@@ -158,7 +159,7 @@ textarea {
     }
 
     .login_page .login_form .data_field .input_field .chose_way:not(checked) {
-        border-bottom: none;        
+        border-bottom: none;
     }
 }
 
