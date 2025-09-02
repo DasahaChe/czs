@@ -1,11 +1,9 @@
-
 .entrance .container {
     display: flex;
     padding: 0 calc(var(--base-gap) * 5.25);
     max-width: calc(var(--base-font-size) * 90);
     width: 100%;
 }
-
 
 .entrance .main {
     display: flex;
@@ -99,8 +97,7 @@
     }
 }
 
-@media (max-width: 750px) {
-   
+@media (max-width: 750px) {  
   
     .entrance .container {
         padding: 0 calc(var(--base-gap) * 1) 0 calc(var(--base-gap) * 5.5);
@@ -117,8 +114,7 @@
 }
 
 
-@media (max-width: 430px) {
-   
+@media (max-width: 430px) {  
 
     .entrance .container {
         padding: 0 16px 0 64px;

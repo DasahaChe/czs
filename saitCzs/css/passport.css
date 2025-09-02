@@ -45,7 +45,7 @@
 
 @media (max-width: 750px) {
        .passport .container {
-        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 6.0);
+        padding: 0 calc(var(--base-gap) * 1) 0 calc(var(--base-gap) * 5.5);
     }
 }
 
