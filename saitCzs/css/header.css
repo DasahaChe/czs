@@ -157,7 +157,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 20px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
     margin-bottom: calc(var(--base-gap) * 4);
+}
+
+.header .container {
+    display: flex;
+    padding: 0 calc(var(--base-gap) * 5.25);
+    max-width: calc(var(--base-font-size) * 90);
+    width: 100%;
 }
 
 .header .header__menu {
@@ -218,13 +229,6 @@ body {
 }
 
 
-
-
-
-
-
-
-/* Header */
 
 .header .header__block {
     position: relative;
@@ -332,7 +336,7 @@ body {
 }
 
 .header .header__menu .container {
-    padding: 0;
+    padding: 0 calc(var(--base-gap) * 5.25);
 }
 
 .header .header__list-menu {
@@ -340,7 +344,7 @@ body {
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-    gap: calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 2);
+    gap: calc(var(--base-gap) * 1.5);
 }
 
 .header .header__list-menu li.header__link {
@@ -378,11 +382,26 @@ body {
     transition: width 0.3s ease, background-color 0.3s ease;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: calc(var(--base-gap) * 4);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--base-gap) * 4);
+
+}
+
+
 
 @media (max-width: 1199px) {
 
     .header .header__menu {
-        padding: calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 2.75);
+        padding: calc(var(--base-gap) * 1.5) 0;
     }
 
     .header .header__top {
@@ -394,9 +413,35 @@ body {
     .header .header__logo {
         align-self: flex-start;
     }
+
+    .main {
+        margin-bottom: calc(var(--base-gap) * 3);
+    }
 }
 
 @media (max-width: 1020px) {
+    .header {
+        margin-bottom: 0;
+    }
+
+    .header .container {
+        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 5.5);
+    }
+
+    .header .header__menu {
+        margin: 0 calc(var(--base-gap) * -4);
+        border-radius: 0;
+        padding: calc(var(--base-gap) * 2) 0;
+    }
+
+    .header .header__menu .container {
+        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 6);
+    }
+
+    .header .header__button {
+        padding: calc(var(--base-gap) / 2) calc(var(--base-gap) * 3);
+    }
+
     .header .header__block {
         margin: calc(var(--base-gap) * 2) calc(var(--base-gap) * 4);
         display: flex;
@@ -419,21 +464,26 @@ body {
         gap: calc(var(--base-gap) *2);
     }
 
-
-    .header .header__menu {
-        margin: 0 calc(var(--base-gap) * -4);
-        border-radius: 0;
-        padding: calc(var(--base-gap) * 2) calc(var(--base-gap) * 2.75);
-    }
-
     .header .header__button {
         padding: calc(var(--base-gap) / 2) calc(var(--base-gap) * 3);
+    }
+
+    .main {
+        margin-top: calc(var(--base-gap) * 2);
+    }
+
+    .container {
+        display: flex;
+        justify-self: center;
+        padding: 0 calc(var(--base-gap) * 5.25);
+        max-width: calc(var(--base-font-size) * 90);
+        width: 100%;
     }
 }
 
 @media (max-width: 750px) {
     .container {
-        padding: 0 calc(var(--base-gap) * 2);
+        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 4.0);
     }
 
     .header {
@@ -442,12 +492,12 @@ body {
 
     .header .header__logo-name {
         font-size: calc(var(--base-font-size) * 1.38);
-        line-height: calc(var(--base-font-size) * 1.38);
+        line-height: calc(var(--base-font-size) * 1.0);
     }
 
     .header .header__logo-img {
-        width: 100%;
-        height: 100%;
+        width: calc(var(--base-font-size) * 14);
+        height: calc(var(--base-font-size) * 2.5);
     }
 
     .header .header__logo {
@@ -478,14 +528,12 @@ body {
         align-self: flex-start;
         align-items: center;
         justify-content: flex-start;
-        width: calc(100% + var(--base-gap) * 4);
+        width: calc(100% + var(--base-gap) * 6);
         height: calc(var(--base-font-size) * 4.5);
-        margin-left: calc(var(--base-gap) * -2);
-        padding-left: calc(var(--base-gap) * 2);
+        margin-left: calc(var(--base-gap) * -4);
+        padding-left: calc(var(--base-gap) * 4);
         background: linear-gradient(to right, var(--base-color-1), var(--go-button));
         gap: calc(var(--base-gap) / 2);
-
-
     }
 
     .header .header__burger {
@@ -496,10 +544,6 @@ body {
         transition: color 0.3s ease;
     }
 
-    .header .header__burger-close {
-        display: none;
-    }
-
     .header .open {
         display: block;
         color: #fff;
@@ -507,26 +551,69 @@ body {
         height: var(--base-font-size);
     }
 
-
     .header .header__button {
         padding: calc(var(--base-gap) / 4) calc(var(--base-gap) * 1.0);
         border: none;
         color: #fff;
     }
 
+    .header .header__top {
+        width: 100%;
+        margin-bottom: 0;
+        align-items: flex-start;
+        gap: var(--base-gap);
+    }
+
+    .header .header__burger-close {
+        display: none;
+    }
+
+    .header .header__button,
+    .header .User-name {
+        padding: calc(var(--base-gap) / 4) calc(var(--base-gap) * 1.0);
+        border: none;
+        color: #fff;
+        font-size: calc(var(--base-font-size) * 1);
+    }
+
+    .header .header__tel {
+        font-size: calc(var(--base-font-size) * 1);
+    }
+
+    .main {
+        margin-bottom: calc(var(--base-gap) * 2);
+    }
+
+
+    .content {
+        /* margin-left: 16px;
+        padding-right: 16px; */
+        width: 100%;
+    }
 
 }
 
 
 
-@media (max-width: 350px) {
+@media (max-width: 430px) {
+    .header .container {
+
+        padding: 0 calc(var(--base-gap) * 1.5) 0 calc(var(--base-gap) * 4.0);
+    }
+
     .header .header__block {
         margin: 0 0 32px 0;
         padding: 16px 20px;
     }
+
+    .header .header__list-top {
+        width: calc(100% + var(--base-gap) * 7.5);
+        margin-left: calc(var(--base-gap) * -6);
+        padding-left: calc(var(--base-gap) * 6);
+        font-size: 12px;
+        gap: 4px;
+    }
 }
-
-
 
 @media (any-hover: hover) {
 
@@ -614,5 +701,5 @@ body {
         color: var(--base-color-1);
     }
 
-  
+
 }
