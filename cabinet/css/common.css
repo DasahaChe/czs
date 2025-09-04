@@ -350,7 +350,7 @@ body.menu-hide .header .nav div img {
 .header .logo img {
     width: 100%;
     height: auto;
-    border-radius: 1em;
+    /* border-radius: 1em; */
 }
 
 .header .logo a {
