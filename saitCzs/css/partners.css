@@ -67,9 +67,11 @@
 
 .partner .partners__text{
     margin: 0;
+    padding: 0;
     margin-bottom: calc(var(--base-font-size) * 2) ;
     font-size:calc(var(--base-font-size) * 1.0) ;
     line-height: calc(var(--base-font-size) * 1.25);
+    font-weight: 400;
 }
 
 .partner .partners__list {
