@@ -32,6 +32,7 @@
             width: 297mm;
             height: 210mm;
             position: relative;
+            padding: 10mm;
             background-image: url('img/fonMain.jpg');
             background-size: contain;
             background-position: top left;
@@ -40,9 +41,7 @@
 
         .logo {
             float: left;
-            clear: right;
-            margin-top: 10mm;
-            margin-left: 10mm;
+            margin-bottom: 20mm;
             width: 87.5mm;
             height: 24.0mm;
         }
@@ -55,8 +54,6 @@
         .right-top-container {
             float: right;
             clear: right;
-            margin-top: 10mm;
-            margin-right: 10mm;
             height: 24mm;
         }
 
@@ -67,12 +64,15 @@
             position: relative;
         }
 
+        .text-block {
+            position: relative;
+            padding: 10mm;
+            width: 160mm;
+        }
+
         .name-top {
-            float: left;
-            clear: left;
-            margin-top: 26mm;
-            margin-left: 20mm;
             padding: 2mm 5mm 1.5mm 5mm;
+            margin-bottom: 10mm;
             color: #224e85;
             background-color: #fff;
             border-radius: 5mm;
@@ -80,11 +80,8 @@
         }
 
         .name-bottom {
-            float: left;
-            clear: left;
-            margin-top: 6mm;
-            margin-left: 20mm;
             color: #fff;
+            margin-bottom: 16mm;
         }
 
         .name-text {
@@ -92,31 +89,52 @@
             padding: 0;
         }
 
+
         .bottom-container {
+            text-align: center;
+
+        }
+
+        .description-left {
             float: left;
-            clear: left;
-            margin-top: 16mm;
-            margin-left: 20mm;
+            width: 12mm;
+            padding: 2mm 5mm;
+            background-color: #fff;
+            border-radius: 5mm;
+            vertical-align: middle;
+            color: #224e85;
         }
 
         .description {
+            float: left;
+            width: 40mm;
             padding: 2mm 5mm;
-            color: #224e85;
             background-color: #fff;
             border-radius: 5mm;
-            border-collapse: collapse;
-
+            vertical-align: middle;
+            color: #224e85;
         }
 
-        .clogan {
+        .description-right {
             float: left;
-            clear: left;
-            margin-top: 16mm;
-            margin-left: 20mm;
-            width: 160mm;
+            padding: 2mm 5mm;
+            background-color: #fff;
+            border-radius: 5mm;
+            vertical-align: middle;
+            color: #224e85;
+        }
+
+
+
+        .clogan {
+            margin-bottom: 16mm;
             font-size: 2.6em;
             line-height: 0.9em;
             color: #fff;
+        }
+
+        .clear {
+            clear: both;
         }
     </style>
 </head>
@@ -140,19 +158,22 @@
                 </td>
             </tr>
         </table>
+        <div class="clear"></div>
+        <div class="text-block">
+            <div class="name-top">OOO "ВКУСПРОМ"</div>
+            <div class="name-bottom">
+                <p class="name-text">Генеральныому директору</p>
+                <p class="name-text">Лотову Роману Юрьевичу</p>
+            </div>
+            <div class="clogan">Как получить 5-10 контрактов за 2 дня с розничными сетями</div>
 
-        <div class="name-top">OOO "ВКУСПРОМ"</div>
-        <div class="name-bottom">
-            <p class="name-text">Генеральныому директору</p>
-            <p class="name-text">Лотову Роману Юрьевичу</p>
+            <div class="bottom-container">
+                <div class="description-left">2 дня</div>
+                <div class="description">30-40 переговоров</div>
+                <div class="description-right">категория "Кондитерские изделия"</div>
+            </div>
         </div>
-        <div class="clogan">Как получить 5-10 контрактов за 2 дня с розничными сетями</div>
 
-        <div class="bottom-container">
-            <span class="description">2 дня</span>
-            <span class="description">30-40 переговоров</span>
-            <span class="description">категория "Кондитерские изделия"</span>
-        </div>
     </div>
 </body>
 
