@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>Презентация ЦЗС main</title>
     <style>
-       
         @font-face {
             font-family: 'TT Fors';
             src: local('TT Fors'), url('../fonts/fors/TT\ Fors\ Trial\ Regular.woff') format('woff'), url('../fonts/TT\ Fors\ Trial\ Regular.woff2') format('woff2');
@@ -40,9 +39,10 @@
         }
 
         .logo {
-            position: absolute;
-            top: 10mm;
-            left: 10mm;
+            float: left;
+            clear: right;
+            margin-top: 10mm;
+            margin-left: 10mm;
             width: 87.5mm;
             height: 24.0mm;
         }
@@ -53,11 +53,10 @@
         }
 
         .right-top-container {
-            display: table;
-            border-collapse: collapse;
-            position: absolute;
-            top: 10mm;
-            right: 10mm;
+            float: right;
+            clear: right;
+            margin-top: 10mm;
+            margin-right: 10mm;
             height: 24mm;
         }
 
@@ -69,9 +68,10 @@
         }
 
         .name-top {
-            position: absolute;
-            top: 60mm;
-            left: 20mm;
+            float: left;
+            clear: left;
+            margin-top: 26mm;
+            margin-left: 20mm;
             padding: 2mm 5mm 1.5mm 5mm;
             color: #224e85;
             background-color: #fff;
@@ -80,21 +80,23 @@
         }
 
         .name-bottom {
-            position: absolute;
-            top: 74mm;
-            left: 20mm;
+            float: left;
+            clear: left;
+            margin-top: 6mm;
+            margin-left: 20mm;
             color: #fff;
         }
 
         .name-text {
             margin: 0;
-            padding: 0;            
+            padding: 0;
         }
 
         .bottom-container {
-            position: absolute;
-            top: 140mm;
-            left: 20mm;
+            float: left;
+            clear: left;
+            margin-top: 16mm;
+            margin-left: 20mm;
         }
 
         .description {
@@ -103,13 +105,14 @@
             background-color: #fff;
             border-radius: 5mm;
             border-collapse: collapse;
-           
+
         }
 
         .clogan {
-            position: absolute;
-            top: 100mm;
-            left: 20mm;
+            float: left;
+            clear: left;
+            margin-top: 16mm;
+            margin-left: 20mm;
             width: 160mm;
             font-size: 2.6em;
             line-height: 0.9em;

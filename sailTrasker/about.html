@@ -3,11 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Презентация ЦЗС about</title>
+    <title>Презентация ЦЗС main</title>
     <style>
-        @page {
-            size: A4 landscape;
-            margin: 0;
+        @font-face {
+            font-family: 'TT Fors';
+            src: local('TT Fors'), url('../fonts/fors/TT\ Fors\ Trial\ Regular.woff') format('woff'), url('../fonts/TT\ Fors\ Trial\ Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Fors ExtraBold';
+            src: local('TT Fors ExtraBold'), url('../fonts/fors/TT\ Fors\ Trial\ ExtraBold.woff') format('woff'), url('../fonts/fors/TT\ Fors\ Trial\ ExtraBold.woff2') format('woff2');
+            font-weight: 800;
+            font-style: normal;
         }
 
         body {
@@ -16,14 +25,15 @@
             width: 297mm;
             height: 210mm;
             position: relative;
-            font-family: Arial, sans-serif;
+            font-family: 'TT Fors', Arial, sans-serif;
+            background-color: blue;
         }
 
-        .a4-container {
+        .a4-page {
             width: 297mm;
             height: 210mm;
             position: relative;
-            background-image: url('fonAbout.jpg');
+            background-image: url('img/fonPage.jpg');
             background-size: contain;
             background-position: top left;
             background-repeat: no-repeat;
@@ -33,14 +43,12 @@
             position: absolute;
             top: 10mm;
             left: 10mm;
-            width: 87.5mm;
-            height: 24.0mm;
-            /* border: 2px solid black; */
+            width: 70.0mm;
+            height: 20.0mm;
         }
 
         .logo-img {
-            width: 87.5mm;
-            height: 24.0mm;
+            width: 70mm;
         }
 
         .right-top-container {
@@ -48,91 +56,57 @@
             border-collapse: collapse;
             position: absolute;
             top: 10mm;
-            right: 10mm;
+            left: 96mm;
             height: 24mm;
-            /* border: 2px solid black; */
         }
 
-        .image-box {
-            height: 24mm;
-            vertical-align: top;
-            text-align: center;
-            position: relative;
-            /* border: 1px solid #c93939; */
+        .top-text {
+            font-size: 3.0em;
+            font-weight: 600;
+            background: linear-gradient(45deg, #1a4ea4, #33bbef);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
         }
 
-        .name-top {
+        .menu-list{
             position: absolute;
-            top: 60mm;
-            left: 20mm;
-            padding: 2mm 5mm 1.5mm 5mm;
-            color: #224e85;
-            background-color: #fff;
-            border-radius: 5mm;
-        }
-
-        .name-bottom {
-            position: absolute;
-            top: 70mm;
-            left: 20mm;
-            color: #fff;
-            /* border: 2px solid black; */
-        }
-
-        .name-text {
-            margin: 0;
-            padding: 0;
-            margin-bottom: 3mm;
-        }
-
-        .bottom-container {
-            position: absolute;
-            top: 140mm;
-            left: 20mm;
-        }
-
-        .description {
-            padding: 2mm 5mm;
-            color: #224e85;
-            background-color: #fff;
-            border-radius: 5mm;
-            border-collapse: collapse;
+            top: 10mm;
+            left: 10mm;
         }
     </style>
 </head>
 
 <body>
-    <div class="a4-container">
+    <div class="a4-page">
         <div class="logo">
-            <img class="logo-img" src="LogoMain.png" alt="Logo">
+            <img class="logo-img" src="img/LogoSmall.png" alt="Logo">
         </div>
 
-        <table class="right-top-container">
-            <tr>
-                <td class="image-box">
-                    <img src="image1.png" alt="Image 1">
-                </td>
-                <td class="image-box">
-                    <img src="image2.png" alt="Image 2">
-                </td>
-                <td class="image-box">
-                    <img src="image3.png" alt="Image 3">
-                </td>
-            </tr>
-        </table>
-
-        <div class="name-top">OOO "ВКУСПРОМ"</div>
-        <div class="name-bottom">
-            <p class="name-text">Генеральныому директору</p>
-            <p class="name-text">Лотову Роману Юрьевичу</p>
+        <div class="right-top-container">
+            <span class="top-number"></span>
+            <span class="top-text">Мы работаем для Вас</span>
         </div>
+<ul class="menu-list">
+    <li class="menu-item-main"><img class="menu-img" src="img/l1-m.svg">О нас
+    </li>
+    <li class="menu-item"><img class="menu-img" src="img/l2.svg">Переговоры
+    </li>
+    <li class="menu-item"><img class="menu-img" src="img/l3.svg">Статистика
+    </li>
+    <li class="menu-item"><img class="menu-img" src="img/l4.svg">Почему мы?
+    </li>
+    <li class="menu-item"><img class="menu-img" src="img/l5.svg">Как заключить контракт
+    </li>
+    <li class="menu-item"><img class="menu-img" src="img/l6.svg">Выставка World Food 2025
+    </li>
+    <li class="menu-item"><img class="menu-img" src="img/l7.svg">Отзывы
+    </li>
+    <li class="menu-item"><img class="menu-img" src="img/l8.svg">Контакты
+    </li>
+</ul>
 
-
-        <div class="bottom-container">
-            <span class="description">2 дня</span>
-            <span class="description">30-40 переговоров</span>
-            <span class="description">категория "Кондитерские изделия"</span>
-        </div>
     </div>
 </body>
 
