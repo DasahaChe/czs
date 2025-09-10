@@ -264,7 +264,6 @@ body {
 .header .header__logo-name {
     font-size: 34px;
     line-height: 37px;
-    letter-spacing: -3%;
     font-family: var(--base-bold-font);
     font-weight: 700;
     color: var(--base-color-6);
