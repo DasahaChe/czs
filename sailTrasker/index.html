@@ -26,6 +26,7 @@
             height: 210mm;
             position: relative;
             font-family: 'TT Fors', Arial, sans-serif;
+            background: linear-gradient(133deg,rgba(26, 91, 175, 1) 2%, rgba(50, 170, 240, 1) 28%, rgba(41, 124, 207, 1) 56%, rgba(44, 139, 205, 1) 78%, rgba(34, 107, 201, 1) 100%);
         }
 
         .a4-container {
@@ -33,10 +34,7 @@
             height: 210mm;
             position: relative;
             padding: 10mm;
-            background-image: url('img/fonMain.jpg');
-            background-size: contain;
-            background-position: top left;
-            background-repeat: no-repeat;
+            border: 1px solid #000;           
         }
 
         .logo {
@@ -51,8 +49,12 @@
             height: 24.0mm;
         }
 
+        .logo-line{
+            width: 80mm;
+        }
         .right-top-container {
             float: right;
+            width: 80mm;
             height: 24mm;
         }
 
@@ -67,6 +69,8 @@
             position: relative;
             padding: 10mm;
             width: 160mm;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 7mm;
         }
 
         .name-top {
@@ -145,7 +149,7 @@
         </div>
 
         <div class="right-top-container">            
-            <img src="img/imageLogo.png">
+            <img class="logo-line" src="img/imageLogo.png">
         </div>
         <div class="clear"></div>
         <div class="text-block">
