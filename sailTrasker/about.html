@@ -63,7 +63,7 @@
         }
 
         .menu-list {
-            width: 70mm;
+            height: 162mm;
             list-style: none;
         }
 
@@ -71,49 +71,29 @@
             width: 12mm;
         }
 
-        .menu-item-main {
+       
+
+        .menu-item {
+            height: 6mm;
+            padding: 3mm 0 3mm 14mm;
+            color: #9ccaee;
+        }
+
+         .menu-item-main {
             position: relative;
             margin: 5mm 0;
-            height: 12mm;
             background-color: #fff;
             border-top-left-radius: 6mm;
             color: #255ba9;
             border-bottom-left-radius: 6mm;
         }
 
-        .menu-item-main::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -4mm;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 4mm 4mm 0 0;
-            border-color: #fff transparent transparent transparent;
-            transform: rotate(45deg);
-            transform-origin: top right;
+        .img1-m {
+           background: #fff url(img/l1-m.png) no-repeat 5mm 3mm;
         }
 
-        /* Нижний треугольник */
-        .menu-item-main::after {
-            content: '';
-            position: absolute;
-            bottom: -2mm;
-            right: 0mm;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 0 4mm 4mm 0;
-            border-color: transparent transparent #fff transparent;
-            transform: rotate(45deg);
-            transform-origin: bottom right;
-        }
-
-
-        .menu-item {
-            height: 12mm;
-            color: #9ccaee;
+.img2 {
+           background: url(img/l8.png) no-repeat 5mm 3mm;
         }
 
         .about-block {
@@ -125,6 +105,21 @@
             border-bottom-left-radius: 7mm;
             background-color: #fff;
         }
+
+        .botom-btn {
+            padding: 0 4mm;
+            margin-top: auto;
+            border: 1px solid #9ccaee;
+            color: #9ccaee;
+            width: 14mm;
+            height: 8mm;
+            border-radius: 5mm;
+            text-align: center;
+        }
+
+        .white {
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -133,23 +128,24 @@
         <div class="logo-about">
             <img class="logoAb-img" src="img/LogoMain.png" alt="Logo">
             <ul class="menu-list">
-                <li class="menu-item-main"><img class="menu-img" src="img/l1-m.png"><span class="text-menu">О нас</span>
+                <li class="menu-item menu-item-main img1-m">О нас
                 </li>
-                <li class="menu-item"><img class="menu-img" src="img/l2.png">Переговоры
+                <li class="menu-item img2">Переговоры
                 </li>
-                <li class="menu-item"><img class="menu-img" src="img/l3.png">Статистика
+                <li class="menu-item img2">Статистика
                 </li>
-                <li class="menu-item"><img class="menu-img" src="img/l4.png">Почему мы?
+                <li class="menu-item img2">Почему мы?
                 </li>
-                <li class="menu-item"><img class="menu-img" src="img/l5.png">Как заключить контракт
+                <li class="menu-item img2">Как заключить контракт
                 </li>
-                <li class="menu-item"><img class="menu-img" src="img/l6.png">Выставка World Food 2025
+                <li class="menu-item img2">Выставка World Food 2025
                 </li>
-                <li class="menu-item"><img class="menu-img" src="img/l7.png">Отзывы
+                <li class="menu-item img2">Отзывы
                 </li>
-                <li class="menu-item"><img class="menu-img" src="img/l8.png">Контакты
+                <li class="menu-item img2">Контакты
                 </li>
             </ul>
+            <div class="botom-btn"> <span class="white">2</span>/10 </div>
         </div>
 
         <div class="about-block">
