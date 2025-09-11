@@ -29,38 +29,33 @@
             background-color: blue;
         }
 
-       .a4-container {
+        .a4-page {
             width: 297mm;
             height: 210mm;
             position: relative;
             padding: 10mm;
-            background-image: url('img/fonMain.jpg');
+            background-image: url('img/fonPage.jpg');
             background-size: contain;
             background-position: top left;
             background-repeat: no-repeat;
         }
 
-        .logo {
+        .logo-about {
             float: left;
-            clear: right;
-            margin-top: 10mm;
-            margin-left: 10mm;
-            width: 87.5mm;
+            width: 90mm;
             height: 24.0mm;
         }
 
-        .logo-img {
-            width: 87.5mm;
-            height: 24.0mm;
+        .logoAb-img {
+            width: 70mm;
         }
 
-        .right-top-container {
-            float: right;
-            clear: right;
+        .title-container {
+            float: left;
             height: 24mm;
         }
 
-        .top-text {
+        .title-ab {
             font-size: 3.0em;
             font-weight: 600;
             background: linear-gradient(45deg, #1a4ea4, #33bbef);
@@ -70,43 +65,66 @@
             color: transparent;
         }
 
-        .menu-list{
-            position: absolute;
-            top: 10mm;
-            left: 10mm;
+        .menu-list {
+            float: left;
+            width: 70mm;
+            list-style: none;
+        }
+
+        .menu-img {
+            width: 10mm;
+        }
+
+        .menu-item-main {
+            height: 17mm;
+            color: #1a4ea4;
+            background-image: url(img/listFon.png);
+            background-size: contain;
+        }
+
+        .menu-item {
+            height: 12mm;
+            color: #9ccaee;
+        }
+
+        .about-block {
+            float: left;
+            width: 70%;
+            border: 2px solid black;
         }
     </style>
 </head>
 
 <body>
     <div class="a4-page">
-        <div class="logo">
-            <img class="logo-img" src="img/LogoSmall.png" alt="Logo">
+        <div class="logo-about">
+            <img class="logoAb-img" src="img/LogoSmall.png" alt="Logo">
         </div>
 
-        <div class="right-top-container">
-            <span class="top-number"></span>
-            <span class="top-text">Мы работаем для Вас</span>
-        </div>
-<ul class="menu-list">
-    <li class="menu-item-main"><img class="menu-img" src="img/l1-m.svg">О нас
-    </li>
-    <li class="menu-item"><img class="menu-img" src="img/l2.svg">Переговоры
-    </li>
-    <li class="menu-item"><img class="menu-img" src="img/l3.svg">Статистика
-    </li>
-    <li class="menu-item"><img class="menu-img" src="img/l4.svg">Почему мы?
-    </li>
-    <li class="menu-item"><img class="menu-img" src="img/l5.svg">Как заключить контракт
-    </li>
-    <li class="menu-item"><img class="menu-img" src="img/l6.svg">Выставка World Food 2025
-    </li>
-    <li class="menu-item"><img class="menu-img" src="img/l7.svg">Отзывы
-    </li>
-    <li class="menu-item"><img class="menu-img" src="img/l8.svg">Контакты
-    </li>
-</ul>
+        <div class="title-container">
 
+            <div class="title-ab">Мы работаем для Вас</div>
+        </div>
+        <div class="clear"></div>
+        <ul class="menu-list">
+            <li class="menu-item-main"><img class="menu-img" src="img/l1-m.png"><span class="text-menu">О нас</span>
+            </li>
+            <li class="menu-item"><img class="menu-img" src="img/l2.png">Переговоры
+            </li>
+            <li class="menu-item"><img class="menu-img" src="img/l3.png">Статистика
+            </li>
+            <li class="menu-item"><img class="menu-img" src="img/l4.png">Почему мы?
+            </li>
+            <li class="menu-item"><img class="menu-img" src="img/l5.png">Как заключить контракт
+            </li>
+            <li class="menu-item"><img class="menu-img" src="img/l6.png">Выставка World Food 2025
+            </li>
+            <li class="menu-item"><img class="menu-img" src="img/l7.png">Отзывы
+            </li>
+            <li class="menu-item"><img class="menu-img" src="img/l8.png">Контакты
+            </li>
+        </ul>
+        <div class="about-block"></div>
     </div>
 </body>
 
