@@ -26,24 +26,20 @@
             height: 210mm;
             position: relative;
             font-family: 'TT Fors', Arial, sans-serif;
-            background-color: blue;
+            background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
         }
 
         .a4-page {
             width: 297mm;
             height: 210mm;
             position: relative;
-            padding: 10mm;
-            background-image: url('img/fonPage.jpg');
-            background-size: contain;
-            background-position: top left;
-            background-repeat: no-repeat;
         }
 
         .logo-about {
             float: left;
-            width: 90mm;
-            height: 24.0mm;
+            width: 80mm;
+            height: 210mm;
+            padding: 10mm 0 0 10mm;
         }
 
         .logoAb-img {
@@ -52,13 +48,14 @@
 
         .title-container {
             float: left;
-            height: 24mm;
+            width: 207mm;
+            height: 210mm;
         }
 
         .title-ab {
             font-size: 3.0em;
             font-weight: 600;
-            background: linear-gradient(45deg, #1a4ea4, #33bbef);
+            background: linear-gradient(45deg, #255ba9, #33bbef);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -66,7 +63,6 @@
         }
 
         .menu-list {
-            float: left;
             width: 70mm;
             list-style: none;
         }
@@ -76,11 +72,44 @@
         }
 
         .menu-item-main {
-            height: 17mm;
-            color: #1a4ea4;
-            background-image: url(img/listFon.png);
-            background-size: contain;
+            position: relative;
+            margin: 5mm 0;
+            height: 12mm;
+            background-color: #fff;
+            border-top-left-radius: 6mm;
+            color: #255ba9;
+            border-bottom-left-radius: 6mm;
         }
+
+        .menu-item-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -4mm;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4mm 4mm 0 0;
+            border-color: #fff transparent transparent transparent;
+            transform: rotate(45deg);
+            transform-origin: top right;
+        }
+
+        /* Нижний треугольник */
+        .menu-item-main::after {
+            content: '';
+            position: absolute;
+            bottom: -2mm;
+            right: 0mm;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 4mm 4mm 0;
+            border-color: transparent transparent #fff transparent;
+            transform: rotate(45deg);
+            transform-origin: bottom right;
+        }
+
 
         .menu-item {
             height: 12mm;
@@ -89,8 +118,12 @@
 
         .about-block {
             float: left;
-            width: 70%;
-            border: 2px solid black;
+            float: left;
+            width: 207mm;
+            height: 210mm;
+            border-top-left-radius: 7mm;
+            border-bottom-left-radius: 7mm;
+            background-color: #fff;
         }
     </style>
 </head>
@@ -98,33 +131,33 @@
 <body>
     <div class="a4-page">
         <div class="logo-about">
-            <img class="logoAb-img" src="img/LogoSmall.png" alt="Logo">
+            <img class="logoAb-img" src="img/LogoMain.png" alt="Logo">
+            <ul class="menu-list">
+                <li class="menu-item-main"><img class="menu-img" src="img/l1-m.png"><span class="text-menu">О нас</span>
+                </li>
+                <li class="menu-item"><img class="menu-img" src="img/l2.png">Переговоры
+                </li>
+                <li class="menu-item"><img class="menu-img" src="img/l3.png">Статистика
+                </li>
+                <li class="menu-item"><img class="menu-img" src="img/l4.png">Почему мы?
+                </li>
+                <li class="menu-item"><img class="menu-img" src="img/l5.png">Как заключить контракт
+                </li>
+                <li class="menu-item"><img class="menu-img" src="img/l6.png">Выставка World Food 2025
+                </li>
+                <li class="menu-item"><img class="menu-img" src="img/l7.png">Отзывы
+                </li>
+                <li class="menu-item"><img class="menu-img" src="img/l8.png">Контакты
+                </li>
+            </ul>
         </div>
 
-        <div class="title-container">
+        <div class="about-block">
+            <div class="title-container">
 
-            <div class="title-ab">Мы работаем для Вас</div>
+                <div class="title-ab">Мы работаем для Вас</div>
+            </div>
         </div>
-        <div class="clear"></div>
-        <ul class="menu-list">
-            <li class="menu-item-main"><img class="menu-img" src="img/l1-m.png"><span class="text-menu">О нас</span>
-            </li>
-            <li class="menu-item"><img class="menu-img" src="img/l2.png">Переговоры
-            </li>
-            <li class="menu-item"><img class="menu-img" src="img/l3.png">Статистика
-            </li>
-            <li class="menu-item"><img class="menu-img" src="img/l4.png">Почему мы?
-            </li>
-            <li class="menu-item"><img class="menu-img" src="img/l5.png">Как заключить контракт
-            </li>
-            <li class="menu-item"><img class="menu-img" src="img/l6.png">Выставка World Food 2025
-            </li>
-            <li class="menu-item"><img class="menu-img" src="img/l7.png">Отзывы
-            </li>
-            <li class="menu-item"><img class="menu-img" src="img/l8.png">Контакты
-            </li>
-        </ul>
-        <div class="about-block"></div>
     </div>
 </body>
 
