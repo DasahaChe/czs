@@ -224,10 +224,6 @@
 
         .bottom-textAb {
             margin-top: 25mm;
-            padding: 4mm;
-            color: #fff;
-            height: 30mm;
-            border-radius: 4mm;
             background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
         }
 
@@ -245,6 +241,203 @@
         .clear {
             clear: both;
         }
+
+        .bigTitle {
+            float: left;
+            width: 55mm;
+            font-size: 75pt;
+        }
+
+        .strTitle {
+            float: left;
+            width: 120mm;
+            font-size: 32pt;
+            font-weight: 400;
+        }
+
+        .top-textPr {
+            margin-top: 10mm;
+        }
+
+        .num-blockPr {
+            float: left;
+            width: 60mm;
+            padding-right: 3mm;
+        }
+
+        .numBigPr {
+            padding-bottom: 7mm;
+            color: #255ba9;
+            font-weight: 700;
+            font-size: 14pt;
+        }
+
+        .fontBigPr {
+            font-size: 60pt;
+        }
+
+        .numTextPr {
+            padding-bottom: 3mm;
+        }
+
+        .bottom-textPr {
+            float: left;
+            margin-top: 30mm;
+        }
+
+        .textPr {
+            padding-left: 14mm;
+            width: 100mm;
+            font-size: 14pt;
+            margin-bottom: 5mm;
+        }
+
+        .link {
+            color: #255ba9;
+        }
+
+        .qrPr {
+            float: right;
+            margin-top: 30mm;
+            width: 70mm;
+        }
+
+        .imgPr1 {
+            background: url(img/check.png) no-repeat 0mm center;
+            background-size: 8mm;
+        }
+
+        .imgPr2 {
+            background: url(img/head.png) no-repeat 0mm center;
+            background-size: 8mm;
+        }
+
+        /* новые стили */
+        .st-block {
+            float: left;
+            float: left;
+            width: 207mm;
+            height: 210mm;
+            border-top-left-radius: 7mm;
+            border-bottom-left-radius: 7mm;
+            background: #fff url(img/map.png) no-repeat bottom right;
+        }
+
+        .title-st {
+            font-size: 32pt;
+            color: #255ba9;
+        }
+
+        .num-blockSt {
+            float: left;
+            width: 70mm;
+            padding-right: 3mm;
+        }
+
+        .numBigSt {
+            color: #255ba9;
+            font-size: 84pt;
+        }
+
+        .fontBigSt {
+            font-size: 36pt;
+            margin-right: 2mm;
+        }
+
+        .numSt {
+            color: #255ba9;
+            font-size: 20pt;
+        }
+
+        .numSt-left {
+            width: 65mm;
+        }
+
+        .numSt-right {
+            width: 117mm;
+        }
+
+        .numSt-block {
+            padding-bottom: 6mm;
+        }
+
+        .middle-blockSt {
+            float: left;
+        }
+
+        .middle-textSt {
+            float: left;
+            width: 120mm;
+        }
+
+
+        .diagramma1 {
+            float: left;
+            background: url(img/dia-5.png);
+            padding-left: 2mm;
+            background-size: cover;
+            width: 80mm;
+            height: 6mm;
+        }
+
+        .diagramma2 {
+            float: left;
+            background: url(img/dia-13.png);
+            padding-left: 2mm;
+            background-size: cover;
+            width: 80mm;
+            height: 6mm;
+
+        }
+
+        .diagramma3 {
+            float: left;
+            background: url(img/dia-28.png);
+            padding-left: 2mm;
+            background-size: cover;
+            width: 80mm;
+            height: 6mm;
+
+        }
+
+        .diagramma4 {
+            float: left;
+            background: url(img/dia-63.png);
+            padding-left: 2mm;
+            background-size: cover;
+            width: 80mm;
+            height: 6mm;
+        }
+
+        .middle-text {
+            float: left;
+            font-size: 8pt;
+            height: 8mm;
+            margin-left: 2mm;
+        }
+
+        .middle-block-left {
+            width: 120mm;
+        }
+
+        .middle-block-right {
+            width: 40mm;
+        }
+
+        .middleQrSt {
+            text-align: center;
+        }
+
+        .middleQrimg {
+            width: 20mm;
+        }
+
+        .qrStText {
+            font-size: 10pt;
+            padding: 2mm 4mm;
+            border-radius: 4mm;
+            background-color: #d8d8d8ff;
+        }
     </style>
 </head>
 
@@ -253,11 +446,11 @@
         <div class="logo-about">
             <img class="logoAb-img" src="img/LogoMain.png">
             <ul class="menu-list">
-                <li class="menu-item menu-item-main img1-m">О нас
+                <li class="menu-item img1">О нас
                 </li>
                 <li class="menu-item img2">Переговоры
                 </li>
-                <li class="menu-item img3">Статистика
+                <li class="menu-item menu-item-main img3-m">Статистика
                 </li>
                 <li class="menu-item img4">Почему мы?
                 </li>
@@ -270,59 +463,72 @@
                 <li class="menu-item img8">Контакты
                 </li>
             </ul>
-            <div class="botom-btn"> <span class="white">2</span>/10 </div>
+            <div class="botom-btn"> <span class="white">4</span>/10 </div>
         </div>
 
-        <div class="about-block">
+        <div class="st-block">
             <div class="title-container">
+                <div class="title-st">
+                    Гарантируем результат, либо вернем 100% стоимости
+                </div>
 
-                <div class="title-ab">Мы работаем для Вас</div>
-                <div class="top-textAb">
-                    <div class="top-textAb-left">
-                        <div class="num-block">
-                            <div class="numBig"><span class="fontBig">25</span>лет</div>
-                            <div class="numText">деловых переговоров</div>
-                        </div>
-                        <div class="num-block">
-                            <div class="numBig"><span class="fontBig">2 073</span>сети</div>
-                            <div class="numText">закупают на платформе
+                <div class="top-textPr">
+                    <div class="num-blockSt numSt-left">
+                        <div class="numBigSt">109</div>
+                        <div class="numText">Закупщиков в переговорах по вашей категории</div>
+                    </div>
+                    <div class="num-blockSt numSt-right">
+                        <div class="numSt-block ">
+                            <div class="numSt"><span class="fontBigSt">3</span>федеральных округа РФ</div>
+                            <div class="numText">Северо-западный, Центральный и Южный
                             </div>
                         </div>
-                        <div class="num-block">
-                            <div class="numBig"><span class="fontBig">6 746</span>контрактов</div>
-                            <div class="numText">заключено в категории
-                            </div>
-                            <div class="numText">«Кондитерские изделия»
+                        <div class="numSt-block ">
+                            <div class="numSt"><span class="fontBigSt">5</span>стран</div>
+                            <div class="numText">Беларусь, Казахстан, Узбекистан, Венгрия, Турция
                             </div>
                         </div>
                     </div>
-                    <div class="top-textAb-right">
-                        <div class="num-block">
-                            <div class="numBig"><span class="fontBig">34</span>года</div>
-                            <div class="numText">работы компании
-                            </div>
-                        </div>
-                        <div class="num-block">
-                            <div class="numBig"><span class="fontBig">3 795</span>поставщиков</div>
-                            <div class="numText">продают с нами
-                            </div>
-                        </div>
-                        <div class="num-block">
-                            <div class="numBig"><span class="fontBig">154</span>Центра Закупок Сетей™</div>
-                            <div class="numText">проведено нами
-                            </div>
-                        </div>
+
+                </div>
+                <div class="clear"></div>
+                <div class="middle-blockSt middle-block-left">
+                    <div class="middle-textSt">
+                        <div class="diagramma1">5</div>
+                        <div class="middle-text">федеральных Сетей</div>
+                    </div>
+                    <div class="middle-textSt">
+                        <div class="diagramma2">13</div>
+                        <div class="middle-text">региональных Сетей</div>
+                    </div>
+                    <div class="middle-textSt">
+                        <div class="diagramma3 white">28</div>
+                        <div class="middle-text">локальных Сетей</div>
+                    </div>
+                    <div class="middle-textSt">
+                        <div class="diagramma4 white">63</div>
+                        <div class="middle-text">представителя HoReCa</div>
                     </div>
                 </div>
-                <div class="clear"></div>
-                <div class="bottom-textAb">
-                    <div class="textAB">Получите доступ к этим ресурсам в вашем личном кабинете</div>
-                    <img class="qrAB" src="img/qr.png">
+                <div class="middle-blockSt middle-block-rigft">
+                    <div class="middleQrSt">
+                        <img class="middleQrimg" src="img/qrS.png">
+                        <div class="qrStText">Подробнее в личном кабинете</div>
+                    </div>
                 </div>
-                <div class="clear"></div>
+                <div class="clear">
+
+                </div>
+            </div>
+            <div class="bottom-textSt">
+
+
+                <div class="clear">
+
+
+                </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
