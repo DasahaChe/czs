@@ -3,11 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Презентация ЦЗС about</title>
+    <title>Презентация ЦЗС main</title>
     <style>
-        @page {
-            size: A4 landscape;
-            margin: 0;
+        @font-face {
+            font-family: 'TT Fors';
+            src: local('TT Fors'), url('../fonts/fors/TT\ Fors\ Trial\ Regular.woff') format('woff'), url('../fonts/TT\ Fors\ Trial\ Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Fors ExtraBold';
+            src: local('TT Fors ExtraBold'), url('../fonts/fors/TT\ Fors\ Trial\ ExtraBold.woff') format('woff'), url('../fonts/fors/TT\ Fors\ Trial\ ExtraBold.woff2') format('woff2');
+            font-weight: 800;
+            font-style: normal;
         }
 
         body {
@@ -16,44 +25,346 @@
             width: 297mm;
             height: 210mm;
             position: relative;
-            font-family: Arial, sans-serif;
+            font-family: 'TT Fors', Arial, sans-serif;
+            background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
         }
 
-        .a4-container {
+        .a4-page {
             width: 297mm;
             height: 210mm;
             position: relative;
-            background-image: url('fonPr.png');
-            background-size: contain;
-            background-position: top left;
-            background-repeat: no-repeat;
         }
 
-        .logo {
-            position: absolute;
-            top: 10mm;
-            left: 10mm;
-            width: 87.5mm;
-            height: 24.0mm;
-            /* border: 2px solid black; */
+        .logo-about {
+            float: left;
+            width: 80mm;
+            height: 210mm;
+            padding: 10mm 0 0 10mm;
         }
 
-        .logo-img {
-            width: 87.5mm;
-            height: 24.0mm;
+        .logoAb-img {
+            width: 70mm;
         }
 
-       
+        .title-container {
+            float: left;
+            padding: 10mm 5mm 10mm 10mm;
+            width: 190mm;
+            height: 210mm;
+        }
+
+        .title-ab {
+            font-size: 3.0em;
+            font-weight: 600;
+            color: #255ba9;
+            padding-bottom: 10mm;
+        }
+
+        .menu-list {
+            height: 150mm;
+            list-style: none;
+        }
+
+        .menu-img {
+            width: 12mm;
+        }
+
+
+
+        .menu-item {
+            height: 6mm;
+            padding: 3mm 0 3mm 14mm;
+            color: #9ccaee;
+        }
+
+        .menu-item-main {
+            position: relative;
+            margin: 5mm 0;
+            background-color: #fff;
+            border-top-left-radius: 6mm;
+            color: #255ba9;
+            border-bottom-left-radius: 6mm;
+        }
+
+        .img1-m {
+            background: #fff url(img/l1-1.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img2-m {
+            background: #fff url(img/l2-1.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img3-m {
+            background: #fff url(img/l3-1.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img4-m {
+            background: #fff url(img/l4-1.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img5-m {
+            background: #fff url(img/l5-1.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img6-m {
+            background: #fff url(img/l6-1.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img7-m {
+            background: #fff url(img/l7-1.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img8-m {
+            background: #fff url(img/l8-1.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img1 {
+            background: url(img/l1.svg) no-repeat 2mm 0mm;
+        }
+
+        .img2 {
+            background: url(img/l2.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img3 {
+            background: url(img/l3.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img4 {
+            background: url(img/l4.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img5 {
+            background: url(img/l5.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img6 {
+            background: url(img/l6.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img7 {
+            background: url(img/l7.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .img8 {
+            background: url(img/l8.svg) no-repeat 4mm center;
+            background-size: 20mm;
+        }
+
+        .about-block {
+            float: left;
+            float: left;
+            width: 207mm;
+            height: 210mm;
+            border-top-left-radius: 7mm;
+            border-bottom-left-radius: 7mm;
+            background-color: #fff;
+        }
+
+        .botom-btn {
+            padding: 2mm 4mm 0 4mm;
+            margin-top: auto;
+            border: 1px solid #9ccaee;
+            color: #9ccaee;
+            width: 14mm;
+            height: 8mm;
+            border-radius: 5mm;
+            text-align: center;
+        }
+
+        .white {
+            color: #fff;
+        }
+
+        .top-textAb {
+            padding-bottom: 10mm;
+        }
+
+        .top-textAb-left {
+            float: left;
+            padding-right: 3mm;
+        }
+
+        .top-textAb-right {
+            float: right;
+        }
+
+        .num-block {
+            padding-bottom: 10mm;
+        }
+
+        .numBig {
+            color: #255ba9;
+            font-weight: 700;
+            font-size: 18pt;
+        }
+
+        .fontBig {
+            font-size: 40pt;
+        }
+
+        .numText {
+            font-size: 14pt;
+        }
+
+        .bottom-textAb {
+            margin-top: 25mm;
+            padding: 4mm;
+            color: #fff;
+            height: 30mm;
+            border-radius: 4mm;
+            background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
+        }
+
+        .textAB {
+            float: left;
+            width: 120mm;
+            font-size: 20pt;
+            text-align: center;
+        }
+
+        .qrAB {
+            float: right;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        /* новые стили */
+
+        .bigTitle {
+            float: left;
+            width: 55mm;
+            font-size: 75pt;
+        }
+
+        .strTitle {
+            float: left;
+            width: 120mm;
+            font-size: 32pt;
+            font-weight: 400;
+        }
+
+        .top-textPr {
+
+            padding-bottom: 10mm;
+        }
+
+        .num-blockPr {
+            float: left;
+            width: 55mm;
+            padding-right: 5mm;
+        }
+
+        .numBigPr {
+            color: #255ba9;
+            font-weight: 700;
+            font-size: 18pt;
+        }
+
+        .fontBigPr {
+            font-size: 84pt;
+        }
     </style>
 </head>
 
 <body>
-    <div class="a4-container">
-        <div class="logo">
-            <img class="logo-img" src="img/LogoSmall.png" alt="Logo">
+    <div class="a4-page">
+        <div class="logo-about">
+            <img class="logoAb-img" src="img/LogoMain.png">
+            <ul class="menu-list">
+                <li class="menu-item img1">О нас
+                </li>
+                <li class="menu-item menu-item-main img2-m">Переговоры
+                </li>
+                <li class="menu-item img3">Статистика
+                </li>
+                <li class="menu-item img4">Почему мы?
+                </li>
+                <li class="menu-item img5">Как заключить контракт
+                </li>
+                <li class="menu-item img6">Выставка World Food 2025
+                </li>
+                <li class="menu-item img7">Отзывы
+                </li>
+                <li class="menu-item img8">Контакты
+                </li>
+            </ul>
+            <div class="botom-btn"> <span class="white">3</span>/10 </div>
         </div>
 
+        <div class="about-block">
+            <div class="title-container">
 
+                <div class="title-ab">
+                    <div class="bigTitle">30+</div>
+                    <div class="strTitle">переговоров с сетями в своей категории</div>
+                </div>
+                <div class="clear"></div>
+                <div class="top-textPr">
+                    <div class="top-textAb-left">
+                        <div class="num-blockPr">
+                            <div class="numBigPr"><span class="fontBigPr">3</span>часа</div>
+                            <div class="numText">ПОДГОТОВКА</div>
+                            <div class="numText">Виртуальный ассистент поможет подготовиться
+                                к переговорам,
+                                создать коммерческое предложение
+                                и записаться к нужным сетям</div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="top-textAb-left">
+                        <div class="num-blockPr">
+                            <div class="numBigPr"><span class="fontBigPr">3</span>часа</div>
+                            <div class="numText">ПОДГОТОВКА</div>
+                            <div class="numText">Виртуальный ассистент поможет подготовиться
+                                к переговорам,
+                                создать коммерческое предложение
+                                и записаться к нужным сетям</div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="top-textAb-left">
+                        <div class="num-blockPr">
+                            <div class="numBigPr"><span class="fontBigPr">3</span>часа</div>
+                            <div class="numText">ПОДГОТОВКА</div>
+                            <div class="numText">Виртуальный ассистент поможет подготовиться
+                                к переговорам,
+                                создать коммерческое предложение
+                                и записаться к нужным сетям</div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+                <div class="bottom-textAb">
+                    <div class="textAB">Получите доступ к этим ресурсам в вашем личном кабинете</div>
+                    <img class="qrAB" src="img/qr.png">
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
     </div>
 </body>
 
