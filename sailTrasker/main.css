@@ -393,6 +393,7 @@ body {
 
 .numText {
     font-size: 12pt;
+    line-height: 13pt;
 }
 
 .bottom-textAb {
@@ -826,4 +827,63 @@ body {
 
 .bottomFoto-block {
     margin-top: 4mm;
+}
+/* отзывы */
+.block4{
+    float: left;
+    width: 74mm;
+    height: 64mm;
+    margin: 4mm 4mm 0 0;
+    border-radius: 4mm;
+    padding: 8mm;
+    background: #f2f2f2ff;
+}
+
+.block4Qr{
+   float: left;
+    width: 60mm;
+    height: 50mm;
+    margin: 4mm 4mm 0 0;
+    border-radius: 4mm;
+    padding: 15mm;
+    background: #f2f2f2ff; 
+    text-align: center;
+}
+
+.block4-subtitle{
+    font-size: 9pt;
+    line-height: 9pt;
+    margin-bottom: 4mm;
+}
+
+.block4-text{
+    float: left;
+    width: 75mm;
+    font-size: 12pt;
+    line-height: 13pt;
+}
+
+.blockName{
+    float: left;
+    width: 50mm;
+    margin-right: 2mm;
+}
+.reviewLogo{
+    float: left;
+    width: 20mm;
+}
+
+.review-btn{
+    width: 52mm;
+    height: 6mm;
+    padding: 2mm 4mm;
+    border-radius: 6mm;
+    font-size: 10pt;
+    color:#fff;
+    background: #224e85;
+    text-align: center;
+}
+
+.qrR{
+    margin-bottom: 4mm;
 }
