@@ -789,10 +789,11 @@ body {
     width: 43mm;
     height: 30mm;
     text-align: center;
-    border-radius: 4mm;  
-    background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);  
+    border-radius: 4mm;
+    background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
 }
-.fotoText{
+
+.fotoText {
     float: left;
     margin: 0 0 4mm 4mm;
     padding: 6mm 4mm;
@@ -804,11 +805,12 @@ body {
     background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
 }
 
-.fotoQr{
+.fotoQr {
     padding: 5mm 4mm;
     width: 20mm;
-    height: 20mm;    
+    height: 20mm;
 }
+
 .foto3 {
     float: left;
     margin: 0 4mm 0 0;
@@ -828,8 +830,9 @@ body {
 .bottomFoto-block {
     margin-top: 4mm;
 }
+
 /* отзывы */
-.block4{
+.block4 {
     float: left;
     width: 74mm;
     height: 64mm;
@@ -839,51 +842,92 @@ body {
     background: #f2f2f2ff;
 }
 
-.block4Qr{
-   float: left;
+.block4Qr {
+    float: left;
     width: 60mm;
     height: 50mm;
     margin: 4mm 4mm 0 0;
     border-radius: 4mm;
     padding: 15mm;
-    background: #f2f2f2ff; 
+    background: #f2f2f2ff;
     text-align: center;
 }
 
-.block4-subtitle{
+.block4-subtitle {
     font-size: 9pt;
     line-height: 9pt;
     margin-bottom: 4mm;
 }
 
-.block4-text{
+.block4-text {
     float: left;
     width: 75mm;
     font-size: 12pt;
     line-height: 13pt;
 }
 
-.blockName{
+.blockName {
     float: left;
     width: 50mm;
     margin-right: 2mm;
 }
-.reviewLogo{
+
+.reviewLogo {
     float: left;
     width: 20mm;
 }
 
-.review-btn{
+.review-btn {
     width: 52mm;
     height: 6mm;
     padding: 2mm 4mm;
     border-radius: 6mm;
     font-size: 10pt;
-    color:#fff;
+    color: #fff;
     background: #224e85;
     text-align: center;
 }
 
-.qrR{
+.qrR {
     margin-bottom: 4mm;
+}
+
+/* contact */
+.top-textCt{
+    margin-top: 10mm;
+    width: 167mm;
+    height: 90mm;
+    padding: 10mm;
+    border-radius: 10mm;
+    background-color: #d8d8d8ff;
+}
+.top-textCt-left {
+    float: left;
+    width: 45mm;
+}
+
+.top-textCt-right {
+    float: left;
+    width: 102mm;
+    height: 80mm;
+    padding: 10mm;
+    border-radius: 10mm;
+    background-color: #9ccaee;
+}
+
+.fotoCt {
+    width: 40mm;
+    height: 40mm;
+    border-radius: 20mm;
+}
+
+.bottom-textCt {
+    margin-top: 12mm;
+    padding: 4mm;
+    font-size: 20pt;
+    color: #fff;
+    height: 10mm;
+    border-radius: 10mm;
+    text-align: center;
+    background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
 }
