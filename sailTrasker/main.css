@@ -149,7 +149,6 @@ body {
 .title-container {
     padding: 10mm 2mm 10mm 10mm;
     width: 190mm;
-    height: 210mm;
 }
 
 .title-ab {
@@ -485,16 +484,16 @@ body {
     width: 100mm;
     font-size: 14pt;
     margin-bottom: 5mm;
-    background: url(img/check.png) no-repeat 0mm center;
-    background-size: 8mm;
+    background: url(img/check.svg) no-repeat 0mm center;
+    background-size: 10mm;
 }
 
 .imgPr2 {
     padding-left: 14mm;
     width: 100mm;
     font-size: 14pt;
-    background: url(img/head.png) no-repeat 0mm center;
-    background-size: 8mm;
+    background: url(img/head.svg) no-repeat 0mm center;
+    background-size: 10mm;
 }
 
 /* statistica         */
@@ -676,7 +675,8 @@ body {
     padding-left: 16mm;
     margin-top: 10mm;
     margin-right: 3mm;
-    background: url(img/w1.png) no-repeat 0 10mm;
+    background: url(img/w1.svg) no-repeat 0 5mm;
+    background-size: 10mm;
 }
 
 .why2 {
@@ -686,7 +686,8 @@ body {
     padding-left: 16mm;
     margin-top: 10mm;
     margin-right: 3mm;
-    background: url(img/w2.png) no-repeat 0 10mm;
+    background: url(img/w2.svg) no-repeat 0 5mm;
+    background-size: 10mm;
 }
 
 .why3 {
@@ -696,7 +697,8 @@ body {
     padding-left: 16mm;
     margin-top: 10mm;
     margin-right: 3mm;
-    background: url(img/w3.png) no-repeat 0 10mm;
+    background: url(img/w3.svg) no-repeat 0 5mm;
+    background-size: 10mm;
 }
 
 .why4 {
@@ -706,7 +708,8 @@ body {
     padding-left: 16mm;
     margin-top: 10mm;
     margin-right: 3mm;
-    background: url(img/w4.png) no-repeat 0 10mm;
+    background: url(img/w4.svg) no-repeat 22mm 7mm;
+    background-size: 10mm;
 }
 
 /* как заключить контракты */
@@ -893,41 +896,85 @@ body {
 }
 
 /* contact */
-.top-textCt{
+.top-textCt {
     margin-top: 10mm;
     width: 167mm;
     height: 90mm;
     padding: 10mm;
     border-radius: 10mm;
-    background-color: #d8d8d8ff;
+    background-color: #e2eaf0;
 }
+
 .top-textCt-left {
     float: left;
-    width: 45mm;
+    width: 50mm;
 }
 
 .top-textCt-right {
     float: left;
-    width: 102mm;
+    width: 115mm;
     height: 80mm;
-    padding: 10mm;
-    border-radius: 10mm;
-    background-color: #9ccaee;
 }
 
 .fotoCt {
-    width: 40mm;
-    height: 40mm;
+    width: 42mm;
+    height: 42mm;
     border-radius: 20mm;
 }
 
 .bottom-textCt {
-    margin-top: 12mm;
+    margin-top: 16mm;
     padding: 4mm;
+    width: 179mm;
     font-size: 20pt;
     color: #fff;
     height: 10mm;
     border-radius: 10mm;
     text-align: center;
     background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
+}
+.contakt-block{
+    float: left;
+    width: 85mm;
+    margin-top: 16mm;
+}
+.tell {
+    padding: 2mm;
+    padding-left: 10mm;
+    height: 4mm;
+    background: url(img/ct1.svg) no-repeat 0 0;
+    background-size: 8mm;
+}
+
+.mail {
+    margin-top: 4mm;
+    padding: 2mm;
+    padding-left: 10mm;
+    height: 4mm;
+    background: url(img/ct2.svg) no-repeat 0 1.2mm;
+    background-size: 7mm;
+}
+
+.qrCt {
+    float: left;
+    width: 30mm;
+    height: 30mm;
+    margin-top: 16mm;
+}
+
+.nameCt{
+    font-size: 20pt;
+    line-height: 20pt;
+    margin-bottom: 4mm;
+}
+
+.roleCt{
+    font-size: 12pt;
+    line-height: 14pt;
+    margin-bottom: 12mm;
+}
+
+.textCt{
+    font-size: 12pt;
+    line-height: 14pt;
 }
