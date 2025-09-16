@@ -138,7 +138,6 @@ body {
 .logo-about {
     float: left;
     width: 80mm;
-    height: 210mm;
     padding: 10mm 0 0 10mm;
 }
 
@@ -532,6 +531,7 @@ body {
 }
 
 .numSt {
+    margin-bottom: 2mm;
     font-size: 16pt;
     color: #255ba9;
 }
@@ -605,13 +605,15 @@ body {
     width: 80mm;
     height: 6mm;
 }
-.statNum{
+
+.statNum {
     float: left;
     width: 10mm;
     font-size: 16pt;
     color: #255ba9;
 }
-.middle-text {    
+
+.middle-text {
     float: left;
     width: 50mm;
     font-size: 12pt;
@@ -638,6 +640,7 @@ body {
 
 .middleQrSt {
     width: 55mm;
+    margin-top: 4mm;
     text-align: center;
 }
 
@@ -756,9 +759,8 @@ body {
 
 .numHow {
     float: left;
-    width: 10mm;
+    width: 16mm;
     font-size: 24pt;
-    margin-right: 4mm;
     color: #255ba9;
 }
 
@@ -784,8 +786,7 @@ body {
 
 .numHow-main {
     float: left;
-    width: 15mm;
-    margin-right: 4mm;
+    width: 16mm;
     color: #255ba9;
     font-size: 36pt;
     line-height: 36pt;
@@ -812,6 +813,12 @@ body {
     margin-top: 14mm;
 }
 
+.topFoto {
+    border-radius: 4mm;
+    width: 93mm;
+    height: 64mm;
+}
+
 .foto4 {
     float: left;
     margin: 0 0 3mm 4mm;
@@ -820,6 +827,18 @@ body {
     text-align: center;
     border-radius: 4mm;
     background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
+}
+
+.foto4Img {
+    width: 43mm;
+    height: 30mm;
+    border-radius: 4mm;
+}
+
+.foto3Img {
+    width: 60mm;
+    height: 42mm;
+    border-radius: 4mm;
 }
 
 .fotoText {
@@ -864,7 +883,7 @@ body {
 .block4 {
     float: left;
     width: 74mm;
-    height: 64mm;
+    height: 62mm;
     margin: 4mm 4mm 0 0;
     border-radius: 4mm;
     padding: 8mm;
@@ -874,7 +893,7 @@ body {
 .block4Qr {
     float: left;
     width: 60mm;
-    height: 50mm;
+    height: 48mm;
     margin: 4mm 4mm 0 0;
     border-radius: 4mm;
     padding: 15mm;
@@ -903,6 +922,10 @@ body {
 
 .reviewLogo {
     float: left;
+    width: 20mm;
+}
+
+.reviewLogoImg {
     width: 20mm;
 }
 
@@ -959,11 +982,13 @@ body {
     text-align: center;
     background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
 }
-.contakt-block{
+
+.contakt-block {
     float: left;
     width: 85mm;
     margin-top: 16mm;
 }
+
 .tell {
     padding: 2mm;
     padding-left: 10mm;
@@ -988,19 +1013,19 @@ body {
     margin-top: 16mm;
 }
 
-.nameCt{
+.nameCt {
     font-size: 20pt;
     line-height: 20pt;
     margin-bottom: 4mm;
 }
 
-.roleCt{
+.roleCt {
     font-size: 12pt;
     line-height: 14pt;
     margin-bottom: 12mm;
 }
 
-.textCt{
+.textCt {
     font-size: 12pt;
     line-height: 14pt;
 }
