@@ -125,7 +125,7 @@ body {
     font-size: 2.6em;
     line-height: 0.9em;
     color: #fff;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 /* about */
@@ -381,13 +381,12 @@ body {
 
 .numBig {
     color: #255ba9;
-    font-weight: 500;
     font-size: 18pt;
 }
 
 .fontBig {
     font-size: 40pt;
-    margin-right: 2mm;
+    line-height: 40pt;
 }
 
 .numText {
@@ -407,7 +406,7 @@ body {
 .textAB {
     float: left;
     margin-top: 4mm;
-    width: 120mm;
+    width: 150mm;
     font-size: 20pt;
     text-align: center;
 }
@@ -432,7 +431,6 @@ body {
     float: left;
     width: 120mm;
     font-size: 32pt;
-    font-weight: 400;
 }
 
 .top-textPr {
@@ -448,7 +446,7 @@ body {
 .numBigPr {
     padding-bottom: 5mm;
     color: #255ba9;
-    font-weight: 600;
+    font-weight: bold;
     font-size: 14pt;
 }
 
@@ -458,13 +456,13 @@ body {
 
 .numTextPr {
     font-size: 12pt;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .bottom-textPr {
     float: left;
     width: 116mm;
-    margin-top: 16mm;
+    margin-top: 10mm;
 }
 
 .link {
@@ -474,7 +472,11 @@ body {
 
 .qrPr {
     float: left;
-    margin-top: 16mm;
+    margin-top: 10mm;
+    width: 70mm;
+}
+
+.qrPrImg {
     width: 70mm;
 }
 
@@ -514,8 +516,7 @@ body {
 
 .num-blockSt {
     float: left;
-    width: 70mm;
-    padding-right: 3mm;
+    width: 60mm;
 }
 
 .numBigSt {
@@ -531,17 +532,25 @@ body {
 }
 
 .numSt {
+    font-size: 16pt;
     color: #255ba9;
-    font-size: 20pt;
-    line-height: 20pt;
 }
 
 .numSt-left {
-    width: 65mm;
+    float: left;
+    padding-right: 3mm;
+    width: 63mm;
+}
+
+.numSt-right-top {
+    float: left;
+    width: 122mm;
+    margin-top: 20mm;
 }
 
 .numSt-right {
-    width: 117mm;
+    float: left;
+    width: 122mm;
 }
 
 .numSt-block {
@@ -596,23 +605,39 @@ body {
     width: 80mm;
     height: 6mm;
 }
-
-.middle-text {
+.statNum{
     float: left;
-    font-size: 8pt;
+    width: 10mm;
+    font-size: 16pt;
+    color: #255ba9;
+}
+.middle-text {    
+    float: left;
+    width: 50mm;
+    font-size: 12pt;
     height: 8mm;
-    margin-left: 2mm;
+    padding: 2mm 0;
+    color: #255ba9;
 }
 
 .middle-block-left {
-    width: 130mm;
+    float: left;
+    width: 60mm;
+    height: 40mm;
+    margin-top: 9mm;
+    margin-right: 5mm;
 }
 
 .middle-block-right {
-    width: 40mm;
+    float: left;
+    width: 117mm;
+    height: 40mm;
+    margin-top: 5mm;
+
 }
 
 .middleQrSt {
+    width: 60mm;
     text-align: center;
 }
 
@@ -624,6 +649,7 @@ body {
     font-size: 10pt;
     padding: 2mm 4mm;
     border-radius: 4mm;
+    margin-top: 5mm;
     background-color: #d8d8d8ff;
 }
 
