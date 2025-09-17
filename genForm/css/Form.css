@@ -1,0 +1,167 @@
+:root {
+    --main-text-color: rgba(51, 51, 51, 1);
+    --base-color-1: #0537c8;
+    --base-color-2: #5bc5f2;
+    --base-color-6: #005BAA;
+    --base-color-7: #3762CF;
+    --link-color-1: rgba(5, 55, 200, 1);
+    --sucsess-color-4: rgba(5, 202, 5, 1);
+    --warning-color-4: rgba(255, 237, 167, 1);
+    --error-color-4: rgba(243, 71, 71, 1);
+    --base-font: 'Fors';
+    --base-bold-font: 'Fors ExtraBold';
+    --base-font-size: 1rem;
+    --base-font-line-height: 1rem;
+    --base-gap: 1rem;
+    --background-1-opacity-80: rgba(5, 55, 200, 0.8);
+    --background-2-opacity-80: rgba(80, 200, 255, 1);
+    --svgGradient: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    --item-border: #dadada;
+    --newGray: #6c7a93;
+    --lightBlue: #E6F4FF;
+    --darkBlue: #7DB3E3;
+    --grafite: #24252D;
+
+}
+
+@font-face {
+    font-family: 'Fors';
+    src: local('TT Fors'), url('../fonts/fors/TT\ Fors\ Trial\ Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fors ExtraBold';
+    src: local('TT Fors ExtraBold'), url('../fonts/fors/TT\ Fors\ Trial\ ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+.body {
+    font-family: var(--base-font);
+    font-size: var(--base-font-size);
+    line-height: var(--base-font-line-height);
+}
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ask_form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+    max-width: 800px;
+    width: 100%;
+    margin: 0;
+    font-family: var(--base-font);
+}
+
+.ask_form input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    font-family: var(--base-font);
+    border: 1px solid #aab0bb;
+    border-radius: 4px;
+    color: #000;
+    outline: none;
+}
+.ask_form textarea::placeholder,
+.ask_form input[type="text"]::placeholder {
+    color: #aab0bb;
+}
+
+.ask_form select {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    font-family: var(--base-font);
+    border: 1px solid #aab0bb;
+    border-radius: 4px;
+    color: #000;
+    outline: none;
+}
+
+.ask_form textarea {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    height: 200px;
+    font-family: var(--base-font);
+    border: 1px solid #aab0bb;
+    border-radius: 4px;
+    color: #000;
+    outline: none;
+}
+
+.ask_form button {
+    padding: 10px;
+    font-size: 16px;
+    background: var(--svgGradient);
+    color: white;
+    font-family: var(--base-font);
+    border: none;
+    cursor: pointer;
+}
+
+.ask_form button:hover {
+    background:  var(--base-color-2);
+}
+
+.ask_form button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+
+.ask_form .photos_result .photo {
+    width: 200px;
+}
+
+.ask_form .cat_list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.ask_form .cat_list .cat {
+    font-size: 1em;
+    color: #3f91dd;
+}
+
+.ask_form .cat_list .cat:hover {
+    cursor: pointer;
+    color: var(--base-color-2);
+}
+
+/*новое*/
+
+.container {
+    display: flex;
+    justify-self: center;
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 32px;
+
+}
+
+.title{
+    padding: 0;
+    font-family: var(--base-font);
+    font-size: calc(var(--base-font-size) * 2.5);
+    line-height: calc(var(--base-font-size) * 2.5);
+    color: var(--newGray);
+}
+.ask_form input[type="text"]:focus,
+.ask_form select:focus,
+.ask_form textarea:focus {
+    border-color: var(--darkBlue);
+    box-shadow: 0 0 0 3px rgba(126, 143, 218, 0.1);
+}
