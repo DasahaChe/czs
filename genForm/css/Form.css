@@ -59,7 +59,7 @@
     margin: 0;
     font-family: var(--base-font);
 }
-
+.ask_form input[type="password"] ,
 .ask_form input[type="text"] {
     padding: 8px;
     font-size: 14px;
@@ -70,6 +70,8 @@
     color: #000;
     outline: none;
 }
+
+.ask_form input[type="password"]::placeholder ,
 .ask_form textarea::placeholder,
 .ask_form input[type="text"]::placeholder {
     color: #aab0bb;
@@ -146,9 +148,18 @@
 .container {
     display: flex;
     justify-self: center;
-    max-width: 800px;
+    max-width: 880px;
     width: 100%;
     margin-bottom: 32px;
+
+}
+
+.form{
+    max-width: 800px;
+    width: 100%;
+    padding: 2em;
+    background-color: var(--lightBlue);
+    border-radius: 1em;
 
 }
 
@@ -159,9 +170,11 @@
     line-height: calc(var(--base-font-size) * 2.5);
     color: var(--newGray);
 }
+.ask_form input[type="password"]:focus,
 .ask_form input[type="text"]:focus,
 .ask_form select:focus,
 .ask_form textarea:focus {
+    background-color: #fff;
     border-color: var(--darkBlue);
     box-shadow: 0 0 0 3px rgba(126, 143, 218, 0.1);
 }
