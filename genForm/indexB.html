@@ -1,0 +1,200 @@
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор форм</title>
+    <link href="css/FormB.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <!-- <div class="container">
+            <h1 class="title">Генератор коммерческого предложения</h1>
+        </div> -->
+    </header>
+    <main class="container">
+        <div class="gen-wrapper">
+            <h1 class="title-gen">генератор коммерческого предложения</h1>
+            <form method="post" class="ask_form">
+                <div class="input-group">
+                    <label for="company" class="gen-text">Название компании</label>
+                    <input type="text" id="company" name="company" placeholder="Введите название компании">
+                </div>
+                <div class="input-group">
+                    <label for="product" class="gen-text">Название мероприятия</label>
+                    <select id="product" name="product">
+                        <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для поставщиков</option>
+                        <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для закупщиков</option>
+                        <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для организаторов
+                            выставок
+                        </option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="category" class="gen-text">Категория продукта</label>
+                    <textarea name="category" id="category" placeholder="Ваши категории продуктов"></textarea>
+                </div>
+                <button type="button" class="ask_cat">Получить категорию из списка</button>
+                <div class="cat_list none">
+                    <div class="cat">Игрушки, игры, хобби</div>
+                    <div class="cat">Канцелярские товары, книги для детей</div>
+                    <div class="cat">Творчество и дизайн</div>
+                    <div class="cat">Новогодняя продукция, подарки</div>
+                    <div class="cat">Средства по уходу за детьми, детская косметика</div>
+                    <div class="cat">Одежда, обувь, аксессуары для детей и подростков</div>
+                    <div class="cat">Постельное белье и принадлежности</div>
+                    <div class="cat">Одежда и аксессуары для будущих и кормящих матерей</div>
+                    <div class="cat">Товары для активного отдыха, спорттовары</div>
+                    <div class="cat">Крупногабаритные товары для детей</div>
+                    <div class="cat">Товары для новорожденных</div>
+                    <div class="cat">Коляски, Автомобильные кресла</div>
+                    <div class="cat">Детская мебель, предметы интерьера для дома</div>
+                    <div class="cat">Детское питание мд</div>
+                    <div class="cat">Многофункциональное оборудование</div>
+                    <div class="cat">Товары прикассовой зоны</div>
+                    <div class="cat">Другое (детские товары)</div>
+                    <div class="cat">Бакалея. Зернопродукты</div>
+                    <div class="cat">Безалкогольные напитки, соки, воды</div>
+                    <div class="cat">Вина, тихие вина, игристые вина</div>
+                    <div class="cat">Готовые блюда. Салаты</div>
+                    <div class="cat">Детское питание</div>
+                    <div class="cat">Джемы, сиропы, варенье, соусы</div>
+                    <div class="cat">Замороженные продукты. П/ф</div>
+                    <div class="cat">Здоровое питание</div>
+                    <div class="cat">Кондитерская, хлебопекарная продукция</div>
+                    <div class="cat">Консервация: овощная, рыбная, мясная</div>
+                    <div class="cat">Крепкий алкоголь</div>
+                    <div class="cat">Макароны. Приправы. Соусы и специи</div>
+                    <div class="cat">Мед и продукты пчеловодства</div>
+                    <div class="cat">Молочная продукция. Сыры. Мороженое</div>
+                    <div class="cat">Мясные, колбасные изделия, деликатесы</div>
+                    <div class="cat">Овощи. Фрукты</div>
+                    <div class="cat">Пищевые ингредиенты</div>
+                    <div class="cat">Птица. Яйцо</div>
+                    <div class="cat">Растительные жиры</div>
+                    <div class="cat">Рыба и морепродукты</div>
+                    <div class="cat">Слабоалкогольные напитки, пиво</div>
+                    <div class="cat">Снэки, ореxи, суxофрукты</div>
+                    <div class="cat">Спортивное питание. БАДы</div>
+                    <div class="cat">Табак и табачные изделия</div>
+                    <div class="cat">Творог и творожная масса</div>
+                    <div class="cat">Товары прикассовой зоны food</div>
+                    <div class="cat">Чай, кофе, какао</div>
+                    <div class="cat">Другое food</div>
+                    <div class="cat">Оборудование для ритейла</div>
+                    <div class="cat">Автотовары</div>
+                    <div class="cat">Аксессуары для ванной и бани</div>
+                    <div class="cat">Бытовая химия</div>
+                    <div class="cat">Ватно-бумажная продукция</div>
+                    <div class="cat">Канцелярские товары, книги</div>
+                    <div class="cat">Косметика и парфюмерия</div>
+                    <div class="cat">Крупная и мелкая бытовая техника</div>
+                    <div class="cat">Пеномоющие средства</div>
+                    <div class="cat">Средства личной гигиены</div>
+                    <div class="cat">Стройматериалы, инструменты</div>
+                    <div class="cat">Сувениры, подарки, аксессуары</div>
+                    <div class="cat">Текстиль для дома, ЧНИ и обувь</div>
+                    <div class="cat">Товары для детей, игрушки</div>
+                    <div class="cat">Товары для дома, хоз. товары</div>
+                    <div class="cat">Товары для животных, корма</div>
+                    <div class="cat">Товары для кухни, посуда</div>
+                    <div class="cat">Товары для сада, огорода, цветы</div>
+                    <div class="cat">Товары для туризма, спорта, хобби и досуга</div>
+                    <div class="cat">Товары прикассовой зоны non-food</div>
+                    <div class="cat">Электроинструменты</div>
+                    <div class="cat">Другое non-food</div>
+                    <div class="cat">Замороженная продукция</div>
+                    <div class="cat">Овощи</div>
+                    <div class="cat">Семена, удобрения</div>
+                    <div class="cat">Упаковка</div>
+                    <div class="cat">Фрукты</div>
+                    <div class="cat">Кассовая техника и оборудование</div>
+                    <div class="cat">Кадровые услуги</div>
+                    <div class="cat">Малогабаритное оборудование для магазинов и складов</div>
+                    <div class="cat">Платежные системы, терминалы, e-commerce</div>
+                    <div class="cat">Разработка ПО, цифровые решения, облачные технологии</div>
+                    <div class="cat">Реклама, дизайн, полиграфия</div>
+                    <div class="cat">Тара и упаковка</div>
+                    <div class="cat">Транспорт и логистика</div>
+                    <div class="cat">Факторинг, банковские услуги, финансовые услуги</div>
+                    <div class="cat">Юридические услуги</div>
+                    <div class="cat">Аквариумы, террариумы</div>
+                    <div class="cat">Витамины и добавки</div>
+                    <div class="cat">Декор и оборудование</div>
+                    <div class="cat">Игрушки и аксессуары</div>
+                    <div class="cat">Когтеточки</div>
+                    <div class="cat">Корма и лакомства</div>
+                    <div class="cat">Кормушки, клетки, миски</div>
+                    <div class="cat">Косметика для ухода</div>
+                    <div class="cat">Лежаки, домики, переноски</div>
+                    <div class="cat">Наполнители и туалеты</div>
+                    <div class="cat">Одежда и бижутерия</div>
+                    <div class="cat">Smart-товары и техника</div>
+                    <div class="cat">Предметы интерьера, текстиль, декор</div>
+                    <div class="cat">Офисная мебель</div>
+                    <div class="cat">Мягкая мебель</div>
+                    <div class="cat">Корпусная и детская мебель</div>
+                    <div class="cat">Матрасы и мебель для спальни</div>
+                    <div class="cat">Мебель для кухни</div>
+                    <div class="cat">Двери, комплектующие, фурнитура</div>
+                    <div class="cat">Другое мебель</div>
+                    <div class="cat">IP-Технологии</div>
+                    <div class="cat">IT-Услуги</div>
+                    <div class="cat">Интернет-технологии и услуги</div>
+                    <div class="cat">Кабели связи, оборудование</div>
+                    <div class="cat">Микроэлектроника</div>
+                    <div class="cat">Мобильные платежи</div>
+                    <div class="cat">Программное обеспечение</div>
+                    <div class="cat">Радиосвязь</div>
+                    <div class="cat">Системы и оборудование спутниковой связи</div>
+                    <div class="cat">Системы электропитания</div>
+                    <div class="cat">Телевидение и радиовещание</div>
+                    <div class="cat">Телекоммуникационная и сетевая структура</div>
+                    <div class="cat">Телекоммуникационное оборудование, оптическая связь</div>
+                    <div class="cat">Цоды. Центры обработки и хранения</div>
+                </div>
+                <div class="input-group">
+                    <label for="questions" class="gen-text">Ваши вопросы</label>
+                    <input type="text" id="questions" name="questions" placeholder="Напишите Ваши вопросы">
+                </div>
+                <div class="input-group">
+                    <label for="proposal" class="gen-text">Целевое предложение</label>
+                    <input type="text" id="proposal" name="proposal" placeholder="Напишите Ваше целевое предложение"
+                        value="За 8 минут презентации мы предоставим решение для поставщика как получить новых сетевых клиентов при помощи Платформы Центр Закупок Сетей ">
+                </div>
+                <div class="input-group">
+                    <label for="event" class="gen-text">Событие</label>
+                    <select class="event" id="event">
+                        <option value="42">Нева 2025</option>
+                        <option value="29">Петерфуд</option>
+                    </select>
+                </div>
+                <button type="button" class="get_stat">Получить статистику по категориям</button>
+                <div class="input-group">
+                    <label for="stat" class="gen-text">Описание продукта</label>
+                    <textarea class="stat" id="stat" name="stat" placeholder="Категория продукта"></textarea>
+                </div>
+                <button type="button" class="get_photo">Получить фото из Яндекс Диска</button>
+                <div class="photos_result"></div>
+                <div class="input-group">
+                    <label for="manager" class="gen-text">Контактный менеджер</label>
+                    <input type="text" id="manager" name="manager" placeholder="Напишите имя контактного менеджера">
+                </div>
+                <button class="submit_form" type="submit">Сгенерировать текст предложения</button>
+                <div class="input-group">
+                    <label for="more" class="gen-text">Дополнение</label>
+                    <div class="presentation_gen_result" name="more" id="more"><textarea></textarea></div>
+                </div>
+                <button type="button" class="save_file">Сохранить в word файл</button>
+            </form>
+        </div>
+
+    </main>
+
+    <script src="https://online-czs.ru/project/webroot/js/yastatic.net_jquery_2.1.3_jquery.min.js"></script>
+    <script src="/src/Infrastructure/Http/Site/Js/Form.js"></script>
+
+</body>
+
+</html>

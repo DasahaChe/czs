@@ -44,26 +44,9 @@ body {
     font-family: var(--base-font);
     font-size: var(--base-font-size);
     line-height: var(--base-font-line-height);
-
-
     min-height: 100vh;
-    background: 
-        radial-gradient(circle at 20% 30%, #7DB3E3 0%, transparent 25%),
-        radial-gradient(circle at 80% 15%, #E6F4FF 0%, transparent 30%),
-        radial-gradient(circle at 40% 70%, #0537c8 0%, transparent 35%),
-        radial-gradient(circle at 75% 85%, #5bc5f2 0%, transparent 40%),
-        radial-gradient(circle at 10% 50%, #3762CF 0%, transparent 20%),
-        linear-gradient(135deg, #0e7eff 0%, #ffffff 100%);
-         /* linear-gradient(135deg, #295ceb 0%, #000080 100%);  */
-    background-blend-mode: overlay, screen, color-dodge, lighten, overlay;
-    background-attachment: fixed;
-    position: relative;
-    overflow-x: hidden;
-
-    /* height: 100%;
-    overflow: hidden;
-    background: #001c96;
-    background: linear-gradient(145deg, rgba(0, 28, 150, 0.99) 16%, rgba(5, 75, 210, 1) 42%, rgba(5, 75, 210, 1) 61%, rgba(12, 40, 176, 1) 92%); */
+   background: linear-gradient(135deg, #295ceb 0%, #000080 100%);
+   
 }
 
 
@@ -83,6 +66,7 @@ body {
     margin: 0;
     font-family: var(--base-font);
     background-color: #fff;
+    /* background-color: var(--lightBlue); */
     padding: 40px;
     border-radius: 1em;
 }
@@ -91,7 +75,7 @@ body {
 .ask_form textarea,
 .ask_form input[type="password"],
 .ask_form input[type="text"] {
-    padding: 8px;
+    padding: 10px;
     margin-top: 8px;
     font-size: 14px;
     width: 100%;
@@ -100,40 +84,20 @@ body {
     border-radius: 4px;
     color: #000;
     outline: none;
+    background-color: #fff;
 }
 
 .login-wrapper .ask_form input[type="password"],
 .login-wrapper .ask_form input[type="text"] {
-    border-color: #b3d9fc;    
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #aab0bb;
 }
 
 .ask_form input[type="password"]::placeholder,
 .ask_form textarea::placeholder,
 .ask_form input[type="text"]::placeholder {
     color: #aab0bb;
-}
-
-.ask_form select {
-    padding: 8px;
-    font-size: 14px;
-    width: 100%;
-    font-family: var(--base-font);
-    border: 1px solid #aab0bb;
-    border-radius: 4px;
-    color: #000;
-    outline: none;
-}
-
-.ask_form textarea {
-    padding: 8px;
-    font-size: 14px;
-    width: 100%;
-    height: 200px;
-    font-family: var(--base-font);
-    border: 1px solid #aab0bb;
-    border-radius: 4px;
-    color: #000;
-    outline: none;
 }
 
 .ask_form button {
@@ -195,24 +159,17 @@ body {
 
 }
 
-/* .form {
-    display: flex;
-    justify-self: center;
-    max-width: 400px;
-    width: 100%;
-    padding: 2em;
-    background-color: var(--lightBlue);
-    border-radius: 1em;
-} */
-
 .form {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-items: center;
-    max-width: 400px;
+    max-width: 500px;
+    height: 400px;
     width: 100%;
     padding: 2em;
-    background-color: #fff;
+    background: url(../img/fonImg4.jpg) no-repeat;
+    background-size: cover;
     border-radius: 1em;
 }
 
@@ -229,12 +186,13 @@ body {
 }
 
 .title-login {
-    padding-left: 32px;
+   padding-left: 48px;
     margin: 0 0 40px 0;
     color: #ffffff;
-    font-size: calc(var(--base-font-size) * 2.5);
-    background: url(../img/arrow.png) no-repeat 0 12px;
-    background-size: 24px;
+    font-size: calc(var(--base-font-size) * 4.0);
+    line-height: 1em;
+    background: url(../img/arrow.png) no-repeat 0 19px;
+    background-size: 40px;
 }
 
 .title-gen {
@@ -250,21 +208,22 @@ body {
 .subtitle{
     padding: 0;
     margin: 16px 0;
-    font-family: var(--base-font);
-    font-size: calc(var(--base-font-size) * 1.5);
+    max-width: 200px;
+    font-size: calc(var(--base-font-size) * 1.6);
     line-height: calc(var(--base-font-size) * 1.5);
-    color: var(--grafite);
+    font-weight: 400;
+    color: var(--lightBlue);
 }
 .text{
     font-size: var(--base-font-size);
-    color: var(--newGray);
+    color: #fff;
     margin-bottom: 40px;
 }
 
 .input-text{
     padding: 0 0 0 24px;
     font-size: var(--base-font-size);
-    color: var(--grafite);
+    color: #fff;
 }
 
 .gen-text{
@@ -275,20 +234,20 @@ body {
 }
 
 .login{
-   background: url(../img/login.png) no-repeat 0 3px;  
+   background: url(../img/login1.png) no-repeat 0 3px;  
     background-size: 16px;
 }
 
 .password{
-   background: url(../img/password.png) no-repeat 0 3px;  
+   background: url(../img/password1.png) no-repeat 0 3px;  
     background-size: 16px;
 }
 
 .help-text{
     justify-self: end;
     font-size: var(--base-font-size);
-    color: var(--base-color-6);
-    /* border-bottom: 1px solid var(--base-color-7); */
+    color: var(--lightBlue);
+    
 }
 .ask_form input[type="password"]:focus,
 .ask_form input[type="text"]:focus,
@@ -300,10 +259,9 @@ body {
 }
 
 .login-wrapper {
-    max-width: 400px;
+    position: relative;
     width: 100%;
     padding-top: 10vh;
-    /* padding-top: 10vh; */
 }
 
 .form-wrapper {
@@ -313,8 +271,7 @@ body {
     margin: 0;
     max-width: 400px;
     width: 100%;
-    /* border-radius: 1em; */
-    /* background-color: #fff; */
+   
 }
 
 .form-description {
@@ -334,30 +291,16 @@ body {
 }
 
 .ask_form-login {
-    padding: 20px;
+    position: absolute;
+    max-width: 400px;
+    height: 400px;
+    top: 25%;
+   left: 60%;
+    padding: 40px;
+    background: linear-gradient(135deg, #295ceb 0%, #000080 100%); 
 }
 
 .none{
     display: none;
 }
 
-@media (max-width:767px) {
-    .login-wrapper {
-        max-width: 400px;
-    }
-
-    .form-wrapper {
-        flex-direction: column;
-    }
-
-    .form-description {
-        padding: 20px;
-        border-bottom-left-radius: 0;
-        border-top-right-radius: 1em;
-    }
-
-    .form {
-        border-bottom-left-radius: 1em;
-        border-top-right-radius: 0;
-    }
-}
