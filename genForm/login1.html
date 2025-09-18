@@ -1,274 +1,37 @@
-html
-<!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Анимация водных бликов</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(to bottom, #001a4d, #000);
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            text-align: center;
-            z-index: 10;
-        }
-        
-        h1 {
-            color: #fff;
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(91, 197, 242, 0.7);
-        }
-        
-        p {
-            color: #e6f4ff;
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-        
-        .water-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #0537c8;
-            overflow: hidden;
-            z-index: -1;
-        }
-        
-        /* Общие стили для бликов */
-        .water-background:before,
-        .water-background:after,
-        .shine {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.4;
-            mix-blend-mode: screen;
-        }
-        
-        /* Первый слой бликов */
-        .water-background:before {
-            background: radial-gradient(circle at 30% 20%, #E6F4FF 0%, transparent 25%),
-                        radial-gradient(circle at 70% 60%, #7DB3E3 0%, transparent 25%),
-                        radial-gradient(circle at 40% 80%, #5bc5f2 0%, transparent 30%);
-            animation: waterShine 15s linear infinite;
-        }
-        
-        /* Второй слой бликов */
-        .water-background:after {
-            background: radial-gradient(circle at 60% 10%, #5bc5f2 0%, transparent 20%),
-                        radial-gradient(circle at 20% 70%, #E6F4FF 0%, transparent 30%),
-                        radial-gradient(circle at 80% 40%, #7DB3E3 0%, transparent 25%);
-            animation: waterShine 20s linear infinite reverse;
-        }
-        
-        /* Дополнительные элементы для бликов */
-        .shine {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0;
-            filter: blur(15px);
-        }
-        
-        .shine:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, #7DB3E3, transparent 70%);
-            top: 20%;
-            left: 10%;
-            animation: float 18s ease-in-out infinite, pulse 7s ease-in-out infinite;
-        }
-        
-        .shine:nth-child(2) {
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, #5bc5f2, transparent 70%);
-            top: 60%;
-            left: 60%;
-            animation: float 22s ease-in-out infinite reverse, pulse 9s ease-in-out infinite;
-            animation-delay: 1s;
-        }
-        
-        .shine:nth-child(3) {
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, #E6F4FF, transparent 70%);
-            top: 30%;
-            left: 70%;
-            animation: float 15s ease-in-out infinite, pulse 5s ease-in-out infinite;
-            animation-delay: 2s;
-        }
-        
-        .shine:nth-child(4) {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, #7DB3E3, transparent 70%);
-            top: 70%;
-            left: 20%;
-            animation: float 20s ease-in-out infinite reverse, pulse 8s ease-in-out infinite;
-            animation-delay: 3s;
-        }
-        
-        /* Анимация движения бликов */
-        @keyframes waterShine {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.3;
-            }
-            25% {
-                transform: translate(-5%, 2%) scale(1.1);
-                opacity: 0.4;
-            }
-            50% {
-                transform: translate(2%, 5%) scale(1.05);
-                opacity: 0.5;
-            }
-            75% {
-                transform: translate(5%, -2%) scale(1.1);
-                opacity: 0.4;
-            }
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.3;
-            }
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            25% {
-                transform: translate(-50px, 30px) rotate(5deg);
-            }
-            50% {
-                transform: translate(30px, 60px) rotate(-5deg);
-            }
-            75% {
-                transform: translate(40px, -20px) rotate(3deg);
-            }
-            100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 0.2;
-                transform: scale(0.95);
-            }
-            50% {
-                opacity: 0.5;
-                transform: scale(1.1);
-            }
-        }
-        
-        /* Эффект ряби на воде */
-        .ripple {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 30%;
-            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1));
-            animation: rippleEffect 5s ease-in-out infinite alternate;
-        }
-        
-        @keyframes rippleEffect {
-            0% {
-                transform: skewX(0deg);
-                opacity: 0.1;
-            }
-            100% {
-                transform: skewX(5deg);
-                opacity: 0.3;
-            }
-        }
-        
-        /* Кнопка для взаимодействия */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: rgba(91, 197, 242, 0.3);
-            color: white;
-            border: 2px solid #5bc5f2;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-        
-        .btn:hover {
-            background: rgba(91, 197, 242, 0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(91, 197, 242, 0.4);
-        }
-    </style>
+    <title>Вход</title>
+    <link href="css/Form.css" rel="stylesheet">
 </head>
-<body>
-    <div class="water-background">
-        <div class="shine"></div>
-        <div class="shine"></div>
-        <div class="shine"></div>
-        <div class="shine"></div>
-        <div class="ripple"></div>
-    </div>
-    
-    <div class="container">
-        <h1>Водные блики</h1>
-        <p>Наслаждайтесь успокаивающей анимацией водной поверхности с мягкими переливающимися бликами. Идеально для релаксации и медитации.</p>
-        <button class="btn">Исследовать глубины</button>
-    </div>
 
-    <script>
-        // Простой скрипт для добавления случайных бликов при наведении
-        document.querySelector('.btn').addEventListener('mouseover', function() {
-            const water = document.querySelector('.water-background');
-            const shine = document.createElement('div');
-            shine.classList.add('shine');
-            
-            // Случайные параметры
-            const size = Math.random() * 200 + 100;
-            const colors = ['#E6F4FF', '#7DB3E3', '#5bc5f2'];
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            
-            shine.style.width = `${size}px`;
-            shine.style.height = `${size}px`;
-            shine.style.background = `radial-gradient(circle, ${color}, transparent 70%)`;
-            shine.style.top = `${Math.random() * 80}%`;
-            shine.style.left = `${Math.random() * 80}%`;
-            shine.style.animation = `float ${Math.random() * 10 + 10}s ease-in-out infinite, pulse ${Math.random() * 5 + 5}s ease-in-out infinite`;
-            
-            water.appendChild(shine);
-            
-            // Удаляем элемент после завершения анимации
-            setTimeout(() => {
-                water.removeChild(shine);
-            }, 15000);
-        });
-    </script>
+<body>
+    <header>
+        <div class="container">
+        </div>
+    </header>
+    <main class="container">
+        <div class="login-wrapper">
+            <h1 class="title title-login">вход</h1>
+            <div class="form-wrapper">
+                <div class="form-description">
+                    <h2 class="title">Рады приветствовать!</h2>
+                    <p class="text">Введите логин и пароль</p>
+                </div>
+                <div class="form">
+                    <form method="post" class="ask_form">
+                        <input type="text" name="login" placeholder="Логин">
+                        <input type="password" name="password" placeholder="Пароль">
+                        <button type="submit">Войти</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
 </body>
+
 </html>
