@@ -17,16 +17,26 @@
         <div class="gen-wrapper">
             <h1 class="title-gen">генератор коммерческого предложения</h1>
             <form method="post" class="ask_form">
-                <input type="text" name="company" placeholder="Название компании">
-                <select name="product">
-                    <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для поставщиков</option>
-                    <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для закупщиков</option>
-                    <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для организаторов выставок
-                    </option>
-                </select>
-                <textarea name="category" placeholder="Категория продукта"></textarea>
-                <button type="button" class="ask_cat">Получить категорию</button>
-                <div class="cat_list">
+                <div class="input-group">
+                    <label for="company" class="gen-text">Название компании</label>
+                    <input type="text" id="company" name="company" placeholder="Введите название компании">
+                </div>
+                <div class="input-group">
+                    <label for="product" class="gen-text">Название мероприятия</label>
+                    <select id="product" name="product">
+                        <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для поставщиков</option>
+                        <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для закупщиков</option>
+                        <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для организаторов
+                            выставок
+                        </option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="category" class="gen-text">Категория продукта</label>
+                    <textarea name="category" id="category" placeholder="Ваши категории продуктов"></textarea>
+                </div>
+                <button type="button" class="ask_cat">Получить категорию из списка</button>
+                <div class="cat_list none">
                     <div class="cat">Игрушки, игры, хобби</div>
                     <div class="cat">Канцелярские товары, книги для детей</div>
                     <div class="cat">Творчество и дизайн</div>
@@ -144,20 +154,38 @@
                     <div class="cat">Телекоммуникационное оборудование, оптическая связь</div>
                     <div class="cat">Цоды. Центры обработки и хранения</div>
                 </div>
-                <input type="text" name="questions" placeholder="Ваши вопросы">
-                <input type="text" name="proposal" placeholder="Целевое предложение"
-                    value="За 8 минут презентации мы предоставим решение для поставщика как получить новых сетевых клиентов при помощи Платформы Центр Закупок Сетей ">
-                <select class="event">
-                    <option value="42">Нева 2025</option>
-                    <option value="29">Петерфуд</option>
-                </select>
+                <div class="input-group">
+                    <label for="questions" class="gen-text">Ваши вопросы</label>
+                    <input type="text" id="questions" name="questions" placeholder="Напишите Ваши вопросы">
+                </div>
+                <div class="input-group">
+                    <label for="proposal" class="gen-text">Целевое предложение</label>
+                    <input type="text" id="proposal" name="proposal" placeholder="Напишите Ваше целевое предложение"
+                        value="За 8 минут презентации мы предоставим решение для поставщика как получить новых сетевых клиентов при помощи Платформы Центр Закупок Сетей ">
+                </div>
+                <div class="input-group">
+                    <label for="event" class="gen-text">Событие</label>
+                    <select class="event" id="event">
+                        <option value="42">Нева 2025</option>
+                        <option value="29">Петерфуд</option>
+                    </select>
+                </div>
                 <button type="button" class="get_stat">Получить статистику по категориям</button>
-                <textarea class="stat" name="stat" placeholder="Категория продукта"></textarea>
+                <div class="input-group">
+                    <label for="stat" class="gen-text">Описание продукта</label>
+                    <textarea class="stat" id="stat" name="stat" placeholder="Категория продукта"></textarea>
+                </div>
                 <button type="button" class="get_photo">Получить фото из Яндекс Диска</button>
                 <div class="photos_result"></div>
-                <input type="text" name="manager" placeholder="Контактный менеджер">
+                <div class="input-group">
+                    <label for="manager" class="gen-text">Контактный менеджер</label>
+                    <input type="text" id="manager" name="manager" placeholder="Напишите имя контактного менеджера">
+                </div>
                 <button class="submit_form" type="submit">Сгенерировать текст предложения</button>
-                <div class="presentation_gen_result"><textarea></textarea></div>
+                <div class="input-group">
+                    <label for="more" class="gen-text">Дополнение</label>
+                    <div class="presentation_gen_result" name="more" id="more"><textarea></textarea></div>
+                </div>
                 <button type="button" class="save_file">Сохранить в word файл</button>
             </form>
         </div>
