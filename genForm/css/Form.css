@@ -82,6 +82,9 @@ body {
     width: 100%;
     margin: 0;
     font-family: var(--base-font);
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 1em;
 }
 
 .ask_form input[type="password"],
@@ -228,6 +231,16 @@ body {
     background-size: 24px;
 }
 
+.title-gen {
+    padding-left: 32px;
+    margin: 20px 0 40px 0;
+    color: #ffffff;
+    font-size: calc(var(--base-font-size) * 2.2);
+    line-height: 1em;
+    background: url(../img/generation.png) no-repeat 0 9px;
+    background-size: 24px;
+}
+
 .subtitle{
     padding: 0;
     margin: 16px 0;
@@ -307,7 +320,10 @@ body {
     padding: 0 40px 40px;
     max-width: 880px;
     width: 100%;
-    background-color: #fff;
+}
+
+.ask_form-login {
+    padding: 20px;
 }
 
 @media (max-width:767px) {
