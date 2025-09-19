@@ -309,27 +309,34 @@ body {
 
 .title-enter{
     padding-left: 32px;
-    margin: 0 0 40px 0;
+    margin: 0 0 64px 0;
     color: #ffffff;
     font-size: calc(var(--base-font-size) * 2.2);
     line-height: 1em;
-    background: url(../img/arrow.png) no-repeat 0 9px;
+    background: url(../img/format.png) no-repeat 0 9px;
     background-size: 24px;
 }
+.link-enter,
 .link-home{
     position: absolute;
     top: 64px;
     left: 96px;
     padding: 0 0 0 40px;
-    color: #62b6ff;
-    background: url(../img/l8.png) no-repeat 0 7px;
-    background-size: 26px;
+    color: #62b6ff; 
     font-size: calc(var(--base-font-size) * 2.0);
     line-height: 1em;
     text-decoration: none;
     font-weight: 600;
 }
 
+.link-enter{
+    background: url(../img/arrowB.png) no-repeat 0 7px;
+    background-size: 26px;
+}
+.link-home{
+    background: url(../img/l8.png) no-repeat 0 7px;
+    background-size: 26px;
+}
 .enter-wrapper {
     display: flex;
     flex-direction: column;
@@ -361,7 +368,8 @@ body {
     text-decoration: none;
 }
 
-@media (max-width:1220px) {
+@media (max-width:1340px) {
+    .link-enter,
     .link-home {
     top: 20px;
     left: 60px;
@@ -390,6 +398,10 @@ body {
     max-width: 400px;
     }
 
+    .title-enter{
+    margin: 0 0 40px 0;
+    }
+
 }
 @media (max-width:638px) {
     .enter-wrapper,
@@ -407,7 +419,7 @@ body {
     .gen-wrapper .ask_form {
     padding: 40px 20px;
     }
-
+.link-enter,
     .link-home {
     left: 20px;
     } 
