@@ -44,8 +44,6 @@ body {
     font-family: var(--base-font);
     font-size: var(--base-font-size);
     line-height: var(--base-font-line-height);
-
-
     min-height: 100vh;
     background: 
         radial-gradient(circle at 20% 30%, #7DB3E3 0%, transparent 25%),
@@ -54,16 +52,10 @@ body {
         radial-gradient(circle at 75% 85%, #5bc5f2 0%, transparent 40%),
         radial-gradient(circle at 10% 50%, #3762CF 0%, transparent 20%),
         linear-gradient(135deg, #0e7eff 0%, #ffffff 100%);
-         /* linear-gradient(135deg, #295ceb 0%, #000080 100%);  */
     background-blend-mode: overlay, screen, color-dodge, lighten, overlay;
     background-attachment: fixed;
     position: relative;
     overflow-x: hidden;
-
-    /* height: 100%;
-    overflow: hidden;
-    background: #001c96;
-    background: linear-gradient(145deg, rgba(0, 28, 150, 0.99) 16%, rgba(5, 75, 210, 1) 42%, rgba(5, 75, 210, 1) 61%, rgba(12, 40, 176, 1) 92%); */
 }
 
 
@@ -192,18 +184,8 @@ body {
     max-width: 880px;
     width: 100%;
     padding: 0 20px;
-
 }
 
-/* .form {
-    display: flex;
-    justify-self: center;
-    max-width: 400px;
-    width: 100%;
-    padding: 2em;
-    background-color: var(--lightBlue);
-    border-radius: 1em;
-} */
 
 .form {
     display: flex;
@@ -288,7 +270,6 @@ body {
     justify-self: end;
     font-size: var(--base-font-size);
     color: var(--base-color-6);
-    /* border-bottom: 1px solid var(--base-color-7); */
 }
 .ask_form input[type="password"]:focus,
 .ask_form input[type="text"]:focus,
@@ -303,7 +284,6 @@ body {
     max-width: 400px;
     width: 100%;
     padding-top: 10vh;
-    /* padding-top: 10vh; */
 }
 
 .form-wrapper {
@@ -313,8 +293,6 @@ body {
     margin: 0;
     max-width: 400px;
     width: 100%;
-    /* border-radius: 1em; */
-    /* background-color: #fff; */
 }
 
 .form-description {
@@ -341,23 +319,28 @@ body {
     display: none;
 }
 
-@media (max-width:767px) {
-    .login-wrapper {
-        max-width: 400px;
-    }
+@media (max-width:638px) {
+.gen-wrapper {
+    padding: 20px 0;
+}
 
-    .form-wrapper {
-        flex-direction: column;
-    }
+.title-gen {
+    padding-left: 32px;
+    font-size: calc(var(--base-font-size) * 1.6);
+    background-position:  0 5px;
+}
 
-    .form-description {
-        padding: 20px;
-        border-bottom-left-radius: 0;
-        border-top-right-radius: 1em;
-    }
+.gen-wrapper .ask_form {
+    padding: 40px 20px;
+}
+}
 
-    .form {
-        border-bottom-left-radius: 1em;
-        border-top-right-radius: 0;
+@media (max-width:440px) {
+    .form{
+        padding: 1.5em;
+    }
+    
+    .ask_form-login {
+    padding: 0px;
     }
 }
