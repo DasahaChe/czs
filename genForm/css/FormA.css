@@ -304,3 +304,19 @@ body {
     display: none;
 }
 
+
+@media (max-width:638px) {
+.gen-wrapper {
+    padding: 20px 0;
+}
+
+.title-gen {
+    padding-left: 32px;
+    font-size: calc(var(--base-font-size) * 1.6);
+    background-position:  0 5px;
+}
+
+.gen-wrapper .ask_form {
+    padding: 40px 20px;
+}
+}
