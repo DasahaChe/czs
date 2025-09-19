@@ -1,0 +1,144 @@
+@font-face {
+    font-family: 'TT Fors';
+    src: local('TT Fors'), url('../fonts/fors/TT\ Fors\ Trial\ Regular.woff') format('woff'), url('../fonts/TT\ Fors\ Trial\ Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fors ExtraBold';
+    src: local('TT Fors ExtraBold'), url('../fonts/fors/TT\ Fors\ Trial\ ExtraBold.woff') format('woff'), url('../fonts/fors/TT\ Fors\ Trial\ ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    font-family: 'TT Fors', Arial, sans-serif;
+    background:#fff;
+}
+
+.clear {
+    clear: both;
+}
+
+.main-container{
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 20mm;
+    background: url(img/fon00.jpg) no-repeat;
+    background-size: cover;
+}
+
+.logo-main{
+    float: left;
+    width: 145mm;
+    height: 50mm;
+}
+
+.logo-main-imgCZS{
+    width: 120mm;
+}
+.logo-main-right{
+    float: left;
+    width: 150mm;
+    height: 50mm;
+    
+}
+
+.logo-main-imgS{
+    width: 80mm;
+}
+
+.logo-main-text{
+    float: left;
+    width: 62mm;    
+    padding-top: 4mm;
+    font-size: 14pt;
+    color: #fff;
+}
+
+.logo{
+    margin-top: 20mm;
+    float: left;
+    width: 80mm;
+    height: 60mm;
+    margin-left: 20mm;
+}
+
+.logo-img{
+    width: 60mm;
+}
+
+.title-main{
+    margin-top: 20mm;
+    float: left;
+    width: 150mm; 
+    height: 60mm;
+    font-size: 32pt;
+    font-weight: bold;   
+}
+
+.main-text{
+    color: #fff;
+    font-weight: bold;
+}
+
+.logo-event{
+    float: left;
+    width: 80mm;
+    margin-left: 20mm;
+    margin-top: 20mm;
+}
+
+.logo-event-img{
+    width: 60mm;
+    opacity: 0.8;
+}
+.role,
+.country{
+    float: right;
+    width: 80mm;
+    height: 16mm;
+    text-align: right;
+    font-size: 14pt;
+    color: #fff;
+}
+.description-data{
+    margin-top: 20mm;
+    float: left;
+    width: 100mm;
+    height:40mm;
+    padding-left: 16mm;
+    background: url(img/evenD.png) no-repeat 0 top;
+    background-size: 12mm;
+}
+
+.data-text{
+    float: left;
+    width: 95mm;
+    font-size: 16pt;
+    color: #fff;
+}
+
+.description-place{
+    margin-top: 20mm;
+    float: left;
+    width: 65mm; 
+    height:40mm;
+    padding-left: 16mm;
+    background: url(img/evenP.png) no-repeat 0 top;
+    background-size: 12mm;
+}
+
+.place-text{
+    float: left;
+    width: 65mm;
+    font-size: 16pt;
+    color: #fff;
+}
