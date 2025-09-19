@@ -321,21 +321,21 @@ body {
     position: absolute;
     top: 64px;
     left: 96px;
-    padding: 0 0 0 40px;
-    color: #62b6ff; 
-    font-size: calc(var(--base-font-size) * 2.0);
+    padding: 0 0 0 34px;
+    color: #62b6ff;
+    font-size: calc(var(--base-font-size) * 1.5);
     line-height: 1em;
     text-decoration: none;
     font-weight: 600;
 }
 
 .link-enter{
-    background: url(../img/arrowB.png) no-repeat 0 7px;
-    background-size: 26px;
+    background: url(../img/arrowB.png) no-repeat 0 0px;
+    background-size: 24px;
 }
 .link-home{
-    background: url(../img/l8.png) no-repeat 0 7px;
-    background-size: 26px;
+    background: url(../img/l8.png) no-repeat 0 0px;
+    background-size: 24px;
 }
 .enter-wrapper {
     display: flex;
@@ -373,10 +373,6 @@ body {
     .link-home {
     top: 20px;
     left: 60px;
-    font-size: 1.5em;
-    padding-left: 32px;
-    background-position:  0 2px;
-    background-size: 24px;
     }
    
 }
