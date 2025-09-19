@@ -327,6 +327,7 @@ body {
     line-height: 1em;
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 .link-enter{
@@ -361,11 +362,22 @@ body {
     background-color: #fff;
     padding: 16px 32px;
     border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
 .link-gen a{
     color: var(--base-color-6);
     text-decoration: none;
+}
+
+.link-enter:hover,
+.link-home:hover{
+    color:var(--base-color-2);
+    border-bottom: 1px solid var(--base-color-2);
+}
+
+.link-gen:hover{
+    background-color: var(--base-color-2);
 }
 
 @media (max-width:1340px) {
