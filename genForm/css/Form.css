@@ -45,13 +45,14 @@ body {
     font-size: var(--base-font-size);
     line-height: var(--base-font-line-height);
     min-height: 100vh;
+    /* background: linear-gradient(135deg, #295ceb 0%, #000080 100%); */
     background: 
         radial-gradient(circle at 20% 30%, #7DB3E3 0%, transparent 25%),
         radial-gradient(circle at 80% 15%, #E6F4FF 0%, transparent 30%),
         radial-gradient(circle at 40% 70%, #0537c8 0%, transparent 35%),
         radial-gradient(circle at 75% 85%, #5bc5f2 0%, transparent 40%),
-        radial-gradient(circle at 10% 50%, #3762CF 0%, transparent 20%),
-        linear-gradient(135deg, #0e7eff 0%, #ffffff 100%);
+        radial-gradient(circle at 10% 50%, #3762CF 0%, transparent 20%);
+        /* linear-gradient(135deg, #0e7eff 0%, #ffffff 100%); */
     background-blend-mode: overlay, screen, color-dodge, lighten, overlay;
     background-attachment: fixed;
     position: relative;
@@ -339,7 +340,7 @@ body {
     .form{
         padding: 1.5em;
     }
-    
+
     .ask_form-login {
     padding: 0px;
     }
