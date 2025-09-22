@@ -19,14 +19,14 @@ body {
     height: 210mm;
     position: relative;
     font-family: 'TT Fors', Arial, sans-serif;
-    background:#fff;
+    background: #fff;
 }
 
 .clear {
     clear: both;
 }
 
-.main-container{
+.main-container {
     width: 297mm;
     height: 210mm;
     position: relative;
@@ -35,35 +35,36 @@ body {
     background-size: cover;
 }
 
-.logo-main{
+.logo-main {
     float: left;
     width: 145mm;
     height: 50mm;
 }
 
-.logo-main-imgCZS{
+.logo-main-imgCZS {
     width: 120mm;
 }
-.logo-main-right{
+
+.logo-main-right {
     float: left;
     width: 150mm;
     height: 50mm;
-    
+
 }
 
-.logo-main-imgS{
+.logo-main-imgS {
     width: 80mm;
 }
 
-.logo-main-text{
+.logo-main-text {
     float: left;
-    width: 62mm;    
+    width: 62mm;
     padding-top: 4mm;
     font-size: 14pt;
     color: #fff;
 }
 
-.logo{
+.logo {
     margin-top: 20mm;
     float: left;
     width: 80mm;
@@ -71,37 +72,38 @@ body {
     margin-left: 20mm;
 }
 
-.logo-img{
+.logo-img {
     width: 60mm;
 }
 
-.title-main{
+.title-main {
     margin-top: 20mm;
     float: left;
-    width: 150mm; 
+    width: 150mm;
     height: 60mm;
     font-size: 32pt;
-    font-weight: bold;   
+    font-weight: bold;
 }
 
-.main-text{
+.main-text {
     color: #fff;
     font-weight: bold;
 }
 
-.logo-event{
+.logo-event {
     float: left;
     width: 80mm;
     margin-left: 20mm;
     margin-top: 20mm;
 }
 
-.logo-event-img{
+.logo-event-img {
     width: 60mm;
     opacity: 0.8;
 }
+
 .role,
-.country{
+.country {
     float: right;
     width: 80mm;
     height: 16mm;
@@ -109,36 +111,104 @@ body {
     font-size: 14pt;
     color: #fff;
 }
-.description-data{
+
+.description-data {
     margin-top: 20mm;
     float: left;
     width: 100mm;
-    height:40mm;
+    height: 40mm;
     padding-left: 16mm;
     background: url(img/evenD.png) no-repeat 0 top;
     background-size: 12mm;
 }
 
-.data-text{
+.data-text {
     float: left;
     width: 95mm;
     font-size: 16pt;
     color: #fff;
 }
 
-.description-place{
+.description-place {
     margin-top: 20mm;
     float: left;
-    width: 65mm; 
-    height:40mm;
+    width: 65mm;
+    height: 40mm;
     padding-left: 16mm;
     background: url(img/evenP.png) no-repeat 0 top;
     background-size: 12mm;
 }
 
-.place-text{
+.place-text {
     float: left;
     width: 65mm;
     font-size: 16pt;
     color: #fff;
 }
+
+
+/* предложение */
+.offer-container {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 20mm 10mm;
+    background: #fff url(img/fon01.jpg) no-repeat;
+    background-size: contain;
+    border: 1px solid #000;
+}
+
+.left-block-offer {
+    float: left;
+    width: 120mm;
+}
+
+.right-block-offer {
+    float: right;
+    width: 177mm;
+}
+
+.logo-block-offer {
+    float: left;
+    width: 110mm;
+    margin-right: 10mm;
+}
+
+.product-offer{
+    margin-top: 20mm;
+    float: left;
+    width: 110mm;
+}
+.logo-czs-offer{
+    float: left;
+    width: 75mm;    
+}
+
+.logo-sail-offer {
+    float: left;
+    width: 60mm;
+    margin-top: 5mm;
+}
+
+
+.title-offer{
+    float: left;
+    width: 170mm;
+    margin-left: 10mm;
+    font-size: 36pt;
+    font-weight: bold;
+    color: #000;
+}
+
+.table-offer{
+float: left;
+    width: 177mm;
+    margin-left: 10mm;
+}
+
+.table-row-offer{
+float: left;
+    width: 177mm;
+}
+
+
