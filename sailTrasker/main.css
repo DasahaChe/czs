@@ -420,16 +420,26 @@ body {
 }
 
 /* peregovory */
+.title-pr {
+    font-size: 40pt;
+    line-height: 40pt;
+    color: #255ba9;
+    margin: 7mm 0 10mm 0;
+}
+
 .bigTitle {
     float: left;
     width: 55mm;
     font-size: 75pt;
+    line-height: 75pt;
 }
 
 .strTitle {
     float: left;
     width: 120mm;
     font-size: 32pt;
+    color: #224e85;
+    font-family: 'TT Fors';
 }
 
 .top-textPr {
@@ -443,7 +453,6 @@ body {
 }
 
 .numBigPr {
-    padding-bottom: 5mm;
     color: #255ba9;
     font-weight: bold;
     font-size: 14pt;
@@ -451,17 +460,25 @@ body {
 
 .fontBigPr {
     font-size: 56pt;
+    line-height: 56pt;
 }
 
 .numTextPr {
-    font-size: 12pt;
+    font-size: 14pt;
     font-weight: bold;
+    color: #255ba9;
+    margin-bottom: 2mm;
+}
+
+.numTextPrS {
+    font-size: 14pt;
+    line-height: 16pt;
 }
 
 .bottom-textPr {
     float: left;
     width: 116mm;
-    margin-top: 10mm;
+    margin-top: 15mm;
 }
 
 .link {
@@ -471,7 +488,7 @@ body {
 
 .qrPr {
     float: left;
-    margin-top: 10mm;
+    margin-top: 15mm;
     width: 70mm;
 }
 
