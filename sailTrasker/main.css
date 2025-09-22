@@ -545,9 +545,8 @@ body {
 
 .num-blockSt {
     float: left;
-    /* width: 60mm; */
-
-    width: 122mm;
+    width: 60mm;
+    /* width: 122mm; */
     margin-bottom: 2mm;
 }
 
@@ -558,8 +557,8 @@ body {
 }
 
 .fontBigSt {
-    font-size: 22pt;
-    line-height: 22pt;
+    font-size: 24pt;
+    line-height: 24pt;
     margin-right: 2mm;
 }
 
@@ -581,8 +580,10 @@ body {
 }
 
 .numSt-right {
-    float: left;
-    width: 122mm;
+   float: left;
+    width: 70mm;
+    margin-left: 20mm;
+    margin-top: 6mm;
 }
 
 .numSt-block {
@@ -607,8 +608,8 @@ body {
 .statNum {
     float: left;
     width: 10mm;
-    font-size: 22pt;
-    line-height: 22pt;
+    font-size: 24pt;
+    line-height: 24pt;
     color: #255ba9;
 }
 
@@ -624,8 +625,8 @@ body {
 .middle-block-left {
     float: left;
     width: 60mm;
-    height: 45mm;
-    margin-top: 15mm;
+    height: 50mm;
+    margin-top: 6mm;
     margin-right: 5mm;
 }
 
@@ -677,7 +678,7 @@ font-size: 24pt;
 }
 
 .bottom-textSt{
-    margin-top: 10mm;
+    margin-top: 12mm;
 }
 
 /* почему мы */
