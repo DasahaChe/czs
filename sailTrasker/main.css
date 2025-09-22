@@ -545,7 +545,10 @@ body {
 
 .num-blockSt {
     float: left;
-    width: 60mm;
+    /* width: 60mm; */
+
+    width: 122mm;
+    margin-bottom: 2mm;
 }
 
 .numBigSt {
@@ -555,27 +558,26 @@ body {
 }
 
 .fontBigSt {
-    font-size: 36pt;
-    line-height: 36pt;
+    font-size: 22pt;
+    line-height: 22pt;
     margin-right: 2mm;
 }
 
 .numSt {
     margin-bottom: 2mm;
-    font-size: 16pt;
+    font-size: 12pt;
     color: #255ba9;
 }
 
 .numSt-left {
     float: left;
-    padding-right: 3mm;
-    width: 63mm;
+    padding-right: 5mm;
+    width: 60mm;
 }
 
 .numSt-right-top {
     float: left;
     width: 122mm;
-    margin-top: 20mm;
 }
 
 .numSt-right {
@@ -584,7 +586,12 @@ body {
 }
 
 .numSt-block {
-    padding-bottom: 6mm;
+    margin-bottom: 2mm;
+}
+
+.numSt-block-title {
+    margin-top: 3mm;
+    padding-bottom: 4mm;
 }
 
 .middle-blockSt {
@@ -597,49 +604,11 @@ body {
     width: 120mm;
 }
 
-
-.diagramma1 {
-    float: left;
-    background: url(img/dia-5.png);
-    padding-left: 2mm;
-    background-size: cover;
-    width: 80mm;
-    height: 6mm;
-}
-
-.diagramma2 {
-    float: left;
-    background: url(img/dia-13.png);
-    padding-left: 2mm;
-    background-size: cover;
-    width: 80mm;
-    height: 6mm;
-
-}
-
-.diagramma3 {
-    float: left;
-    background: url(img/dia-28.png);
-    padding-left: 2mm;
-    background-size: cover;
-    width: 80mm;
-    height: 6mm;
-
-}
-
-.diagramma4 {
-    float: left;
-    background: url(img/dia-63.png);
-    padding-left: 2mm;
-    background-size: cover;
-    width: 80mm;
-    height: 6mm;
-}
-
 .statNum {
     float: left;
     width: 10mm;
-    font-size: 16pt;
+    font-size: 22pt;
+    line-height: 22pt;
     color: #255ba9;
 }
 
@@ -655,27 +624,26 @@ body {
 .middle-block-left {
     float: left;
     width: 60mm;
-    height: 40mm;
-    margin-top: 9mm;
+    height: 45mm;
+    margin-top: 15mm;
     margin-right: 5mm;
 }
 
 .middle-block-right {
     float: left;
     width: 117mm;
-    height: 40mm;
-    margin-top: 5mm;
+    height: 45mm;
+    margin-top: 0mm;
 
 }
 
 .middleQrSt {
     width: 55mm;
-    margin-top: 4mm;
     text-align: center;
 }
 
 .middleQrimg {
-    width: 20mm;
+    width: 34mm;
 }
 
 .qrStText {
@@ -695,6 +663,21 @@ body {
 .numSt-botom-span {
     font-size: 11pt;
     margin-left: 2mm;
+}
+
+.numSt-title{
+font-size: 24pt;
+    line-height: 24pt;
+    margin-right: 2mm;
+    color:#000;
+}
+
+.top-textSt{
+    margin-top: 8mm;
+}
+
+.bottom-textSt{
+    margin-top: 10mm;
 }
 
 /* почему мы */
