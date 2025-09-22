@@ -393,6 +393,18 @@ body {
     line-height: 13pt;
 }
 
+.numTextH{
+   font-size: 12pt;
+    line-height: 13pt; 
+    padding-top: 2mm;
+}
+
+.numTextHT{
+   font-size: 12pt;
+    line-height: 13pt; 
+    padding-top: 4mm;
+}
+
 .bottom-textAb {
     margin-top: 12mm;
     padding: 4mm;
