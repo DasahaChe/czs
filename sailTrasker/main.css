@@ -788,9 +788,10 @@ body {
 
 .numHow {
     float: left;
-    width: 16mm;
+    width: 10mm;
     font-size: 24pt;
     color: #255ba9;
+    padding-right: 4mm;
 }
 
 .lineLeft {
