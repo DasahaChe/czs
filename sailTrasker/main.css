@@ -543,20 +543,6 @@ body {
     margin-top: 5mm;
 }
 
-.title-wh{
-    font-size: 32pt;
-    line-height: 32pt;
-    color: #255ba9;
-    margin-top: 7mm;
-}
-
-.title-how {
-    font-size: 32pt;
-    line-height: 32pt;
-    color: #255ba9;
-    margin-top: 7mm;
-}
-
 .num-blockSt {
     float: left;
     width: 60mm;
@@ -712,6 +698,14 @@ body {
 }
 
 /* почему мы */
+
+.title-wh{
+    font-size: 32pt;
+    line-height: 32pt;
+    color: #255ba9;
+    margin-top: 7mm;
+}
+
 .block4-title {
     font-size: 18pt;
     line-height: 18pt;
@@ -786,6 +780,13 @@ body {
 }
 
 /* как заключить контракты */
+
+.title-how {
+    font-size: 32pt;
+    line-height: 32pt;
+    color: #255ba9;
+    margin-top: 7mm;
+}
 .how-block {
     float: left;
     width: 207mm;
@@ -843,6 +844,18 @@ body {
 }
 
 /* foto */
+.title-vs {
+    font-size: 32pt;
+    line-height: 32pt;
+    color: #255ba9;
+    margin: 5mm 0;
+}
+
+.vs-Text{
+font-size: 20px;
+line-height: 20px;
+color:#224e85;
+}
 .topFoto-left {
     float: left;
     width: 93mm;
