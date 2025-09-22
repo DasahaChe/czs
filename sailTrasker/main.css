@@ -540,6 +540,21 @@ body {
     font-size: 32pt;
     line-height: 32pt;
     color: #255ba9;
+    margin-top: 5mm;
+}
+
+.title-wh{
+    font-size: 32pt;
+    line-height: 32pt;
+    color: #255ba9;
+    margin-top: 7mm;
+}
+
+.title-how {
+    font-size: 32pt;
+    line-height: 32pt;
+    color: #255ba9;
+    margin-top: 7mm;
 }
 
 .num-blockSt {
