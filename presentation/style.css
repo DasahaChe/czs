@@ -148,6 +148,7 @@ body {
 
 
 /* предложение */
+
 .offer-container {
     width: 297mm;
     height: 210mm;
@@ -155,7 +156,6 @@ body {
     padding: 20mm 10mm;
     background: #fff url(img/fon01.jpg) no-repeat;
     background-size: contain;
-    border: 1px solid #000;
 }
 
 .left-block-offer {
@@ -174,14 +174,15 @@ body {
     margin-right: 10mm;
 }
 
-.product-offer{
+.product-offer {
     margin-top: 20mm;
     float: left;
     width: 110mm;
 }
-.logo-czs-offer{
+
+.logo-czs-offer {
     float: left;
-    width: 75mm;    
+    width: 75mm;
 }
 
 .logo-sail-offer {
@@ -191,7 +192,7 @@ body {
 }
 
 
-.title-offer{
+.title-offer {
     float: left;
     width: 170mm;
     margin-left: 10mm;
@@ -200,15 +201,113 @@ body {
     color: #000;
 }
 
-.table-offer{
-float: left;
+.table-offer {
+    float: left;
+    width: 165mm;
+    margin: 10mm 0 0 10mm;
+}
+
+.table-row-offer {
+    float: left;
+    width: 165mm;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.table-cell-left-offer {
+    float: left;
+    width: 55mm;
+    min-height: 10mm;
+    padding-top: 4mm;
+    color: #595959;
+    font-size: 14pt;
+}
+
+.table-cell-right-offer {
+    float: left;
+    width: 106mm;
+    min-height: 6mm;
+    padding: 4mm 0 4mm 4mm;
+    font-size: 14pt;
+}
+
+/* производство */
+.product-container {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 20mm 10mm;
+    background: #fff url(img/fon01.jpg) no-repeat;
+    background-size: contain;
+}
+
+.left-block-product {
+    float: left;
+    width: 120mm;
+}
+
+.right-block-product {
+    float: right;
     width: 177mm;
+}
+
+.logo-block-product {
+    float: left;
+    width: 110mm;
+    margin-right: 10mm;
+}
+
+.product-product {
+    margin-top: 20mm;
+    float: left;
+    width: 110mm;
+}
+
+.logo-czs-product {
+    float: left;
+    width: 75mm;
+}
+
+.logo-sail-product {
+    float: left;
+    width: 60mm;
+    margin-top: 5mm;
+}
+
+
+.title-product {
+    float: left;
+    width: 170mm;
     margin-left: 10mm;
+    font-size: 36pt;
+    font-weight: bold;
+    color: #000;
 }
 
-.table-row-offer{
-float: left;
-    width: 177mm;
+.table-product {
+    float: left;
+    width: 165mm;
+    margin: 10mm 0 0 10mm;
 }
 
+.table-row-product {
+    float: left;
+    width: 165mm;
+    border-bottom: 1px solid #a8a8a8;
+}
 
+.table-cell-left-product {
+    float: left;
+    width: 55mm;
+    min-height: 10mm;
+    padding-top: 4mm;
+    color: #595959;
+    font-size: 14pt;
+}
+
+.table-cell-right-product {
+    float: left;
+    width: 106mm;
+    min-height: 6mm;
+    padding: 4mm 0 4mm 4mm;
+    font-size: 14pt;
+}
