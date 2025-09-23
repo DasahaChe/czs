@@ -148,7 +148,6 @@ body {
 
 
 /* предложение */
-
 .offer-container {
     width: 297mm;
     height: 210mm;
@@ -193,7 +192,6 @@ body {
 
 
 .title-offer {
-    float: left;
     width: 170mm;
     margin-left: 10mm;
     font-size: 36pt;
@@ -275,7 +273,6 @@ body {
 
 
 .title-product {
-    float: left;
     width: 170mm;
     margin-left: 10mm;
     font-size: 36pt;
@@ -352,7 +349,6 @@ body {
 }
 
 .title-description{
-    float: left;
     width: 190mm;
     margin: 7mm 0;
     font-size: 36pt;
@@ -366,4 +362,114 @@ body {
     line-height: 24pt;
     color: #595959;
     padding: 0 10mm;
+}
+
+/* клиенты */
+
+
+.client-container{
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 20mm 10mm;
+    background: #fff url(img/fon01.jpg) no-repeat;
+    background-size: contain;
+    border: #000 solid 1px;
+}
+
+.left-block-client {
+    float: left;
+    width: 120mm;
+}
+
+.right-block-client {
+    float: right;
+    width: 177mm;
+}
+
+.logo-block-client {
+    float: left;
+    width: 110mm;
+    margin-right: 10mm;
+}
+
+.product-client {
+    margin-top: 20mm;
+    float: left;
+    width: 110mm;
+}
+
+.logo-czs-client {
+    float: left;
+    width: 75mm;
+}
+
+.logo-sail-client {
+    float: left;
+    width: 60mm;
+    margin-top: 5mm;
+}
+
+
+.title-client {
+    width: 170mm;
+    margin-left: 10mm;
+    font-size: 36pt;
+    font-weight: bold;
+    color: #000;
+}
+
+.table-client {
+    float: left;
+    width: 165mm;
+    margin: 10mm 0 0 10mm;
+}
+
+.table-row-client {
+    float: left;
+    width: 165mm;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.table-cell-left-client {
+    float: left;
+    width: 55mm;
+    min-height: 10mm;
+    padding-top: 4mm;
+    color: #595959;
+    font-size: 14pt;
+}
+
+.table-cell-right-client {
+    float: left;
+    width: 106mm;
+    min-height: 6mm;
+    padding: 4mm 0 4mm 4mm;
+    font-size: 14pt;
+}
+
+.client-list
+    {
+    list-style: none;
+    margin-top: 10mm;
+    padding-left: 10mm;
+}
+
+.client-item{  
+    font-size: 18pt;
+    line-height: 20pt;
+    color: #595959;
+    height: 12mm;
+}
+.client-list li {
+    position: relative;
+    padding-left: 1.2em;
+}
+.client-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    font-size: 0.8em;
+    color: #555;
 }
