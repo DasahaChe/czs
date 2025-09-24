@@ -545,8 +545,7 @@ body {
 
 .num-blockSt {
     float: left;
-    width: 60mm;
-    /* width: 122mm; */
+    width: 65mm;
     margin-bottom: 2mm;
 }
 
@@ -570,18 +569,17 @@ body {
 
 .numSt-left {
     float: left;
-    padding-right: 5mm;
     width: 60mm;
 }
 
 .numSt-right-top {
     float: left;
-    width: 122mm;
+    width: 130mm;
 }
 
 .numSt-right {
    float: left;
-    width: 70mm;
+    width: 90mm;
     margin-left: 20mm;
     margin-top: 6mm;
 }
