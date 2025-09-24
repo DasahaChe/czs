@@ -535,7 +535,7 @@ body {
     width: 217mm;
     margin: 10mm 0 0 0;
     padding: 10mm 40mm;
-    background: linear-gradient(145deg, rgba(87, 118, 255, 0.99) 16%, rgba(149, 195, 252, 1) 42%, rgba(52, 85, 250, 1) 92%);
+    background: linear-gradient(145deg, rgba(87, 118, 255, 0.99) 16%, rgba(52, 85, 250, 1) 92%);
 }
 
 .table-row-contakt {
