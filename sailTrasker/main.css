@@ -645,6 +645,10 @@ body {
     width: 34mm;
 }
 
+.middleQrimg-why {
+    width: 20mm;
+}
+
 .qrStText {
     font-size: 9pt;
     padding: 2mm 4mm;
