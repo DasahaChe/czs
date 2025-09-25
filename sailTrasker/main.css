@@ -63,18 +63,18 @@ body {
 .text-block {
     position: relative;
     padding: 10mm;
-    width: 180mm;
+    width: 240mm;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 7mm;
 }
 
-/* .name-top {
+.name-top {
     padding: 2mm 5mm 1.5mm 5mm;
     margin-bottom: 10mm;
     color: #224e85;
     background-color: #fff;
     border-radius: 5mm;
-} */
+}
 
 .name-bottom {
     color: #fff;
@@ -94,6 +94,7 @@ body {
     float: left;
     width: 12mm;
     padding: 2mm 5mm;
+    margin-top: 4mm;
     background-color: #fff;
     border-radius: 5mm;
     vertical-align: middle;
@@ -104,6 +105,7 @@ body {
     float: left;
     width: 40mm;
     padding: 2mm 5mm;
+    margin-top: 4mm;
     background-color: #fff;
     border-radius: 5mm;
     vertical-align: middle;
@@ -114,6 +116,7 @@ body {
     float: left;
     min-width: 10mm;
     padding: 2mm 5mm;
+    margin-top: 4mm;
     background-color: #fff;
     border-radius: 5mm;
     vertical-align: middle;
