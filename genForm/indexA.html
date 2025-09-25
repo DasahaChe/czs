@@ -5,196 +5,285 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Генератор форм</title>
     <link href="css/FormA.css" rel="stylesheet">
+
 </head>
 
 <body>
     <header>
         <div class="container">
-            <div><a class="link-home" href="#">на главную</a></div>
+            <div><a class="link-home" href="/">на главную</a></div>
         </div>
     </header>
-
     <main class="container">
         <div class="gen-wrapper">
-            <h1 class="title-gen">генератор коммерческого предложения</h1>
+            <h1 class="title-gen">Генератор коммерческого предложения в&nbsp;pdf</h1>
             <form method="post" class="ask_form">
-                <div class="input-group">
-                    <label for="company" class="gen-text">Название компании</label>
-                    <input type="text" id="company" name="company" placeholder="Введите название компании">
+                <input type="text" name="company" placeholder="Название компании">
+                <input type="text" name="person_post" placeholder="Должность в дательном падеже">
+                <input type="text" name="person_name" placeholder="ФИО в дательном падеже">
+                <!--<select name="product">
+                    <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для поставщиков</option>
+                </select>-->
+                <select class="event">
+                    <option value="43">Центр Закупок Сетей: WorldFood 2025</option>
+                    <option value="42">Нева 2025</option>
+                    <option value="29">Петерфуд</option>
+                </select>
+                <button type="button" class="ask_cat">Получить список категории</button>
+                <div class="cat_list">
+                    <div class="cat"><input type="radio" name="category" class="category" value="Автотовары"
+                            id="category_wnu130yqr"><label for="category_wnu130yqr">Автотовары</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Аксессуары для ванной и бани" id="category_m7pn703wc"><label
+                            for="category_m7pn703wc">Аксессуары для ванной и бани</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Бакалея. Зернопродукты"
+                            id="category_193xmvkcp"><label for="category_193xmvkcp">Бакалея. Зернопродукты</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Безалкогольные напитки, соки, воды" id="category_ihhdklwvq"><label
+                            for="category_ihhdklwvq">Безалкогольные напитки, соки, воды</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Бытовая техника и электроника" id="category_kkccstq5l"><label
+                            for="category_kkccstq5l">Бытовая техника и электроника</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Бытовая химия"
+                            id="category_j2xlfebd7"><label for="category_j2xlfebd7">Бытовая химия</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Ватно-бумажная продукция" id="category_uly4b2yd6"><label
+                            for="category_uly4b2yd6">Ватно-бумажная продукция</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Вина, тихие вина, игристые вина" id="category_b6indw05h"><label
+                            for="category_b6indw05h">Вина, тихие вина, игристые вина</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Готовые блюда. Кулинария" id="category_ayzeizhky"><label
+                            for="category_ayzeizhky">Готовые блюда. Кулинария</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Декор и интерьер"
+                            id="category_5fdstt1dj"><label for="category_5fdstt1dj">Декор и интерьер</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Детское питание"
+                            id="category_mb1y1eway"><label for="category_mb1y1eway">Детское питание</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Джемы, сиропы, варенье, соусы" id="category_xtcdvs62x"><label
+                            for="category_xtcdvs62x">Джемы, сиропы, варенье, соусы</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Другое"
+                            id="category_55cl6suya"><label for="category_55cl6suya">Другое</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Другое food"
+                            id="category_uq87ez7n1"><label for="category_uq87ez7n1">Другое food</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Другое non-food"
+                            id="category_dk8zt8xs8"><label for="category_dk8zt8xs8">Другое non-food</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Замороженные продукты. П/ф. Мороженое" id="category_m1prfcr3l"><label
+                            for="category_m1prfcr3l">Замороженные продукты. П/ф. Мороженое</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Здоровое питание. Спортивное питание. БАДы" id="category_v7oixxy48"><label
+                            for="category_v7oixxy48">Здоровое питание. Спортивное питание. БАДы</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Канцелярские товары, книги" id="category_6mj4cqhn9"><label
+                            for="category_6mj4cqhn9">Канцелярские товары, книги</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Кондитерская, хлебопекарная продукция" id="category_xzqfrpsgj"><label
+                            for="category_xzqfrpsgj">Кондитерская, хлебопекарная продукция</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Консервация: овощная, рыбная, мясная" id="category_j0e0nt6vs"><label
+                            for="category_j0e0nt6vs">Консервация: овощная, рыбная, мясная</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Корма для животных"
+                            id="category_u5ds26fu4"><label for="category_u5ds26fu4">Корма для животных</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Косметика и парфюмерия"
+                            id="category_xc679tsqg"><label for="category_xc679tsqg">Косметика и парфюмерия</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Крепкий алкоголь"
+                            id="category_jj6ztfvgg"><label for="category_jj6ztfvgg">Крепкий алкоголь</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Крупная и мелкая бытовая техника" id="category_ebdqjschj"><label
+                            for="category_ebdqjschj">Крупная и мелкая бытовая техника</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Макароны. Приправы. Соусы и специи" id="category_8fca62jpi"><label
+                            for="category_8fca62jpi">Макароны. Приправы. Соусы и специи</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Мебель для дома и офиса" id="category_gduomxuvl"><label
+                            for="category_gduomxuvl">Мебель для дома и офиса</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Мед и продукты пчеловодства" id="category_i4mfbi6ho"><label
+                            for="category_i4mfbi6ho">Мед и продукты пчеловодства</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Молочная продукция. Сыры. Мороженое" id="category_84vwa3j97"><label
+                            for="category_84vwa3j97">Молочная продукция. Сыры. Мороженое</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Молочная продукция. Сыры. Творог и творожная масса" id="category_de29facc3"><label
+                            for="category_de29facc3">Молочная продукция. Сыры. Творог и творожная масса</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Мясные, колбасные изделия, деликатесы" id="category_8x4xvvhox"><label
+                            for="category_8x4xvvhox">Мясные, колбасные изделия, деликатесы</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Мясо. Мясо птицы. Яйцо"
+                            id="category_1pbuxjax0"><label for="category_1pbuxjax0">Мясо. Мясо птицы. Яйцо</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Оборудование для ритейла" id="category_4oatf9d09"><label
+                            for="category_4oatf9d09">Оборудование для ритейла</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Овощи. Фрукты"
+                            id="category_7430jsdn3"><label for="category_7430jsdn3">Овощи. Фрукты</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Пеномоющие средства"
+                            id="category_ly86lyjal"><label for="category_ly86lyjal">Пеномоющие средства</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Пищевые ингредиенты"
+                            id="category_rf81c5ulr"><label for="category_rf81c5ulr">Пищевые ингредиенты</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Пищевые ингредиенты для СП" id="category_ng962duv9"><label
+                            for="category_ng962duv9">Пищевые ингредиенты для СП</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Растительные жиры"
+                            id="category_m2fattfsm"><label for="category_m2fattfsm">Растительные жиры</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Рыба и морепродукты"
+                            id="category_b14ikw93n"><label for="category_b14ikw93n">Рыба и морепродукты</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Слабоалкогольные напитки, пиво" id="category_5u93bthlc"><label
+                            for="category_5u93bthlc">Слабоалкогольные напитки, пиво</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Снэки, ореxи, суxофрукты" id="category_cmcue7qxm"><label
+                            for="category_cmcue7qxm">Снэки, ореxи, суxофрукты</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Средства личной гигиены" id="category_4rjx881q7"><label
+                            for="category_4rjx881q7">Средства личной гигиены</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Стройматериалы, инструменты" id="category_g63cgxa6w"><label
+                            for="category_g63cgxa6w">Стройматериалы, инструменты</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Сувениры, подарки, аксессуары" id="category_fjwbo01bk"><label
+                            for="category_fjwbo01bk">Сувениры, подарки, аксессуары</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Табак и табачные изделия" id="category_mwm9belbi"><label
+                            for="category_mwm9belbi">Табак и табачные изделия</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Текстиль для дома, ЧНИ и обувь" id="category_fqz1hlinl"><label
+                            for="category_fqz1hlinl">Текстиль для дома, ЧНИ и обувь</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Товары для детей, игрушки" id="category_q4amchrwy"><label
+                            for="category_q4amchrwy">Товары для детей, игрушки</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Товары для дома, хоз. товары" id="category_9d0xctu0v"><label
+                            for="category_9d0xctu0v">Товары для дома, хоз. товары</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Товары для животных, корма" id="category_4yhjvarhs"><label
+                            for="category_4yhjvarhs">Товары для животных, корма</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Товары для кухни, посуда" id="category_qt1s7qich"><label
+                            for="category_qt1s7qich">Товары для кухни, посуда</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Товары для сада, огорода, цветы" id="category_p8ibmo5rj"><label
+                            for="category_p8ibmo5rj">Товары для сада, огорода, цветы</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Товары для туризма, спорта, хобби и досуга" id="category_ri062umfr"><label
+                            for="category_ri062umfr">Товары для туризма, спорта, хобби и досуга</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Товары к празднику, украшения" id="category_er1e94a0a"><label
+                            for="category_er1e94a0a">Товары к празднику, украшения</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Товары прикассовой зоны food" id="category_10lou5fzd"><label
+                            for="category_10lou5fzd">Товары прикассовой зоны food</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category"
+                            value="Товары прикассовой зоны non-food" id="category_2z3182ka6"><label
+                            for="category_2z3182ka6">Товары прикассовой зоны non-food</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Чай, кофе, какао"
+                            id="category_eiugy8nzo"><label for="category_eiugy8nzo">Чай, кофе, какао</label></div>
+                    <div class="cat"><input type="radio" name="category" class="category" value="Электроинструменты"
+                            id="category_shtymrqhk"><label for="category_shtymrqhk">Электроинструменты</label></div>
                 </div>
-                <div class="input-group">
-                    <label for="product" class="gen-text">Название мероприятия</label>
-                    <select id="product" name="product">
-                        <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для поставщиков</option>
-                        <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для закупщиков</option>
-                        <option value="Центр закупок сетей для поставщиков">Центр закупок сетей для организаторов
-                            выставок
-                        </option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="category" class="gen-text">Категория продукта</label>
-                    <textarea name="category" id="category" placeholder="Ваши категории продуктов"></textarea>
-                </div>
-                <button type="button" class="ask_cat">Получить категорию из списка</button>
-                <div class="cat_list none">
-                    <div class="cat">Игрушки, игры, хобби</div>
-                    <div class="cat">Канцелярские товары, книги для детей</div>
-                    <div class="cat">Творчество и дизайн</div>
-                    <div class="cat">Новогодняя продукция, подарки</div>
-                    <div class="cat">Средства по уходу за детьми, детская косметика</div>
-                    <div class="cat">Одежда, обувь, аксессуары для детей и подростков</div>
-                    <div class="cat">Постельное белье и принадлежности</div>
-                    <div class="cat">Одежда и аксессуары для будущих и кормящих матерей</div>
-                    <div class="cat">Товары для активного отдыха, спорттовары</div>
-                    <div class="cat">Крупногабаритные товары для детей</div>
-                    <div class="cat">Товары для новорожденных</div>
-                    <div class="cat">Коляски, Автомобильные кресла</div>
-                    <div class="cat">Детская мебель, предметы интерьера для дома</div>
-                    <div class="cat">Детское питание мд</div>
-                    <div class="cat">Многофункциональное оборудование</div>
-                    <div class="cat">Товары прикассовой зоны</div>
-                    <div class="cat">Другое (детские товары)</div>
-                    <div class="cat">Бакалея. Зернопродукты</div>
-                    <div class="cat">Безалкогольные напитки, соки, воды</div>
-                    <div class="cat">Вина, тихие вина, игристые вина</div>
-                    <div class="cat">Готовые блюда. Салаты</div>
-                    <div class="cat">Детское питание</div>
-                    <div class="cat">Джемы, сиропы, варенье, соусы</div>
-                    <div class="cat">Замороженные продукты. П/ф</div>
-                    <div class="cat">Здоровое питание</div>
-                    <div class="cat">Кондитерская, хлебопекарная продукция</div>
-                    <div class="cat">Консервация: овощная, рыбная, мясная</div>
-                    <div class="cat">Крепкий алкоголь</div>
-                    <div class="cat">Макароны. Приправы. Соусы и специи</div>
-                    <div class="cat">Мед и продукты пчеловодства</div>
-                    <div class="cat">Молочная продукция. Сыры. Мороженое</div>
-                    <div class="cat">Мясные, колбасные изделия, деликатесы</div>
-                    <div class="cat">Овощи. Фрукты</div>
-                    <div class="cat">Пищевые ингредиенты</div>
-                    <div class="cat">Птица. Яйцо</div>
-                    <div class="cat">Растительные жиры</div>
-                    <div class="cat">Рыба и морепродукты</div>
-                    <div class="cat">Слабоалкогольные напитки, пиво</div>
-                    <div class="cat">Снэки, ореxи, суxофрукты</div>
-                    <div class="cat">Спортивное питание. БАДы</div>
-                    <div class="cat">Табак и табачные изделия</div>
-                    <div class="cat">Творог и творожная масса</div>
-                    <div class="cat">Товары прикассовой зоны food</div>
-                    <div class="cat">Чай, кофе, какао</div>
-                    <div class="cat">Другое food</div>
-                    <div class="cat">Оборудование для ритейла</div>
-                    <div class="cat">Автотовары</div>
-                    <div class="cat">Аксессуары для ванной и бани</div>
-                    <div class="cat">Бытовая химия</div>
-                    <div class="cat">Ватно-бумажная продукция</div>
-                    <div class="cat">Канцелярские товары, книги</div>
-                    <div class="cat">Косметика и парфюмерия</div>
-                    <div class="cat">Крупная и мелкая бытовая техника</div>
-                    <div class="cat">Пеномоющие средства</div>
-                    <div class="cat">Средства личной гигиены</div>
-                    <div class="cat">Стройматериалы, инструменты</div>
-                    <div class="cat">Сувениры, подарки, аксессуары</div>
-                    <div class="cat">Текстиль для дома, ЧНИ и обувь</div>
-                    <div class="cat">Товары для детей, игрушки</div>
-                    <div class="cat">Товары для дома, хоз. товары</div>
-                    <div class="cat">Товары для животных, корма</div>
-                    <div class="cat">Товары для кухни, посуда</div>
-                    <div class="cat">Товары для сада, огорода, цветы</div>
-                    <div class="cat">Товары для туризма, спорта, хобби и досуга</div>
-                    <div class="cat">Товары прикассовой зоны non-food</div>
-                    <div class="cat">Электроинструменты</div>
-                    <div class="cat">Другое non-food</div>
-                    <div class="cat">Замороженная продукция</div>
-                    <div class="cat">Овощи</div>
-                    <div class="cat">Семена, удобрения</div>
-                    <div class="cat">Упаковка</div>
-                    <div class="cat">Фрукты</div>
-                    <div class="cat">Кассовая техника и оборудование</div>
-                    <div class="cat">Кадровые услуги</div>
-                    <div class="cat">Малогабаритное оборудование для магазинов и складов</div>
-                    <div class="cat">Платежные системы, терминалы, e-commerce</div>
-                    <div class="cat">Разработка ПО, цифровые решения, облачные технологии</div>
-                    <div class="cat">Реклама, дизайн, полиграфия</div>
-                    <div class="cat">Тара и упаковка</div>
-                    <div class="cat">Транспорт и логистика</div>
-                    <div class="cat">Факторинг, банковские услуги, финансовые услуги</div>
-                    <div class="cat">Юридические услуги</div>
-                    <div class="cat">Аквариумы, террариумы</div>
-                    <div class="cat">Витамины и добавки</div>
-                    <div class="cat">Декор и оборудование</div>
-                    <div class="cat">Игрушки и аксессуары</div>
-                    <div class="cat">Когтеточки</div>
-                    <div class="cat">Корма и лакомства</div>
-                    <div class="cat">Кормушки, клетки, миски</div>
-                    <div class="cat">Косметика для ухода</div>
-                    <div class="cat">Лежаки, домики, переноски</div>
-                    <div class="cat">Наполнители и туалеты</div>
-                    <div class="cat">Одежда и бижутерия</div>
-                    <div class="cat">Smart-товары и техника</div>
-                    <div class="cat">Предметы интерьера, текстиль, декор</div>
-                    <div class="cat">Офисная мебель</div>
-                    <div class="cat">Мягкая мебель</div>
-                    <div class="cat">Корпусная и детская мебель</div>
-                    <div class="cat">Матрасы и мебель для спальни</div>
-                    <div class="cat">Мебель для кухни</div>
-                    <div class="cat">Двери, комплектующие, фурнитура</div>
-                    <div class="cat">Другое мебель</div>
-                    <div class="cat">IP-Технологии</div>
-                    <div class="cat">IT-Услуги</div>
-                    <div class="cat">Интернет-технологии и услуги</div>
-                    <div class="cat">Кабели связи, оборудование</div>
-                    <div class="cat">Микроэлектроника</div>
-                    <div class="cat">Мобильные платежи</div>
-                    <div class="cat">Программное обеспечение</div>
-                    <div class="cat">Радиосвязь</div>
-                    <div class="cat">Системы и оборудование спутниковой связи</div>
-                    <div class="cat">Системы электропитания</div>
-                    <div class="cat">Телевидение и радиовещание</div>
-                    <div class="cat">Телекоммуникационная и сетевая структура</div>
-                    <div class="cat">Телекоммуникационное оборудование, оптическая связь</div>
-                    <div class="cat">Цоды. Центры обработки и хранения</div>
-                </div>
-                <div class="input-group">
-                    <label for="questions" class="gen-text">Ваши вопросы</label>
-                    <input type="text" id="questions" name="questions" placeholder="Напишите Ваши вопросы">
-                </div>
-                <div class="input-group">
-                    <label for="proposal" class="gen-text">Целевое предложение</label>
-                    <input type="text" id="proposal" name="proposal" placeholder="Напишите Ваше целевое предложение"
-                        value="За 8 минут презентации мы предоставим решение для поставщика как получить новых сетевых клиентов при помощи Платформы Центр Закупок Сетей ">
-                </div>
-                <div class="input-group">
-                    <label for="event" class="gen-text">Событие</label>
-                    <select class="event" id="event">
-                        <option value="42">Нева 2025</option>
-                        <option value="29">Петерфуд</option>
-                    </select>
-                </div>
-                <button type="button" class="get_stat">Получить статистику по категориям</button>
-                <div class="input-group">
-                    <label for="stat" class="gen-text">Описание продукта</label>
-                    <textarea class="stat" id="stat" name="stat" placeholder="Категория продукта"></textarea>
+                <div class="stat"></div>
+               <!-- <button type="button" class="ask_buy">Выберите поставщиков</button>
+                <div class="buy_list">
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Азбука Вкуса"
+                            id="buy-name01"><label for="buy-name01">Азбука Вкуса</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Ашан"
+                            id="buy-name02"><label for="buy-name02">Ашан</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Булочные Вольчека"
+                            id="buy-name03"><label for="buy-name03">Булочные Вольчека</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Верный"
+                            id="buy-name04"><label for="buy-name04">Верный</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="ВкусВилл"
+                            id="buy-name05"><label for="buy-name05">ВкусВилл</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Высшая Лига"
+                            id="buy-name06"><label for="buy-name06">Высшая Лига</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Глобус"
+                            id="buy-name07"><label for="buy-name07">Глобус</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Европа"
+                            id="buy-name08"><label for="buy-name08">Европа</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Магнит"
+                            id="buy-name09"><label for="buy-name09">Магнит</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Магнолия"
+                            id="buy-name10"><label for="buy-name10">Магнолия</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Миндаль"
+                            id="buy-name11"><label for="buy-name11">Миндаль</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="ОКЕЙ"
+                            id="buy-name12"><label for="buy-name12">ОКЕЙ</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Пеликан"
+                            id="buy-name13"><label for="buy-name13">Пеликан</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="РеалЪ"
+                            id="buy-name14"><label for="buy-name14">РеалЪ</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Роснефть АЗС"
+                            id="buy-name15"><label for="buy-name15">Роснефть АЗС</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Самокат"
+                            id="buy-name16"><label for="buy-name16">Самокат</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Семишагофф"
+                            id="buy-name17"><label for="buy-name17">Семишагофф</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Familia"
+                            id="buy-name18"><label for="buy-name18">Familia</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="X5 Ready Food"
+                            id="buy-name19"><label for="buy-name19">X5 Ready Food</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="X5, Перекресток"
+                            id="buy-name21"><label for="buy-name21">X5, Перекресток</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="X5, Пятерочка"
+                            id="buy-name21"><label for="buy-name21">X5, Пятерочка</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Бо кафе"
+                            id="buy-name22"><label for="buy-name22">Бо кафе</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Яндекс Лавка"
+                            id="buy-name23"><label for="buy-name23">Яндекс Лавка</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="Андерсон"
+                            id="buy-name24"><label for="buy-name24">Андерсон</label></div>
+                    <div class="buy"><input type="radio" name="buy-name" class="buy-name" value="S2B"
+                            id="buy-name25"><label for="buy-name25">S2B</label></div>
+
+                </div>  -->
+                <div>Выберите поставщиков</div>
+                <div class="buyers_list">
+                    <label><input type="checkbox" name="buyer" value="Азбука Вкуса">Азбука Вкуса</label>
+                    <label><input type="checkbox" name="buyer" value="Андерсон">Андерсон</label>
+                    <label><input type="checkbox" name="buyer" value="Ашан">Ашан</label>                    
+                    <label><input type="checkbox" name="buyer" value="Бо кафе">Бо кафе</label>
+                    <label><input type="checkbox" name="buyer" value="Булочные Вольчека">Булочные Вольчека</label>
+                    <label><input type="checkbox" name="buyer" value="Верный">Верный</label>
+                    <label><input type="checkbox" name="buyer" value="ВкусВилл">ВкусВилл</label>
+                    <label><input type="checkbox" name="buyer" value="Высшая Лига">Высшая Лига</label>
+                    <label><input type="checkbox" name="buyer" value="Глобус">Глобус</label>
+                    <label><input type="checkbox" name="buyer" value="Европа">Европа</label>
+                    <label><input type="checkbox" name="buyer" value="Магнит">Магнит</label>
+                    <label><input type="checkbox" name="buyer" value="Магнолия">Магнолия</label>
+                    <label><input type="checkbox" name="buyer" value="Миндаль">Миндаль</label>
+                    <label><input type="checkbox" name="buyer" value="ОКЕЙ">ОКЕЙ</label>
+                    <label><input type="checkbox" name="buyer" value="Пеликан">Пеликан</label>
+                    <label><input type="checkbox" name="buyer" value="РеалЪ">РеалЪ</label>
+                    <label><input type="checkbox" name="buyer" value="Роснефть АЗС">Роснефть АЗС</label>
+                    <label><input type="checkbox" name="buyer" value="Самокат">Самокат</label>
+                    <label><input type="checkbox" name="buyer" value="Семишагофф">Семишагофф</label>
+                    <label><input type="checkbox" name="buyer" value="Familia">Familia</label>
+                    <label><input type="checkbox" name="buyer" value="X5 Ready Food">X5 Ready Food</label>
+                    <label><input type="checkbox" name="buyer" value="X5, Перекресток">X5, Перекресток</label>
+                    <label><input type="checkbox" name="buyer" value="X5, Пятерочка">X5, Пятерочка</label>
+                    <label><input type="checkbox" name="buyer" value="Яндекс Лавка">Яндекс Лавка</label>                    
+                    <label><input type="checkbox" name="buyer" value="S2B">S2B</label>
                 </div>
                 <button type="button" class="get_photo">Получить фото из Яндекс Диска</button>
                 <div class="photos_result"></div>
-                <div class="input-group">
-                    <label for="manager" class="gen-text">Контактный менеджер</label>
-                    <input type="text" id="manager" name="manager" placeholder="Напишите имя контактного менеджера">
-                </div>
-                <button class="submit_form" type="submit">Сгенерировать текст предложения</button>
-                <div class="input-group">
-                    <label for="more" class="gen-text">Дополнение</label>
-                    <div class="presentation_gen_result" name="more" id="more"><textarea></textarea></div>
-                </div>
-                <button type="button" class="save_file">Сохранить в word файл</button>
+                <div>Менеджер</div>
+                <select name="manager">
+                    <option value="Татьяна Вострикова;+79219512113;manager47@imperia-forums.ru;vostrikova.jpg">Татьяна
+                        Вострикова</option>
+                        <option value="Татьяна Вострикова;+79219512113;manager47@imperia-forums.ru;vostrikova.jpg">Татьяна
+                        Вострикова</option>
+                        <option value="Татьяна Вострикова;+79219512113;manager47@imperia-forums.ru;vostrikova.jpg">Татьяна
+                        Вострикова</option>
+                        <option value="Татьяна Вострикова;+79219512113;manager47@imperia-forums.ru;vostrikova.jpg">Татьяна
+                        Вострикова</option>
+                        <option value="Татьяна Вострикова;+79219512113;manager47@imperia-forums.ru;vostrikova.jpg">Татьяна
+                        Вострикова</option>
+                </select>
+                <button class="submit_form" type="submit">Получить файл презентации в pdf</button>
             </form>
         </div>
-
     </main>
-
-    <script src="https://online-czs.ru/project/webroot/js/yastatic.net_jquery_2.1.3_jquery.min.js"></script>
-    <script src="/src/Infrastructure/Http/Site/Js/Form.js"></script>
+    <script src="/src/Infrastructure/Http/Site/Js/PdfForm.js"></script>
 
 </body>
 
