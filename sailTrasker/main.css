@@ -93,7 +93,7 @@ body {
 .description-left {
     float: left;
     width: 12mm;
-    height: 16mm;
+    height: 6mm;
     padding: 2mm 5mm;
     margin-top: 4mm;
     background-color: #fff;
@@ -105,7 +105,7 @@ body {
 .description {
     float: left;
     width: 40mm;
-    height: 16mm;
+    height: 6mm;
     padding: 2mm 5mm;
     margin-top: 4mm;
     background-color: #fff;
@@ -117,7 +117,7 @@ body {
 .description-right {
     float: left;
     min-width: 10mm;
-    height: 16mm;
+    height: 6mm;
     padding: 2mm 5mm;
     margin-top: 4mm;
     background-color: #fff;
@@ -160,7 +160,8 @@ body {
     font-size: 40pt;
     line-height: 40pt;
     color: #255ba9;
-    margin-bottom: 10mm;
+    margin-top: 4mm;
+    margin-bottom: 20mm;
 }
 
 .menu-list {
@@ -412,7 +413,7 @@ body {
 }
 
 .bottom-textAb {
-    margin-top: 12mm;
+    margin-top: 16mm;
     padding: 4mm;
     color: #fff;
     height: 30mm;
@@ -477,7 +478,7 @@ body {
 }
 
 .fontBigPr {
-    font-size: 56pt;
+    font-size: 46pt;
     line-height: 56pt;
 }
 
@@ -869,7 +870,7 @@ body {
 .topFoto-left {
     float: left;
     width: 85mm;
-    height: 64mm;
+    height: 60mm;
     margin-top: 14mm;
     margin-left: 4mm;
     border-radius: 4mm;
@@ -882,13 +883,36 @@ body {
     margin-top: 14mm;
     margin-left: 4mm;
     border-radius: 4mm;
-    background-color: #224e85;
+    background: #224e85 url(img/fotoFon.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.topFoto-rightText {
+    float: left;
+    width: 30mm;
+    height: 17mm;
+    margin-top: 4mm;
+    color: #fff;
+    background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
+    text-align: center;
+    padding: 2mm 4mm 4mm 4mm;
+    border-radius: 4mm;
 }
 
 .fotoQr {
-    width: 85mm;
-    height: 60mm;
+    float: left;
+    margin: 27mm 0 0 4mm;
+    width: 30mm;
     border-radius: 4mm;
+    color: #fff;
+    background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
+    padding: 4mm 4mm 2mm 4mm;
+    text-align: center;
+}
+
+.fotoImgQr{
+    width: 20mm;
+    height: 20mm;
 }
 
 .bttomFoto-left {
