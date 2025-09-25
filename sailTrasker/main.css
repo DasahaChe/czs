@@ -133,6 +133,75 @@ body {
     color: #fff;
     font-weight: bold;
 }
+/* event */
+.a4-event-page{
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    border: #000 solid 1px;
+}
+.logo-event {
+    width: 287mm;
+    padding: 10mm 0 0 10mm;
+}
+
+.logo-event-img {
+    width: 90mm;
+}
+
+.title-event-container {
+    padding: 30mm 40mm 20mm 40mm;
+    width: 217mm;
+    text-align: center;
+}
+
+.title-event{
+    font-size: 45pt;
+    color:#fff;
+}
+
+.logoLoc-event {
+    float: left;
+    width: 60mm;
+    margin-left: 20mm;
+}
+
+.logoLoc-event-img {
+    width: 40mm;
+}
+
+.description-event-data {
+    float: left;
+    width: 100mm;
+    height: 40mm;
+    padding-left: 16mm;
+    background: url(img/evenD.png) no-repeat 0 top;
+    background-size: 12mm;
+}
+
+.data-event-text {
+    float: left;
+    width: 95mm;
+    font-size: 16pt;
+    color: #fff;
+}
+
+.description-event-place {
+    float: left;
+    width: 65mm;
+    height: 40mm;
+    padding-left: 16mm;
+    background: url(img/evenP.png) no-repeat 0 top;
+    background-size: 12mm;
+}
+
+.place-event-text {
+    float: left;
+    width: 65mm;
+    font-size: 16pt;
+    color: #fff;
+}
+
 
 /* about */
 .a4-page {
@@ -174,7 +243,7 @@ body {
 }
 
 
-.img1-m {
+.img0-m {
     position: relative;
     height: 6mm;
     padding: 3mm 0 3mm 14mm;
