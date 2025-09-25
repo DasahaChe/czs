@@ -1,0 +1,60 @@
+.passport .container {
+    display: flex;
+    justify-self: center;
+    padding: 0 calc(var(--base-gap) * 5.25);
+    max-width: calc(var(--base-font-size) * 90);
+    width: 100%;
+
+}
+
+
+.passport .new__title,
+.passport .last__title-main,
+.passport .future__title-main {
+    position: relative;
+    margin: 0 0 calc(var(--base-gap) * 2) 0;
+    font-size: calc(var(--base-font-size) * 3);
+    line-height: calc(var(--base-font-size) * 3);
+    color: var(--newGray);
+}
+
+@media (max-width: 1199px) {
+    .passport .new__title {
+        margin: 0 0 calc(var(--base-gap) * 0) 0;
+        font-size: calc(var(--base-font-size) * 2);
+        line-height: calc(var(--base-font-size) * 2);
+    }
+}
+
+@media (max-width: 1020px) {
+    .passport .content {
+        gap: 32px;
+        z-index: -1;
+    }
+
+    .passport .new__title {
+        margin: 0 0 calc(var(--base-gap) * 0) 0;
+
+    }
+
+    .passport .main .container .container {
+        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 5.5);
+    }
+
+}
+
+@media (max-width: 750px) {
+       .passport .container {
+        padding: 0 calc(var(--base-gap) * 1) 0 calc(var(--base-gap) * 5.5);
+    }
+}
+
+
+@media (max-width: 430px) {
+
+    .passport .container {
+        padding: 0 16px 0 64px;
+        margin-left: 0px;
+    }
+
+}

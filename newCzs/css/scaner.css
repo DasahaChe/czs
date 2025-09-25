@@ -1,0 +1,287 @@
+.scaner .container {
+    display: flex;
+    padding: 0 calc(var(--base-gap) * 5.25);
+    max-width: calc(var(--base-font-size) * 90);
+    width: 100%;
+}
+
+
+.scaner .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: calc(var(--base-gap) * 4);
+}
+
+.scaner .content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--base-gap) * 4);
+}
+
+.scaner .new__title,
+.scaner .section_title {
+    position: relative;
+    margin: 0;
+    font-size: calc(var(--base-font-size) * 3);
+    line-height: calc(var(--base-font-size) * 3);
+    font-weight: 700;
+    color: var(--newGray);
+}
+
+.scaner .section_title {
+    margin-bottom: 64px;
+}
+
+.scaner .banner__block-info {
+    padding: calc(var(--base-gap) * 1.5);
+    padding-left: calc(var(--base-gap) * 12);
+    line-height: 24px;
+    border-radius: 8px;
+    background-image: url(../img/fonScan.png);
+    background-size: cover;
+    color: var(--grafite);
+}
+
+.scaner .category_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.scaner .category_list .category {
+    font-size: 1em;
+    line-height: 1em;
+    color: var(--newGray);
+}
+
+.scaner .category_list .category label {
+    display: inline-block;
+    margin-left: 0.5em;
+}
+
+.scaner .org_list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 4em;
+    margin-bottom: 32px;
+}
+
+.scaner .org_list .org {
+    display: grid;
+    grid-template-columns: 150px auto;
+    align-self: start;
+    gap: 4em;
+    grid-template-areas: "org_logo org_info";
+    padding: 3em;
+    border-radius: 2em;
+    border: 1px solid #efefef;
+    box-shadow: 0px 0px 32px 0px rgba(51, 51, 51, 0.1);
+    max-width: 1024px;
+    width: 100%;
+}
+
+.scaner .org .org_logo {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    background: #efefef;
+    grid-area: org_logo;
+    border-radius: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    font-weight: bold;
+    align-items: center;
+    justify-self: stretch;
+}
+
+.scaner .org_list .org .org_logo div {
+    width: 100%;
+    text-align: center;
+    font-size: 4em;
+    color: #ffffff;
+}
+
+.scaner .org_list .org .org_info {
+    grid-area: org_info;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5em;
+    align-self: start;
+    position: relative;
+}
+
+.scaner .org_list .org .org_title {
+    font-weight: bold;
+}
+
+.scaner .org_list .org .org_city {
+    padding-left: 1em;
+    height: 1em;
+    background: url(/project/webroot/images/vendors/point.svg) no-repeat left center;
+}
+
+.scaner .org_list .org .org_category {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+.scaner .org_list .org .org_category .category {
+    padding: 0.25em 0.5em;
+    border: 1px solid #efefef;
+    background: #efefef;
+    color: #333333;
+    border-radius: 0.25em;
+    font-size: 0.8em;
+}
+
+.scaner .close {
+    padding: 1em 2em;
+    font-size: 1em;
+    width: 290px;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    background-color: var(--base-color-6);
+}
+
+.scaner .send_negotiation_ask,
+.scaner .ask_negotiations {
+    padding: var(--base-font-size) calc(var(--base-font-size) * 2.5);
+    font-size: calc(var(--base-font-size) * 1);
+    color: #fff;
+    width: 290px;
+    border: 1px solid var(--base-color-6);
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    outline: none;
+    transition: border-color 0.5s ease, background-color 0.5s ease;
+}
+
+.scaner input[type="text"] {
+    max-width: 290px;
+    width: 100%;
+    padding: 1em 1em 1em 40px;
+    margin-bottom: 1em;
+    border: 1px solid var(--item-border);
+    border-radius: 4px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.scaner input[type="text"]:focus {
+    outline: none;
+    border-color: var(--base-color-2);
+    box-shadow: 0 0 0 3px rgba(126, 143, 218, 0.1);
+}
+
+@media (max-width: 1199px) {
+    .scaner .main {
+        margin-bottom: calc(var(--base-gap) * 3);
+    }
+
+
+    .scaner .new__title {
+        margin: 0 0 calc(var(--base-gap) * 0) 0;
+        font-size: calc(var(--base-font-size) * 2);
+        line-height: calc(var(--base-font-size) * 2);
+    }
+
+    .scaner .banner__block-info {
+        padding: 1em;
+        background-image: url(../img/fonScanMob.png);
+    }
+
+    .scaner .org_list .org {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "org_logo"
+            "org_info";
+        align-self: start;
+        gap: 2em;
+    }
+
+    .scaner .org .org_logo {
+        width: 30%;
+    }
+}
+
+
+
+
+@media (max-width: 1020px) {
+
+    .scaner .content {
+        gap: 40px;
+        z-index: -1;
+    }
+
+    .scaner .new__title {
+        margin: 0 0 calc(var(--base-gap) * 0) 0;
+
+    }
+
+    .scaner .container {
+        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 6);
+    }
+
+    .scaner .main .container {
+        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 4);
+    }
+
+    .scaner .main {
+        margin-top: calc(var(--base-gap) * 2);
+    }
+
+
+
+    .scaner .ask_negotiations {
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+
+
+    .scaner .container {
+        padding: 0 calc(var(--base-gap) * 1) 0 calc(var(--base-gap) * 5.5);
+    }
+
+
+    .scaner .main {
+        margin-bottom: calc(var(--base-gap) * 2);
+
+    }
+
+
+
+
+}
+
+
+@media (max-width: 430px) {
+
+
+    .scaner .container {
+        padding: 0 16px 0 64px;
+    }
+
+
+
+}
+
+
+@media (any-hover: hover) {
+
+
+    .scaner .ask_negotiations:hover {
+        color: #fff;
+        background: var(--base-color-2);
+        border-color: var(--base-color-2);
+    }
+
+
+
+
+}

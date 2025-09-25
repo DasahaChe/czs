@@ -1,0 +1,218 @@
+
+.proposal_upload .container {
+    display: flex;
+    padding: 0 calc(var(--base-gap) * 5.25);
+    max-width: calc(var(--base-font-size) * 90);
+    width: 100%;
+}
+
+.proposal_upload .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: calc(var(--base-gap) * 4);
+}
+
+.proposal_upload .content {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.proposal_upload .new__title {
+    position: relative;
+    margin: 0;
+    font-size: calc(var(--base-font-size) * 3);
+    line-height: calc(var(--base-font-size) * 3);
+    color: var(--newGray);
+}
+
+.proposal_upload .subtitle {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    font-weight: 700;
+    margin: 0 0 2em 0;
+    color: var(--grafite);
+}
+
+.proposal_upload .banner__block-info {
+    padding: calc(var(--base-gap) * 1.5);
+    padding-left: calc(var(--base-gap) * 8.5);
+    border-radius: 8px;
+    background-image: url(../img/fonLoadL.png);
+    background-size: cover;
+    color: var(--grafite);
+}
+
+.proposal_upload .block-info {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    line-height: 1em;
+    color: var(--newGray);
+}
+
+.proposal_upload .proposal_master .file_field input[type=file] {
+    display: inline-block;
+    background: var(--lightBlue);
+    border-radius: 4px;
+    padding: 1em 2em;
+    max-width: 800px;
+    width: 100%;
+    margin: 1em 0 2em 0;
+    color: var(--newGray);
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.proposal_upload .file_field input[type="file"]::file-selector-button {
+    padding: 8px 16px;
+    background: var(--base-color-6);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.proposal_upload .proposal_master input[type=file] button {
+    background: #fff;
+    border: 1px solid var(--lightBlue);
+}
+
+.proposal_upload .proposal_master .cat_group {
+    font-weight: 700;
+    margin: 0 0 1em 0;
+    color: var(--base-color-6);
+}
+
+.proposal_upload .proposal_master .cat_group_field {
+    margin: 0 0 0 0em;
+    padding-left: 2em;
+    border-left: 1px solid #cccccc;
+}
+
+.proposal_master .category {
+    margin: 0 0 1em 0;
+    color: var(--newGray);
+}
+
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.proposal_upload .proposal_master .user_events_list {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 calc(var(--base-gap) * 2) 0;
+    gap: calc(var(--base-gap) * 1);
+    color: var(--newGray);
+}
+
+.proposal_upload .proposal_master .org_events {
+    margin-bottom: 32px;
+}
+
+.proposal_master .add_proposal {
+    display: inline-block;
+    padding: var(--base-font-size) calc(var(--base-font-size) * 4.5);
+    width: 100%;
+    font-size: calc(var(--base-font-size) * 1);
+    color: #fff;
+    border: 1px solid var(--base-color-6);
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    outline: none;
+    text-align: center;
+    transition: border-color 0.5s ease, background-color 0.5s ease;
+}
+
+.proposal_upload .proposal_master .user_events_list input[type="checkbox"]:focus,
+.proposal_upload .proposal_master .category_input input[type="checkbox"]:focus,
+.proposal_upload .proposal_master.input_field input[type="file"]:focus .proposal_upload .proposal_master input[type="text"]:focus,
+.proposal_upload .proposal_master input[type="number"]:focus,
+.proposal_upload .proposal_master .org_clients textarea:focus,
+.proposal_upload .proposal_master .title:focus {
+    outline: none;
+    border-color: var(--base-color-2);
+    box-shadow: 0 0 0 3px rgba(126, 143, 218, 0.1);
+}
+
+
+
+
+
+
+@media (max-width: 1199px) {
+
+    .proposal_upload .main {
+        margin-bottom: calc(var(--base-gap) * 2);
+    }
+
+    .proposal_upload .new__title {
+        font-size: calc(var(--base-font-size) * 2);
+        line-height: calc(var(--base-font-size) * 2);
+    }
+
+    .proposal_upload .banner__block-info {
+        background-image: url(../img/fonLoad.png);
+    }
+}
+
+
+
+
+@media (max-width: 1020px) {
+
+
+    .proposal_upload .container {
+        padding: 0 calc(var(--base-gap) * 2) 0 calc(var(--base-gap) * 6);
+    }
+
+
+
+    .proposal_upload .banner__block-info {
+        background-image: url(../img/fonLoadL.png);
+    }
+}
+
+@media (max-width: 750px) {
+
+    .proposal_upload .container {
+        padding: 0 calc(var(--base-gap) * 1) 0 calc(var(--base-gap) * 5.5);
+    }
+
+    .proposal_upload .content {
+        gap:16px;
+    }
+
+
+    .proposal_upload .banner__block-info {
+        padding: 1em;
+        background-image: none;
+        background-color: var(--lightBlue);
+    }
+
+}
+
+
+@media (max-width: 430px) {
+   .proposal_upload .container {
+        padding: 0 16px 0 64px;
+    }
+}
+
+
+@media (any-hover: hover) {
+
+    .proposal_upload .proposal_master .add_proposal:hover {
+        color: #fff;
+        background: var(--base-color-2);
+        border-color: var(--base-color-2);
+    }
+
+    .proposal_upload .file_field input[type="file"]::file-selector-button:hover {
+        background: var(--base-color-2);
+    }
+}
