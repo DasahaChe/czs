@@ -93,6 +93,7 @@ body {
 .description-left {
     float: left;
     width: 12mm;
+    height: 16mm;
     padding: 2mm 5mm;
     margin-top: 4mm;
     background-color: #fff;
@@ -104,6 +105,7 @@ body {
 .description {
     float: left;
     width: 40mm;
+    height: 16mm;
     padding: 2mm 5mm;
     margin-top: 4mm;
     background-color: #fff;
@@ -115,6 +117,7 @@ body {
 .description-right {
     float: left;
     min-width: 10mm;
+    height: 16mm;
     padding: 2mm 5mm;
     margin-top: 4mm;
     background-color: #fff;
@@ -1066,10 +1069,12 @@ body {
 .contakt-block {
     float: left;
     width: 85mm;
-    margin-top: 16mm;
+    margin-top: 14mm;
 }
 
 .tell {
+    font-size: 16pt;
+    line-height: 18pt;
     padding: 2mm;
     padding-left: 10mm;
     height: 4mm;
@@ -1078,6 +1083,8 @@ body {
 }
 
 .mail {
+    font-size: 14pt;
+    line-height: 18pt;
     margin-top: 4mm;
     padding: 2mm;
     padding-left: 10mm;
@@ -1090,7 +1097,7 @@ body {
     float: left;
     width: 30mm;
     height: 30mm;
-    margin-top: 16mm;
+    margin-top: 14mm;
 }
 
 .nameCt {
