@@ -396,15 +396,15 @@ body {
     line-height: 13pt;
 }
 
-.numTextH{
-   font-size: 12pt;
-    line-height: 13pt; 
+.numTextH {
+    font-size: 12pt;
+    line-height: 13pt;
     padding-top: 2mm;
 }
 
-.numTextHT{
-   font-size: 12pt;
-    line-height: 13pt; 
+.numTextHT {
+    font-size: 12pt;
+    line-height: 13pt;
     padding-top: 4mm;
 }
 
@@ -583,7 +583,7 @@ body {
 }
 
 .numSt-right {
-   float: left;
+    float: left;
     width: 65mm;
 }
 
@@ -670,18 +670,18 @@ body {
     margin-left: 2mm;
 }
 
-.numSt-title{
-font-size: 24pt;
+.numSt-title {
+    font-size: 24pt;
     line-height: 24pt;
     margin-right: 2mm;
-    color:#000;
+    color: #000;
 }
 
-.top-textSt{
+.top-textSt {
     margin-top: 8mm;
 }
 
-.topNew-textSt{
+.topNew-textSt {
     margin-top: 8mm;
 }
 
@@ -704,7 +704,7 @@ font-size: 24pt;
 
 /* почему мы */
 
-.title-wh{
+.title-wh {
     font-size: 32pt;
     line-height: 32pt;
     color: #255ba9;
@@ -792,6 +792,7 @@ font-size: 24pt;
     color: #255ba9;
     margin-top: 7mm;
 }
+
 .how-block {
     float: left;
     width: 207mm;
@@ -856,33 +857,53 @@ font-size: 24pt;
     margin: 5mm 0;
 }
 
-.vs-Text{
-font-size: 20px;
-line-height: 20px;
-color:#224e85;
+.vs-Text {
+    font-size: 20px;
+    line-height: 20px;
+    color: #224e85;
 }
+
 .topFoto-left {
     float: left;
-    width: 93mm;
+    width: 85mm;
     height: 64mm;
     margin-top: 14mm;
+    margin-left: 4mm;
     border-radius: 4mm;
 }
 
-.topFoto-right {
+.topFoto-rightQr {
     float: left;
-    width: 96mm;
-    height: 64mm;
+    width: 85mm;
+    height: 60mm;
     margin-top: 14mm;
+    margin-left: 4mm;
+    border-radius: 4mm;
+    background-color: #224e85;
+}
+
+.fotoQr {
+    width: 85mm;
+    height: 60mm;
+    border-radius: 4mm;
+}
+
+.bttomFoto-left {
+    float: left;
+    width: 85mm;
+    height: 60mm;
+    margin-top: 4mm;
+    margin-left: 4mm;
+    border-radius: 4mm;
 }
 
 .topFoto {
     border-radius: 4mm;
-    width: 93mm;
-    height: 64mm;
+    width: 85mm;
+    height: 60mm;
 }
 
-.foto4 {
+/* .foto4 {
     float: left;
     margin: 0 0 3mm 4mm;
     width: 43mm;
@@ -902,7 +923,7 @@ color:#224e85;
     width: 60mm;
     height: 42mm;
     border-radius: 4mm;
-}
+} */
 
 .fotoText {
     float: left;
@@ -916,13 +937,9 @@ color:#224e85;
     background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
 }
 
-.fotoQr {
-    padding: 5mm 4mm;
-    width: 20mm;
-    height: 20mm;
-}
 
-.foto3 {
+
+/* .foto3 {
     float: left;
     margin: 0 4mm 0 0;
     width: 60mm;
@@ -936,7 +953,7 @@ color:#224e85;
     width: 60mm;
     height: 42mm;
     border-radius: 4mm;
-}
+} */
 
 .bottomFoto-block {
     margin-top: 4mm;
