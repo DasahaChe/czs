@@ -872,7 +872,7 @@ body {
     width: 85mm;
     height: 60mm;
     margin-top: 14mm;
-    margin-left: 4mm;
+    margin-right: 4mm;
     border-radius: 4mm;
 }
 
@@ -881,7 +881,7 @@ body {
     width: 85mm;
     height: 60mm;
     margin-top: 14mm;
-    margin-left: 4mm;
+    margin-right: 4mm;
     border-radius: 4mm;
     background: #224e85 url(img/fotoFon.jpg) no-repeat center;
     background-size: cover;
@@ -920,7 +920,7 @@ body {
     width: 85mm;
     height: 60mm;
     margin-top: 4mm;
-    margin-left: 4mm;
+    margin-right: 4mm;
     border-radius: 4mm;
 }
 
