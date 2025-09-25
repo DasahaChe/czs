@@ -573,22 +573,22 @@ body {
 .numSt-left {
     float: left;
     width: 60mm;
+    margin-top: 10mm;
 }
 
 .numSt-right-top {
     float: left;
     width: 130mm;
+    margin-top: 6mm;
 }
 
 .numSt-right {
    float: left;
-    width: 90mm;
-    margin-left: 20mm;
-    margin-top: 6mm;
+    width: 65mm;
 }
 
-.numSt-block {
-    margin-bottom: 2mm;
+.numSt-block-top {
+    margin-bottom: 10mm;
 }
 
 .numSt-block-title {
@@ -627,25 +627,24 @@ body {
     float: left;
     width: 60mm;
     height: 50mm;
-    margin-top: 6mm;
     margin-right: 5mm;
 }
 
 .middle-block-right {
     float: left;
-    width: 117mm;
-    height: 45mm;
-    margin-top: 0mm;
+    width: 60mm;
+    height: 50mm;
 
 }
 
 .middleQrSt {
-    width: 55mm;
-    text-align: center;
+    float: left;
+    width: 50mm;
+    /* text-align: center; */
 }
 
 .middleQrimg {
-    width: 34mm;
+    width: 30mm;
 }
 
 .middleQrimg-why {
@@ -682,8 +681,25 @@ font-size: 24pt;
     margin-top: 8mm;
 }
 
-.bottom-textSt{
-    margin-top: 12mm;
+.topNew-textSt{
+    margin-top: 8mm;
+}
+
+.bottom-textSt {
+    margin-top: 14mm;
+    padding: 4mm;
+    color: #fff;
+    height: 30mm;
+    border-radius: 4mm;
+    background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
+}
+
+.textSt {
+    float: left;
+    margin-top: 4mm;
+    width: 120mm;
+    font-size: 20pt;
+    text-align: center;
 }
 
 /* почему мы */
