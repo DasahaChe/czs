@@ -169,7 +169,23 @@ body {
     width: 100%;
     justify-content: space-between;
 }
+.header .header__block-top{
+    display: flex;
+    justify-content: space-between;
+    gap:32px;
+    width: 100%;
+}
 
+.header .header__title{
+    margin: 0;
+    padding: 0;
+    width: 30%;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1.2em;
+    text-transform: uppercase;
+
+}
 .header .logo__img{
     width: 512px;
 }
