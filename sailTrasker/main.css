@@ -747,7 +747,7 @@ body {
     padding: 4mm;
     padding-left: 16mm;
     margin-top: 10mm;
-    margin-right: 3mm;
+    /* margin-right: 3mm; */
     background: url(img/w1.svg) no-repeat 0 5mm;
     background-size: 10mm;
 }
@@ -758,7 +758,7 @@ body {
     padding: 4mm;
     padding-left: 16mm;
     margin-top: 10mm;
-    margin-right: 3mm;
+    /* margin-right: 3mm; */
     background: url(img/w2.svg) no-repeat 0 5mm;
     background-size: 10mm;
 }
@@ -769,7 +769,7 @@ body {
     padding: 4mm;
     padding-left: 16mm;
     margin-top: 10mm;
-    margin-right: 3mm;
+    /* margin-right: 3mm; */
     background: url(img/w3.svg) no-repeat 0 5mm;
     background-size: 10mm;
 }
@@ -780,7 +780,7 @@ body {
     padding: 4mm;
     padding-left: 16mm;
     margin-top: 10mm;
-    margin-right: 3mm;
+    /* margin-right: 3mm; */
     background: url(img/w4.svg) no-repeat 22mm 7mm;
     background-size: 10mm;
 }
