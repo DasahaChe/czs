@@ -175,23 +175,19 @@ body {
 }
 
 
-.img0-m {
-    position: relative;
+.img0 {
     height: 6mm;
     padding: 3mm 0 3mm 14mm;
-    margin: 5mm 0;
-    border-top-left-radius: 6mm;
-    color: #255ba9;
-    border-bottom-left-radius: 6mm;
-    background: #fff url(img/l1-1.svg) no-repeat 4mm center;
-    background-size: 10mm;
+    color: #fff;
+    background: url(img/eventС.png) no-repeat 6mm 2mm;
+    background-size: 5mm;
 }
 
 .img1-m {
     position: relative;
     height: 6mm;
     padding: 3mm 0 3mm 14mm;
-    margin: 5mm 0;
+    margin: 2mm 0;
     border-top-left-radius: 6mm;
     color: #255ba9;
     border-bottom-left-radius: 6mm;
@@ -203,7 +199,7 @@ body {
     position: relative;
     height: 6mm;
     padding: 3mm 0 3mm 14mm;
-    margin: 5mm 0;
+    margin: 2mm 0;
     border-top-left-radius: 6mm;
     color: #255ba9;
     border-bottom-left-radius: 6mm;
@@ -215,7 +211,7 @@ body {
     position: relative;
     height: 6mm;
     padding: 3mm 0 3mm 14mm;
-    margin: 5mm 0;
+    margin: 2mm 0;
     border-top-left-radius: 6mm;
     color: #255ba9;
     border-bottom-left-radius: 6mm;
@@ -227,7 +223,7 @@ body {
     position: relative;
     height: 6mm;
     padding: 3mm 0 3mm 14mm;
-    margin: 5mm 0;
+    margin: 2mm 0;
     border-top-left-radius: 6mm;
     color: #255ba9;
     border-bottom-left-radius: 6mm;
@@ -239,7 +235,7 @@ body {
     position: relative;
     height: 6mm;
     padding: 3mm 0 3mm 14mm;
-    margin: 5mm 0;
+    margin: 2mm 0;
     border-top-left-radius: 6mm;
     color: #255ba9;
     border-bottom-left-radius: 6mm;
@@ -251,7 +247,7 @@ body {
     position: relative;
     height: 6mm;
     padding: 3mm 0 3mm 14mm;
-    margin: 5mm 0;
+    margin: 2mm 0;
     border-top-left-radius: 6mm;
     color: #255ba9;
     border-bottom-left-radius: 6mm;
@@ -263,7 +259,7 @@ body {
     position: relative;
     height: 6mm;
     padding: 3mm 0 3mm 14mm;
-    margin: 5mm 0;
+    margin: 2mm 0;
     border-top-left-radius: 6mm;
     color: #255ba9;
     border-bottom-left-radius: 6mm;
@@ -275,7 +271,7 @@ body {
     position: relative;
     height: 6mm;
     padding: 3mm 0 3mm 14mm;
-    margin: 5mm 0;
+    margin: 2mm 0;
     border-top-left-radius: 6mm;
     color: #255ba9;
     border-bottom-left-radius: 6mm;
