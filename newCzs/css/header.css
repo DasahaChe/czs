@@ -176,6 +176,23 @@ body {
     width: 100%;
 }
 
+.header .header__block-middle{
+    display: flex;
+    align-self: end;
+    justify-content: flex-end;
+    gap: 16px;
+    width: 512px;
+}
+.header .header__icon{
+    width: 32px;
+    height: 32px;
+    color: #fff;
+}
+
+.header .header__icon:hover{
+    color: var(--base-color-2);
+}
+
 .header .header__title{
     margin: 0;
     padding: 0;
