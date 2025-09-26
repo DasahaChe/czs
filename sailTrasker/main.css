@@ -1145,11 +1145,13 @@ body {
     padding: 20mm 40mm;
     position: relative;
     text-align: center;
+        background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
+border: 1mm solid #fff;
 
 }
 .logo-event {
     width: 287mm;
-    padding: 10mm 0 0 10mm;
+    padding: 0;
 }
 
 .logo-event-img {
@@ -1185,14 +1187,14 @@ body {
 }
 
 .description-event-bottom{
-    width: 210mm;
+    width: 260mm;
     height: 40mm;
-    margin-left: 47mm;
+    margin-left: 30mm;
 }
 .description-event-data {
     float: left;
-    width: 70mm;
-    height: 20mm;
+    width: 80mm;
+    height: 40mm;
     padding-left: 16mm;
     background: url(img/evenD.png) no-repeat 0 top;
     background-size: 12mm;
@@ -1200,15 +1202,16 @@ body {
 
 .data-event-text {
     float: left;
-    width: 55mm;
-    font-size: 16pt;
+    width: 70mm;
+    font-size: 20pt;
     color: #fff;
+    text-align: left;
 }
 
 .description-event-place {
     float: left;
-    width: 100mm;
-    height: 20mm;
+    width: 120mm;
+    height: 40mm;
     padding-left: 16mm;
     background: url(img/evenP.png) no-repeat 0 top;
     background-size: 12mm;
@@ -1216,7 +1219,8 @@ body {
 
 .place-event-text {
     float: left;
-    width: 100mm;
-    font-size: 16pt;
+    width: 120mm;
+    font-size: 20pt;
     color: #fff;
+    text-align: left;
 }
