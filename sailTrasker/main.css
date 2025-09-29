@@ -168,9 +168,9 @@ border: 1mm solid #fff;
 
 .event-name{
     margin-top: 20mm;
- font-size: 60pt;
+    font-size: 60pt;
     color:#fff;
-    height: 60mm;
+    min-height: 40mm;
 }
 
 .logoLoc-event {
@@ -186,7 +186,7 @@ border: 1mm solid #fff;
 
 .description-event-bottom{
     width: 177mm;
-    height: 70mm;
+    height: 80mm;
     padding: 0mm 60mm;
 }
 .description-event-data {
