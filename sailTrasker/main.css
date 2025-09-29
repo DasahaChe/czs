@@ -139,7 +139,7 @@ body {
 .a4-event-page{
     width: 297mm;
     height: 210mm;
-    padding: 20mm 40mm;
+    padding: 20mm 40mm 10mm 40mm;
     position: relative;
     text-align: center;
         background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
@@ -156,13 +156,13 @@ border: 1mm solid #fff;
 }
 
 .title-event-container {
-    padding: 15mm 0;
+    padding: 0 0 10mm 0;
     width: 297mm;
     text-align: center;
 }
 
 .title-event{
-    font-size: 45pt;
+    font-size: 30pt;
     color:#fff;
 }
 
@@ -186,7 +186,6 @@ border: 1mm solid #fff;
 
 .description-event-bottom{
     width: 177mm;
-    height: 80mm;
     padding: 0mm 60mm;
 }
 .description-event-data {
@@ -201,13 +200,13 @@ border: 1mm solid #fff;
     height: 20mm;
 }
 .data-event-text {
-    font-size: 20pt;
+    font-size: 24pt;
     color: #fff;
     text-align: left;
 }
 
 .subtitle-event-text {
-    font-size: 20pt;
+    font-size: 16pt;
     color: #fff;
     text-align: center;
 }
