@@ -427,8 +427,16 @@ border: 1mm solid #fff;
     width: 70mm;
 }
 
-
-
+.botom-btn {
+    padding: 2mm 4mm 0 4mm;
+    margin-top: auto;
+    border: 1px solid #9ccaee;
+    color: #9ccaee;
+    width: 14mm;
+    height: 8mm;
+    border-radius: 5mm;
+    text-align: center;
+}
 
 
 
@@ -822,10 +830,17 @@ border: 1mm solid #fff;
     line-height: 16pt;
 }
 
+.numTex-right-how {
+    font-size: 12pt;
+    line-height: 13pt;
+    padding-top: 2mm;
+}
 
-
-
-
+.numTex-how {
+    font-size: 12pt;
+    line-height: 13pt;
+    padding-top: 4mm;
+}
 
 
 
@@ -841,21 +856,17 @@ border: 1mm solid #fff;
     position: relative;
 }
 
-.title-container {
-    padding: 10mm 2mm 10mm 10mm;
+.title-ab-container{
+    padding: 10mm 2mm 10mm 12mm;
     width: 190mm;
 }
-
 .title-ab {
     font-size: 40pt;
     line-height: 40pt;
     color: #255ba9;
-    margin-top: 4mm;
-    margin-bottom: 20mm;
+    margin-top: 6mm;
+    margin-bottom: 17mm;
 }
-
-
-
 .about-block {
     float: left;
     float: left;
@@ -866,15 +877,23 @@ border: 1mm solid #fff;
     background-color: #fff;
 }
 
-.botom-btn {
-    padding: 2mm 4mm 0 4mm;
-    margin-top: auto;
-    border: 1px solid #9ccaee;
-    color: #9ccaee;
-    width: 14mm;
-    height: 8mm;
-    border-radius: 5mm;
-    text-align: center;
+.num-ab-block {
+    padding-bottom: 14mm;
+}
+
+.numBig-ab {
+    color: #255ba9;
+    font-size: 18pt;
+}
+
+.fontBig-ab {
+    font-size: 40pt;
+    line-height: 40pt;
+}
+
+.numText-ab {
+    font-size: 12pt;
+    line-height: 13pt;
 }
 
 .white {
@@ -892,39 +911,9 @@ border: 1mm solid #fff;
     width: 110mm;
 }
 
-.num-block {
-    padding-bottom: 10mm;
-}
-
-.numBig {
-    color: #255ba9;
-    font-size: 18pt;
-}
-
-.fontBig {
-    font-size: 40pt;
-    line-height: 40pt;
-}
-
-.numText {
-    font-size: 12pt;
-    line-height: 13pt;
-}
-
-.numTex-right-how {
-    font-size: 12pt;
-    line-height: 13pt;
-    padding-top: 2mm;
-}
-
-.numTex-how {
-    font-size: 12pt;
-    line-height: 13pt;
-    padding-top: 4mm;
-}
-
 .bottom-textAb {
-    margin-top: 16mm;
+    width: 174mm;
+    margin-top: 10mm;
     padding: 4mm;
     color: #fff;
     height: 30mm;
@@ -935,7 +924,7 @@ border: 1mm solid #fff;
 .textAB {
     float: left;
     margin-top: 4mm;
-    width: 150mm;
+    width: 140mm;
     font-size: 20pt;
     text-align: center;
 }
@@ -954,6 +943,17 @@ border: 1mm solid #fff;
 
 
 /* почему мы */
+.a4-wh-page {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+}
+
+.title-wh-container {
+    padding: 10mm 2mm 10mm 10mm;
+    width: 190mm;
+}
+
 
 .title-wh {
     font-size: 32pt;
@@ -1043,6 +1043,11 @@ border: 1mm solid #fff;
 
 
 /* foto */
+.a4-foto-page {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+}
 .title-vs {
     font-size: 32pt;
     line-height: 32pt;
@@ -1119,27 +1124,6 @@ border: 1mm solid #fff;
     height: 60mm;
 }
 
-/* .foto4 {
-    float: left;
-    margin: 0 0 3mm 4mm;
-    width: 43mm;
-    height: 30mm;
-    text-align: center;
-    border-radius: 4mm;
-    background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
-}
-
-.foto4Img {
-    width: 43mm;
-    height: 30mm;
-    border-radius: 4mm;
-}
-
-.foto3Img {
-    width: 60mm;
-    height: 42mm;
-    border-radius: 4mm;
-} */
 
 .fotoText {
     float: left;
@@ -1153,29 +1137,16 @@ border: 1mm solid #fff;
     background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
 }
 
-
-
-/* .foto3 {
-    float: left;
-    margin: 0 4mm 0 0;
-    width: 60mm;
-    height: 42mm;
-    border-radius: 4mm;
-}
-
-.foto3-last {
-    float: left;
-    margin: 0;
-    width: 60mm;
-    height: 42mm;
-    border-radius: 4mm;
-} */
-
 .bottomFoto-block {
     margin-top: 4mm;
 }
 
 /* отзывы */
+.a4-rw-page {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+}
 .block4 {
     float: left;
     width: 74mm;
@@ -1241,6 +1212,11 @@ border: 1mm solid #fff;
 }
 
 /* contact */
+.a4-ct-page {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+}
 .top-textCt {
     margin-top: 10mm;
     width: 167mm;
@@ -1330,3 +1306,21 @@ border: 1mm solid #fff;
     line-height: 14pt;
 }
 
+.num-block {
+    padding-bottom: 10mm;
+}
+
+.numBig {
+    color: #255ba9;
+    font-size: 18pt;
+}
+
+.fontBig {
+    font-size: 40pt;
+    line-height: 40pt;
+}
+
+.numText {
+    font-size: 12pt;
+    line-height: 13pt;
+}
