@@ -1081,14 +1081,19 @@ border: 1mm solid #fff;
     border-bottom-left-radius: 7mm;
     background-color: #fff;
 }
-.title-vs {
+
+.title-foto-container{
+    padding: 10mm 2mm 10mm 12mm;
+    width: 190mm;
+}
+.title-foto {
     font-size: 32pt;
     line-height: 32pt;
     color: #255ba9;
     margin: 5mm 0;
 }
 
-.vs-Text {
+.foto-Text {
     font-size: 20px;
     line-height: 20px;
     color: #224e85;
@@ -1122,7 +1127,7 @@ border: 1mm solid #fff;
     color: #fff;
     background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
     text-align: center;
-    padding: 2mm 4mm 4mm 4mm;
+    padding: 5mm 4mm 3mm 4mm;
     border-radius: 4mm;
 }
 
