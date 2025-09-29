@@ -53,12 +53,6 @@ body {
     height: 24mm;
 }
 
-/* .image-box {
-    height: 24mm;
-    vertical-align: top;
-    text-align: center;
-    position: relative;
-} */
 
 .text-main-block {
     position: relative;
@@ -220,36 +214,12 @@ border: 1mm solid #fff;
     text-align: left;
 }
 
-/* about */
-.a4-page {
-    width: 297mm;
-    height: 210mm;
-    position: relative;
-}
 
-.logo-about {
-    float: left;
-    width: 80mm;
-    padding: 10mm 0 0 10mm;
-}
 
-.logoAb-img {
-    width: 70mm;
-}
 
-.title-container {
-    padding: 10mm 2mm 10mm 10mm;
-    width: 190mm;
-}
 
-.title-ab {
-    font-size: 40pt;
-    line-height: 40pt;
-    color: #255ba9;
-    margin-top: 4mm;
-    margin-bottom: 20mm;
-}
 
+/* блок меню слева у всех страниц */
 .menu-list {
     height: 150mm;
     list-style: none;
@@ -364,6 +334,18 @@ border: 1mm solid #fff;
     background-size: 10mm;
 }
 
+.img9-m {
+    position: relative;
+    height: 6mm;
+    padding: 3mm 0 3mm 14mm;
+    margin: 2mm 0;
+    border-top-left-radius: 6mm;
+    color: #255ba9;
+    border-bottom-left-radius: 6mm;
+    background: #fff url(img/l11-m.png) no-repeat 4mm center;
+    background-size: 10mm;
+}
+
 .img1 {
     height: 6mm;
     padding: 3mm 0 3mm 14mm;
@@ -426,6 +408,180 @@ border: 1mm solid #fff;
     background: url(img/l8.svg) no-repeat 4mm center;
     background-size: 10mm;
 }
+
+.img9 {
+    height: 6mm;
+    padding: 3mm 0 3mm 14mm;
+    color: #fff;
+    background: url(img/l11.png) no-repeat 6mm 2mm;
+    background-size: 6mm;
+}
+
+.logo-block-page {
+    float: left;
+    width: 80mm;
+    padding: 10mm 0 0 10mm;
+}
+
+.logo-page-img {
+    width: 70mm;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* peregovory */
+.a4-pr-page {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+}
+
+.pr-block {
+    float: left;
+    float: left;
+    width: 207mm;
+    height: 210mm;
+    border-top-left-radius: 7mm;
+    border-bottom-left-radius: 7mm;
+    background-color: #fff;
+}
+
+.title-pr-container {
+    padding: 10mm 2mm 10mm 10mm;
+    width: 190mm;
+}
+.title-pr {
+    font-size: 40pt;
+    line-height: 40pt;
+    color: #255ba9;
+    margin-top: 12mm;
+}
+
+.bigTitle-pr {
+    float: left;
+    width: 55mm;
+    font-size: 75pt;
+    line-height: 75pt;
+}
+
+.strTitle-pr {
+    float: left;
+    width: 120mm;
+    font-size: 32pt;
+    color: #224e85;
+    font-family: 'TT Fors';
+}
+
+.top-text-pr {
+    margin-top: 10mm;
+}
+
+.num-blockPr {
+    float: left;
+    width: 56mm;
+    padding-right: 3mm;
+}
+
+.num-blockPr-right{
+ float: left;
+    width: 68mm;
+}
+
+.numBigPr {
+    color: #255ba9;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.fontBigPr {
+    font-size: 44pt;
+    line-height: 56pt;
+}
+
+.numTextPr {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #255ba9;
+    margin-bottom: 2mm;
+}
+
+.numTextPrS {
+    font-size: 13pt;
+    line-height: 16pt;
+}
+
+.bottom-textPr {
+    float: left;
+    width: 140mm;
+    margin-top: 15mm;
+}
+
+.link-pr {
+    color: #255ba9;
+    text-decoration: underline #255ba9;
+}
+
+.qrPr {
+    float: left;
+    margin-top: 15mm;
+    width: 40mm;
+}
+
+.qrPrImg {
+    width: 40mm;
+}
+
+
+.imgPr1 {
+    padding-left: 14mm;
+    width: 124mm;
+    font-size: 13pt;
+    margin-bottom: 5mm;
+    background: url(img/check.svg) no-repeat 0mm center;
+    background-size: 10mm;
+}
+
+.imgPr2 {
+    padding-left: 14mm;
+    width: 124mm;
+    font-size: 13pt;
+    background: url(img/head.svg) no-repeat 0mm center;
+    background-size: 10mm;
+}
+/* about */
+.a4-page {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+}
+
+
+.title-container {
+    padding: 10mm 2mm 10mm 10mm;
+    width: 190mm;
+}
+
+.title-ab {
+    font-size: 40pt;
+    line-height: 40pt;
+    color: #255ba9;
+    margin-top: 4mm;
+    margin-bottom: 20mm;
+}
+
+
 
 .about-block {
     float: left;
@@ -520,100 +676,7 @@ border: 1mm solid #fff;
     clear: both;
 }
 
-/* peregovory */
-.title-pr {
-    font-size: 40pt;
-    line-height: 40pt;
-    color: #255ba9;
-    margin: 7mm 0 10mm 0;
-}
 
-.bigTitle {
-    float: left;
-    width: 55mm;
-    font-size: 75pt;
-    line-height: 75pt;
-}
-
-.strTitle {
-    float: left;
-    width: 120mm;
-    font-size: 32pt;
-    color: #224e85;
-    font-family: 'TT Fors';
-}
-
-.top-textPr {
-    margin-top: 10mm;
-}
-
-.num-blockPr {
-    float: left;
-    width: 60mm;
-    padding-right: 3mm;
-}
-
-.numBigPr {
-    color: #255ba9;
-    font-weight: bold;
-    font-size: 14pt;
-}
-
-.fontBigPr {
-    font-size: 44pt;
-    line-height: 56pt;
-}
-
-.numTextPr {
-    font-size: 14pt;
-    font-weight: bold;
-    color: #255ba9;
-    margin-bottom: 2mm;
-}
-
-.numTextPrS {
-    font-size: 14pt;
-    line-height: 16pt;
-}
-
-.bottom-textPr {
-    float: left;
-    width: 116mm;
-    margin-top: 15mm;
-}
-
-.link {
-    color: #255ba9;
-    text-decoration: underline #255ba9;
-}
-
-.qrPr {
-    float: left;
-    margin-top: 15mm;
-    width: 70mm;
-}
-
-.qrPrImg {
-    width: 70mm;
-}
-
-
-.imgPr1 {
-    padding-left: 14mm;
-    width: 100mm;
-    font-size: 14pt;
-    margin-bottom: 5mm;
-    background: url(img/check.svg) no-repeat 0mm center;
-    background-size: 10mm;
-}
-
-.imgPr2 {
-    padding-left: 14mm;
-    width: 100mm;
-    font-size: 14pt;
-    background: url(img/head.svg) no-repeat 0mm center;
-    background-size: 10mm;
-}
 
 /* statistica         */
 .st-block {
