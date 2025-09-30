@@ -1366,8 +1366,7 @@ border: 1mm solid #fff;
 .contakt-ct-block {
     float: left;
     width: 80mm;
-    /* margin-top: 14mm; */
-    margin-top: 7mm;
+    margin-top: 12mm;
 }
 
 .tell-ct {
@@ -1385,7 +1384,6 @@ border: 1mm solid #fff;
 .mail-ct {
     font-size: 12pt;
     line-height: 18pt;
-    margin-top: 2mm;
     padding: 2mm;
     padding-left: 10mm;
     height: 4mm;
@@ -1412,7 +1410,7 @@ float: left;
     float: left;
     width: 34mm;
     height: 34mm;
-    margin-top: 13mm;
+    margin-top: 11mm;
 }
 
 .nameCt {
