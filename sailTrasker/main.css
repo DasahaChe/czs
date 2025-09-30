@@ -129,90 +129,7 @@ body {
 }
 
 
-/* event */
-.a4-event-page{
-    width: 297mm;
-    height: 210mm;
-    padding: 20mm 40mm 10mm 40mm;
-    position: relative;
-    text-align: center;
-        background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
-border: 1mm solid #fff;
 
-}
-.logo-event {
-    width: 287mm;
-    padding: 0;
-}
-
-.logo-event-img {
-    width: 160mm;
-}
-
-.title-event-container {
-    padding: 0 0 8mm 0;
-    width: 297mm;
-    text-align: center;
-}
-
-.title-event{
-    font-size: 30pt;
-    color:#fff;
-}
-
-.event-name{
-    margin-top: 20mm;
-    font-size: 60pt;
-    color:#fff;
-    min-height: 40mm;
-}
-
-.logoLoc-event {
-    float: left;
-    width: 59mm;
-    height: 40mm;
-}
-
-.logoLoc-event-img {
-    max-width: 56mm;
-    max-height: 26mm;
-}
-
-.description-event-bottom{
-    width: 177mm;
-    padding: 0mm 60mm;
-}
-.description-event-data {
-    width: 177mm;
-    height: 30mm;
-    padding-left: 20mm;
-    background: url(img/evenD.png) no-repeat 0 top;
-    background-size: 12mm;
-}
-.description-event-subtitle{
-    width: 177mm;
-    height: 20mm;
-}
-.data-event-text {
-    font-size: 24pt;
-    color: #fff;
-    text-align: left;
-}
-
-.subtitle-event-text {
-    font-size: 16pt;
-    color: #fff;
-    text-align: center;
-}
-
-
-.place-event-text {
-    float: left;
-    width: 120mm;
-    font-size: 20pt;
-    color: #fff;
-    text-align: left;
-}
 
 
 
@@ -448,7 +365,90 @@ border: 1mm solid #fff;
 
 
 
+/* event */
+.a4-event-page{
+    width: 297mm;
+    height: 210mm;
+    padding: 20mm 40mm 10mm 40mm;
+    position: relative;
+    text-align: center;
+        background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
+border: 1mm solid #fff;
 
+}
+.logo-event {
+    width: 287mm;
+    padding: 0;
+}
+
+.logo-event-img {
+    width: 160mm;
+}
+
+.title-event-container {
+    padding: 0 0 8mm 0;
+    width: 297mm;
+    text-align: center;
+}
+
+.title-event{
+    font-size: 30pt;
+    color:#fff;
+}
+
+.event-name{
+    margin-top: 20mm;
+    font-size: 60pt;
+    color:#fff;
+    min-height: 40mm;
+}
+
+.logoLoc-event {
+    float: left;
+    width: 59mm;
+    height: 40mm;
+}
+
+.logoLoc-event-img {
+    max-width: 56mm;
+    max-height: 26mm;
+}
+
+.description-event-bottom{
+    width: 177mm;
+    padding: 0mm 60mm;
+}
+.description-event-data {
+    width: 177mm;
+    height: 30mm;
+    padding-left: 20mm;
+    background: url(img/evenD.png) no-repeat 0 top;
+    background-size: 12mm;
+}
+.description-event-subtitle{
+    width: 177mm;
+    height: 20mm;
+}
+.data-event-text {
+    font-size: 24pt;
+    color: #fff;
+    text-align: left;
+}
+
+.subtitle-event-text {
+    font-size: 16pt;
+    color: #fff;
+    text-align: center;
+}
+
+
+.place-event-text {
+    float: left;
+    width: 120mm;
+    font-size: 20pt;
+    color: #fff;
+    text-align: left;
+}
 /* peregovory */
 .a4-pr-page {
     width: 297mm;
@@ -1452,4 +1452,97 @@ float: left;
 .numText {
     font-size: 12pt;
     line-height: 13pt;
+}
+
+
+/* тарифы */
+.a4-tr-page{
+    width: 297mm;
+    height: 210mm;
+    padding: 20mm 40mm 10mm 40mm;
+    position: relative;
+    text-align: center;
+        background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
+border: 1mm solid #fff;
+
+}
+.logo-tr {
+    width: 287mm;
+    text-align: left;
+    margin-bottom: 12mm;
+}
+
+.logo-tr-img {
+    width: 96mm;
+}
+
+.title-tr-container {
+    padding: 0 0 8mm 0;
+    width: 297mm;
+    text-align: center;
+}
+
+.title-tr{
+    font-size: 30pt;
+    color:#fff;
+    text-align: left;
+}
+
+.list-tr{
+    font-size: 16pt;
+    line-height: 26pt;
+    color: #fff;
+    text-align: left;
+}
+.tr-name{
+    margin: 8mm 0;
+    font-size: 45pt;
+    color: #fff;
+    min-height: 40mm;
+}
+
+.logoLoc-tr {
+    float: left;
+    width: 59mm;
+    height: 40mm;
+}
+
+.logoLoc-tr-img {
+    max-width: 56mm;
+    max-height: 26mm;
+}
+
+.description-tr-bottom{
+    width: 287mm;
+}
+.description-tr-data {
+    width: 177mm;
+    height: 30mm;
+    padding-left: 20mm;
+    background: url(img/evenD.png) no-repeat 0 top;
+    background-size: 12mm;
+}
+.description-tr-subtitle{
+    width: 177mm;
+    height: 20mm;
+}
+.data-tr-text {
+    font-size: 24pt;
+    color: #fff;
+    text-align: left;
+}
+
+.subtitle-tr-text {
+    font-size: 16pt;
+    color: #fff;
+    text-align: left;
+}
+
+
+.place-tr-text {
+    float: left;
+    width: 120mm;
+    font-size: 20pt;
+    color: #fff;
+    text-align: left;
 }
