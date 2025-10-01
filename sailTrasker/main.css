@@ -44,12 +44,12 @@ body {
 }
 
 .logo-line {
-    width: 80mm;
+    width: 190mm;
 }
 
 .right-top-container {
     float: right;
-    width: 80mm;
+    width: 190mm;
     height: 24mm;
 }
 
@@ -150,7 +150,7 @@ body {
 }
 
 .title-event-container {
-    padding: 30mm 40mm 20mm 40mm;
+    padding: 30mm 40mm 30mm 40mm;
     width: 217mm;
     text-align: center;
 }
