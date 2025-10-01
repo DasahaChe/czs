@@ -389,6 +389,62 @@ body {
     background-color: var(--base-color-2);
 }
 
+
+/* новые стили для поиска */
+
+.buyers_seach{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 16px;
+    gap: 1em;
+    flex-wrap: wrap;
+    background-color: var(--lightBlue);
+    border-radius: 8px;
+}
+
+
+.buyers_seach-type,
+.buyers_seach-plase{
+    display: inline-block;
+    width: 48%;
+}
+.buyers_seach-type div,
+.buyers_seach-plase div{
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.buyers_seach-type input[type="checkbox"],
+.buyers_seach-plase input[type="checkbox"]{
+    margin-right: 8px;
+}
+.buyers_seach-name{
+    width: 100%;
+}
+.buyers_list{
+    color: #999;
+}
+
+.buyers_list div{
+    margin-bottom: 16px;
+}
+.buyers-name{
+    color:#000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width:1340px) {
     .link-enter,
     .link-home {
@@ -446,37 +502,12 @@ body {
     gap: 2em;
     }
 
-}
-
-/* новые стили для поиска */
-
-.buyers_seach{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    .buyers_seach-type{
     width: 100%;
-    padding: 16px;
-    gap: 1em;
-    flex-wrap: wrap;
-    background-color: #b8deee;
-    border-radius: 1em;
-}
-
-.buyers_seach-type{
-    grid-column: 2/3;
 }
 .buyers_seach-plase{
-    grid-column: 1/2;
-}
-
-.buyers_seach-name{
-    grid-column: 1/3;
     width: 100%;
 }
-.buyers_list{
-    color: #999;
-}
-.buyers-name{
-    color:#000;
+
 }
 
