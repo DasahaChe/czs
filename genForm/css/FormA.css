@@ -427,9 +427,12 @@ body {
 }
 
 .buyers_list div{
+    line-height: 20px;
     margin-bottom: 16px;
 }
 .buyers-name{
+    font-size: 18px;
+    line-height: 20px;
     color:#000;
 }
 
