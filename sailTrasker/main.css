@@ -424,16 +424,16 @@ html {
 }
 
 .description-event-bottom{
-    width: 204mm;
-    padding: 0mm 44mm;
+    width: 272mm;
+    padding: 0mm 10mm;
 }
 .description-event-data {
     float: left;
-    width: 170mm;
+    width: 235mm;
     height: 35mm;    
 }
 .description-event-subtitle{
-    width: 204mm;
+    width: 272mm;
     height: 20mm;
 }
 .data-event-text {
@@ -1537,9 +1537,7 @@ float: left;
     float: left;
     width: 72mm;
     height: 61mm;
-    border: 1px solid #1d8ce7;
-    border-top: 7px solid #1d8ce7;
-    border-bottom: 7px solid #1d8ce7;
+    border: 2px solid #255ba9;
     border-radius: 4mm;
     padding: 8mm;
     margin: 5mm 5mm 0 0;
