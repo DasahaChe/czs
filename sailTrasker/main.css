@@ -25,6 +25,12 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
 /* index */
 .a4-main-container {
     width: 297mm;
@@ -373,7 +379,7 @@ html {
 .a4-event-page{
     width: 297mm;
     height: 210mm;
-    padding: 20mm 40mm 10mm 40mm;
+    padding: 20mm 25mm 15mm 25mm;
     position: relative;
     text-align: center;
     background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);

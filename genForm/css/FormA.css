@@ -448,3 +448,35 @@ body {
 
 }
 
+/* новые стили для поиска */
+
+.buyers_seach{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    padding: 16px;
+    gap: 1em;
+    flex-wrap: wrap;
+    background-color: #b8deee;
+    border-radius: 1em;
+}
+
+.buyers_seach-type{
+    grid-column: 2/3;
+}
+.buyers_seach-plase{
+    grid-column: 1/2;
+}
+
+.buyers_seach-name{
+    grid-column: 1/3;
+    width: 100%;
+}
+.buyers_list{
+    color: #999;
+}
+.buyers-name{
+    color:#000;
+}
+
