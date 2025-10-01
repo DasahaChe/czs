@@ -21,7 +21,10 @@ body {
     font-family: 'TT Fors', Arial, sans-serif;
     background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
 }
-
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 /* index */
 .a4-main-container {
     width: 297mm;
@@ -373,8 +376,8 @@ body {
     padding: 20mm 40mm 10mm 40mm;
     position: relative;
     text-align: center;
-        background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
-border: 1mm solid #fff;
+    background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
+    border: 1mm solid #fff;
 
 }
 .logo-event {
@@ -387,27 +390,26 @@ border: 1mm solid #fff;
 }
 
 .title-event-container {
-    padding: 0 0 8mm 0;
     width: 297mm;
     text-align: center;
 }
 
 .title-event{
-    font-size: 30pt;
+    font-size: 24pt;
     color:#fff;
 }
 
 .event-name{
-    margin-top: 20mm;
-    font-size: 60pt;
+    margin-top: 4mm;
+    font-size: 48pt;
+    height: 46mm;
     color:#fff;
-    min-height: 40mm;
 }
 
 .logoLoc-event {
     float: left;
     width: 34mm;
-    height: 34mm;
+    height: 40mm;
 }
 
 .logoLoc-event-img {
@@ -420,14 +422,12 @@ border: 1mm solid #fff;
     padding: 0mm 44mm;
 }
 .description-event-data {
-    width: 177mm;
-    height: 30mm;
-    padding-left: 20mm;
-    background: url(img/evenD.png) no-repeat 0 top;
-    background-size: 12mm;
+    float: left;
+    width: 170mm;
+    height: 35mm;    
 }
 .description-event-subtitle{
-    width: 177mm;
+    width: 204mm;
     height: 20mm;
 }
 .data-event-text {
@@ -437,7 +437,7 @@ border: 1mm solid #fff;
 }
 
 .subtitle-event-text {
-    font-size: 16pt;
+    font-size: 15pt;
     color: #fff;
     text-align: center;
 }
@@ -450,6 +450,22 @@ border: 1mm solid #fff;
     color: #fff;
     text-align: left;
 }
+
+.qr-event {
+    float: left;
+    width: 34mm;
+    height: 34mm;
+}
+
+.text-bottom-event{
+    text-align: right;
+    height: 10mm;
+    margin-top: 2mm;
+    font-size: 15pt;
+    line-height: 15pt; 
+    color: #fff;
+}
+
 /* peregovory */
 .a4-pr-page {
     width: 297mm;
@@ -1436,7 +1452,7 @@ float: left;
     font-size: 12pt;
     line-height: 14pt; 
 }
-.num-block {
+/* .num-block {
     padding-bottom: 10mm;
 }
 
@@ -1453,7 +1469,7 @@ float: left;
 .numText {
     font-size: 12pt;
     line-height: 13pt;
-}
+} */
 
 
 /* тарифы */
