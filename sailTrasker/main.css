@@ -406,10 +406,10 @@ html {
 }
 
 .event-name{
-    margin-top: 4mm;
-    font-size: 48pt;
+    margin-top: 12mm;
+    font-size: 40pt;
     height: 46mm;
-    color:#fff;
+    color: #fff;
 }
 
 .logoLoc-event {
@@ -429,12 +429,12 @@ html {
 }
 .description-event-data {
     float: left;
-    width: 235mm;
+    width: 242mm;
     height: 35mm;    
 }
 .description-event-subtitle{
     width: 272mm;
-    height: 20mm;
+    height: 15mm;
 }
 .data-event-text {
     font-size: 24pt;
@@ -459,8 +459,8 @@ html {
 
 .qr-event {
     float: left;
-    width: 34mm;
-    height: 34mm;
+    width: 30mm;
+    height: 30mm;
 }
 
 .text-bottom-event{
