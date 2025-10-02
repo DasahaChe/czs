@@ -42,6 +42,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function initFilterSystem(buyersData) {
+    // Сохраняем исходные данные для сброса
+    const originalData = [...buyersData];
+    
     // Находим контейнеры с чекбоксами фильтров
     const regionCheckboxes = document.querySelectorAll('.buyers_seach-plase input[type="checkbox"]');
     const scaleCheckboxes = document.querySelectorAll('.buyers_seach-type input[type="checkbox"]');
@@ -63,11 +66,11 @@ function initFilterSystem(buyersData) {
         nameSearchInput.addEventListener('input', () => filterBuyers(buyersData));
     }
 
-    // // Добавляем кнопку сброса
-    // addResetButton();
+    // Добавляем кнопку сброса
+    addResetButton(originalData);
 
-    // Первоначальное отображение всех данных
-    displayBuyersList(buyersData);
+    // Первоначальное отображение всех данных (без фильтров)
+    displayBuyersList(buyersData, false, originalData.length);
 }
 
 function filterBuyers(buyersData) {
@@ -87,6 +90,9 @@ function filterBuyers(buyersData) {
     console.log('Выбранные масштабы:', selectedScales);
     console.log('Текст поиска:', searchText);
 
+    // Определяем, применены ли фильтры
+    const hasActiveFilters = selectedRegions.length > 0 || selectedScales.length > 0 || searchText.length > 0;
+
     // Фильтруем данные
     const filteredData = buyersData.filter(buyer => {
         // Проверка по регионам
@@ -105,10 +111,13 @@ function filterBuyers(buyersData) {
     });
 
     console.log('Отфильтрованные данные:', filteredData);
-    displayBuyersList(filteredData);
+    displayBuyersList(filteredData, hasActiveFilters, buyersData.length);
 }
 
-function displayBuyersList(buyers) {
+function displayBuyersList(buyers, hasActiveFilters, totalCount) {
+    // ОБНОВЛЯЕМ ЗАГОЛОВОК С КОЛИЧЕСТВОМ НАЙДЕННЫХ ОБЪЕКТОВ
+    updateTitleWithCount(buyers.length, hasActiveFilters, totalCount);
+
     // Находим или создаем контейнер для списка покупателей
     let listContainer = document.querySelector('.buyers_list');
     if (!listContainer) {
@@ -160,6 +169,34 @@ function displayBuyersList(buyers) {
     listContainer.innerHTML = buyersHTML;
 }
 
+// ОБНОВЛЕННАЯ ФУНКЦИЯ: Обновление заголовка с количеством объектов
+function updateTitleWithCount(currentCount, hasActiveFilters, totalCount) {
+    // Находим элемент с классом "title-foto"
+    const titleElement = document.querySelector('.title-foto');
+    
+    if (titleElement) {
+        // Сохраняем оригинальный текст, если это первый вызов
+        if (!titleElement.hasAttribute('data-original-text')) {
+            titleElement.setAttribute('data-original-text', titleElement.textContent);
+        }
+        
+        const originalText = titleElement.getAttribute('data-original-text');
+        
+        // Определяем текст в зависимости от состояния фильтрации
+        let countText;
+        if (hasActiveFilters) {
+            countText = `Найдено: ${currentCount} вариантов`;
+        } else {
+            countText = `Всего: ${totalCount} вариантов`;
+        }
+        
+        // Обновляем текст
+        titleElement.textContent = `${originalText} (${countText})`;
+    } else {
+        console.warn('Элемент с классом "title-foto" не найден на странице');
+    }
+}
+
 // Дополнительная функция для получения выбранных покупателей
 function getSelectedBuyers() {
     const selectedCheckboxes = document.querySelectorAll('.buyers_list input[type="checkbox"]:checked');
@@ -174,25 +211,26 @@ function getSelectedBuyers() {
     return selectedBuyers;
 }
 
-// Функция для сброса фильтров
-function addResetButton() {
+// ОБНОВЛЕННАЯ ФУНКЦИЯ: Добавление кнопки сброса с передачей исходных данных
+function addResetButton(originalData) {
     let resetButton = document.querySelector('.reset-filters');
     if (!resetButton) {
-        resetButton = document.createElement('button');
-        resetButton.textContent = 'Сбросить фильтры';
-        resetButton.className = 'reset-filters';
-        resetButton.style.margin = '10px 20px';
-        resetButton.style.padding = '8px 16px';
-        resetButton.addEventListener('click', resetFilters);
+        // resetButton = document.createElement('button');
+        // resetButton.textContent = 'Сбросить фильтры';
+        // resetButton.className = 'reset-filters';
+        // resetButton.style.margin = '10px 20px';
+        // resetButton.style.padding = '8px 16px';
+        // resetButton.addEventListener('click', () => resetFilters(originalData));
         
-        const searchContainer = document.querySelector('.buyers_seach');
-        if (searchContainer) {
-            searchContainer.appendChild(resetButton);
-        }
+        // const searchContainer = document.querySelector('.buyers_seach');
+        // if (searchContainer) {
+        //     searchContainer.appendChild(resetButton);
+        // }
     }
 }
 
-function resetFilters() {
+// ОБНОВЛЕННАЯ ФУНКЦИЯ: Сброс фильтров с передачей исходных данных
+function resetFilters(originalData) {
     // Снимаем все выделения с чекбоксов фильтров
     document.querySelectorAll('.buyers_seach input[type="checkbox"]').forEach(checkbox => {
         checkbox.checked = false;
@@ -204,18 +242,8 @@ function resetFilters() {
         searchNameInput.value = '';
     }
     
-    // Перезагружаем все данные
-    const input = document.querySelector('input[type="hidden"].buyers_json_data');
-    if (input) {
-        const jsonData = JSON.parse(input.value);
-        const resultArray = Object.entries(jsonData).map(([name, data]) => ({
-            name: name,
-            scale: data.scale,
-            regions: data.regions,
-            logo: data.logo
-        }));
-        displayBuyersList(resultArray);
-    }
+    // Отображаем исходные данные без фильтров
+    displayBuyersList(originalData, false, originalData.length);
 }
 
 // Функция для подсветки совпадений в тексте

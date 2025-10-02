@@ -532,19 +532,19 @@ html {
 .numBigPr {
     color: #255ba9;
     /* font-weight: bold; */
-    font-size: 14pt;
+    font-size: 18pt;
 }
 
 .fontBigPr {
-    font-size: 24pt;
-    line-height: 56pt;
+    font-size: 40pt;
+    line-height: 40pt;
 }
 
 .numTextPr {
-    font-size: 12pt;
+    font-size: 18pt;
     /* font-weight: bold; */
     color: #255ba9;
-    margin-bottom: 2mm;
+    margin-bottom: 10mm;
 }
 
 .numTextPrS {
@@ -644,8 +644,8 @@ html {
 }
 .numBig-st {
     color: #255ba9;
-    font-size: 24pt;
-    line-height: 32pt;
+    font-size: 40pt;
+    line-height: 40pt;
 }
 
 .fontBigSt {
@@ -745,9 +745,9 @@ html {
 .num-st-botom {
     /* color: #fff; */
     color: #255ba9;
-    font-size: 24pt;
-    line-height: 24pt;
-    margin-bottom: 5mm;
+    font-size: 40pt;
+    line-height: 40pt;
+    margin-bottom: 3mm;
     text-align: center;
 }
 
@@ -863,10 +863,10 @@ html {
 
 .numHow-main {
     float: left;
-    width: 16mm;
+    width: 18mm;
     color: #255ba9;
-    font-size: 36pt;
-    line-height: 36pt;
+    font-size: 40pt;
+    line-height: 40pt;
 }
 
 .howText {
@@ -1492,7 +1492,7 @@ float: left;
 
 .title-tar-container {
     padding: 10mm 2mm 10mm 10mm;
-    width: 195mm;
+    width: 197mm;
 }
 
 
@@ -1500,7 +1500,7 @@ float: left;
     font-size: 32pt;
     line-height: 32pt;
     color: #255ba9;
-    margin-top: 7mm;
+    margin-bottom: 7mm;
 }
 
 .tarif-block {
@@ -1538,6 +1538,7 @@ float: left;
     text-align: center;
 }
 .tar {
+    float: left;
     width: 74.5mm;
     height: 61mm;
     border: 2px solid #255ba9;
