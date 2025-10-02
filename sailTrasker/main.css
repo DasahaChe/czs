@@ -465,8 +465,7 @@ html {
 
 .text-bottom-event{
     text-align: right;
-    height: 10mm;
-    margin-top: 2mm;
+    height: 8mm;
     font-size: 15pt;
     line-height: 15pt; 
     color: #fff;
@@ -526,7 +525,7 @@ html {
 
 .num-blockPr-right{
  float: left;
-    width: 68mm;
+    width: 72mm;
 }
 
 .numBigPr {
@@ -1349,7 +1348,7 @@ html {
     margin-top: 6mm;
 }
 .top-textCt {
-    margin-top: 6mm;
+    margin-top: 15mm;
     width: 167mm;
     height: 96mm;
     padding: 10mm;
