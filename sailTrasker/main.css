@@ -610,20 +610,23 @@ html {
     width: 186mm;
 }
 .title-st {
-    font-size: 24pt;
+    font-size: 32pt;
     line-height: 32pt;
+    color: #255ba9;
+    margin-bottom: 5mm;
+}
+
+.subtitle-st {
+    font-size: 20pt;
+    line-height: 20pt;
     color: #255ba9;
 }
 .topNew-text-st{
-    margin-top: 5mm;
+    margin-top: 8mm;
     padding: 4mm;
     border: 1px solid #224e85;
     border-radius: 2mm;
-    height: 30mm;
-    /* color: #fff;
-    height: 30mm;
-    border-radius: 4mm;
-    background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%); */
+    height: 38mm;
 
 }
 .num-block-st {
@@ -658,7 +661,7 @@ html {
 .numSt-left {
     float: left;
     width: 50mm;
-    margin: 20mm 2mm 0 0;
+    margin: 8mm 2mm 0 0;
 }
 
 .numSt-right-top {
@@ -710,15 +713,12 @@ html {
 .middleSt-block-left {
     float: left;
     width: 60mm;
-    height: 50mm;
     margin-right: 2mm;
 }
 
 .middleSt-block-right {
     float: left;
     width: 60mm;
-    height: 50mm;
-
 }
 
 .middleQrSt {
@@ -758,28 +758,24 @@ html {
 }
 
 .top-textSt {
-    margin-top: 4mm;
+    margin-top: 8mm;
     padding: 4mm;
     border: 1px solid #255ba9;
     border-radius: 2mm;
-    height: 68mm;
+    height: 38mm;
 }
 
 .topNew-textSt {
     margin-top: 8mm;
-  
+    height: 35mm;
 }
 
 .bottom-textSt {
-    margin-top: 4mm;
+    margin-top: 8mm;
     padding: 4mm;
     border: 1px solid #255ba9;
     border-radius: 2mm;
-    height: 30mm;
-    /* color: #fff;
-    height: 30mm;
-    border-radius: 4mm;
-    background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%); */
+    height: 35mm;
 }
 
 .text-st {
@@ -790,6 +786,7 @@ html {
     text-align: center;
 }
 .st-text {
+    width: 48mm;
     font-size: 12pt;
     line-height: 16pt;
 }
