@@ -1,66 +1,63 @@
-.pr-block {
-    margin-bottom: 64px;
+.pr__block {
+    margin-bottom: 96px;
 }
 
 
-.pr-title-container {
+.pr__block .pr__title-container {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
 }
 
-.pr-title-num {
+.pr__block .pr__title-num {
     display: inline-block;
+    margin-right: 24px;
     font-size: 152px;
     line-height: 152px;
     font-weight: 600;
-    color: var(--base-color-1);
-    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--base-color-1);   
 }
 
-.pr-title-text {
+.pr__block .pr__title-text {
     display: inline-block;
     margin: 0;
     padding: 0;
     font-size: 64px;
     line-height: 64px;
     font-weight: 400;
-    margin-left: 32px;
     color: var(--base-color-1);
-    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    background: linear-gradient(to right, var(--base-color-1), var(--newGray));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
 }
 
-.pr-description {
+.pr__block .pr__description {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
 }
 
-.pr-description-block {
+.pr__block .pr__description-block {
     width: calc((100% - 32px) / 3);
     margin-bottom: 32px;
 }
 
-.pr-des-textMain,
-.pr-des-block-min {
+.pr__des-textMain,
+.pr__block .pr__des-block-min {
     display: flex;
     justify-content: center;
     margin-bottom: 8px;
     font-size: 32px;
     line-height: 1em;
     color: var(--base-color-1);
-    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    background: linear-gradient(to right, var(--base-color-1), var(--newGray));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
 }
 
-.pr-des-span {
+.pr__block .pr__des-span {
     display: flex;
     justify-content: center;
     margin-bottom: 8px;
@@ -69,17 +66,18 @@
     color: var(--base-color-1);
 }
 
-.pr-des-textMain {
+.pr__block .pr__des-textMain {
     margin-bottom: 24px;
 }
 
-.pr-des-text {
+.pr__des-text {
     padding: 0;
     margin: 0;
     font-size: 16px;
+    color:var(--grafite);
 }
 
-.pr-description-text {
+.pr__block .pr__description-text {
     padding: 0;
     margin: 0 0 64px 0;
     font-size: 32px;

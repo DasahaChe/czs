@@ -1,0 +1,65 @@
+.how{
+    margin-bottom: 64px;
+}
+
+
+.how__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap:32px;
+}
+.how-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc((100% - 32px) / 2);
+    padding: 32px;
+    padding-left: 176px;
+    background: url(../img/fon01.jpg) no-repeat 0px 0px;
+    background-size: 160px;
+    min-height: 240px;
+    border: 1px solid var(--darkBlue);
+    border-radius: 16px;
+}
+
+
+.how .how__title {
+    margin: 0;
+    margin-bottom: 64px;
+    padding: 0;
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: 600;
+   background: linear-gradient(to right, var(--base-color-1), var(--newGray));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.how .how__subtitle {
+    margin: 0;
+    padding: 0;
+    margin-right: 24px;
+    font-size: 32px;
+    line-height: 32px;
+    color: var(--newGray);   
+}
+
+.how__button{    
+    padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
+    min-width: calc(var(--base-font-size) * 17);
+    color: var(--darkBlue);
+    border: 1px solid var(--darkBlue);
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.5s 
+ease, color 0.5s 
+ease, background-color 0.5s 
+ease;
+}
+
+
+.how__button-main{
+     color: #fff;
+     background: var(--svgGradient);
+}
