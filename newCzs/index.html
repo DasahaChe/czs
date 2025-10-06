@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="css/event.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/how.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/stat.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/why.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/main.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/header.css" type="text/css" media="all">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -45,25 +49,27 @@
                 <a href="#" class="header__button">Зарегистрироваться</a>
             </div>
             <ul class="header-menu__list list-reset">
-                <li class="header-menu__item"><a href="#">О платформе</a></li>
+                <li class="header-menu__item"><a href="#">Переговоры</a></li>
                 <li class="header-menu__border"></li>
-                <li class="header-menu__item"><a href="#">Почему мы?</a></li>
+                <li class="header-menu__item"><a href="#">Блтжайщее событие</a></li>
                 <li class="header-menu__border"></li>
                 <li class="header-menu__item"><a href="#">Статистика</a></li>
                 <li class="header-menu__border"></li>
-                <li class="header-menu__item"><a href="#">Переговоры</a></li>
+                <li class="header-menu__item"><a href="#">Наш алгоритм</a></li>
                 <li class="header-menu__border"></li>
-                <li class="header-menu__item"><a href="#">Календарь</a></li>
+                <li class="header-menu__item"><a href="#">Почему мы?</a></li>
                 <li class="header-menu__border"></li>
                 <li class="header-menu__item"><a href="#">Отзывы</a></li>
                 <li class="header-menu__border"></li>
                 <li class="header-menu__item"><a href="#">Контакты</a></li>
+                <li class="header-menu__border"></li>
+                <li class="header-menu__item"><a href="#">Тарифы</a></li>
             </ul>
         </div>
     </div>
     <main class="main">
         <div class="container">
-            <div class="pr__block">
+            <section class="pr__block">
                 <div class="pr__title-container">
                     <div class="pr__title-num">
                         30+
@@ -75,7 +81,6 @@
                     <div class="pr__description-block">
                         <div class="pr__des-span">3 </div>
                         <div class="pr__des-textMain">часа&nbsp;подготовки</div>
-                        <!-- <div class="pr__des-textMain">подготовки</div> -->
                         <div class="pr__des-text">Виртуальный ассистент поможет подготовиться
                             к переговорам,
                             создать коммерческое предложение
@@ -102,9 +107,9 @@
                     <h1 class="pr__title-text">Крупнейшие розничные сети обновляют ассортимент в Центре Закупок Сетей™
                     </h1>
                 </div>
-            </div>
+            </section>
         </div>
-        <div class="event">
+        <section class="event">
             <div class="container">
                 <h2 class="event__title">Ближайшее события</h2>
                 <div class="event-block-name">
@@ -116,10 +121,10 @@
                     <div class="event__place">Санкт-Петербург, Экспофорум</div>
                 </div>
             </div>
-            <img src="img/logochart-line0.png" alt="" class="event__img">
-        </div>
+            <img src="img/logoLine0.png" alt="" class="event__img">
+        </section>
         <div class="container">
-            <div class="how">
+            <section class="how">
                 <h2 class="how__title">Всего два дня, и вы в сети!</h2>
                 <ul class="how__list list-reset">
                     <li class="how-block">
@@ -150,10 +155,8 @@
                         <button class="how__button">Статистика продаж</button>
                     </li>
                 </ul>
-
-            </div>
-
-            <div class="stat">
+            </section>
+            <section class="stat">
                 <h2 class="stat__title">
                     Итоги последнего события
                 </h2>
@@ -208,14 +211,74 @@
                     </div>
                 </div>
                 <div class="chart-text">Высокая эффективность Платформы и рекордный процент
-                        одобренных заявок
-                        достигаются за счёт уникальной авторской технологии, которая комплексно готовит покупателей и
-                        продавцов к
-                        успешной сделке</div>
+                    одобренных заявок
+                    достигаются за счёт уникальной авторской технологии, которая комплексно готовит покупателей и
+                    продавцов к
+                    успешной сделке</div>
+            </section>
+        </div>
+        <section class="why">
+            <div class="container">
+                <h2 class="why__title">Почему именно мы?</h2>
+
+                <ul class="why__list list-reset">
+                    <li class="why__item">
+                        <h3 class="why__subtitle why1">Новые предложения рынка</h3>
+                        <p class="why__text">Ваш продукт еще не на полках нужной сети? Это преимущество! Категорийные
+                            менеджеры сетей приходят в ЦЗС специально, чтобы найти свежие для себя предложения, новые
+                            бренды и СТМ</p>
+                    </li>
+                    <li class="why__item">
+                        <h3 class="why__subtitle why2">Выверенный за 25 лет алгоритм переговоров</h3>
+                        <p class="why__text">Наш автоматизированный формат коммерческих предложений и договоров признан
+                            всеми крупными сетями. 25 лет экспертизы — вам остаётся только заключать сделки</p>
+                    </li>
+                    <li class="why__item">
+                        <h3 class="why__subtitle why3">40 из 50 переговоров успешные</h3>
+                        <p class="why__text">Сети ведут переговоры уже с полностью подготовленными по нашей методике
+                            поставщиками и только по тем товарам, которые соответствуют их ожиданиям</p>
+                    </li>
+                </ul>
             </div>
+        </section>
+        <div class="container">
+            <section class="photo">
+                <h2 class="photo__title">Фотоотчеты наших мероприятий</h2>
+                <div class="gallery-container">
+
+                    <div class="swiper">
+
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <img src="img/image2.webp" alt="photo">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/image1.jpg" alt="photo">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/image3.webp" alt="photo">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/image4.jpg" alt="photo">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/image4.jpg" alt="photo">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/image4.jpg" alt="photo">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
     <div class="footer"></div>
+    <script defer src="js/script.js"></script>
 </body>
 
 </html>
