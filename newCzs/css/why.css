@@ -35,6 +35,9 @@
 }
 
 .why__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 32px 32px 48px 32px;
     width: calc((100% - 64px) / 3);
     border: 1px solid var(--base-color-2);
@@ -54,6 +57,7 @@
 .why__text {
     padding: 0;
     margin: 0;
+    margin-bottom: 32px;
     color: #fff;
 }
 
@@ -73,5 +77,15 @@
     padding-left: 32px;
     background: url(../img/w3.svg) no-repeat 0 0px;
     background-size: 20px;
+}
+
+.why__button{
+    display: flex;
+    padding: 8px 32px;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid var(--base-color-2);
+    border-radius: 8px;
+    align-self: center;
 }
 
