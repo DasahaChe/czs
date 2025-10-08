@@ -22,7 +22,22 @@
     border-radius: 16px;
 }
 
+.how1{
+    background: url(../img/step1.jpg) no-repeat 0px 0px;
+    background-size: 160px;
+}
 
+.how2{
+    background: url(../img/step2.jpg) no-repeat 0px 0px;
+    background-size: 160px;
+}
+.how3{
+    background: url(../img/step3.jpg) no-repeat 0px 0px;
+    background-size: 160px;
+}.how4{
+    background: url(../img/step4.jpg) no-repeat 0px 0px;
+    background-size: 160px;
+}
 .how .how__title {
     margin: 0;
     margin-bottom: 64px;

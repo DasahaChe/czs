@@ -79,7 +79,7 @@ html {
 .name-main-top {
     padding: 2mm 5mm 1.5mm 5mm;
     margin-bottom: 10mm;
-    color: #224e85;
+    color: rgb(34, 78, 133);
     background-color: #fff;
     border-radius: 5mm;
 }
@@ -1077,7 +1077,9 @@ html {
 }
 
 .block-wh-titleLink {
-    font-size: 18pt;
+    width: 39mm;
+    padding-left: 13mm;
+    font-size: 12pt;
     line-height: 18pt;
     margin-bottom: 6mm;
     color: #255ba9;
@@ -1378,6 +1380,7 @@ html {
 }
 
 .qrR {
+    width: 30mm;
     margin-bottom: 4mm;
 }
 
@@ -1503,6 +1506,10 @@ html {
     width: 34mm;
     height: 34mm;
     margin-top: 11mm;
+}
+
+.qrCt-img{
+    width: 30mm;
 }
 
 .nameCt {
@@ -1662,18 +1669,16 @@ html {
 .wcp-tar {
     float: left;
     width: 15mm;
-    margin-top: 1mm;
 }
 
 .tele-tar {
     float: left;
-    width: 15mm;
-    margin-top: 2mm;
+    width: 17mm;
 }
 .tell-tar {
     float: left;
     width: 15mm;
-    height: 15mm;
+    margin-top: 1mm;
 }
 
 .mail-tar {
@@ -1682,11 +1687,11 @@ html {
 }
 
 .tar-icon {
-    margin-right: 2mm;
+    margin-right: 0mm;
 }
 
 .tar-icon-block{
     padding-left: 20mm;
-    width: 30mm;
-    height: 30mm;
+    width: 35mm;
+    height: 32mm;
 }

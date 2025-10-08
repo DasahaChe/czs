@@ -50,11 +50,12 @@
     margin-bottom: 8px;
     font-size: 32px;
     line-height: 1em;
-    color: var(--base-color-1);
-    background: linear-gradient(to right, var(--base-color-1), var(--newGray));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #000;
 
+}
+
+.pr__block  .pr__des-textMain{
+    color:#000;
 }
 
 .pr__block .pr__des-span {
@@ -68,6 +69,7 @@
 
 .pr__block .pr__des-textMain {
     margin-bottom: 24px;
+    text-align: center;
 }
 
 .pr__des-text {
