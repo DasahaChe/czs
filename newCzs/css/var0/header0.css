@@ -152,11 +152,9 @@ body {
     display: flex;
     justify-content: center;
     padding: 64px 0 96px 0;
-    margin-bottom: 96px;
+    margin-bottom: calc(var(--base-gap) * 4);
     width: 100%;
     height: 720px;
-    border-bottom-left-radius: 32px;
-    border-bottom-right-radius: 32px;
     position: relative;
     background: linear-gradient(133deg, var(--base-color-2), var(--base-color-1), var(--base-color-7));
 
@@ -222,18 +220,15 @@ body {
 
 .header .header-menu__list {
     display: flex;
-    padding: 32px 64px;
-    gap: 8px;
+    gap: 32px;
     font-size: 16px;
-    color: var(--base-color-6);
-    border-radius: 40px;
-    background-color: #fff;
+    color: #fff;
     align-self: center;
 }
 
 .header .header-menu__border {
     width: 1px;
-    background-color: var(--base-color-6);
+    background-color: #fff;
 }
 
 .header .header__block-tell {
@@ -251,26 +246,16 @@ body {
 }
 
 .header .header__link-text {
-    border-bottom: 1px dotted #fff;
+    border-bottom: 1px solid #fff;
 
 }
-
-.header-menu__item a {
-    padding: 8px 16px;
-    border-radius: 32px;
-}
-
 
 @media (any-hover: hover) {
     .header .header__button:hover {
         background-color: var(--base-color-2);
     }
 
-    .header-menu__item a:hover {       
-        color: #fff;
-        background-color: var(--base-color-2);
-    }
-
+    .header-menu__item a:hover,
     .header .header__link-tell:hover,
     .header .header__icon:hover {
         color: var(--base-color-2);

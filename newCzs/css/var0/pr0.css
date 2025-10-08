@@ -6,7 +6,7 @@
 .pr__block .pr__title-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 64px;
+    margin-bottom: 40px;
 }
 
 .pr__block .pr__title-num {
@@ -26,16 +26,16 @@
     line-height: 64px;
     font-weight: 400;
     color: var(--base-color-1);
-    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    background: linear-gradient(to right, var(--base-color-1), var(--newGray));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
 }
 
 .pr__block .pr__description {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    row-gap: 64px;
 }
 
 .pr__block .pr__description-block {

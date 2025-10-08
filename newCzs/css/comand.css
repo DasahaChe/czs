@@ -68,10 +68,10 @@
 }
 
 .comand-icon-wc{
-    margin-top: 4px;
+    margin-top: -2px;
 }
 .comand-icon-tl{
-    margin-top: 10px;
+    
 }
 
 .comand__contakt:not(:last-child){
