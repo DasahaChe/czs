@@ -79,7 +79,7 @@ html {
 .name-main-top {
     padding: 2mm 5mm 1.5mm 5mm;
     margin-bottom: 10mm;
-    color: rgb(34, 78, 133);
+    color: #224e85;
     background-color: #fff;
     border-radius: 5mm;
 }
@@ -1669,16 +1669,18 @@ html {
 .wcp-tar {
     float: left;
     width: 15mm;
+    margin-top: 1mm;
 }
 
 .tele-tar {
     float: left;
-    width: 17mm;
+    width: 15mm;
+    margin-top: 2mm;
 }
 .tell-tar {
     float: left;
     width: 15mm;
-    margin-top: 1mm;
+    height: 15mm;
 }
 
 .mail-tar {
@@ -1687,11 +1689,11 @@ html {
 }
 
 .tar-icon {
-    margin-right: 0mm;
+    margin-right: 2mm;
 }
 
 .tar-icon-block{
     padding-left: 20mm;
-    width: 35mm;
-    height: 32mm;
+    width: 30mm;
+    height: 30mm;
 }
