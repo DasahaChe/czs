@@ -871,7 +871,7 @@ html {
     height: 210mm;
     border-top-left-radius: 7mm;
     border-bottom-left-radius: 7mm;
-    background: #fff url(img/fonTel.png) no-repeat bottom right;
+    background: #fff url(img/fonTel1.png) no-repeat bottom right;
 }
 
 .how-list {
@@ -911,6 +911,7 @@ html {
 .numHow-main {
     float: left;
     width: 18mm;
+    height: 18mm;
     color: #255ba9;
     font-size: 40pt;
     line-height: 40pt;

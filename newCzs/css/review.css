@@ -1,18 +1,4 @@
-.review__button {
-    padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
-    min-width: calc(var(--base-font-size) * 17);
-    color: var(--base-color-2d);
-    cursor: pointer;
-    border: 1px solid var(--base-color-2d);
-    font-size: calc(var(--base-font-size) * 1);
-    background: transparent;
-    outline: none;
-    transition: border-color 0.5s ease, color 0.5s ease, background-color 0.5s ease;
-}
 
-.review__button {
-    justify-self: center;
-}
 
 .review__title {
     margin: 0;
@@ -131,23 +117,83 @@
     border-width: 24px 0 24px 40px;
     border-color: transparent transparent transparent white;
     opacity: 1;
-    /* transition: opacity 0.2s ease; */
 }
 
-/* Скрытие треугольника */
+
 .review__video-block.playing::after {
     opacity: 0;
 }
+.review__button-block{
+   width: calc(50% - 32px);
+   /* border: 1px solid var(--sub-text-color); */
+}
 
-.review__button {
+.review__button-item{
+   display: flex;
+    justify-content: center;
+    flex-direction: column; 
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+    max-width: 180px;
+    width: 100%;
+    min-height: 118px;
+    border-radius: 16px;
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid var(--sub-text-color);
+    background-color: var(--newGray);
+}
+
+.review__button-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+/* .review__button {
+    
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 96px;
-    width: calc(50% - 32px);
+    padding: 16px;
+    width: calc((100% / 3) - 64px);
     border-radius: 16px;
     cursor: pointer;
     color: #fff;
     border: 1px solid #fff;
     background: linear-gradient(133deg, var(--base-color-2), var(--base-color-1), var(--base-color-7));
+} */
+
+.review__button { 
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+    padding: 16px;
+    gap: 16px;
+    max-width: 180px;
+    width: 100%;
+    border-radius: 16px;
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #fff;
+    background: linear-gradient(133deg, var(--base-color-2), var(--base-color-1), var(--base-color-7));
+    transition: border-color 0.5s ease, color 0.5s ease, background-color 0.5s ease;
+}
+.review__button-text{
+    max-width: 160px;
+}
+.review__button-img{
+    max-width: 160px;
+}
+
+.review__logo-btn{
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.review__subtitle-text{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-weight: 400;
 }
