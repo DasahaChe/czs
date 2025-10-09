@@ -44,9 +44,7 @@
       display: flex;
       align-items: center;
       outline: none;
-
   }
-
 
   .menu__link span {
       font-size: 12px;
@@ -57,7 +55,6 @@
       margin-top: var(--base-gap);
       justify-content: space-between;
       gap: var(--base-gap);
-
   }
 
   .menu__btn {
@@ -68,12 +65,10 @@
       transition: color 0.5s ease, border-color 0.5s ease;
   }
 
-
   .menu__img,
   .menu__btn {
       transition: background-color 0.5s ease, color 0.5s ease;
   }
-
 
   .menu__item-active {
       background-color: var(--darkBlue);
@@ -158,12 +153,6 @@
       }
 
 
-
-
-
-
-
-
       .menu__list-icon .menu__img {
           transition: fill 0.3s ease;
           fill: currentColor;
@@ -185,9 +174,6 @@
       .menu__item-mobil.show {
           display: block;
       }
-
-
-
 
       .menu__item-mobil .menu__btn {
           display: inline-block;

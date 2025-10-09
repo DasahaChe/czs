@@ -4,9 +4,7 @@
     flex-direction: column;
     margin-bottom: 64px;   
 }
-.photo .container{
-    align-self: center;
-}
+
 .photo__title {
     margin: 0;    
     padding: 0;
@@ -19,12 +17,24 @@
     -webkit-text-fill-color: transparent;
 }
 
-
-.gallery-container {
+.photo .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
     width: 100%;
-    max-width: 1800px;
+    box-sizing: border-box;
+    align-self: center;
+}
+
+
+
+/* Контейнер для галереи - объединение стилей */
+.gallery-container {
+    max-width: 1800px;    
+    width: 100%;
     margin: 0 auto;
     position: relative;
+    overflow: hidden;
 }
 
 .swiper {
@@ -38,7 +48,7 @@
     justify-content: center;
     border-radius: 0px;
     overflow: hidden;
-    opacity: 0.5;
+    opacity: 0.4;
     transition: all 0.3s ease;
 
 }
@@ -85,3 +95,88 @@
     color: #333333;
 }
 
+@media (max-width: 1024px) {
+    .swiper {
+        height: 450px;
+        padding: 8px 0 35px;
+    }
+    
+    .swiper-slide-active {
+        transform: scale(1.05);
+    }
+    
+    .swiper-slide-prev,
+    .swiper-slide-next {
+        transform: scale(0.95);
+    }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .photo .container {
+        padding: 0 10px;
+    }
+    
+    .photo__title {
+        margin-bottom: 20px;
+    }
+    
+    .swiper {
+        height: 350px;
+        padding: 5px 0 30px;
+    }
+    
+    /* На мобильных убираем эффекты масштабирования */
+    .swiper-slide {
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+    .swiper-slide-active {
+        transform: scale(1);
+        opacity: 1;
+    }
+    
+    .swiper-slide-prev,
+    .swiper-slide-next {
+        transform: scale(1);
+        filter: none;
+    }
+    
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none;
+    }
+    
+    .swiper-pagination {
+        bottom: 5px !important;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo .container {
+        padding: 0 8px;
+    }
+    
+    .swiper {
+        height: 280px;
+        padding: 5px 0 25px;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 320px) {
+    .swiper {
+        height: 220px;
+    }
+}

@@ -7,7 +7,7 @@
     --main-text-color: rgba(51, 51, 51, 1);
     --sub-text-color: rgba(153, 153, 153, 1);
     --border-color: rgba(153, 153, 153, 1);
-    --base-color-1: rgba(5, 55, 200, 1);
+    --base-color-1: #0537c8;
     --base-color-2: rgb(90, 196, 242);
     --base-color-2d: rgb(78, 137, 172, 1);
     --base-color-3: rgba(5, 202, 5, 1);
@@ -128,11 +128,12 @@ body {
 .headerForAll{
 	display: flex;
     justify-content: center;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    /* border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px; */
     position: relative;
     padding: 64px 112px ;
-    background: linear-gradient(133deg, var(--base-color-2), var(--base-color-1), var(--base-color-6), #39a9f3);
+    background: #005BAA;
+background: linear-gradient(145deg,rgba(0, 91, 170, 1) 19%, rgba(5, 55, 200, 0.99) 43%, rgba(33, 136, 209, 1) 67%, rgba(0, 91, 170, 1) 94%);
 }
 .version .header__block{
     display: flex; 
