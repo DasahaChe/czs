@@ -140,9 +140,9 @@
     min-height: 118px;
     border-radius: 16px;
     cursor: pointer;
-    color: #fff;
-    border: 1px solid var(--sub-text-color);
-    background-color: var(--newGray);
+    /* color: #fff; */
+    border: 1px solid var(--lightBlue);
+    background-color: var(--lightBlue);
 }
 
 .review__button-list{
@@ -194,6 +194,5 @@
 .review__subtitle-text{
     margin: 0;
     padding: 0;
-    color: #fff;
     font-weight: 400;
 }

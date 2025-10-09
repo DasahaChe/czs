@@ -152,7 +152,13 @@ body {
 }
 
 /*новое*/
-
+.ask_form .buyers_list{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+max-height: 200px;
+overflow-y: scroll;
+}
 
 .buyers_list input[type="checkbox"] {
     margin: 0 8px 0 0;
@@ -422,11 +428,13 @@ body {
 .buyers_seach-name{
     width: 100%;
 }
-.buyers_list{
+.buyers_list{    
     color: #999;
 }
 
 .buyers_list div{
+    width: 50%;
+    font-size: 0px;
     line-height: 20px;
     margin-bottom: 16px;
 }
