@@ -262,18 +262,41 @@ body {
 
 
 @media (any-hover: hover) {
+
     .header .header__button:hover {
         background-color: var(--base-color-2);
     }
 
-    .header-menu__item a:hover {       
+    .future__btn:hover,
+    .future__button:hover,
+    .review__button:hover,
+    .review__button-item:hover,
+    .how__button-main:hover {
         color: #fff;
-        background-color: var(--base-color-2);
+        background: var(--base-color-2);
+        border-color: var(--base-color-2);
     }
 
+
+    .how__button:hover,
+    .why__button:hover,
+    .header-menu__item a:hover {
+        color: #fff;
+        background-color: var(--base-color-2);
+        border-color: var(--base-color-2);
+    }
+
+    .footer .footer__icon:hover,
+   
+    .comand__social-item:hover,
     .header .header__link-tell:hover,
     .header .header__icon:hover {
         color: var(--base-color-2);
+    }
+
+ .footer .footer__item-link:hover{
+        color: var(--base-color-2);
+        border-color: var(--base-color-2);
     }
 
     .header .header__link-text:hover {
@@ -281,4 +304,8 @@ body {
         border-bottom: 1px solid var(--base-color-2);
 
     }
+
+.event .event__button:hover{
+    background: var(--base-color-2);
+}
 }

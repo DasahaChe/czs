@@ -76,6 +76,3 @@
     opacity: 0.2;
 }
 
-.event .event__button:hover{
-    background: var(--base-color-2);
-}
