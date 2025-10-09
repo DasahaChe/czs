@@ -21,7 +21,7 @@
     min-height: 240px;
     border: 1px solid var(--item-border);
     border-radius: 16px;
-} 
+}
 
 .how1 {
     background: url(../img/step1.jpg) no-repeat 0px 0px;
@@ -58,7 +58,6 @@
 .how .how__subtitle {
     margin: 0 0 32px 0;
     padding: 0;
-    margin-right: 24px;
     font-size: 32px;
     line-height: 32px;
     color: var(--newGray);
@@ -79,4 +78,44 @@
 .how__button-main {
     color: #fff;
     background: var(--svgGradient);
+}
+
+@media (max-width: 1640px) {
+    .how .how__title {
+        margin-bottom: 64px;
+        font-size: 48px;
+    }
+
+    .how .how__subtitle {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .how-block {
+        padding: 24px;
+        padding-left: 154px;
+        background-size: 160px;
+    }
+
+    .how1 {
+        background-size: 134px;
+    }
+
+    .how2 {
+        background-size: 134px;
+    }
+
+    .how3 {
+        background-size: 134px;
+    }
+
+    .how4 {
+        background-size: 134px;
+    }
+
+    .how__button {
+        padding: 8px 16px;
+        min-width: 100px;
+        height: 56px;
+    }
 }

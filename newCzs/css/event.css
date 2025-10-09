@@ -1,39 +1,42 @@
-.event{
+.event {
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 96px 0 0 0;
     margin-bottom: 96px;
     width: 100%;
-    background: linear-gradient(133deg,  var(--base-color-2),  var(--base-color-1), var(--base-color-7));
+    background: linear-gradient(133deg, var(--base-color-2), var(--base-color-1), var(--base-color-7));
 }
 
 .main .event .container {
     display: flex;
     flex-direction: row;
-    gap:32px;
-    align-self: center;    
+    gap: 32px;
+    align-self: center;
     padding: 0 calc(var(--base-gap) * 5.25);
     max-width: calc(var(--base-font-size) * 90);
     width: 100%;
     justify-content: space-between;
 }
 
-.event  .event__title{
+.event .event__title {
     margin: 0 0 32px 0;
-    padding: 0; 
+    padding: 0;
     width: 40%;
     font-size: 64px;
     font-weight: 400;
-    line-height: 1.25;color: #fff;
+    line-height: 1.25;
+    color: #fff;
 }
-.event .event-block-name{
+
+.event .event-block-name {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 96px;
 }
-.event .event__name{
+
+.event .event__name {
     margin: 0;
     padding: 0;
     font-size: 112px;
@@ -42,37 +45,49 @@
     color: #fff;
 }
 
-.event .event__button{
+.event .event__button {
     text-align: center;
     width: 256px;
     padding: 16px 32px;
-    color:#fff;
+    color: #fff;
     background: var(--svgGradient);
 }
-.event .event-block-data{
+
+.event .event-block-data {
     display: flex;
-    gap:32px;
+    gap: 32px;
     font-size: 32px;
     line-height: 1em;
-    color:#fff;
+    color: #fff;
     margin-bottom: 96px;
 }
-.event .event__date{
+
+.event .event__date {
     padding: 8px;
     padding-left: 32px;
     background: url(../img/evenP.png) no-repeat 0 10px;
     background-size: 20px;
 }
 
-.event .event__place{
+.event .event__place {
     padding: 8px;
     padding-left: 32px;
     background: url(../img/evenD.png) no-repeat 0 16px;
     background-size: 20px;
 }
 
-.event .event__img{
+.event .event__img {
     filter: grayscale(70%);
     opacity: 0.2;
 }
 
+@media (max-width: 1640px) {
+    .event {
+        margin-bottom: 64px;
+    }
+
+    .event .event__title {
+        width: 100%;
+        font-size: 48px;
+    }
+}
