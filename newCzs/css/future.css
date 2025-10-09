@@ -37,7 +37,6 @@
 .future__block-top {
     display: flex;
     width: 100%;
-    height: 128px;
     font-size: 12px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
@@ -50,16 +49,18 @@
 }
 
 .future__img {
+    width: 100%;
     border-top-left-radius: 16px;
-    max-height: 116px;
+    border-top-right-radius: 16px;
+    height: 242px;
 }
 
-.future__block-date {    
+/* .future__block-date {    
     margin-bottom: auto;
     margin-top: auto;
     padding: 8px;
     color: var(--grafite);
-}
+} */
 
 .future__text-date {
     padding: 0;
@@ -108,7 +109,7 @@
 
 .future__button-subtitle {
     color: var(--newGray);
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 }
 
 .future__btn {

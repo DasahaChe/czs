@@ -34,7 +34,7 @@
 .review__item {
     padding: 32px;
     border-radius: 16px;
-    border: 1px solid var(--sub-text-color);
+    border: 1px solid var(--item-border);
 }
 
 .review__video {
@@ -60,7 +60,7 @@
 .review__description {
     padding: 32px;
     border-radius: 16px;
-    border: 1px solid var(--sub-text-color);
+    border: 1px solid var(--item-border);
     width: calc(50% - 32px);
 }
 
@@ -142,7 +142,7 @@
     cursor: pointer;
     /* color: #fff; */
     border: 1px solid var(--lightBlue);
-    background-color: var(--lightBlue);
+    background: linear-gradient(133deg, var(--lightBlue), var(--darkBlue));
 }
 
 .review__button-list{

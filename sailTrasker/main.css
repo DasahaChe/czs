@@ -1218,8 +1218,9 @@ html {
     color: #fff;
     background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
     text-align: center;
-    padding: 5mm 4mm 3mm 4mm;
+    padding: 3mm 4mm 3mm 4mm;
     border-radius: 4mm;
+    line-height: 1em;
 }
 
 .fotoQr {
@@ -1371,9 +1372,9 @@ html {
 
 .review-btn {
     width: 52mm;
-    height: 6mm;
+    height: 10mm;
     padding: 2mm 4mm;
-    border-radius: 6mm;
+    border-radius: 8mm;
     font-size: 10pt;
     color: #fff;
     background: #224e85;
