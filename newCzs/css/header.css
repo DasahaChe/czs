@@ -199,7 +199,6 @@ body {
     padding: 20px 40px;
     border-radius: 40px;
     border: 1px solid var(--base-color-2);
-    font-size: 16px;
     color: #fff;
     background-color: transparent;
 }
@@ -224,7 +223,6 @@ body {
     display: flex;
     padding: 32px 64px;
     gap: 8px;
-    font-size: 16px;
     color: var(--base-color-6);
     border-radius: 40px;
     background-color: #fff;
@@ -242,7 +240,6 @@ body {
     gap: 8px;
     align-items: end;
     color: #fff;
-    font-size: 16px;
 }
 
 .header__link-tell {
@@ -303,6 +300,28 @@ body {
         }
     }
 
+  @media (max-width: 650px) {
+        .header .header__title {
+         display: none;
+    }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @media (any-hover: hover) {
 
         .header .header__button:hover {
@@ -350,3 +369,5 @@ body {
             background: var(--base-color-2);
         }
     }
+
+  
