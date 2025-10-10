@@ -41,14 +41,162 @@ document.addEventListener('DOMContentLoaded', function () {
     return resultArray;
 });
 
+// НОВАЯ ФУНКЦИЯ: Инициализация поиска по категориям
+function initCategorySearch() {
+    const searchInput = document.querySelector('.cat_seach-name');
+    const categoryGroups = document.querySelectorAll('.group');
+
+    if (!searchInput) {
+        console.error("Поле поиска категорий не найдено");
+        return;
+    }
+
+    // Добавляем обработчик события ввода
+    searchInput.addEventListener('input', function () {
+        const searchText = this.value.trim().toLowerCase();
+        filterCategories(searchText);
+    });
+
+    // Функция фильтрации категорий
+    function filterCategories(searchText) {
+        categoryGroups.forEach(group => {
+            let hasVisibleItems = false;
+            const categories = group.querySelectorAll('.cat');
+
+            categories.forEach(category => {
+                const input = category.querySelector('input[type="radio"]');
+                const label = category.querySelector('label');
+
+                // Ищем совпадение в value инпута (основной поиск)
+                const inputValue = input ? input.value.toLowerCase() : '';
+                // Также ищем в тексте label для полноты
+                const labelText = label ? label.textContent.toLowerCase() : '';
+
+                // Проверяем совпадение в value инпута ИЛИ в тексте label
+                const matchesSearch = searchText === '' ||
+                    inputValue.includes(searchText) ||
+                    labelText.includes(searchText);
+
+                if (matchesSearch) {
+                    category.style.display = 'block';
+                    hasVisibleItems = true;
+
+                    // Подсветка совпадений в label
+                    if (searchText !== '' && label) {
+                        highlightMatch(label, searchText, inputValue, labelText);
+                    } else if (label) {
+                        removeHighlight(label);
+                    }
+                } else {
+                    category.style.display = 'none';
+                }
+            });
+
+            // Показываем/скрываем группу в зависимости от наличия видимых элементов
+            const groupTitle = group.querySelector('.group_ttl');
+            if (groupTitle) {
+                group.style.display = hasVisibleItems ? 'block' : 'none';
+            }
+        });
+    }
+
+    // УЛУЧШЕННАЯ ФУНКЦИЯ: Подсветка совпадений с приоритетом value
+    function highlightMatch(element, searchText, inputValue, labelText) {
+        const originalText = element.textContent;
+
+        // Сначала пытаемся подсветить в value (так как это основной источник данных)
+        if (inputValue.includes(searchText)) {
+            // Используем оригинальный текст из value для подсветки
+            const regex = new RegExp(`(${searchText})`, 'gi');
+            const highlightedText = originalText.replace(regex, '<mark>$1</mark>');
+            element.innerHTML = highlightedText;
+        }
+        // Если не нашли в value, подсвечиваем в label тексте
+        else if (labelText.includes(searchText)) {
+            const regex = new RegExp(`(${searchText})`, 'gi');
+            const highlightedText = originalText.replace(regex, '<mark>$1</mark>');
+            element.innerHTML = highlightedText;
+        }
+        // Если совпадений нет (маловероятно, но на всякий случай)
+        else {
+            element.innerHTML = originalText;
+        }
+    }
+
+    // Функция для удаления подсветки
+    function removeHighlight(element) {
+        const text = element.textContent;
+        element.innerHTML = text;
+    }
+
+    // Добавляем кнопку сброса поиска категорий
+    addCategorySearchReset();
+}
+
+// Функция добавления кнопки сброса (остается без изменений)
+function addCategorySearchReset() {
+    const searchContainer = document.querySelector('.cat_seach');
+    if (!searchContainer) return;
+
+    let resetButton = searchContainer.querySelector('.category-reset');
+    if (!resetButton) {
+        resetButton = document.createElement('button');
+        resetButton.textContent = '×';
+        resetButton.className = 'category-reset';
+        resetButton.title = 'Очистить поиск';
+        resetButton.style.cssText = `
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #999;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: none;
+        `;
+
+        resetButton.addEventListener('click', function () {
+            const searchInput = document.querySelector('.cat_seach-name');
+            if (searchInput) {
+                searchInput.value = '';
+                searchInput.focus();
+                filterCategories('');
+                this.style.display = 'none';
+            }
+        });
+
+        searchContainer.style.position = 'relative';
+        searchContainer.appendChild(resetButton);
+
+        const searchInput = document.querySelector('.cat_seach-name');
+        searchInput.addEventListener('input', function () {
+            resetButton.style.display = this.value ? 'block' : 'none';
+        });
+    }
+}
+
+// Не забудьте вызвать initCategorySearch в DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Ваш существующий код для покупателей...
+
+    // Инициализируем систему поиска категорий
+    initCategorySearch();
+});
+
+
 function initFilterSystem(buyersData) {
     // Сохраняем исходные данные для сброса
     const originalData = [...buyersData];
-    
+
     // Находим контейнеры с чекбоксами фильтров
     const regionCheckboxes = document.querySelectorAll('.buyers_seach-plase input[type="checkbox"]');
     const scaleCheckboxes = document.querySelectorAll('.buyers_seach-type input[type="checkbox"]');
-    
+
     // Находим поле поиска по названию
     const nameSearchInput = document.querySelector('.buyers_seach-name');
 
@@ -96,15 +244,15 @@ function filterBuyers(buyersData) {
     // Фильтруем данные
     const filteredData = buyersData.filter(buyer => {
         // Проверка по регионам
-        const regionMatch = selectedRegions.length === 0 || 
+        const regionMatch = selectedRegions.length === 0 ||
             selectedRegions.some(region => buyer.regions.includes(region));
 
         // Проверка по масштабу
-        const scaleMatch = selectedScales.length === 0 || 
+        const scaleMatch = selectedScales.length === 0 ||
             selectedScales.includes(buyer.scale);
 
         // Проверка по названию (побуквенный поиск)
-        const nameMatch = !searchText || 
+        const nameMatch = !searchText ||
             buyer.name.toLowerCase().includes(searchText);
 
         return regionMatch && scaleMatch && nameMatch;
@@ -123,7 +271,7 @@ function displayBuyersList(buyers, hasActiveFilters, totalCount) {
     if (!listContainer) {
         listContainer = document.createElement('div');
         listContainer.className = 'buyers_list';
-        
+
         // Вставляем после блока с фильтрами
         const filterContainer = document.querySelector('.buyers_seach');
         if (filterContainer && filterContainer.parentNode) {
@@ -152,7 +300,7 @@ function displayBuyersList(buyers, hasActiveFilters, totalCount) {
         if (searchText) {
             displayName = highlightText(buyer.name, searchText);
         }
-        
+
         return `
         <div>
             <input type="checkbox" 
@@ -173,15 +321,15 @@ function displayBuyersList(buyers, hasActiveFilters, totalCount) {
 function updateTitleWithCount(currentCount, hasActiveFilters, totalCount) {
     // Находим элемент с классом "title-foto"
     const titleElement = document.querySelector('.title-foto');
-    
+
     if (titleElement) {
         // Сохраняем оригинальный текст, если это первый вызов
         if (!titleElement.hasAttribute('data-original-text')) {
             titleElement.setAttribute('data-original-text', titleElement.textContent);
         }
-        
+
         const originalText = titleElement.getAttribute('data-original-text');
-        
+
         // Определяем текст в зависимости от состояния фильтрации
         let countText;
         if (hasActiveFilters) {
@@ -189,7 +337,7 @@ function updateTitleWithCount(currentCount, hasActiveFilters, totalCount) {
         } else {
             countText = `Всего: ${totalCount} вариантов`;
         }
-        
+
         // Обновляем текст
         titleElement.textContent = `${originalText} (${countText})`;
     } else {
@@ -221,7 +369,7 @@ function addResetButton(originalData) {
         // resetButton.style.margin = '10px 20px';
         // resetButton.style.padding = '8px 16px';
         // resetButton.addEventListener('click', () => resetFilters(originalData));
-        
+
         // const searchContainer = document.querySelector('.buyers_seach');
         // if (searchContainer) {
         //     searchContainer.appendChild(resetButton);
@@ -235,13 +383,13 @@ function resetFilters(originalData) {
     document.querySelectorAll('.buyers_seach input[type="checkbox"]').forEach(checkbox => {
         checkbox.checked = false;
     });
-    
+
     // Очищаем поле поиска по названию
     const searchNameInput = document.querySelector('.buyers_seach-name');
     if (searchNameInput) {
         searchNameInput.value = '';
     }
-    
+
     // Отображаем исходные данные без фильтров
     displayBuyersList(originalData, false, originalData.length);
 }
@@ -249,7 +397,7 @@ function resetFilters(originalData) {
 // Функция для подсветки совпадений в тексте
 function highlightText(text, searchTerm) {
     if (!searchTerm) return text;
-    
+
     const regex = new RegExp(`(${searchTerm})`, 'gi');
     return text.replace(regex, '<mark>$1</mark>');
 }

@@ -444,7 +444,31 @@ overflow-y: scroll;
     color:#000;
 }
 
+.cat_seach {
+    position: relative;
+    margin-bottom: 15px;
+}
 
+.cat_seach-name {
+    width: 100%;
+    padding: 8px 35px 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.category-reset:hover {
+    color: #333;
+}
+
+.cat {
+    transition: all 0.3s ease;
+}
+
+mark {
+    background-color: yellow;
+    padding: 0;
+}
 
 
 
