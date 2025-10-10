@@ -38,10 +38,206 @@ document.addEventListener('DOMContentLoaded', function () {
     // Инициализируем систему фильтрации
     initFilterSystem(resultArray);
 
+    // Ждем появления категорий после выбора в select
+    initCategoryObserver();
+
     return resultArray;
 });
 
-// НОВАЯ ФУНКЦИЯ: Инициализация поиска по категориям
+// НОВАЯ ФУНКЦИЯ: Наблюдатель за появлением категорий
+function initCategoryObserver() {
+    console.log('Запуск наблюдателя за категориями...');
+
+    // Наблюдаем за изменениями в DOM
+    const observer = new MutationObserver(function (mutations) {
+        for (let mutation of mutations) {
+            if (mutation.type === 'childList') {
+                // Проверяем, появились ли категории
+                const categoryGroups = document.querySelectorAll('.group');
+                const hasCategories = Array.from(categoryGroups).some(group =>
+                    group.querySelectorAll('.cat').length > 0
+                );
+
+                if (hasCategories) {
+                    console.log('Категории обнаружены!');
+                    observer.disconnect(); // Останавливаем наблюдение
+
+                    // Создаем контейнер для поиска
+                    createCategorySearchContainer();
+
+                    // Инициализируем поиск
+                    initCategorySearch();
+
+                    break;
+                }
+            }
+        }
+    });
+
+    // Начинаем наблюдение
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+    // Также запускаем периодическую проверку на всякий случай
+    waitForCategories(function () {
+        observer.disconnect();
+        createCategorySearchContainer();
+        initCategorySearch();
+    }, 30, 1000); // 30 попыток с интервалом 1 секунда
+}
+
+// ФУНКЦИЯ: Создание контейнера для поиска категорий
+function createCategorySearchContainer() {
+    // Проверяем, не создан ли уже контейнер
+    if (document.querySelector('.cat_list')) {
+        console.log('Контейнер cat_list уже существует');
+        return;
+    }
+
+    // Создаем основной контейнер
+    const catListContainer = document.createElement('div');
+    catListContainer.className = 'cat_list';
+
+    // Создаем заголовок
+    const title = document.createElement('h3');
+    title.textContent = 'Выберите одну категорию';
+
+    // Создаем контейнер поиска
+    const searchContainer = document.createElement('div');
+    searchContainer.className = 'cat_seach';
+
+    // Создаем поле ввода
+    const searchInput = document.createElement('input');
+    searchInput.className = 'cat_seach-name';
+    searchInput.type = 'text';
+    searchInput.name = 'cat-name';
+    searchInput.placeholder = 'Выведите название категории';
+
+    // Собираем структуру
+    searchContainer.appendChild(searchInput);
+    catListContainer.appendChild(title);
+    catListContainer.appendChild(searchContainer);
+
+    // Находим, куда вставить контейнер (перед первой группой категорий)
+    const firstCategoryGroup = document.querySelector('.group');
+    if (firstCategoryGroup && firstCategoryGroup.parentNode) {
+        firstCategoryGroup.parentNode.insertBefore(catListContainer, firstCategoryGroup);
+        console.log('Контейнер cat_list добавлен перед категориями');
+    } else {
+        // Если не нашли группу, вставляем в body
+        document.body.appendChild(catListContainer);
+        console.log('Контейнер cat_list добавлен в body');
+    }
+
+    // Добавляем стили для красоты
+    addCategorySearchStyles();
+}
+
+// ФУНКЦИЯ: Добавление стилей для поиска категорий
+function addCategorySearchStyles() {
+    // Проверяем, не добавлены ли стили уже
+    if (document.querySelector('#category-search-styles')) {
+        return;
+    }
+
+    const styles = `
+        .cat_list {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .cat_list h3 {
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .cat_seach {
+            position: relative;
+            margin-bottom: 0;
+        }
+        
+        .cat_seach-name {
+            width: 100%;
+            padding: 10px 35px 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .cat_seach-name:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+        
+        .category-reset {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #999;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: none;
+        }
+        
+        .category-reset:hover {
+            color: #333;
+        }
+        
+        mark {
+            background-color: #ffeb3b;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+    `;
+
+    const styleSheet = document.createElement('style');
+    styleSheet.id = 'category-search-styles';
+    styleSheet.textContent = styles;
+    document.head.appendChild(styleSheet);
+}
+
+// ФУНКЦИЯ: Ожидание появления категорий
+function waitForCategories(callback, maxAttempts = 30, interval = 1000) {
+    let attempts = 0;
+
+    const checkInterval = setInterval(() => {
+        const categoryGroups = document.querySelectorAll('.group');
+        const hasCategories = Array.from(categoryGroups).some(group =>
+            group.querySelectorAll('.cat').length > 0
+        );
+
+        if (hasCategories) {
+            clearInterval(checkInterval);
+            console.log('Категории появились после ожидания');
+            callback();
+        } else {
+            attempts++;
+            console.log(`Проверка категорий (попытка ${attempts}/${maxAttempts})`);
+            if (attempts >= maxAttempts) {
+                clearInterval(checkInterval);
+                console.log('Категории не появились после ожидания');
+            }
+        }
+    }, interval);
+}
+
+// ФУНКЦИЯ: Инициализация поиска по категориям
 function initCategorySearch() {
     const searchInput = document.querySelector('.cat_seach-name');
     const categoryGroups = document.querySelectorAll('.group');
@@ -50,6 +246,8 @@ function initCategorySearch() {
         console.error("Поле поиска категорий не найдено");
         return;
     }
+
+    console.log('Инициализация поиска по категориям');
 
     // Добавляем обработчик события ввода
     searchInput.addEventListener('input', function () {
@@ -66,6 +264,11 @@ function initCategorySearch() {
             categories.forEach(category => {
                 const input = category.querySelector('input[type="radio"]');
                 const label = category.querySelector('label');
+
+                if (!input || !label) {
+                    category.style.display = 'none';
+                    return;
+                }
 
                 // Ищем совпадение в value инпута (основной поиск)
                 const inputValue = input ? input.value.toLowerCase() : '';
@@ -100,7 +303,7 @@ function initCategorySearch() {
         });
     }
 
-    // УЛУЧШЕННАЯ ФУНКЦИЯ: Подсветка совпадений с приоритетом value
+    // ФУНКЦИЯ: Подсветка совпадений с приоритетом value
     function highlightMatch(element, searchText, inputValue, labelText) {
         const originalText = element.textContent;
 
@@ -129,47 +332,11 @@ function initCategorySearch() {
         element.innerHTML = text;
     }
 
-    // Добавляем кнопку сброса поиска категорий
-    addCategorySearchReset();
+
 }
 
-// Функция добавления кнопки сброса (остается без изменений)
-function addCategorySearchReset() {
-    const searchContainer = document.querySelector('.cat_seach');
-    if (!searchContainer) return;
 
-    let resetButton = searchContainer.querySelector('.category-reset');
-    if (!resetButton) {
-
-        resetButton.addEventListener('click', function () {
-            const searchInput = document.querySelector('.cat_seach-name');
-            if (searchInput) {
-                searchInput.value = '';
-                searchInput.focus();
-                filterCategories('');
-                this.style.display = 'none';
-            }
-        });
-
-        searchContainer.style.position = 'relative';
-        searchContainer.appendChild(resetButton);
-
-        const searchInput = document.querySelector('.cat_seach-name');
-        searchInput.addEventListener('input', function () {
-            resetButton.style.display = this.value ? 'block' : 'none';
-        });
-    }
-}
-
-// Не забудьте вызвать initCategorySearch в DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function () {
-    // Ваш существующий код для покупателей...
-
-    // Инициализируем систему поиска категорий
-    initCategorySearch();
-});
-
-
+// Остальные функции остаются без изменений...
 function initFilterSystem(buyersData) {
     // Сохраняем исходные данные для сброса
     const originalData = [...buyersData];
@@ -195,8 +362,6 @@ function initFilterSystem(buyersData) {
         nameSearchInput.addEventListener('input', () => filterBuyers(buyersData));
     }
 
-
-
     // Первоначальное отображение всех данных (без фильтров)
     displayBuyersList(buyersData, false, originalData.length);
 }
@@ -213,10 +378,6 @@ function filterBuyers(buyersData) {
     // Получаем текст для поиска по названию
     const searchNameInput = document.querySelector('.buyers_seach-name');
     const searchText = searchNameInput ? searchNameInput.value.trim().toLowerCase() : '';
-
-    console.log('Выбранные регионы:', selectedRegions);
-    console.log('Выбранные масштабы:', selectedScales);
-    console.log('Текст поиска:', searchText);
 
     // Определяем, применены ли фильтры
     const hasActiveFilters = selectedRegions.length > 0 || selectedScales.length > 0 || searchText.length > 0;
@@ -238,7 +399,6 @@ function filterBuyers(buyersData) {
         return regionMatch && scaleMatch && nameMatch;
     });
 
-    console.log('Отфильтрованные данные:', filteredData);
     displayBuyersList(filteredData, hasActiveFilters, buyersData.length);
 }
 
@@ -297,20 +457,16 @@ function displayBuyersList(buyers, hasActiveFilters, totalCount) {
     listContainer.innerHTML = buyersHTML;
 }
 
-// ОБНОВЛЕННАЯ ФУНКЦИЯ: Обновление заголовка с количеством объектов
 function updateTitleWithCount(currentCount, hasActiveFilters, totalCount) {
-    // Находим элемент с классом "title-foto"
     const titleElement = document.querySelector('.title-foto');
 
     if (titleElement) {
-        // Сохраняем оригинальный текст, если это первый вызов
         if (!titleElement.hasAttribute('data-original-text')) {
             titleElement.setAttribute('data-original-text', titleElement.textContent);
         }
 
         const originalText = titleElement.getAttribute('data-original-text');
 
-        // Определяем текст в зависимости от состояния фильтрации
         let countText;
         if (hasActiveFilters) {
             countText = `Найдено: ${currentCount} вариантов`;
@@ -318,14 +474,10 @@ function updateTitleWithCount(currentCount, hasActiveFilters, totalCount) {
             countText = `Всего: ${totalCount} вариантов`;
         }
 
-        // Обновляем текст
         titleElement.textContent = `${originalText} (${countText})`;
-    } else {
-        console.warn('Элемент с классом "title-foto" не найден на странице');
     }
 }
 
-// Дополнительная функция для получения выбранных покупателей
 function getSelectedBuyers() {
     const selectedCheckboxes = document.querySelectorAll('.buyers_list input[type="checkbox"]:checked');
     const selectedBuyers = Array.from(selectedCheckboxes).map(checkbox => {
@@ -339,42 +491,6 @@ function getSelectedBuyers() {
     return selectedBuyers;
 }
 
-// ОБНОВЛЕННАЯ ФУНКЦИЯ: Добавление кнопки сброса с передачей исходных данных
-function addResetButton(originalData) {
-    let resetButton = document.querySelector('.reset-filters');
-    if (!resetButton) {
-        // resetButton = document.createElement('button');
-        // resetButton.textContent = 'Сбросить фильтры';
-        // resetButton.className = 'reset-filters';
-        // resetButton.style.margin = '10px 20px';
-        // resetButton.style.padding = '8px 16px';
-        // resetButton.addEventListener('click', () => resetFilters(originalData));
-
-        // const searchContainer = document.querySelector('.buyers_seach');
-        // if (searchContainer) {
-        //     searchContainer.appendChild(resetButton);
-        // }
-    }
-}
-
-// ОБНОВЛЕННАЯ ФУНКЦИЯ: Сброс фильтров с передачей исходных данных
-function resetFilters(originalData) {
-    // Снимаем все выделения с чекбоксов фильтров
-    document.querySelectorAll('.buyers_seach input[type="checkbox"]').forEach(checkbox => {
-        checkbox.checked = false;
-    });
-
-    // Очищаем поле поиска по названию
-    const searchNameInput = document.querySelector('.buyers_seach-name');
-    if (searchNameInput) {
-        searchNameInput.value = '';
-    }
-
-    // Отображаем исходные данные без фильтров
-    displayBuyersList(originalData, false, originalData.length);
-}
-
-// Функция для подсветки совпадений в тексте
 function highlightText(text, searchTerm) {
     if (!searchTerm) return text;
 

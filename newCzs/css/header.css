@@ -269,7 +269,9 @@ body {
 @media (max-width: 1640px) {
     .header .header-menu__list {
         padding: 16px 32px;
+        padding: 0;
         gap: 8px;
+        background: transparent;
     }
 
     .header .header-menu__border {
@@ -279,6 +281,7 @@ body {
     .header-menu__item {
         text-align: center;
         height: 36px;
+        color: #fff;
     }
 
     .header-menu__item a {

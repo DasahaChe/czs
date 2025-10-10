@@ -218,3 +218,15 @@
     padding: 16px 0;
 }
 }
+
+@media (max-width: 1020px) {
+
+ .review__button, .review__button-item {
+    max-width: 170px;
+    min-height: 164px;
+}
+
+ .hide2{
+    display: none;
+}
+}
