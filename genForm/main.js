@@ -42,31 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // НОВАЯ ФУНКЦИЯ: Инициализация поиска по категориям
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function initCategorySearch() {
     const searchInput = document.querySelector('.cat_seach-name');
     const categoryGroups = document.querySelectorAll('.group');
@@ -92,26 +67,24 @@ function initCategorySearch() {
                 const input = category.querySelector('input[type="radio"]');
                 const label = category.querySelector('label');
 
-                if (!input || !label) {
-                    category.style.display = 'none';
-                    return;
-                }
+                // Ищем совпадение в value инпута (основной поиск)
+                const inputValue = input ? input.value.toLowerCase() : '';
+                // Также ищем в тексте label для полноты
+                const labelText = label ? label.textContent.toLowerCase() : '';
 
-                // Получаем текст категории из value инпута
-                const categoryText = input.value.toLowerCase();
-
-                // Ищем совпадение по ПЕРВЫМ БУКВАМ
+                // Проверяем совпадение в value инпута ИЛИ в тексте label
                 const matchesSearch = searchText === '' ||
-                    startsWithWords(categoryText, searchText);
+                    inputValue.includes(searchText) ||
+                    labelText.includes(searchText);
 
                 if (matchesSearch) {
                     category.style.display = 'block';
                     hasVisibleItems = true;
 
-                    // Подсветка первых букв
-                    if (searchText !== '') {
-                        highlightFirstLetters(label, categoryText, searchText);
-                    } else {
+                    // Подсветка совпадений в label
+                    if (searchText !== '' && label) {
+                        highlightMatch(label, searchText, inputValue, labelText);
+                    } else if (label) {
                         removeHighlight(label);
                     }
                 } else {
@@ -127,56 +100,27 @@ function initCategorySearch() {
         });
     }
 
-    // ФУНКЦИЯ: Проверка совпадения по первым буквам слов
-    function startsWithWords(categoryText, searchText) {
-        if (searchText === '') return true;
-
-        // Разбиваем текст категории на слова
-        const words = categoryText.split(/[\s\.]+/).filter(word => word.length > 0);
-
-        // Создаем строку из первых букв всех слов
-        const firstLetters = words.map(word => word.charAt(0)).join('');
-
-        // Проверяем, начинается ли строка первых букв с поискового запроса
-        if (firstLetters.startsWith(searchText)) {
-            return true;
-        }
-
-        // Дополнительно: проверяем совпадение по началу каждого слова
-        for (let word of words) {
-            if (word.startsWith(searchText)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    // ФУНКЦИЯ: Подсветка первых букв
-    function highlightFirstLetters(element, categoryText, searchText) {
+    // УЛУЧШЕННАЯ ФУНКЦИЯ: Подсветка совпадений с приоритетом value
+    function highlightMatch(element, searchText, inputValue, labelText) {
         const originalText = element.textContent;
 
-        // Разбиваем оригинальный текст на слова (сохраняя регистр)
-        const words = originalText.split(/[\s\.]+/).filter(word => word.length > 0);
-        let highlightedWords = [];
-        let foundMatch = false;
-
-
-        // Подсветка по началу отдельных слов
-        if (!foundMatch) {
-            highlightedWords = words.map(word => {
-                if (word.toLowerCase().startsWith(searchText)) {
-                    const matchedPart = word.substring(0, searchText.length);
-                    const rest = word.slice(searchText.length);
-                    return `<mark>${matchedPart}</mark>${rest}`;
-                }
-                return word;
-            });
+        // Сначала пытаемся подсветить в value (так как это основной источник данных)
+        if (inputValue.includes(searchText)) {
+            // Используем оригинальный текст из value для подсветки
+            const regex = new RegExp(`(${searchText})`, 'gi');
+            const highlightedText = originalText.replace(regex, '<mark>$1</mark>');
+            element.innerHTML = highlightedText;
         }
-
-        // Восстанавливаем текст с оригинальными разделителями
-        const separator = originalText.includes('.') ? '. ' : ' ';
-        element.innerHTML = highlightedWords.join(separator);
+        // Если не нашли в value, подсвечиваем в label тексте
+        else if (labelText.includes(searchText)) {
+            const regex = new RegExp(`(${searchText})`, 'gi');
+            const highlightedText = originalText.replace(regex, '<mark>$1</mark>');
+            element.innerHTML = highlightedText;
+        }
+        // Если совпадений нет (маловероятно, но на всякий случай)
+        else {
+            element.innerHTML = originalText;
+        }
     }
 
     // Функция для удаления подсветки
@@ -185,10 +129,37 @@ function initCategorySearch() {
         element.innerHTML = text;
     }
 
-
+    // Добавляем кнопку сброса поиска категорий
+    addCategorySearchReset();
 }
 
+// Функция добавления кнопки сброса (остается без изменений)
+function addCategorySearchReset() {
+    const searchContainer = document.querySelector('.cat_seach');
+    if (!searchContainer) return;
 
+    let resetButton = searchContainer.querySelector('.category-reset');
+    if (!resetButton) {
+
+        resetButton.addEventListener('click', function () {
+            const searchInput = document.querySelector('.cat_seach-name');
+            if (searchInput) {
+                searchInput.value = '';
+                searchInput.focus();
+                filterCategories('');
+                this.style.display = 'none';
+            }
+        });
+
+        searchContainer.style.position = 'relative';
+        searchContainer.appendChild(resetButton);
+
+        const searchInput = document.querySelector('.cat_seach-name');
+        searchInput.addEventListener('input', function () {
+            resetButton.style.display = this.value ? 'block' : 'none';
+        });
+    }
+}
 
 // Не забудьте вызвать initCategorySearch в DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function () {
@@ -199,13 +170,36 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+function initFilterSystem(buyersData) {
+    // Сохраняем исходные данные для сброса
+    const originalData = [...buyersData];
+
+    // Находим контейнеры с чекбоксами фильтров
+    const regionCheckboxes = document.querySelectorAll('.buyers_seach-plase input[type="checkbox"]');
+    const scaleCheckboxes = document.querySelectorAll('.buyers_seach-type input[type="checkbox"]');
+
+    // Находим поле поиска по названию
+    const nameSearchInput = document.querySelector('.buyers_seach-name');
+
+    // Добавляем обработчики событий на все чекбоксы фильтров
+    regionCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => filterBuyers(buyersData));
+    });
+
+    scaleCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => filterBuyers(buyersData));
+    });
+
+    // Добавляем обработчик на поле поиска по названию
+    if (nameSearchInput) {
+        nameSearchInput.addEventListener('input', () => filterBuyers(buyersData));
+    }
 
 
 
-
-
-
-
+    // Первоначальное отображение всех данных (без фильтров)
+    displayBuyersList(buyersData, false, originalData.length);
+}
 
 function filterBuyers(buyersData) {
     // Получаем выбранные регионы
