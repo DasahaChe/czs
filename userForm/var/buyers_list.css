@@ -128,17 +128,18 @@ body {
 .headerForAll{
 	display: flex;
     justify-content: center;
+    /* border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px; */
     position: relative;
-    padding: 48px 96px ;
+    padding: 64px 112px ;
     background: #005BAA;
 background: linear-gradient(145deg,rgba(0, 91, 170, 1) 19%, rgba(5, 55, 200, 0.99) 43%, rgba(33, 136, 209, 1) 67%, rgba(0, 91, 170, 1) 94%);
 }
 .version .header__block{
-    position: relative;
-    display: flex;
-    justify-content: end;
-    align-items: end;
-    gap: 64px;
+    display: flex; 
+	justify-content: center;
+    align-items: center;
+    gap: 32px;
 }
 
 .headerForAll .header__title {
@@ -659,14 +660,7 @@ background: linear-gradient(145deg,rgba(0, 91, 170, 1) 19%, rgba(5, 55, 200, 0.9
     flex-wrap:wrap;
     gap: 1em;
 }
-.logo__block{
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	width: 25%;
-	text-align: right;
-    color: #fff;
-}
+
 
 @media (min-width: 300px) and (max-width: 1024px) {
 	
