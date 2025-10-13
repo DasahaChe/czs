@@ -135,4 +135,12 @@
     }
 }
 
-@media (max-width: 750px) {}
+@media (max-width: 750px) {
+            .why .why__title{
+    font-size: 32px;
+}
+
+    .why .container {
+        padding: 0 32px;
+    }
+}

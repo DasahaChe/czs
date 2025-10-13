@@ -125,7 +125,7 @@
         line-height: 1em;
     }
 
-      .stat__subtitle {
+    .stat__subtitle {
         font-size: 24px;
     }
 }
@@ -161,11 +161,15 @@
     }
 
     .chart-line {
-        width: 150px;
+        max-width: 80px;
     }
 
     .chart-description {
-        width: 150px;
+        font-size: 16px;
+    }
+
+    .chart-res {
+        gap: 16px;
     }
 
     .chart-persent {

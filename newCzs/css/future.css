@@ -158,6 +158,9 @@
 }
 
 @media (max-width: 1640px) {
+    .future .future__title-main {
+        font-size: 48px;
+    }
 
     .future__img {
         height: 160px;
@@ -178,9 +181,22 @@
         width: 100%;
     }
 
-    .future__block-img {   
-    border-top-right-radius: 0px;
-}
+    .future__block-img {
+        border-top-right-radius: 0px;
+    }
+    
 }
 
-@media (max-width: 750px) {}
+@media (max-width: 750px) {
+    .future {
+        padding: 64px 0;
+    }
+
+    .future .future__title-main {
+        font-size: 32px;
+        margin-bottom: 64px;
+    }
+    .future .container {
+        padding: 0 32px;
+    }
+}

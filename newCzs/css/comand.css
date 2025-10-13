@@ -150,3 +150,17 @@ display: flex;
     margin-bottom: 64px;
 }
 }
+
+@media (max-width: 750px) {
+    .comand .comand__title{
+    font-size: 32px;
+}
+.comand__list{
+    flex-direction: column;
+}
+
+.comand__item {
+    flex-direction: column;
+    margin-bottom: 64px;
+}
+}
