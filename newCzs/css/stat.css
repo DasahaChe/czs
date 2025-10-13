@@ -119,25 +119,36 @@
     color: #000;
 }
 
+@media (max-width: 1640px) {
+    .stat__title {
+        font-size: 48px;
+        line-height: 1em;
+    }
+
+      .stat__subtitle {
+        font-size: 24px;
+    }
+}
+
 @media (max-width: 1020px) {
     .stat__block {
         flex-direction: column;
         gap: 64px;
     }
-    
+
     .stat__block-min {
         width: 100%;
     }
 
     .chart-line {
-    max-width: 220px;
+        max-width: 220px;
     }
 }
 
 @media (max-width: 750px) {
-.stat__block-event {
-    margin-bottom: 64px;
-}
+    .stat__block-event {
+        margin-bottom: 64px;
+    }
 
     .stat__title {
         font-size: 32px;
