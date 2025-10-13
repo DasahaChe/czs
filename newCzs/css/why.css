@@ -104,6 +104,7 @@
 
     .why .why__title {
         font-size: 48px;
+        line-height: 1em;
     }
 
     .why__subtitle {
