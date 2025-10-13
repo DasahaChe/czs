@@ -232,17 +232,20 @@
     .hide2 {
         display: none;
     }
-.review__button-block,
+
+    .review__button-block,
     .review__item,
     .review__item-main {
         width: 100%;
     }
 
-    .hide2, .hide{
+    .hide2,
+    .hide {
         display: flex;
     }
 
-    .review__button, .review__button-item {
+    .review__button,
+    .review__button-item {
         max-width: calc((100% - 64px) / 3);
     }
 }

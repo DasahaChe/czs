@@ -139,3 +139,14 @@ display: flex;
     text-align: center;
 }
 }
+
+@media (max-width: 1020px) {
+.comand__list{
+    flex-direction: column;
+}
+
+.comand__item {
+    flex-direction: row;
+    margin-bottom: 64px;
+}
+}

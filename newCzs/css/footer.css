@@ -54,4 +54,16 @@
 }
 }
 
+@media (max-width: 1020px) {
+    .footer {
+    padding: 32px 0;
+}
+
+.footer .container {
+    align-items: start;
+    flex-direction: column;
+    gap: 24px;
+}
+}
+
 @media (max-width: 750px) {}
