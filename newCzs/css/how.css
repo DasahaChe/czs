@@ -84,6 +84,7 @@
     .how .how__title {
         margin-bottom: 64px;
         font-size: 48px;
+        line-height: 1em;
     }
 
     .how .how__subtitle {
@@ -117,5 +118,48 @@
         padding: 8px 16px;
         min-width: 100px;
         height: 54px;
+    }
+}
+
+@media (max-width: 1020px) {
+
+    .how-block {
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+    .how .how__title {
+        margin-bottom: 64px;
+        font-size: 32px;
+        line-height: 1em;
+    }
+
+    .how-block {
+        padding: 24px;
+        padding-top: 55%;
+        min-height: 240px;
+        border: 1px solid var(--item-border);
+        border-radius: 16px;
+    }
+
+    .how1 {
+        background: url(../img/step1m.jpg) no-repeat 0px 0px;
+        background-size: contain;
+    }
+
+    .how2 {
+        background: url(../img/step2m.jpg) no-repeat 0px 0px;
+        background-size: contain;
+    }
+
+    .how3 {
+        background: url(../img/step3m.jpg) no-repeat 0px 0px;
+        background-size: contain;
+    }
+
+    .how4 {
+        background: url(../img/step4m.jpg) no-repeat 0px 0px;
+        background-size: contain;
     }
 }

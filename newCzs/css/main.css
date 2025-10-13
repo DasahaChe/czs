@@ -481,3 +481,13 @@ body {
     flex-direction: column;
   }
 }
+
+@media (max-width: 750px) {
+  .main .container {
+    padding: 0 32px;
+  }
+
+  .main .event .container {
+    padding: 0 32px;
+  }
+}

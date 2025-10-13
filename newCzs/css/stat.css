@@ -115,3 +115,5 @@
     line-height: 1em;
     color: #000;
 }
+
+@media (max-width: 750px) {}

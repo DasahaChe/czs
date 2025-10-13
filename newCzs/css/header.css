@@ -195,7 +195,6 @@ body {
 }
 
 .header .header__button {
-    /* max-width: 256px; */
     padding: 20px 40px;
     border-radius: 40px;
     border: 1px solid var(--base-color-2);
@@ -258,18 +257,23 @@ body {
     border-radius: 32px;
 }
 
- .header-menu__item a:hover {
-            color: #fff;
-            background-color: var(--base-color-2);
-            border-color: transparent;
-        }
+.header-menu__item a:hover {
+    color: #fff;
+    background-color: var(--base-color-2);
+    border-color: transparent;
+}
 
-        .header__block-icon{
-            display: flex;
-            width: 96px;
-            justify-content: space-between;
+.header__block-icon {
+    display: flex;
+    width: 96px;
+    justify-content: space-between;
 
-        }
+}
+
+.header__burger,
+.header__burger-close {
+    display: none;
+}
 
 @media (max-width: 1640px) {
     .header .header-menu__list {
@@ -295,7 +299,7 @@ body {
         height: 36px;
     }
 
-     .header-menu__item a:hover {
+    .header-menu__item a:hover {
         background-color: transparent;
         color: var(--base-color-2);
     }
@@ -303,112 +307,87 @@ body {
     .header {
         height: 640px;
     }
-        .header .header__title {
-            font-size: 24px;
-        }
-    }
 
-@media (max-width:1640px) {
-    body{
+    .header .header__title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 750px) {
+    body {
         font-size: 20px;
     }
 
-    .header{
+    .header {
+        height: 560px;
+        padding:32px 0 80px 0;
+        margin-bottom: 64px;
         gap: 64px;
-        height: 720px;
     }
+
+    .header .container {
+        padding: 0 32px;
+    }
+
+    .header .header__block-top {
+        justify-content: center;
+    }
+
     .header .header__title {
         display: none;
     }
 
     .header .logo__block {
-    width: 80%;
-}
-
-.header .header-menu__list {
-        display: none;
-}
-
-.header .header__block-middle {
-    flex-direction: column;
-    gap: 32px;
-}
-
-.header .header__block-tell {
-    font-size: 24px;
-    gap:32px
-}
-.header__block-icon {
-    width: 120px;
-}
-.header .header__icon {
-    width: 54px;
-    height: 55px;
-}
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @media (any-hover: hover) {
-
-        .header .header__button:hover {
-            background-color: var(--base-color-2);
-        }
-
-        .future__btn:hover,
-        .future__button:hover,
-        .review__button:hover,
-        .review__button-item:hover,
-        .how__button-main:hover {
-            color: #fff;
-            background: var(--base-color-2);
-            border-color: var(--base-color-2);
-        }
-
-
-        .how__button:hover,
-        .why__button:hover{
-            color: #fff;
-            background-color: var(--base-color-2);
-            border-color: var(--base-color-2);
-        }
-
-        .footer .footer__icon:hover,
-
-        .comand__social-item:hover,
-        .header .header__link-tell:hover,
-        .header .header__icon:hover {
-            color: var(--base-color-2);
-        }
-
-        .footer .footer__item-link:hover {
-            color: var(--base-color-2);
-            border-color: var(--base-color-2);
-        }
-
-        .header .header__link-text:hover {
-            color: var(--base-color-2);
-            border-bottom: 1px solid var(--base-color-2);
-
-        }
-
-        .event .event__button:hover {
-            background: var(--base-color-2);
-        }
+        width: 80%;
     }
 
-  
+    .header .header-menu__list {
+        display: none;
+    }
+
+    .header .header__block-middle {
+        flex-direction: column;
+        gap: 64px;
+        width: 100%;
+    }
+
+    .header .header__block-tell {
+        font-size: 24px;
+        gap: 20px
+    }
+
+    .header__block-icon {
+        width: 120px;
+    }
+
+    .header .header__icon {
+        width: 54px;
+        height: 55px;
+    }
+
+    .header__list-burger {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        color: #fff;
+        transition: color 0.3s ease;
+    }
+
+    .header__burger {
+        display: inline-block;
+    }
+
+    .header .header__burger-close {
+        display: none;
+    }
+
+    .header .open {
+        display: block;
+        color: #fff;
+        width: var(--base-font-size);
+        height: var(--base-font-size);
+    }
+
+    .header .header__button {
+    padding: 8px 32px;}
+}
