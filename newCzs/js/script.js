@@ -22,18 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
             // На планшетах - начинаем применять эффекты
             768: {
                 slidesPerView: 1.2,
-                spaceBetween: 8,
+                spaceBetween: 0,
                 centeredSlides: true,
             },
             // На десктопе - полный эффект с масштабированием
             1024: {
                 slidesPerView: 1.5,
-                spaceBetween: 8,
+                spaceBetween: 0,
                 centeredSlides: true,
             },
             1280: {
                 slidesPerView: 1.8,
-                spaceBetween: 16,
+                spaceBetween: 0,
                 centeredSlides: true,
             }
         },
