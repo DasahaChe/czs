@@ -16,18 +16,18 @@ document.addEventListener('DOMContentLoaded', function() {
             // На мобильных - простой слайдер
             320: {
                 slidesPerView: 1,
-                spaceBetween: 4,
+                spaceBetween: 0,
                 centeredSlides: false,
             },
             // На планшетах - начинаем применять эффекты
             768: {
-                slidesPerView: 1.2,
+                slidesPerView: 1.0,
                 spaceBetween: 0,
                 centeredSlides: true,
             },
             // На десктопе - полный эффект с масштабированием
             1024: {
-                slidesPerView: 1.5,
+                slidesPerView: 1.2,
                 spaceBetween: 0,
                 centeredSlides: true,
             },
@@ -45,3 +45,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// new Swiper('.swiper', {
+//     navigation: {
+//         nextEl: '.swiper-button-next',
+//         prevEl: '.swiper-button-prev'
+//     },
+//     pagination: {
+//         el: '.swiper-pagination',
+//         clickable: true
+//     },
+//     scrollbar: {
+//         el: '.swiper-scrollbar',
+//         draggable: true
+//     },
+//     spaceBetween: 10,
+//     breakpoints: {
+//         730: {
+//             slidesPerView: 2,
+
+//         },
+//         1200: {
+//             slidesPerView: 2.4,
+
+//         },
+
+//     }
+// });
+
