@@ -1,11 +1,11 @@
 .photo {
     display: flex;
     flex-direction: column;
-    margin-bottom: 64px;   
+    margin-bottom: 64px;
 }
 
 .photo__title {
-    margin: 0;    
+    margin: 0;
     padding: 0;
     margin-bottom: 64px;
     font-size: 64px;
@@ -25,13 +25,15 @@
 
 /* Контейнер для галереи */
 .gallery-container {
-    max-width: 1800px;    
-    width: 100%;    
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
 }
 
 .swiper {
     width: 100%;
-    height: 580px;
+    height: 400px;
 }
 
 .swiper-slide {
@@ -40,12 +42,11 @@
     justify-content: center;
     border-radius: 0px;
     overflow: hidden;
-    opacity: 0.4;
+    opacity: 0.5;
     transition: all 0.3s ease;
+
 }
-.swiper-wrapper{
-    width: 100%;
-}
+
 .swiper-slide-active {
     opacity: 1;
     transform: scale(1.1);
@@ -55,15 +56,17 @@
 
 .swiper-slide-prev,
 .swiper-slide-next {
+    width: 40px;
+    height: 40px;
+    color: #fff;
     transform: scale(0.9);
     filter: grayscale(10%);
 }
 
 .swiper-slide img {
     width: 100%;
-    height: 100%; 
+    height: 100%;
     object-fit: cover;
-    display: block;
 }
 
 .swiper-button-prev::after,
@@ -81,163 +84,31 @@
     right: 0;
 }
 
-/* Пагинация */
-.swiper-pagination {
-    bottom: 10px !important;
+.swiper-slide-prev:hover,
+.swiper-slide-next:hover {
+    color: #333333;
 }
 
-.swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    background: #fff;
-    opacity: 0.5;
-}
-
-.swiper-pagination-bullet-active {
-    opacity: 1;
-    background: var(--base-color-6);
-}
-
-/* Большие экраны */
 @media (max-width: 1640px) {
     .photo__title {
+        margin-bottom: 64px;
         font-size: 48px;
         line-height: 1em;
-        margin-bottom: 48px;
-    }
-
-    .swiper {
-        height: 500px;
-    }
-    
-    .swiper-slide-active {
-        transform: scale(1.05);
-    }
-}
-
-
-/* Планшеты (ландшафт) */
-@media (max-width: 750px) {
-    .photo__title {
-        font-size: 32px;
-        margin-bottom: 32px;
-    }
-    
-    .swiper {
-        height: 400px;
-    }
-    
-    
-    /* На планшетах упрощаем эффекты */
-    .swiper-slide {
-        opacity: 0.7;
-    }
-    
-    .swiper-slide-active {
-        transform: scale(1.02);
-        opacity: 1;
-    }
-    
-    .swiper-slide-prev,
-    .swiper-slide-next {
-        transform: scale(0.95);
-    }
-}
-
-/* Планшеты (портрет) и большие телефоны */
+    }}
 @media (max-width: 1020px) {
-    .photo {
-        margin-bottom: 48px;
-    }
-    
-    .photo__title {
-        font-size: 32px;
-        line-height: 1.1;
-        margin-bottom: 24px;
-    }
-    
     .photo .container {
-        padding: 0 20px;
-    }
-    
-    .swiper {
-        height: 350px;
-    }
-    
-    /* .gallery-container {
-        max-width: 100%;
-        padding: 0 20px;
-    } */
-    
-    /* На мобильных убираем сложные эффекты */
-    .swiper-slide {
-        opacity: 0.8;
-        transform: scale(1);
-    }
-    
-    .swiper-slide-active {
-        transform: scale(1);
-        opacity: 1;
-    }
-    
-    .swiper-slide-prev,
-    .swiper-slide-next {
-        transform: scale(1);
-        opacity: 0.6;
-    }
-    
-    .swiper-button-prev,
-    .swiper-button-next {
-        display: none;
-    }
-    
-    .swiper-pagination {
-        bottom: 5px !important;
-    }
-    
-    .swiper-pagination-bullet {
-        width: 10px;
-        height: 10px;
+        padding: 0 calc(var(--base-gap) * 3.5);
     }
 }
 
-/* Телефоны */
 @media (max-width: 750px) {
-    .photo {
-        margin-bottom: 32px;
+    .photo .container {
+        padding: 0 32px;
     }
-    
-    .photo__title {
-        font-size: 32px;
-    }
-    
-    
-    .swiper {
-        height: 280px;
-    }
-    
-    .gallery-container {
-        padding: 0 16px;
-    }
-    
-    .swiper-pagination-bullet {
-        width: 8px;
-        height: 8px;
-    }
-}
 
-/* Маленькие телефоны */
-@media (max-width: 320px) {
-    .photo__title {
-        font-size: 24px;
-    }
-    
-    .swiper {
-        height: 220px;
-    }
-    
-    .photo .container,
-    .gallery-container {
-        padding: 0 12px;
+    .photo .photo__title {
+        margin-bottom: 64px;
+        font-size: 32px;
+        line-height: 1em;
     }
 }

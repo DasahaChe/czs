@@ -407,7 +407,7 @@ html {
 }
 
 .title-event {
-    font-size: 24pt;
+    font-size: 18pt;
     color: #fff;
 }
 
@@ -446,13 +446,13 @@ html {
 }
 
 .data-event-text {
-    font-size: 24pt;
+    font-size: 18pt;
     color: #fff;
     text-align: left;
 }
 
 .subtitle-event-text {
-    font-size: 15pt;
+    font-size: 18pt;
     color: #fff;
     text-align: center;
 }
@@ -477,8 +477,8 @@ html {
     width: 115mm;
     text-align: right;
     height: 8mm;
-    font-size: 15pt;
-    line-height: 15pt;
+    font-size: 18pt;
+    line-height: 18pt;
     color: #fff;
 }
 
@@ -490,7 +490,6 @@ html {
 .tele-event {
     float: right;
     width: 15mm;
-    margin-top: 1mm;
 }
 
 .event-icon {
@@ -823,6 +822,7 @@ html {
     margin-top: 4mm;
     width: 140mm;
     font-size: 24pt;
+    line-height: 24pt;
     text-align: center;
 }
 
@@ -971,6 +971,7 @@ html {
 }
 
 .num-ab-block {
+    height: 22mm;
     padding-bottom: 14mm;
 }
 
@@ -1212,9 +1213,9 @@ html {
 
 .topFoto-rightText {
     float: left;
-    width: 30mm;
-    height: 17mm;
-    margin-top: 4mm;
+    width: 28mm;
+    height: 19mm;
+    margin: 30mm 0 0 4mm;
     color: #fff;
     background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
     text-align: center;
@@ -1225,12 +1226,12 @@ html {
 
 .fotoQr {
     float: left;
-    margin: 27mm 0 0 4mm;
-    width: 30mm;
+    margin: 30mm 0 0 4mm;
+    width: 28mm;
     border-radius: 4mm;
     color: #fff;
     background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
-    padding: 4mm 4mm 2mm 4mm;
+    padding: 2mm 4mm;
     text-align: center;
 }
 
@@ -1490,13 +1491,11 @@ html {
 .wcp-ct {
     float: left;
     width: 10mm;
-    margin-top: 1mm;
 }
 
 .tele-ct {
     float: left;
-    width: 9mm;
-    margin-top: 2mm;
+    width: 11mm;
 }
 
 .ct-icon {
@@ -1575,8 +1574,8 @@ html {
 .title-tar {
     font-size: 32pt;
     line-height: 32pt;
-    color: #255ba9;
-    margin-bottom: 7mm;
+    color: #fff;
+    /* margin-bottom: 7mm; */
 }
 
 .tarif-block {
@@ -1610,12 +1609,12 @@ html {
 }
 
 .text-tar-qr {
-    font-size: 12pt;
-    line-height: 12pt;
+    font-size: 24pt;
+    line-height: 24pt;
     text-align: center;
 }
 
-.tar {
+/* .tar {
     float: left;
     width: 74.5mm;
     height: 61mm;
@@ -1623,6 +1622,14 @@ html {
     border-radius: 4mm;
     padding: 8mm;
     margin: 5mm 5mm 0 0;
+} */
+
+.tar {
+    width: 138mm;
+    height: 123mm;
+    padding: 25mm; 
+    padding-top: 20mm;   
+    text-align: center;
 }
 
 .tar-person-num {
@@ -1666,28 +1673,59 @@ html {
     margin-top: 4mm;
 
 }
+.tar-btn {
+    margin: 0 auto 20mm auto;
+    width: 80mm;
+    font-size: 40pt;
+    color: #fff;
+    height: 31mm;
+    padding-top: 9mm;
+    border-radius: 2mm;
+    text-align: center;
+    background: linear-gradient(145deg,rgba(0, 91, 170, 1) 17%, rgba(50, 192, 252, 0.99) 43%, rgba(33, 136, 209, 1) 75%, rgba(8, 72, 156, 1) 94%);
+    border: 0.3mm solid rgba(255, 255, 255, 0.3);
+    
+    /* Эффекты объемности */
+    box-shadow: 
+        0 2mm 4mm rgba(12, 60, 120, 0.3), /* Мягкая тень снизу */
+        0 4mm 8mm rgba(12, 60, 120, 0.2), /* Рассеянная тень */
+        0 8mm 16mm rgba(12, 60, 120, 0.1), /* Еще более рассеянная тень */
+        inset 0 2mm 4mm rgba(255, 255, 255, 0.3), /* Внутреннее свечение сверху */
+        inset 0 -2mm 4mm rgba(0, 0, 0, 0.2); /* Внутренняя тень снизу */
+    
+}
+
+.tar-bnt:hover {
+    filter: brightness(1.05);
+    box-shadow: 
+        0 3mm 6mm rgba(12, 60, 120, 0.4),
+        0 6mm 12mm rgba(12, 60, 120, 0.3),
+        0 12mm 24mm rgba(12, 60, 120, 0.2),
+        inset 0 2mm 4mm rgba(255, 255, 255, 0.3),
+        inset 0 -2mm 4mm rgba(0, 0, 0, 0.2);
+}
 
 
 .wcp-tar {
     float: left;
-    width: 15mm;
-    margin-top: 1mm;
+    width: 18mm;
 }
 
 .tele-tar {
     float: left;
     width: 15mm;
-    margin-top: 2mm;
 }
 .tell-tar {
     float: left;
     width: 15mm;
     height: 15mm;
+    margin-top: 0.5mm;
 }
 
 .mail-tar {
     float: left;
     width: 15mm;
+    margin-top: 0.5mm;
 }
 
 .tar-icon {
@@ -1695,7 +1733,7 @@ html {
 }
 
 .tar-icon-block{
-    padding-left: 20mm;
-    width: 30mm;
+    padding-left: 37mm;
+    width: 80mm;
     height: 30mm;
 }
