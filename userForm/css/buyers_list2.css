@@ -185,10 +185,9 @@ body {
 
 .headerForAll {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	position: relative;
-	padding: 64px 96px 48px 96px;
+	padding: 48px 96px;
 	background: #005BAA;
 	background: linear-gradient(145deg, rgba(0, 91, 170, 1) 19%, rgba(5, 55, 200, 0.99) 43%, rgba(33, 136, 209, 1) 67%, rgba(0, 91, 170, 1) 94%);
 }
@@ -197,46 +196,23 @@ body {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: end;
 	gap: 64px;
 }
 
-.version .header__block-bottom {
-	position: relative;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	gap: 64px;
-}
-
-.headerForAll .header__title {
-	font-size: 32px;
-	line-height: 1.2em;
-	font-weight: 400;
-	margin: 0px;
-	padding: 0px;
-	padding-left: 96px;
-	color: #fff;
-}
-
-.buyer_list .header__title {
+.buyer_list .header__title {	
 	font-size: 32px;
 	line-height: 1.2em;
 	font-weight: 400;
 	margin: 0px;
 	padding: 0px;
 	color: var(--base-color-6);
-	background: linear-gradient(to right, var(--base-color-6), var(--base-color-2));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+    background: linear-gradient(to right, var(--base-color-6), var(--base-color-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-
 .headerForAll .logo__img {
-	width: 20%;
-}
-
-.logo__block .logo__img {
-	width: 192px;
+	width: 25%;
 }
 
 .lang-block {
@@ -269,7 +245,8 @@ body {
 }
 
 .program-title .logo__img {
-	max-height: 40px;
+	max-width: 20%;
+	max-height: 54px;
 }
 
 .get_org_excel_file {
@@ -307,12 +284,12 @@ body {
 	grid-template-columns: repeat(2, 1fr); */
 	gap: 0 2em;
 	margin-bottom: 2em;
-
+	
 }
 
 .buyer_list .program-title {
 	display: flex;
-	gap: 16px;
+	gap: 32px;
 	grid-area: program-title;
 	margin-bottom: 32px;
 }
@@ -323,19 +300,10 @@ body {
 }
 
 .headerForAll .program-description {
-	position: fixed;
-	right: 0;
-	top: 0;
-	display: flex;
-	max-width: 650px;
-	width: 100%;
+	width: 28%;
 	font-size: 1em;
 	text-align: left;
-	margin: 0 0 1em 1em;
-	padding: 1em 1.5em;
-	background-color: #fff;
-	border-bottom-left-radius: 16px;
-	z-index: 1000;
+	margin: 0;
 }
 
 .headerForAll .program-description .program-ttl {
@@ -350,7 +318,7 @@ body {
 	color: var(--grafite);
 }
 
-.headerForAll .program-txt {
+.headerForAll .program-description .program-txt {
 	display: inline-block;
 	font-size: 1.0em;
 	color: #fff;
@@ -358,12 +326,13 @@ body {
 
 .headerForAll .program-description .program-txt ul {
 	display: flex;
+	flex-direction: column;
 	margin: 0;
 	padding: 0;
+	margin : 16px 0 0 16px;
 	list-style: none;
 	font-size: 1.0em;
-	gap: 32px;
-	align-items: center;
+
 }
 
 .headerForAll .program-description .program-txt li {
@@ -374,7 +343,7 @@ body {
 .headerForAll .program-description .program-txt .tel {
 	padding: 0 0 0 24px;
 	margin-bottom: 8px;
-	color: var(--base-color-6);
+	color: #fff;
 	background-repeat: no-repeat;
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-telephone-fill' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z'/%3E%3C/svg%3E");
 
@@ -403,19 +372,22 @@ body {
 }
 
 .buyer_list .slogan {
-	display: flex;
-	align-items: center;
 	margin: 0;
-	font-size: 1.0em;
+	font-size: 1.5em;
 	line-height: 1.2em;
-	color: var(--grafite);
+	font-weight: 700;
+	color: #152d58;
 	position: relative;
-	text-align: left;	
+	background: #ffffff;
+	overflow: hidden;
+	text-transform: uppercase;
+	text-align: left;
+	width: 100%;
 	max-width: 900px;
 	grid-area: slogan;
 }
 
-/* .buyer_list .slogan:before {
+.buyer_list .slogan:before {
 	content: '';
 	position: absolute;
 	filter: blur(10px);
@@ -431,7 +403,7 @@ body {
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
-} */
+}
 
 @keyframes ani {
 	from {
@@ -508,11 +480,10 @@ body {
 .open_enroll_window {
 	display: inline-block;
 	max-width: 120px;
+	margin: 0 0 8px 32px;
 	padding: 8px 40px;
 	color: #fff;
-	border: 1px solid var(--base-color-6);
-	background-color: var(--base-color-6);
-	border-radius: 20px;
+	border: 1px solid var(--base-color-2);
 	cursor: pointer;
 }
 
@@ -759,12 +730,11 @@ body {
 }
 
 .logo__block {
-	display: flex;
-	gap: 16px;
-	/* padding: 8px 16px;
-	border: 1px solid #fff;
-	border-radius: 34px; */
-	align-items: center;
+	position: absolute;
+	bottom: 0;
+	left: 8px;
+	width: 25%;
+	text-align: right;
 	color: #fff;
 }
 
