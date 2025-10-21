@@ -364,10 +364,9 @@ body {
 .headerForAll .program-txt {
 	display: inline-block;
 	font-size: 1.0em;
-	color: #fff;
 }
 
-.headerForAll .program-description .program-txt ul {
+.headerForAll .program-description ul {
 	position: fixed;
 	right: 0;
 	top: 0;
@@ -378,6 +377,7 @@ body {
 	gap: 4px 32px;
 	align-items: center;
 	margin: 0;
+	color: var(--grafite);
 	padding: 0.5em 1.5em;
 	background-color: #fff;
 	border-bottom-left-radius: 20px;
@@ -390,12 +390,12 @@ body {
 	padding: 0;
 }
 
-.headerForAll .program-description .program-txt li {
+.headerForAll .program-description  li {
 	text-wrap: nowrap;
 
 }
 
-.headerForAll .program-description .program-txt .tel {
+.headerForAll .program-description  .tel {
 	padding: 0 0 0 24px;
 	color: var(--base-color-6);
 	background-repeat: no-repeat;
