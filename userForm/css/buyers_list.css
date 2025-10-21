@@ -778,7 +778,7 @@ body {
 }
 
 
-@media (max-width: 1024px) {
+@media (min-width: 300px) and (max-width: 1024px) {
 
 	.buyer_list {
 		padding: 1em;
@@ -918,7 +918,8 @@ body {
 	.buyer_list .slogan {
 		width: 100%;
 	}
-.headerForAll .program-txt li {
+
+	.headerForAll .program-txt li {
 		width: 416px;
 	}
 }
