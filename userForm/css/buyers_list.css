@@ -390,12 +390,7 @@ body {
 	padding: 0;
 }
 
-.headerForAll .program-description  li {
-	text-wrap: nowrap;
-
-}
-
-.headerForAll .program-description  .tel {
+.headerForAll .program-description .tel {
 	padding: 0 0 0 24px;
 	color: var(--base-color-6);
 	background-repeat: no-repeat;
@@ -887,7 +882,7 @@ body {
 		padding: 200px 16px 40px 16px;
 	}
 
-	.headerForAll .program-description .program-txt ul {
+	.headerForAll .program-description ul {
 		gap: 16px;
 		padding: 48px 1.5em 0.5em 1.5em;
 		width: 100%;
