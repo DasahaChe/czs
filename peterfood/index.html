@@ -1,0 +1,763 @@
+<html>
+
+<head>
+    <title>Профиль</title>
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon" sizes="152x152" href="/project/webroot/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/project/webroot/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/project/webroot/favicon-16x16.png">
+    <link rel="manifest" href="/project/webroot/site.webmanifest">
+    <link rel="mask-icon" href="/project/webroot/safari-pinned-tab.svg" color="#5bbad5">
+
+
+    <link href="css/reset.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/cabinet.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/style-common.css" rel="stylesheet" type="text/css" media="all">
+
+    <script type="text/javascript" src="/project/webroot/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/project/webroot/js/lang.js"></script>
+    <script type="text/javascript" src="/project/webroot/js/pdfjs/pdf.min.js"></script>
+    <script type="text/javascript" src="/project/webroot/js/pdfjs/pdfjs-viewer-script.js"></script>
+    <script type="text/javascript" src="/project/webroot/js/visitors_cabinet/visitors_cabinet.js?t=5524"></script>
+    <script type="text/javascript" src="/project/webroot/js/common.js?t=3263"></script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(98987598, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/98987598" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+
+<body>
+    <header class="headerPF">
+        <div class="headerPF__block">
+            <div class="headerPF__top">
+                <div class="headerPF__logo">
+                    <a href="/" class="headerPF__logo-link">
+                        <img class="headerPF__logo-img" src="img/Logo_Peterfood_w_full-yellow.svg" alt="logo">
+                    </a>
+                </div>
+                <ul class="headerPF__list-top list-reset flex">
+                    <li class="headerPF__burger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 34 34" fill="none">
+                            <path d="M2 12.2354H41" stroke="currentcolor" stroke-width="2" stroke-linecap="round">
+                            </path>
+                            <path d="M2 22.1177H41" stroke="currentcolor" stroke-width="2" stroke-linecap="round">
+                            </path>
+                            <path d="M2 32H41" stroke="currentcolor" stroke-width="2" stroke-linecap="round"></path>
+                            <path d="M2 2H41" stroke="currentcolor" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+
+
+                    </li>
+                    <li class="headerPF__burger-close">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 34 34" fill="none">
+                            <path d="M1 1.29297L33.707 34" stroke="currentcolor" stroke-width="2"
+                                stroke-linecap="round"></path>
+                            <path d="M1 34L33.707 1.29297" stroke="currentcolor" stroke-width="2"
+                                stroke-linecap="round"></path>
+                        </svg>
+                    </li>
+                    <li>
+
+                        <div class="headerPF__title">Личный кабинет экспонента</div>
+
+
+                    </li>
+                    <li class="headerPF__link-top">
+                        <div>Максим Петров</div>
+                        <div class="status_form" style="display:none;">
+                            <form method="post" action="/" class="status_list_form display_flex_column"><select
+                                    name="set_user_status">
+                                    <option value="4" selected="">Посетитель</option>
+                                </select></form>
+                        </div>
+                    </li>
+                    <li class="headerPF__link-top">
+                        <a href="/logout/">Выход</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="main_page_visitor">
+        <div class="main_page_visitor_grid">
+            <div class="left_bar">
+                <div class="collapse_menu"></div>
+                <div class="menu">
+                    <div><span class="trnslt">Главная</span></div>
+                    <div><a href="/services/visitors/program/" class="trnslt">Деловая программа</a></div>
+                    <div><a href="/services/visitors/plan/" class="trnslt">План выставки</a></div>
+                    <div><a href="/services/visitors/note/" class="trnslt">Памятка экспонента</a></div>
+                    <div><a href="/services/visitors/proposals/" class="trnslt">Мои презентации</a></div>
+                    <div><a href="/services/visitors/contract_expo/" class="trnslt">Мои договоры</a></div>
+                    <div><a href="/services/visitors/generator/" class="trnslt">Создать презентацию</a></div>
+                    <div><a href="/services/visitors/proposal_upload/" class="trnslt">Загрузить презентацию</a></div>
+                    <div><a href="/services/visitors/exponents_list/" class="trnslt">Список экспонентов</a></div>
+                    <div><a href="https://t.me/peterfood_russia" class="trnslt">Новости</a></div>
+                    <div><a href="https://t.me/+Vt7ljhzipBDtIGBy" class="trnslt">Чат сообщества</a></div>
+                    <div><a href="/services/visitors/profile/" class="trnslt">Профиль</a></div>
+                </div>
+            </div>
+            <div class="center_field">
+                <h1 class="section_titlePf">Профиль Компании</h1> 
+                <div class="title-block">
+                    <div class="title-text-block">
+                        <h2 class="title-Company">Мираторг</h2> 
+                        <div class="title-text-description">
+                        <span class="title-number">54 стенд</span>
+                        <span class="title-sait"><a href="#">miratirgSait.ru</a></span>
+                        </div>
+                    </div>                    
+                <img class="profile_logo" src="img/32.jpg" alt="logo company">
+                </div>
+                
+                <!-- <div class="note"><b>Внимание!</b> У вас не заполнен ИНН компании. Если ИНН не введен, доступ к разделам
+                    будет ограничен.</div> -->
+
+                <div class="section_subtitlePf">О компании</div>    
+                <div class="profile_pagePF">
+                    <form class="data_form">
+                        <div class="field-ttl">
+                           
+                            <div class="field-ttl">
+                            <div>Напишите, что важно знать о компании</div>
+                            <textarea class="description-company">Краткое описание компании</textarea>
+                        </div>
+                        </div>
+
+                        <!-- <div class="field-ttl format option_field" for="buyer" style="display:none">
+                            <div>Сфера деятельности компании</div>
+                            <div>
+                                <div><input class="format" type="radio" name="format_b" id="format_7"
+                                        value="Сеть магазинов"> <label for="format_7">Сеть магазинов</label></div>
+                                <div><input class="format" type="radio" name="format_b" id="format_8"
+                                        value="Оптовая компания"> <label for="format_8">Оптовая компания</label></div>
+                                <div><input class="format" type="radio" name="format_b" id="format_9"
+                                        value="Дистрибьюторская компания"> <label for="format_9">Дистрибьюторская
+                                        компания</label></div>
+                                <div><input class="format" type="radio" name="format_b" id="format_10" value="HoReCa">
+                                    <label for="format_10">HoReCa</label></div>
+                                <div><input class="format" type="radio" name="format_b" id="format_11"
+                                        value="Розничная (не сетевая торговля)"> <label for="format_11">Розничная (не
+                                        сетевая торговля)</label></div>
+                                <div><input class="format" type="radio" name="format_b" id="format_12"
+                                        value="Интернет магазин"> <label for="format_12">Интернет магазин</label></div>
+                                <div><input class="format" type="radio" name="format_b" id="format_13"
+                                        value="Другое (закупщик)"> <label for="format_13">Другое (закупщик)</label>
+                                </div>
+                            </div>
+                            <div>Есть у Вас распределительный центр? </div>
+                            <div>
+                                <div><input class="rz" type="checkbox" name="rz" id="rz_1" value="Есть"> <label
+                                        for="rz_1">Есть</label></div>
+                            </div>
+                            <div>Импортируете ли товары? </div>
+                            <div>
+                                <div><input class="import" type="checkbox" name="import" id="import_1" value="Да">
+                                    <label for="import_1">Да</label></div>
+                            </div>
+                        </div> -->
+
+
+                        <!-- <div class="field-ttl format option_field" for="vendor" style="display:none">
+                            <div>Сфера деятельности компании</div>
+                            <div>
+                                <div><input class="format" type="radio" name="format_v" id="format_1"
+                                        value="Производство"> <label for="format_1">Производство</label></div>
+                                <div><input class="format" type="radio" name="format_v" id="format_2"
+                                        value="Оптовая компания"> <label for="format_2">Оптовая компания</label></div>
+                                <div><input class="format" type="radio" name="format_v" id="format_3"
+                                        value="Дистрибьюторская компания"> <label for="format_3">Дистрибьюторская
+                                        компания</label></div>
+                                <div><input class="format" type="radio" name="format_v" id="format_4" value="Импорт">
+                                    <label for="format_4">Импорт</label></div>
+                                <div><input class="format" type="radio" name="format_v" id="format_5"
+                                        value="Услуги для бизнеса"> <label for="format_5">Услуги для бизнеса</label>
+                                </div>
+                                <div><input class="format" type="radio" name="format_v" id="format_6"
+                                        value="Другое (поставщик)"> <label for="format_6">Другое (поставщик)</label>
+                                </div>
+                            </div>
+
+                        </div> -->
+
+<!-- 
+                        <div class="field-ttl format option_field" for="other" style="display:none">
+                            <div>Сфера деятельности компании</div>
+                            <div>
+                                <div><input class="format" type="radio" name="format_o" id="format_1"
+                                        value="Производство"> <label for="format_1">Производство</label></div>
+                                <div><input class="format" type="radio" name="format_o" id="format_2"
+                                        value="Оптовая компания"> <label for="format_2">Оптовая компания</label></div>
+                                <div><input class="format" type="radio" name="format_o" id="format_3"
+                                        value="Дистрибьюторская компания"> <label for="format_3">Дистрибьюторская
+                                        компания</label></div>
+                                <div><input class="format" type="radio" name="format_o" id="format_4" value="Импорт">
+                                    <label for="format_4">Импорт</label></div>
+                                <div><input class="format" type="radio" name="format_o" id="format_5"
+                                        value="Услуги для бизнеса"> <label for="format_5">Услуги для бизнеса</label>
+                                </div>
+                                <div><input class="format" type="radio" name="format_o" id="format_6"
+                                        value="Другое (поставщик)"> <label for="format_6">Другое (поставщик)</label>
+                                </div>
+                            </div>
+
+                        </div> -->
+
+
+
+                        <div class="field-ttl">
+                            <div>
+                                <div>ИНН</div>
+
+                            </div>
+                            <input type="text" class="inn" placeholder="ИНН" value="">
+
+                            
+                        </div>
+
+                         <div class="field-ttl">
+                            <div class="trnslt">Логин </div>
+                            <div>visitor1@imperia-forums.ru</div>
+                        </div>
+                        <div class="field-ttl">
+                            <div>Фамилия</div>
+                            <input type="text" class="sname" placeholder="Фамилия" value="Петров">
+                        </div>
+                        <div class="field-ttl">
+                            <div>Имя</div>
+                            <input type="text" class="name" placeholder="Имя" value="Максим">
+                        </div>
+                        <div class="field-ttl">
+                            <div>Отчество</div>
+                            <input type="text" class="tname" placeholder="Отчество" value="Иванович">
+                        </div>
+                        <div class="field-ttl">
+                            <div>Телефон</div>
+                            <input type="text" class="tel" placeholder="Телефон" value="">
+                        </div>
+                        <div class="field-ttl">
+                            <div>Эл. почта</div>
+                            <input type="text" class="email" placeholder="Телефон" value="visitor1@imperia-forums.ru">
+                        </div>
+                        <!-- <div class="field-ttl">
+                            <div>Название</div>
+                            <input type="text" class="title" placeholder="Название" value="Пятерочка Тест">
+                        </div>
+                        <div class="field-ttl">
+                            <div>Адрес</div>
+                            <input type="text" class="adress" placeholder="Адрес" value="">
+                        </div>
+                        <div class="field-ttl">
+                            <div>Город</div>
+                            <input type="text" class="city" placeholder="Город" value="">
+                        </div>
+                        <div class="field-ttl">
+                            <div>Сайт</div>
+                            <input type="text" class="site" placeholder="Сайт" value="">
+                        </div>
+                        <div class="field-ttl">
+                            <div>ОКВЭД</div>
+                            <input type="text" class="okved" placeholder="ОКВЭД" value="">
+                        </div> -->
+
+                        <!-- <div class="field-category">
+
+                            <div class="cat_group_ttl">Какую категорию товаров вы производите или закупаете: </div>
+                            <div class="cat_group_list">
+                                <div class="cat_group"><input type="checkbox"> FOOD </div>
+                                <div class="cat_group_field">
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_18" type="checkbox"
+                                                    name="category[]" value="Бакалея. Зернопродукты"> <label
+                                                    for="cat_FOOD_18" class="trnslt">Бакалея. Зернопродукты</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_19" type="checkbox"
+                                                    name="category[]" value="Безалкогольные напитки, соки, воды"> <label
+                                                    for="cat_FOOD_19" class="trnslt">Безалкогольные напитки, соки,
+                                                    воды</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_20" type="checkbox"
+                                                    name="category[]" value="Вина, тихие вина, игристые вина"> <label
+                                                    for="cat_FOOD_20" class="trnslt">Вина, тихие вина, игристые
+                                                    вина</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_21" type="checkbox"
+                                                    name="category[]" value="Готовые блюда. Салаты"> <label
+                                                    for="cat_FOOD_21" class="trnslt">Готовые блюда. Салаты</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_22" type="checkbox"
+                                                    name="category[]" value="Детское питание"> <label for="cat_FOOD_22"
+                                                    class="trnslt">Детское питание</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_23" type="checkbox"
+                                                    name="category[]" value="Джемы, сиропы, варенье, соусы"> <label
+                                                    for="cat_FOOD_23" class="trnslt">Джемы, сиропы, варенье,
+                                                    соусы</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_24" type="checkbox"
+                                                    name="category[]" value="Замороженные продукты. П/ф"> <label
+                                                    for="cat_FOOD_24" class="trnslt">Замороженные продукты. П/ф</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_25" type="checkbox"
+                                                    name="category[]" value="Здоровое питание"> <label for="cat_FOOD_25"
+                                                    class="trnslt">Здоровое питание</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_26" type="checkbox"
+                                                    name="category[]" value="Кондитерская, хлебопекарная продукция">
+                                                <label for="cat_FOOD_26" class="trnslt">Кондитерская, хлебопекарная
+                                                    продукция</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_27" type="checkbox"
+                                                    name="category[]" value="Консервация: овощная, рыбная, мясная">
+                                                <label for="cat_FOOD_27" class="trnslt">Консервация: овощная, рыбная,
+                                                    мясная</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_28" type="checkbox"
+                                                    name="category[]" value="Крепкий алкоголь"> <label for="cat_FOOD_28"
+                                                    class="trnslt">Крепкий алкоголь</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_29" type="checkbox"
+                                                    name="category[]" value="Макароны. Приправы. Соусы и специи"> <label
+                                                    for="cat_FOOD_29" class="trnslt">Макароны. Приправы. Соусы и
+                                                    специи</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_30" type="checkbox"
+                                                    name="category[]" value="Мед и продукты пчеловодства"> <label
+                                                    for="cat_FOOD_30" class="trnslt">Мед и продукты пчеловодства</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_31" type="checkbox"
+                                                    name="category[]" value="Молочная продукция. Сыры. Мороженое">
+                                                <label for="cat_FOOD_31" class="trnslt">Молочная продукция. Сыры.
+                                                    Мороженое</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_32" type="checkbox"
+                                                    name="category[]" value="Мясные, колбасные изделия, деликатесы">
+                                                <label for="cat_FOOD_32" class="trnslt">Мясные, колбасные изделия,
+                                                    деликатесы</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_33" type="checkbox"
+                                                    name="category[]" value="Овощи. Фрукты"> <label for="cat_FOOD_33"
+                                                    class="trnslt">Овощи. Фрукты</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_34" type="checkbox"
+                                                    name="category[]" value="Пищевые ингредиенты"> <label
+                                                    for="cat_FOOD_34" class="trnslt">Пищевые ингредиенты</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_35" type="checkbox"
+                                                    name="category[]" value="Птица. Яйцо"> <label for="cat_FOOD_35"
+                                                    class="trnslt">Птица. Яйцо</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_36" type="checkbox"
+                                                    name="category[]" value="Растительные жиры"> <label
+                                                    for="cat_FOOD_36" class="trnslt">Растительные жиры</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_37" type="checkbox"
+                                                    name="category[]" value="Рыба и морепродукты"> <label
+                                                    for="cat_FOOD_37" class="trnslt">Рыба и морепродукты</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_38" type="checkbox"
+                                                    name="category[]" value="Слабоалкогольные напитки, пиво"> <label
+                                                    for="cat_FOOD_38" class="trnslt">Слабоалкогольные напитки,
+                                                    пиво</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_39" type="checkbox"
+                                                    name="category[]" value="Снэки, ореxи, суxофрукты"> <label
+                                                    for="cat_FOOD_39" class="trnslt">Снэки, ореxи, суxофрукты</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_40" type="checkbox"
+                                                    name="category[]" value="Спортивное питание. БАДы"> <label
+                                                    for="cat_FOOD_40" class="trnslt">Спортивное питание. БАДы</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_41" type="checkbox"
+                                                    name="category[]" value="Табак и табачные изделия"> <label
+                                                    for="cat_FOOD_41" class="trnslt">Табак и табачные изделия</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_42" type="checkbox"
+                                                    name="category[]" value="Творог и творожная масса"> <label
+                                                    for="cat_FOOD_42" class="trnslt">Творог и творожная масса</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_43" type="checkbox"
+                                                    name="category[]" value="Товары прикассовой зоны food"> <label
+                                                    for="cat_FOOD_43" class="trnslt">Товары прикассовой зоны
+                                                    food</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_44" type="checkbox"
+                                                    name="category[]" value="Чай, кофе, какао"> <label for="cat_FOOD_44"
+                                                    class="trnslt">Чай, кофе, какао</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_45" type="checkbox"
+                                                    name="category[]" value="Другое food"> <label for="cat_FOOD_45"
+                                                    class="trnslt">Другое food</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_FOOD_46" type="checkbox"
+                                                    name="category[]" value="Оборудование для ритейла"> <label
+                                                    for="cat_FOOD_46" class="trnslt">Оборудование для ритейла</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cat_group"><input type="checkbox"> NON-FOOD </div>
+                                <div class="cat_group_field">
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_47" type="checkbox"
+                                                    name="category[]" value="Автотовары"> <label for="cat_NON-FOOD_47"
+                                                    class="trnslt">Автотовары</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_48" type="checkbox"
+                                                    name="category[]" value="Аксессуары для ванной и бани"> <label
+                                                    for="cat_NON-FOOD_48" class="trnslt">Аксессуары для ванной и
+                                                    бани</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_49" type="checkbox"
+                                                    name="category[]" value="Бытовая химия"> <label
+                                                    for="cat_NON-FOOD_49" class="trnslt">Бытовая химия</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_50" type="checkbox"
+                                                    name="category[]" value="Ватно-бумажная продукция"> <label
+                                                    for="cat_NON-FOOD_50" class="trnslt">Ватно-бумажная
+                                                    продукция</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_51" type="checkbox"
+                                                    name="category[]" value="Канцелярские товары, книги"> <label
+                                                    for="cat_NON-FOOD_51" class="trnslt">Канцелярские товары,
+                                                    книги</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_52" type="checkbox"
+                                                    name="category[]" value="Косметика и парфюмерия"> <label
+                                                    for="cat_NON-FOOD_52" class="trnslt">Косметика и парфюмерия</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_53" type="checkbox"
+                                                    name="category[]" value="Крупная и мелкая бытовая техника"> <label
+                                                    for="cat_NON-FOOD_53" class="trnslt">Крупная и мелкая бытовая
+                                                    техника</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_54" type="checkbox"
+                                                    name="category[]" value="Пеномоющие средства"> <label
+                                                    for="cat_NON-FOOD_54" class="trnslt">Пеномоющие средства</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_55" type="checkbox"
+                                                    name="category[]" value="Средства личной гигиены"> <label
+                                                    for="cat_NON-FOOD_55" class="trnslt">Средства личной гигиены</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_56" type="checkbox"
+                                                    name="category[]" value="Стройматериалы, инструменты"> <label
+                                                    for="cat_NON-FOOD_56" class="trnslt">Стройматериалы,
+                                                    инструменты</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_57" type="checkbox"
+                                                    name="category[]" value="Сувениры, подарки, аксессуары"> <label
+                                                    for="cat_NON-FOOD_57" class="trnslt">Сувениры, подарки,
+                                                    аксессуары</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_58" type="checkbox"
+                                                    name="category[]" value="Текстиль для дома, ЧНИ и обувь"> <label
+                                                    for="cat_NON-FOOD_58" class="trnslt">Текстиль для дома, ЧНИ и
+                                                    обувь</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_59" type="checkbox"
+                                                    name="category[]" value="Товары для детей, игрушки"> <label
+                                                    for="cat_NON-FOOD_59" class="trnslt">Товары для детей,
+                                                    игрушки</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_60" type="checkbox"
+                                                    name="category[]" value="Товары для дома, хоз. товары"> <label
+                                                    for="cat_NON-FOOD_60" class="trnslt">Товары для дома, хоз.
+                                                    товары</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_61" type="checkbox"
+                                                    name="category[]" value="Товары для животных, корма"> <label
+                                                    for="cat_NON-FOOD_61" class="trnslt">Товары для животных,
+                                                    корма</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_62" type="checkbox"
+                                                    name="category[]" value="Товары для кухни, посуда"> <label
+                                                    for="cat_NON-FOOD_62" class="trnslt">Товары для кухни,
+                                                    посуда</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_63" type="checkbox"
+                                                    name="category[]" value="Товары для сада, огорода, цветы"> <label
+                                                    for="cat_NON-FOOD_63" class="trnslt">Товары для сада, огорода,
+                                                    цветы</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_64" type="checkbox"
+                                                    name="category[]"
+                                                    value="Товары для туризма, спорта, хобби и досуга"> <label
+                                                    for="cat_NON-FOOD_64" class="trnslt">Товары для туризма, спорта,
+                                                    хобби и досуга</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_65" type="checkbox"
+                                                    name="category[]" value="Товары прикассовой зоны non-food"> <label
+                                                    for="cat_NON-FOOD_65" class="trnslt">Товары прикассовой зоны
+                                                    non-food</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_66" type="checkbox"
+                                                    name="category[]" value="Электроинструменты"> <label
+                                                    for="cat_NON-FOOD_66" class="trnslt">Электроинструменты</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="category">
+                                            <div class="category_input"><input id="cat_NON-FOOD_67" type="checkbox"
+                                                    name="category[]" value="Другое non-food"> <label
+                                                    for="cat_NON-FOOD_67" class="trnslt">Другое non-food</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="field-ttl">
+                            <div>Кратко опишите вашу категорию товара:</div>
+                            <textarea class="description">Пятерочка Тест</textarea>
+                        </div>
+
+                        <div class="field-ttl">
+                            <div>Ценовой сегмент</div>
+                            <div>
+
+                                <div class="segment"><input type="checkbox" class="price_segment" value="Эконом">
+                                    <div>Эконом</div>
+                                </div>
+                                <div class="segment"><input type="checkbox" class="price_segment" value="Средний">
+                                    <div>Средний</div>
+                                </div>
+                                <div class="segment"><input type="checkbox" class="price_segment" value="Премиум">
+                                    <div>Премиум</div>
+                                </div>
+                                <div class="segment"><input type="checkbox" class="price_segment" value="Мультиценовой">
+                                    <div>Мультиценовой</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="field-group-ttl">Пользователь</div>
+
+                       
+
+                        <button class="save_user_profile">Сохранить</button>
+
+                        <div class="answer"></div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__wrapper">
+                <div class="footer__block-name">ООО "Сейл трекер", 2025</div>
+                <div class="footer__block-text">21205, город Москва, территория Инновационного Центра Сколково, Большой
+                    б-р, д. 42 стр. 1</div>
+                <div class="footer__block-contact">
+                    <p>saletracker.ru@gmail.com</p>
+                    <a class="footer__link" href="#">
+                        <p>Тел.: +7 921 308 0573</p>
+                    </a>
+                </div>
+                <div class="footer__block-icon">
+                    <a class="footer__link" href="#"><svg class="footer__icon" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" width="800px" height="800px" viewBox="0 0 32 32" version="1.1">
+                            <title>telegram</title>
+                            <path
+                                d="M22.122 10.040c0.006-0 0.014-0 0.022-0 0.209 0 0.403 0.065 0.562 0.177l-0.003-0.002c0.116 0.101 0.194 0.243 0.213 0.403l0 0.003c0.020 0.122 0.031 0.262 0.031 0.405 0 0.065-0.002 0.129-0.007 0.193l0-0.009c-0.225 2.369-1.201 8.114-1.697 10.766-0.21 1.123-0.623 1.499-1.023 1.535-0.869 0.081-1.529-0.574-2.371-1.126-1.318-0.865-2.063-1.403-3.342-2.246-1.479-0.973-0.52-1.51 0.322-2.384 0.221-0.23 4.052-3.715 4.127-4.031 0.004-0.019 0.006-0.040 0.006-0.062 0-0.078-0.029-0.149-0.076-0.203l0 0c-0.052-0.034-0.117-0.053-0.185-0.053-0.045 0-0.088 0.009-0.128 0.024l0.002-0.001q-0.198 0.045-6.316 4.174c-0.445 0.351-1.007 0.573-1.619 0.599l-0.006 0c-0.867-0.105-1.654-0.298-2.401-0.573l0.074 0.024c-0.938-0.306-1.683-0.467-1.619-0.985q0.051-0.404 1.114-0.827 6.548-2.853 8.733-3.761c1.607-0.853 3.47-1.555 5.429-2.010l0.157-0.031zM15.93 1.025c-8.302 0.020-15.025 6.755-15.025 15.060 0 8.317 6.742 15.060 15.060 15.060s15.060-6.742 15.060-15.060c0-8.305-6.723-15.040-15.023-15.060h-0.002q-0.035-0-0.070 0z">
+                            </path>
+                        </svg></a>
+
+                    <a class="footer__link" href="#"><svg class="footer__icon" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" width="800px" height="800px" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .4C4.698.4.4 4.698.4 10s4.298 9.6 9.6 9.6 9.6-4.298 9.6-9.6S15.302.4 10 .4zm3.692 10.831s.849.838 1.058 1.227c.006.008.009.016.011.02.085.143.105.254.063.337-.07.138-.31.206-.392.212h-1.5c-.104 0-.322-.027-.586-.209-.203-.142-.403-.375-.598-.602-.291-.338-.543-.63-.797-.63a.305.305 0 0 0-.095.015c-.192.062-.438.336-.438 1.066 0 .228-.18.359-.307.359h-.687c-.234 0-1.453-.082-2.533-1.221-1.322-1.395-2.512-4.193-2.522-4.219-.075-.181.08-.278.249-.278h1.515c.202 0 .268.123.314.232.054.127.252.632.577 1.2.527.926.85 1.302 1.109 1.302a.3.3 0 0 0 .139-.036c.338-.188.275-1.393.26-1.643 0-.047-.001-.539-.174-.775-.124-.171-.335-.236-.463-.26a.55.55 0 0 1 .199-.169c.232-.116.65-.133 1.065-.133h.231c.45.006.566.035.729.076.33.079.337.292.308 1.021-.009.207-.018.441-.018.717 0 .06-.003.124-.003.192-.01.371-.022.792.24.965a.216.216 0 0 0 .114.033c.091 0 .365 0 1.107-1.273a9.718 9.718 0 0 0 .595-1.274c.015-.026.059-.106.111-.137a.266.266 0 0 1 .124-.029h1.781c.194 0 .327.029.352.104.044.119-.008.482-.821 1.583l-.363.479c-.737.966-.737 1.015.046 1.748z">
+                            </path>
+                        </svg></a>
+                    <a href="https://platforma-czs.ru/conf">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <div class="confedential"><a href="https://platforma-czs.ru/conf">Политика конфиденциальности</a></div>
+
+
+</body>
+
+</html>
