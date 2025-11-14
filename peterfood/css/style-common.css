@@ -1164,8 +1164,16 @@ font-size: 4em;
 .profile_pagePF .data_form .field-category .cat_group_field {
     display: none;
 }
-
-
+.procent {
+    margin: 2em 0;
+}
+.procent span{
+    padding: 1em 0.8em;
+    background-color: #ffff;
+    border-radius: 50%;
+    border:2px solid var(--pfYelow);
+    font-weight: 600;
+}
 /* новые стили конец */
 
 
