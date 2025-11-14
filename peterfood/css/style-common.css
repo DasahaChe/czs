@@ -339,9 +339,16 @@ select {
  */
 
 .note {
-    background: #fffec2;
+    /* background: #fffec2;
     padding: 2em;
-    border-radius: 1em;
+    border-radius: 1em; */
+
+    /* border: 4px solid var(--pfYelow);
+    background: #ededed; */
+    background: var(--pfYelow);
+    color: #000;
+    padding: 2em;
+    border-radius: 2em;
 }
 
 
@@ -1035,14 +1042,15 @@ body {
 }
 
 .profile_logo {
-    width: 9em;
-    height: 9em;
+    max-width: 9em;
+    width: 100%;
     border-radius: 50%;
 }
 .main_page_visitor .center_field .section_titlePf{
     font-size: 2em;
     margin: 0;
     font-family: var(--base-font);
+    font-weight: 600;
 }
 .title-Company{
 font-size: 4em;
@@ -1084,6 +1092,80 @@ font-size: 4em;
     padding: 2em 4em;
 }
 
+.field-ttl .profile_logo{
+    border-radius: 0;
+}
+
+.profile_pagePF .data_form .login{
+    min-height: 3em;
+    border-bottom: 4px solid var(--pfYelow);
+    margin-bottom: 2em;
+}
+
+.profile_pagePf .field input[type=file] {
+    background: var(--pfGrey);
+    border-radius: 4em;
+    border: 0.4em solid var(--pfYelow);
+    padding: 1.5em 2em;
+    cursor: pointer;
+    display: inline-block;
+    margin: 1em 0 0 0;
+    color: #ffffff;
+    font-size: 0.9em;
+}
+
+.profile_pagePF .save_user_profile {
+    font-size: 1.0em;
+    cursor: pointer;
+    padding: 1.5em 2em;
+    background: var(--pfYelow);
+    border: 2px solid var(--pfGrey);
+    /* background: linear-gradient(90deg, rgba(58, 199, 147, 1) 0%, rgba(87, 196, 219, 1) 100%); */
+    color: #000;
+    border-radius: 3em;
+    display: inline-block;
+    width:200px;
+    margin-top:2em;
+}
+
+.header_banner .header_right .button a:hover {
+    background: var(--pfYelow);
+    color:var(--pfGrey);
+}
+
+.header_banner .header_right .button a {
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 1em 2em;
+    background: var(--pfYelow);
+   color:var(--pfGrey);
+    border-radius: 2em;
+    border:0;
+    display: inline-block;
+}
+
+.main_page_visitor .left_bar .menu > div a:hover  {
+    background-color: var(--pfYelow);
+    border-radius: 2em;
+}
+
+.main_page_visitor .left_bar .menu > div span {
+    background-color: var(--pfYelow);
+    border-radius: 2em;
+    padding: 0.5em 1em;
+}
+
+.profile_pagePF .data_form .field-group-ttl {
+    font-size:2em;
+    margin: 2em 0;
+    
+}
+
+.profile_pagePF .data_form .field-category .cat_group_field {
+    display: none;
+}
+
+
 /* новые стили конец */
 
 
@@ -1109,6 +1191,11 @@ font-size: 4em;
 
     .headerPF .headerPF__menu {
         padding: calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 2.75);
+    }
+
+    .headerPF .headerPF__logo-img {
+        width: 256px;
+        margin-right: 32px;
     }
 }
 
@@ -1165,10 +1252,10 @@ font-size: 4em;
         width: calc(var(--base-gap) * 12.25);
     }
 
-    .headerPF .headerPF__burger {
+    /* .headerPF .headerPF__burger {
         display: block;
         color: #fff;
-    }
+    } */
 
     .headerPF .open {
         display: block;
@@ -1197,7 +1284,8 @@ font-size: 4em;
         left: 0;
         width: 100%;
         height: calc(var(--base-gap) * 4.5);
-        background: linear-gradient(135deg, var(--background-1-opacity-80) 0%, var(--background-2-opacity-80) 100%);
+        background: var(--pfGrey);
+        /* background: linear-gradient(135deg, var(--background-1-opacity-80) 0%, var(--background-2-opacity-80) 100%); */
         z-index: -5;
     }
 
@@ -1210,8 +1298,7 @@ font-size: 4em;
     }
 
     .headerPF .headerPF__logo-img {
-        width: 64px;
-        margin-right: 20px;
+        margin-right: 0;
     }
 
     .headerPF .headerPF__link-top {

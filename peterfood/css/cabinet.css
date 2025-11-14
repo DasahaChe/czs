@@ -83,16 +83,7 @@
     padding: 0.5em 1em;
 }
 
-.main_page_visitor .left_bar .menu > div a:hover  {
-    background-color: rgb(161,255,81);
-    border-radius: 2em;
-}
 
-.main_page_visitor .left_bar .menu > div span {
-    background-color: rgb(161,255,81);
-    border-radius: 2em;
-    padding: 0.5em 1em;
-}
 
 .main_page_visitor .left_bar .menu .menu_group {
     display:grid;
@@ -1380,22 +1371,8 @@
     gap:2em;
 }
 
-.header_banner .header_right .button a {
-    font-family: 'Fors ExtraBold';
-    font-size: 1.5em;
-    cursor: pointer;
-    padding: 1em 2em;
-    background: rgb(58, 199, 147);
-    background: linear-gradient(90deg, rgba(58, 199, 147, 1) 0%, rgba(87, 196, 219, 1) 100%);
-    color: #ffffff;
-    border-radius: 2em;
-    border:0;
-    display: inline-block;
-}
-.header_banner .header_right .button a:hover {
-    background: rgb(161,255,81);
-    color:#333333;
-}
+
+
 
 .header_banner .header_right .circle {
     border-radius: 100px;
@@ -1463,10 +1440,7 @@
     gap: 1em;
 }
 
-.profile_pagePF .data_form .field-group-ttl {
-    font-size:1.25em;
-    font-family: 'Fors ExtraBold';
-}
+
 
 .profile_pagePF .data_form .field-ttl {
     display:grid;
@@ -1483,9 +1457,8 @@
     font-size:1em;
 }
 
-.profile_pagePF .data_form input[type="text"].title, .profile_pagePF .data_form input[type="text"].adress, .profile_pagePF .data_form input[type="text"].okved {
+/* .profile_pagePF .data_form input[type="text"].title, .profile_pagePF .data_form input[type="text"].adress, .profile_pagePF .data_form input[type="text"].okved {
     max-width: 100%;
-}
 
 .profile_pagePF .data_form input[type="text"].inn {
     max-width: 105px;
@@ -1505,10 +1478,10 @@
 
 .profile_pagePF .data_form input[type="text"].email {
     max-width: 200px;
-}
+} */
 
-.profile_pagePF .data_form input[type="text"].sname, .profile_pagePF .data_form input[type="text"].name, .profile_pagePF .data_form input[type="text"].tname {
-    max-width: 200px;
+.profile_pagePF .data_form input[type="text"].inn, .profile_pagePF .data_form input[type="text"].cname, .profile_pagePF .data_form input[type="text"].sname, .profile_pagePF .data_form input[type="text"].name, .profile_pagePF .data_form input[type="text"].tname {
+    max-width: 400px;
 }
 
 
@@ -1538,9 +1511,9 @@
     margin-top:1em;
 }
 
-.profile_pagePF .data_form .field-category .cat_group_field {
+/* .profile_pagePF .data_form .field-category .cat_group_field {
     display:none;
-}
+} */
 
 .profile_pagePF .data_form .field-category .cat_group {
     margin-bottom: 1em;
@@ -1561,20 +1534,7 @@
     margin: 0 0 0 1em;
 }
 
-.profile_pagePF .save_user_profile {
-    font-family: 'Fors ExtraBold';
-    font-size: 1.0em;
-    cursor: pointer;
-    padding: 0.5em 1em;
-    background: var(--pfYelow);
-    /* background: linear-gradient(90deg, rgba(58, 199, 147, 1) 0%, rgba(87, 196, 219, 1) 100%); */
-    color: #ffffff;
-    border-radius: 2em;
-    border: 0;
-    display: inline-block;
-    width:200px;
-    margin-top:2em;
-}
+
 
 .profile_pagePF .answer .field {
     padding: 1em;

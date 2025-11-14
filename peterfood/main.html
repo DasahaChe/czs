@@ -84,7 +84,7 @@
 
                     </li>
                     <li class="headerPF__link-top">
-                        <div>visitor1@imperia-forums.ru</div>
+                        <div>Максим Петров</div>
                         <div class="status_form" style="display:none;">
                             <form method="post" action="/" class="status_list_form display_flex_column"><select
                                     name="set_user_status">
@@ -105,7 +105,7 @@
             <div class="left_bar">
                 <div class="collapse_menu"></div>
                 <div class="menu">
-                    <div><a href="/services/visitors/profile/" class="trnslt">Главная</a></div>
+                    <div><span class="trnslt">Главная</span></div>
                     <div><a href="/services/visitors/program/" class="trnslt">Деловая программа</a></div>
                     <div><a href="/services/visitors/plan/" class="trnslt">План выставки</a></div>
                     <div><a href="/services/visitors/note/" class="trnslt">Памятка экспонента</a></div>
@@ -116,62 +116,37 @@
                     <div><a href="/services/visitors/exponents_list/" class="trnslt">Список экспонентов</a></div>
                     <div><a href="https://t.me/peterfood_russia" class="trnslt">Новости</a></div>
                     <div><a href="https://t.me/+Vt7ljhzipBDtIGBy" class="trnslt">Чат сообщества</a></div>
-                    <div><span class="trnslt">Редактировать профиль</span></div>
+                    <div><a href="/services/visitors/profile/" class="trnslt">Профиль</a></div>
                 </div>
             </div>
             <div class="center_field">
-                <h1 class="section_titlePf">Профиль</h1>
+                <h1 class="section_titlePf">Профиль Компании</h1>
+                <div class="title-block">
+                    <div class="title-text-block">
+                        <h2 class="title-Company">Мираторг</h2>
+                        <div class="title-text-description">
+                            <span class="title-number">54 стенд</span>
+                            <span class="title-sait"><a href="#">miratirgSait.ru</a></span>
+                        </div>
+                    </div>
+                    <img class="profile_logo" src="img/32.jpg" alt="logo company">
+                </div>
 
-                <div class="bread_crumbs"><a href="/">Главная</a> / <span>Профиль</span> / </div>
-
-                <div class="note"><b>Внимание!</b> У вас не заполнен ИНН компании. Если ИНН не введен, доступ к разделам
-                    будет ограничен.</div>
-
-
-
+                <!-- <div class="note"><b>Внимание!</b> У вас не заполнен ИНН компании. Если ИНН не введен, доступ к разделам
+                    будет ограничен.</div> -->
 
                 <div class="section_subtitlePf">О компании</div>
                 <div class="profile_pagePF">
                     <form class="data_form">
-                        <div class="field-ttl  login">
-                            <div class="trnslt">Логин </div>
-                            <div>visitor1@imperia-forums.ru</div>
-                        </div>
-
-                        <div class="field-ttl">
-                            <div>
-                                <div>Название компании</div>
-
-                            </div>
-                            <input class="cname" type="text" placeholder="Введите название компании" value="Мираторг">
-                        </div>
-
-                        <div class="field-ttl">
-                            <div>
-                                <div>логотип компании</div>
-
-                            </div>
-                            <div class="title-text-block">
-                                <img class="profile_logo" src="img/32.jpg" alt="logo company">
-
-                                <div class="field org_logo">
-                                    <div class="ttl trnslt">Логотип (В формате jpg, png. Размер до 2 Мб)</div>
-                                    <div class="input_field"><input class="logo img2upload" type="file"></div>
-                                </div>
-                            </div>
-
-                        </div>
-
                         <div class="field-ttl">
 
                             <div class="field-ttl">
                                 <div>Напишите, что важно знать о компании</div>
-                                <textarea
-                                    class="description-company">Агропромышленный холдинг Мираторг. Мы осуществляем весь цикл производства самостоятельно: от производства кормов для животных до розничной продажи в торговых точках.</textarea>
+                                <textarea class="description-company">Краткое описание компании</textarea>
                             </div>
                         </div>
 
-                        <div class="field-ttl format option_field" for="buyer" style="display:none">
+                        <!-- <div class="field-ttl format option_field" for="buyer" style="display:none">
                             <div>Сфера деятельности компании</div>
                             <div>
                                 <div><input class="format" type="radio" name="format_b" id="format_7"
@@ -182,8 +157,7 @@
                                         value="Дистрибьюторская компания"> <label for="format_9">Дистрибьюторская
                                         компания</label></div>
                                 <div><input class="format" type="radio" name="format_b" id="format_10" value="HoReCa">
-                                    <label for="format_10">HoReCa</label>
-                                </div>
+                                    <label for="format_10">HoReCa</label></div>
                                 <div><input class="format" type="radio" name="format_b" id="format_11"
                                         value="Розничная (не сетевая торговля)"> <label for="format_11">Розничная (не
                                         сетевая торговля)</label></div>
@@ -201,13 +175,12 @@
                             <div>Импортируете ли товары? </div>
                             <div>
                                 <div><input class="import" type="checkbox" name="import" id="import_1" value="Да">
-                                    <label for="import_1">Да</label>
-                                </div>
+                                    <label for="import_1">Да</label></div>
                             </div>
-                        </div>
+                        </div> -->
 
 
-                        <div class="field-ttl format option_field" for="vendor" style="display:none">
+                        <!-- <div class="field-ttl format option_field" for="vendor" style="display:none">
                             <div>Сфера деятельности компании</div>
                             <div>
                                 <div><input class="format" type="radio" name="format_v" id="format_1"
@@ -218,8 +191,7 @@
                                         value="Дистрибьюторская компания"> <label for="format_3">Дистрибьюторская
                                         компания</label></div>
                                 <div><input class="format" type="radio" name="format_v" id="format_4" value="Импорт">
-                                    <label for="format_4">Импорт</label>
-                                </div>
+                                    <label for="format_4">Импорт</label></div>
                                 <div><input class="format" type="radio" name="format_v" id="format_5"
                                         value="Услуги для бизнеса"> <label for="format_5">Услуги для бизнеса</label>
                                 </div>
@@ -228,8 +200,9 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div> -->
 
+                        <!-- 
                         <div class="field-ttl format option_field" for="other" style="display:none">
                             <div>Сфера деятельности компании</div>
                             <div>
@@ -241,8 +214,7 @@
                                         value="Дистрибьюторская компания"> <label for="format_3">Дистрибьюторская
                                         компания</label></div>
                                 <div><input class="format" type="radio" name="format_o" id="format_4" value="Импорт">
-                                    <label for="format_4">Импорт</label>
-                                </div>
+                                    <label for="format_4">Импорт</label></div>
                                 <div><input class="format" type="radio" name="format_o" id="format_5"
                                         value="Услуги для бизнеса"> <label for="format_5">Услуги для бизнеса</label>
                                 </div>
@@ -250,7 +222,10 @@
                                         value="Другое (поставщик)"> <label for="format_6">Другое (поставщик)</label>
                                 </div>
                             </div>
-                        </div>
+
+                        </div> -->
+
+
 
                         <div class="field-ttl">
                             <div>
@@ -258,8 +233,38 @@
 
                             </div>
                             <input type="text" class="inn" placeholder="ИНН" value="">
+
+
                         </div>
 
+                        <div class="field-ttl">
+                            <div class="trnslt">Логин </div>
+                            <div>visitor1@imperia-forums.ru</div>
+                        </div>
+                        <div class="field-ttl">
+                            <div>Фамилия</div>
+                            <input type="text" class="sname" placeholder="Фамилия" value="Петров">
+                        </div>
+                        <div class="field-ttl">
+                            <div>Имя</div>
+                            <input type="text" class="name" placeholder="Имя" value="Максим">
+                        </div>
+                        <div class="field-ttl">
+                            <div>Отчество</div>
+                            <input type="text" class="tname" placeholder="Отчество" value="Иванович">
+                        </div>
+                        <div class="field-ttl">
+                            <div>Телефон</div>
+                            <input type="text" class="tel" placeholder="Телефон" value="">
+                        </div>
+                        <div class="field-ttl">
+                            <div>Эл. почта</div>
+                            <input type="text" class="email" placeholder="Телефон" value="visitor1@imperia-forums.ru">
+                        </div>
+                        <!-- <div class="field-ttl">
+                            <div>Название</div>
+                            <input type="text" class="title" placeholder="Название" value="Пятерочка Тест">
+                        </div>
                         <div class="field-ttl">
                             <div>Адрес</div>
                             <input type="text" class="adress" placeholder="Адрес" value="">
@@ -275,9 +280,9 @@
                         <div class="field-ttl">
                             <div>ОКВЭД</div>
                             <input type="text" class="okved" placeholder="ОКВЭД" value="">
-                        </div>
+                        </div> -->
 
-                        <div class="field-category">
+                        <!-- <div class="field-category">
 
                             <div class="cat_group_ttl">Какую категорию товаров вы производите или закупаете: </div>
                             <div class="cat_group_list">
@@ -349,8 +354,7 @@
                                             <div class="category_input"><input id="cat_FOOD_26" type="checkbox"
                                                     name="category[]" value="Кондитерская, хлебопекарная продукция">
                                                 <label for="cat_FOOD_26" class="trnslt">Кондитерская, хлебопекарная
-                                                    продукция</label>
-                                            </div>
+                                                    продукция</label></div>
                                         </div>
                                     </div>
                                     <div class="checkbox">
@@ -358,8 +362,7 @@
                                             <div class="category_input"><input id="cat_FOOD_27" type="checkbox"
                                                     name="category[]" value="Консервация: овощная, рыбная, мясная">
                                                 <label for="cat_FOOD_27" class="trnslt">Консервация: овощная, рыбная,
-                                                    мясная</label>
-                                            </div>
+                                                    мясная</label></div>
                                         </div>
                                     </div>
                                     <div class="checkbox">
@@ -390,8 +393,7 @@
                                             <div class="category_input"><input id="cat_FOOD_31" type="checkbox"
                                                     name="category[]" value="Молочная продукция. Сыры. Мороженое">
                                                 <label for="cat_FOOD_31" class="trnslt">Молочная продукция. Сыры.
-                                                    Мороженое</label>
-                                            </div>
+                                                    Мороженое</label></div>
                                         </div>
                                     </div>
                                     <div class="checkbox">
@@ -399,8 +401,7 @@
                                             <div class="category_input"><input id="cat_FOOD_32" type="checkbox"
                                                     name="category[]" value="Мясные, колбасные изделия, деликатесы">
                                                 <label for="cat_FOOD_32" class="trnslt">Мясные, колбасные изделия,
-                                                    деликатесы</label>
-                                            </div>
+                                                    деликатесы</label></div>
                                         </div>
                                     </div>
                                     <div class="checkbox">
@@ -679,7 +680,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="field-ttl">
                             <div>Кратко опишите вашу категорию товара:</div>
@@ -706,16 +707,9 @@
                             </div>
                         </div>
 
-                        <div class="field-group-ttl">Контактная информация</div>
+                        <div class="field-group-ttl">Пользователь</div>
 
-                        <div class="field-ttl">
-                            <div>Телефон</div>
-                            <input type="text" class="tel" placeholder="Телефон" value="">
-                        </div>
-                        <div class="field-ttl">
-                            <div>Эл. почта</div>
-                            <input type="text" class="email" placeholder="Телефон" value="visitor1@imperia-forums.ru">
-                        </div>
+
 
                         <button class="save_user_profile">Сохранить</button>
 
