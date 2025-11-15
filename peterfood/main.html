@@ -53,8 +53,9 @@
                 // Находим контейнер точек в родительском элементе галереи
                 this.dotsContainer = container.closest('.gallery-container').querySelector('.carousel-dots');
 
-                this.currentSlide = 0;
+                this.currentSlide = 2; // Начинаем с центрального слайда
                 this.slideCount = this.slides.length;
+                this.visibleSlides = 3; // Количество видимых слайдов
                 this.autoPlayInterval = null;
 
                 this.init();
@@ -83,12 +84,17 @@
                 // Очищаем контейнер точек
                 this.dotsContainer.innerHTML = '';
 
-                for (let i = 0; i < this.slideCount; i++) {
+                // Количество точек = количество групп по 3 слайда
+                const dotCount = Math.ceil(this.slideCount / this.visibleSlides);
+
+                for (let i = 0; i < dotCount; i++) {
                     const dot = document.createElement('div');
                     dot.classList.add('dot');
-                    if (i === 0) dot.classList.add('active');
+                    if (i === Math.floor(this.currentSlide / this.visibleSlides)) {
+                        dot.classList.add('active');
+                    }
 
-                    dot.addEventListener('click', () => this.goToSlide(i));
+                    dot.addEventListener('click', () => this.goToSlide(i * this.visibleSlides));
                     this.dotsContainer.appendChild(dot);
                 }
 
@@ -96,23 +102,37 @@
             }
 
             updateCarousel() {
-                this.track.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+                // Обновляем позицию трека
+                const slideWidth = this.slides[0].offsetWidth + 16; // Ширина слайда + gap
+                const offset = this.currentSlide * slideWidth;
+                this.track.style.transform = `translateX(-${offset}px)`;
+
+                // Обновляем классы active/side для слайдов
+                this.slides.forEach((slide, index) => {
+                    slide.classList.remove('active', 'side');
+                    if (index === this.currentSlide + 1) { // Центральный слайд
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.add('side');
+                    }
+                });
 
                 // Обновляем активную точку
                 if (this.dots) {
+                    const activeDotIndex = Math.floor(this.currentSlide / this.visibleSlides);
                     this.dots.forEach((dot, index) => {
-                        dot.classList.toggle('active', index === this.currentSlide);
+                        dot.classList.toggle('active', index === activeDotIndex);
                     });
                 }
             }
 
             next() {
-                this.currentSlide = (this.currentSlide + 1) % this.slideCount;
+                this.currentSlide = (this.currentSlide + 1) % (this.slideCount - 1);
                 this.updateCarousel();
             }
 
             prev() {
-                this.currentSlide = (this.currentSlide - 1 + this.slideCount) % this.slideCount;
+                this.currentSlide = (this.currentSlide - 1 + (this.slideCount - 1)) % (this.slideCount - 1);
                 this.updateCarousel();
             }
 
@@ -136,49 +156,37 @@
             }
         }
 
-        // Инициализация всех каруселей при загрузке страницы
+        // Инициализация карусели при загрузке страницы
         document.addEventListener('DOMContentLoaded', () => {
-            const carouselContainers = document.querySelectorAll('.carousel');
-            const carousels = [];
-
-            carouselContainers.forEach(container => {
-                carousels.push(new Carousel(container));
-            });
+            const carouselContainer = document.querySelector('.carousel');
+            new Carousel(carouselContainer);
 
             // Добавляем обработчики для свайпов (для мобильных устройств)
             let startX = 0;
             let endX = 0;
 
-            const carouselTracks = document.querySelectorAll('.carousel-track');
+            const carouselTrack = document.querySelector('.carousel-track');
 
-            carouselTracks.forEach(track => {
-                track.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].clientX;
-                });
-
-                track.addEventListener('touchend', (e) => {
-                    endX = e.changedTouches[0].clientX;
-                    handleSwipe(track, startX, endX);
-                });
+            carouselTrack.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
             });
 
-            function handleSwipe(track, startX, endX) {
+            carouselTrack.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe(startX, endX);
+            });
+
+            function handleSwipe(startX, endX) {
                 const swipeThreshold = 50;
                 const diff = startX - endX;
 
                 if (Math.abs(diff) > swipeThreshold) {
-                    // Находим соответствующую карусель
-                    const carouselContainer = track.closest('.carousel');
-                    const carousel = carousels.find(c => c.container === carouselContainer);
-
-                    if (carousel) {
-                        if (diff > 0) {
-                            // Свайп влево - следующий слайд
-                            carousel.next();
-                        } else {
-                            // Свайп вправо - предыдущий слайд
-                            carousel.prev();
-                        }
+                    if (diff > 0) {
+                        // Свайп влево - следующий слайд
+                        document.querySelector('.carousel-btn.next').click();
+                    } else {
+                        // Свайп вправо - предыдущий слайд
+                        document.querySelector('.carousel-btn.prev').click();
                     }
                 }
             }
@@ -321,14 +329,18 @@
                 </div>
                 <div class="category">
                     <div class="category-text-block">
-                        <div class="category_subtitlePf">Общая категория :</div>
+                        <div class="category_subtitlePf-main">Общая категория :</div>
                         <div class="category-btn-block">
-                            <div class="category-btn category-acrive">food</div>
+                            <!-- <div class="category-btn category-acrive">food</div>
                             <div class="category-btn">non-food</div>
-                            <div class="category-btn">услуги и оборудование</div>
+                            <div class="category-btn">услуги и оборудование</div> -->
+
+                            <div class="category-text">food</div>
+
+                            <div class="category-text">услуги и оборудование</div>
                         </div>
                     </div>
-                    <div class="category-text-block">
+                    <div class="category-list-block">
                         <div class="category_subtitlePf">Список категорий :</div>
                         <div class="category_group">
                             <div class="category-trnslt">Замороженные продукты. П/ф</div>
@@ -343,11 +355,17 @@
                 </div>
                 <div class="prise-text-block">
                     <div class="prise_subtitlePf">Ценовой сегмент :</div>
+
+                    <!-- <div class="category_group">
+                        <div class="category-trnslt">Эконом</div>
+                        <div class="category-trnslt">Средний</div>
+                        <div class="category-trnslt">Премиум</div>
+                        <div class="category-trnslt">Мультиценовой</div>
+                    </div> -->
                     <div class="prise-btn-block">
-                        <div class="prise-btn category-acrive prise-acrive">Эконом</div>
-                        <div class="prise-btn prise-acrive">Средний</div>
-                        <div class="prise-btn">Премиум</div>
-                        <div class="prise-btn prise-acrive">Мультиценовой</div>
+                        <div class="prise-text">Эконом</div>
+                        <div class="prise-text">Средний</div>
+                        <div class="prise-text">Мультиценовой</div>
                     </div>
                 </div>
                 <div class="mark">
@@ -363,57 +381,48 @@
                             <div class="mark-trnslt">МИРАТОРГ КУУУСЬ</div>
                         </div>
 
-                        <div class="mark_gallery-block">
-                            <div class="gallery-container">
-                                <div class="carousel">
-                                    <div class="carousel-track">
-                                        <div class="carousel-slide">
-                                            <img src="img/i (1).webp" alt="Фото 1" class="carousel-image">
-                                        </div>
-                                        <div class="carousel-slide">
-                                            <img src="img/i (2).webp" alt="Фото 2" class="carousel-image">
-                                        </div>
-                                        <div class="carousel-slide">
-                                            <img src="img/i (3).webp" alt="Фото 3" class="carousel-image">
-
-                                        </div>
-                                        <div class="carousel-slide">
-                                            <img src="img/ecd91b1f85adf3b403af5ffddcb44fa6.webp" alt="Фото 4"
-                                                class="carousel-image">
-                                        </div>
-                                    </div>
-
-                                    <button class="carousel-btn prev">‹</button>
-                                    <button class="carousel-btn next">›</button>
-                                </div>
-
-                                <div class="carousel-dots">
-
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
+                    <!-- 
                     <div class="gallery-block">
                         <div class="gallery-container">
                             <div class="gallery_subtitlePf">Фото продукции</div>
                             <div class="carousel">
                                 <div class="carousel-track">
-                                    <div class="carousel-slide">
+                                    <div class="carousel-slide side">
+                                        <img src="img/i (1).webp" alt="Фото 4" class="carousel-image">
+
+                                    </div>
+                                    <div class="carousel-slide side">
+                                        <img src="img/i (2).webp" alt="Фото 4" class="carousel-image">
+
+                                    </div>
+                                    <div class="carousel-slide side">
+                                        <img src="img/i (3).webp" alt="Фото 4" class="carousel-image">
+
+                                    </div>
+                                    <div class="carousel-slide side">
+                                        <img src="img/i (4).webp" alt="Фото 4" class="carousel-image">
+
+                                    </div>
+                                    <div class="carousel-slide side">
+                                        <img src="img/i (5).webp" alt="Фото 4" class="carousel-image">
+
+                                    </div>
+
+                                    <div class="carousel-slide side">
                                         <img src="img/1200x1200nocrop.jpeg" alt="Фото 1" class="carousel-image">
                                     </div>
-                                    <div class="carousel-slide">
+
+                                    <div class="carousel-slide side">
                                         <img src="img/600x800.webp" alt="Фото 2" class="carousel-image">
-                                        <!-- <div class="carousel-caption">
-                                            <h3>Горный вид</h3>
-                                            <p>Описание второго изображения</p>
-                                        </div> -->
+
                                     </div>
-                                    <div class="carousel-slide">
+                                    <div class="carousel-slide side">
                                         <img src="img/i (4).webp" alt="Фото 3" class="carousel-image">
 
                                     </div>
-                                    <div class="carousel-slide">
+                                    <div class="carousel-slide side">
                                         <img src="img/i (5).webp" alt="Фото 4" class="carousel-image">
 
                                     </div>
@@ -427,19 +436,14 @@
 
                             </div>
                         </div>
+
+                    </div> -->
+
+
+                    <div class="title-text-block">
+                        <div class="title-KP">Презентация компании</div>
+                        <button class="get_KP">Получить презентацию</button>
                     </div>
-
-
-
-
-                </div>
-
-
-                <div class="title-text-block">
-                    <div class="title-KP">Презентация компании</div>
-                    <button class="get_KP">Получить презентацию</button>
-                </div>
-
 
     </main>
     <footer class="footer">
