@@ -40,6 +40,151 @@
             webvisor: true
         });
     </script>
+
+    <script>
+        class Carousel {
+            constructor(container) {
+                this.container = container;
+                this.track = container.querySelector('.carousel-track');
+                this.slides = Array.from(container.querySelectorAll('.carousel-slide'));
+                this.prevBtn = container.querySelector('.carousel-btn.prev');
+                this.nextBtn = container.querySelector('.carousel-btn.next');
+
+                // Находим контейнер точек в родительском элементе галереи
+                this.dotsContainer = container.closest('.gallery-container').querySelector('.carousel-dots');
+
+                this.currentSlide = 0;
+                this.slideCount = this.slides.length;
+                this.autoPlayInterval = null;
+
+                this.init();
+            }
+
+            init() {
+                // Создаем точки-индикаторы
+                this.createDots();
+
+                // Добавляем обработчики событий
+                this.prevBtn.addEventListener('click', () => this.prev());
+                this.nextBtn.addEventListener('click', () => this.next());
+
+                // Автопрокрутка
+                this.startAutoPlay();
+
+                // Пауза при наведении
+                this.container.addEventListener('mouseenter', () => this.stopAutoPlay());
+                this.container.addEventListener('mouseleave', () => this.startAutoPlay());
+
+                // Обновляем начальное состояние
+                this.updateCarousel();
+            }
+
+            createDots() {
+                // Очищаем контейнер точек
+                this.dotsContainer.innerHTML = '';
+
+                for (let i = 0; i < this.slideCount; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+
+                    dot.addEventListener('click', () => this.goToSlide(i));
+                    this.dotsContainer.appendChild(dot);
+                }
+
+                this.dots = Array.from(this.dotsContainer.querySelectorAll('.dot'));
+            }
+
+            updateCarousel() {
+                this.track.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+
+                // Обновляем активную точку
+                if (this.dots) {
+                    this.dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === this.currentSlide);
+                    });
+                }
+            }
+
+            next() {
+                this.currentSlide = (this.currentSlide + 1) % this.slideCount;
+                this.updateCarousel();
+            }
+
+            prev() {
+                this.currentSlide = (this.currentSlide - 1 + this.slideCount) % this.slideCount;
+                this.updateCarousel();
+            }
+
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateCarousel();
+            }
+
+            startAutoPlay() {
+                // Очищаем предыдущий интервал, если он существует
+                this.stopAutoPlay();
+
+                this.autoPlayInterval = setInterval(() => this.next(), 5000);
+            }
+
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            }
+        }
+
+        // Инициализация всех каруселей при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselContainers = document.querySelectorAll('.carousel');
+            const carousels = [];
+
+            carouselContainers.forEach(container => {
+                carousels.push(new Carousel(container));
+            });
+
+            // Добавляем обработчики для свайпов (для мобильных устройств)
+            let startX = 0;
+            let endX = 0;
+
+            const carouselTracks = document.querySelectorAll('.carousel-track');
+
+            carouselTracks.forEach(track => {
+                track.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+
+                track.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    handleSwipe(track, startX, endX);
+                });
+            });
+
+            function handleSwipe(track, startX, endX) {
+                const swipeThreshold = 50;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    // Находим соответствующую карусель
+                    const carouselContainer = track.closest('.carousel');
+                    const carousel = carousels.find(c => c.container === carouselContainer);
+
+                    if (carousel) {
+                        if (diff > 0) {
+                            // Свайп влево - следующий слайд
+                            carousel.next();
+                        } else {
+                            // Свайп вправо - предыдущий слайд
+                            carousel.prev();
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
     <noscript>
         <div><img src="https://mc.yandex.ru/watch/98987598" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
@@ -129,8 +274,8 @@
                     <div class="title-text-block">
                         <h2 class="title-Company">Мираторг</h2>
                         <div class="title-text-description">
-                            <span class="title-number">54 стенд</span>
-                            <span class="title-sait"><a href="#">miratirgSait.ru</a></span>
+                            <div class="title-number">54 стенд</div>
+                            <div class="title-sait"><a href="#">miratirgSait.ru</a></div>
                         </div>
                     </div>
                     <img class="profile_logo" src="img/32.jpg" alt="logo company">
@@ -174,25 +319,128 @@
                     </div>
 
                 </div>
-
-                <div class="category-text-block">
-                    <div class="section_subtitlePf">Общая категория</div>
-                    <div class="category-btn-block">
-                        <span class="category-btn">food</span>
-                        <span class="category-btn">non-food</span>
-                        <span class="category-btn">услуги и оборудование</span>
+                <div class="category">
+                    <div class="category-text-block">
+                        <div class="category_subtitlePf">Общая категория :</div>
+                        <div class="category-btn-block">
+                            <div class="category-btn category-acrive">food</div>
+                            <div class="category-btn">non-food</div>
+                            <div class="category-btn">услуги и оборудование</div>
+                        </div>
                     </div>
+                    <div class="category-text-block">
+                        <div class="category_subtitlePf">Список категорий :</div>
+                        <div class="category_group">
+                            <div class="category-trnslt">Замороженные продукты. П/ф</div>
+                            <div class="category-trnslt">Здоровое питание</div>
+                            <div class="category-trnslt">Консервация: овощная, рыбная, мясная</div>
+                            <div class="category-trnslt">Мясные, колбасные изделия, деликатесы</div>
+                            <div class="category-trnslt">Пищевые ингредиенты</div>
+                            <div class="category-trnslt">Спортивное питание. БАДы</div>
+                            <div class="category-trnslt">Другое food</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="prise-text-block">
+                    <div class="prise_subtitlePf">Ценовой сегмент :</div>
+                    <div class="prise-btn-block">
+                        <div class="prise-btn category-acrive prise-acrive">Эконом</div>
+                        <div class="prise-btn prise-acrive">Средний</div>
+                        <div class="prise-btn">Премиум</div>
+                        <div class="prise-btn prise-acrive">Мультиценовой</div>
+                    </div>
+                </div>
+                <div class="mark">
+                    <div class="mark-text-block">
+                        <div class="mark_subtitlePf">Наши торговые марки :</div>
+                        <div class="mark_group">
+                            <div class="mark-trnslt">А2 МИРАТОРГ</div>
+                            <div class="mark-trnslt">MIRACAT,</div>
+                            <div class="mark-trnslt">MIRADOG</div>
+                            <div class="mark-trnslt">RODEO MIRATORG</div>
+                            <div class="mark-trnslt">ВИТАМИН VITAMIN VИТАМИН</div>
+                            <div class="mark-trnslt">МИРАТОРГ DENTAL CARE</div>
+                            <div class="mark-trnslt">МИРАТОРГ КУУУСЬ</div>
+                        </div>
+
+                        <div class="mark_gallery-block">
+                            <div class="gallery-container">
+                                <div class="carousel">
+                                    <div class="carousel-track">
+                                        <div class="carousel-slide">
+                                            <img src="img/i (1).webp" alt="Фото 1" class="carousel-image">
+                                        </div>
+                                        <div class="carousel-slide">
+                                            <img src="img/i (2).webp" alt="Фото 2" class="carousel-image">
+                                        </div>
+                                        <div class="carousel-slide">
+                                            <img src="img/i (3).webp" alt="Фото 3" class="carousel-image">
+
+                                        </div>
+                                        <div class="carousel-slide">
+                                            <img src="img/ecd91b1f85adf3b403af5ffddcb44fa6.webp" alt="Фото 4"
+                                                class="carousel-image">
+                                        </div>
+                                    </div>
+
+                                    <button class="carousel-btn prev">‹</button>
+                                    <button class="carousel-btn next">›</button>
+                                </div>
+
+                                <div class="carousel-dots">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-block">
+                        <div class="gallery-container">
+                            <div class="gallery_subtitlePf">Фото продукции</div>
+                            <div class="carousel">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide">
+                                        <img src="img/1200x1200nocrop.jpeg" alt="Фото 1" class="carousel-image">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="img/600x800.webp" alt="Фото 2" class="carousel-image">
+                                        <!-- <div class="carousel-caption">
+                                            <h3>Горный вид</h3>
+                                            <p>Описание второго изображения</p>
+                                        </div> -->
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="img/i (4).webp" alt="Фото 3" class="carousel-image">
+
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="img/i (5).webp" alt="Фото 4" class="carousel-image">
+
+                                    </div>
+                                </div>
+
+                                <button class="carousel-btn prev">‹</button>
+                                <button class="carousel-btn next">›</button>
+                            </div>
+
+                            <div class="carousel-dots">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
                 </div>
 
 
+                <div class="title-text-block">
+                    <div class="title-KP">Презентация компании</div>
+                    <button class="get_KP">Получить презентацию</button>
+                </div>
 
 
-
-
-
-
-
-            </div>
     </main>
     <footer class="footer">
         <div class="container">
