@@ -1046,11 +1046,16 @@ body {
     width: 100%;
     border-radius: 50%;
 }
-.main_page_visitor .center_field .section_titlePf{
-    font-size: 2em;
+.main_page_visitor .center_field .edit_btn{    
+    display: flex;
+    justify-self: end;
+   font-size: 1em;
     margin: 0;
     font-family: var(--base-font);
-    font-weight: 600;
+    padding: 0.5em 1em;
+    border: 2px solid var(--pfYelow);
+    border-radius: 2em;
+    width: 14em;
 }
 .title-Company{
 font-size: 4em;
@@ -1072,9 +1077,12 @@ font-size: 4em;
     gap: 2em;
 }
 
-.title-text-description span{
+.title-text-description span {
     padding: 1em 2em;
-    border: 1px solid var(--item-border);
+    border: 2px solid var(--pfYelow);
+    background-color: var(--pfGrey);
+    border-radius: 2em;
+    color: #fff;
     height: 3em;
 }
 
@@ -1174,6 +1182,15 @@ font-size: 4em;
     border:2px solid var(--pfYelow);
     font-weight: 600;
 }
+.banner_block{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+
+
+
 /* новые стили конец */
 
 
