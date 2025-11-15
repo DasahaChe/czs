@@ -1035,6 +1035,48 @@ body {
 
 
 /* новые стили */
+
+.title-Company{
+font-size: 4em;
+    margin: 0;
+    font-family: var(--base-font);
+}
+.title-block{
+    display: flex;justify-content: space-between;
+}
+.category-text-block,
+.title-text-block{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2em;
+}
+.category-btn-block,
+.title-text-description{
+    display: flex;
+    gap: 2em;
+}
+
+.title-text-description span {
+    padding: 1em 2em;
+    border: 2px solid var(--pfYelow);
+    background-color: var(--pfGrey);
+    border-radius: 2em;
+    color: #fff;
+    height: 3em;
+}
+
+.section_subtitlePf{
+   font-size: 1.6em;
+    margin: 0;
+    font-family: var(--base-font); 
+    margin-bottom: 2em;
+}
+
+.profile_pagePf .data_form  .description-company{
+   width: 400px;
+}
+
 .headerPF .headerPF__logo-img {
     display: flex;
     width: calc(var(--base-font-size) * 26);
@@ -1056,44 +1098,6 @@ body {
     border: 2px solid var(--pfYelow);
     border-radius: 2em;
     width: 14em;
-}
-.title-Company{
-font-size: 4em;
-    margin: 0;
-    font-family: var(--base-font);
-}
-.title-block{
-    display: flex;justify-content: space-between;
-}
-
-.title-text-block{
-    display: flex;
-    align-items: center;
-    gap: 2em;
-}
-
-.title-text-description{
-    display: flex;
-    gap: 2em;
-}
-
-.title-text-description span {
-    padding: 1em 2em;
-    border: 2px solid var(--pfYelow);
-    background-color: var(--pfGrey);
-    border-radius: 2em;
-    color: #fff;
-    height: 3em;
-}
-
-.section_subtitlePf{
-   font-size: 2em;
-    margin: 0;
-    font-family: var(--base-font); 
-}
-
-.profile_pagePf .data_form  .description-company{
-   width: 400px;
 }
 
 .profile_pagePf{
@@ -1188,8 +1192,58 @@ font-size: 4em;
     gap: 2em;
 }
 
+/* для главной страницы */
+
+.description_block{
+    display: flex;
+    gap: 4em;}
+
+    .description_block-about{
+        width: 36%;
+    }
+.description_contakt{
+display: flex;
+    gap: 1em;
+
+}
+    .description_tel{
+    margin-bottom: 0.5em;
+    padding: 0.5em 0 0.5em 2em;
+    background-image: url(../img/tels.png);
+    background-repeat: no-repeat;
+}
 
 
+    .description_mail{
+        padding: 0.5em 0 0.5em 2em;
+    background-image: url(../img/mails.png);
+    background-repeat: no-repeat;
+    }
+
+    .description_place{
+        display: flex;
+        gap: 1em;
+        
+    }
+
+    .description_place-label{
+       width: 80px;
+    font-weight: 600;
+    }
+.description_list-contakt{
+    max-width: 200px;
+    width: 100%;
+}
+    /* .description_list-contakt, */
+    .description_list-place{
+        border-left: 1px solid #fecd4b;
+        padding-left: 2em;
+    }
+
+     .description_place:not(:last-child){
+         margin-bottom: 1em;
+     }
+    .description_place-value{}
 
 /* новые стили конец */
 
