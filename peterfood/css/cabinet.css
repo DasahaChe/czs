@@ -1541,3 +1541,31 @@
     background:#fffed3;
     border-radius:0.5em;
 }
+
+
+@media (max-width: 1199px) {
+    
+    .main_page_visitor {
+        padding: 2em;
+    }
+
+    .main_page_visitor_grid{
+        padding: 4em 2em;
+        border-radius: 2em;
+        gap: 0;
+    }
+
+    
+}
+
+@media (max-width: 1020px) {
+    .main_page_visitor_grid{        
+    grid-template-columns: 1fr;
+}
+
+    .main_page_visitor .left_bar {
+        display:none;
+    }
+}
+
+@media (max-width: 610px) {}

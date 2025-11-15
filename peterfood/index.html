@@ -14,8 +14,10 @@
 
 
     <link href="css/reset.css" rel="stylesheet" type="text/css" media="all">
-    <link href="css/cabinet.css" rel="stylesheet" type="text/css" media="all">
+
     <link href="css/style-common.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/cabinet.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/media.css" rel="stylesheet" type="text/css" media="all">
 
     <script type="text/javascript" src="/project/webroot/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="/project/webroot/js/lang.js"></script>
@@ -47,7 +49,7 @@
 </head>
 
 <body>
-    <header class="headerPF">
+    <header class="header">
         <div class="headerPF__block">
             <div class="headerPF__top">
                 <div class="headerPF__logo">
@@ -56,32 +58,9 @@
                     </a>
                 </div>
                 <ul class="headerPF__list-top list-reset flex">
-                    <li class="headerPF__burger">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 34 34" fill="none">
-                            <path d="M2 12.2354H41" stroke="currentcolor" stroke-width="2" stroke-linecap="round">
-                            </path>
-                            <path d="M2 22.1177H41" stroke="currentcolor" stroke-width="2" stroke-linecap="round">
-                            </path>
-                            <path d="M2 32H41" stroke="currentcolor" stroke-width="2" stroke-linecap="round"></path>
-                            <path d="M2 2H41" stroke="currentcolor" stroke-width="2" stroke-linecap="round"></path>
-                        </svg>
 
-
-                    </li>
-                    <li class="headerPF__burger-close">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 34 34" fill="none">
-                            <path d="M1 1.29297L33.707 34" stroke="currentcolor" stroke-width="2"
-                                stroke-linecap="round"></path>
-                            <path d="M1 34L33.707 1.29297" stroke="currentcolor" stroke-width="2"
-                                stroke-linecap="round"></path>
-                        </svg>
-                    </li>
                     <li>
-
                         <div class="headerPF__title">Личный кабинет экспонента</div>
-
-
                     </li>
                     <li class="headerPF__link-top">
                         <div>visitor1@imperia-forums.ru</div>
@@ -709,11 +688,11 @@
 
                             </div>
                         </div>
-
+                        <!-- 
                         <div class="field org_logo">
                             <div class="ttl trnslt">Фото продукции (В формате jpg, png. Размер до 2 Мб)</div>
                             <div class="input_field"><input class="logo img2upload" type="file"></div>
-                        </div>
+                        </div> -->
 
                         <div class="field-group-ttl">Контактная информация</div>
 
@@ -730,7 +709,7 @@
 
 
                         <button class="save_user_profile">Сохранить</button>
-                        <!-- <div class="procent">Ваш профиль заполнен на <span>15 %</span>. Добавьте данные </div> -->
+
                         <div class="answer"></div>
                     </form>
                 </div>
