@@ -225,41 +225,6 @@ select {
     border-bottom: 1px solid var(--sub-text-color);
 }
 
-
-
-
-/* 
-.header .menu .link.button {
-    padding: 0.5em 1em;
-    background:#333333;
-    border-radius:0.25em;
-}
-
-.header .menu .link.button a {
-    border:0;
-    color:#ffffff;
-}
-
-.header .menu .link.search {
-    position:absolute;
-    top:1em;
-    right:4em;
-}
-
-.header .menu .link.search:after {
-    content: "";
-    width:0px;
-    background:#ffffff;
-}
-
-.header .menu .link.search img {
-    width: 1.5em;
-    aspect-ratio: 1/1;
-} */
-
-
-
-
 .page_menu {
     display: flex;
     flex-wrap: wrap;
@@ -319,37 +284,6 @@ select {
 
 
 
-/* 
-
-.btn {
-	padding:0.5em 1em;
-    font-size:1em;
-    border:1px solid #cccccc;
-	background:#cccccc;
-    display:inline-block;
-    border-radius:1.5em;
-    height: 2em;
-	line-height:1em;
-	font-family: 'Fors';
-}
-
-.btn:hover {
-	cursor:pointer;
-}
- */
-
-.note {
-    /* background: #fffec2;
-    padding: 2em;
-    border-radius: 1em; */
-
-    /* border: 4px solid var(--pfYelow);
-    background: #ededed; */
-    background: var(--pfYelow);
-    color: #000;
-    padding: 2em;
-    border-radius: 2em;
-}
 
 
 
@@ -803,6 +737,18 @@ body {
     border-bottom: 1px solid var(--sub-text-color);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* Header */
 .header {
     background-color: var(--pfGrey);
@@ -833,36 +779,6 @@ body {
     transition: outline 0.5s ease;
 }
 
-.header .headerPF__logo-brand {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    width: 282px;
-    height: 107px;
-}
-
-.header .headerPF__logo-name {
-    font-size: 34px;
-    line-height: 37px;
-    letter-spacing: -3%;
-    font-family: var(--base-bold-font);
-    font-weight: 700;
-    color: var(--base-color-6);
-}
-
-.header .headerPF__logo-description {
-    display: block;
-    justify-self: end;
-    font-size: 21px;
-    line-height: 21px;
-    font-family: var(--base-font);
-    font-weight: 400;
-    color: var(--base-color-6);
-
-}
-
-
-
 .header .headerPF__link-top a {
     position: relative;
     z-index: 1;
@@ -880,21 +796,9 @@ body {
     transition: color 0.3s ease;
 }
 
-.header .headerPF__link {
-    position: relative;
-    font-size: calc(var(--base-font-size) * 1.25);
-    color: #fff;
-    transition: color 0.3s ease;
-}
 
-.header .headerPF__link a {
-    outline: none;
-    position: relative;
-    z-index: 1;
-}
-
-.header .headerPF__link-top a::after,
-.header .headerPF__link::after {
+.header .headerPF__link-top a::after
+{
     content: "";
     position: absolute;
     top: -3px;
@@ -907,36 +811,6 @@ body {
     transform: translateX(-50%);
 }
 
-
-
-
-
-.header .headerPF__menu {
-    margin: calc(var(--base-gap) * 1.5) 0 0;
-    padding: calc(var(--base-gap)* 1.5) calc(var(--base-gap)* 4);
-    display: flex;
-    justify-content: space-between;
-    background: linear-gradient(135deg, var(--background-1-opacity-80) 0%, var(--background-2-opacity-80) 100%);
-    border-radius: calc(var(--base-gap) * 2);
-
-}
-
-.header .headerPF__list-menu {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: calc(var(--base-gap) * 2);
-}
-
-.header .headerPF__list-burger {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: calc(var(--base-gap) * 2);
-}
-
 .header .headerPF__link-top {
     position: relative;
 }
@@ -944,16 +818,6 @@ body {
 .header .headerPF__title {
     text-transform: uppercase;
 }
-
-
-.header .headerPF__burger {
-    display: none;
-}
-
-.header__burger-close {
-    display: none;
-}
-
 
 
 
@@ -1329,6 +1193,14 @@ display: flex;
 
 }
 
+.note {
+    background: var(--pfYelow);
+    color: #000;
+    padding: 2em;
+    border-radius: 2em;
+}
+
+
 /* галерея
 
 .mark-img-block{
@@ -1549,15 +1421,15 @@ display: flex;
     }
 }
 
-/*  
-@media (max-width: 610px) {
+ 
+@media (max-width: 750px) {
 
     .header .headerPF__block {
        padding: calc(var(--base-gap) * 1.25) calc(var(--base-gap) * 2) calc(var(--base-gap) * 1.5) calc(var(--base-gap) * 2)
     }
 
     .header .headerPF__top {
-        gap: calc(var(--base-gap)*3);
+        gap: 2em;
         margin-bottom: 0;
     }
 
@@ -1567,57 +1439,9 @@ display: flex;
         flex-wrap: wrap;
     }
 
-    .header .headerPF__logo-brand {
-        width: calc(var(--base-gap) * 12.25);
-    }
-
-    /* .headerPF .headerPF__burger {
-        display: block;
-        color: #fff;
-    } */
-
-    .header .open {
-        display: block;
-        color: #fff;
-    }
-
-    .header .headerPF__list-top {
-        align-self: flex-start;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-
-    }
-
-    .header .headerPF__menu {
-        display: block;
-        padding: calc(var(--base-gap) * 2);
-        margin: calc(var(--base-gap) * 1.625) calc(var(--base-gap) * -2) 0px;
-        background: var(--base-color-6);
-    }
-
-    .header .headerPF__block::before {
-        content: '';
-        position: absolute;
-        top: calc(var(--base-gap) * 9.25);
-        left: 0;
-        width: 100%;
-        height: calc(var(--base-gap) * 4.5);
-        background: var(--pfGrey);
-        /* background: linear-gradient(135deg, var(--background-1-opacity-80) 0%, var(--background-2-opacity-80) 100%); */
-        z-index: -5;
-    }
-
-    .header .headerPF__logo-description {
-        font-size: 15px;
-    }
-
-    .header .headerPF__logo-name {
-        font-size: 24px;
-    }
 
     .header .headerPF__logo-img {
-        margin-right: 0;
+        margin: 0;
     }
 
     .header .headerPF__link-top {
@@ -1627,25 +1451,11 @@ display: flex;
     .header .headerPF__link-top:hover {
         color: var(--base-color-1);
     }
+}
 
-    .header .headerPF__link:hover {
-        color: #fff;
-    }
-} */
 
 
 @media (any-hover: hover) {
-
-    .header .headerPF__link:hover::after {
-        width: calc(100% - 8px);
-        border-bottom-color: #fff;
-        transform: translateX(-50%);
-    }
-
-    .header .headerPF__link:focus-visible::after {
-        background-color: #fff;
-        color: var(--pfYelow);
-    }
 
     .header .headerPF__link-top:hover::after {
         width: calc(100% - 1.5em);
@@ -1666,9 +1476,6 @@ display: flex;
         background-color: var(--pfYelow);
     }
 
-    .header .headerPF__burger:hover {
-        color: var(--pfYelow);
-    }
 
     .header .open:hover {
         color: var(--pfYelow);

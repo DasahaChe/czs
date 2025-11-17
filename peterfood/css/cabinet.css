@@ -1,6 +1,6 @@
 .main_page_visitor {
     padding:4em;
-    background: var(--pfGrey);
+    background: var(--pfGrey); /* изменено */
        min-height:90vh;
 }
 
