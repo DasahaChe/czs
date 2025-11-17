@@ -699,7 +699,6 @@
 
 .proposal_master_v2 .field .input_field input[type=text],
 .proposal_master_v2 .field .input_field input[type=number] {
-    width: 300px;
     max-width: 400px;
     width: 100%;
     border: 1px solid #cccccc;
@@ -1484,22 +1483,15 @@
     max-width: 200px;
 } */
 
-.profile_pagePF .data_form input[type="text"].inn,
-.profile_pagePF .data_form input[type="text"].cname,
-.profile_pagePF .data_form input[type="text"].sname,
-.profile_pagePF .data_form input[type="text"].name,
-.profile_pagePF .data_form input[type="text"].tname {
-    max-width: 400px;
-}
 
 
-.profile_pagePF .data_form textarea {
+/* .profile_pagePF .data_form textarea {
     max-width: 400px;
     width: 100%;
     border: 1px solid #cccccc;
     padding: 0.5em;
     height: 100px;
-}
+} */
 
 .profile_pagePF .data_form .field-ttl .segment {
     display: grid;
@@ -1550,6 +1542,16 @@
     border-radius: 0.5em;
 }
 
+/* Добавьте эти стили */
+.profile_pagePF .data_form input[type="text"],
+.profile_pagePF .data_form textarea {
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+
+
 
 @media (max-width: 1199px) {
 
@@ -1569,12 +1571,12 @@
 @media (max-width: 1020px) {
     .main_page_visitor_grid {
         grid-template-columns: 1fr;
+       
     }
 
     .main_page_visitor .left_bar {
-        display: none;
-    }
-}
+        order: 1;
+}}
 
 @media (max-width: 750px) {
     .main_page_visitor {
@@ -1585,4 +1587,15 @@
         padding: 2em 1em;
         border-radius: 1em;
     }
+
+    .profile_pagePF .data_form .field-ttl {
+        grid-template-columns: 1fr;
+        gap: 0.5em;
+    }
+
+    .profile_pagePF .data_form input[type="text"],
+.profile_pagePF .data_form textarea {
+max-width: 100%;
+}
+
 }
