@@ -1786,12 +1786,12 @@
 
 
 
-.main_page_exponent  .left_bar .menu>div a:hover {
+.main_page_exponent  .left_bar .menu > div a:hover {
     background-color: var(--pfYelow);
     border-radius: 2em;
 }
 
-.main_page_exponent .left_bar .menu>div span {
+.main_page_exponent .left_bar .menu > div span {
     background-color: var(--pfYelow);
     border-radius: 2em;
     padding: 0.5em 1em;

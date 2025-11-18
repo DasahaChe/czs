@@ -223,6 +223,31 @@
     .main_page_exponent .left_bar {
         justify-content: center;
     }
+
+    .main_page_exponent .left_bar .menu {
+        gap: 1em;
+        display: none;
+        position: fixed;
+        top: 3em;
+        left: 0;
+        background:var(--pfGrey);
+        color: #fff;
+        padding: 2em 1em;
+    }
+    .main_page_exponent .left_bar .menu  >div a{
+        color: #fff;
+    }
+
+    .main_page_exponent .left_bar .collapse_menu {
+        display: block;
+        width: 3em;
+        height: 3em;
+        background: #efefef url(../img/burger_menu.svg) no-repeat;
+        background-size: cover;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
 }
 
 @media (max-width: 750px) {
