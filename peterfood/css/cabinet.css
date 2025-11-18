@@ -1,11 +1,11 @@
-.main_page_visitor {
+.main_page_exponent {
     padding: 4em;
     background: var(--pfGrey);
     /* изменено */
     min-height: 90vh;
 }
 
-.main_page_visitor_grid {
+.main_page_exponent_grid {
     display: grid;
     grid-template-areas: "left_bar center_field";
     grid-template-columns: 350px 1fr;
@@ -16,15 +16,16 @@
     align-self: start;
 }
 
-.main_page_visitor .left_bar {
+.main_page_exponent .left_bar {
     grid-area: left_bar;
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     grid-template-columns: 1fr;
     gap: 2em;
     align-self: start;
 }
 
-.main_page_visitor .left_bar .logo {
+.main_page_exponent .left_bar .logo {
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -37,11 +38,11 @@
     padding: 2em;
 }
 
-.main_page_visitor .left_bar .logo a {
+.main_page_exponent .left_bar .logo a {
     border: 0;
 }
 
-.main_page_visitor .left_bar .logo .pic .logopic {
+.main_page_exponent .left_bar .logo .pic .logopic {
     aspect-ratio: 1/1;
     width: 150px;
     margin: 0em auto;
@@ -49,36 +50,36 @@
     border-radius: 75px;
 }
 
-.main_page_visitor .left_bar .logo img {
+.main_page_exponent .left_bar .logo img {
     aspect-ratio: 1/1;
     width: 150px;
     margin: 0.5em auto;
 }
 
-.main_page_visitor .left_bar .logo .ttl {
+.main_page_exponent .left_bar .logo .ttl {
     font-size: 1.25em;
     font-weight: bold;
 }
 
-.main_page_visitor .left_bar .user_data {
+.main_page_exponent .left_bar .user_data {
     display: grid;
     grid-template-columns: 1fr;
     align-self: start;
     gap: 1em;
 }
 
-.main_page_visitor .left_bar .collapse_menu {
+.main_page_exponent .left_bar .collapse_menu {
     display: none;
 }
 
 
-.main_page_visitor .left_bar .menu {
+.main_page_exponent .left_bar .menu {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2em;
 }
 
-.main_page_visitor .left_bar .menu>div a {
+.main_page_exponent .left_bar .menu>div a {
     border: 0;
     color: #333333;
     padding: 0.5em 1em;
@@ -86,33 +87,33 @@
 
 
 
-.main_page_visitor .left_bar .menu .menu_group {
+.main_page_exponent .left_bar .menu .menu_group {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1em;
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_title {
+.main_page_exponent .left_bar .menu .menu_group .group_title {
     font-weight: normal;
     font-size: 1.25em;
     color: #cccccc;
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field {
+.main_page_exponent .left_bar .menu .menu_group .group_field {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5em;
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link {
     padding: 0;
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link a:hover {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link a:hover {
     background-color: rgb(161, 255, 81);
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link a {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link a {
     background-size: 1.25em;
     background-position: 0.75em center;
     background-repeat: no-repeat;
@@ -123,81 +124,81 @@
     display: block;
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .home {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .home {
     background-image: url("/project/webroot/images/home.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .czs {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .czs {
     background-image: url("/project/webroot/images/czs.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .calendar {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .calendar {
     background-image: url("/project/webroot/images/calendar.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .archive {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .archive {
     background-image: url("/project/webroot/images/archive.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .generator {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .generator {
     background-image: url("/project/webroot/images/Generate.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .entrance {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .entrance {
     background-image: url("/project/webroot/images/Enter_net.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .passport {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .passport {
     background-image: url("/project/webroot/images/Passport.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .scaner {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .scaner {
     background-image: url("/project/webroot/images/Scaner_p.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .news {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .news {
     background-image: url("/project/webroot/images/News.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .edication {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .edication {
     background-image: url("/project/webroot/images/edication.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .serv {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .serv {
     background-image: url("/project/webroot/images/serv.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .chat {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .chat {
     background-image: url("/project/webroot/images/chat.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .profile {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .profile {
     background-image: url("/project/webroot/images/profile.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .company {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .company {
     background-image: url("/project/webroot/images/company.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .proposals {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .proposals {
     background-image: url("/project/webroot/images/proposals.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .subscribe {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .subscribe {
     background-image: url("/project/webroot/images/subscribe.svg");
 }
 
-.main_page_visitor .left_bar .menu .menu_group .group_field .link .support {
+.main_page_exponent .left_bar .menu .menu_group .group_field .link .support {
     background-image: url("/project/webroot/images/support.svg");
 }
 
-.main_page_visitor .left_bar .reg {
+.main_page_exponent .left_bar .reg {
     display: flex;
     flex-direction: column;
     gap: 1em
 }
 
-.main_page_visitor .left_bar .reg .button button {
+.main_page_exponent .left_bar .reg .button button {
     padding: 0.5em 1em;
     background: #333333;
     border-radius: 0.25em;
@@ -209,7 +210,7 @@
     border: 1px solid #333333;
 }
 
-.main_page_visitor .left_bar .reg .button button:hover {
+.main_page_exponent .left_bar .reg .button button:hover {
     background: #05CC05;
     border: 1px solid #05CC05;
 }
@@ -228,7 +229,7 @@
 
 
 
-.main_page_visitor .center_field {
+.main_page_exponent .center_field {
     display: grid;
     grid-template-columns: 1fr;
     gap: 3em;
@@ -236,14 +237,14 @@
 }
 
 
-.main_page_visitor .center_field .section_title {
+.main_page_exponent .center_field .section_title {
     font-size: 2em;
     margin: 0;
     font-family: 'Fors ExtraBold';
     text-align: center;
 }
 
-.main_page_visitor .center_field .chose_event button {
+.main_page_exponent .center_field .chose_event button {
     font-size: 1.5em;
     font-family: 'Fors ExtraBold';
     background: rgb(58, 199, 147);
@@ -255,12 +256,12 @@
     border: 0;
 }
 
-.main_page_visitor .center_field .chose_event button:hover {
+.main_page_exponent .center_field .chose_event button:hover {
     cursor: pointer;
     background: #05CC05;
 }
 
-.main_page_visitor .center_field .section_description {
+.main_page_exponent .center_field .section_description {
     font-size: 1.25em;
     line-height: 1.5em;
     padding: 2em;
@@ -268,7 +269,7 @@
     background: linear-gradient(90deg, rgba(239, 239, 239, 1) 0%, rgba(209, 231, 252, 1) 35%);
 }
 
-.main_page_visitor .center_field .pics {
+.main_page_exponent .center_field .pics {
     position: relative;
     background: rgb(232, 253, 211);
     background: linear-gradient(90deg, rgba(232, 253, 211, 1) 0%, rgba(191, 254, 243, 1) 100%);
@@ -276,7 +277,7 @@
     border-radius: 2em;
 }
 
-.main_page_visitor .center_field .pics .pic {
+.main_page_exponent .center_field .pics .pic {
     aspect-ratio: 24/9;
     overflow: hidden;
     width: 100%;
@@ -285,29 +286,29 @@
     border-radius: 1em;
 }
 
-.main_page_visitor .center_field .pics .pic img {
+.main_page_exponent .center_field .pics .pic img {
     width: 100%;
 }
 
-.main_page_visitor .center_field .pics .text-field {
+.main_page_exponent .center_field .pics .text-field {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1em;
     align-self: start;
 }
 
-.main_page_visitor .center_field .pics .text-field .title {
+.main_page_exponent .center_field .pics .text-field .title {
     /* font-family: 'Fors ExtraBold'; */
     font-size: 2em;
     font-weight: bold;
 }
 
-.main_page_visitor .center_field .pics .text-field .text {
+.main_page_exponent .center_field .pics .text-field .text {
     font-size: 1.25em;
     margin-bottom: 1em;
 }
 
-.main_page_visitor .center_field .pics .text-field .action a {
+.main_page_exponent .center_field .pics .text-field .action a {
     cursor: pointer;
     padding: 1em 2em;
     background: rgb(5, 204, 5);
@@ -322,14 +323,14 @@
 }
 
 
-.main_page_visitor .center_field .calendar {
+.main_page_exponent .center_field .calendar {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2em;
     align-self: start;
 }
 
-.main_page_visitor .center_field .calendar .events-list {
+.main_page_exponent .center_field .calendar .events-list {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2em;
@@ -339,7 +340,7 @@
     margin: 0 auto;
 }
 
-.main_page_visitor .center_field .calendar .event {
+.main_page_exponent .center_field .calendar .event {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas: "event_title event_title" "event_description event_link";
@@ -350,24 +351,24 @@
     border-radius: 2em;
 }
 
-.main_page_visitor .center_field .calendar .event .event_title {
+.main_page_exponent .center_field .calendar .event .event_title {
     /* font-family: 'Fors ExtraBold'; */
     font-size: 2em;
     grid-area: event_title;
     font-weight: bold;
 }
 
-.main_page_visitor .center_field .calendar .event .event_description {
+.main_page_exponent .center_field .calendar .event .event_description {
     margin: 0;
     grid-area: event_description;
 }
 
-.main_page_visitor .center_field .calendar .event .event_link {
+.main_page_exponent .center_field .calendar .event .event_link {
     margin: 0;
     grid-area: event_link;
 }
 
-.main_page_visitor .center_field .calendar .event .event_link a {
+.main_page_exponent .center_field .calendar .event .event_link a {
     cursor: pointer;
     padding: 1em 2em;
     background: rgb(5, 204, 5);
@@ -381,19 +382,19 @@
     display: inline-block;
 }
 
-.main_page_visitor .center_field .calendar .event .event_link a:hover {
+.main_page_exponent .center_field .calendar .event .event_link a:hover {
     background: #05CC05;
 }
 
-.main_page_visitor .reg-action {
+.main_page_exponent .reg-action {
     margin: 0em 0 0em 0;
 }
 
-.main_page_visitor .reg-action .reg_button {
+.main_page_exponent .reg-action .reg_button {
     text-align: center;
 }
 
-.main_page_visitor .reg-action .reg_button button {
+.main_page_exponent .reg-action .reg_button button {
     font-size: 1.5em;
     font-family: 'Fors ExtraBold';
     border: 1px solid #0537c8;
@@ -406,50 +407,50 @@
 
 
 
-.main_page_visitor .center_field .demand {
+.main_page_exponent .center_field .demand {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2em;
     align-self: start;
 }
 
-.main_page_visitor .center_field .category_list {
+.main_page_exponent .center_field .category_list {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
     font-size: 1.25em;
 }
 
-.main_page_visitor .center_field .category_list .category {
+.main_page_exponent .center_field .category_list .category {
     color: #333333;
     font-size: 0.8em;
 }
 
-.main_page_visitor .center_field .category_list .category label {
+.main_page_exponent .center_field .category_list .category label {
     display: inline-block;
     margin-left: 0.5em;
     border-bottom: 1px dashed #333333;
 }
 
-.main_page_visitor .center_field .category_list .category label:hover {
+.main_page_exponent .center_field .category_list .category label:hover {
     cursor: pointer;
     color: #05CC05;
     border-bottom: 1px dashed #05CC05;
 }
 
-.main_page_visitor .center_field .search_field {
+.main_page_exponent .center_field .search_field {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
     align-items: center;
 }
 
-.main_page_visitor .center_field .search_field div {
+.main_page_exponent .center_field .search_field div {
     font-size: 1.25em;
     font-weight: bold;
 }
 
-.main_page_visitor .center_field .search_field input {
+.main_page_exponent .center_field .search_field input {
     padding: 0.25em 0.25em;
     font-size: 1.25em;
     border: 1px solid #cccccc;
@@ -459,14 +460,14 @@
 
 
 
-.main_page_visitor .exponents_list {
+.main_page_exponent .exponents_list {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
 }
 
 
-.main_page_visitor .exponents_list .org {
+.main_page_exponent .exponents_list .org {
     display: grid;
     grid-template-areas: "org_title org_country org_city org_category org_stand";
     grid-template-columns: repeat(5, 1fr);
@@ -475,32 +476,32 @@
     line-height: 1.5em;
 }
 
-.main_page_visitor .exponents_list .org:nth-child(odd) {
+.main_page_exponent .exponents_list .org:nth-child(odd) {
     background: rgb(238, 251, 231);
     background: linear-gradient(90deg, rgba(238, 251, 231, 1) 0%, rgba(221, 252, 246, 1) 100%);
 }
 
-.main_page_visitor .exponents_list .org.ttl {
+.main_page_exponent .exponents_list .org.ttl {
     font-weight: bold;
 }
 
-.main_page_visitor .exponents_list .org .org_title {
+.main_page_exponent .exponents_list .org .org_title {
     grid-area: org_title;
 }
 
-.main_page_visitor .exponents_list .org .org_country {
+.main_page_exponent .exponents_list .org .org_country {
     grid-area: org_country;
 }
 
-.main_page_visitor .exponents_list .org .org_city {
+.main_page_exponent .exponents_list .org .org_city {
     grid-area: org_city;
 }
 
-.main_page_visitor .exponents_list .org .org_category {
+.main_page_exponent .exponents_list .org .org_category {
     grid-area: org_category;
 }
 
-.main_page_visitor .exponents_list .org .org_stand {
+.main_page_exponent .exponents_list .org .org_stand {
     grid-area: org_stand;
 }
 
@@ -509,35 +510,35 @@
 
 
 
-.main_page_visitor .event_field .exponent {
+.main_page_exponent .event_field .exponent {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 2em;
     max-width: 800px;
 }
 
-.main_page_visitor .event_field .content {
+.main_page_exponent .event_field .content {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
     flex-direction: column;
 }
 
-.main_page_visitor .event_field .event_content {
+.main_page_exponent .event_field .event_content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2em;
     grid-template-areas: "ticket memo" "notice notice";
 }
 
-.main_page_visitor .event_field .event_content {
+.main_page_exponent .event_field .event_content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2em;
     grid-template-areas: "ticket memo" "notice notice";
 }
 
-.main_page_visitor .event_field .event_content .ticket {
+.main_page_exponent .event_field .event_content .ticket {
     grid-area: ticket;
     display: flex;
     justify-content: center;
@@ -548,7 +549,7 @@
     font-size: 1em;
 }
 
-.main_page_visitor .event_field .event_content .ticket .get_ticket {
+.main_page_exponent .event_field .event_content .ticket .get_ticket {
     padding: 0.5em 1em;
     background: #0537C8;
     border-radius: 0.25em;
@@ -561,24 +562,24 @@
     text-align: center;
 }
 
-.main_page_visitor .event_field .event_content .ticket .get_ticket img {
+.main_page_exponent .event_field .event_content .ticket .get_ticket img {
     width: 200px;
 }
 
-.main_page_visitor .event_field .event_content .memo {
+.main_page_exponent .event_field .event_content .memo {
     grid-area: memo;
     background: linear-gradient(90deg, rgba(238, 251, 231, 1) 0%, rgba(221, 252, 246, 1) 100%);
     border-radius: 2em;
     padding: 2em;
 }
 
-.main_page_visitor .event_field .event_content .memo .ttl {
+.main_page_exponent .event_field .event_content .memo .ttl {
     font-size: 1.5em;
     font-family: 'Fors ExtraBold';
     margin-bottom: 1em;
 }
 
-.main_page_visitor .event_field .event_content .notice {
+.main_page_exponent .event_field .event_content .notice {
     grid-area: notice;
     background: rgba(209, 231, 252, 1) url("/project/webroot/images/qr_scan.png") no-repeat 2em 2em;
     background-size: 120px;
@@ -587,12 +588,12 @@
     font-size: 2em;
 }
 
-.main_page_visitor .event_field .exponent .ttl {
+.main_page_exponent .event_field .exponent .ttl {
     font-family: 'Fors ExtraBold';
     font-size: 1.25em;
 }
 
-.main_page_visitor .event_field .exponent .company {
+.main_page_exponent .event_field .exponent .company {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -601,20 +602,20 @@
     border-radius: 2em;
 }
 
-.main_page_visitor .event_field .exponent .company .category {
+.main_page_exponent .event_field .exponent .company .category {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.5em
 }
 
-.main_page_visitor .event_field .exponent .company .category div {
+.main_page_exponent .event_field .exponent .company .category div {
     background: #ffffff;
     padding: 0.5em 1em;
     border-radius: 1em;
 }
 
-.main_page_visitor .event_field .exponent .users {
+.main_page_exponent .event_field .exponent .users {
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -622,7 +623,7 @@
     display: none;
 }
 
-.main_page_visitor .event_field .exponent .users .user {
+.main_page_exponent .event_field .exponent .users .user {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
@@ -893,37 +894,37 @@
 
 
 
-.main_page_visitor .proposals {
+.main_page_exponent .proposals {
     display: grid;
     gap: 4em;
 }
 
-.main_page_visitor .proposals .proposal {
+.main_page_exponent .proposals .proposal {
     display: grid;
     grid-template-areas: "proposal_title" "proposal_file" "proposal_data";
     grid-template-columns: repeat(1, 1fr);
     gap: 2em;
 }
 
-.main_page_visitor .proposals .proposal .proposal_title {
+.main_page_exponent .proposals .proposal .proposal_title {
     grid-area: proposal_title;
 
 }
 
-.main_page_visitor .proposals .proposal .proposal_title .ttl {
+.main_page_exponent .proposals .proposal .proposal_title .ttl {
     font-size: 1.5em;
     font-family: 'Fors ExtraBold';
 }
 
-.main_page_visitor .proposals .proposal .proposal_title .file_url {
+.main_page_exponent .proposals .proposal .proposal_title .file_url {
     margin: 1em 0 0 0;
 }
 
-.main_page_visitor .proposals .proposal .proposal_title .proposal_category {
+.main_page_exponent .proposals .proposal .proposal_title .proposal_category {
     margin: 1em 0 0 0;
 }
 
-.main_page_visitor .proposals .proposal .proposal_title .proposal_category .category {
+.main_page_exponent .proposals .proposal .proposal_title .proposal_category .category {
     padding: 0.5em 0.5em;
     font-size: 1em;
     border: 1px solid #333333;
@@ -985,7 +986,7 @@
 
 
 
-.main_page_visitor .proposals .proposal .proposal_file {
+.main_page_exponent .proposals .proposal .proposal_file {
     margin: 0;
     grid-area: proposal_file;
     height: 500px;
@@ -994,37 +995,37 @@
 
 }
 
-.main_page_visitor .proposals .proposal .proposal_file .pdfpage {
+.main_page_exponent .proposals .proposal .proposal_file .pdfpage {
     width: 100% !important;
     height: auto !important;
     aspect-ratio: 1.418;
     margin-bottom: 1em;
 }
 
-.main_page_visitor .proposals .proposal .proposal_file .pdfpage .content-wrapper {
+.main_page_exponent .proposals .proposal .proposal_file .pdfpage .content-wrapper {
     width: 100% !important;
     height: auto !important;
     aspect-ratio: 1.418;
 }
 
-.main_page_visitor .proposals .proposal .proposal_file canvas {
+.main_page_exponent .proposals .proposal .proposal_file canvas {
     width: 100% !important;
     height: auto !important;
     border-radius: 2em;
 }
 
-.main_page_visitor .proposals .proposal .proposal_file iframe {
+.main_page_exponent .proposals .proposal .proposal_file iframe {
     width: 100%;
     max-width: 800px;
     aspect-ratio: 4 /3;
     border: 1px solid #efefef;
 }
 
-.main_page_visitor .proposals .proposal .proposal_data {
+.main_page_exponent .proposals .proposal .proposal_data {
     grid-area: proposal_data;
 }
 
-.main_page_visitor .proposals .proposal .btn {
+.main_page_exponent .proposals .proposal .btn {
     display: inline-block;
     margin: 0em 1em 1em 0em;
     border-radius: 2em;
@@ -1032,88 +1033,88 @@
     font-size: 1.25em;
 }
 
-.main_page_visitor .proposals .proposal .btn.confirm {
+.main_page_exponent .proposals .proposal .btn.confirm {
     color: #05CC05;
     border: 1px solid #05CC05;
     background: #ffffff;
 }
 
-.main_page_visitor .proposals .proposal .btn.confirm.checked {
+.main_page_exponent .proposals .proposal .btn.confirm.checked {
     background: #05CC05;
     border: 1px solid #05CC05;
     color: #ffffff;
 }
 
-.main_page_visitor .proposals .proposal .btn.confirm:hover {
+.main_page_exponent .proposals .proposal .btn.confirm:hover {
     background: #05CC05;
     border: 1px solid #05CC05;
     color: #ffffff;
 }
 
-.main_page_visitor .proposals .proposal .btn.rebuild {
+.main_page_exponent .proposals .proposal .btn.rebuild {
     color: #FFAE00;
     border: 1px solid #FFAE00;
     background: #ffffff;
 }
 
-.main_page_visitor .proposals .proposal .btn.rebuild.checked {
+.main_page_exponent .proposals .proposal .btn.rebuild.checked {
     background: #FFAE00;
     border: 1px solid #FFAE00;
     color: #ffffff;
 }
 
-.main_page_visitor .proposals .proposal .btn.rebuild:hover {
+.main_page_exponent .proposals .proposal .btn.rebuild:hover {
     background: #FFAE00;
     border: 1px solid #FFAE00;
     color: #ffffff;
 }
 
-.main_page_visitor .proposals .proposal .btn.reject {
+.main_page_exponent .proposals .proposal .btn.reject {
     color: #f34747;
     border: 1px solid #f34747;
     background: #ffffff;
 }
 
-.main_page_visitor .proposals .proposal .btn.reject.checked {
+.main_page_exponent .proposals .proposal .btn.reject.checked {
     background: #f34747;
     border: 1px solid #f34747;
     color: #ffffff;
 }
 
-.main_page_visitor .proposals .proposal .btn.reject:hover {
+.main_page_exponent .proposals .proposal .btn.reject:hover {
     background: #f34747;
     border: 1px solid #f34747;
     color: #ffffff;
 }
 
-.main_page_visitor .proposals .proposal .res_options {
+.main_page_exponent .proposals .proposal .res_options {
     margin-bottom: 1em;
 }
 
-.main_page_visitor .proposals .proposal .contract_summ_input_field {
+.main_page_exponent .proposals .proposal .contract_summ_input_field {
     margin-bottom: 1em;
 }
 
-.main_page_visitor .proposals .proposal .contract_summ_input_field .sect-ttl {
+.main_page_exponent .proposals .proposal .contract_summ_input_field .sect-ttl {
     margin-bottom: 1em;
     font-weight: bold;
 }
 
-.main_page_visitor .proposals .proposal .checkbox {
+.main_page_exponent .proposals .proposal .checkbox {
     margin-bottom: 0.5em;
 }
 
-.main_page_visitor .proposals .proposal .checkbox label {
+.main_page_exponent .proposals .proposal .checkbox label {
     margin-left: 1em;
     display: inline-block;
 }
 
 
-.main_page_visitor .proposals .proposal .comment {
+.main_page_exponent .proposals .proposal .comment {
     margin-bottom: 1em;
 }
 
-.main_page_visitor .proposals .proposal .comment textarea {
+.main_page_exponent .proposals .proposal .comment textarea {
     width: 100%;
     aspect-ratio: 10 / 2;
     border: 1px solid #CCCCCC;
@@ -1123,7 +1124,7 @@
     border-radius: 1em;
 }
 
-.main_page_visitor .proposals .proposal .save_res button {
+.main_page_exponent .proposals .proposal .save_res button {
     padding: 0.5em 1em;
     font-size: 1.5em;
     border: 1px solid #0537c8;
@@ -1135,7 +1136,7 @@
     font-family: 'Fors';
 }
 
-.main_page_visitor .proposals .proposal .save_res button:hover {
+.main_page_exponent .proposals .proposal .save_res button:hover {
     border: 1px solid #05cb05;
     background: #05cb05;
     cursor: pointer
@@ -1156,26 +1157,26 @@
 }
 
 
-.main_page_visitor .event_field {
+.main_page_exponent .event_field {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
     flex-direction: column;
 }
 
-.main_page_visitor .event_field .content {
+.main_page_exponent .event_field .content {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
     flex-direction: column;
 }
 
-.main_page_visitor .event_field .pic img {
+.main_page_exponent .event_field .pic img {
     width: 100%;
     border-radius: 2em;
 }
 
-.main_page_visitor .event_field .sub_menu {
+.main_page_exponent .event_field .sub_menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -1187,23 +1188,23 @@
     padding: 0 1em;
 }
 
-.main_page_visitor .event_field .sub_menu a {
+.main_page_exponent .event_field .sub_menu a {
     color: #ffffff;
     border-bottom: 1px solid #ffffff;
 }
 
-.main_page_visitor .event_field .sub_menu div {
+.main_page_exponent .event_field .sub_menu div {
     padding: 1em;
 }
 
-.main_page_visitor .event_field .negotiations {
+.main_page_exponent .event_field .negotiations {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
     flex-direction: column;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation {
+.main_page_exponent .event_field .negotiations .negotiation {
     display: flex;
     flex-wrap: nowrap;
     gap: 1em;
@@ -1212,38 +1213,38 @@
     padding-bottom: 1em;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation .flex_box {
+.main_page_exponent .event_field .negotiations .negotiation .flex_box {
     display: flex;
     gap: 1em;
     flex-direction: column;
     width: 20%;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation .proposal_id {
+.main_page_exponent .event_field .negotiations .negotiation .proposal_id {
     margin: 0;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation .org_title {
+.main_page_exponent .event_field .negotiations .negotiation .org_title {
     margin: 0;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation .proposal_status {
+.main_page_exponent .event_field .negotiations .negotiation .proposal_status {
     margin: 0;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation .proposal_contract_summ {
+.main_page_exponent .event_field .negotiations .negotiation .proposal_contract_summ {
     margin: 0;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation .proposal_comment {
+.main_page_exponent .event_field .negotiations .negotiation .proposal_comment {
     margin: 0;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation .get_protocol {
+.main_page_exponent .event_field .negotiations .negotiation .get_protocol {
     margin: 0;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation .get_protocol button {
+.main_page_exponent .event_field .negotiations .negotiation .get_protocol button {
     font-family: 'Fors ExtraBold';
     cursor: pointer;
     padding: 0.5em 1em;
@@ -1257,7 +1258,7 @@
 
 
 
-.main_page_visitor .event_field .negotiations .negotiation_vendor {
+.main_page_exponent .event_field .negotiations .negotiation_vendor {
     display: flex;
     flex-wrap: nowrap;
     gap: 0em;
@@ -1266,15 +1267,15 @@
     padding-bottom: 1em;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation_vendor .proposal_id {
+.main_page_exponent .event_field .negotiations .negotiation_vendor .proposal_id {
     width: 20%;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation_vendor .org_title {
+.main_page_exponent .event_field .negotiations .negotiation_vendor .org_title {
     width: 80%;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation_vendor .org_title .buyer_box {
+.main_page_exponent .event_field .negotiations .negotiation_vendor .org_title .buyer_box {
     display: flex;
     flex-wrap: nowrap;
     gap: 1em;
@@ -1283,7 +1284,7 @@
     padding-bottom: 1em;
 }
 
-.main_page_visitor .event_field .negotiations .negotiation_vendor .org_title .buyer_box>div {
+.main_page_exponent .event_field .negotiations .negotiation_vendor .org_title .buyer_box>div {
     display: flex;
     gap: 1em;
     flex-direction: column;
@@ -1292,7 +1293,7 @@
 
 
 
-/* .main_page_visitor .event_field .negotiations .negotiation > div {
+/* .main_page_exponent .event_field .negotiations .negotiation > div {
     display: grid;
 	grid-template-columns: 200px auto;
     gap: 2em;
@@ -1555,11 +1556,11 @@
 
 @media (max-width: 1199px) {
 
-    .main_page_visitor {
+    .main_page_exponent {
         padding: 2em;
     }
 
-    .main_page_visitor_grid {
+    .main_page_exponent_grid {
         padding: 4em 2em;
         border-radius: 2em;
         gap: 0;
@@ -1569,21 +1570,22 @@
 }
 
 @media (max-width: 1020px) {
-    .main_page_visitor_grid {
-        grid-template-columns: 1fr;
-       
-    }
+    .main_page_exponent_grid {
+        grid-template-areas: 
+    "center_field"
+    "left_bar";
+       grid-template-columns: 1fr;
+    
+gap: 2em;}
 
-    .main_page_visitor .left_bar {
-        order: 1;
-}}
+}
 
 @media (max-width: 750px) {
-    .main_page_visitor {
+    .main_page_exponent {
         padding: 1em;
     }
 
-    .main_page_visitor_grid {
+    .main_page_exponent_grid {
         padding: 2em 1em;
         border-radius: 1em;
     }
