@@ -23,6 +23,14 @@
         margin: 2em 0;
         max-width: 6em;
     }
+
+    .profile_pagePF .data_form .field-ttl {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+    align-items: flex-start;
+    }
 }
 
 
@@ -233,6 +241,7 @@
         background:var(--pfGrey);
         color: #fff;
         padding: 2em 1em;
+        z-index: 50;
     }
     .main_page_exponent .left_bar .menu  >div a{
         color: #fff;
@@ -306,7 +315,8 @@
 
     .main_page_exponent .profile_pagePF .data_form input[type="text"],
     .main_page_exponent .profile_pagePF .data_form textarea {
-        max-width: 100%;
+        width: 100%;
+        min-width: 100%;
 }
 
     .main_page_exponent .title-text-description .title-number,
@@ -324,8 +334,6 @@
     .main_page_exponent .title-text-block {
         flex-direction: column;
         align-items: flex-start;
-        border-radius: 1em;
-        padding: 1em;
     }
 
     .main_page_exponent .title-sait {
@@ -380,6 +388,16 @@
 
     .profile_pagePF .save_user_profile {
         align-self: center;
+    }
+
+        .main_page_exponent .mark-text-block,
+        .main_page_exponent .prise-text-block,
+        .main_page_exponent .category-text-block,
+        .main_page_exponent .category-list-block,
+        .main_page_exponent .title-text-block, 
+        .main_page_exponent .get_proposal.peterfood {
+    padding: 1em;
+    border-radius: 0.5em;
     }
 }
 

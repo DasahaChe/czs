@@ -1557,6 +1557,7 @@
 .main_page_exponent .profile_pagePF .data_form input[type="text"],
 .main_page_exponent .profile_pagePF .data_form textarea {
     width: 100%;
+    min-width: 400px;
     max-width: 400px;
     box-sizing: border-box;
 }
