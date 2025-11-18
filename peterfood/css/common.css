@@ -1205,7 +1205,7 @@ body {
 .main_page_exponent .profile_pagePF .data_form .field-group-ttl {
     font-size: 2em;
     margin: 2em 0;
-
+    line-height: 1em;
 }
 
 .main_page_exponent .profile_pagePF .data_form .field-category .cat_group_field {
@@ -1311,7 +1311,11 @@ body {
     flex-wrap: wrap;
     gap: 2em;
 }
-
+.title-logo-block{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;  
+}
 
 .main_page_exponent .category-text-block,
 .main_page_exponent .prise-text-block {

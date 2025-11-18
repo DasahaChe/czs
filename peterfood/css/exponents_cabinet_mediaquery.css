@@ -207,6 +207,14 @@
         padding: 2em;
     }
 	
+   .main_page_exponent .profile_pagePf {
+    padding: 1em;
+    }
+
+    .main_page_exponent .profile_pagePf .field input[type=file] {
+    padding: 0.5em;
+    max-width: 200px;
+    }
 }
 
 @media (max-width: 750px) {
