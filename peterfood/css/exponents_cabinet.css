@@ -1700,12 +1700,16 @@
 }
 
 .main_page_exponent .gallery_subtitlePf,
-.main_page_exponent .section_subtitlePf {
+.main_page_exponent .section_subtitlePf,
+.main_page_exponent .mainPage_subtitlePf{
     max-width: 800px;
     width: 100%;
     margin-bottom: 2em;
 }
 
+.main_page_exponent .section_subtitlePf{
+    margin-bottom: 0;
+}
 .main_page_exponent .profile_pagePf .data_form .description-company {
     width: 400px;
 }

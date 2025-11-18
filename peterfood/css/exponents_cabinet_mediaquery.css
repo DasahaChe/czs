@@ -57,10 +57,14 @@
     .main_page_exponent .prise_subtitlePf,
     .main_page_exponent .category_subtitlePf,
     .main_page_exponent .category_subtitlePf-main,
-    .main_page_exponent .section_subtitlePf {
-        font-size: 1.4em;
+    .main_page_exponent .section_subtitlePf, 
+    .main_page_exponent .mainPage_subtitlePf{
+        font-size: 1.4em;        
     }
 
+.main_page_exponent .profile_pagePF .data_form .field-group-ttl {
+        font-size: 1.4em;
+    }
     .main_page_exponent .title-Company {
         font-size: 2.5em;
     }
@@ -336,16 +340,21 @@
         margin: 0;
     }
 
-    .main_page_exponent .confedential {
-        margin: 2em 1em;
-    }
-
     .main_page_exponent .banner_img {
         max-width: 26em;
     }
 
     .main_page_exponent .video-item { 
         min-width: 100%;
+    }
+
+    .main_page_exponent .profile_pagePf,
+    .main_page_exponent .note {
+        border-radius: 0.5em;
+    }
+
+    .profile_pagePF .save_user_profile {
+        align-self: center;
     }
 }
 
