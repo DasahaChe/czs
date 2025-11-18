@@ -1554,7 +1554,6 @@
     border-radius: 0.5em;
 }
 
-/* Добавьте эти стили */
 .main_page_exponent .profile_pagePF .data_form input[type="text"],
 .main_page_exponent .profile_pagePF .data_form textarea {
     width: 100%;
@@ -1565,50 +1564,7 @@
 
 
 
-@media (max-width: 1199px) {
-
-    .main_page_exponent {
-        padding: 2em;
-    }
-
-    .main_page_exponent_grid {
-        padding: 4em 2em;
-        border-radius: 2em;
-        gap: 0;
-    }
 
 
-}
 
-@media (max-width: 1020px) {
-    .main_page_exponent_grid {
-        grid-template-areas: 
-    "center_field"
-    "left_bar";
-       grid-template-columns: 1fr;    
-        gap: 2em;
-    }
 
-}
-
-@media (max-width: 750px) {
-    .main_page_exponent {
-        padding: 1em;
-    }
-
-    .main_page_exponent_grid {
-        padding: 2em 1em;
-        border-radius: 1em;
-    }
-
-    .main_page_exponent .profile_pagePF .data_form .field-ttl {
-        grid-template-columns: 1fr;
-        gap: 0.5em;
-    }
-
-    .main_page_exponent .profile_pagePF .data_form input[type="text"],
-    .main_page_exponent .profile_pagePF .data_form textarea {
-        max-width: 100%;
-}
-
-}
