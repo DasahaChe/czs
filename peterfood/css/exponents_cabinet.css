@@ -1822,7 +1822,8 @@
 
 .main_page_exponent .banner_block {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2em;
 }
 
