@@ -257,6 +257,10 @@
         top: 0;
         left: 0;
     }
+
+    .main_page_exponent .banner_block {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 750px) {
