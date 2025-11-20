@@ -51,7 +51,10 @@ body{
     font-family: var(--base-font);
     text-transform: uppercase;
 }
-
+.main{
+    display: flex;
+    gap: 0em;
+}
 .main__block{
     display: flex;
     gap: 2em;
@@ -74,8 +77,29 @@ body{
 .prod{
     position: relative;
     margin-left: 3em;
+    width: 100%;
 }
 
+.qr{
+    text-align: center;
+    align-items: center;
+    width: 41em;
+    flex-direction: column;
+    margin-top: 4em;
+}
+
+.qr .main__img{
+    width: 8em;
+    height: 8em;
+}
+
+.qr .main__block-text{
+    margin-top: 0;
+}
+
+.qr .main__text{
+    font-size: 1.25em;
+}
 .uz{
     position: absolute;
     top: 31.5em;
