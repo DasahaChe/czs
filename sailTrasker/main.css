@@ -47,7 +47,7 @@ html {
 
 .logo-main {
     float: left;
-    margin-bottom: 34mm;
+    margin-bottom: 10mm;
     width: 87.5mm;
     height: 24.0mm;
 }
@@ -71,22 +71,25 @@ html {
 .text-main-block {
     position: relative;
     padding: 10mm;
-    width: 240mm;
+    margin-bottom: 12mm;
+    width: 277mm;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 7mm;
 }
 
 .name-main-top {
-    padding: 2mm 5mm 1.5mm 5mm;
-    margin-bottom: 10mm;
-    color: #224e85;
-    background-color: #fff;
-    border-radius: 5mm;
+    /* padding: 2mm 5mm 1.5mm 5mm; */
+    margin-bottom: 2mm;
+     /* color: #224e85; */
+    color: #ffffff;
+    font-size: 24px;
+    /* background-color: #fff;
+    border-radius: 5mm; */
 }
 
 .name-main-bottom {
     color: #fff;
-    margin-bottom: 25mm;
+    margin-bottom: 10mm;
 }
 
 .name-main-text {
@@ -135,9 +138,9 @@ html {
 }
 
 .clogan {
-    margin-bottom: 25mm;
+    margin-bottom: 10mm;
     font-size: 2.6em;
-    line-height: 0.9em;
+    line-height: 1.2em;
     color: #fff;
     font-weight: bold;
 }
@@ -418,31 +421,42 @@ html {
     color: #fff;
 }
 
+.logoLoc-event-block{
+    float: left;
+    width: 180mm;
+    height: 30mm;
+}
 .logoLoc-event {
     float: left;
-    width: 34mm;
-    height: 40mm;
+    width: 22mm;
+    height: 20mm;
 }
 
 .logoLoc-event-img {
-    max-width: 31mm;
-    max-height: 31mm;
+    max-width:20mm;
+    max-height: 20mm;
 }
 
 .description-event-bottom {
-    width: 272mm;
-    padding: 0mm 10mm;
+    width: 277mm;
+    padding: 0 0 0 10mm;
 }
 
 .description-event-data {
     float: left;
-    width: 174mm;
-    height: 40mm;
+    width: 197mm;
+    height: 26mm;
+}
+
+.description-event-icon-data {
+    float: left;
+    width: 35mm;
+    height: 15mm;
 }
 
 .description-event-subtitle {
     width: 272mm;
-    height: 15mm;
+    height: 40mm;
 }
 
 .data-event-text {
@@ -452,10 +466,31 @@ html {
 }
 
 .subtitle-event-text {
+    float: left;
+    width: 67mm;
+    margin-right: 8mm;
+    font-size: 14pt;
+    /* color: #092a53; */
+    color: #fff;
+}
+
+.subtitle-eventNum-text {
+    float: left;
+    width: 150mm;
+    margin-top: 5mm;
+    font-size: 14pt;
+    color: #fff;    
+}
+
+
+.subtitle-event-contakt-text {
+    float: left;
+    width: 225mm;
+    margin-right: 8mm;
     font-size: 18pt;
     color: #fff;
-    text-align: center;
 }
+
 
 
 .place-event-text {
@@ -468,8 +503,8 @@ html {
 
 .qr-event {
     float: left;
-    width: 98mm;
-    height: 30mm;
+    width: 35mm;
+    height: 15mm;
 }
 
 .text-bottom-event {
@@ -957,7 +992,7 @@ html {
     font-size: 32pt;
     line-height: 40pt;
     color: #255ba9;
-    margin-bottom: 20mm;
+    margin-bottom: 7mm;
 }
 
 .about-block {
@@ -972,7 +1007,7 @@ html {
 
 .num-ab-block {
     height: 22mm;
-    padding-bottom: 14mm;
+    padding-bottom: 5mm;
 }
 
 .numBig-ab {
@@ -1002,7 +1037,7 @@ html {
 
 .top-textAb-right {
     float: right;
-    width: 110mm;
+    width: 103mm;
 }
 
 .bottom-textAb {
@@ -1076,14 +1111,16 @@ html {
     font-size: 18pt;
     line-height: 18pt;
     margin-bottom: 4mm;
+    color: #255ba9;
 }
 
 .block-wh-titleLink {
-    width: 39mm;
-    padding-left: 13mm;
+    float: left;
+    width: 64mm;
     font-size: 12pt;
     line-height: 18pt;
-    margin-bottom: 6mm;
+    margin: 13mm 0 0mm 0;
+    margin-right: 3mm;
     color: #255ba9;
     text-decoration: underline #255ba9;
 }
@@ -1098,42 +1135,36 @@ html {
 
 .textWhy {
     float: left;
-    width: 30mm;
+    width: 90mm;
+    margin: 15mm 3mm 0mm 0;
     font-size: 12pt;
     line-height: 12pt;
 }
 
 .why1 {
     float: left;
-    width: 67mm;
-    padding: 4mm;
-    padding-left: 16mm;
-    margin-top: 10mm;
-    /* margin-right: 3mm; */
-    background: url(img/w1.svg) no-repeat 0 5mm;
-    background-size: 10mm;
+    width: 61mm;
+    padding-top: 8mm;
+    margin-right: 8mm;
+    background: url(img/w1.svg) no-repeat 0 0mm;
+    background-size: 5mm;
 }
 
 .why2 {
     float: left;
-    width: 67mm;
-    padding: 4mm;
-    padding-left: 16mm;
-    margin-top: 10mm;
-    /* margin-right: 3mm; */
-    background: url(img/w2.svg) no-repeat 0 5mm;
-    background-size: 10mm;
+    width: 57mm;
+    padding-top: 8mm;
+    background: url(img/w2.svg) no-repeat 0 0mm;
+    background-size: 5mm;
 }
 
 .why3 {
     float: left;
-    width: 67mm;
-    padding: 4mm;
-    padding-left: 16mm;
-    margin-top: 10mm;
-    /* margin-right: 3mm; */
-    background: url(img/w3.svg) no-repeat 0 5mm;
-    background-size: 10mm;
+    width: 57mm;
+    padding-top: 8mm;
+    margin-right: 7mm;
+    background: url(img/w3.svg) no-repeat 0 0mm;
+    background-size: 5mm;
 }
 
 .why4 {
@@ -1149,6 +1180,7 @@ html {
 
 .middleQrimg-why {
     width: 20mm;
+    margin-top: 4mm;
 }
 
 .wh-text {
@@ -1195,7 +1227,7 @@ html {
     float: left;
     width: 85mm;
     height: 60mm;
-    margin-top: 14mm;
+    /* margin-top: 14mm; */
     margin-right: 4mm;
     border-radius: 4mm;
 }
@@ -1204,7 +1236,7 @@ html {
     float: left;
     width: 85mm;
     height: 60mm;
-    margin-top: 14mm;
+    /* margin-top: 14mm; */
     margin-right: 4mm;
     border-radius: 4mm;
     background: #224e85 url(img/fotoFon.jpg) no-repeat center;
@@ -1213,12 +1245,9 @@ html {
 
 .topFoto-rightText {
     float: left;
-    width: 28mm;
-    height: 19mm;
-    margin: 30mm 0 0 4mm;
+    width: 70mm;
+    height: 19mm;   
     color: #fff;
-    background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
-    text-align: center;
     padding: 3mm 4mm 3mm 4mm;
     border-radius: 4mm;
     line-height: 1em;
@@ -1226,16 +1255,18 @@ html {
 
 .fotoQr {
     float: left;
-    margin: 30mm 0 0 4mm;
-    width: 28mm;
+    margin: 10mm 0 0 0mm;
+    width: 167mm;
     border-radius: 4mm;
     color: #fff;
     background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
     padding: 2mm 4mm;
-    text-align: center;
+    
 }
 
 .fotoImgQr {
+    float: left;
+    padding: 2mm 0 0 2mm;
     width: 20mm;
     height: 20mm;
 }
@@ -1243,7 +1274,7 @@ html {
 .bttomFoto-left {
     float: left;
     width: 85mm;
-    height: 60mm;
+    height: 71mm;
     margin-top: 4mm;
     margin-right: 4mm;
     border-radius: 4mm;
@@ -1310,9 +1341,8 @@ html {
 
 .block4-rw {
     float: left;
-    width: 74mm;
-    height: 62mm;
-    margin: 4mm 4mm 0 0;
+    width: 70mm;
+    height: 55mm;
     border-radius: 4mm;
     padding: 8mm;
     background: #f2f2f2ff;
@@ -1351,14 +1381,14 @@ html {
 
 .block4-rw-text {
     float: left;
-    width: 75mm;
+    width: 70mm;
     font-size: 12pt;
     line-height: 13pt;
 }
 
 .blockName-rw {
     float: left;
-    width: 50mm;
+    width: 45mm;
     margin-right: 2mm;
 }
 
@@ -1423,7 +1453,7 @@ html {
 }
 
 .top-textCt {
-    margin-top: 15mm;
+    margin-top: 8mm;
     width: 167mm;
     height: 96mm;
     padding: 10mm;
@@ -1449,16 +1479,13 @@ html {
 }
 
 .bottom-textCt {
-    margin-top: 10mm;
-    padding: 4mm;
-    width: 179mm;
+    float: left;
+    margin: 13mm 0 0 5mm;   
+    width: 140mm;
     font-size: 18pt;
-    color: #fff;
-    height: 8mm;
-    border-radius: 10mm;
-    text-align: center;
-    background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
-}
+    color: #255ba9;
+    height: 30mm;
+ }
 
 .contakt-ct-block {
     float: left;
@@ -1674,11 +1701,12 @@ html {
 
 }
 .tar-btn {
-    margin: 0 auto 20mm auto;
-    width: 80mm;
-    font-size: 40pt;
+    float: left;
+    margin: 12mm 0 0 0;
+    width: 42mm;
+    font-size: 24pt;
     color: #fff;
-    height: 31mm;
+    height: 20mm;
     padding-top: 9mm;
     border-radius: 2mm;
     text-align: center;
