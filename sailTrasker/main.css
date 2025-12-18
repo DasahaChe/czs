@@ -1280,7 +1280,7 @@ html {
 .bttomFoto-left {
     float: left;
     width: 85mm;
-    height: 71mm;
+    height: 85mm;
     margin-top: 4mm;
     margin-right: 4mm;
     border-radius: 4mm;
@@ -1312,6 +1312,23 @@ html {
 
 .bottomFoto-block {
     margin-top: 4mm;
+}
+
+.rewievFotoQr {
+    float: left;
+    width: 20mm;
+    margin: 2mm 2mm 0 0;
+    float: left;
+    width: 20mm;
+    height: 20mm;
+    border-radius: 2mm;
+}
+
+.rewievTextQr{
+    float: left;
+    width: 48mm;
+    margin-top: 5mm;
+    color:#224e85;
 }
 
 /* отзывы */
@@ -1353,9 +1370,9 @@ html {
 .block4-rw {
     float: left;
     width: 70mm;
-    height: 70mm;
+    height: 76mm;
     border-radius: 4mm;
-    padding: 8mm;
+    padding: 8mm 8mm 2mm 8mm;
     background: #f2f2f2ff;
 }
 
