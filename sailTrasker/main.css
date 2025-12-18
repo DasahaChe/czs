@@ -992,7 +992,7 @@ html {
     font-size: 32pt;
     line-height: 40pt;
     color: #255ba9;
-    margin-bottom: 7mm;
+    margin-bottom: 10mm;
 }
 
 .about-block {
@@ -1007,7 +1007,7 @@ html {
 
 .num-ab-block {
     height: 22mm;
-    padding-bottom: 5mm;
+    padding-bottom: 10mm;
 }
 
 .numBig-ab {
