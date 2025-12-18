@@ -1144,27 +1144,27 @@ html {
 .why1 {
     float: left;
     width: 61mm;
-    padding-top: 8mm;
+    padding-top: 3mm;
     margin-right: 8mm;
-    background: url(img/w1.svg) no-repeat 0 0mm;
+    /* background: url(img/w1.svg) no-repeat 0 0mm; */
     background-size: 5mm;
 }
 
 .why2 {
     float: left;
     width: 57mm;
-    padding-top: 8mm;
-    background: url(img/w2.svg) no-repeat 0 0mm;
-    background-size: 5mm;
+    padding-top: 3mm;
+    /* background: url(img/w2.svg) no-repeat 0 0mm;
+    background-size: 5mm; */
 }
 
 .why3 {
     float: left;
     width: 57mm;
-    padding-top: 8mm;
+    padding-top: 3mm;
     margin-right: 7mm;
-    background: url(img/w3.svg) no-repeat 0 0mm;
-    background-size: 5mm;
+    /* background: url(img/w3.svg) no-repeat 0 0mm;
+    background-size: 5mm; */
 }
 
 .why4 {
