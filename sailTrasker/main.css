@@ -71,7 +71,7 @@ html {
 .text-main-block {
     position: relative;
     padding: 10mm;
-    margin-bottom: 12mm;
+    margin-bottom: 15mm;
     width: 277mm;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 7mm;
@@ -576,8 +576,9 @@ html {
 
 .strTitle-pr {
     float: left;
-    width: 120mm;
-    font-size: 32pt;
+    width: 135mm;
+    font-size: 18pt;
+    line-height: 20pt;
     color: #224e85;
 }
 
