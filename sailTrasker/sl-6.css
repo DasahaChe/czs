@@ -36,7 +36,6 @@
     float: left;
     width: 85mm;
     height: 60mm;
-    /* margin-top: 14mm; */
     margin-right: 4mm;
     border-radius: 4mm;
 }
@@ -45,7 +44,6 @@
     float: left;
     width: 85mm;
     height: 60mm;
-    /* margin-top: 14mm; */
     margin-right: 4mm;
     border-radius: 4mm;
     background: #224e85 url(img/fotoFon.jpg) no-repeat center;
@@ -70,9 +68,7 @@
     width: 85mm;
     border-radius: 4mm;
     color: #fff;
-    /* background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
-    padding: 2mm 4mm; */
-    
+   
 }
 
 .fotoImgQr {
