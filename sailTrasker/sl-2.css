@@ -1,0 +1,125 @@
+.a4-pr-page {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+}
+
+.pr-block {
+    float: left;
+    float: left;
+    width: 209mm;
+    height: 210mm;
+    border-top-left-radius: 7mm;
+    border-bottom-left-radius: 7mm;
+    background-color: #fff;
+}
+
+.title-pr-container {
+    padding: 10mm 2mm 10mm 10mm;
+    width: 190mm;
+}
+
+.title-pr {
+    font-size: 32pt;
+    line-height: 32pt;
+    color: #255ba9;
+    margin-bottom: 10mm;
+}
+
+.bigTitle-pr {
+    float: left;
+    width: 55mm;
+    font-size: 75pt;
+    line-height: 75pt;
+}
+
+.top-text-pr {
+    margin-top: 10mm;
+}
+
+.num-blockPr {
+    float: left;
+    width: 56mm;
+    padding-right: 3mm;
+}
+
+.num-blockPr-right {
+    float: left;
+    width: 72mm;
+}
+
+.numBigPr {
+    color: #255ba9;
+    /* font-weight: bold; */
+    font-size: 18pt;
+}
+
+.fontBigPr {
+    font-size: 40pt;
+    line-height: 40pt;
+}
+
+.numTextPr {
+    font-size: 18pt;
+    /* font-weight: bold; */
+    color: #255ba9;
+    margin-bottom: 10mm;
+}
+
+.numTextPrS {
+    font-size: 12pt;
+    line-height: 16pt;
+}
+
+.bottom-textPr {
+    float: left;
+    width: 140mm;
+    margin-top: 15mm;
+}
+
+.link-pr {
+    color: #255ba9;
+    text-decoration: underline #255ba9;
+}
+
+.qrPr {
+    float: left;
+    margin-top: 15mm;
+    width: 40mm;
+}
+
+.qrPrImg {
+    width: 40mm;
+}
+
+
+.imgPr1 {
+    padding-left: 14mm;
+    width: 124mm;
+    font-size: 12pt;
+    margin-bottom: 5mm;
+    background: url(img/check.svg) no-repeat 0mm center;
+    background-size: 10mm;
+}
+
+.imgPr2 {
+    padding-left: 14mm;
+    width: 124mm;
+    font-size: 12pt;
+    background: url(img/head.svg) no-repeat 0mm center;
+    background-size: 10mm;
+}
+
+
+
+/* изменения в коде */
+
+
+
+.strTitle-pr {
+    float: left;
+    width: 135mm;
+    font-size: 18pt;
+    line-height: 20pt;
+    color: #224e85;
+}
