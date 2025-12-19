@@ -688,8 +688,8 @@ html {
 }
 
 .subtitle-st {
-    font-size: 20pt;
-    line-height: 20pt;
+    font-size: 18pt;
+    line-height: 18pt;
     color: #255ba9;
 }
 
@@ -826,8 +826,8 @@ html {
 
 
 .numSt-title {
-    font-size: 20pt;
-    line-height: 24pt;
+    font-size: 18pt;
+    line-height: 18pt;
     margin-right: 2mm;
     color: #000;
 }
@@ -857,8 +857,8 @@ html {
     float: left;
     margin-top: 4mm;
     width: 140mm;
-    font-size: 24pt;
-    line-height: 24pt;
+    font-size: 18pt;
+    line-height: 20pt;
     text-align: center;
 }
 
@@ -1325,11 +1325,12 @@ html {
     border-radius: 2mm;
 }
 
-.rewievTextQr{
+.rewievTextQr {
     float: left;
-    width: 48mm;
-    margin-top: 5mm;
-    color:#224e85;
+    width: 37mm;
+    margin-top: 4mm;
+    padding: 0 3mm;
+    color:#fff;
 }
 
 /* отзывы */
@@ -1371,12 +1372,18 @@ html {
 .block4-rw {
     float: left;
     width: 70mm;
-    height: 76mm;
+    height: 80mm;
     border-radius: 4mm;
-    padding: 8mm 8mm 2mm 8mm;
+    padding: 4mm 8mm 2mm 8mm;
     background: #f2f2f2ff;
 }
-
+.rewiev-Text-block{
+    float: left;
+    width: 65mm;
+    padding: 2mm;
+    border-radius: 2mm;
+    background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
+}
 .block4-rwQr {
     float: left;
     width: 60mm;
@@ -1405,12 +1412,13 @@ html {
 .block4-rw-subtitle {
     font-size: 9pt;
     line-height: 9pt;
-    margin-bottom: 4mm;
+    margin-bottom: 2mm;
 }
 
 .block4-rw-text {
     float: left;
     width: 70mm;
+    height: 34mm;
     font-size: 12pt;
     line-height: 13pt;
 }
