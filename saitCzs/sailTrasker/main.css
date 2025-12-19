@@ -47,7 +47,7 @@ html {
 
 .logo-main {
     float: left;
-    margin-bottom: 10mm;
+    margin-bottom: 34mm;
     width: 87.5mm;
     height: 24.0mm;
 }
@@ -71,25 +71,22 @@ html {
 .text-main-block {
     position: relative;
     padding: 10mm;
-    margin-bottom: 12mm;
-    width: 277mm;
+    width: 240mm;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 7mm;
 }
 
 .name-main-top {
-    /* padding: 2mm 5mm 1.5mm 5mm; */
-    margin-bottom: 2mm;
-     /* color: #224e85; */
-    color: #ffffff;
-    font-size: 24px;
-    /* background-color: #fff;
-    border-radius: 5mm; */
+    padding: 2mm 5mm 1.5mm 5mm;
+    margin-bottom: 10mm;
+    color: #224e85;
+    background-color: #fff;
+    border-radius: 5mm;
 }
 
 .name-main-bottom {
     color: #fff;
-    margin-bottom: 10mm;
+    margin-bottom: 25mm;
 }
 
 .name-main-text {
@@ -138,9 +135,9 @@ html {
 }
 
 .clogan {
-    margin-bottom: 10mm;
+    margin-bottom: 25mm;
     font-size: 2.6em;
-    line-height: 1.2em;
+    line-height: 0.9em;
     color: #fff;
     font-weight: bold;
 }
@@ -421,76 +418,44 @@ html {
     color: #fff;
 }
 
-.logoLoc-event-block{
-    float: left;
-    width: 180mm;
-    height: 30mm;
-}
 .logoLoc-event {
     float: left;
-    width: 22mm;
-    height: 20mm;
+    width: 34mm;
+    height: 40mm;
 }
 
 .logoLoc-event-img {
-    max-width:20mm;
-    max-height: 20mm;
+    max-width: 31mm;
+    max-height: 31mm;
 }
 
 .description-event-bottom {
-    width: 277mm;
-    padding: 0 0 0 10mm;
+    width: 272mm;
+    padding: 0mm 10mm;
 }
 
 .description-event-data {
     float: left;
-    width: 197mm;
-    height: 26mm;
-}
-
-.description-event-icon-data {
-    float: left;
-    width: 35mm;
-    height: 15mm;
+    width: 174mm;
+    height: 40mm;
 }
 
 .description-event-subtitle {
     width: 272mm;
-    height: 40mm;
+    height: 15mm;
 }
 
 .data-event-text {
-    font-size: 16pt;
+    font-size: 18pt;
     color: #fff;
     text-align: left;
 }
 
 .subtitle-event-text {
-    float: left;
-    width: 67mm;
-    margin-right: 8mm;
-    font-size: 14pt;
-    /* color: #092a53; */
-    color: #fff;
-}
-
-.subtitle-eventNum-text {
-    float: left;
-    width: 150mm;
-    margin-top: 5mm;
-    font-size: 14pt;
-    color: #fff;    
-}
-
-
-.subtitle-event-contakt-text {
-    float: left;
-    width: 225mm;
-    margin-right: 8mm;
     font-size: 18pt;
     color: #fff;
+    text-align: center;
 }
-
 
 
 .place-event-text {
@@ -503,8 +468,8 @@ html {
 
 .qr-event {
     float: left;
-    width: 35mm;
-    height: 15mm;
+    width: 98mm;
+    height: 30mm;
 }
 
 .text-bottom-event {
@@ -992,7 +957,7 @@ html {
     font-size: 32pt;
     line-height: 40pt;
     color: #255ba9;
-    margin-bottom: 10mm;
+    margin-bottom: 20mm;
 }
 
 .about-block {
@@ -1007,7 +972,7 @@ html {
 
 .num-ab-block {
     height: 22mm;
-    padding-bottom: 10mm;
+    padding-bottom: 14mm;
 }
 
 .numBig-ab {
@@ -1037,7 +1002,7 @@ html {
 
 .top-textAb-right {
     float: right;
-    width: 103mm;
+    width: 110mm;
 }
 
 .bottom-textAb {
@@ -1111,16 +1076,14 @@ html {
     font-size: 18pt;
     line-height: 18pt;
     margin-bottom: 4mm;
-    color: #255ba9;
 }
 
 .block-wh-titleLink {
-    float: left;
-    width: 64mm;
+    width: 39mm;
+    padding-left: 13mm;
     font-size: 12pt;
     line-height: 18pt;
-    margin: 13mm 0 0mm 0;
-    margin-right: 3mm;
+    margin-bottom: 6mm;
     color: #255ba9;
     text-decoration: underline #255ba9;
 }
@@ -1135,36 +1098,42 @@ html {
 
 .textWhy {
     float: left;
-    width: 90mm;
-    margin: 15mm 3mm 0mm 0;
+    width: 30mm;
     font-size: 12pt;
     line-height: 12pt;
 }
 
 .why1 {
     float: left;
-    width: 61mm;
-    padding-top: 3mm;
-    margin-right: 8mm;
-    /* background: url(img/w1.svg) no-repeat 0 0mm; */
-    background-size: 5mm;
+    width: 67mm;
+    padding: 4mm;
+    padding-left: 16mm;
+    margin-top: 10mm;
+    /* margin-right: 3mm; */
+    background: url(img/w1.svg) no-repeat 0 5mm;
+    background-size: 10mm;
 }
 
 .why2 {
     float: left;
-    width: 57mm;
-    padding-top: 3mm;
-    /* background: url(img/w2.svg) no-repeat 0 0mm;
-    background-size: 5mm; */
+    width: 67mm;
+    padding: 4mm;
+    padding-left: 16mm;
+    margin-top: 10mm;
+    /* margin-right: 3mm; */
+    background: url(img/w2.svg) no-repeat 0 5mm;
+    background-size: 10mm;
 }
 
 .why3 {
     float: left;
-    width: 57mm;
-    padding-top: 3mm;
-    margin-right: 7mm;
-    /* background: url(img/w3.svg) no-repeat 0 0mm;
-    background-size: 5mm; */
+    width: 67mm;
+    padding: 4mm;
+    padding-left: 16mm;
+    margin-top: 10mm;
+    /* margin-right: 3mm; */
+    background: url(img/w3.svg) no-repeat 0 5mm;
+    background-size: 10mm;
 }
 
 .why4 {
@@ -1180,7 +1149,6 @@ html {
 
 .middleQrimg-why {
     width: 20mm;
-    margin-top: 4mm;
 }
 
 .wh-text {
@@ -1221,14 +1189,13 @@ html {
     font-size: 20px;
     line-height: 20px;
     color: #224e85;
-    margin-bottom: 10mm;
 }
 
 .topFoto-left {
     float: left;
     width: 85mm;
     height: 60mm;
-    /* margin-top: 14mm; */
+    margin-top: 14mm;
     margin-right: 4mm;
     border-radius: 4mm;
 }
@@ -1237,7 +1204,7 @@ html {
     float: left;
     width: 85mm;
     height: 60mm;
-    /* margin-top: 14mm; */
+    margin-top: 14mm;
     margin-right: 4mm;
     border-radius: 4mm;
     background: #224e85 url(img/fotoFon.jpg) no-repeat center;
@@ -1246,41 +1213,37 @@ html {
 
 .topFoto-rightText {
     float: left;
-    width: 35mm;
-    height: 18mm; 
-    margin-left: 3mm;  
+    width: 28mm;
+    height: 19mm;
+    margin: 30mm 0 0 4mm;
     color: #fff;
-    padding: 3mm 4mm 3mm 4mm;
-    border-radius: 2mm;
-    line-height: 1em;
     background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
+    text-align: center;
+    padding: 3mm 4mm 3mm 4mm;
+    border-radius: 4mm;
+    line-height: 1em;
 }
 
 .fotoQr {
     float: left;
-    margin: 28mm 0 0 0mm;
-    width: 85mm;
+    margin: 30mm 0 0 4mm;
+    width: 28mm;
     border-radius: 4mm;
     color: #fff;
-    /* background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
-    padding: 2mm 4mm; */
-    
+    background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
+    padding: 2mm 4mm;
+    text-align: center;
 }
 
 .fotoImgQr {
-    float: left;
-    padding: 2mm 7mm;
-    margin-left: 2mm;
     width: 20mm;
     height: 20mm;
-    border-radius: 2mm;
-    background: linear-gradient(145deg, rgba(41, 124, 207, 1) 0%, rgba(50, 170, 240, 1) 52%, rgba(26, 91, 175, 1) 100%);
 }
 
 .bttomFoto-left {
     float: left;
     width: 85mm;
-    height: 85mm;
+    height: 60mm;
     margin-top: 4mm;
     margin-right: 4mm;
     border-radius: 4mm;
@@ -1292,11 +1255,6 @@ html {
     height: 60mm;
 }
 
-.topFotoSq{
-    border-radius: 4mm;
-    width: 85mm;
-    height: 85mm;
-}
 
 .fotoText {
     float: left;
@@ -1312,23 +1270,6 @@ html {
 
 .bottomFoto-block {
     margin-top: 4mm;
-}
-
-.rewievFotoQr {
-    float: left;
-    width: 20mm;
-    margin: 2mm 2mm 0 0;
-    float: left;
-    width: 20mm;
-    height: 20mm;
-    border-radius: 2mm;
-}
-
-.rewievTextQr{
-    float: left;
-    width: 48mm;
-    margin-top: 5mm;
-    color:#224e85;
 }
 
 /* отзывы */
@@ -1369,10 +1310,11 @@ html {
 
 .block4-rw {
     float: left;
-    width: 70mm;
-    height: 76mm;
+    width: 74mm;
+    height: 62mm;
+    margin: 4mm 4mm 0 0;
     border-radius: 4mm;
-    padding: 8mm 8mm 2mm 8mm;
+    padding: 8mm;
     background: #f2f2f2ff;
 }
 
@@ -1409,14 +1351,14 @@ html {
 
 .block4-rw-text {
     float: left;
-    width: 70mm;
+    width: 75mm;
     font-size: 12pt;
     line-height: 13pt;
 }
 
 .blockName-rw {
     float: left;
-    width: 45mm;
+    width: 50mm;
     margin-right: 2mm;
 }
 
@@ -1481,13 +1423,12 @@ html {
 }
 
 .top-textCt {
-    margin-top: 9mm;
+    margin-top: 15mm;
     width: 167mm;
-    height: 84mm;
+    height: 96mm;
     padding: 10mm;
     border-radius: 10mm;
     background-color: #e2eaf0;
-   
 }
 
 .top-textCt-left {
@@ -1508,16 +1449,17 @@ html {
 }
 
 .bottom-textCt {
-    margin-top: 8mm;
-    line-height: 1em;
+    margin-top: 10mm;
+    padding: 4mm;
     width: 179mm;
-    font-size: 20pt;
-    color: #000;
-    height: 10mm;
+    font-size: 18pt;
+    color: #fff;
+    height: 8mm;
     border-radius: 10mm;
     text-align: center;
-    /* background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);*/
-} 
+    background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
+}
+
 .contakt-ct-block {
     float: left;
     width: 80mm;
@@ -1563,12 +1505,12 @@ html {
 .qrCt {
     float: left;
     width: 34mm;
-    height: 27mm;
+    height: 34mm;
     margin-top: 11mm;
 }
 
 .qrCt-img{
-    width: 25mm;
+    width: 30mm;
 }
 
 .nameCt {
@@ -1580,7 +1522,7 @@ html {
 .roleCt {
     font-size: 12pt;
     line-height: 14pt;
-    margin-bottom: 4mm;
+    margin-bottom: 12mm;
 }
 
 .textCt {
@@ -1732,13 +1674,12 @@ html {
 
 }
 .tar-btn {
-    /* float: left; */
-    margin: 8mm auto;
-    width: 124mm;
-    font-size: 24pt;
+    margin: 0 auto 20mm auto;
+    width: 80mm;
+    font-size: 40pt;
     color: #fff;
-    height: 15mm;
-    padding-top: 2mm;
+    height: 31mm;
+    padding-top: 9mm;
     border-radius: 2mm;
     text-align: center;
     background: linear-gradient(145deg,rgba(0, 91, 170, 1) 17%, rgba(50, 192, 252, 0.99) 43%, rgba(33, 136, 209, 1) 75%, rgba(8, 72, 156, 1) 94%);
@@ -1753,9 +1694,7 @@ html {
         inset 0 -2mm 4mm rgba(0, 0, 0, 0.2); /* Внутренняя тень снизу */
     
 }
-.tar-btn-link{
-    color: #fff;
-}
+
 .tar-bnt:hover {
     filter: brightness(1.05);
     box-shadow: 
