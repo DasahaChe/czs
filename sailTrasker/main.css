@@ -577,7 +577,8 @@ html {
 .strTitle-pr {
     float: left;
     width: 120mm;
-    font-size: 32pt;
+    font-size: 21pt;
+    line-height: 1em;
     color: #224e85;
 }
 
@@ -687,8 +688,8 @@ html {
 }
 
 .subtitle-st {
-    font-size: 20pt;
-    line-height: 20pt;
+    font-size: 18pt;
+    line-height: 18pt;
     color: #255ba9;
 }
 
