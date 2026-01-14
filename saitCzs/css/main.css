@@ -108,7 +108,8 @@
     display: flex;
     justify-content: center;
     padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
-    min-width: calc(var(--base-font-size) * 17);
+    max-width: calc(var(--base-font-size) * 22);
+    width: 100%;
     color: var(--base-color-2d);
     cursor: pointer;
     border: 1px solid var(--base-color-2d);
