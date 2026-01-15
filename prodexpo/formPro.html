@@ -1,0 +1,172 @@
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма сбора данных о продукте</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-box-open"></i> Форма сбора данных о продукте</h1>
+            <p class="header-subtitle">Заполните все поля для добавления нового продукта в каталог</p>
+        </header>
+
+        <form id="productForm" class="form-container">
+            <!-- Основная информация -->
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-info-circle"></i> Основная информация</h2>
+
+                <div class="form-group">
+                    <label for="manufacturer" class="required">Производитель</label>
+                    <input type="text" id="manufacturer" name="manufacturer"
+                        placeholder="Введите название производителя">
+                    <div class="error-message" id="manufacturer-error">Поле "Производитель" обязательно для заполнения
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="country" class="required">Страна</label>
+                    <input type="text" id="country" name="country" placeholder="Страна производства">
+                    <div class="error-message" id="country-error">Поле "Страна" обязательно для заполнения</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="city" class="required">Город</label>
+                    <input type="text" id="city" name="city" placeholder="Город производства">
+                    <div class="error-message" id="city-error">Поле "Город" обязательно для заполнения</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="brand" class="required">Бренд</label>
+                    <input type="text" id="brand" name="brand" placeholder="Торговая марка продукта">
+                    <div class="error-message" id="brand-error">Поле "Бренд" обязательно для заполнения</div>
+                </div>
+            </div>
+
+            <!-- Детали продукта -->
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-tags"></i> Детали продукта</h2>
+
+                <div class="form-group">
+                    <label for="category" class="required">Категория продукта</label>
+                    <select id="category" name="category">
+                        <option value="">Выберите категорию</option>
+                        <option value="food">Продукты питания</option>
+                        <option value="drinks">Напитки</option>
+                        <option value="household">Бытовая химия</option>
+                        <option value="cosmetics">Косметика</option>
+                        <option value="electronics">Электроника</option>
+                        <option value="clothing">Одежда</option>
+                        <option value="other">Другое</option>
+                    </select>
+                    <div class="error-message" id="category-error">Пожалуйста, выберите категорию продукта</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="productName" class="required">Название продукта полностью</label>
+                    <input type="text" id="productName" name="productName" placeholder="Полное наименование продукта">
+                    <div class="error-message" id="productName-error">Поле "Название продукта" обязательно для
+                        заполнения</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="price" class="required">Цена на полке за 1 шт (руб.)</label>
+                    <input type="number" id="price" name="price" min="0" step="0.01" placeholder="0.00">
+                    <div class="error-message" id="price-error">Пожалуйста, введите корректную цену</div>
+                </div>
+            </div>
+
+            <!-- Описание и состав -->
+            <div class="form-section full-width">
+                <h2 class="section-title"><i class="fas fa-align-left"></i> Описание и состав</h2>
+
+                <div class="form-group">
+                    <label for="description" class="required">Описание продукта</label>
+                    <textarea id="description" name="description"
+                        placeholder="Подробное описание продукта, его характеристик и особенностей"></textarea>
+                    <div class="error-message" id="description-error">Поле "Описание продукта" обязательно для
+                        заполнения</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="composition" class="required">Состав</label>
+                    <textarea id="composition" name="composition"
+                        placeholder="Ингредиенты или компоненты продукта"></textarea>
+                    <div class="error-message" id="composition-error">Поле "Состав" обязательно для заполнения</div>
+                </div>
+            </div>
+
+            <!-- Упаковка и весовые характеристики -->
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-weight-hanging"></i> Упаковка</h2>
+
+                <div class="form-group">
+                    <label for="packaging" class="required">Фасовка, упаковка</label>
+                    <input type="text" id="packaging" name="packaging"
+                        placeholder="Например: пластиковая бутылка, картонная коробка">
+                    <div class="error-message" id="packaging-error">Поле "Фасовка, упаковка" обязательно для заполнения
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="weight" class="required">Вес/Объем</label>
+                    <input type="text" id="weight" name="weight" placeholder="Например: 500 г, 1 л, 250 мл">
+                    <div class="error-message" id="weight-error">Поле "Вес/Объем" обязательно для заполнения</div>
+                </div>
+            </div>
+
+            <!-- Сайт и фото -->
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-camera"></i> Медиа</h2>
+
+                <div class="form-group">
+                    <label for="website">Сайт</label>
+                    <input type="text" id="website" name="website" placeholder="https://example.com">
+                    <div class="error-message" id="website-error">Введите название сайта</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo" class="required">Фото продукта</label>
+                    <div class="photo-upload" id="photoUpload">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Нажмите для загрузки фотографии продукта</p>
+                        <p><small>Поддерживаемые форматы: JPG, PNG, GIF (макс. размер: 5MB)</small></p>
+                        <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
+                    </div>
+                    <div class="photo-preview" id="photoPreview">
+                        <img src="" alt="Предпросмотр фото продукта" id="previewImage">
+                    </div>
+                    <div class="error-message" id="photo-error">Пожалуйста, загрузите фотографию продукта</div>
+                </div>
+            </div>
+
+            <!-- Кнопки отправки -->
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-submit">
+                    <i class="fas fa-save"></i> Сохранить продукт
+                </button>
+                <button type="reset" class="btn btn-reset" id="resetButton">
+                    <i class="fas fa-redo"></i> Очистить форму
+                </button>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i> Данные о продукте успешно сохранены!
+            </div>
+        </form>
+
+        <div class="form-footer">
+            <p>Все поля, отмеченные <span style="color: #e74c3c;">*</span>, обязательны для заполнения</p>
+            <p>© 2026 Система сбора данных о продуктах</p>
+        </div>
+    </div>
+
+    <script defer src="script.js"></script>
+</body>
+
+</html>
