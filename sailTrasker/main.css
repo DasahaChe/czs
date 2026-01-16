@@ -576,9 +576,15 @@ html {
 
 .strTitle-pr {
     float: left;
+<<<<<<< HEAD
     width: 135mm;
     font-size: 18pt;
     line-height: 20pt;
+=======
+    width: 120mm;
+    font-size: 21pt;
+    line-height: 1em;
+>>>>>>> 44d968f90bc3eb98815f70c2300f3ab67a22b713
     color: #224e85;
 }
 

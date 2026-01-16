@@ -105,8 +105,11 @@
 .start_page .main .about__video-button,
 .start_page .main .review__button,
 .start_page .main .steps__button {
+    display: flex;
+    justify-content: center;
     padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
-    min-width: calc(var(--base-font-size) * 17);
+    max-width: calc(var(--base-font-size) * 22);
+    width: 100%;
     color: var(--base-color-2d);
     cursor: pointer;
     border: 1px solid var(--base-color-2d);
@@ -116,7 +119,7 @@
     transition: border-color 0.5s ease, color 0.5s ease, background-color 0.5s ease;
 }
 
-.start_page .main .review__button {
+.start_page a .review__button {
     justify-self: center;
 }
 
