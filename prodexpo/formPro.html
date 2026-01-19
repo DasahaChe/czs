@@ -16,10 +16,10 @@
             <p class="header-subtitle">Заполните все поля для добавления нового продукта в каталог</p>
         </header>
 
-        <form id="productForm" class="form-container">
+        <form id="productForm" class="full-width">
             <!-- Основная информация -->
-            <div class="form-section">
-                <h2 class="section-title"><i class="fas fa-info-circle"></i> Основная информация</h2>
+           <div class="form-section">
+                <!-- <h2 class="section-title"><i class="fas fa-info-circle"></i> Основная информация</h2> -->
 
                 <div class="form-group">
                     <label for="manufacturer" class="required">Производитель</label>
@@ -46,24 +46,21 @@
                     <input type="text" id="brand" name="brand" placeholder="Торговая марка продукта">
                     <div class="error-message" id="brand-error">Поле "Бренд" обязательно для заполнения</div>
                 </div>
-            </div>
+          
 
-            <!-- Детали продукта -->
+            <!-- Детали продукта 
             <div class="form-section">
                 <h2 class="section-title"><i class="fas fa-tags"></i> Детали продукта</h2>
 
-                <div class="form-group">
+                
+            </div>-->
+
+            <!-- Описание и состав -->
+           
+                <!-- <h2 class="section-title"><i class="fas fa-align-left"></i> Описание и состав</h2> -->
+<div class="form-group">
                     <label for="category" class="required">Категория продукта</label>
-                    <select id="category" name="category">
-                        <option value="">Выберите категорию</option>
-                        <option value="food">Продукты питания</option>
-                        <option value="drinks">Напитки</option>
-                        <option value="household">Бытовая химия</option>
-                        <option value="cosmetics">Косметика</option>
-                        <option value="electronics">Электроника</option>
-                        <option value="clothing">Одежда</option>
-                        <option value="other">Другое</option>
-                    </select>
+                     <input type="text" id="category" name="category" placeholder="Введите категорию">                    
                     <div class="error-message" id="category-error">Пожалуйста, выберите категорию продукта</div>
                 </div>
 
@@ -74,18 +71,7 @@
                         заполнения</div>
                 </div>
 
-                <div class="form-group">
-                    <label for="price" class="required">Цена на полке за 1 шт (руб.)</label>
-                    <input type="number" id="price" name="price" min="0" step="0.01" placeholder="0.00">
-                    <div class="error-message" id="price-error">Пожалуйста, введите корректную цену</div>
-                </div>
-            </div>
-
-            <!-- Описание и состав -->
-            <div class="form-section full-width">
-                <h2 class="section-title"><i class="fas fa-align-left"></i> Описание и состав</h2>
-
-                <div class="form-group">
+<div class="form-group">
                     <label for="description" class="required">Описание продукта</label>
                     <textarea id="description" name="description"
                         placeholder="Подробное описание продукта, его характеристик и особенностей"></textarea>
@@ -94,16 +80,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="composition" class="required">Состав</label>
-                    <textarea id="composition" name="composition"
-                        placeholder="Ингредиенты или компоненты продукта"></textarea>
-                    <div class="error-message" id="composition-error">Поле "Состав" обязательно для заполнения</div>
+                    <label for="price" class="required">Цена на полке за 1 шт (руб.)</label>
+                    <input type="number" id="price" name="price" min="0" step="0.01" placeholder="0.00">
+                    <div class="error-message" id="price-error">Пожалуйста, введите корректную цену</div>
                 </div>
-            </div>
+                
+
+              
+           
 
             <!-- Упаковка и весовые характеристики -->
-            <div class="form-section">
-                <h2 class="section-title"><i class="fas fa-weight-hanging"></i> Упаковка</h2>
+           
+                <!-- <h2 class="section-title"><i class="fas fa-weight-hanging"></i> Упаковка</h2> -->
 
                 <div class="form-group">
                     <label for="packaging" class="required">Фасовка, упаковка</label>
@@ -118,11 +106,16 @@
                     <input type="text" id="weight" name="weight" placeholder="Например: 500 г, 1 л, 250 мл">
                     <div class="error-message" id="weight-error">Поле "Вес/Объем" обязательно для заполнения</div>
                 </div>
-            </div>
-
+           
+  <div class="form-group">
+                    <label for="composition" class="required">Состав</label>
+                    <textarea id="composition" name="composition"
+                        placeholder="Ингредиенты или компоненты продукта"></textarea>
+                    <div class="error-message" id="composition-error">Поле "Состав" обязательно для заполнения</div>
+                </div>
             <!-- Сайт и фото -->
-            <div class="form-section">
-                <h2 class="section-title"><i class="fas fa-camera"></i> Медиа</h2>
+           
+                <!-- <h2 class="section-title"><i class="fas fa-camera"></i> Медиа</h2> -->
 
                 <div class="form-group">
                     <label for="website">Сайт</label>
@@ -145,7 +138,7 @@
                 </div>
             </div>
 
-            <!-- Кнопки отправки -->
+        
             <div class="form-buttons">
                 <button type="submit" class="btn btn-submit">
                     <i class="fas fa-save"></i> Сохранить продукт
