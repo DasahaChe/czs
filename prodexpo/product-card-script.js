@@ -780,12 +780,12 @@ document.addEventListener('DOMContentLoaded', function () {
                        
                         <div class="composition-section">
                             <div class="composition-title">
-                                <i class="fas fa-list-ul"></i> Описание
-                                </div>
+                               <div> <i class="fas fa-list-ul"></i> Описание</div>
+                                
                                 <button class="toggle-composition" data-product-id="${product.description}">
                                 <i class="fas fa-chevron-down"></i> Развернуть
                             </button>
-                            
+                          </div>  
                                                         
                         </div>
 
@@ -804,18 +804,16 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="detail-item">
                                 <span class="detail-label">Фасовка</span>
                                 <span class="detail-value">${product.packaging}</span>
-                            </div>
-                           
+                            </div>                           
                         </div>  
                         
                         <div class="composition-section">
                             <div class="composition-title">
-                                <i class="fas fa-list-ul"></i> Состав
-                            </div>
-                            
+                                <div><i class="fas fa-list-ul"></i> Состав</div> 
                             <button class="toggle-composition" data-product-id="${product.id}">
                                 <i class="fas fa-chevron-down"></i> Развернуть
                             </button>
+                               </div>
                         </div>
                         
                         <div class="product-footer">                           
