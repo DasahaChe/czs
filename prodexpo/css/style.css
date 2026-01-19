@@ -6,8 +6,8 @@
     --base-gap: 1em;   
     --fon: #f6f6f6; 
     --grey: #ABABAB;
-    --pfYelow: #fecd4b;
-    --pfGrey: #444444;
+    --peGreen: #02723a;
+    --peRad: #770909;
     --blue: #005BAA;  
 }
 
@@ -424,20 +424,54 @@ body{
         }
         
         .product-content {
-            padding: 25px;
+            padding: 1em;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
         
         .manufacturer {
+            width: 100%;
             font-size: 0.9rem;
             color: #7f8c8d;
-            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
+        
+        .city {
+            width: 100%;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+         .product-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        
+        .description {
+            font-size: 14px;
+            color: #666;
+            margin: 10px 0;
+            line-height: 1.4;
+        }
+        
+        .website {
+            font-size: 12px;
+            color: #1976d2;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
         
         .product-name {
             font-size: 1.4rem;
@@ -459,7 +493,12 @@ body{
         .price {
             font-size: 2rem;
             font-weight: bold;
-            color: #27ae60;
+            color: var(--peGreen);
+        }
+
+        .price-bage {
+            font-size: 1rem;
+            color: var(--peGreen);
         }
         
         .weight {
@@ -542,8 +581,8 @@ body{
         .toggle-composition {
             width: 100%;
             background: none;
-            border: 2px solid #3498db;
-            color: #3498db;
+            border: 2px solid var(--peGreen);
+            color: var(--peGreen);
             cursor: pointer;
             font-size: 0.9rem;
             padding: 10px;
@@ -558,7 +597,7 @@ body{
         }
         
         .toggle-composition:hover {
-            background: #3498db;
+            background: var(--peGreen);
             color: white;
         }
         
@@ -572,7 +611,7 @@ body{
         .vote-btn {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(to right, #4b6cb7, #182848);
+            background: linear-gradient(to right, #8b1414, var(--peRad));
             color: white;
             border: none;
             border-radius: 8px;

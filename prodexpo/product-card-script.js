@@ -770,12 +770,29 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="manufacturer">
                                 <i class="fas fa-industry"></i> ${product.manufacturer}
                             </div>
+                            <div class="city">
+                                ${product.country} / ${product.city}
+                            </div>
                         </div>
                         
                         <h3 class="product-name">${product.productName}</h3>  
                         
+                       
+                        <div class="composition-section">
+                            <div class="composition-title">
+                                <i class="fas fa-list-ul"></i> Описание
+                                </div>
+                                <button class="toggle-composition" data-product-id="${product.description}">
+                                <i class="fas fa-chevron-down"></i> Развернуть
+                            </button>
+                            
+                                                        
+                        </div>
+
                         <div class="price-section">
-                            <div class="price">${product.price.toFixed(2)} ₽</div>
+                            <div class="price">${product.price.toFixed(2)} ₽
+                            <div class="price-bage">Цена на полке</div>
+                            </div>
                             <div class="weight">${product.weight}</div>
                         </div>
                         
@@ -788,31 +805,17 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <span class="detail-label">Фасовка</span>
                                 <span class="detail-value">${product.packaging}</span>
                             </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Страна</span>
-                                <span class="detail-value">${product.country}</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Город</span>
-                                <span class="detail-value">${product.city}</span>
-                            </div>
-                        </div>
-                        
-                        <div class="description">
-                            <i class="fas fa-align-left"></i> ${product.description}
-                        </div>
+                           
+                        </div>  
                         
                         <div class="composition-section">
                             <div class="composition-title">
                                 <i class="fas fa-list-ul"></i> Состав
                             </div>
-                            <div class="composition-text" id="composition-${product.id}">
-                                ${truncatedComposition.short}
-                            </div>
-                            ${truncatedComposition.isTruncated ? `
+                            
                             <button class="toggle-composition" data-product-id="${product.id}">
                                 <i class="fas fa-chevron-down"></i> Развернуть
-                            </button>` : ''}
+                            </button>
                         </div>
                         
                         <div class="product-footer">                           
@@ -1135,101 +1138,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         
-
-        
-        /* Стили для продукта */
-        .product-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-        }
-        
-        .manufacturer {
-            font-size: 12px;
-            color: #666;
-            text-align: right;
-        }
-        
-        .description {
-            font-size: 14px;
-            color: #666;
-            margin: 10px 0;
-            line-height: 1.4;
-        }
-        
-        .website {
-            font-size: 12px;
-            color: #1976d2;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        /* Пагинация */
-        .top-pagination {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .pagination-info {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .pagination-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .pagination-btn {
-            padding: 8px 16px;
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .pagination-btn:hover:not(:disabled) {
-            background-color: #e0e0e0;
-        }
-        
-        .pagination-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        .pagination-numbers {
-            display: flex;
-            gap: 5px;
-        }
-        
-        .page-number {
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 40px;
-            text-align: center;
-        }
-        
-        .page-number:hover:not(.active) {
-            background-color: #f0f0f0;
-        }
-        
-        .page-number.active {
-            background-color: #1976d2;
-            color: white;
-        }
     `;
     document.head.appendChild(style);
 });
