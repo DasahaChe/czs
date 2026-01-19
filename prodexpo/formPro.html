@@ -17,17 +17,29 @@
         </header>
 
         <form id="productForm" class="full-width">
-            <!-- Основная информация -->
-           <div class="form-section">
+
+              <div class="form-section">
                 <!-- <h2 class="section-title"><i class="fas fa-info-circle"></i> Основная информация</h2> -->
 
                 <div class="form-group">
+                    <label for="company" class="required">Компания (плательщик)</label>
+                    <input type="text" id="company" name="company"
+                        placeholder="Введите название компании участника">
+                    <div class="error-message" id="company-error">Поле "Компания" обязательно для заполнения
+                    </div>
+                </div>
+                </div>
+            <!-- Основная информация -->
+           <div class="form-section">
+                <h2>Продукт 1</h2>
+                 <div class="form-group">
                     <label for="manufacturer" class="required">Производитель</label>
                     <input type="text" id="manufacturer" name="manufacturer"
                         placeholder="Введите название производителя">
                     <div class="error-message" id="manufacturer-error">Поле "Производитель" обязательно для заполнения
                     </div>
                 </div>
+
 
                 <div class="form-group">
                     <label for="country" class="required">Страна</label>
@@ -142,6 +154,9 @@
             <div class="form-buttons">
                 <button type="submit" class="btn btn-submit">
                     <i class="fas fa-save"></i> Сохранить продукт
+                </button>
+                 <button type="submit" class="btn btn-submit">
+                    <i class="fas fa-save"></i> Добавить продукт
                 </button>
                 <button type="reset" class="btn btn-reset" id="resetButton">
                     <i class="fas fa-redo"></i> Очистить форму
