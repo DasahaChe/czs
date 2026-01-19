@@ -78,6 +78,7 @@ body{
         }
         
         .form-section {
+            margin-bottom: 25px;
             background: white;
             padding: 25px;
             border-radius: 10px;
