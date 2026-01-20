@@ -634,6 +634,7 @@ const productsArray = [
 document.addEventListener('DOMContentLoaded', function () {
     // Элементы DOM
     const topPagination = document.getElementById('topPagination');
+    const bottomPagination = document.getElementById('bottomPagination');
     const productsContainer = document.getElementById('productsContainer');
     const totalProductsCount = document.getElementById('totalProductsCount');
     const scrollLeftBtn = document.getElementById('scrollLeft');
@@ -653,23 +654,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Функция для получения данных
     function getProductsArray() {
-        return productsArray; // Используем глобальный массив productsArray
+        return productsArray;
     }
 
     // Инициализация данных продуктов
     function initProductsData() {
-        // Берем данные напрямую из функции getProductsArray()
         const productsData = getProductsArray();
 
-        // Добавляем id и статус голосования
+        // Восстанавливаем голоса из sessionStorage
+        let userVotes = JSON.parse(sessionStorage.getItem('userVotes') || '{}');
+
         allProducts = productsData.map((product, index) => ({
             ...product,
             id: `product_${index + 1}`,
-            hasVoted: false,
+            hasVoted: userVotes[`product_${index + 1}`] || false,
             createdAt: new Date().toISOString()
         }));
 
-        console.log(`Загружено ${allProducts.length} продуктов напрямую из массива`);
+        console.log(`Загружено ${allProducts.length} продуктов`);
         updateVisibleCardsCount();
     }
 
@@ -687,36 +689,12 @@ document.addEventListener('DOMContentLoaded', function () {
             visibleCards = CARDS_PER_PAGE.large;
         }
 
-        // Пересчитываем текущую страницу
         const totalProducts = allProducts.length;
         const maxPages = Math.ceil(totalProducts / visibleCards);
 
         if (currentPage > maxPages && maxPages > 0) {
             currentPage = maxPages;
         }
-    }
-
-    // Функция для обрезки текста
-    function truncateText(text, maxChars) {
-        if (text.length <= maxChars) {
-            return {
-                short: text,
-                isTruncated: false
-            };
-        }
-
-        const truncated = text.substr(0, maxChars);
-        const lastSpace = truncated.lastIndexOf(' ');
-
-        const shortText = lastSpace > 0 ?
-            text.substr(0, lastSpace) + '...' :
-            truncated + '...';
-
-        return {
-            short: shortText,
-            full: text,
-            isTruncated: true
-        };
     }
 
     // Отображение карточек товаров
@@ -733,6 +711,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         `;
             topPagination.innerHTML = '';
+            bottomPagination.innerHTML = '';
             return;
         }
 
@@ -741,20 +720,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const endIndex = startIndex + visibleCards;
         const currentProducts = allProducts.slice(startIndex, endIndex);
 
-        // ИСПРАВЛЕНИЕ: используем visibleCards для расчета totalPages
         const totalPages = Math.ceil(totalProducts / visibleCards);
 
-        // Отображаем пагинацию сверху
-        displayTopPagination(totalProducts, totalPages);
+        // Отображаем пагинацию
+        displayPagination(topPagination, totalProducts, totalPages);
+        displayPagination(bottomPagination, totalProducts, totalPages);
 
         // Отображаем карточки товаров
         let productsHTML = '<div class="products-container">';
 
         currentProducts.forEach((product, index) => {
-            const truncatedComposition = truncateText(product.composition, MAX_CHARS);
-
-            // Определяем класс категории для бейджа
-            const categoryClass = `category-${product.category}`;
+            const actualIndex = startIndex + index + 1; // +1 потому что индексы начинаются с 1 для пользователя
 
             productsHTML += `
                 <div class="product-card" data-product-id="${product.id}" data-index="${startIndex + index}">
@@ -777,21 +753,23 @@ document.addEventListener('DOMContentLoaded', function () {
                         
                         <h3 class="product-name">${product.productName}</h3>  
                         
-                       
+                        <!-- Описание (скрыто по умолчанию) -->
                         <div class="composition-section">
                             <div class="composition-title">
-                               <div> <i class="fas fa-list-ul"></i> Описание</div>
-                                
-                                <button class="toggle-composition" data-product-id="${product.description}">
-                                <i class="fas fa-chevron-down"></i> Развернуть
-                            </button>
-                          </div>  
-                                                        
+                               <div><i class="fas fa-file-alt"></i> Описание</div>
+                               <button class="toggle-expand" data-type="description" data-product-id="${product.id}">
+                                    <i class="fas fa-chevron-down"></i> Показать описание
+                                </button>
+                            </div>  
+                            <div class="description-text" id="description-${product.id}" style="display: none;">
+                                ${product.description || 'Описание отсутствует'}
+                            </div>                         
                         </div>
 
                         <div class="price-section">
+                         <div class="price-bage">Цена на полке</div>
                             <div class="price">${product.price.toFixed(2)} ₽
-                            <div class="price-bage">Цена на полке</div>
+                               
                             </div>
                             <div class="weight">${product.weight}</div>
                         </div>
@@ -802,21 +780,32 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <span class="detail-value">${product.brand}</span>
                             </div>
                             <div class="detail-item">
-                                <span class="detail-label">Фасовка</span>
+                                <span class="detail-label">Фасовка / упаковка</span>
                                 <span class="detail-value">${product.packaging}</span>
-                            </div>                           
+                            </div> 
+                             <div class="detail-item">
+                                <span class="detail-label">Категория</span>
+                                <span class="detail-value">${product.category}</span>
+                            </div>                            
                         </div>  
                         
+                        <!-- Состав (скрыт по умолчанию) -->
                         <div class="composition-section">
                             <div class="composition-title">
-                                <div><i class="fas fa-list-ul"></i> Состав</div> 
-                            <button class="toggle-composition" data-product-id="${product.id}">
-                                <i class="fas fa-chevron-down"></i> Развернуть
-                            </button>
-                               </div>
+                                <div><i class="fas fa-list-ul"></i> Состав</div>
+                                <button class="toggle-expand" data-type="composition" data-product-id="${product.id}">
+                                    <i class="fas fa-chevron-down"></i> Показать состав
+                                </button>
+                            </div>
+                            <div class="composition-text" id="composition-${product.id}" style="display: none;">
+                                ${product.composition || 'Состав отсутствует'}
+                            </div>
                         </div>
                         
-                        <div class="product-footer">                           
+                        <div class="product-footer">
+                            <div class="website">
+                                <i class="fas fa-globe"></i> ${product.website}
+                            </div>
                             <div class="vote-section">
                                 <button class="vote-btn ${product.hasVoted ? 'voted' : ''}" 
                                         data-product-id="${product.id}"
@@ -834,6 +823,9 @@ document.addEventListener('DOMContentLoaded', function () {
         productsHTML += '</div>';
         productsContainer.innerHTML = productsHTML;
 
+        // Восстанавливаем состояние развернутых блоков
+        restoreExpandedState();
+        
         // Добавляем обработчики событий
         addEventListeners();
 
@@ -844,59 +836,56 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Функция для отображения пагинации с новым форматом
+    function displayPagination(containerElement, totalProducts, totalPages) {
+        if (totalProducts === 0) {
+            containerElement.innerHTML = '';
+            return;
+        }
 
-    // Функция для отображения пагинации сверху
-    // Функция для отображения пагинации сверху
-    function displayTopPagination(totalProducts, totalPages) {
-        // ИСПРАВЛЕНИЕ: используем currentPage и visibleCards для правильного расчета
         const startProduct = (currentPage - 1) * visibleCards + 1;
-        // Ограничиваем endProduct, чтобы не превышать общее количество товаров
         const endProduct = Math.min(currentPage * visibleCards, totalProducts);
 
-        // ИСПРАВЛЕНИЕ: пересчитываем totalPages на основе visibleCards
-        const correctTotalPages = Math.ceil(totalProducts / visibleCards);
-
+        // НОВЫЙ ФОРМАТ: "Компания 1-6" вместо "Показано 1-5"
         let paginationHTML = `
         <div class="top-pagination">
             <div class="pagination-info">
-                Показано: <strong>${startProduct}-${endProduct}</strong> из <strong>${totalProducts}</strong> товаров
-                ${correctTotalPages > 0 ? `(Страница ${currentPage} из ${correctTotalPages})` : ''}
+                <strong>Компания ${startProduct}-${endProduct}</strong> из ${totalProducts}
+                ${totalPages > 0 ? `(Страница ${currentPage} из ${totalPages})` : ''}
             </div>
             
             <div class="pagination-controls">
-                <button class="pagination-btn" id="prevPage" ${currentPage === 1 ? 'disabled' : ''}>
+                <button class="pagination-btn" id="${containerElement.id === 'topPagination' ? 'prevPageTop' : 'prevPageBottom'}" 
+                        ${currentPage === 1 ? 'disabled' : ''}>
                     <i class="fas fa-chevron-left"></i> Назад
                 </button>
                 
-                <div class="pagination-numbers" id="pageNumbers">
+                <div class="pagination-numbers" id="${containerElement.id === 'topPagination' ? 'pageNumbersTop' : 'pageNumbersBottom'}">
                     <!-- Номера страниц будут добавлены здесь -->
                 </div>
                 
-                <button class="pagination-btn" id="nextPage" ${currentPage === correctTotalPages || correctTotalPages === 0 ? 'disabled' : ''}>
+                <button class="pagination-btn" id="${containerElement.id === 'topPagination' ? 'nextPageTop' : 'nextPageBottom'}" 
+                        ${currentPage === totalPages || totalPages === 0 ? 'disabled' : ''}>
                     Вперед <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </div>
-    `;
+        `;
 
-        topPagination.innerHTML = paginationHTML;
+        containerElement.innerHTML = paginationHTML;
 
         // Добавляем номера страниц
-        const pageNumbersContainer = document.getElementById('pageNumbers');
-
-        // Если нет товаров, не показываем номера страниц
-        if (correctTotalPages === 0) {
-            pageNumbersContainer.innerHTML = '';
-            return;
-        }
+        const pageNumbersContainer = document.getElementById(
+            containerElement.id === 'topPagination' ? 'pageNumbersTop' : 'pageNumbersBottom'
+        );
 
         let pageNumbersHTML = '';
 
         // Всегда показываем первую страницу
-        if (correctTotalPages >= 1) {
+        if (totalPages >= 1) {
             pageNumbersHTML += `
             <div class="page-number ${currentPage === 1 ? 'active' : ''}" data-page="1">1</div>
-        `;
+            `;
         }
 
         // Показываем многоточие, если нужно
@@ -906,33 +895,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Показываем страницы вокруг текущей
         const startPage = Math.max(2, currentPage - 1);
-        const endPage = Math.min(correctTotalPages - 1, currentPage + 1);
+        const endPage = Math.min(totalPages - 1, currentPage + 1);
 
         for (let i = startPage; i <= endPage; i++) {
-            if (i === 1 || i === correctTotalPages) continue;
-
+            if (i === 1 || i === totalPages) continue;
             pageNumbersHTML += `
             <div class="page-number ${currentPage === i ? 'active' : ''}" data-page="${i}">${i}</div>
-        `;
+            `;
         }
 
         // Показываем многоточие, если нужно
-        if (currentPage < correctTotalPages - 2 && correctTotalPages > 1) {
+        if (currentPage < totalPages - 2 && totalPages > 1) {
             pageNumbersHTML += `<div class="page-number" style="cursor: default">...</div>`;
         }
 
         // Всегда показываем последнюю страницу, если есть больше одной страницы
-        if (correctTotalPages > 1) {
+        if (totalPages > 1) {
             pageNumbersHTML += `
-            <div class="page-number ${currentPage === correctTotalPages ? 'active' : ''}" data-page="${correctTotalPages}">${correctTotalPages}</div>
-        `;
+            <div class="page-number ${currentPage === totalPages ? 'active' : ''}" data-page="${totalPages}">${totalPages}</div>
+            `;
         }
 
         pageNumbersContainer.innerHTML = pageNumbersHTML;
 
         // Добавляем обработчики для пагинации
-        const prevBtn = document.getElementById('prevPage');
-        const nextBtn = document.getElementById('nextPage');
+        const prevBtn = document.getElementById(
+            containerElement.id === 'topPagination' ? 'prevPageTop' : 'prevPageBottom'
+        );
+        const nextBtn = document.getElementById(
+            containerElement.id === 'topPagination' ? 'nextPageTop' : 'nextPageBottom'
+        );
 
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
@@ -944,13 +936,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
-                if (currentPage < correctTotalPages) {
+                if (currentPage < totalPages) {
                     goToPage(currentPage + 1);
                 }
             });
         }
 
-        const pageNumbers = document.querySelectorAll('.page-number[data-page]');
+        const pageNumbers = pageNumbersContainer.querySelectorAll('.page-number[data-page]');
         pageNumbers.forEach(number => {
             number.addEventListener('click', function () {
                 const page = parseInt(this.getAttribute('data-page'));
@@ -970,39 +962,70 @@ document.addEventListener('DOMContentLoaded', function () {
 
         currentPage = page;
         displayProducts();
+        
+        // Прокручиваем к верху страницы
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Восстановление состояния развернутых блоков
+    function restoreExpandedState() {
+        const expandedState = JSON.parse(sessionStorage.getItem('expandedState') || '{}');
+        
+        Object.keys(expandedState).forEach(key => {
+            const [type, productId] = key.split('-');
+            const element = document.getElementById(`${type}-${productId}`);
+            const button = document.querySelector(`button[data-product-id="${productId}"][data-type="${type}"]`);
+            
+            if (element && button && expandedState[key]) {
+                const product = allProducts.find(p => p.id === productId);
+                if (product) {
+                    // Показываем элемент
+                    element.style.display = 'block';
+                    element.textContent = type === 'composition' ? product.composition : product.description;
+                    const icon = button.querySelector('i');
+                    if (icon) icon.className = 'fas fa-chevron-up';
+                    button.innerHTML = '<i class="fas fa-chevron-up"></i> Скрыть ' + (type === 'composition' ? 'состав' : 'описание');
+                }
+            }
+        });
+    }
+
+    // Сохранение состояния развернутых блоков
+    function saveExpandedState(productId, type, isExpanded) {
+        let expandedState = JSON.parse(sessionStorage.getItem('expandedState') || '{}');
+        expandedState[`${type}-${productId}`] = isExpanded;
+        sessionStorage.setItem('expandedState', JSON.stringify(expandedState));
     }
 
     // Функция для добавления обработчиков событий
     function addEventListeners() {
-        // Обработчики для кнопок развертывания состава
-        const toggleButtons = document.querySelectorAll('.toggle-composition');
+        // Обработчики для кнопок показа/скрытия описания и состава
+        const toggleButtons = document.querySelectorAll('.toggle-expand');
         toggleButtons.forEach(button => {
             button.addEventListener('click', function () {
                 const productId = this.getAttribute('data-product-id');
-                const compositionElement = document.getElementById(`composition-${productId}`);
-                const icon = this.querySelector('i');
+                const type = this.getAttribute('data-type'); // 'description' или 'composition'
+                const element = document.getElementById(`${type}-${productId}`);
                 const product = allProducts.find(p => p.id === productId);
 
-                if (!product) return;
+                if (!product || !element) return;
 
-                if (compositionElement.classList.contains('expanded')) {
-                    // Сворачиваем текст
-                    const truncated = truncateText(product.composition, MAX_CHARS);
-                    compositionElement.innerHTML = truncated.short;
-                    compositionElement.classList.remove('expanded');
-                    icon.className = 'fas fa-chevron-down';
-                    this.innerHTML = '<i class="fas fa-chevron-down"></i> Развернуть';
+                if (element.style.display === 'block' || element.style.display === '') {
+                    // Скрываем текст
+                    element.style.display = 'none';
+                    this.innerHTML = '<i class="fas fa-chevron-down"></i> Показать ' + (type === 'composition' ? 'состав' : 'описание');
+                    saveExpandedState(productId, type, false);
                 } else {
-                    // Разворачиваем полный текст
-                    compositionElement.innerHTML = product.composition;
-                    compositionElement.classList.add('expanded');
-                    icon.className = 'fas fa-chevron-up';
-                    this.innerHTML = '<i class="fas fa-chevron-up"></i> Свернуть';
+                    // Показываем текст
+                    element.style.display = 'block';
+                    element.textContent = type === 'composition' ? product.composition : product.description;
+                    this.innerHTML = '<i class="fas fa-chevron-up"></i> Скрыть ' + (type === 'composition' ? 'состав' : 'описание');
+                    saveExpandedState(productId, type, true);
                 }
             });
         });
 
-        // Обработчики для кнопок голосования (локальное хранение в sessionStorage)
+        // Обработчики для кнопок голосования
         const voteButtons = document.querySelectorAll('.vote-btn');
         voteButtons.forEach(button => {
             button.addEventListener('click', function () {
@@ -1024,7 +1047,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Обновляем статус голосования
                 allProducts[productIndex].hasVoted = true;
 
-                // Сохраняем голос пользователя в sessionStorage (только на текущую сессию)
+                // Сохраняем голос пользователя в sessionStorage
                 userVotes[productId] = true;
                 sessionStorage.setItem('userVotes', JSON.stringify(userVotes));
 
@@ -1064,6 +1087,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Функция для показа сообщения об успехе
     function showSuccessMessage(message) {
+        // Удаляем предыдущие сообщения
+        const existingMessages = document.querySelectorAll('.success-message');
+        existingMessages.forEach(msg => msg.remove());
+
         const messageElement = document.createElement('div');
         messageElement.className = 'success-message';
         messageElement.innerHTML = `
@@ -1095,20 +1122,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Обработчик изменения размера окна
+    let resizeTimeout;
     window.addEventListener('resize', () => {
-        const oldVisibleCards = visibleCards;
-        updateVisibleCardsCount();
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const oldVisibleCards = visibleCards;
+            updateVisibleCardsCount();
 
-        if (oldVisibleCards !== visibleCards) {
-            const totalProducts = allProducts.length;
-            const totalPages = Math.ceil(totalProducts / visibleCards);
+            if (oldVisibleCards !== visibleCards) {
+                const totalProducts = allProducts.length;
+                const totalPages = Math.ceil(totalProducts / visibleCards);
 
-            if (currentPage > totalPages && totalPages > 0) {
-                currentPage = totalPages;
+                if (currentPage > totalPages && totalPages > 0) {
+                    currentPage = totalPages;
+                }
+
+                displayProducts();
             }
-
-            displayProducts();
-        }
+        }, 250);
     });
 
     // Инициализация при загрузке страницы
@@ -1117,25 +1148,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Функция для обновления данных (может быть вызвана извне)
     window.refreshProducts = function () {
-        // Просто перезагружаем данные из массива
         initProductsData();
         displayProducts();
     };
-
-    // Добавляем стили для анимации и категорий
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-    `;
-    document.head.appendChild(style);
 });

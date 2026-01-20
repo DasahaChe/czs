@@ -485,26 +485,26 @@ body{
         .price-section {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 8px;
             margin-bottom: 20px;
             padding-bottom: 15px;
             border-bottom: 1px solid #eee;
         }
         
         .price {
-            font-size: 1.6rem;
+            font-size: 16px;
             font-weight: bold;
             color: var(--peGreen);
         }
 
         .price-bage {
-            font-size: 1rem;
+            font-size: 0.85rem;
             color: var(--peGreen);
         }
         
         .weight {
             font-size: 1rem;
-            color: var(--GreenGrey);
+            color: #000000;
             background: #f8f9fa;
             padding: 6px 12px;
             border-radius: 6px;
@@ -684,6 +684,355 @@ body{
             margin-right: 10px;
         }
         
+/* Стили для пагинации внизу */
+#bottomPagination {
+    margin-top: 30px;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+}
+
+#bottomPagination .top-pagination {
+    position: static;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+
+.description-text, .composition-text {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 10px;
+    max-height: 500px;
+    overflow-y: auto;
+    display: none; /* Скрыто по умолчанию */
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.description-text.show, .composition-text.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для кнопок показа/скрытия */
+.toggle-expand {
+    background: none;
+    border: 2px solid var(--GreenGrey);
+    color: var(--GreenGrey);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.toggle-expand:hover {
+    background: var(--peGreen);
+    color: white;
+    border-color: var(--peGreen);
+}
+
+/* Стили для пагинации внизу */
+#bottomPagination {
+    margin-top: 30px;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+}
+
+#bottomPagination .top-pagination {
+    position: static;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Улучшение отображения информации о пагинации */
+.pagination-info {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pagination-info strong {
+    color: var(--peGreen);
+    font-size: 1.2rem;
+}
+
+/* Стили для таблицы продуктов */
+* Стили для таблицы продуктов */
+.product-table-container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.product-table-header {
+    margin-bottom: 15px;
+}
+
+.product-table-header h3 {
+    color: #2c3e50;
+    margin: 0 0 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-table-header .subtitle {
+    color: #7f8c8d;
+    margin: 0;
+    font-size: 14px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0;
+    min-width: 1200px; /* Ширина таблицы для всех колонок */
+}
+
+.product-table th {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    font-weight: 600;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #e9ecef;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.product-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+
+.product-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.product-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Стили для скроллбара */
+.table-responsive::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Кнопка редактирования */
+.btn-edit {
+    background: linear-gradient(135deg, #2980b9, #1c5d87);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.btn-edit:active {
+    transform: translateY(0);
+}
+
+/* Адаптивность таблицы */
+@media (max-width: 1200px) {
+    .table-responsive {
+        border: none;
+    }
+    
+    .product-table th,
+    .product-table td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    
+    .btn-edit {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+/* Стили для усеченного текста в ячейках */
+.product-table td[title] {
+    cursor: help;
+    position: relative;
+}
+
+.product-table td[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    pointer-events: none;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .pagination-info {
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .toggle-expand {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+    
+    .description-text, .composition-text {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .product-table th,
+    .product-table td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    
+    .btn-edit {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+/* Плавный скролл для длинных текстов */
+.description-text::-webkit-scrollbar,
+.composition-text::-webkit-scrollbar {
+    width: 6px;
+}
+
+.description-text::-webkit-scrollbar-track,
+.composition-text::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.description-text::-webkit-scrollbar-thumb,
+.composition-text::-webkit-scrollbar-thumb {
+    background: var(--GreenGrey);
+    border-radius: 3px;
+}
+
+.description-text::-webkit-scrollbar-thumb:hover,
+.composition-text::-webkit-scrollbar-thumb:hover {
+    background: var(--peGreen);
+}
+/* Адаптивность для пагинации */
+@media (max-width: 768px) {
+    #bottomPagination .top-pagination {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Дополнительные стили для текстовых блоков */
+.description-text {
+    background-color: #f8f9fa;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-top: 8px;
+    max-height: 70px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.description-text.expanded {
+    max-height: 500px;
+}
+
+.composition-text {
+    background-color: #f8f9fa;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-top: 8px;
+    max-height: 70px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.composition-text.expanded {
+    max-height: 500px;
+}
+
+/* Стили для футера продукта */
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+/* Анимация для плавного появления */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
         /* Адаптивность */
         @media (max-width: 768px) {
             .container {
