@@ -249,7 +249,7 @@ const ProductFormsManager = {
                     <label for="composition${index}" class="required">Состав</label>
                     <textarea id="composition${index}" name="composition${index}"
                         placeholder="Ингредиенты или компоненты продукта"></textarea>
-                    <div class="error-message" id="composition${index}-error">Поле "Состав" обязательно для заполнения</div>
+                    <div class="error-message" id="composition${index}-error">Поле "Состав" обязательно для заполвания</div>
                 </div>
                 <div class="form-group">
                     <label for="photo${index}">Фото продукта</label>
@@ -729,6 +729,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Сохраняем компанию с продуктами
                 const company = ProductStorage.saveCompanyProducts(companyName, validProducts);
                 
+                // ВЫВОД ИТОГОВОГО ОБЪЕКТА В КОНСОЛЬ
+                console.log('=== ИТОГОВЫЙ ОБЪЕКТ КОМПАНИИ ===');
+                console.log('Структура сохраненного объекта:');
+                console.log(JSON.stringify(company, null, 2));
+                
+                // Подробный вывод с разбивкой
+                console.log('\n--- Детализация объекта ---');
+                console.log(`Название компании: ${company.name}`);
+                console.log(`Event ID: ${company.eventId}`);
+                console.log(`Дата создания: ${new Date(company.createdAt).toLocaleString('ru-RU')}`);
+                console.log(`Дата изменения: ${new Date(company.editedAt).toLocaleString('ru-RU')}`);
+                console.log(`Количество продуктов: ${company.products.length}`);
+                
+                console.log('\n--- Список продуктов ---');
+                company.products.forEach((product, index) => {
+                    console.log(`\nПродукт ${index + 1}:`);
+                    console.log(`  Название: ${product.productName}`);
+                    console.log(`  Производитель: ${product.manufacturer}`);
+                    console.log(`  Бренд: ${product.brand}`);
+                    console.log(`  Цена: ${product.price} руб.`);
+                    console.log(`  Вес/Объем: ${product.weight}`);
+                    console.log(`  Есть фото: ${product.photo ? 'Да' : 'Нет'}`);
+                });
+                
+                console.log('\n--- Проверка структуры ---');
+                console.log('Компания имеет eventId:', company.eventId === 51);
+                console.log('Продукты НЕ имеют eventId:', company.products.every(p => !p.hasOwnProperty('eventId')));
+                console.log('Объект сохранен в localStorage:', true);
+                console.log('===============================');
+                
                 // Показываем сообщение об успехе
                 const successMessage = document.getElementById('successMessage');
                 if (successMessage) {
@@ -737,7 +767,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         Данные успешно сохранены!<br>
                         Компания: <strong>${companyName}</strong><br>
                         Event ID: <strong>${ProductStorage.EVENT_ID}</strong><br>
-                        Количество продуктов: <strong>${validProducts.length}</strong>
+                        Количество продуктов: <strong>${validProducts.length}</strong><br>
+                        <small>Объект выведен в консоль браузера (F12)</small>
                     `;
                     successMessage.style.display = 'block';
                     
@@ -746,20 +777,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     setTimeout(() => {
                         successMessage.style.display = 'none';
-                    }, 5000);
+                    }, 8000);
                 }
                 
                 // Очищаем формы для нового ввода
                 ProductFormsManager.clearAllForms();
                 document.getElementById('company').value = '';
-                
-                // Логируем результат
-                console.log('=== Данные успешно сохранены ===');
-                console.log('Название компании:', companyName);
-                console.log('Event ID компании:', ProductStorage.EVENT_ID);
-                console.log('Количество продуктов:', validProducts.length);
-                console.log('Структура компании:', company);
-                console.log('-------------------------');
                 
             } catch (error) {
                 console.error('Ошибка при сохранении компании:', error);
@@ -784,5 +807,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('7. После заполнения всех форм нажмите "Загрузить в базу данных"');
     console.log('8. Компания создается с eventId = 51 (продукты БЕЗ eventId)');
     console.log('9. Для демо-данных дважды кликните по заголовку');
+    console.log('10. Итоговый объект будет выведен в консоль (F12)');
     console.log('===============================');
 });
