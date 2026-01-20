@@ -500,6 +500,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let visibleCards = 3;
     let scrollLeftHandler = null;
     let scrollRightHandler = null;
+    let modalOverlay = null;
+    let modalImage = null;
+    let modalCloseBtn = null;
 
     // Инициализация данных
     function initProductsData() {
@@ -963,6 +966,287 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }, 250);
     });
+
+    // Создаем модальное окно для изображений
+    function createImageModal() {
+        modalOverlay = document.createElement('div');
+        modalOverlay.className = 'image-modal-overlay';
+        modalOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 2000;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    `;
+
+        modalImage = document.createElement('img');
+        modalImage.className = 'modal-image';
+        modalImage.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+    `;
+
+        modalCloseBtn = document.createElement('button');
+        modalCloseBtn.className = 'modal-close-btn';
+        modalCloseBtn.innerHTML = '×';
+        modalCloseBtn.style.cssText = `
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: #fff;
+        color: #333;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 2001;
+    `;
+
+        modalCloseBtn.addEventListener('mouseenter', () => {
+            modalCloseBtn.style.transform = 'scale(1.1)';
+            modalCloseBtn.style.background = '#ff4444';
+            modalCloseBtn.style.color = '#fff';
+        });
+
+        modalCloseBtn.addEventListener('mouseleave', () => {
+            modalCloseBtn.style.transform = 'scale(1)';
+            modalCloseBtn.style.background = '#fff';
+            modalCloseBtn.style.color = '#333';
+        });
+
+        modalOverlay.appendChild(modalImage);
+        modalOverlay.appendChild(modalCloseBtn);
+        document.body.appendChild(modalOverlay);
+
+        // Закрытие по клику на оверлей
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeImageModal();
+            }
+        });
+
+        // Закрытие по кнопке
+        modalCloseBtn.addEventListener('click', closeImageModal);
+
+        // Закрытие по Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.style.display !== 'none') {
+                closeImageModal();
+            }
+        });
+    }
+
+    // Функция открытия модального окна с изображением
+    function openImageModal(imageSrc, altText) {
+    if (!modalOverlay) {
+        createImageModal();
+    }
+
+    modalImage.src = imageSrc;
+    modalImage.alt = altText;
+
+    // Сбрасываем стили
+    modalImage.style.maxWidth = '';
+    modalImage.style.maxHeight = '';
+    modalImage.style.width = '';
+    modalImage.style.height = '';
+
+    // Показываем модальное окно
+    modalOverlay.style.display = 'flex';
+    setTimeout(() => {
+        modalOverlay.style.opacity = '1';
+        
+        // Всегда устанавливаем 80% от экрана
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+        
+        modalImage.style.width = (screenWidth * 0.8) + 'px';
+        modalImage.style.height = (screenHeight * 0.8) + 'px';
+        modalImage.style.maxWidth = 'none';
+        modalImage.style.maxHeight = 'none';
+        modalImage.style.objectFit = 'contain';
+        modalImage.style.transform = 'scale(1)';
+        
+        // Загружаем оригинал для проверки
+        const tempImg = new Image();
+        tempImg.src = imageSrc;
+        
+        tempImg.onload = function() {
+            const originalWidth = tempImg.naturalWidth;
+            const originalHeight = tempImg.naturalHeight;
+            const aspectRatio = originalWidth / originalHeight;
+            
+            // Пересчитываем с сохранением пропорций
+            let targetWidth = screenWidth * 0.8;
+            let targetHeight = targetWidth / aspectRatio;
+            
+            if (targetHeight > screenHeight * 0.8) {
+                targetHeight = screenHeight * 0.8;
+                targetWidth = targetHeight * aspectRatio;
+            }
+            
+            modalImage.style.width = targetWidth + 'px';
+            modalImage.style.height = targetHeight + 'px';
+        };
+        
+    }, 10);
+
+    document.body.style.overflow = 'hidden';
+}
+
+    // Функция закрытия модального окна
+    function closeImageModal() {
+        if (!modalOverlay) return;
+
+        modalOverlay.style.opacity = '0';
+        modalImage.style.transform = 'scale(0.9)';
+
+        setTimeout(() => {
+            modalOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }, 300);
+    }
+
+    // В функции addEventListeners() добавьте обработчики для изображений
+    function addEventListeners() {
+        // Обработчики для кнопок "подробнее"
+        document.querySelectorAll('.show-more-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const productId = this.getAttribute('data-product-id');
+                const type = this.getAttribute('data-type');
+
+                const fullElement = document.getElementById(`full-${type}-${productId}`);
+                const sectionTitle = this.closest('.section-title');
+
+                if (!fullElement || !sectionTitle) return;
+
+                // Скрываем весь блок с сокращенным текстом
+                sectionTitle.style.display = 'none';
+                // Показываем полный текст
+                fullElement.style.display = 'block';
+            });
+        });
+
+        // Обработчики для кнопок "скрыть"
+        document.querySelectorAll('.show-less-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const productId = this.getAttribute('data-product-id');
+                const type = this.getAttribute('data-type');
+
+                const fullElement = document.getElementById(`full-${type}-${productId}`);
+                const sectionElement = this.closest(`.${type}-section`);
+                const sectionTitle = sectionElement.querySelector('.section-title');
+
+                if (!fullElement || !sectionTitle) return;
+
+                // Скрываем полный текст
+                fullElement.style.display = 'none';
+                // Показываем блок с сокращенным текстом
+                sectionTitle.style.display = 'block';
+            });
+        });
+
+        // Обработчики для изображений товаров (увеличение по клику)
+        document.querySelectorAll('.product-image img').forEach(img => {
+            img.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const imageSrc = this.src;
+                const altText = this.alt || 'Изображение товара';
+
+                openImageModal(imageSrc, altText);
+            });
+
+            // Добавляем курсор-указатель для изображений
+            img.style.cursor = 'pointer';
+
+            // Добавляем эффект при наведении
+            img.addEventListener('mouseenter', function () {
+                this.style.transform = 'scale(1.02)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+
+            img.addEventListener('mouseleave', function () {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Обработчики для кнопок голосования
+        document.querySelectorAll('.vote-btn:not(.voted)').forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = this.getAttribute('data-product-id');
+
+                let productFound = false;
+                for (const company of companiesArray) {
+                    if (company.products) {
+                        const productIndex = company.products.findIndex(p => p.id === productId);
+                        if (productIndex !== -1) {
+                            productFound = true;
+
+                            let userVotes = JSON.parse(sessionStorage.getItem('userVotes') || '{}');
+
+                            if (userVotes[productId]) {
+                                alert('Вы уже отдали голос за этот товар!');
+                                return;
+                            }
+
+                            company.products[productIndex].hasVoted = true;
+                            userVotes[productId] = true;
+                            sessionStorage.setItem('userVotes', JSON.stringify(userVotes));
+
+                            this.classList.add('voted');
+                            this.innerHTML = '<i class="fas fa-thumbs-up"></i> Голос отдан';
+                            this.disabled = true;
+
+                            showSuccessMessage('Ваш голос учтен! Спасибо за участие.');
+                            break;
+                        }
+                    }
+                }
+
+                if (!productFound) {
+                    console.error('Продукт не найден:', productId);
+                }
+            });
+        });
+    }
+
+    // В функции инициализации (в конце) добавьте создание модального окна
+    // Инициализация при загрузке страницы
+    initProductsData();
+    displayProducts();
+    createImageModal(); // Добавьте эту строку
+
+    // Функция для обновления данных
+    window.refreshProducts = function () {
+        initProductsData();
+        displayProducts();
+    };
 
     // Инициализация при загрузке страницы
     initProductsData();
