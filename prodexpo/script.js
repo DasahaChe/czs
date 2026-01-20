@@ -368,8 +368,9 @@ const ProductTable = {
         const editButtons = this.tableContainer.querySelectorAll('.btn-edit');
         editButtons.forEach(button => {
             button.addEventListener('click', (e) => {
-                const companyName = e.target.dataset.company || e.target.closest('.btn-edit').dataset.company;
-                const productId = e.target.dataset.productId || e.target.closest('.btn-edit').dataset.productId;
+                const btn = e.target.closest('.btn-edit');
+                const companyName = btn.dataset.company;
+                const productId = btn.dataset.productId;
                 
                 if (companyName && productId) {
                     ProductForm.loadProductForEditing(companyName, productId);
@@ -381,8 +382,9 @@ const ProductTable = {
         const deleteButtons = this.tableContainer.querySelectorAll('.btn-delete');
         deleteButtons.forEach(button => {
             button.addEventListener('click', (e) => {
-                const companyName = e.target.dataset.company || e.target.closest('.btn-delete').dataset.company;
-                const productId = e.target.dataset.productId || e.target.closest('.btn-delete').dataset.productId;
+                const btn = e.target.closest('.btn-delete');
+                const companyName = btn.dataset.company;
+                const productId = btn.dataset.productId;
                 
                 if (companyName && productId && confirm(`Вы уверены, что хотите удалить продукт "${productId}"?`)) {
                     try {
@@ -656,6 +658,9 @@ const ProductForm = {
                 
                 // Выходим из режима редактирования
                 this.exitEditMode();
+                
+                // Очищаем форму для следующего продукта
+                this.clearFormForNextProduct();
             } else {
                 // Режим добавления
                 // Проверяем лимит продуктов
@@ -671,6 +676,9 @@ const ProductForm = {
                 
                 // Переключаем кнопку на "Добавить продукт"
                 this.updateSubmitButtonText();
+                
+                // Очищаем форму для следующего продукта
+                this.clearFormForNextProduct();
             }
             
             // Обновляем заголовок продукта
@@ -681,11 +689,6 @@ const ProductForm = {
             
             // Логируем результат
             this.logResult(companyName);
-            
-            // Если это добавление нового продукта, очищаем форму
-            if (!this.isEditMode) {
-                this.clearFormForNextProduct();
-            }
             
         } catch (error) {
             console.error('Ошибка при сохранении продукта:', error);
@@ -707,8 +710,8 @@ const ProductForm = {
         
         console.log('Загружаем продукт для редактирования:', product);
         
-        // Заполняем форму данными продукта
-        document.getElementById('company').value = companyName;
+        // Заполняем форму данными продукта - ИСПРАВЛЕНО
+        document.getElementById('company').value = companyName || '';
         document.getElementById('manufacturer').value = product.manufacturer || '';
         document.getElementById('country').value = product.country || '';
         document.getElementById('city').value = product.city || '';
@@ -741,7 +744,7 @@ const ProductForm = {
         
         // Обновляем заголовок
         if (this.productTitle) {
-            this.productTitle.textContent = `Редактирование продукта: ${product.productName}`;
+            this.productTitle.textContent = `Редактирование продукта: ${product.productName || ''}`;
         }
         
         // Обновляем текст кнопки на "Сохранить изменения"
@@ -749,6 +752,9 @@ const ProductForm = {
         
         // Скрываем ошибку фото при редактировании (фото уже есть в данных продукта)
         this.hideError('photo-error');
+        
+        // Сбрасываем все ошибки
+        this.resetErrors();
         
         // Прокрутка к форме
         this.form.scrollIntoView({ behavior: 'smooth' });
@@ -955,6 +961,16 @@ const ProductForm = {
         // Демо-фото
         this.previewImage.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjNGI2Y2I3Ii8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWtkZGxlIiB0ZXh0LWFuY2hvcj0ibWtkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0Ij5EZW1vIFBob3RvPC90ZXh0Pgo8L3N2Zz4K";
         this.photoPreview.style.display = 'block';
+        
+        // Создаем фиктивный файл для демо
+        const mockFile = new File([""], "demo_photo.jpg", {
+            type: "image/jpeg",
+            lastModified: new Date().getTime()
+        });
+        
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(mockFile);
+        this.photoInput.files = dataTransfer.files;
         
         // Обновляем состояние формы
         this.currentCompany = demoData.company;
