@@ -1422,3 +1422,33 @@ select:focus {
 .product-form-section {
     animation: slideIn 0.4s ease-out;
 }
+
+.show-more {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: 5px;
+    font-size: 0.9em;
+}
+
+.show-more:hover {
+    color: #0056b3;
+}
+
+.full-description,
+.full-composition {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border-left: 3px solid #007bff;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
