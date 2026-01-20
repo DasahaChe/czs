@@ -37,6 +37,8 @@ const ProductStorage = {
      * @returns {Object|null} Объект компании или null
      */
     findCompanyByName(companyName) {
+        if (!companyName || !companyName.trim()) return null;
+        
         const companies = this.getAllCompanies();
         return companies.find(company => 
             company.name.toLowerCase() === companyName.trim().toLowerCase()
@@ -49,6 +51,8 @@ const ProductStorage = {
      * @returns {number} Индекс компании или -1
      */
     findCompanyIndexByName(companyName) {
+        if (!companyName || !companyName.trim()) return -1;
+        
         const companies = this.getAllCompanies();
         return companies.findIndex(company => 
             company.name.toLowerCase() === companyName.trim().toLowerCase()
@@ -134,12 +138,59 @@ const ProductStorage = {
             throw new Error(`Продукт с ID "${productId}" не найден`);
         }
         
+        // Сохраняем данные фото из старой записи, если новое фото не загружено
+        if (productData.photo === null && company.products[productId].photo) {
+            productData.photo = company.products[productId].photo;
+        }
+        
         // Обновляем продукт
         company.products[productId] = {
             ...company.products[productId],
             ...productData,
             editedAt: new Date().toISOString()
         };
+        
+        // Обновляем дату изменения компании
+        company.editedAt = new Date().toISOString();
+        
+        // Сохраняем изменения
+        this.saveAllCompanies(companies);
+        
+        return company;
+    },
+    
+    /**
+     * Удаляет продукт из компании
+     * @param {string} companyName - Название компании
+     * @param {string} productId - ID продукта
+     * @returns {Object} Обновленный объект компании
+     */
+    deleteProduct(companyName, productId) {
+        const companies = this.getAllCompanies();
+        const companyIndex = this.findCompanyIndexByName(companyName);
+        
+        if (companyIndex === -1) {
+            throw new Error(`Компания "${companyName}" не найдена`);
+        }
+        
+        const company = companies[companyIndex];
+        
+        if (!company.products[productId]) {
+            throw new Error(`Продукт с ID "${productId}" не найден`);
+        }
+        
+        // Удаляем продукт
+        delete company.products[productId];
+        
+        // Переиндексируем оставшиеся продукты
+        const productEntries = Object.entries(company.products);
+        company.products = {};
+        
+        productEntries.forEach(([oldId, product], index) => {
+            const newId = `product${index + 1}`;
+            product.id = newId;
+            company.products[newId] = product;
+        });
         
         // Обновляем дату изменения компании
         company.editedAt = new Date().toISOString();
@@ -242,9 +293,16 @@ const ProductTable = {
                             <th>#</th>
                             <th>Название продукта</th>
                             <th>Производитель</th>
+                            <th>Страна</th>
+                            <th>Город</th>
                             <th>Бренд</th>
-                            <th>Цена</th>
                             <th>Категория</th>
+                            <th>Цена</th>
+                            <th>Фасовка</th>
+                            <th>Вес/Объем</th>
+                            <th>Состав</th>
+                            <th>Описание</th>
+                            <th>Сайт</th>
                             <th>Дата добавления</th>
                             <th>Действия</th>
                         </tr>
@@ -263,16 +321,28 @@ const ProductTable = {
             html += `
                 <tr data-product-id="${productId}">
                     <td>${index + 1}</td>
-                    <td>${this.escapeHtml(product.productName)}</td>
-                    <td>${this.escapeHtml(product.manufacturer)}</td>
+                    <td title="${this.escapeHtml(product.productName)}">${this.truncateText(product.productName, 20)}</td>
+                    <td title="${this.escapeHtml(product.manufacturer)}">${this.truncateText(product.manufacturer, 15)}</td>
+                    <td>${this.escapeHtml(product.country)}</td>
+                    <td>${this.escapeHtml(product.city)}</td>
                     <td>${this.escapeHtml(product.brand)}</td>
-                    <td>${product.price.toFixed(2)} ₽</td>
                     <td>${this.escapeHtml(product.category)}</td>
+                    <td>${product.price ? product.price.toFixed(2) : '0.00'} ₽</td>
+                    <td title="${this.escapeHtml(product.packaging)}">${this.truncateText(product.packaging, 15)}</td>
+                    <td>${this.escapeHtml(product.weight)}</td>
+                    <td title="${this.escapeHtml(product.composition)}">${this.truncateText(product.composition, 30)}</td>
+                    <td title="${this.escapeHtml(product.description)}">${this.truncateText(product.description, 40)}</td>
+                    <td title="${this.escapeHtml(product.website)}">${this.truncateText(product.website, 20)}</td>
                     <td>${formattedDate}</td>
                     <td>
-                        <button class="btn-edit" data-company="${companyName}" data-product-id="${productId}">
-                            <i class="fas fa-edit"></i> Редактировать
-                        </button>
+                        <div class="table-actions">
+                            <button class="btn-edit" data-company="${companyName}" data-product-id="${productId}">
+                                <i class="fas fa-edit"></i> Редактировать
+                            </button>
+                            <button class="btn-delete" data-company="${companyName}" data-product-id="${productId}">
+                                <i class="fas fa-trash"></i> Удалить
+                            </button>
+                        </div>
                     </td>
                 </tr>
             `;
@@ -286,14 +356,15 @@ const ProductTable = {
         
         this.tableContainer.innerHTML = html;
         
-        // Привязываем обработчики кнопок редактирования
-        this.bindEditButtons();
+        // Привязываем обработчики кнопок
+        this.bindButtons();
     },
     
     /**
-     * Привязывает обработчики кнопок редактирования
+     * Привязывает обработчики кнопок
      */
-    bindEditButtons() {
+    bindButtons() {
+        // Кнопки редактирования
         const editButtons = this.tableContainer.querySelectorAll('.btn-edit');
         editButtons.forEach(button => {
             button.addEventListener('click', (e) => {
@@ -305,15 +376,50 @@ const ProductTable = {
                 }
             });
         });
+        
+        // Кнопки удаления
+        const deleteButtons = this.tableContainer.querySelectorAll('.btn-delete');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const companyName = e.target.dataset.company || e.target.closest('.btn-delete').dataset.company;
+                const productId = e.target.dataset.productId || e.target.closest('.btn-delete').dataset.productId;
+                
+                if (companyName && productId && confirm(`Вы уверены, что хотите удалить продукт "${productId}"?`)) {
+                    try {
+                        ProductStorage.deleteProduct(companyName, productId);
+                        ProductForm.updateTable();
+                        ProductForm.updateProductTitle();
+                        ProductForm.updateSubmitButtonText();
+                        
+                        // Показываем сообщение об успехе
+                        ProductForm.showSuccess(companyName, `Продукт успешно удален!`);
+                        
+                        console.log(`Продукт удален: ${companyName} - ${productId}`);
+                    } catch (error) {
+                        alert(`Ошибка при удалении продукта: ${error.message}`);
+                    }
+                }
+            });
+        });
     },
     
     /**
      * Экранирует HTML-символы
      */
     escapeHtml(text) {
+        if (!text) return '';
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    },
+    
+    /**
+     * Обрезает текст до указанной длины
+     */
+    truncateText(text, maxLength) {
+        if (!text) return '';
+        if (text.length <= maxLength) return this.escapeHtml(text);
+        return this.escapeHtml(text.substring(0, maxLength)) + '...';
     },
     
     /**
@@ -374,14 +480,38 @@ const ProductForm = {
         this.resetButton.addEventListener('click', () => this.handleReset());
         
         // Изменение поля компании
-        document.getElementById('company').addEventListener('change', (e) => {
-            this.currentCompany = e.target.value.trim();
-            this.updateProductTitle();
-            this.updateTable();
+        const companyInput = document.getElementById('company');
+        companyInput.addEventListener('input', (e) => {
+            this.handleCompanyChange(e.target.value);
+        });
+        
+        companyInput.addEventListener('change', (e) => {
+            this.handleCompanyChange(e.target.value);
         });
         
         // Демо-данные при двойном клике
         document.querySelector('header').addEventListener('dblclick', () => this.fillDemoData());
+    },
+    
+    /**
+     * Обрабатывает изменение поля компании
+     */
+    handleCompanyChange(companyName) {
+        const trimmedName = companyName.trim();
+        this.currentCompany = trimmedName;
+        
+        // Обновляем заголовок
+        this.updateProductTitle();
+        
+        // Обновляем таблицу если есть компания
+        if (trimmedName) {
+            this.updateTable();
+        } else {
+            ProductTable.clear();
+        }
+        
+        // Обновляем текст кнопки
+        this.updateSubmitButtonText();
     },
     
     /**
@@ -421,7 +551,7 @@ const ProductForm = {
     collectFormData() {
         const priceValue = document.getElementById('price').value;
         
-        return {
+        const productData = {
             manufacturer: document.getElementById('manufacturer').value.trim(),
             country: document.getElementById('country').value.trim(),
             city: document.getElementById('city').value.trim(),
@@ -434,14 +564,27 @@ const ProductForm = {
             weight: document.getElementById('weight').value.trim(),
             composition: document.getElementById('composition').value.trim(),
             website: document.getElementById('website').value.trim(),
-            photo: this.photoInput.files[0] ? {
+            photo: null
+        };
+        
+        // Добавляем фото только если оно было загружено
+        if (this.photoInput.files && this.photoInput.files[0]) {
+            productData.photo = {
                 fileName: this.photoInput.files[0].name,
                 fileSize: this.photoInput.files[0].size,
                 fileType: this.photoInput.files[0].type,
                 lastModified: new Date(this.photoInput.files[0].lastModified).toLocaleString(),
                 dataUrl: this.previewImage.src
-            } : null
-        };
+            };
+        } else if (this.isEditMode && this.currentProductId) {
+            // В режиме редактирования, если фото не загружено новое, сохраняем старое
+            const oldProduct = ProductStorage.getProductById(this.currentCompany, this.currentProductId);
+            if (oldProduct && oldProduct.photo) {
+                productData.photo = oldProduct.photo;
+            }
+        }
+        
+        return productData;
     },
     
     /**
@@ -482,7 +625,7 @@ const ProductForm = {
             isValid = false;
         }
         
-        // Проверка фото (только при добавлении нового продукта)
+        // Проверка фото (только при добавлении нового продукта и не в режиме редактирования)
         if (!this.isEditMode && (!this.photoInput.files || this.photoInput.files.length === 0)) {
             this.showError('photo-error', 'Пожалуйста, загрузите фотографию продукта');
             isValid = false;
@@ -507,9 +650,11 @@ const ProductForm = {
             const productData = this.collectFormData();
             
             if (this.isEditMode && this.currentProductId) {
-                // Режим редактирования
+                // Режим редактирования - перезаписываем продукт
                 ProductStorage.updateProduct(companyName, this.currentProductId, productData);
                 this.showSuccess(companyName, `Продукт успешно обновлен!`);
+                
+                // Выходим из режима редактирования
                 this.exitEditMode();
             } else {
                 // Режим добавления
@@ -560,6 +705,8 @@ const ProductForm = {
             return;
         }
         
+        console.log('Загружаем продукт для редактирования:', product);
+        
         // Заполняем форму данными продукта
         document.getElementById('company').value = companyName;
         document.getElementById('manufacturer').value = product.manufacturer || '';
@@ -575,11 +722,17 @@ const ProductForm = {
         document.getElementById('composition').value = product.composition || '';
         document.getElementById('website').value = product.website || '';
         
-        // Обработка фото
+        // Обработка фото - ИСПРАВЛЕНО
         if (product.photo && product.photo.dataUrl) {
             this.previewImage.src = product.photo.dataUrl;
             this.photoPreview.style.display = 'block';
+        } else {
+            this.previewImage.src = '';
+            this.photoPreview.style.display = 'none';
         }
+        
+        // Сбрасываем файловый инпут (но сохраняем превью если оно есть)
+        this.photoInput.value = '';
         
         // Устанавливаем режим редактирования
         this.isEditMode = true;
@@ -588,11 +741,14 @@ const ProductForm = {
         
         // Обновляем заголовок
         if (this.productTitle) {
-            this.productTitle.textContent = `Редактирование продукта`;
+            this.productTitle.textContent = `Редактирование продукта: ${product.productName}`;
         }
         
-        // Обновляем текст кнопки
-        this.submitButton.innerHTML = '<i class="fas fa-save"></i> Сохранить изменения';
+        // Обновляем текст кнопки на "Сохранить изменения"
+        this.updateSubmitButtonText();
+        
+        // Скрываем ошибку фото при редактировании (фото уже есть в данных продукта)
+        this.hideError('photo-error');
         
         // Прокрутка к форме
         this.form.scrollIntoView({ behavior: 'smooth' });
@@ -614,8 +770,34 @@ const ProductForm = {
      * Обрабатывает сброс формы
      */
     handleReset() {
-        this.clearFormForNextProduct();
+        // Сохраняем значение компании
+        const companyValue = document.getElementById('company').value;
+        
+        // Сбрасываем форму
+        this.form.reset();
+        
+        // Восстанавливаем значение компании
+        document.getElementById('company').value = companyValue;
+        
+        // Сбрасываем фото
+        this.previewImage.src = '';
+        this.photoPreview.style.display = 'none';
+        this.photoInput.value = '';
+        
+        // Сбрасываем ошибки
+        this.resetErrors();
+        
+        // Выходим из режима редактирования
         this.exitEditMode();
+        
+        // Обновляем заголовок и кнопку
+        this.updateProductTitle();
+        this.updateSubmitButtonText();
+        
+        // Обновляем таблицу если компания есть
+        if (companyValue.trim()) {
+            this.updateTable();
+        }
     },
     
     /**
@@ -661,9 +843,14 @@ const ProductForm = {
         }
         
         const productCount = ProductStorage.getProductCount(companyName);
-        this.productTitle.textContent = this.isEditMode ? 
-            'Редактирование продукта' : 
-            `Продукт ${productCount + 1}`;
+        if (this.isEditMode) {
+            const productName = document.getElementById('productName').value;
+            this.productTitle.textContent = productName ? 
+                `Редактирование продукта: ${productName}` : 
+                'Редактирование продукта';
+        } else {
+            this.productTitle.textContent = `Продукт ${productCount + 1}`;
+        }
     },
     
     /**
@@ -675,11 +862,14 @@ const ProductForm = {
         const companyName = document.getElementById('company').value.trim();
         const productCount = ProductStorage.getProductCount(companyName);
         
-        if (productCount > 0 && !this.isEditMode) {
-            this.submitButton.innerHTML = '<i class="fas fa-plus-circle"></i> Добавить продукт';
-        } else if (this.isEditMode) {
+        if (this.isEditMode) {
+            // В режиме редактирования - "Сохранить изменения"
             this.submitButton.innerHTML = '<i class="fas fa-save"></i> Сохранить изменения';
+        } else if (productCount > 0) {
+            // Если у компании уже есть продукты - "Добавить продукт"
+            this.submitButton.innerHTML = '<i class="fas fa-plus-circle"></i> Добавить продукт';
         } else {
+            // Для первой записи - "Сохранить продукт"
             this.submitButton.innerHTML = '<i class="fas fa-save"></i> Сохранить продукт';
         }
     },
@@ -770,6 +960,7 @@ const ProductForm = {
         this.currentCompany = demoData.company;
         this.updateSubmitButtonText();
         this.updateProductTitle();
+        this.updateTable();
         
         console.log("Форма заполнена демо-данными. Готово к добавлению!");
     },
@@ -843,12 +1034,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Выводим инструкции
     console.log('=== Инструкция по использованию ===');
-    console.log('1. Введите название компании и данные продукта');
+    console.log('1. Введите название компании - сразу появится таблица с продуктами (если есть)');
     console.log('2. Нажмите "Сохранить продукт" для первого продукта');
     console.log('3. Для следующих продуктов кнопка меняется на "Добавить продукт"');
-    console.log('4. Таблица продуктов появляется после сохранения первого продукта');
-    console.log('5. Нажмите "Редактировать" в таблице для изменения продукта');
-    console.log('6. Компания может иметь до 6 продуктов');
-    console.log('7. Для демо-данных дважды кликните по заголовку');
+    console.log('4. В таблице отображаются все поля продуктов (наведите для полного текста)');
+    console.log('5. Нажмите "Редактировать" в таблице для загрузки продукта в форму');
+    console.log('6. При редактировании кнопка меняется на "Сохранить изменения"');
+    console.log('7. Нажмите "Сохранить изменения" для обновления продукта');
+    console.log('8. Нажмите "Удалить" в таблице для удаления продукта');
+    console.log('9. Компания может иметь до 6 продуктов');
+    console.log('10. Для демо-данных дважды кликните по заголовку');
     console.log('===============================');
 });
