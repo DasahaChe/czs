@@ -5,11 +5,12 @@
     --base-font-line-height: 1em;
     --base-gap: 1em;   
     --fon: #f6f6f6; 
-    --grey: #ABABAB;
-    --peGreen: #02723a;
-    --GreenGrey: #8fb1a0;
+    --grey: #60676f;
+    /* --peGreen: #02723a; */
+    --peGreen: #026131;
+    --GreenGrey: #9da19f;
     --peRad: #770909;
-    --blue: #005BAA;  
+    --darckGrey: #484849;  
 }
 
 @font-face {
@@ -28,7 +29,7 @@
 
 /* Общие стили */
 body {
-    padding: 4em 6em;
+    padding: 1em 6em;
     background-color: var(--fon);
     height: 100vh;
     box-sizing: border-box;
@@ -52,20 +53,20 @@ header {
     text-align: center;
     margin-bottom: 30px;
     padding: 20px;
-    background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+    background: linear-gradient(135deg, #e1e1e1 0%, #cbc5c5 100%);
     border-radius: 10px;
-    color: white;
+    color: var(--peGreen);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 2.0rem;
+    margin: 0;
 }
 
 .header-subtitle {
-    font-size: 1.1rem;
-    opacity: 0.9;
+    margin: 0;
+    color:var(--darckGrey);
 }
 
 /* Форма */
@@ -89,8 +90,9 @@ h1 {
 
 .section-title {
     font-size: 0.75rem;
-    margin: 20px 0 0 0;
+    margin: 0;
     padding-bottom: 10px;
+    color: var(--darckGrey);
 }
 
 
@@ -233,9 +235,8 @@ textarea {
 }
 
 .pagination-info {
-    font-size: 1.1rem;
-    color: #2c3e50;
-    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--darckGrey);
 }
 
 .pagination-controls {
@@ -249,7 +250,7 @@ textarea {
     border: none;
     border-radius: 6px;
     background: #f1f2f6;
-    color: #2c3e50;
+    color: var(--darckGrey);
     cursor: pointer;
     font-weight: 600;
     transition: all 0.2s;
@@ -271,20 +272,19 @@ textarea {
     justify-content: center;
     border-radius: 6px;
     background: #f1f2f6;
-    color: #2c3e50;
+    color: var(--darckGrey);
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .page-number.active {
-    background: #4b6cb7;
+    background: var(--peGreen);
     color: white;
 }
 
 /* Карточки товаров */
 .products-wrapper {
-    margin-bottom: 40px;
     position: relative;
 }
 
@@ -298,14 +298,15 @@ textarea {
 }
 
 .product-card {
-    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: white;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
+   
 }
 
 .product-image {
@@ -335,9 +336,10 @@ textarea {
 
 .product-content {
     padding: 1em;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    /* height: 100%; */
 }
 
 .manufacturer, .city {
@@ -373,11 +375,12 @@ textarea {
 }
 
 .product-name {
+    min-height: 48px;
+    height: 100%;
     font-size: 1.2rem;
-    color: #2c3e50;
-    margin: 8px 0;
-    line-height: 1.3;
-    flex-grow: 1;
+    color: var(--darckGrey);
+    margin:0 0 8px 0;
+    line-height: 1.2;
 }
 
 .price-section {
@@ -396,8 +399,9 @@ textarea {
 }
 
 .price-bage {
-    font-size: 0.85rem;
-    color: var(--peGreen);
+    width: 100px;
+    font-size: 0.75rem;
+    color: var(--GreenGrey);
 }
 
 .weight {
@@ -411,7 +415,7 @@ textarea {
 .details-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 4px;
     margin-bottom: 20px;
 }
 
@@ -422,22 +426,22 @@ textarea {
 
 .detail-label {
     width: 100px;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--GreenGrey);
     font-weight: 400;
 }
 
 .detail-value {
-    font-size: 0.85rem;
-    color: #2c3e50;
+    font-size: 0.75rem;
+    color: var(--darckGrey);
     font-weight: 400;
 }
 
 
 .composition-title {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     margin-bottom: 12px;
-    color: #2c3e50;
+    color: var(--darckGrey);
     display: flex;
     align-items: center;
     gap: 16px;
@@ -529,7 +533,7 @@ textarea {
     pointer-events: all;
     transition: all 0.2s;
     font-size: 1.2rem;
-    color: #2c3e50;
+    color: var(--darckGrey);
 }
 
 .scroll-arrow.left {
@@ -541,10 +545,10 @@ textarea {
 }
 
 /* Нижняя пагинация */
-#bottomPagination {
+/* #bottomPagination {
     margin-top: 30px;
     padding: 15px 0;
-}
+} */
 
 #bottomPagination .top-pagination {
     position: static;
@@ -606,111 +610,10 @@ textarea {
     transition: all 0.2s;
 }
 
-.product-footer {
+/* .product-footer {
     margin-top: auto;
-}
+} */
 
-/* Таблица продуктов */
-.product-table-container {
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-.product-table-header {
-    margin-bottom: 15px;
-}
-
-.product-table-header h3 {
-    color: #2c3e50;
-    margin: 0 0 5px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.product-table-header .subtitle {
-    color: #7f8c8d;
-    margin: 0;
-    font-size: 14px;
-}
-
-.table-responsive {
-    overflow-x: auto;
-    max-height: 500px;
-    overflow-y: auto;
-    border: 1px solid #e9ecef;
-    border-radius: 4px;
-}
-
-.product-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 0;
-    min-width: 1400px;
-}
-
-.product-table th {
-    background-color: #f8f9fa;
-    color: #2c3e50;
-    font-weight: 600;
-    padding: 12px 10px;
-    text-align: left;
-    border-bottom: 2px solid #e9ecef;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    font-size: 13px;
-}
-
-.product-table td {
-    padding: 10px;
-    border-bottom: 1px solid #e9ecef;
-    vertical-align: top;
-    font-size: 13px;
-}
-
-.product-table tbody tr:hover {
-    background-color: #f8f9fa;
-}
-
-.product-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.table-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    min-width: 120px;
-}
-
-.btn-edit, .btn-delete {
-    border: none;
-    padding: 6px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 12px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    white-space: nowrap;
-    width: 100%;
-}
-
-.btn-edit {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    color: white;
-}
-
-.btn-delete {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: white;
-}
 
 /* Состояние отсутствия продуктов */
 .empty-state {
@@ -730,7 +633,7 @@ textarea {
 .empty-state h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: #2c3e50;
+    color: var(--darckGrey);
 }
 
 .empty-state p {
@@ -752,11 +655,10 @@ textarea {
 
 .footer {
     text-align: center;
-    margin-top: 30px;
     padding: 20px;
     color: #7f8c8d;
     font-size: 0.9rem;
-    border-top: 1px solid #eee;
+
 }
 
 /* Ховеры и состояния */
@@ -824,7 +726,7 @@ select:focus {
 }
 
 .scroll-arrow:hover {
-    background: #4b6cb7;
+    background: var(--peGreen);
     color: white;
     transform: scale(1.1);
 }
@@ -894,7 +796,7 @@ select:focus {
     }
     
     h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     .form-container {
@@ -1348,7 +1250,7 @@ select:focus {
 }
 
 .btn-submit-db {
-    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    background: linear-gradient(135deg, #1b3d23 0%, var(--peGreen) 100%);
     color: white;
     padding: 15px 40px;
     font-size: 1.2rem;
@@ -1383,9 +1285,7 @@ select:focus {
 
 .form-footer {
     text-align: center;
-    margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid #eee;
     color: #95a5a6;
     font-size: 0.9rem;
 }
@@ -1498,3 +1398,44 @@ select:focus {
     opacity: 1;
 }
 
+.company-info{
+    display: flex;
+    gap: 16px;
+}
+
+.companyKP{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: linear-gradient(to right, #1b3d23, var(--peGreen));
+    color: #fff;
+    border-radius: 8px;
+    width: 300px;
+    font-size: 0.85rem;
+}
+
+.location{
+    font-size: 0.75rem;
+    color: var(--darckGrey);
+    min-height: 8px;
+    height: 100%;
+}
+
+.name-block{display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+    margin-bottom: 20px;
+}
+
+.show-more-btn, .show-less-btn{
+    color: #000000;
+}
+
+.show-more-btn:hover, .show-less-btn:hover{
+    color: var(--peGreen);
+}
+
+.grey{
+    color: var(--GreenGrey);
+}

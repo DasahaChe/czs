@@ -487,7 +487,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const scrollRightBtn = document.getElementById('scrollRight');
 
     // Конфигурация
-    const MAX_WORDS = 4;
+    const MAX_WORDS = 3;
     const CARDS_PER_PAGE = {
         mobile: 1,
         tablet: 2,
@@ -621,26 +621,23 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         
                         <div class="product-content">
-                                                        
+                             <div class="name-block">                           
                             <h3 class="product-name">${product.productName}</h3>  
                             
                             <div class="manufacturer-info">
                                 <div class="location">
                                     <i class="fas fa-map-marker-alt"></i> ${product.country || 'Не указано'} / ${product.city || 'Не указано'}
-                                </div>
-                                <div class="brand">
-                                    <i class="fas fa-tag"></i> ${product.brand || 'Не указан'}
-                                </div>
+                                </div>                                
                             </div>
-                            
+                            </div>
                             <!-- Описание -->
                             <div class="description-section">
                                 <div class="section-title">
-                                    <i class="fas fa-file-alt"></i> Описание: ${shortDescription}
+                                    <span class="grey"><i class="fas fa-file-alt"></i> Описание: </span>${shortDescription}
                                     <div class="show-more-btn" data-product-id="${product.id}" data-type="description">подробнее&gt;&gt;</div>
                                 </div>
                                 <div class="section-title full-text" id="full-description-${product.id}" style="display: none;">
-                                    <i class="fas fa-file-alt"></i> Описание: ${product.description || 'Нет данных'}
+                                    <span class="grey"><i class="fas fa-file-alt"></i> Описание: </span>${product.description || 'Нет данных'}
                                     <div class="show-less-btn" data-product-id="${product.id}" data-type="description">&lt;&lt;скрыть</div>
                                 </div>
                             </div>
@@ -659,21 +656,22 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <div class="detail-item">
                                     <span class="detail-label">Упаковка</span>
                                     <span class="detail-value">${product.packaging || '-'}</span>
-                                </div> 
+                                </div>                               
+                                
                                 <div class="detail-item">
-                                    <span class="detail-label">Производитель</span>
-                                    <span class="detail-value">${product.manufacturer || currentCompany.name}</span>
-                                </div>                            
+                                <span class="detail-label">Бренд</span>
+                                    <span class="detail-value">${product.brand || 'Не указан'}</span>
+                                </div>
                             </div>  
                             
                             <!-- Состав -->
                             <div class="composition-section">
                                 <div class="section-title">
-                                    <i class="fas fa-list-ul"></i> Состав: ${shortComposition}
+                                    <span class="grey"><i class="fas fa-list-ul"></i> Состав: </span>${shortComposition}
                                     <div class="show-more-btn" data-product-id="${product.id}" data-type="composition">подробнее&gt;&gt;</div>
                                 </div>
                                 <div class="section-title full-text" id="full-composition-${product.id}" style="display: none;">
-                                    <i class="fas fa-list-ul"></i> Состав: ${product.composition || 'Нет данных'}
+                                    <span class="grey"><i class="fas fa-list-ul"></i> Состав: </span>${product.composition || 'Нет данных'}
                                     <div class="show-less-btn" data-product-id="${product.id}" data-type="composition">&lt;&lt;скрыть</div>
                                 </div>
                             </div>
@@ -763,13 +761,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let paginationHTML = `
         <div class="top-pagination">
+        <div class="company-info">
+         <div class="companyKP">Запросить презентацию компании</div>
             <div class="pagination-info">
                 <strong>${currentCompany.name}</strong>
                 <div class="pagination-subinfo">
                     Компания ${currentCompanyNumber} из ${totalCompanies}
                 </div>
             </div>
-            
+        </div>   
             <div class="pagination-controls">
                 <button class="pagination-btn" id="${containerElement.id === 'topPagination' ? 'prevCompanyTop' : 'prevCompanyBottom'}" 
                         ${currentCompanyIndex === 0 ? 'disabled' : ''}>
