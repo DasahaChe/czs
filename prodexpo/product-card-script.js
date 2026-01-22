@@ -1005,7 +1005,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let paginationHTML = `
         <div class="top-pagination">
         <div class="company-info">
-         <div class="companyKP">Посмотреть презентацию компании</div>
+         <a href="#" class="companyKP">Посмотреть презентацию компании</a>
             <div class="pagination-info">
                 <strong>${currentCompany.name}</strong>
                 <div class="pagination-subinfo">
