@@ -30,6 +30,132 @@ const productsArray = [
                 "city": "Нижний Новгород",
                 "brand": "Речной",
                 "category": "drinks",
+                "productName": "1Вода минеральная газированная",
+                "description": "Натуральный продукт без искусственных добавок и консервантов. Произведено из отборного сырья с соблюдением всех стандартов качества.",
+                "price": 40.00,
+                "packaging": "Пластиковая бутылка с крышкой",
+                "weight": "2 л",
+                "composition": "Вода минеральная природная лечебно-столовая, добываемая из скважины глубиной 250 метров, диоксид углерода пищевой. Сохраняет все природные микроэлементы: магний, кальций, натрий, калий. Качественная вода.",
+                "website": "rechnoy.su",
+                "photo": {
+                    "fileName": "product_11.jpeg",
+                    "fileSize": 10234,
+                    "fileType": "image/jpeg",
+                    "lastModified": "21.05.2025, 19:40:33",
+                    "dataUrl": ""
+                }
+            },
+            {
+                "manufacturer": "ООО 'Молпродукт'",
+                "country": "Армения",
+                "city": "Нижний Новгород",
+                "brand": "Речной",
+                "category": "drinks",
+                "productName": "2Вода минеральная газированная",
+                "description": "Натуральный продукт без искусственных добавок и консервантов. Произведено из отборного сырья с соблюдением всех стандартов качества.",
+                "price": 40.00,
+                "packaging": "Пластиковая бутылка с крышкой",
+                "weight": "2 л",
+                "composition": "Вода минеральная природная лечебно-столовая, добываемая из скважины глубиной 250 метров, диоксид углерода пищевой. Сохраняет все природные микроэлементы: магний, кальций, натрий, калий. Качественная вода.",
+                "website": "rechnoy.su",
+                "photo": {
+                    "fileName": "product_11.jpeg",
+                    "fileSize": 10234,
+                    "fileType": "image/jpeg",
+                    "lastModified": "21.05.2025, 19:40:33",
+                    "dataUrl": ""
+                }
+            },
+            {
+                "manufacturer": "ООО 'Молпродукт'",
+                "country": "Армения",
+                "city": "Нижний Новгород",
+                "brand": "Речной",
+                "category": "drinks",
+                "productName": "3Вода минеральная газированная",
+                "description": "Натуральный продукт без искусственных добавок и консервантов. Произведено из отборного сырья с соблюдением всех стандартов качества.",
+                "price": 40.00,
+                "packaging": "Пластиковая бутылка с крышкой",
+                "weight": "2 л",
+                "composition": "Вода минеральная природная лечебно-столовая, добываемая из скважины глубиной 250 метров, диоксид углерода пищевой. Сохраняет все природные микроэлементы: магний, кальций, натрий, калий. Качественная вода.",
+                "website": "rechnoy.su",
+                "photo": {
+                    "fileName": "product_11.jpeg",
+                    "fileSize": 10234,
+                    "fileType": "image/jpeg",
+                    "lastModified": "21.05.2025, 19:40:33",
+                    "dataUrl": ""
+                }
+            },
+            {
+                "manufacturer": "ООО 'Молпродукт'",
+                "country": "Армения",
+                "city": "Нижний Новгород",
+                "brand": "Речной",
+                "category": "drinks",
+                "productName": "Вода минеральная газированная",
+                "description": "Натуральный продукт без искусственных добавок и консервантов. Произведено из отборного сырья с соблюдением всех стандартов качества.",
+                "price": 40.00,
+                "packaging": "Пластиковая бутылка с крышкой",
+                "weight": "2 л",
+                "composition": "Вода минеральная природная лечебно-столовая, добываемая из скважины глубиной 250 метров, диоксид углерода пищевой. Сохраняет все природные микроэлементы: магний, кальций, натрий, калий. Качественная вода.",
+                "website": "rechnoy.su",
+                "photo": {
+                    "fileName": "product_11.jpeg",
+                    "fileSize": 10234,
+                    "fileType": "image/jpeg",
+                    "lastModified": "21.05.2025, 19:40:33",
+                    "dataUrl": ""
+                }
+            },
+            {
+                "manufacturer": "ООО 'Молпродукт'",
+                "country": "Армения",
+                "city": "Нижний Новгород",
+                "brand": "Речной",
+                "category": "drinks",
+                "productName": "Вода минеральная газированная",
+                "description": "Натуральный продукт без искусственных добавок и консервантов. Произведено из отборного сырья с соблюдением всех стандартов качества.",
+                "price": 40.00,
+                "packaging": "Пластиковая бутылка с крышкой",
+                "weight": "2 л",
+                "composition": "Вода минеральная природная лечебно-столовая, добываемая из скважины глубиной 250 метров, диоксид углерода пищевой. Сохраняет все природные микроэлементы: магний, кальций, натрий, калий. Качественная вода.",
+                "website": "rechnoy.su",
+                "photo": {
+                    "fileName": "product_11.jpeg",
+                    "fileSize": 10234,
+                    "fileType": "image/jpeg",
+                    "lastModified": "21.05.2025, 19:40:33",
+                    "dataUrl": ""
+                }
+            },
+            {
+                "manufacturer": "ООО 'Молпродукт'",
+                "country": "Армения",
+                "city": "Нижний Новгород",
+                "brand": "Речной",
+                "category": "drinks",
+                "productName": "Вода минеральная газированная",
+                "description": "Натуральный продукт без искусственных добавок и консервантов. Произведено из отборного сырья с соблюдением всех стандартов качества.",
+                "price": 40.00,
+                "packaging": "Пластиковая бутылка с крышкой",
+                "weight": "2 л",
+                "composition": "Вода минеральная природная лечебно-столовая, добываемая из скважины глубиной 250 метров, диоксид углерода пищевой. Сохраняет все природные микроэлементы: магний, кальций, натрий, калий. Качественная вода.",
+                "website": "rechnoy.su",
+                "photo": {
+                    "fileName": "product_11.jpeg",
+                    "fileSize": 10234,
+                    "fileType": "image/jpeg",
+                    "lastModified": "21.05.2025, 19:40:33",
+                    "dataUrl": ""
+                }
+            },
+            {
+                "manufacturer": "ООО 'Молпродукт'",
+                "country": "Армения",
+                "city": "Нижний Новгород",
+                "brand": "Речной",
+                "category": "drinks",
                 "productName": "Вода минеральная газированная",
                 "description": "Натуральный продукт без искусственных добавок и консервантов. Произведено из отборного сырья с соблюдением всех стандартов качества.",
                 "price": 40.00,
@@ -483,6 +609,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const bottomPagination = document.getElementById('bottomPagination');
     const productsContainer = document.getElementById('productsContainer');
     const totalProductsCount = document.getElementById('totalProductsCount');
+    const scrollLineContainer = document.getElementById('scrollLineContainer');
+    const scrollLineThumb = document.getElementById('scrollLineThumb');
     const scrollLeftBtn = document.getElementById('scrollLeft');
     const scrollRightBtn = document.getElementById('scrollRight');
 
@@ -503,6 +631,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let modalOverlay = null;
     let modalImage = null;
     let modalCloseBtn = null;
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeftStart = 0;
+    let thumbStartX = 0;
 
     // Инициализация данных
     function initProductsData() {
@@ -537,6 +669,9 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             visibleCards = CARDS_PER_PAGE.large;
         }
+        
+        // После обновления количества карточек нужно пересчитать скролл
+        setTimeout(updateScrollLine, 100);
     }
 
     // Функция для подсчета общего количества товаров
@@ -576,6 +711,7 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
             if (topPagination) topPagination.innerHTML = '';
             if (bottomPagination) bottomPagination.innerHTML = '';
+            if (scrollLineContainer) scrollLineContainer.style.display = 'none';
             return;
         }
 
@@ -593,10 +729,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Отображаем карточки товаров
-        let productsHTML = '<div class="products-container">';
+        let productsHTML = '';
 
         if (totalProductsInCompany === 0) {
-            productsHTML += `
+            productsHTML = `
                 <div class="empty-company">
                     <i class="fas fa-box"></i>
                     <h3>Нет товаров</h3>
@@ -604,7 +740,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             `;
         } else {
-            currentProducts.slice(0, displayedProducts).forEach((product, index) => {
+            currentProducts.forEach((product, index) => {
                 const price = typeof product.price === 'number' ? product.price.toFixed(2) : '0.00';
 
                 // Создаем сокращенные версии текстов
@@ -621,6 +757,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         
                         <div class="product-content">
+                        <div class="top-block">
                              <div class="name-block">                           
                             <h3 class="product-name">${product.productName}</h3>  
                             
@@ -675,7 +812,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <div class="show-less-btn" data-product-id="${product.id}" data-type="composition">&lt;&lt;скрыть</div>
                                 </div>
                             </div>
-                            
+                            </div>
                             <div class="product-footer">
                                
                                 <div class="vote-section">
@@ -693,14 +830,174 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        productsHTML += '</div>';
         productsContainer.innerHTML = productsHTML;
+
+        // Показываем или скрываем скролл-линию
+        if (scrollLineContainer) {
+            if (totalProductsInCompany > visibleCards) {
+                scrollLineContainer.style.display = 'block';
+                setTimeout(updateScrollLine, 100);
+            } else {
+                scrollLineContainer.style.display = 'none';
+            }
+        }
 
         // Инициализируем стрелки прокрутки компаний
         initScrollArrows();
 
         // Добавляем обработчики событий
         addEventListeners();
+        
+        // Инициализируем скролл
+        initHorizontalScroll();
+    }
+
+    // Инициализация горизонтального скролла
+    function initHorizontalScroll() {
+        if (!productsContainer) return;
+        
+        // Очищаем старые обработчики
+        productsContainer.removeEventListener('mousedown', startDrag);
+        productsContainer.removeEventListener('touchstart', startDragTouch);
+        document.removeEventListener('mousemove', drag);
+        document.removeEventListener('touchmove', dragTouch);
+        document.removeEventListener('mouseup', endDrag);
+        document.removeEventListener('touchend', endDrag);
+        
+        if (scrollLineThumb) {
+            scrollLineThumb.removeEventListener('mousedown', startThumbDrag);
+            document.removeEventListener('mousemove', dragThumb);
+            document.removeEventListener('mouseup', endThumbDrag);
+        }
+        
+        // Добавляем обработчики для drag скролла контейнера
+        productsContainer.addEventListener('mousedown', startDrag);
+        productsContainer.addEventListener('touchstart', startDragTouch, { passive: false });
+        
+        // Добавляем обработчики для скролл-ползунка
+        if (scrollLineThumb) {
+            scrollLineThumb.addEventListener('mousedown', startThumbDrag);
+        }
+        
+        // Добавляем обработчики колеса мыши для горизонтального скролла
+        productsContainer.addEventListener('wheel', handleWheelScroll, { passive: false });
+        
+        // Обновляем позицию ползунка
+        updateScrollLine();
+    }
+
+    function startDrag(e) {
+        isDragging = true;
+        productsContainer.classList.add('grabbing');
+        startX = e.pageX - productsContainer.offsetLeft;
+        scrollLeftStart = productsContainer.scrollLeft;
+        
+        e.preventDefault();
+    }
+
+    function startDragTouch(e) {
+        if (e.touches.length === 1) {
+            isDragging = true;
+            productsContainer.classList.add('grabbing');
+            startX = e.touches[0].pageX - productsContainer.offsetLeft;
+            scrollLeftStart = productsContainer.scrollLeft;
+            
+            e.preventDefault();
+        }
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - productsContainer.offsetLeft;
+        const walk = (x - startX) * 1.5; // Умножаем для более плавного скролла
+        productsContainer.scrollLeft = scrollLeftStart - walk;
+        
+        updateScrollLine();
+    }
+
+    function dragTouch(e) {
+        if (!isDragging || e.touches.length !== 1) return;
+        e.preventDefault();
+        const x = e.touches[0].pageX - productsContainer.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        productsContainer.scrollLeft = scrollLeftStart - walk;
+        
+        updateScrollLine();
+    }
+
+    function endDrag() {
+        isDragging = false;
+        productsContainer.classList.remove('grabbing');
+    }
+
+    function startThumbDrag(e) {
+        isDragging = true;
+        thumbStartX = e.clientX;
+        scrollLeftStart = productsContainer.scrollLeft;
+        
+        e.preventDefault();
+    }
+
+    function dragThumb(e) {
+        if (!isDragging) return;
+        
+        const deltaX = e.clientX - thumbStartX;
+        const trackWidth = scrollLineContainer.offsetWidth;
+        const thumbWidth = scrollLineThumb.offsetWidth;
+        const maxThumbPosition = trackWidth - thumbWidth;
+        
+        let newThumbPosition = (scrollLineThumb.offsetLeft + deltaX);
+        newThumbPosition = Math.max(0, Math.min(newThumbPosition, maxThumbPosition));
+        
+        // Обновляем позицию ползунка
+        scrollLineThumb.style.left = newThumbPosition + 'px';
+        
+        // Обновляем скролл контейнера
+        const scrollRatio = newThumbPosition / maxThumbPosition;
+        const maxScroll = productsContainer.scrollWidth - productsContainer.clientWidth;
+        productsContainer.scrollLeft = scrollRatio * maxScroll;
+        
+        thumbStartX = e.clientX;
+    }
+
+    function endThumbDrag() {
+        isDragging = false;
+    }
+
+    function handleWheelScroll(e) {
+        // Если есть горизонтальный скролл, используем колесо мыши для него
+        if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+            e.preventDefault();
+            productsContainer.scrollLeft += e.deltaY;
+            updateScrollLine();
+        }
+    }
+
+    function updateScrollLine() {
+        if (!scrollLineThumb || !productsContainer || !scrollLineContainer) return;
+        
+        const containerWidth = productsContainer.clientWidth;
+        const scrollWidth = productsContainer.scrollWidth;
+        const scrollLeft = productsContainer.scrollLeft;
+        const maxScroll = scrollWidth - containerWidth;
+        
+        if (maxScroll <= 0) {
+            scrollLineThumb.style.width = '100%';
+            scrollLineThumb.style.left = '0';
+            return;
+        }
+        
+        // Вычисляем ширину ползунка (пропорционально видимой области)
+        const thumbWidth = Math.max(60, (containerWidth / scrollWidth) * scrollLineContainer.offsetWidth);
+        scrollLineThumb.style.width = thumbWidth + 'px';
+        
+        // Вычисляем позицию ползунка
+        const trackWidth = scrollLineContainer.offsetWidth;
+        const maxThumbPosition = trackWidth - thumbWidth;
+        const thumbPosition = (scrollLeft / maxScroll) * maxThumbPosition;
+        
+        scrollLineThumb.style.left = thumbPosition + 'px';
     }
 
     // Инициализация стрелок прокрутки компаний
@@ -762,7 +1059,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let paginationHTML = `
         <div class="top-pagination">
         <div class="company-info">
-         <div class="companyKP">Запросить презентацию компании</div>
+         <div class="companyKP">Посмотреть презентацию компании</div>
             <div class="pagination-info">
                 <strong>${currentCompany.name}</strong>
                 <div class="pagination-subinfo">
@@ -847,7 +1144,9 @@ document.addEventListener('DOMContentLoaded', function () {
         currentCompanyIndex = companyIndex;
         displayProducts();
 
-        productsContainer.scrollIntoView({ behavior: 'smooth' });
+        // Сбрасываем скролл к началу
+        productsContainer.scrollLeft = 0;
+        updateScrollLine();
     }
 
     // Функция для добавления обработчиков событий
@@ -883,28 +1182,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const type = this.getAttribute('data-type');
 
                 const fullElement = document.getElementById(`full-${type}-${productId}`);
-                const sectionTitle = this.closest('.' + type + '-section').querySelector('.section-title');
-                const showMoreBtn = sectionTitle.querySelector('.show-more-btn');
-
-                if (!fullElement || !sectionTitle || !showMoreBtn) return;
-
-                // Скрываем полный текст
-                fullElement.style.display = 'none';
-                // Показываем кнопку "подробнее"
-                showMoreBtn.style.display = 'block';
-            });
-        });
-
-        // Обработчики для кнопок голосования
-        document.querySelectorAll('.show-less-btn').forEach(button => {
-            button.addEventListener('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const productId = this.getAttribute('data-product-id');
-                const type = this.getAttribute('data-type');
-
-                const fullElement = document.getElementById(`full-${type}-${productId}`);
                 const sectionElement = this.closest(`.${type}-section`);
                 const sectionTitle = sectionElement.querySelector('.section-title');
 
@@ -914,6 +1191,45 @@ document.addEventListener('DOMContentLoaded', function () {
                 fullElement.style.display = 'none';
                 // Показываем блок с сокращенным текстом
                 sectionTitle.style.display = 'block';
+            });
+        });
+
+        // Обработчики для кнопок голосования
+        document.querySelectorAll('.vote-btn:not(.voted)').forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = this.getAttribute('data-product-id');
+
+                let productFound = false;
+                for (const company of companiesArray) {
+                    if (company.products) {
+                        const productIndex = company.products.findIndex(p => p.id === productId);
+                        if (productIndex !== -1) {
+                            productFound = true;
+
+                            let userVotes = JSON.parse(sessionStorage.getItem('userVotes') || '{}');
+
+                            if (userVotes[productId]) {
+                                alert('Вы уже отдали голос за этот товар!');
+                                return;
+                            }
+
+                            company.products[productIndex].hasVoted = true;
+                            userVotes[productId] = true;
+                            sessionStorage.setItem('userVotes', JSON.stringify(userVotes));
+
+                            this.classList.add('voted');
+                            this.innerHTML = '<i class="fas fa-thumbs-up"></i> Голос отдан';
+                            this.disabled = true;
+
+                            showSuccessMessage('Ваш голос учтен! Спасибо за участие.');
+                            break;
+                        }
+                    }
+                }
+
+                if (!productFound) {
+                    console.error('Продукт не найден:', productId);
+                }
             });
         });
     }
@@ -964,8 +1280,13 @@ document.addEventListener('DOMContentLoaded', function () {
             if (oldVisibleCards !== visibleCards) {
                 displayProducts();
             }
+            
+            updateScrollLine();
         }, 250);
     });
+
+    // Обработчик скролла для обновления ползунка
+    productsContainer.addEventListener('scroll', updateScrollLine);
 
     // Создаем модальное окно для изображений
     function createImageModal() {
@@ -1056,61 +1377,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Функция открытия модального окна с изображением
     function openImageModal(imageSrc, altText) {
-    if (!modalOverlay) {
-        createImageModal();
+        if (!modalOverlay) {
+            createImageModal();
+        }
+
+        modalImage.src = imageSrc;
+        modalImage.alt = altText;
+
+        // Сбрасываем стили
+        modalImage.style.maxWidth = '';
+        modalImage.style.maxHeight = '';
+        modalImage.style.width = '';
+        modalImage.style.height = '';
+
+        // Показываем модальное окно
+        modalOverlay.style.display = 'flex';
+        setTimeout(() => {
+            modalOverlay.style.opacity = '1';
+            
+            // Всегда устанавливаем 80% от экрана
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            
+            modalImage.style.width = (screenWidth * 0.8) + 'px';
+            modalImage.style.height = (screenHeight * 0.8) + 'px';
+            modalImage.style.maxWidth = 'none';
+            modalImage.style.maxHeight = 'none';
+            modalImage.style.objectFit = 'contain';
+            modalImage.style.transform = 'scale(1)';
+            
+            // Загружаем оригинал для проверки
+            const tempImg = new Image();
+            tempImg.src = imageSrc;
+            
+            tempImg.onload = function() {
+                const originalWidth = tempImg.naturalWidth;
+                const originalHeight = tempImg.naturalHeight;
+                const aspectRatio = originalWidth / originalHeight;
+                
+                // Пересчитываем с сохранением пропорций
+                let targetWidth = screenWidth * 0.8;
+                let targetHeight = targetWidth / aspectRatio;
+                
+                if (targetHeight > screenHeight * 0.8) {
+                    targetHeight = screenHeight * 0.8;
+                    targetWidth = targetHeight * aspectRatio;
+                }
+                
+                modalImage.style.width = targetWidth + 'px';
+                modalImage.style.height = targetHeight + 'px';
+            };
+            
+        }, 10);
+
+        document.body.style.overflow = 'hidden';
     }
-
-    modalImage.src = imageSrc;
-    modalImage.alt = altText;
-
-    // Сбрасываем стили
-    modalImage.style.maxWidth = '';
-    modalImage.style.maxHeight = '';
-    modalImage.style.width = '';
-    modalImage.style.height = '';
-
-    // Показываем модальное окно
-    modalOverlay.style.display = 'flex';
-    setTimeout(() => {
-        modalOverlay.style.opacity = '1';
-        
-        // Всегда устанавливаем 80% от экрана
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-        
-        modalImage.style.width = (screenWidth * 0.8) + 'px';
-        modalImage.style.height = (screenHeight * 0.8) + 'px';
-        modalImage.style.maxWidth = 'none';
-        modalImage.style.maxHeight = 'none';
-        modalImage.style.objectFit = 'contain';
-        modalImage.style.transform = 'scale(1)';
-        
-        // Загружаем оригинал для проверки
-        const tempImg = new Image();
-        tempImg.src = imageSrc;
-        
-        tempImg.onload = function() {
-            const originalWidth = tempImg.naturalWidth;
-            const originalHeight = tempImg.naturalHeight;
-            const aspectRatio = originalWidth / originalHeight;
-            
-            // Пересчитываем с сохранением пропорций
-            let targetWidth = screenWidth * 0.8;
-            let targetHeight = targetWidth / aspectRatio;
-            
-            if (targetHeight > screenHeight * 0.8) {
-                targetHeight = screenHeight * 0.8;
-                targetWidth = targetHeight * aspectRatio;
-            }
-            
-            modalImage.style.width = targetWidth + 'px';
-            modalImage.style.height = targetHeight + 'px';
-        };
-        
-    }, 10);
-
-    document.body.style.overflow = 'hidden';
-}
 
     // Функция закрытия модального окна
     function closeImageModal() {
@@ -1236,21 +1557,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // В функции инициализации (в конце) добавьте создание модального окна
     // Инициализация при загрузке страницы
     initProductsData();
     displayProducts();
-    createImageModal(); // Добавьте эту строку
-
-    // Функция для обновления данных
-    window.refreshProducts = function () {
-        initProductsData();
-        displayProducts();
-    };
-
-    // Инициализация при загрузке страницы
-    initProductsData();
-    displayProducts();
+    createImageModal();
 
     // Функция для обновления данных
     window.refreshProducts = function () {
