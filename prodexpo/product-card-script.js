@@ -635,6 +635,9 @@ document.addEventListener('DOMContentLoaded', function () {
         startLeft: 0
     };
 
+    // Флаг для блокировки горизонтального скролла колесиком
+    let wheelScrollLock = false;
+
     // Модальное окно для увеличения изображений
     let modalOverlay = null;
     let modalImage = null;
@@ -727,22 +730,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Функция открытия модального окна с изображением
     function openImageModal(imageSrc, altText) {
-    if (!modalOverlay) {
-        createImageModal();
+        if (!modalOverlay) {
+            createImageModal();
+        }
+
+        modalImage.src = imageSrc;
+        modalImage.alt = altText || 'Увеличенное изображение товара';
+
+        // Показываем модальное окно
+        modalOverlay.style.display = 'flex';
+        setTimeout(() => {
+            modalOverlay.style.opacity = '1';
+            modalImage.style.transform = 'scale(1)';
+        }, 10);
+
+        document.body.style.overflow = 'hidden';
     }
-
-    modalImage.src = imageSrc;
-    modalImage.alt = altText || 'Увеличенное изображение товара';
-
-    // Показываем модальное окно
-    modalOverlay.style.display = 'flex';
-    setTimeout(() => {
-        modalOverlay.style.opacity = '1';
-        modalImage.style.transform = 'scale(1)';
-    }, 10);
-
-    document.body.style.overflow = 'hidden';
-}
 
     // Функция закрытия модального окна
     function closeImageModal() {
@@ -839,12 +842,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (totalCompanies === 0) {
             productsContainer.innerHTML = `
-            <div class="empty-state">
-                <i class="fas fa-building"></i>
-                <h2>Компании не найдены</h2>
-                <p>Нет доступных компаний для отображения</p>
-            </div>
-        `;
+                <div class="empty-state">
+                    <i class="fas fa-building"></i>
+                    <h2>Компании не найдены</h2>
+                    <p>Нет доступных компаний для отображения</p>
+                </div>
+            `;
             if (topPagination) topPagination.innerHTML = '';
             if (bottomPagination) bottomPagination.innerHTML = '';
             if (scrollLineContainer) scrollLineContainer.style.display = 'none';
@@ -894,64 +897,63 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         
                         <div class="product-content">
-                        <div class="top-block">
-                             <div class="name-block">                           
-                            <h3 class="product-name">${product.productName}</h3>  
-                            
-                            <div class="manufacturer-info">
-                                <div class="location">
-                                    <i class="fas fa-map-marker-alt"></i> ${product.country || 'Не указано'} / ${product.city || 'Не указано'}
-                                </div>                                
-                            </div>
-                            </div>
-                            <!-- Описание -->
-                            <div class="description-section">
-                                <div class="section-title">
-                                    <span class="grey"><i class="fas fa-file-alt"></i> Описание: </span>${shortDescription}
-                                    <div class="show-more-btn" data-product-id="${product.id}" data-type="description">подробнее&gt;&gt;</div>
+                            <div class="top-block">
+                                <div class="name-block">                           
+                                    <h3 class="product-name">${product.productName}</h3>  
+                                    
+                                    <div class="manufacturer-info">
+                                        <div class="location">
+                                            <i class="fas fa-map-marker-alt"></i> ${product.country || 'Не указано'} / ${product.city || 'Не указано'}
+                                        </div>                                
+                                    </div>
                                 </div>
-                                <div class="section-title full-text" id="full-description-${product.id}" style="display: none;">
-                                    <span class="grey"><i class="fas fa-file-alt"></i> Описание: </span>${product.description || 'Нет данных'}
-                                    <div class="show-less-btn" data-product-id="${product.id}" data-type="description">&lt;&lt;скрыть</div>
+                                <!-- Описание -->
+                                <div class="description-section">
+                                    <div class="section-title">
+                                        <span class="grey"><i class="fas fa-file-alt"></i> Описание: </span>${shortDescription}
+                                        <div class="show-more-btn" data-product-id="${product.id}" data-type="description">подробнее&gt;&gt;</div>
+                                    </div>
+                                    <div class="section-title full-text" id="full-description-${product.id}" style="display: none;">
+                                        <span class="grey"><i class="fas fa-file-alt"></i> Описание: </span>${product.description || 'Нет данных'}
+                                        <div class="show-less-btn" data-product-id="${product.id}" data-type="description">&lt;&lt;скрыть</div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="price-section">
-                                <div class="price-bage">Цена на полке</div>
-                                <div class="price">${price} ₽</div>
-                                <div class="weight">${product.weight || '-'}</div>
-                            </div>
-                            
-                            <div class="details-grid">
-                                <div class="detail-item">
-                                    <span class="detail-label">Категория</span>
-                                    <span class="detail-value">${product.category || '-'}</span>
+                                <div class="price-section">
+                                    <div class="price-bage">Цена на полке</div>
+                                    <div class="price">${price} ₽</div>
+                                    <div class="weight">${product.weight || '-'}</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Упаковка</span>
-                                    <span class="detail-value">${product.packaging || '-'}</span>
-                                </div>                               
                                 
-                                <div class="detail-item">
-                                <span class="detail-label">Бренд</span>
-                                    <span class="detail-value">${product.brand || 'Не указан'}</span>
+                                <div class="details-grid">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Категория</span>
+                                        <span class="detail-value">${product.category || '-'}</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Упаковка</span>
+                                        <span class="detail-value">${product.packaging || '-'}</span>
+                                    </div>                               
+                                    
+                                    <div class="detail-item">
+                                        <span class="detail-label">Бренд</span>
+                                        <span class="detail-value">${product.brand || 'Не указан'}</span>
+                                    </div>
+                                </div>  
+                                
+                                <!-- Состав -->
+                                <div class="composition-section">
+                                    <div class="section-title">
+                                        <span class="grey"><i class="fas fa-list-ul"></i> Состав: </span>${shortComposition}
+                                        <div class="show-more-btn" data-product-id="${product.id}" data-type="composition">подробнее&gt;&gt;</div>
+                                    </div>
+                                    <div class="section-title full-text" id="full-composition-${product.id}" style="display: none;">
+                                        <span class="grey"><i class="fas fa-list-ul"></i> Состав: </span>${product.composition || 'Нет данных'}
+                                        <div class="show-less-btn" data-product-id="${product.id}" data-type="composition">&lt;&lt;скрыть</div>
+                                    </div>
                                 </div>
-                            </div>  
-                            
-                            <!-- Состав -->
-                            <div class="composition-section">
-                                <div class="section-title">
-                                    <span class="grey"><i class="fas fa-list-ul"></i> Состав: </span>${shortComposition}
-                                    <div class="show-more-btn" data-product-id="${product.id}" data-type="composition">подробнее&gt;&gt;</div>
-                                </div>
-                                <div class="section-title full-text" id="full-composition-${product.id}" style="display: none;">
-                                    <span class="grey"><i class="fas fa-list-ul"></i> Состав: </span>${product.composition || 'Нет данных'}
-                                    <div class="show-less-btn" data-product-id="${product.id}" data-type="composition">&lt;&lt;скрыть</div>
-                                </div>
-                            </div>
                             </div>
                             <div class="product-footer">
-                               
                                 <div class="vote-section">
                                     <button class="vote-btn ${product.hasVoted ? 'voted' : ''}" 
                                             data-product-id="${product.id}"
@@ -1003,23 +1005,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         let paginationHTML = `
-        <div class="top-pagination">
-        <div class="company-info">
-         <a href="#" class="companyKP">Посмотреть презентацию компании</a>
-            <div class="pagination-info">
-                <strong>${currentCompany.name}</strong>
-                <div class="pagination-subinfo">
-                    Компания ${currentCompanyNumber} из ${totalCompanies}
-                </div>
-            </div>
-        </div>   
-            <div class="pagination-controls">
-                <button class="pagination-btn prev-btn" 
-                        ${currentCompanyIndex === 0 ? 'disabled' : ''}>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <div class="pagination-numbers">
+            <div class="top-pagination">
+                <div class="company-info">
+                    <a href="#" class="companyKP">Посмотреть презентацию компании</a>
+                    <div class="pagination-info">
+                        <strong>${currentCompany.name}</strong>
+                        <div class="pagination-subinfo">
+                            Компания ${currentCompanyNumber} из ${totalCompanies}
+                        </div>
+                    </div>
+                </div>   
+                <div class="pagination-controls">
+                    <button class="pagination-btn prev-btn" 
+                            ${currentCompanyIndex === 0 ? 'disabled' : ''}>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="pagination-numbers">
         `;
 
         // Добавляем первую страницу, если она не входит в текущий диапазон
@@ -1048,14 +1050,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         paginationHTML += `
+                    </div>
+                    
+                    <button class="pagination-btn next-btn" 
+                            ${currentCompanyIndex === totalCompanies - 1 ? 'disabled' : ''}>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                
-                <button class="pagination-btn next-btn" 
-                        ${currentCompanyIndex === totalCompanies - 1 ? 'disabled' : ''}>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
             </div>
-        </div>
         `;
 
         containerElement.innerHTML = paginationHTML;
@@ -1156,7 +1158,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
         
-        // Добавляем обработчики колеса мыши
+        // Добавляем обработчик колеса мыши - с правильной логикой
         productsContainer.addEventListener('wheel', handleWheelScroll, { passive: false });
         
         updateScrollLine();
@@ -1167,6 +1169,12 @@ document.addEventListener('DOMContentLoaded', function () {
         productsContainer.classList.add('grabbing');
         startX = e.pageX || e.touches[0].pageX;
         scrollLeftStart = productsContainer.scrollLeft;
+        
+        // Добавляем глобальные обработчики для перетаскивания
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', endDrag);
+        document.addEventListener('touchmove', dragTouch, { passive: false });
+        document.addEventListener('touchend', endDrag);
         
         // Отменяем выделение текста при перетаскивании
         e.preventDefault();
@@ -1262,15 +1270,45 @@ document.addEventListener('DOMContentLoaded', function () {
         document.removeEventListener('touchend', stopThumbDrag);
     }
 
-    function handleWheelScroll(e) {
-        // Если есть горизонтальный скролл, используем колесо мыши для него
-        if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
-            e.preventDefault();
-            productsContainer.scrollLeft += e.deltaY * 2;
-            updateScrollLine();
-            updateScrollButtonsVisibility();
+    // ИСПРАВЛЕННАЯ ФУНКЦИЯ: Обработчик колеса мыши
+   // Современный подход с проверкой направления скролла
+function handleWheelScroll(e) {
+    const container = productsContainer;
+    const isHorizontalScrollAvailable = container.scrollWidth > container.clientWidth;
+    
+    // Если горизонтальной прокрутки нет, ничего не делаем
+    if (!isHorizontalScrollAvailable) {
+        return;
+    }
+    
+    // Определяем основное направление скролла
+    const isHorizontalScroll = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+    
+    if (isHorizontalScroll || e.shiftKey) {
+        // Горизонтальный скролл
+        container.scrollLeft += e.deltaX || e.deltaY;
+        updateScrollLine();
+        updateScrollButtonsVisibility();
+        e.preventDefault();
+    } else {
+        // Вертикальный скролл - разрешаем
+        // Можно добавить небольшую логику для улучшения UX
+        const isAtStart = container.scrollLeft === 0;
+        const isAtEnd = container.scrollLeft >= container.scrollWidth - container.clientWidth - 1;
+        
+        // Если контейнер не находится в крайних позициях, разрешаем вертикальный скролл
+        if (!isAtStart && !isAtEnd) {
+            return;
+        }
+        
+        // Если в крайней позиции, можно слегка сместить горизонтально
+        if (isAtStart && e.deltaY > 0) {
+            container.scrollLeft += 50;
+        } else if (isAtEnd && e.deltaY < 0) {
+            container.scrollLeft -= 50;
         }
     }
+}
 
     // Обновленная функция updateScrollLine
     function updateScrollLine() {
