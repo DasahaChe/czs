@@ -602,7 +602,6 @@ const productsArray = [
         "editedAt": "2026-01-20T11:00:00.000Z"
     }
 ];
-
 document.addEventListener('DOMContentLoaded', function () {
     // Элементы DOM
     const topPagination = document.getElementById('topPagination');
@@ -611,8 +610,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const totalProductsCount = document.getElementById('totalProductsCount');
     const scrollLineContainer = document.getElementById('scrollLineContainer');
     const scrollLineThumb = document.getElementById('scrollLineThumb');
-    const scrollLeftBtn = document.getElementById('scrollLeft');
-    const scrollRightBtn = document.getElementById('scrollRight');
 
     // Конфигурация
     const MAX_WORDS = 3;
@@ -622,19 +619,156 @@ document.addEventListener('DOMContentLoaded', function () {
         desktop: 3,
         large: 5
     };
+    const VISIBLE_PAGINATION_BUTTONS = 3;
 
     let currentCompanyIndex = 0;
     let companiesArray = [];
     let visibleCards = 3;
-    let scrollLeftHandler = null;
-    let scrollRightHandler = null;
-    let modalOverlay = null;
-    let modalImage = null;
-    let modalCloseBtn = null;
     let isDragging = false;
     let startX = 0;
     let scrollLeftStart = 0;
-    let thumbStartX = 0;
+    
+    // Данные для перетаскивания ползунка
+    let thumbDragData = {
+        isDragging: false,
+        startX: 0,
+        startLeft: 0
+    };
+
+    // Модальное окно для увеличения изображений
+    let modalOverlay = null;
+    let modalImage = null;
+
+    // Создание модального окна для увеличения изображений
+    function createImageModal() {
+        modalOverlay = document.createElement('div');
+        modalOverlay.className = 'image-modal-overlay';
+        modalOverlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        `;
+
+        modalImage = document.createElement('img');
+        modalImage.className = 'modal-image';
+        modalImage.style.cssText = `
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            cursor: default;
+        `;
+
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'modal-close-btn';
+        closeBtn.innerHTML = '×';
+        closeBtn.style.cssText = `
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            color: #333;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 2001;
+        `;
+
+        closeBtn.addEventListener('mouseenter', () => {
+            closeBtn.style.transform = 'scale(1.1)';
+            closeBtn.style.background = '#ff4444';
+            closeBtn.style.color = '#fff';
+        });
+
+        closeBtn.addEventListener('mouseleave', () => {
+            closeBtn.style.transform = 'scale(1)';
+            closeBtn.style.background = '#fff';
+            closeBtn.style.color = '#333';
+        });
+
+        modalOverlay.appendChild(modalImage);
+        modalOverlay.appendChild(closeBtn);
+        document.body.appendChild(modalOverlay);
+
+        // Закрытие по клику на оверлей или кнопку
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay || e.target === closeBtn) {
+                closeImageModal();
+            }
+        });
+
+        // Закрытие по Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.style.display !== 'none') {
+                closeImageModal();
+            }
+        });
+    }
+
+    // Функция открытия модального окна с изображением
+    function openImageModal(imageSrc, altText) {
+    if (!modalOverlay) {
+        createImageModal();
+    }
+
+    modalImage.src = imageSrc;
+    modalImage.alt = altText || 'Увеличенное изображение товара';
+
+    // Показываем модальное окно
+    modalOverlay.style.display = 'flex';
+    setTimeout(() => {
+        modalOverlay.style.opacity = '1';
+        modalImage.style.transform = 'scale(1)';
+    }, 10);
+
+    document.body.style.overflow = 'hidden';
+}
+
+    // Функция закрытия модального окна
+    function closeImageModal() {
+        if (!modalOverlay) return;
+
+        modalOverlay.style.opacity = '0';
+        modalImage.style.transform = 'scale(0.9)';
+
+        setTimeout(() => {
+            modalOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }, 300);
+    }
+
+    // Функция для проверки видимости нижней пагинации
+    function isBottomPaginationVisible() {
+        if (!bottomPagination || bottomPagination.children.length === 0) return false;
+        
+        const paginationElement = bottomPagination.querySelector('.top-pagination');
+        if (!paginationElement) return false;
+        
+        const rect = paginationElement.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        
+        return rect.top < windowHeight && rect.bottom > 0;
+    }
 
     // Инициализация данных
     function initProductsData() {
@@ -670,18 +804,20 @@ document.addEventListener('DOMContentLoaded', function () {
             visibleCards = CARDS_PER_PAGE.large;
         }
         
-        // После обновления количества карточек нужно пересчитать скролл
-        setTimeout(updateScrollLine, 100);
+        setTimeout(() => {
+            updateScrollLine();
+            createScrollButtonsIfNeeded();
+        }, 100);
     }
 
-    // Функция для подсчета общего количества товаров
+    // Подсчет общего количества товаров
     function countTotalProducts() {
         return companiesArray.reduce((total, company) => {
             return total + (company.products ? company.products.length : 0);
         }, 0);
     }
 
-    // Функция для сокращения текста по словам
+    // Сокращение текста по словам
     function truncateTextByWords(text, maxWords) {
         if (!text || text.trim() === '') return 'Нет данных';
 
@@ -692,7 +828,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return truncatedWords.join(' ') + '...';
     }
 
-    // Отображение карточек товаров текущей компании
+    // Отображение карточек товаров
     function displayProducts() {
         const totalCompanies = companiesArray.length;
         const totalProducts = countTotalProducts();
@@ -712,6 +848,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (topPagination) topPagination.innerHTML = '';
             if (bottomPagination) bottomPagination.innerHTML = '';
             if (scrollLineContainer) scrollLineContainer.style.display = 'none';
+            removeScrollButtons();
             return;
         }
 
@@ -743,7 +880,6 @@ document.addEventListener('DOMContentLoaded', function () {
             currentProducts.forEach((product, index) => {
                 const price = typeof product.price === 'number' ? product.price.toFixed(2) : '0.00';
 
-                // Создаем сокращенные версии текстов
                 const shortDescription = truncateTextByWords(product.description, MAX_WORDS);
                 const shortComposition = truncateTextByWords(product.composition, MAX_WORDS);
 
@@ -753,7 +889,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             <img src="${product.photo?.dataUrl || 'img/defaultFoto.jpg'}" 
                                  alt="${product.productName}" 
                                  loading="lazy"
-                                 onerror="this.src='https://picsum.photos/400/300'">
+                                 onerror="this.src='https://picsum.photos/400/300'"
+                                 class="product-img-clickable">
                         </div>
                         
                         <div class="product-content">
@@ -832,7 +969,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         productsContainer.innerHTML = productsHTML;
 
-        // Показываем или скрываем скролл-линию
         if (scrollLineContainer) {
             if (totalProductsInCompany > visibleCards) {
                 scrollLineContainer.style.display = 'block';
@@ -842,212 +978,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Инициализируем стрелки прокрутки компаний
-        initScrollArrows();
-
-        // Добавляем обработчики событий
         addEventListeners();
-        
-        // Инициализируем скролл
         initHorizontalScroll();
+        createScrollButtonsIfNeeded();
     }
 
-    // Инициализация горизонтального скролла
-    function initHorizontalScroll() {
-        if (!productsContainer) return;
-        
-        // Очищаем старые обработчики
-        productsContainer.removeEventListener('mousedown', startDrag);
-        productsContainer.removeEventListener('touchstart', startDragTouch);
-        document.removeEventListener('mousemove', drag);
-        document.removeEventListener('touchmove', dragTouch);
-        document.removeEventListener('mouseup', endDrag);
-        document.removeEventListener('touchend', endDrag);
-        
-        if (scrollLineThumb) {
-            scrollLineThumb.removeEventListener('mousedown', startThumbDrag);
-            document.removeEventListener('mousemove', dragThumb);
-            document.removeEventListener('mouseup', endThumbDrag);
-        }
-        
-        // Добавляем обработчики для drag скролла контейнера
-        productsContainer.addEventListener('mousedown', startDrag);
-        productsContainer.addEventListener('touchstart', startDragTouch, { passive: false });
-        
-        // Добавляем обработчики для скролл-ползунка
-        if (scrollLineThumb) {
-            scrollLineThumb.addEventListener('mousedown', startThumbDrag);
-        }
-        
-        // Добавляем обработчики колеса мыши для горизонтального скролла
-        productsContainer.addEventListener('wheel', handleWheelScroll, { passive: false });
-        
-        // Обновляем позицию ползунка
-        updateScrollLine();
-    }
-
-    function startDrag(e) {
-        isDragging = true;
-        productsContainer.classList.add('grabbing');
-        startX = e.pageX - productsContainer.offsetLeft;
-        scrollLeftStart = productsContainer.scrollLeft;
-        
-        e.preventDefault();
-    }
-
-    function startDragTouch(e) {
-        if (e.touches.length === 1) {
-            isDragging = true;
-            productsContainer.classList.add('grabbing');
-            startX = e.touches[0].pageX - productsContainer.offsetLeft;
-            scrollLeftStart = productsContainer.scrollLeft;
-            
-            e.preventDefault();
-        }
-    }
-
-    function drag(e) {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - productsContainer.offsetLeft;
-        const walk = (x - startX) * 1.5; // Умножаем для более плавного скролла
-        productsContainer.scrollLeft = scrollLeftStart - walk;
-        
-        updateScrollLine();
-    }
-
-    function dragTouch(e) {
-        if (!isDragging || e.touches.length !== 1) return;
-        e.preventDefault();
-        const x = e.touches[0].pageX - productsContainer.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        productsContainer.scrollLeft = scrollLeftStart - walk;
-        
-        updateScrollLine();
-    }
-
-    function endDrag() {
-        isDragging = false;
-        productsContainer.classList.remove('grabbing');
-    }
-
-    function startThumbDrag(e) {
-        isDragging = true;
-        thumbStartX = e.clientX;
-        scrollLeftStart = productsContainer.scrollLeft;
-        
-        e.preventDefault();
-    }
-
-    function dragThumb(e) {
-        if (!isDragging) return;
-        
-        const deltaX = e.clientX - thumbStartX;
-        const trackWidth = scrollLineContainer.offsetWidth;
-        const thumbWidth = scrollLineThumb.offsetWidth;
-        const maxThumbPosition = trackWidth - thumbWidth;
-        
-        let newThumbPosition = (scrollLineThumb.offsetLeft + deltaX);
-        newThumbPosition = Math.max(0, Math.min(newThumbPosition, maxThumbPosition));
-        
-        // Обновляем позицию ползунка
-        scrollLineThumb.style.left = newThumbPosition + 'px';
-        
-        // Обновляем скролл контейнера
-        const scrollRatio = newThumbPosition / maxThumbPosition;
-        const maxScroll = productsContainer.scrollWidth - productsContainer.clientWidth;
-        productsContainer.scrollLeft = scrollRatio * maxScroll;
-        
-        thumbStartX = e.clientX;
-    }
-
-    function endThumbDrag() {
-        isDragging = false;
-    }
-
-    function handleWheelScroll(e) {
-        // Если есть горизонтальный скролл, используем колесо мыши для него
-        if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
-            e.preventDefault();
-            productsContainer.scrollLeft += e.deltaY;
-            updateScrollLine();
-        }
-    }
-
-    function updateScrollLine() {
-        if (!scrollLineThumb || !productsContainer || !scrollLineContainer) return;
-        
-        const containerWidth = productsContainer.clientWidth;
-        const scrollWidth = productsContainer.scrollWidth;
-        const scrollLeft = productsContainer.scrollLeft;
-        const maxScroll = scrollWidth - containerWidth;
-        
-        if (maxScroll <= 0) {
-            scrollLineThumb.style.width = '100%';
-            scrollLineThumb.style.left = '0';
-            return;
-        }
-        
-        // Вычисляем ширину ползунка (пропорционально видимой области)
-        const thumbWidth = Math.max(60, (containerWidth / scrollWidth) * scrollLineContainer.offsetWidth);
-        scrollLineThumb.style.width = thumbWidth + 'px';
-        
-        // Вычисляем позицию ползунка
-        const trackWidth = scrollLineContainer.offsetWidth;
-        const maxThumbPosition = trackWidth - thumbWidth;
-        const thumbPosition = (scrollLeft / maxScroll) * maxThumbPosition;
-        
-        scrollLineThumb.style.left = thumbPosition + 'px';
-    }
-
-    // Инициализация стрелок прокрутки компаний
-    function initScrollArrows() {
-        // Удаляем старые обработчики если они есть
-        if (scrollLeftBtn && scrollLeftHandler) {
-            scrollLeftBtn.removeEventListener('click', scrollLeftHandler);
-        }
-        if (scrollRightBtn && scrollRightHandler) {
-            scrollRightBtn.removeEventListener('click', scrollRightHandler);
-        }
-
-        // Создаем новые обработчики
-        scrollLeftHandler = () => {
-            if (currentCompanyIndex > 0) {
-                goToCompany(currentCompanyIndex - 1);
-            }
-        };
-
-        scrollRightHandler = () => {
-            if (currentCompanyIndex < companiesArray.length - 1) {
-                goToCompany(currentCompanyIndex + 1);
-            }
-        };
-
-        // Добавляем обработчики
-        if (scrollLeftBtn) {
-            scrollLeftBtn.addEventListener('click', scrollLeftHandler);
-        }
-        if (scrollRightBtn) {
-            scrollRightBtn.addEventListener('click', scrollRightHandler);
-        }
-
-        // Обновляем состояние стрелок
-        updateScrollArrowsState();
-    }
-
-    // Обновление состояния стрелок
-    function updateScrollArrowsState() {
-        if (scrollLeftBtn) {
-            scrollLeftBtn.style.opacity = currentCompanyIndex === 0 ? '0.5' : '1';
-            scrollLeftBtn.style.cursor = currentCompanyIndex === 0 ? 'not-allowed' : 'pointer';
-        }
-        if (scrollRightBtn) {
-            scrollRightBtn.style.opacity = currentCompanyIndex === companiesArray.length - 1 ? '0.5' : '1';
-            scrollRightBtn.style.cursor = currentCompanyIndex === companiesArray.length - 1 ? 'not-allowed' : 'pointer';
-        }
-    }
-
-    // Функция для отображения пагинации
+    // Функция для отображения динамической пагинации
     function displayPagination(containerElement, currentCompany, displayedProducts, totalCompanies, totalProductsInCompany) {
         if (!containerElement || totalCompanies === 0) {
             if (containerElement) containerElement.innerHTML = '';
@@ -1055,6 +991,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const currentCompanyNumber = currentCompanyIndex + 1;
+        const isTopPagination = containerElement.id === 'topPagination';
+        
+        // Определяем диапазон отображаемых кнопок
+        let start = Math.max(1, currentCompanyNumber - 1);
+        let end = Math.min(totalCompanies, start + VISIBLE_PAGINATION_BUTTONS - 1);
+        
+        // Корректируем начало, если мы в конце списка
+        if (end === totalCompanies) {
+            start = Math.max(1, totalCompanies - VISIBLE_PAGINATION_BUTTONS + 1);
+        }
 
         let paginationHTML = `
         <div class="top-pagination">
@@ -1068,16 +1014,43 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </div>   
             <div class="pagination-controls">
-                <button class="pagination-btn" id="${containerElement.id === 'topPagination' ? 'prevCompanyTop' : 'prevCompanyBottom'}" 
+                <button class="pagination-btn prev-btn" 
                         ${currentCompanyIndex === 0 ? 'disabled' : ''}>
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 
-                <div class="pagination-numbers" id="${containerElement.id === 'topPagination' ? 'companyNumbersTop' : 'companyNumbersBottom'}">
-                    <!-- Номера компаний будут добавлены здесь -->
+                <div class="pagination-numbers">
+        `;
+
+        // Добавляем первую страницу, если она не входит в текущий диапазон
+        if (start > 1) {
+            paginationHTML += `
+                <div class="page-number" data-company="0">1</div>
+                ${start > 2 ? '<span class="pagination-dots">...</span>' : ''}
+            `;
+        }
+
+        // Добавляем кнопки в текущем диапазоне
+        for (let i = start; i <= end; i++) {
+            const companyIndex = i - 1;
+            paginationHTML += `
+                <div class="page-number ${currentCompanyIndex === companyIndex ? 'active' : ''}" 
+                     data-company="${companyIndex}">${i}</div>
+            `;
+        }
+
+        // Добавляем последнюю страницу, если она не входит в текущий диапазон
+        if (end < totalCompanies) {
+            paginationHTML += `
+                ${end < totalCompanies - 1 ? '<span class="pagination-dots">...</span>' : ''}
+                <div class="page-number" data-company="${totalCompanies - 1}">${totalCompanies}</div>
+            `;
+        }
+
+        paginationHTML += `
                 </div>
                 
-                <button class="pagination-btn" id="${containerElement.id === 'topPagination' ? 'nextCompanyTop' : 'nextCompanyBottom'}" 
+                <button class="pagination-btn next-btn" 
                         ${currentCompanyIndex === totalCompanies - 1 ? 'disabled' : ''}>
                     <i class="fas fa-chevron-right"></i>
                 </button>
@@ -1087,69 +1060,358 @@ document.addEventListener('DOMContentLoaded', function () {
 
         containerElement.innerHTML = paginationHTML;
 
-        const companyNumbersContainer = document.getElementById(
-            containerElement.id === 'topPagination' ? 'companyNumbersTop' : 'companyNumbersBottom'
-        );
-
-        if (companyNumbersContainer) {
-            let companyNumbersHTML = '';
-
-            for (let i = 0; i < totalCompanies; i++) {
-                companyNumbersHTML += `
-                <div class="page-number ${currentCompanyIndex === i ? 'active' : ''}" 
-                     data-company="${i}">${i + 1}</div>
-                `;
-            }
-
-            companyNumbersContainer.innerHTML = companyNumbersHTML;
-
-            const companyNumbers = companyNumbersContainer.querySelectorAll('.page-number[data-company]');
-            companyNumbers.forEach(number => {
-                number.addEventListener('click', function () {
-                    const companyIndex = parseInt(this.getAttribute('data-company'));
-                    goToCompany(companyIndex);
-                });
-            });
-        }
-
-        const prevBtnId = containerElement.id === 'topPagination' ? 'prevCompanyTop' : 'prevCompanyBottom';
-        const nextBtnId = containerElement.id === 'topPagination' ? 'nextCompanyTop' : 'nextCompanyBottom';
-
-        const prevBtn = document.getElementById(prevBtnId);
-        const nextBtn = document.getElementById(nextBtnId);
+        // Добавляем обработчики для кнопок
+        const prevBtn = containerElement.querySelector('.prev-btn');
+        const nextBtn = containerElement.querySelector('.next-btn');
+        const companyNumbers = containerElement.querySelectorAll('.page-number[data-company]');
 
         if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 if (currentCompanyIndex > 0) {
-                    goToCompany(currentCompanyIndex - 1);
+                    goToCompany(currentCompanyIndex - 1, !isTopPagination);
                 }
             });
         }
 
         if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 if (currentCompanyIndex < totalCompanies - 1) {
-                    goToCompany(currentCompanyIndex + 1);
+                    goToCompany(currentCompanyIndex + 1, !isTopPagination);
                 }
             });
         }
+
+        companyNumbers.forEach(number => {
+            number.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const companyIndex = parseInt(this.getAttribute('data-company'));
+                goToCompany(companyIndex, !isTopPagination);
+            });
+        });
     }
 
     // Функция для перехода к указанной компании
-    function goToCompany(companyIndex) {
+    function goToCompany(companyIndex, fromBottomPagination = false) {
         if (companyIndex < 0 || companyIndex >= companiesArray.length) {
             return;
         }
 
         currentCompanyIndex = companyIndex;
         displayProducts();
-
-        // Сбрасываем скролл к началу
+        
         productsContainer.scrollLeft = 0;
+        updateScrollLine();
+        
+        // Если клик был из нижней пагинации И нижняя пагинация видна - не скроллим
+        if (fromBottomPagination && isBottomPaginationVisible()) {
+            return;
+        }
+        
+        // Плавная прокрутка к началу контейнера
+        const container = document.querySelector('.container');
+        if (container) {
+            container.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+    }
+
+    // Инициализация горизонтального скролла
+    function initHorizontalScroll() {
+        if (!productsContainer) return;
+        
+        // Удаляем старые обработчики
+        document.removeEventListener('mousemove', handleThumbDrag);
+        document.removeEventListener('mouseup', stopThumbDrag);
+        document.removeEventListener('touchmove', handleThumbDrag);
+        document.removeEventListener('touchend', stopThumbDrag);
+        
+        // Добавляем обработчики drag для контейнера
+        productsContainer.addEventListener('mousedown', startDrag);
+        productsContainer.addEventListener('touchstart', startDragTouch, { passive: false });
+        
+        // Добавляем обработчики для ползунка
+        if (scrollLineThumb) {
+            scrollLineThumb.addEventListener('mousedown', (e) => {
+                startThumbDrag(e);
+                document.addEventListener('mousemove', handleThumbDrag);
+                document.addEventListener('mouseup', stopThumbDrag);
+                document.addEventListener('touchmove', handleThumbDrag, { passive: false });
+                document.addEventListener('touchend', stopThumbDrag);
+            });
+            
+            scrollLineThumb.addEventListener('touchstart', (e) => {
+                startThumbDrag(e);
+                document.addEventListener('touchmove', handleThumbDrag, { passive: false });
+                document.addEventListener('touchend', stopThumbDrag);
+            });
+        }
+        
+        // Добавляем обработчики колеса мыши
+        productsContainer.addEventListener('wheel', handleWheelScroll, { passive: false });
+        
         updateScrollLine();
     }
 
-    // Функция для добавления обработчиков событий
+    function startDrag(e) {
+        isDragging = true;
+        productsContainer.classList.add('grabbing');
+        startX = e.pageX || e.touches[0].pageX;
+        scrollLeftStart = productsContainer.scrollLeft;
+        
+        // Отменяем выделение текста при перетаскивании
+        e.preventDefault();
+    }
+
+    function startDragTouch(e) {
+        if (e.touches.length === 1) {
+            startDrag(e);
+        }
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+        
+        const x = e.pageX || (e.touches && e.touches[0].pageX);
+        if (!x) return;
+        
+        const walk = (x - startX) * 2;
+        productsContainer.scrollLeft = scrollLeftStart - walk;
+        
+        updateScrollLine();
+        updateScrollButtonsVisibility();
+        
+        e.preventDefault();
+    }
+
+    function dragTouch(e) {
+        if (e.touches.length === 1) {
+            drag(e);
+        }
+    }
+
+    function endDrag() {
+        isDragging = false;
+        productsContainer.classList.remove('grabbing');
+        
+        // Удаляем глобальные обработчики drag для контейнера
+        document.removeEventListener('mousemove', drag);
+        document.removeEventListener('touchmove', dragTouch);
+        document.removeEventListener('mouseup', endDrag);
+        document.removeEventListener('touchend', endDrag);
+    }
+
+    // Функции для перетаскивания ползунка
+    function startThumbDrag(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        thumbDragData.isDragging = true;
+        thumbDragData.startX = e.clientX || e.touches[0].clientX;
+        thumbDragData.startLeft = parseFloat(scrollLineThumb.style.left) || 0;
+        
+        scrollLineThumb.classList.add('grabbing');
+    }
+
+    function handleThumbDrag(e) {
+        if (!thumbDragData.isDragging) return;
+        
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        if (!clientX) return;
+        
+        const deltaX = clientX - thumbDragData.startX;
+        const trackWidth = scrollLineContainer.offsetWidth;
+        const thumbWidth = scrollLineThumb.offsetWidth;
+        const maxThumbPosition = trackWidth - thumbWidth;
+        
+        // Новая позиция ползунка
+        let newThumbPosition = thumbDragData.startLeft + deltaX;
+        newThumbPosition = Math.max(0, Math.min(newThumbPosition, maxThumbPosition));
+        
+        // Обновляем позицию ползунка
+        scrollLineThumb.style.left = newThumbPosition + 'px';
+        
+        // Обновляем скролл контейнера
+        const scrollRatio = maxThumbPosition > 0 ? newThumbPosition / maxThumbPosition : 0;
+        const maxScroll = productsContainer.scrollWidth - productsContainer.clientWidth;
+        productsContainer.scrollLeft = scrollRatio * maxScroll;
+        
+        updateScrollButtonsVisibility();
+    }
+
+    function stopThumbDrag() {
+        thumbDragData.isDragging = false;
+        scrollLineThumb.classList.remove('grabbing');
+        
+        // Удаляем глобальные обработчики
+        document.removeEventListener('mousemove', handleThumbDrag);
+        document.removeEventListener('mouseup', stopThumbDrag);
+        document.removeEventListener('touchmove', handleThumbDrag);
+        document.removeEventListener('touchend', stopThumbDrag);
+    }
+
+    function handleWheelScroll(e) {
+        // Если есть горизонтальный скролл, используем колесо мыши для него
+        if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+            e.preventDefault();
+            productsContainer.scrollLeft += e.deltaY * 2;
+            updateScrollLine();
+            updateScrollButtonsVisibility();
+        }
+    }
+
+    // Обновленная функция updateScrollLine
+    function updateScrollLine() {
+        if (!scrollLineThumb || !productsContainer || !scrollLineContainer) return;
+        
+        const containerWidth = productsContainer.clientWidth;
+        const scrollWidth = productsContainer.scrollWidth;
+        const scrollLeft = productsContainer.scrollLeft;
+        const maxScroll = Math.max(0, scrollWidth - containerWidth);
+        
+        if (maxScroll <= 0 || containerWidth === 0 || scrollWidth === 0) {
+            scrollLineThumb.style.width = '100%';
+            scrollLineThumb.style.left = '0';
+            return;
+        }
+        
+        const trackWidth = scrollLineContainer.offsetWidth;
+        
+        // Вычисляем ширину ползунка (не менее 60px)
+        const thumbWidth = Math.max(60, (containerWidth / scrollWidth) * trackWidth);
+        scrollLineThumb.style.width = thumbWidth + 'px';
+        
+        // Вычисляем позицию ползунка
+        const maxThumbPosition = Math.max(0, trackWidth - thumbWidth);
+        const thumbPosition = maxScroll > 0 ? (scrollLeft / maxScroll) * maxThumbPosition : 0;
+        
+        scrollLineThumb.style.left = thumbPosition + 'px';
+    }
+
+    // Создание кнопок для прокрутки карточек
+    function createScrollButtonsIfNeeded() {
+        // Удаляем старые кнопки, если они есть
+        removeScrollButtons();
+        
+        if (!productsContainer || companiesArray.length === 0) return;
+        
+        const currentCompany = companiesArray[currentCompanyIndex];
+        if (!currentCompany || !currentCompany.products) return;
+        
+        const totalProductsInCompany = currentCompany.products.length;
+        
+        // Проверяем, нужны ли кнопки прокрутки
+        if (totalProductsInCompany > visibleCards) {
+            const productsWrapper = productsContainer.parentElement;
+            
+            // Создаем кнопку "влево"
+            const leftButton = document.createElement('button');
+            leftButton.className = 'scroll-arrow left';
+            leftButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            leftButton.style.cssText = `
+                position: absolute;
+                left: -20px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: white;
+                border: none;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                color: var(--darckGrey);
+                z-index: 10;
+                transition: all 0.2s;
+            `;
+            
+            // Создаем кнопку "вправо"
+            const rightButton = document.createElement('button');
+            rightButton.className = 'scroll-arrow right';
+            rightButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            rightButton.style.cssText = leftButton.style.cssText;
+            rightButton.style.left = 'auto';
+            rightButton.style.right = '-20px';
+            
+            // Добавляем кнопки в обертку
+            productsWrapper.style.position = 'relative';
+            productsWrapper.appendChild(leftButton);
+            productsWrapper.appendChild(rightButton);
+            
+            // Добавляем обработчики
+            leftButton.addEventListener('click', () => {
+                productsContainer.scrollLeft -= productsContainer.clientWidth * 0.8;
+                updateScrollLine();
+                updateScrollButtonsVisibility();
+            });
+            
+            rightButton.addEventListener('click', () => {
+                productsContainer.scrollLeft += productsContainer.clientWidth * 0.8;
+                updateScrollLine();
+                updateScrollButtonsVisibility();
+            });
+            
+            // Обновляем видимость кнопок
+            updateScrollButtonsVisibility();
+            
+            // Обновляем видимость кнопок при скролле
+            productsContainer.addEventListener('scroll', updateScrollButtonsVisibility);
+        }
+    }
+    
+    // Удаление кнопок прокрутки
+    function removeScrollButtons() {
+        const productsWrapper = productsContainer.parentElement;
+        if (!productsWrapper) return;
+        
+        const leftButton = productsWrapper.querySelector('.scroll-arrow.left');
+        const rightButton = productsWrapper.querySelector('.scroll-arrow.right');
+        
+        if (leftButton) leftButton.remove();
+        if (rightButton) rightButton.remove();
+        
+        productsContainer.removeEventListener('scroll', updateScrollButtonsVisibility);
+    }
+    
+    // Обновление видимости кнопок прокрутки
+    function updateScrollButtonsVisibility() {
+        const productsWrapper = productsContainer.parentElement;
+        if (!productsWrapper) return;
+        
+        const leftButton = productsWrapper.querySelector('.scroll-arrow.left');
+        const rightButton = productsWrapper.querySelector('.scroll-arrow.right');
+        
+        if (!leftButton || !rightButton) return;
+        
+        // Проверяем позицию скролла
+        const scrollLeft = productsContainer.scrollLeft;
+        const maxScroll = productsContainer.scrollWidth - productsContainer.clientWidth;
+        
+        // Показываем/скрываем кнопки в зависимости от позиции скролла
+        leftButton.style.opacity = scrollLeft > 0 ? '1' : '0.5';
+        leftButton.style.pointerEvents = scrollLeft > 0 ? 'auto' : 'none';
+        
+        rightButton.style.opacity = scrollLeft < maxScroll - 5 ? '1' : '0.5';
+        rightButton.style.pointerEvents = scrollLeft < maxScroll - 5 ? 'auto' : 'none';
+    }
+
+    // Добавление обработчиков событий (включая клики по изображениям)
     function addEventListeners() {
         // Обработчики для кнопок "подробнее"
         document.querySelectorAll('.show-more-btn').forEach(button => {
@@ -1165,9 +1427,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (!fullElement || !sectionTitle) return;
 
-                // Скрываем весь блок с сокращенным текстом
                 sectionTitle.style.display = 'none';
-                // Показываем полный текст
                 fullElement.style.display = 'block';
             });
         });
@@ -1187,10 +1447,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (!fullElement || !sectionTitle) return;
 
-                // Скрываем полный текст
                 fullElement.style.display = 'none';
-                // Показываем блок с сокращенным текстом
                 sectionTitle.style.display = 'block';
+            });
+        });
+
+        // Обработчики для кликов по изображениям товаров (увеличение)
+        document.querySelectorAll('.product-img-clickable').forEach(img => {
+            img.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const imageSrc = this.src;
+                const altText = this.alt || 'Изображение товара';
+
+                openImageModal(imageSrc, altText);
+            });
+
+            // Добавляем курсор-указатель для изображений
+            img.style.cursor = 'pointer';
+
+            // Добавляем эффект при наведении
+            img.addEventListener('mouseenter', function () {
+                this.style.transform = 'scale(1.02)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+
+            img.addEventListener('mouseleave', function () {
+                this.style.transform = 'scale(1)';
             });
         });
 
@@ -1282,285 +1566,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             
             updateScrollLine();
+            updateScrollButtonsVisibility();
         }, 250);
     });
 
-    // Обработчик скролла для обновления ползунка
-    productsContainer.addEventListener('scroll', updateScrollLine);
-
-    // Создаем модальное окно для изображений
-    function createImageModal() {
-        modalOverlay = document.createElement('div');
-        modalOverlay.className = 'image-modal-overlay';
-        modalOverlay.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 2000;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    `;
-
-        modalImage = document.createElement('img');
-        modalImage.className = 'modal-image';
-        modalImage.style.cssText = `
-        max-width: 90%;
-        max-height: 90%;
-        object-fit: contain;
-        border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        transform: scale(0.9);
-        transition: transform 0.3s ease;
-    `;
-
-        modalCloseBtn = document.createElement('button');
-        modalCloseBtn.className = 'modal-close-btn';
-        modalCloseBtn.innerHTML = '×';
-        modalCloseBtn.style.cssText = `
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background: #fff;
-        color: #333;
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        font-size: 24px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        z-index: 2001;
-    `;
-
-        modalCloseBtn.addEventListener('mouseenter', () => {
-            modalCloseBtn.style.transform = 'scale(1.1)';
-            modalCloseBtn.style.background = '#ff4444';
-            modalCloseBtn.style.color = '#fff';
-        });
-
-        modalCloseBtn.addEventListener('mouseleave', () => {
-            modalCloseBtn.style.transform = 'scale(1)';
-            modalCloseBtn.style.background = '#fff';
-            modalCloseBtn.style.color = '#333';
-        });
-
-        modalOverlay.appendChild(modalImage);
-        modalOverlay.appendChild(modalCloseBtn);
-        document.body.appendChild(modalOverlay);
-
-        // Закрытие по клику на оверлей
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                closeImageModal();
-            }
-        });
-
-        // Закрытие по кнопке
-        modalCloseBtn.addEventListener('click', closeImageModal);
-
-        // Закрытие по Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modalOverlay.style.display !== 'none') {
-                closeImageModal();
-            }
-        });
-    }
-
-    // Функция открытия модального окна с изображением
-    function openImageModal(imageSrc, altText) {
-        if (!modalOverlay) {
-            createImageModal();
-        }
-
-        modalImage.src = imageSrc;
-        modalImage.alt = altText;
-
-        // Сбрасываем стили
-        modalImage.style.maxWidth = '';
-        modalImage.style.maxHeight = '';
-        modalImage.style.width = '';
-        modalImage.style.height = '';
-
-        // Показываем модальное окно
-        modalOverlay.style.display = 'flex';
-        setTimeout(() => {
-            modalOverlay.style.opacity = '1';
-            
-            // Всегда устанавливаем 80% от экрана
-            const screenWidth = window.innerWidth;
-            const screenHeight = window.innerHeight;
-            
-            modalImage.style.width = (screenWidth * 0.8) + 'px';
-            modalImage.style.height = (screenHeight * 0.8) + 'px';
-            modalImage.style.maxWidth = 'none';
-            modalImage.style.maxHeight = 'none';
-            modalImage.style.objectFit = 'contain';
-            modalImage.style.transform = 'scale(1)';
-            
-            // Загружаем оригинал для проверки
-            const tempImg = new Image();
-            tempImg.src = imageSrc;
-            
-            tempImg.onload = function() {
-                const originalWidth = tempImg.naturalWidth;
-                const originalHeight = tempImg.naturalHeight;
-                const aspectRatio = originalWidth / originalHeight;
-                
-                // Пересчитываем с сохранением пропорций
-                let targetWidth = screenWidth * 0.8;
-                let targetHeight = targetWidth / aspectRatio;
-                
-                if (targetHeight > screenHeight * 0.8) {
-                    targetHeight = screenHeight * 0.8;
-                    targetWidth = targetHeight * aspectRatio;
-                }
-                
-                modalImage.style.width = targetWidth + 'px';
-                modalImage.style.height = targetHeight + 'px';
-            };
-            
-        }, 10);
-
-        document.body.style.overflow = 'hidden';
-    }
-
-    // Функция закрытия модального окна
-    function closeImageModal() {
-        if (!modalOverlay) return;
-
-        modalOverlay.style.opacity = '0';
-        modalImage.style.transform = 'scale(0.9)';
-
-        setTimeout(() => {
-            modalOverlay.style.display = 'none';
-            document.body.style.overflow = '';
-        }, 300);
-    }
-
-    // В функции addEventListeners() добавьте обработчики для изображений
-    function addEventListeners() {
-        // Обработчики для кнопок "подробнее"
-        document.querySelectorAll('.show-more-btn').forEach(button => {
-            button.addEventListener('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const productId = this.getAttribute('data-product-id');
-                const type = this.getAttribute('data-type');
-
-                const fullElement = document.getElementById(`full-${type}-${productId}`);
-                const sectionTitle = this.closest('.section-title');
-
-                if (!fullElement || !sectionTitle) return;
-
-                // Скрываем весь блок с сокращенным текстом
-                sectionTitle.style.display = 'none';
-                // Показываем полный текст
-                fullElement.style.display = 'block';
-            });
-        });
-
-        // Обработчики для кнопок "скрыть"
-        document.querySelectorAll('.show-less-btn').forEach(button => {
-            button.addEventListener('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const productId = this.getAttribute('data-product-id');
-                const type = this.getAttribute('data-type');
-
-                const fullElement = document.getElementById(`full-${type}-${productId}`);
-                const sectionElement = this.closest(`.${type}-section`);
-                const sectionTitle = sectionElement.querySelector('.section-title');
-
-                if (!fullElement || !sectionTitle) return;
-
-                // Скрываем полный текст
-                fullElement.style.display = 'none';
-                // Показываем блок с сокращенным текстом
-                sectionTitle.style.display = 'block';
-            });
-        });
-
-        // Обработчики для изображений товаров (увеличение по клику)
-        document.querySelectorAll('.product-image img').forEach(img => {
-            img.addEventListener('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const imageSrc = this.src;
-                const altText = this.alt || 'Изображение товара';
-
-                openImageModal(imageSrc, altText);
-            });
-
-            // Добавляем курсор-указатель для изображений
-            img.style.cursor = 'pointer';
-
-            // Добавляем эффект при наведении
-            img.addEventListener('mouseenter', function () {
-                this.style.transform = 'scale(1.02)';
-                this.style.transition = 'transform 0.3s ease';
-            });
-
-            img.addEventListener('mouseleave', function () {
-                this.style.transform = 'scale(1)';
-            });
-        });
-
-        // Обработчики для кнопок голосования
-        document.querySelectorAll('.vote-btn:not(.voted)').forEach(button => {
-            button.addEventListener('click', function () {
-                const productId = this.getAttribute('data-product-id');
-
-                let productFound = false;
-                for (const company of companiesArray) {
-                    if (company.products) {
-                        const productIndex = company.products.findIndex(p => p.id === productId);
-                        if (productIndex !== -1) {
-                            productFound = true;
-
-                            let userVotes = JSON.parse(sessionStorage.getItem('userVotes') || '{}');
-
-                            if (userVotes[productId]) {
-                                alert('Вы уже отдали голос за этот товар!');
-                                return;
-                            }
-
-                            company.products[productIndex].hasVoted = true;
-                            userVotes[productId] = true;
-                            sessionStorage.setItem('userVotes', JSON.stringify(userVotes));
-
-                            this.classList.add('voted');
-                            this.innerHTML = '<i class="fas fa-thumbs-up"></i> Голос отдан';
-                            this.disabled = true;
-
-                            showSuccessMessage('Ваш голос учтен! Спасибо за участие.');
-                            break;
-                        }
-                    }
-                }
-
-                if (!productFound) {
-                    console.error('Продукт не найден:', productId);
-                }
-            });
-        });
-    }
+    // Обработчик скролла для обновления ползунка и кнопок
+    productsContainer.addEventListener('scroll', () => {
+        updateScrollLine();
+        updateScrollButtonsVisibility();
+    });
 
     // Инициализация при загрузке страницы
     initProductsData();
     displayProducts();
-    createImageModal();
+    createImageModal(); // Создаем модальное окно при загрузке
 
     // Функция для обновления данных
     window.refreshProducts = function () {
