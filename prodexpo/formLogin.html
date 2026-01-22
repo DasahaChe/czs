@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма сбора данных о продукте</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/loginStyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Конкурс продуктов Prodexpo 2026</h1>
+            <p class="header-subtitle">Заполните поля для продолжения</p>
+        </header>
+        <form id="loginForm" class="login-form">
+            <div id="loginFormsContainer" class="login-form-container">
+                <div class="login-form-section" data-login-index="1">
+                    <div class="form-group">
+                        <label for="manufacturer1">Название компании или название сетей</label>
+                        <input type="text" id="manufacturer1" name="manufacturer1"
+                            placeholder="Введите название компании или сетей">
+                        <div class="error-message" id="manufacturer1-error">Поле "Название" обязательно для
+                            заполнения
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="country1">Город</label>
+                        <input type="text" id="country1" name="country1" placeholder="Введите ваш город">
+                        <div class="error-message" id="country1-error">Поле "Город" обязательно для заполнения
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="position1">Должность</label>
+                        <select id="position1" name="position1">
+                            <option value="">Выберите должность</option>
+                            <option value="Топ менеджер">Топ менеджер</option>
+                            <option value="Менеджер">Менеджер</option>
+                            <option value="Менеджер среднего звена">Менеджер среднего звена</option>
+                            <option value="Работяга">Работяга</option>
+                        </select>
+                        <div class="error-message" id="position1-error">Поле "Должность" обязательно для заполнения
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-submit-login" id="submitlogin">
+                <i class="fas fa-database"></i> Приступить к голосованию
+            </button>
+        </form>
+        <div id="companyTableContainer"></div>
+        <div class="form-footer">
+            <p>© 2026 Центр Закупок Сетей™</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

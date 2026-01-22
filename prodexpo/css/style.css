@@ -103,7 +103,27 @@ h1 {
     grid-column: 1 / -1;
 }
 
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .product-form-section {
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    animation: slideIn 0.4s ease-out;
+}
+
+.login-form-container {
+    width: 100%;
+}
+.login-form-section {
+    width: 100%;
     padding: 16px;
     margin-bottom: 16px;
     background-color: #fff;
@@ -194,7 +214,8 @@ textarea {
 }
 
 .btn-add-product:disabled,
-.btn-submit-db:disabled {
+.btn-submit-db:disabled,
+.btn-submit-login:disabled {
     background: #bdc3c7;
     cursor: not-allowed;
     transform: none;
@@ -232,7 +253,22 @@ textarea {
     box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
 }
 
-.btn-submit-db:hover {
+.btn-submit-login {
+    max-width: 360px;
+    background: linear-gradient(135deg, #1b3d23 0%, var(--peGreen) 100%);
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.btn-submit-db:hover,
+.btn-submit-login:hover {
+    /* background: linear-gradient(135deg, #790729 0%, var(--peRad) 100%); */
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
 }
@@ -398,7 +434,7 @@ textarea {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     cursor: grab;
     scrollbar-width: none;
     -ms-overflow-style: none;
