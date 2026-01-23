@@ -10,7 +10,7 @@
     --peGreen: #026131;
     --GreenGrey: #9da19f;
     --peRad: #770909;
-    --darckGrey: #484849;
+    --darckGrey: #2a2e2e;
 }
 
 * {
@@ -135,7 +135,6 @@ h1 {
 .section-title {
     font-size: 0.75rem;
     margin: 0;
-    padding-bottom: 10px;
     color: var(--darckGrey);
 }
 
@@ -478,6 +477,7 @@ textarea {
 /* ===== PRODUCT CONTENT STRUCTURE ===== */
 .product-content {
     padding: 1em;
+    padding-top: 8px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -495,13 +495,12 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 20px;
 }
 
 .product-name {
     font-size: 1.2rem;
     color: var(--darckGrey);
-    margin: 0 0 8px 0;
+    margin: 0 0 16px 0;
     line-height: 1.2;
 }
 
@@ -536,7 +535,7 @@ textarea {
 
 /* ===== PRODUCT IMAGE ===== */
 .product-image {
-    height: 220px;
+    height: 200px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
@@ -579,7 +578,7 @@ textarea {
 /* ===== PRODUCT DETAILS SECTIONS ===== */
 .description-section,
 .composition-section {
-    margin: 10px 0;
+    margin: 4px 0;
     flex-shrink: 0;
 }
 
@@ -655,15 +654,13 @@ textarea {
 .price-section {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
     border-bottom: 1px solid #eee;
     flex-shrink: 0;
 }
 
 .price-bage {
-    width: 100px;
     font-size: 0.75rem;
     color: var(--GreenGrey);
 }
@@ -687,7 +684,7 @@ textarea {
     display: grid;
     grid-template-columns: 1fr;
     gap: 4px;
-    margin-bottom: 20px;
+    margin: 4px 0;
     flex-shrink: 0;
 }
 
@@ -697,7 +694,7 @@ textarea {
 }
 
 .detail-label {
-    width: 100px;
+    width: 64px;
     font-size: 0.75rem;
     color: var(--GreenGrey);
     font-weight: 400;
@@ -713,14 +710,12 @@ textarea {
 .product-footer {
     margin-top: auto;
     flex-shrink: 0;
-    padding-top: 15px;
 }
 
 /* ===== VOTE SECTION ===== */
 .vote-section {
     margin-top: auto;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
+    padding-top: 8px;
 }
 
 .vote-btn {
