@@ -733,11 +733,13 @@ textarea {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    transition: all 0.3 ease-in-out;
 }
 
 .vote-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(75, 108, 183, 0.3);
+     background: linear-gradient(to right, #c90530, #8f0118);
 }
 
 .vote-btn.voted {
