@@ -13,16 +13,19 @@
 <body>
     <div class="container">
         <header>
-            <h1>Конкурс продуктов Prodexpo 2026</h1>
-            <p class="header-subtitle">Заполните поля для продолжения</p>
+            <h1>Конкурс ВЫБОР СЕТЕЙ на выставке Prodexpo 2026</h1>
+            <p class="header-subtitle">Анкета эксперта</p>
         </header>
+        <p class="login-text">Уважаемый эксперт!
+            Просим Вас оценить представленные продукты с точки зрения их привлекательности для реализации в розничных
+            сетях</p>
         <form id="loginForm" class="login-form">
             <div id="loginFormsContainer" class="login-form-container">
                 <div class="login-form-section" data-login-index="1">
                     <div class="form-group">
-                        <label for="manufacturer1">Название компании или название сетей</label>
+                        <label for="manufacturer1">Название компании (розничной сети)</label>
                         <input type="text" id="manufacturer1" name="manufacturer1"
-                            placeholder="Введите название компании или сетей">
+                            placeholder="Введите название компании или розничной сети">
                         <div class="error-message" id="manufacturer1-error">Поле "Название" обязательно для
                             заполнения
                         </div>
@@ -37,13 +40,22 @@
                         <label for="position1">Должность</label>
                         <select id="position1" name="position1">
                             <option value="">Выберите должность</option>
-                            <option value="Топ менеджер">Топ менеджер</option>
-                            <option value="Менеджер">Менеджер</option>
-                            <option value="Менеджер среднего звена">Менеджер среднего звена</option>
-                            <option value="Работяга">Работяга</option>
+                            <option value="Владелец/Генеральный/Коммерческий директор">Владелец/Генеральный/Коммерческий
+                                директор</option>
+                            <option value="Директор по закупкам / Руководитель отдела закупок">Директор по закупкам /
+                                Руководитель отдела закупок</option>
+                            <option value="Руководитель категории / Категорийный менеджер">Руководитель категории /
+                                Категорийный менеджер
+                            </option>
+                            <option value="Менеджер по закупкам">Менеджер по закупкам</option>
+                            <option value="other">Иное:</option>
+                            <input type="text" id="other-position-input" name="other_position_input"
+                                placeholder="Укажите должность" style="display: none; margin-top: 10px;">
                         </select>
                         <div class="error-message" id="position1-error">Поле "Должность" обязательно для заполнения
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -58,5 +70,32 @@
     </div>
 
 </body>
+<script>
+    document.getElementById('position1').addEventListener('change', function () {
+        const otherInput = document.getElementById('other-position-input');
+
+        if (this.value === 'other') {
+            otherInput.style.display = 'inline-block';
+            otherInput.required = true;
+            otherInput.focus();
+        } else {
+            otherInput.style.display = 'none';
+            otherInput.required = false;
+            otherInput.value = '';
+        }
+    });
+
+    // Для серверной обработки можно использовать скрытое поле
+    function prepareFormData() {
+        const select = document.getElementById('position1');
+        const otherInput = document.getElementById('other-position-input');
+
+        if (select.value === 'other') {
+            // Можно создать скрытое поле или обработать на сервере
+            const finalPosition = otherInput.value;
+            // ... отправка данных
+        }
+    }
+</script>
 
 </html>

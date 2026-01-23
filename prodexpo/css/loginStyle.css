@@ -44,7 +44,7 @@ body {
 
 /* ===== LAYOUT & CONTAINERS ===== */
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -70,6 +70,11 @@ h1 {
     color: var(--darckGrey);
 }
 
+.login-text {
+    margin: 0;
+    color: var(--darckGrey);
+}
+
 /* ===== FORM ELEMENTS ===== */
 .login-form {
     display: flex;
@@ -79,7 +84,7 @@ h1 {
 }
 
 .login-form-container {
-    max-width: 800px;
+    max-width: 900px;
     width: 100%;
 }
 
