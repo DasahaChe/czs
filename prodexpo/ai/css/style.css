@@ -121,13 +121,13 @@ body {
     line-height: 1.5;
     font-size: 1.15rem;
     animation: messageAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.08),
-        0 0 0 1px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
     opacity: 0;
     transform: translateY(15px);
     backface-visibility: hidden;
     margin-bottom: 5px;
+    white-space: pre-line; /* Это ключевое свойство для отображения переносов */
+    word-wrap: break-word;
 }
 
 @keyframes messageAppear {
@@ -155,8 +155,9 @@ body {
     color: #24252D;
     border: 1px solid rgba(37, 91, 169, 0.2);
     position: relative;
-    padding-left: 50px; /* Отступ для иконки */
-    margin-left: 10px; /* Небольшой отступ слева */
+    padding-left: 50px; /* Исправляем отступ */
+    margin-left: 10px;
+    max-width: 80%;
 }
 
 /* Контейнер для иконки бота внутри сообщения */
@@ -411,6 +412,7 @@ body {
         font-size: 1.3rem;
         padding: 20px 28px;
         max-width: 75%;
+        line-height: 1.6;
     }
 
     .message.bot {
@@ -419,14 +421,14 @@ body {
     }
 
     .bot-icon-inline {
-        width: 35px;
-        height: 35px;
+        width: 60px;
+        height: 60px;
         margin-top: 10px;
     }
 
     .bot-avatar {
-        left: -40px;
-        width: 55px;
+        left: -20px;
+        width: 60px;
     }
 
     .typing-indicator {
@@ -477,6 +479,7 @@ body {
         font-size: 1.4rem;
         padding: 22px 32px;
         max-width: 70%;
+        line-height: 1.7;
     }
 
     .message.bot {
@@ -485,8 +488,8 @@ body {
     }
 
     .bot-icon-inline {
-        width: 40px;
-        height: 40px;
+        width: 80px;
+        height: 80px;
         margin-top: 12px;
     }
 
@@ -543,6 +546,7 @@ body {
         font-size: 1.6rem;
         padding: 28px 38px;
         max-width: 65%;
+        line-height: 1.8;
     }
 
     .message.bot {
@@ -551,14 +555,14 @@ body {
     }
 
     .bot-icon-inline {
-        width: 45px;
-        height: 45px;
+        width: 100px;
+        height: 100px;
         margin-top: 14px;
     }
 
     .bot-avatar {
         left: -55px;
-        width: 70px;
+        width: 100px;
     }
 
     .typing-indicator {
@@ -688,5 +692,348 @@ body {
     50% { 
         filter: blur(5px);
         opacity: 0.6;
+    }
+}
+
+/* Стиль для bot-btn (имитация кнопки) */
+.message.bot-btn {
+    background: linear-gradient(135deg, #e6f4ff, #d4e9ff);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+    color: #24252D;
+    border: 2px solid #3f91dd;
+    border-left: 4px solid #3f91dd;
+    padding: 16px 22px;
+    padding-left: 50px;
+    margin-left: 10px;
+    box-shadow: 0 3px 10px rgba(37, 91, 169, 0.15);
+    cursor: default;
+    font-weight: 500;
+    max-width: 80%;
+    position: relative;
+    line-height: 1.5;
+    font-size: 1.15rem;
+    animation: messageAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+               btnPulse 2s infinite 0.4s;
+    opacity: 0;
+    transform: translateY(15px);
+    backface-visibility: hidden;
+    margin-bottom: 5px;
+    white-space: pre-line;
+    word-wrap: break-word;
+}
+
+/* Анимация для bot-btn (имитация нажатия кнопки) */
+@keyframes btnPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 3px 10px rgba(37, 91, 169, 0.15);
+    }
+    50% {
+        transform: scale(0.98);
+        box-shadow: 0 2px 6px rgba(37, 91, 169, 0.1);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 3px 10px rgba(37, 91, 169, 0.15);
+    }
+}
+
+.message.bot-btn {
+    animation: btnPulse 2s infinite;
+}
+
+/* Для адаптивности */
+@media (min-width: 1920px) {
+    .message.bot-btn {
+        padding: 16px 24px;
+        padding-left: 55px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .message.bot-btn {
+        padding: 18px 26px;
+        padding-left: 60px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 3840px) {
+    .message.bot-btn {
+        padding: 20px 28px;
+        padding-left: 70px;
+        font-size: 1.4rem;
+    }
+}
+
+/* Стиль для bot-btn (имитация кнопки) */
+.message.bot-btn {
+    background: linear-gradient(135deg, #e6f4ff, #d4e9ff);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+    color: #24252D;
+    border: 2px solid #3f91dd;
+    border-left: 4px solid #3f91dd;
+    padding: 16px 22px;
+    padding-left: 50px; /* Такой же отступ как у обычных сообщений бота */
+    margin-left: 10px;
+    box-shadow: 0 3px 10px rgba(37, 91, 169, 0.15);
+    cursor: default;
+    font-weight: 500;
+    max-width: 80%;
+    position: relative;
+    line-height: 1.5;
+    font-size: 1.15rem;
+    animation: messageAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+               btnPulse 2s infinite 0.4s;
+    opacity: 0;
+    transform: translateY(15px);
+    backface-visibility: hidden;
+    margin-bottom: 5px;
+}
+
+.message.bot-btn:hover {
+    background: linear-gradient(135deg, #d4e9ff, #c2deff);
+    box-shadow: 0 4px 12px rgba(37, 91, 169, 0.2);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* Анимация для bot-btn (имитация нажатия кнопки) */
+@keyframes btnPulse {
+    0% {
+        transform: scale(1) translateY(0);
+        box-shadow: 0 3px 10px rgba(37, 91, 169, 0.15);
+    }
+    50% {
+        transform: scale(0.98) translateY(0);
+        box-shadow: 0 2px 6px rgba(37, 91, 169, 0.1);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        box-shadow: 0 3px 10px rgba(37, 91, 169, 0.15);
+    }
+}
+
+/* Иконка для bot-btn */
+.message.bot-btn .bot-avatar {
+    position: absolute;
+    left: -35px; /* Располагаем слева от сообщения */
+    top: 0;
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.message.bot-btn .bot-icon-inline {
+    width: 30px;
+    height: 30px;
+    margin-top: 8px;
+    background-image: url('../img/vh3.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.message.bot-btn .message-time {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 8px;
+    text-align: right;
+    color: rgba(36, 37, 45, 0.65);
+}
+
+/* Для адаптивности */
+@media (min-width: 1920px) {
+    .message.bot-btn {
+        font-size: 1.3rem;
+        padding: 20px 28px;
+        padding-left: 55px;
+        max-width: 75%;
+    }
+    
+    .message.bot-btn .bot-avatar {
+        left: -40px;
+        width: 55px;
+    }
+    
+    .message.bot-btn .bot-icon-inline {
+        width: 35px;
+        height: 35px;
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 2560px) {
+    .message.bot-btn {
+        font-size: 1.4rem;
+        padding: 22px 32px;
+        padding-left: 60px;
+        max-width: 70%;
+    }
+    
+    .message.bot-btn .bot-avatar {
+        left: -45px;
+        width: 60px;
+    }
+    
+    .message.bot-btn .bot-icon-inline {
+        width: 40px;
+        height: 40px;
+        margin-top: 12px;
+    }
+}
+
+@media (min-width: 3840px) {
+    .message.bot-btn {
+        font-size: 1.6rem;
+        padding: 28px 38px;
+        padding-left: 70px;
+        max-width: 65%;
+    }
+    
+    .message.bot-btn .bot-avatar {
+        left: -55px;
+        width: 70px;
+    }
+    
+    .message.bot-btn .bot-icon-inline {
+        width: 45px;
+        height: 45px;
+        margin-top: 14px;
+    }
+}
+
+.message.bot-btn:hover {
+    background: linear-gradient(135deg, #d4e9ff, #c2deff);
+    box-shadow: 0 4px 12px rgba(37, 91, 169, 0.2);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* Анимация для bot-btn (имитация нажатия кнопки) */
+@keyframes btnPulse {
+    0% {
+        transform: scale(1) translateY(0);
+        box-shadow: 0 3px 10px rgba(37, 91, 169, 0.15);
+    }
+    50% {
+        transform: scale(0.98) translateY(0);
+        box-shadow: 0 2px 6px rgba(37, 91, 169, 0.1);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        box-shadow: 0 3px 10px rgba(37, 91, 169, 0.15);
+    }
+}
+
+/* Иконка для bot-btn */
+.message.bot-btn .bot-avatar {
+    position: absolute;
+    left: -35px;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.message.bot-btn .bot-icon-inline {
+    width: 30px;
+    height: 30px;
+    margin-top: 8px;
+    background-image: url('../img/vh3.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Для обычных сообщений оставляем время */
+.message:not(.bot-btn) .message-time {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 8px;
+    text-align: right;
+}
+
+.message.user .message-time {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.message.bot .message-time {
+    color: rgba(36, 37, 45, 0.65);
+}
+
+/* Для адаптивности */
+@media (min-width: 1920px) {
+    .message.bot-btn {
+        font-size: 1.3rem;
+        padding: 20px 28px;
+        padding-left: 55px;
+        max-width: 75%;
+    }
+    
+    .message.bot-btn .bot-avatar {
+        left: -40px;
+        width: 55px;
+    }
+    
+    .message.bot-btn .bot-icon-inline {
+        width: 35px;
+        height: 35px;
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 2560px) {
+    .message.bot-btn {
+        font-size: 1.4rem;
+        padding: 22px 32px;
+        padding-left: 60px;
+        max-width: 70%;
+    }
+    
+    .message.bot-btn .bot-avatar {
+        left: -45px;
+        width: 60px;
+    }
+    
+    .message.bot-btn .bot-icon-inline {
+        width: 40px;
+        height: 40px;
+        margin-top: 12px;
+    }
+}
+
+@media (min-width: 3840px) {
+    .message.bot-btn {
+        font-size: 1.6rem;
+        padding: 28px 38px;
+        padding-left: 70px;
+        max-width: 65%;
+    }
+    
+    .message.bot-btn .bot-avatar {
+        left: -55px;
+        width: 70px;
+    }
+    
+    .message.bot-btn .bot-icon-inline {
+        width: 45px;
+        height: 45px;
+        margin-top: 14px;
     }
 }
