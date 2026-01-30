@@ -2,6 +2,7 @@
   --blue-900: #0B63A8;
   --cyan-400: #08D3EA;
   --lightBlue: #E6F4FF;
+  --blue:#e7f3ff;
 
   --text: #1E1E1E;
   --muted: #6D7A88;
@@ -295,7 +296,7 @@ select {
 }
 
 .nav__item--active {
-  background: var(--lighGrey);
+  background: var(--blue);
   border: 1px solid;
 }
 
@@ -510,7 +511,8 @@ select {
 }
 
 .btn:hover {
-  filter: brightness(.98);
+  background: var(--blue);
+  filter: brightness(.99);
 }
 
 .btn--outline {
@@ -568,32 +570,30 @@ select {
 }
 
 .stat {
+  position: relative;
   width: calc(100% / 3);
   border: 2px solid var(--border);
   border-radius: 12px;
   background: #fff;
-  padding: 16px 16px 18px 16px;
+  padding: 16px;
 }
 
-.stat__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
 
 .stat__title {
   font-size: 1.5em;
   font-weight: 400;
-  margin: 0;
+  margin: 0 0 8px 0;
 }
 
 .stat__chip {
-  height: 18px;
-  min-width: 18px;
-  padding: 0 6px;
-  border-radius: 4px;
-  background: var(--lighGrey);
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  height: 33px;
+  width: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='24' viewBox='0 0 32 24' fill='none'%3E%3Cpath d='M30 0C31.1046 0 32 0.895431 32 2V15C32 16.1046 31.1046 17 30 17H10.5771L0 24V2C0 0.895431 0.895431 0 2 0H30Z' fill='%23E6F4FF'/%3E%3C/svg%3E");
+  background-repeat:  no-repeat;
+  background-size: 40px 39px;
   color: var(--dark);
   display: flex;
   align-items: center;

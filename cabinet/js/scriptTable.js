@@ -1,16 +1,17 @@
-// Объект закупок
 const procurementData = {
-  creationDate: new Date().toISOString().split('T')[0],
+  creationDate: "01.02.2026",
   purchaserName: "И.О. Посетительный",
   purchases: [
+    // Последняя неделя (высший приоритет) - январь 2026
     {
       "id": 1,
       "product": "Молоко",
       "supplier": "Коровкин",
       "status": "В процессе",
       "amount": "150000",
-      "date": "27.04.2024",
-      "deliveryDate": "27.04.2026"
+      "date": "30.01.2026",
+      "deliveryDate": "30.02.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 2,
@@ -18,8 +19,9 @@ const procurementData = {
       "supplier": "Дом молока",
       "status": "На согласовании",
       "amount": "50000",
-      "date": "28.04.2024",
-      "deliveryDate": "28.04.2026"
+      "date": "31.01.2026",
+      "deliveryDate": "31.02.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 3,
@@ -27,8 +29,9 @@ const procurementData = {
       "supplier": "Дом молока",
       "status": "Ожидается",
       "amount": "350000",
-      "date": "17.04.2024",
-      "deliveryDate": "17.04.2026"
+      "date": "29.01.2026",
+      "deliveryDate": "29.02.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 4,
@@ -36,8 +39,9 @@ const procurementData = {
       "supplier": "Коровкин",
       "status": "В процессе",
       "amount": "100000",
-      "date": "02.04.2024",
-      "deliveryDate": "02.04.2026"
+      "date": "28.01.2026",
+      "deliveryDate": "28.02.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 5,
@@ -45,17 +49,21 @@ const procurementData = {
       "supplier": "Коровкин",
       "status": "Просрочено",
       "amount": "20000",
-      "date": "27.04.2024",
-      "deliveryDate": "27.04.2026"
+      "date": "27.01.2026",
+      "deliveryDate": "20.01.2026",
+      "category": "молочная продукция"
     },
+
+    // Последний месяц (средний приоритет) - январь 2026
     {
       "id": 6,
       "product": "Сыр твёрдый",
       "supplier": "Сыркин",
       "status": "В процессе",
       "amount": "1150000",
-      "date": "27.04.2024",
-      "deliveryDate": "27.04.2026"
+      "date": "15.01.2026",
+      "deliveryDate": "15.03.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 7,
@@ -63,8 +71,9 @@ const procurementData = {
       "supplier": "Сыркин",
       "status": "На согласовании",
       "amount": "890000",
-      "date": "27.04.2024",
-      "deliveryDate": "27.04.2026"
+      "date": "10.01.2026",
+      "deliveryDate": "10.03.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 8,
@@ -72,8 +81,9 @@ const procurementData = {
       "supplier": "Коровкин",
       "status": "Ожидается",
       "amount": "75000",
-      "date": "15.03.2024",
-      "deliveryDate": "15.03.2026"
+      "date": "05.01.2026",
+      "deliveryDate": "05.02.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 9,
@@ -81,17 +91,21 @@ const procurementData = {
       "supplier": "Дом молока",
       "status": "Завершено",
       "amount": "120000",
-      "date": "10.01.2024",
-      "deliveryDate": "10.01.2026"
+      "date": "02.01.2026",
+      "deliveryDate": "20.01.2026",
+      "category": "молочная продукция"
     },
+
+    // Не далее 3 месяцев от сегодня (низший приоритет) - ноябрь 2025 - январь 2026
     {
       "id": 10,
       "product": "Масло сливочное",
       "supplier": "Коровкин",
       "status": "В процессе",
       "amount": "200000",
-      "date": "05.02.2024",
-      "deliveryDate": "05.02.2026"
+      "date": "01.12.2025",
+      "deliveryDate": "01.03.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 11,
@@ -99,8 +113,9 @@ const procurementData = {
       "supplier": "Молочные реки",
       "status": "На согласовании",
       "amount": "180000",
-      "date": "22.11.2024",
-      "deliveryDate": "22.11.2025"
+      "date": "15.11.2025",
+      "deliveryDate": "15.02.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 12,
@@ -108,17 +123,21 @@ const procurementData = {
       "supplier": "Коровкин",
       "status": "Просрочено",
       "amount": "45000",
-      "date": "30.12.2024",
-      "deliveryDate": "30.12.2025"
+      "date": "05.11.2025",
+      "deliveryDate": "20.01.2026",
+      "category": "молочная продукция"
     },
+
+    // Разброс в полтора года назад - с августа 2024
     {
       "id": 13,
       "product": "Сыр моцарелла",
       "supplier": "Сыркин",
       "status": "В процессе",
       "amount": "320000",
-      "date": "18.10.2024",
-      "deliveryDate": "18.10.2025"
+      "date": "15.08.2024",
+      "deliveryDate": "15.02.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 14,
@@ -126,8 +145,9 @@ const procurementData = {
       "supplier": "Дом молока",
       "status": "Ожидается",
       "amount": "60000",
-      "date": "29.01.2024",
-      "deliveryDate": "29.01.2026"
+      "date": "15.07.2024",
+      "deliveryDate": "15.05.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 15,
@@ -135,8 +155,9 @@ const procurementData = {
       "supplier": "Молочные реки",
       "status": "Завершено",
       "amount": "85000",
-      "date": "14.09.2024",
-      "deliveryDate": "14.09.2025"
+      "date": "15.06.2024",
+      "deliveryDate": "15.10.2024",
+      "category": "молочная продукция"
     },
     {
       "id": 16,
@@ -144,8 +165,9 @@ const procurementData = {
       "supplier": "Лакомка",
       "status": "В процессе",
       "amount": "410000",
-      "date": "03.08.2024",
-      "deliveryDate": "03.08.2025"
+      "date": "15.05.2024",
+      "deliveryDate": "15.11.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 17,
@@ -153,8 +175,9 @@ const procurementData = {
       "supplier": "Степные традиции",
       "status": "На согласовании",
       "amount": "95000",
-      "date": "11.07.2024",
-      "deliveryDate": "11.07.2025"
+      "date": "15.04.2024",
+      "deliveryDate": "15.08.2026",
+      "category": "молочная продукция"
     },
     {
       "id": 18,
@@ -162,8 +185,9 @@ const procurementData = {
       "supplier": "Сыркин",
       "status": "Просрочено",
       "amount": "275000",
-      "date": "05.05.2024",
-      "deliveryDate": "05.05.2025"
+      "date": "15.03.2024",
+      "deliveryDate": "15.09.2025",
+      "category": "молочная продукция"
     },
     {
       "id": 19,
@@ -171,8 +195,9 @@ const procurementData = {
       "supplier": "Дом молока",
       "status": "Завершено",
       "amount": "55000",
-      "date": "22.04.2024",
-      "deliveryDate": "22.04.2025"
+      "date": "15.02.2024",
+      "deliveryDate": "15.07.2024",
+      "category": "молочная продукция"
     },
     {
       "id": 20,
@@ -180,12 +205,216 @@ const procurementData = {
       "supplier": "Степные традиции",
       "status": "В процессе",
       "amount": "70000",
-      "date": "30.03.2024",
-      "deliveryDate": "30.03.2025"
+      "date": "15.01.2024",
+      "deliveryDate": "15.07.2026",
+      "category": "молочная продукция"
+    },
+
+    // Овощи (те же правила дат)
+    {
+      "id": 21,
+      "product": "Картофель",
+      "supplier": "Овощевод",
+      "status": "В процессе",
+      "amount": "250000",
+      "date": "29.01.2026",
+      "deliveryDate": "29.02.2026",
+      "category": "овощи"
+    },
+    {
+      "id": 22,
+      "product": "Морковь",
+      "supplier": "Поля России",
+      "status": "На согласовании",
+      "amount": "180000",
+      "date": "10.01.2026",
+      "deliveryDate": "10.03.2026",
+      "category": "овощи"
+    },
+    {
+      "id": 23,
+      "product": "Лук репчатый",
+      "supplier": "Овощевод",
+      "status": "Ожидается",
+      "amount": "120000",
+      "date": "15.12.2025",
+      "deliveryDate": "15.03.2026",
+      "category": "овощи"
+    },
+    {
+      "id": 24,
+      "product": "Капуста белокочанная",
+      "supplier": "Агрохолдинг",
+      "status": "Завершено",
+      "amount": "90000",
+      "date": "15.11.2025",
+      "deliveryDate": "15.12.2025",
+      "category": "овощи"
+    },
+    {
+      "id": 25,
+      "product": "Огурцы свежие",
+      "supplier": "Тепличный комбинат",
+      "status": "В процессе",
+      "amount": "150000",
+      "date": "01.12.2025",
+      "deliveryDate": "01.03.2026",
+      "category": "овощи"
+    },
+    {
+      "id": 26,
+      "product": "Помидоры",
+      "supplier": "Тепличный комбинат",
+      "status": "Просрочено",
+      "amount": "200000",
+      "date": "01.11.2025",
+      "deliveryDate": "01.01.2026",
+      "category": "овощи"
+    },
+    {
+      "id": 27,
+      "product": "Свекла",
+      "supplier": "Поля России",
+      "status": "На согласовании",
+      "amount": "75000",
+      "date": "15.08.2024",
+      "deliveryDate": "15.02.2026",
+      "category": "овощи"
+    },
+    {
+      "id": 28,
+      "product": "Чеснок",
+      "supplier": "Овощевод",
+      "status": "Ожидается",
+      "amount": "95000",
+      "date": "15.06.2024",
+      "deliveryDate": "15.12.2025",
+      "category": "овощи"
+    },
+    {
+      "id": 29,
+      "product": "Перец сладкий",
+      "supplier": "Тепличный комбинат",
+      "status": "В процессе",
+      "amount": "110000",
+      "date": "15.04.2024",
+      "deliveryDate": "15.08.2026",
+      "category": "овощи"
+    },
+    {
+      "id": 30,
+      "product": "Баклажаны",
+      "supplier": "Агрохолдинг",
+      "status": "Завершено",
+      "amount": "85000",
+      "date": "15.02.2024",
+      "deliveryDate": "15.06.2024",
+      "category": "овощи"
+    },
+
+    // Напитки (те же правила дат)
+    {
+      "id": 31,
+      "product": "Сок яблочный",
+      "supplier": "Фруктовый сад",
+      "status": "В процессе",
+      "amount": "180000",
+      "date": "31.01.2026",
+      "deliveryDate": "31.02.2026",
+      "category": "напитки"
+    },
+    {
+      "id": 32,
+      "product": "Сок апельсиновый",
+      "supplier": "Фруктовый сад",
+      "status": "На согласовании",
+      "amount": "160000",
+      "date": "10.01.2026",
+      "deliveryDate": "10.03.2026",
+      "category": "напитки"
+    },
+    {
+      "id": 33,
+      "product": "Вода минеральная",
+      "supplier": "Родники",
+      "status": "Ожидается",
+      "amount": "120000",
+      "date": "15.08.2024",
+      "deliveryDate": "15.02.2027",
+      "category": "напитки"
+    },
+    {
+      "id": 34,
+      "product": "Чай черный",
+      "supplier": "Восточные традиции",
+      "status": "Завершено",
+      "amount": "95000",
+      "date": "15.06.2024",
+      "deliveryDate": "15.10.2024",
+      "category": "напитки"
+    },
+    {
+      "id": 35,
+      "product": "Кофе зерновой",
+      "supplier": "Кофейная плантация",
+      "status": "В процессе",
+      "amount": "250000",
+      "date": "01.12.2025",
+      "deliveryDate": "01.03.2026",
+      "category": "напитки"
+    },
+    {
+      "id": 36,
+      "product": "Лимонад",
+      "supplier": "Напитки и Ко",
+      "status": "Просрочено",
+      "amount": "85000",
+      "date": "01.11.2025",
+      "deliveryDate": "01.01.2026",
+      "category": "напитки"
+    },
+    {
+      "id": 37,
+      "product": "Энергетический напиток",
+      "supplier": "Энергия",
+      "status": "На согласовании",
+      "amount": "110000",
+      "date": "15.08.2024",
+      "deliveryDate": "15.02.2026",
+      "category": "напитки"
+    },
+    {
+      "id": 38,
+      "product": "Квас",
+      "supplier": "Традиционный вкус",
+      "status": "Ожидается",
+      "amount": "75000",
+      "date": "15.06.2024",
+      "deliveryDate": "15.12.2025",
+      "category": "напитки"
+    },
+    {
+      "id": 39,
+      "product": "Сок томатный",
+      "supplier": "Фруктовый сад",
+      "status": "В процессе",
+      "amount": "65000",
+      "date": "15.04.2024",
+      "deliveryDate": "15.08.2026",
+      "category": "напитки"
+    },
+    {
+      "id": 40,
+      "product": "Чай зеленый",
+      "supplier": "Восточные традиции",
+      "status": "Завершено",
+      "amount": "88000",
+      "date": "15.02.2024",
+      "deliveryDate": "15.06.2024",
+      "category": "напитки"
     }
   ]
 };
-
 // Константы для работы с таблицей
 const STATUSES = ["На согласовании", "Ожидается", "Завершено", "В процессе", "Просрочено"];
 
@@ -209,17 +438,17 @@ function initTable() {
   console.log('Закупщик:', procurementData.purchaserName);
   console.log('Дата создания:', procurementData.creationDate);
   console.log('Количество закупок:', procurementData.purchases.length);
-  
+
   populateTable();
   initializeTableSorting();
   initializeSupplierFilter();
   updateTableTitle();
   updateCounters();
-  
+
   // Инициализируем обработчик для выбора категории
   const categorySelect = document.getElementById('category');
   if (categorySelect) {
-    categorySelect.addEventListener('change', function() {
+    categorySelect.addEventListener('change', function () {
       // Если категория меняется, сбрасываем фильтр поставщика
       currentSupplierFilter = null;
       updateSupplierFilterButton();
@@ -255,43 +484,43 @@ function updateTableTitle() {
 // Получение отфильтрованных закупок (доступно для других скриптов)
 function getFilteredPurchases() {
   let filteredPurchases = [...procurementData.purchases];
-  
+
   // Применяем фильтр по поставщику
   if (currentSupplierFilter) {
-    filteredPurchases = filteredPurchases.filter(purchase => 
+    filteredPurchases = filteredPurchases.filter(purchase =>
       purchase.supplier === currentSupplierFilter
     );
   }
-  
+
   // Применяем фильтр по категории
   const selectedCategory = document.getElementById('category')?.value;
   if (selectedCategory && selectedCategory !== 'Молочная продукция') {
     if (selectedCategory === 'Овощи и фрукты') {
-      filteredPurchases = filteredPurchases.filter(purchase => 
-        purchase.product.toLowerCase().includes('овощ') || 
+      filteredPurchases = filteredPurchases.filter(purchase =>
+        purchase.product.toLowerCase().includes('овощ') ||
         purchase.product.toLowerCase().includes('фрукт')
       );
     } else if (selectedCategory === 'Напитки') {
-      filteredPurchases = filteredPurchases.filter(purchase => 
-        purchase.product.toLowerCase().includes('напиток') || 
+      filteredPurchases = filteredPurchases.filter(purchase =>
+        purchase.product.toLowerCase().includes('напиток') ||
         purchase.product.toLowerCase().includes('сок')
       );
     }
   }
-  
+
   return filteredPurchases;
 }
 
 // Обновление счетчиков статусов
 function updateCounters() {
   const purchases = getFilteredPurchases();
-  
+
   // Создаем объект для хранения сумм по статусам
   const statusSums = {};
   STATUSES.forEach(status => {
     statusSums[status] = 0;
   });
-  
+
   // Считаем суммы по каждому статусу
   purchases.forEach(purchase => {
     const amount = parseInt(purchase.amount) || 0;
@@ -299,26 +528,26 @@ function updateCounters() {
       statusSums[purchase.status] += amount;
     }
   });
-  
+
   // Обновляем значения в стат-блоках
   const statBlocks = document.querySelectorAll('.stat');
   if (statBlocks.length >= 3) {
     // Активные заявки (В процессе)
     if (statBlocks[0]) {
       const processSum = statusSums["В процессе"] + statusSums["На согласовании"];
-      statBlocks[0].querySelector('.stat__value').textContent = 
+      statBlocks[0].querySelector('.stat__value').textContent =
         formatCurrencyShort(processSum);
     }
-    
+
     // На согласовании
     if (statBlocks[1]) {
-      statBlocks[1].querySelector('.stat__value').textContent = 
+      statBlocks[1].querySelector('.stat__value').textContent =
         formatCurrencyShort(statusSums["На согласовании"]);
     }
-    
+
     // Требует внимания (Просрочено)
     if (statBlocks[2]) {
-      statBlocks[2].querySelector('.stat__value').textContent = 
+      statBlocks[2].querySelector('.stat__value').textContent =
         formatCurrencyShort(statusSums["Просрочено"]);
     }
   }
@@ -338,25 +567,25 @@ function formatCurrencyShort(amount) {
 function populateTable(sortField = null, direction = 'asc') {
   const tbody = document.querySelector('.table tbody');
   if (!tbody) return;
-  
+
   // Получаем отфильтрованные данные
   let dataToDisplay = getFilteredPurchases();
-  
+
   // Сортируем данные если нужно
   if (sortField) {
     dataToDisplay = sortPurchases(dataToDisplay, sortField, direction);
   }
-  
+
   // Очищаем таблицу
   tbody.innerHTML = '';
-  
+
   // Заполняем таблицу данными
   dataToDisplay.forEach(purchase => {
     const row = document.createElement('tr');
-    
+
     // Определяем класс статуса для CSS
     let statusClass = '';
-    switch(purchase.status) {
+    switch (purchase.status) {
       case 'В процессе':
         statusClass = 'status--progress';
         break;
@@ -373,14 +602,14 @@ function populateTable(sortField = null, direction = 'asc') {
         statusClass = 'status--late';
         break;
     }
-    
+
     // Форматируем сумму с пробелами
     const formattedAmount = formatCurrency(parseInt(purchase.amount));
-    
+
     // Проверяем, активен ли фильтр для этого поставщика
     const isActiveFilter = currentSupplierFilter === purchase.supplier;
     const activeClass = isActiveFilter ? 'active-filter' : '';
-    
+
     row.innerHTML = `
       <td>${purchase.product}</td>
       <td>
@@ -392,10 +621,10 @@ function populateTable(sortField = null, direction = 'asc') {
       <td>${formattedAmount} ₽</td>
       <td>${purchase.deliveryDate}</td>
     `;
-    
+
     tbody.appendChild(row);
   });
-  
+
   // Добавляем обработчики кликов на поставщиков
   addSupplierClickHandlers();
 }
@@ -409,8 +638,8 @@ function formatCurrency(amount) {
 function sortPurchases(purchases, field, direction = 'asc') {
   return [...purchases].sort((a, b) => {
     let aValue, bValue;
-    
-    switch(field) {
+
+    switch (field) {
       case 'status':
         // Используем порядок статусов для сортировки
         aValue = statusOrder[a.status] || 99;
@@ -428,12 +657,12 @@ function sortPurchases(purchases, field, direction = 'asc') {
       default:
         return 0;
     }
-    
+
     // Сравниваем значения
     let comparison = 0;
     if (aValue < bValue) comparison = -1;
     if (aValue > bValue) comparison = 1;
-    
+
     // Инвертируем для обратной сортировки
     return direction === 'desc' ? comparison * -1 : comparison;
   });
@@ -442,7 +671,7 @@ function sortPurchases(purchases, field, direction = 'asc') {
 // Парсинг даты в timestamp
 function parseDateToTimestamp(dateStr) {
   if (!dateStr) return 0;
-  
+
   // Формат DD.MM.YYYY
   const parts = dateStr.split('.');
   if (parts.length === 3) {
@@ -451,7 +680,7 @@ function parseDateToTimestamp(dateStr) {
     const year = parseInt(parts[2]);
     return new Date(year, month, day).getTime();
   }
-  
+
   return 0;
 }
 
@@ -459,18 +688,18 @@ function parseDateToTimestamp(dateStr) {
 function initializeTableSorting() {
   const table = document.querySelector('.table');
   if (!table) return;
-  
+
   const headers = table.querySelectorAll('thead th');
-  
+
   headers.forEach((header, index) => {
     const headerText = header.textContent.trim();
-    
+
     // Добавляем сортировку только для нужных колонок
     if (headerText === 'Статус' || headerText === 'Сумма' || headerText === 'Срок поставки') {
       header.style.cursor = 'pointer';
       header.style.position = 'relative';
       header.setAttribute('data-sortable', 'true');
-      
+
       // Добавляем индикатор сортировки
       const sortIndicator = document.createElement('span');
       sortIndicator.className = 'sort-indicator';
@@ -478,10 +707,10 @@ function initializeTableSorting() {
       sortIndicator.style.marginLeft = '5px';
       sortIndicator.style.opacity = '0.5';
       header.appendChild(sortIndicator);
-      
+
       header.addEventListener('click', () => {
         let field;
-        switch(headerText) {
+        switch (headerText) {
           case 'Статус':
             field = 'status';
             break;
@@ -494,7 +723,7 @@ function initializeTableSorting() {
           default:
             return;
         }
-        
+
         // Определяем направление сортировки
         if (currentSortField === field) {
           // Переключаем направление
@@ -504,10 +733,10 @@ function initializeTableSorting() {
           currentSortField = field;
           sortDirection = 'asc';
         }
-        
+
         // Обновляем индикаторы
         updateSortIndicators(field, sortDirection);
-        
+
         // Сортируем и перерисовываем таблицу
         populateTable(field, sortDirection);
       });
@@ -518,13 +747,13 @@ function initializeTableSorting() {
 // Обновление индикаторов сортировки
 function updateSortIndicators(field, direction) {
   const headers = document.querySelectorAll('.table thead th[data-sortable="true"]');
-  
+
   headers.forEach(header => {
     const indicator = header.querySelector('.sort-indicator');
     const headerText = header.textContent.replace('↕', '').replace('↑', '').replace('↓', '').trim();
-    
+
     let currentField;
-    switch(headerText) {
+    switch (headerText) {
       case 'Статус':
         currentField = 'status';
         break;
@@ -537,7 +766,7 @@ function updateSortIndicators(field, direction) {
       default:
         return;
     }
-    
+
     if (currentField === field) {
       indicator.innerHTML = direction === 'asc' ? '↑' : '↓';
       indicator.style.opacity = '1';
@@ -560,23 +789,23 @@ function initializeSupplierFilter() {
   filterControls.style.alignItems = 'center';
   filterControls.style.gap = '10px';
   filterControls.style.flexWrap = 'wrap';
-  
+
   const resetButton = document.createElement('button');
   resetButton.className = 'btn btn--outline';
   resetButton.id = 'resetSupplierFilter';
   resetButton.textContent = 'Все поставщики';
   resetButton.style.display = 'none';
-  
+
   const filterInfo = document.createElement('div');
   filterInfo.className = 'supplier-filter-info';
   filterInfo.style.fontSize = '14px';
   filterInfo.style.color = '#666';
   // Устанавливаем текст сразу при создании элемента
   filterInfo.textContent = 'Кликните на имя поставщика для фильтрации';
-  
+
   filterControls.appendChild(resetButton);
   filterControls.appendChild(filterInfo);
-  
+
   // Вставляем перед таблицей
   const tableBlock = document.querySelector('.table-block');
   const tableWrap = document.querySelector('.table-wrap');
@@ -587,7 +816,7 @@ function initializeSupplierFilter() {
       tableBlock.insertBefore(filterControls, tableWrap);
     }
   }
-  
+
   // Обработчик для кнопки сброса
   resetButton.addEventListener('click', () => {
     currentSupplierFilter = null;
@@ -600,7 +829,7 @@ function initializeSupplierFilter() {
       renderChart();
     }
   });
-  
+
   // Инициализируем состояние кнопки фильтра
   updateSupplierFilterButton();
 }
@@ -608,13 +837,13 @@ function initializeSupplierFilter() {
 // Добавление обработчиков кликов на поставщиков
 function addSupplierClickHandlers() {
   const supplierLinks = document.querySelectorAll('.supplier-link');
-  
+
   supplierLinks.forEach(link => {
     link.style.cursor = 'pointer';
     link.style.color = '#0B63A8';
     link.style.textDecoration = 'underline';
     link.style.textDecorationStyle = 'dotted';
-    
+
     // Добавляем класс активного фильтра если нужно
     const supplier = link.getAttribute('data-supplier');
     if (currentSupplierFilter === supplier) {
@@ -622,18 +851,18 @@ function addSupplierClickHandlers() {
     } else {
       link.classList.remove('active-filter');
     }
-    
+
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const supplier = link.getAttribute('data-supplier');
-      
+
       // Если уже фильтруем по этому поставщику - сбрасываем фильтр
       if (currentSupplierFilter === supplier) {
         currentSupplierFilter = null;
       } else {
         currentSupplierFilter = supplier;
       }
-      
+
       updateSupplierFilterButton();
       populateTable();
       updateTableTitle();
@@ -650,7 +879,7 @@ function addSupplierClickHandlers() {
 function updateSupplierFilterButton() {
   const resetButton = document.getElementById('resetSupplierFilter');
   const filterInfo = document.querySelector('.supplier-filter-info');
-  
+
   if (resetButton && filterInfo) {
     if (currentSupplierFilter) {
       resetButton.style.display = 'inline-block';
@@ -728,7 +957,7 @@ function addTableStyles() {
     /* Стили для ссылок поставщиков */
     .supplier-link {
       cursor: pointer;
-      color: #0B63A8;
+      color: var(--blue-900);
       text-decoration: underline;
       text-decoration-style: dotted;
       transition: all 0.2s;
@@ -737,7 +966,7 @@ function addTableStyles() {
     }
     
     .supplier-link:hover {
-      color: #094a80;
+      color: var(--blue-900);
       text-decoration-style: solid;
       background-color: #f0f7ff;
     }
@@ -752,14 +981,14 @@ function addTableStyles() {
     }
     
     #resetSupplierFilter {
-      background-color: #ffebee;
-      border-color: #d32f2f;
-      color: #d32f2f;
+      background-color: var(--lightBlue);
+      border-color: var(--blue-900);
+      color: var(--blue-900);
       padding: 8px 16px;
     }
     
     #resetSupplierFilter:hover {
-      background-color: #ffcdd2;
+      background-color: var(--progress-soft);
       transform: translateY(-1px);
     }
     
@@ -768,7 +997,7 @@ function addTableStyles() {
       padding: 8px 16px;
       background-color: #f8f9fa;
       border-radius: 8px;
-      border-left: 4px solid #0B63A8;
+      border-left: 4px solid var(--blue-900);
       transition: all 0.3s ease;
     }
     
@@ -776,8 +1005,8 @@ function addTableStyles() {
     
     /* Подсветка активного фильтра в таблице */
     .supplier-link.active-filter {
-      color: #d32f2f;
-      background-color: #ffebee;
+      color: var(--blue-900);
+      background-color: var(--progress-soft);
       padding: 2px 8px;
       border-radius: 4px;
       text-decoration: none;
@@ -840,3 +1069,13 @@ function addTableStyles() {
 
 // Инициализация стилей
 addTableStyles();
+
+function updateSupplierFilter(supplier) {
+  currentSupplierFilter = supplier;
+  if (typeof window.updateSupplierFilter === 'function') {
+    window.updateSupplierFilter(supplier);
+  }
+  populateTable();
+  updateTableTitle();
+  updateCounters();
+}
