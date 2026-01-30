@@ -1,10 +1,12 @@
-// Константы для графика
+import { procurementData, getFilteredPurchases, STATUSES } from './scriptTable.js';
+
+// Константы для графика - только нужные статусы
+const VISIBLE_STATUSES = ["В процессе", "На согласовании", "Завершено"];
+
 const STATUS_COLORS = {
   "В процессе": "#4A6FFF",
-  "На согласовании": "#00C896",
-  "Завершено": "#9D4EDD",
-  "Просрочено": "#FF4757",
-  "Ожидается": "#FFA500"
+  "На согласовании": "#00a0c8",
+  "Завершено": "#0a857e"
 };
 
 // Глобальные переменные для графика
@@ -297,10 +299,8 @@ function getChartData() {
   const chartData = [];
   const statusTotals = {};
 
-  // Используем статусы из scriptTable.js если доступны
-  const STATUSES = window.STATUSES || ["На согласовании", "Ожидается", "Завершено"];
-
-  STATUSES.forEach(status => {
+  // Используем только видимые статусы
+  VISIBLE_STATUSES.forEach(status => {
     statusTotals[status] = new Array(intervals.length).fill(0);
   });
 
@@ -311,6 +311,11 @@ function getChartData() {
 
     const amount = parseInt(purchase.amount) || 0;
     const status = purchase.status;
+
+    // Пропускаем ненужные статусы
+    if (!VISIBLE_STATUSES.includes(status)) {
+      return;
+    }
 
     // Находим индекс интервала для этого заказа
     let intervalIndex = findIntervalIndex(purchaseDate, intervals, currentPeriod);
@@ -331,7 +336,7 @@ function getChartData() {
       label: labels[index]
     };
 
-    STATUSES.forEach(status => {
+    VISIBLE_STATUSES.forEach(status => {
       dataPoint[status] = statusTotals[status][index] || 0;
     });
 
@@ -500,7 +505,7 @@ function formatCurrencyShort(amount) {
   return amount.toString();
 }
 
-// Отрисовка графика
+// Отрисовка графика С КОМПАКТНОЙ ЛЕГЕНДОЙ ВНУТРИ
 function renderChart() {
   const chartContainer = document.getElementById('up');
   if (!chartContainer) return;
@@ -528,15 +533,14 @@ function renderChart() {
   if (!ctx) return;
 
   // Настройки графика
-  const padding = { top: 40, right: 40, bottom: 60, left: 80 };
+  const padding = { top: 40, right: 140, bottom: 60, left: 80 }; // Увеличили правый отступ для легенды
   const graphWidth = canvas.width - padding.left - padding.right;
   const graphHeight = canvas.height - padding.top - padding.bottom;
 
   // Находим максимальное значение для масштабирования
   let maxValue = 0;
   chartData.forEach(point => {
-    const STATUSES = window.STATUSES || ["На согласовании", "Ожидается", "Завершено", "В процессе", "Просрочено"];
-    STATUSES.forEach(status => {
+    VISIBLE_STATUSES.forEach(status => {
       if (point[status] > maxValue) maxValue = point[status];
     });
   });
@@ -567,18 +571,13 @@ function renderChart() {
   ctx.fillStyle = '#374151';
   ctx.font = '14px Inter, Arial, sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('время', canvas.width / 2, canvas.height - 20);
+  ctx.fillText('время', (canvas.width - padding.right + padding.left) / 2, canvas.height - 20);
 
   ctx.save();
   ctx.translate(30, canvas.height / 2);
   ctx.rotate(-Math.PI / 2);
   ctx.fillText('вложения ₽', 0, 0);
   ctx.restore();
-
-  // Заголовок графика
-  ctx.textAlign = 'center';
-  ctx.font = '16px TT Fors, Inter, Arial, sans-serif';
-  // ctx.fillText('График прироста дохода', canvas.width / 2, 25);
 
   // Сетка и подписи на оси Y
   ctx.font = '12px TT Fors, Inter, Arial, sans-serif';
@@ -621,12 +620,10 @@ function renderChart() {
     }
   });
 
-  // Рисуем графики для каждого статуса
-  const STATUSES = window.STATUSES || ["На согласовании", "Ожидается", "Завершено"];
-
-  STATUSES.forEach(status => {
+  // Рисуем графики для каждого видимого статуса
+  VISIBLE_STATUSES.forEach(status => {
     ctx.beginPath();
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 2;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
 
@@ -651,40 +648,112 @@ function renderChart() {
         const y = scaleY(point[status]);
 
         ctx.beginPath();
-        ctx.arc(x, y, 3, 1, Math.PI * 2);
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
         ctx.fillStyle = STATUS_COLORS[status];
         ctx.fill();
 
         // Белая обводка для точек
         ctx.beginPath();
-        ctx.arc(x, y, 3, 1, Math.PI * 2);
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
         ctx.strokeStyle = '#fff';
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 2;
         ctx.stroke();
       }
     });
   });
 
-  // Легенда
-  const legendX = canvas.width - 180;
-  let legendY = padding.top + 30;
+  // Рисуем КОМПАКТНУЮ ЛЕГЕНДУ в правом верхнем углу графика
+  drawCompactLegend(ctx, canvas.width - padding.right + 20, padding.top + 10);
+}
 
-  STATUSES.forEach(status => {
+// Рисование компактной легенды внутри графика
+function drawCompactLegend(ctx, startX, startY) {
+  const chartData = currentChartData || getChartData();
+
+  if (!chartData || chartData.length === 0) return;
+
+  // Сохраняем настройки контекста
+  ctx.save();
+
+  // Стиль для легенды (очень маленький текст)
+  ctx.font = '10px TT Fors, Inter, Arial, sans-serif';
+  ctx.textAlign = 'left';
+
+  let yPos = startY;
+  const lineHeight = 14; // Очень маленькое расстояние между строками
+  const colorBoxSize = 8; // Маленькие квадратики
+
+  // Рисуем фон для легенды (полупрозрачный)
+  const legendWidth = 110; // Узкая легенда
+  const legendHeight = VISIBLE_STATUSES.length * lineHeight + 20; // + отступ для общей суммы
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+  ctx.fillRect(startX - 5, yPos - 5, legendWidth, legendHeight);
+  ctx.strokeStyle = 'rgba(200, 200, 200, 0.5)';
+  ctx.lineWidth = 0.5;
+  ctx.strokeRect(startX - 5, yPos - 5, legendWidth, legendHeight);
+
+  // Рисуем элементы легенды
+  VISIBLE_STATUSES.forEach(status => {
+    // Цветной квадратик
     ctx.fillStyle = STATUS_COLORS[status];
-    ctx.fillRect(legendX, legendY, 12, 12);
+    ctx.fillRect(startX, yPos, colorBoxSize, colorBoxSize);
 
-    ctx.fillStyle = '#2a2a2a';
-    ctx.font = '12px TT Fors, Arial, sans-serif';
-    ctx.textAlign = 'left';
+    // Название статуса (сокращенное)
+    ctx.fillStyle = '#374151';
+    let statusText = status;
+    if (status === "В процессе") statusText = "Процесс";
+    if (status === "На согласовании") statusText = "Соглас.";
+    if (status === "Завершено") statusText = "Заверш.";
 
-    // Форматируем итоговую сумму для легенды
-    const total = chartData.length > 0 ? chartData[chartData.length - 1][status] : 0;
-    const label = `${status}: ${formatCurrencyShort(total)}`;
+    ctx.fillText(statusText, startX + colorBoxSize + 4, yPos + 8);
 
-    ctx.fillText(label, legendX + 20, legendY + 10);
+    // Значение (в сокращенном формате)
+    ctx.fillStyle = '#6B7280';
+    ctx.textAlign = 'right';
 
-    legendY += 20;
+    const lastValue = chartData.length > 0 ? chartData[chartData.length - 1][status] : 0;
+    const valueText = formatCurrencyShort(lastValue);
+
+    ctx.fillText(valueText, startX + legendWidth - 10, yPos + 8);
+
+    yPos += lineHeight;
+    ctx.textAlign = 'left'; // Возвращаем выравнивание
   });
+
+  // Добавляем разделительную линию
+  yPos += 5;
+  ctx.beginPath();
+  ctx.moveTo(startX, yPos);
+  ctx.lineTo(startX + legendWidth - 10, yPos);
+  ctx.strokeStyle = '#E5E7EB';
+  ctx.lineWidth = 0.5;
+  ctx.stroke();
+
+  yPos += 5;
+
+  // Общая сумма (очень маленький текст)
+  ctx.font = '9px TT Fors, Inter, Arial, sans-serif';
+  ctx.fillStyle = '#374151';
+  ctx.fillText("Всего:", startX, yPos + 8);
+
+  ctx.textAlign = 'right';
+  ctx.font = '10px TT Fors, Inter, Arial, sans-serif';
+  ctx.fillStyle = '#0B63A8';
+
+  // Считаем общую сумму
+  let totalSum = 0;
+  if (chartData.length > 0) {
+    const lastDataPoint = chartData[chartData.length - 1];
+    VISIBLE_STATUSES.forEach(status => {
+      totalSum += lastDataPoint[status] || 0;
+    });
+  }
+
+  const totalText = formatCurrencyShort(totalSum);
+  ctx.fillText(totalText, startX + legendWidth - 10, yPos + 8);
+
+  // Восстанавливаем настройки контекста
+  ctx.restore();
 }
 
 // Добавляем кастомные стили для графика
@@ -694,6 +763,7 @@ function addChartStyles() {
     /* Стили для графика */
     .chart-card {
       overflow: hidden;
+      position: relative;
     }
     
     .no-data {
@@ -770,6 +840,18 @@ function addChartStyles() {
       padding: 0 16px;
     }
     
+    /* Стиль для chart-info (оставляем пустым или минимальным) */
+    .chart-info {
+      background: var(--lighGrey);
+      min-height: 200px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--grey);
+      font-size: 14px;
+    }
+    
     /* Адаптивность */
     @media (max-width: 768px) {
       .date-picker__inputs {
@@ -784,6 +866,10 @@ function addChartStyles() {
       .date-input {
         min-width: auto;
         flex: 1;
+      }
+      
+      .chart-info {
+        display: none; /* На мобильных можно скрыть */
       }
     }
   `;
