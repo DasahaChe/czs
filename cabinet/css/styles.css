@@ -28,7 +28,7 @@
 
   --bark: #24252D;
   --grey: #6c7a93;
-  --lighGrey:#C9D7E7;
+  --lightGrey:#C9D7E7;
   --lightBlue: #E6F4FF;
   --darkBlue: #7DB3E3;
 }
@@ -129,7 +129,7 @@ select {
 .search__input {
   width: 100%;
   height: 100%;
-  border: 1px solid var(--lighGrey);
+  border: 1px solid var(--lightGrey);
   border-radius: 4px;
   padding: 0 34px 0 12px;
   outline: none;
@@ -448,14 +448,13 @@ select {
 
 .chart-info{
   width: calc(100% / 3 - 16px);
-  background: var(--lighGrey);
+  background: var(--lightGrey);
 }
 .chart-card {
   width: calc((100% / 3) * 2);
   border-radius: 8px;
   box-shadow: var(--shadow);
   background: var(--lightBlue);
-  min-height: 200px;
 }
 
 .chart {
@@ -639,7 +638,7 @@ select {
 }
 
 .table-wrap {
-  border: 1px solid var(--lighGrey);
+  border: 1px solid var(--lightGrey);
   border-radius: 0;
   overflow: hidden;
   background: #fff;
@@ -654,7 +653,7 @@ select {
 .table th,
 .table td {
   padding: 8px 10px;
-  border-right: 1px solid var(--lighGrey);
+  border-right: 1px solid var(--lightGrey);
 }
 
 .table th:last-child,
@@ -666,7 +665,7 @@ select {
   font-weight: 500;
   color: var(--dark);
   background: #fff;
-  border-bottom: 1px solid var(--lighGrey);
+  border-bottom: 1px solid var(--lightGrey);
 }
 
 .table tbody tr {
@@ -877,7 +876,7 @@ select {
 
 /* Дополнительные стили для таблицы с фиксированной высотой */
 .table-wrap {
-  border: 1px solid var(--lighGrey);
+  border: 1px solid var(--lightGrey);
   border-radius: 0;
   overflow: hidden;
   background: #fff;
@@ -924,7 +923,7 @@ select {
 .table th,
 .table td {
   padding: 8px 10px;
-  border-right: 1px solid var(--lighGrey);
+  border-right: 1px solid var(--lightGrey);
   vertical-align: middle;
 }
 
@@ -1044,4 +1043,8 @@ select {
   font-size: 16px;
   background: #F9FAFB;
   border-radius: 8px;
+}
+
+.nav__item:hover{
+  background: var(--darkBlue);
 }

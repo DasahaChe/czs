@@ -505,7 +505,7 @@ function formatCurrencyShort(amount) {
   return amount.toString();
 }
 
-// Отрисовка графика С КОМПАКТНОЙ ЛЕГЕНДОЙ ВНУТРИ
+// Отрисовка графика с легендой под графиком
 function renderChart() {
   const chartContainer = document.getElementById('up');
   if (!chartContainer) return;
@@ -520,20 +520,20 @@ function renderChart() {
     return;
   }
 
-  // Создаем canvas
+  // Создаем canvas для графика
   const canvas = document.createElement('canvas');
   canvas.id = 'incomeChart';
   canvas.style.width = '100%';
-  canvas.style.height = '250px';
+  canvas.style.height = '200px'; // Уменьшил высоту графика
   canvas.width = chartContainer.clientWidth;
-  canvas.height = 250;
+  canvas.height = 200;
   chartContainer.appendChild(canvas);
 
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
   // Настройки графика
-  const padding = { top: 40, right: 140, bottom: 60, left: 80 }; // Увеличили правый отступ для легенды
+  const padding = { top: 40, right: 30, bottom: 30, left: 80 }; // Уменьшил правый отступ
   const graphWidth = canvas.width - padding.left - padding.right;
   const graphHeight = canvas.height - padding.top - padding.bottom;
 
@@ -571,7 +571,7 @@ function renderChart() {
   ctx.fillStyle = '#374151';
   ctx.font = '14px Inter, Arial, sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('время', (canvas.width - padding.right + padding.left) / 2, canvas.height - 20);
+  ctx.fillText('время', (canvas.width - padding.right + padding.left) / 2, canvas.height - 10);
 
   ctx.save();
   ctx.translate(30, canvas.height / 2);
@@ -616,7 +616,7 @@ function renderChart() {
       ctx.stroke();
 
       // Подписи на оси X
-      ctx.fillText(point.label, x, canvas.height - padding.bottom + 20);
+      ctx.fillText(point.label, x, canvas.height - padding.bottom + 15);
     }
   });
 
@@ -648,97 +648,33 @@ function renderChart() {
         const y = scaleY(point[status]);
 
         ctx.beginPath();
-        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.arc(x, y, 2, 0, Math.PI * 2);
         ctx.fillStyle = STATUS_COLORS[status];
         ctx.fill();
 
         // Белая обводка для точек
-        ctx.beginPath();
-        ctx.arc(x, y, 4, 0, Math.PI * 2);
-        ctx.strokeStyle = '#fff';
-        ctx.lineWidth = 2;
-        ctx.stroke();
+
       }
     });
   });
 
-  // Рисуем КОМПАКТНУЮ ЛЕГЕНДУ в правом верхнем углу графика
-  drawCompactLegend(ctx, canvas.width - padding.right + 20, padding.top + 10);
+  // Создаем отдельный контейнер для легенды под графиком
+  createLegendContainer(chartContainer, chartData);
 }
 
-// Рисование компактной легенды внутри графика
-function drawCompactLegend(ctx, startX, startY) {
-  const chartData = currentChartData || getChartData();
-
-  if (!chartData || chartData.length === 0) return;
-
-  // Сохраняем настройки контекста
-  ctx.save();
-
-  // Стиль для легенды (очень маленький текст)
-  ctx.font = '10px TT Fors, Inter, Arial, sans-serif';
-  ctx.textAlign = 'left';
-
-  let yPos = startY;
-  const lineHeight = 14; // Очень маленькое расстояние между строками
-  const colorBoxSize = 8; // Маленькие квадратики
-
-  // Рисуем фон для легенды (полупрозрачный)
-  const legendWidth = 110; // Узкая легенда
-  const legendHeight = VISIBLE_STATUSES.length * lineHeight + 20; // + отступ для общей суммы
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-  ctx.fillRect(startX - 5, yPos - 5, legendWidth, legendHeight);
-  ctx.strokeStyle = 'rgba(200, 200, 200, 0.5)';
-  ctx.lineWidth = 0.5;
-  ctx.strokeRect(startX - 5, yPos - 5, legendWidth, legendHeight);
-
-  // Рисуем элементы легенды
-  VISIBLE_STATUSES.forEach(status => {
-    // Цветной квадратик
-    ctx.fillStyle = STATUS_COLORS[status];
-    ctx.fillRect(startX, yPos, colorBoxSize, colorBoxSize);
-
-    // Название статуса (сокращенное)
-    ctx.fillStyle = '#374151';
-    let statusText = status;
-    if (status === "В процессе") statusText = "Процесс";
-    if (status === "На согласовании") statusText = "Соглас.";
-    if (status === "Завершено") statusText = "Заверш.";
-
-    ctx.fillText(statusText, startX + colorBoxSize + 4, yPos + 8);
-
-    // Значение (в сокращенном формате)
-    ctx.fillStyle = '#6B7280';
-    ctx.textAlign = 'right';
-
-    const lastValue = chartData.length > 0 ? chartData[chartData.length - 1][status] : 0;
-    const valueText = formatCurrencyShort(lastValue);
-
-    ctx.fillText(valueText, startX + legendWidth - 10, yPos + 8);
-
-    yPos += lineHeight;
-    ctx.textAlign = 'left'; // Возвращаем выравнивание
-  });
-
-  // Добавляем разделительную линию
-  yPos += 5;
-  ctx.beginPath();
-  ctx.moveTo(startX, yPos);
-  ctx.lineTo(startX + legendWidth - 10, yPos);
-  ctx.strokeStyle = '#E5E7EB';
-  ctx.lineWidth = 0.5;
-  ctx.stroke();
-
-  yPos += 5;
-
-  // Общая сумма (очень маленький текст)
-  ctx.font = '9px TT Fors, Inter, Arial, sans-serif';
-  ctx.fillStyle = '#374151';
-  ctx.fillText("Всего:", startX, yPos + 8);
-
-  ctx.textAlign = 'right';
-  ctx.font = '10px TT Fors, Inter, Arial, sans-serif';
-  ctx.fillStyle = '#0B63A8';
+// Создание контейнера для легенды под графиком
+function createLegendContainer(chartContainer, chartData) {
+  const legendContainer = document.createElement('div');
+  legendContainer.className = 'chart-legend';
+  legendContainer.style.marginTop = '15px';
+  legendContainer.style.padding = '12px';
+  legendContainer.style.backgroundColor = '#f8fafc';
+  legendContainer.style.borderRadius = '8px';
+  legendContainer.style.display = 'flex';
+  legendContainer.style.justifyContent = 'center';
+  legendContainer.style.alignItems = 'center';
+  legendContainer.style.gap = '20px';
+  legendContainer.style.flexWrap = 'wrap';
 
   // Считаем общую сумму
   let totalSum = 0;
@@ -749,11 +685,73 @@ function drawCompactLegend(ctx, startX, startY) {
     });
   }
 
-  const totalText = formatCurrencyShort(totalSum);
-  ctx.fillText(totalText, startX + legendWidth - 10, yPos + 8);
+  // Создаем элементы легенды
+  VISIBLE_STATUSES.forEach(status => {
+    const legendItem = document.createElement('div');
+    legendItem.style.display = 'flex';
+    legendItem.style.alignItems = 'center';
+    legendItem.style.gap = '8px';
 
-  // Восстанавливаем настройки контекста
-  ctx.restore();
+    const colorBox = document.createElement('div');
+    colorBox.style.width = '12px';
+    colorBox.style.height = '12px';
+    colorBox.style.backgroundColor = STATUS_COLORS[status];
+    colorBox.style.borderRadius = '2px';
+
+    const textContainer = document.createElement('div');
+    textContainer.style.display = 'flex';
+    textContainer.style.flexDirection = 'column';
+    textContainer.style.gap = '2px';
+
+    const statusName = document.createElement('span');
+    statusName.style.fontSize = '12px';
+    statusName.style.color = '#374151';
+    statusName.style.fontWeight = '500';
+
+    let statusText = status;
+    if (status === "В процессе") statusText = "Процесс";
+    if (status === "На согласовании") statusText = "Согласование";
+    if (status === "Завершено") statusText = "Завершено";
+    statusName.textContent = statusText;
+
+    const valueElement = document.createElement('span');
+    valueElement.style.fontSize = '11px';
+    valueElement.style.color = '#6B7280';
+
+    const lastValue = chartData.length > 0 ? chartData[chartData.length - 1][status] : 0;
+    valueElement.textContent = formatCurrencyShort(lastValue);
+
+    textContainer.appendChild(statusName);
+    textContainer.appendChild(valueElement);
+    legendItem.appendChild(colorBox);
+    legendItem.appendChild(textContainer);
+    legendContainer.appendChild(legendItem);
+  });
+
+  // Добавляем элемент с общей суммой
+  const totalItem = document.createElement('div');
+  totalItem.style.display = 'flex';
+  totalItem.style.alignItems = 'center';
+  totalItem.style.gap = '8px';
+  totalItem.style.marginLeft = '20px';
+
+  const totalLabel = document.createElement('span');
+  totalLabel.style.fontSize = '12px';
+  totalLabel.style.color = '#374151';
+  totalLabel.style.fontWeight = '500';
+  totalLabel.textContent = 'Всего:';
+
+  const totalValue = document.createElement('span');
+  totalValue.style.fontSize = '12px';
+  totalValue.style.color = '#0B63A8';
+  totalValue.style.fontWeight = '600';
+  totalValue.textContent = formatCurrencyShort(totalSum);
+
+  totalItem.appendChild(totalLabel);
+  totalItem.appendChild(totalValue);
+  legendContainer.appendChild(totalItem);
+
+  chartContainer.appendChild(legendContainer);
 }
 
 // Добавляем кастомные стили для графика
@@ -871,6 +869,12 @@ function addChartStyles() {
       .chart-info {
         display: none; /* На мобильных можно скрыть */
       }
+      
+      .chart-legend {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
     }
   `;
   document.head.appendChild(style);
@@ -881,5 +885,8 @@ addChartStyles();
 
 // Инициализация при изменении размера окна
 window.addEventListener('resize', function () {
-  renderChart();
+  const chartContainer = document.getElementById('up');
+  if (chartContainer) {
+    renderChart();
+  }
 });
