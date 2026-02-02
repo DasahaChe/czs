@@ -602,6 +602,9 @@ const productsArray = [
         "editedAt": "2026-01-20T11:00:00.000Z"
     }
 ];
+
+
+
 class ProductCatalog {
     constructor(config = {}) {
         // Конфигурация
@@ -650,6 +653,17 @@ class ProductCatalog {
             image: null
         };
 
+        // Привязываем методы
+        this.refresh = this.refreshData.bind(this);
+        this.updateProduct = this.updateProductData.bind(this);
+        this.addProduct = this.addNewProduct.bind(this);
+        this.removeProduct = this.removeProduct.bind(this);
+        this.exportData = this.exportData.bind(this);
+        this.importData = this.importData.bind(this);
+        this.resetVotes = this.resetVotes.bind(this);
+        this.getStatistics = this.getVoteStatistics.bind(this);
+        this.showStatistics = this.showVoteStatistics.bind(this);
+
         this.init();
     }
 
@@ -657,6 +671,7 @@ class ProductCatalog {
         this.initProductsData();
         this.updateVisibleCardsCount();
         this.createImageModal();
+        this.addMobileStyles();
         this.displayProducts();
         this.bindEvents();
 
@@ -675,6 +690,7 @@ class ProductCatalog {
                     const productId = `company_${company.eventId}_product_${productIndex}`;
                     product.id = productId;
                     product.hasVoted = userVotes[productId] || false;
+                    product.voteCount = product.voteCount || 0;
                 });
             }
         });
@@ -706,7 +722,6 @@ class ProductCatalog {
         const totalCompanies = this.state.companiesArray.length;
         const totalProducts = this.countTotalProducts();
 
-        // Обновляем счетчик товаров
         if (this.elements.totalProductsCount) {
             this.elements.totalProductsCount.textContent = totalProducts;
         }
@@ -720,13 +735,8 @@ class ProductCatalog {
         const currentProducts = currentCompany.products || [];
         const totalProductsInCompany = currentProducts.length;
 
-        // Рендерим пагинацию
         this.renderPagination();
-
-        // Рендерим карточки товаров
         this.renderProductCards(currentCompany, currentProducts);
-
-        // Обновляем скролл-линию
         this.updateScrollElements(totalProductsInCompany);
 
         this.addEventListeners();
@@ -762,11 +772,9 @@ class ProductCatalog {
             const isTopPagination = container.id === 'topPagination';
             const currentCompanyNumber = this.state.currentCompanyIndex + 1;
 
-            // Определяем диапазон отображаемых кнопок
             let start = Math.max(1, currentCompanyNumber - 1);
             let end = Math.min(totalCompanies, start + this.config.visiblePaginationButtons - 1);
 
-            // Корректируем начало, если мы в конце списка
             if (end === totalCompanies) {
                 start = Math.max(1, totalCompanies - this.config.visiblePaginationButtons + 1);
             }
@@ -791,7 +799,6 @@ class ProductCatalog {
                         <div class="pagination-numbers">
             `;
 
-            // Добавляем первую страницу, если она не входит в текущий диапазон
             if (start > 1) {
                 paginationHTML += `
                     <div class="page-number" data-company="0">1</div>
@@ -799,7 +806,6 @@ class ProductCatalog {
                 `;
             }
 
-            // Добавляем кнопки в текущем диапазоне
             for (let i = start; i <= end; i++) {
                 const companyIndex = i - 1;
                 paginationHTML += `
@@ -808,7 +814,6 @@ class ProductCatalog {
                 `;
             }
 
-            // Добавляем последнюю страницу, если она не входит в текущий диапазон
             if (end < totalCompanies) {
                 paginationHTML += `
                     ${end < totalCompanies - 1 ? '<span class="pagination-dots">...</span>' : ''}
@@ -828,8 +833,6 @@ class ProductCatalog {
             `;
 
             container.innerHTML = paginationHTML;
-
-            // Добавляем обработчики для кнопок пагинации
             this.bindPaginationEvents(container, isTopPagination);
         });
     }
@@ -960,7 +963,7 @@ class ProductCatalog {
                                 <div class="vote-section">
                                     <button class="vote-btn ${product.hasVoted ? 'voted' : ''}" 
                                             data-product-id="${product.id}"
-                                            ${product.hasVoted ? 'disabled' : ''}
+                                            ${product.hasVoted ? 'disabled aria-disabled="true"' : ''}
                                             aria-label="${product.hasVoted ? 'Голос уже отдан' : 'Проголосовать за товар'}">
                                         <i class="fas fa-thumbs-up"></i>
                                         ${product.hasVoted ? 'Голос отдан' : 'Голосовать'}
@@ -1015,12 +1018,10 @@ class ProductCatalog {
         this.state.currentCompanyIndex = companyIndex;
         this.displayProducts();
 
-        // Если клик был из нижней пагинации И нижняя пагинация видна - не скроллим
         if (fromBottomPagination && this.isBottomPaginationVisible()) {
             return;
         }
 
-        // Плавная прокрутка к началу контейнера
         const container = document.querySelector('.container');
         if (container) {
             container.scrollIntoView({
@@ -1049,69 +1050,117 @@ class ProductCatalog {
     }
 
     addEventListeners() {
-        // Используем делегирование событий для динамических элементов
-        this.elements.productsContainer.addEventListener('click', (e) => {
-            // Обработка кнопок "подробнее"
-            if (e.target.classList.contains('show-more-btn') ||
-                e.target.closest('.show-more-btn')) {
-                const btn = e.target.classList.contains('show-more-btn')
-                    ? e.target
-                    : e.target.closest('.show-more-btn');
-                e.preventDefault();
-                this.handleShowMore(btn);
+        // Удаляем старые обработчики
+        this.removeEventListeners();
+
+        // Обработчик кликов
+        this.elements.productsContainer.addEventListener('click', this.handleContainerClick.bind(this));
+
+        // Touch события для мобильных
+        this.elements.productsContainer.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
+        this.elements.productsContainer.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: true });
+    }
+
+    removeEventListeners() {
+        // Можно очистить обработчики при необходимости
+    }
+
+    handleContainerClick(e) {
+        // Обработка кнопок "подробнее"
+        if (e.target.classList.contains('show-more-btn') ||
+            e.target.closest('.show-more-btn')) {
+            const btn = e.target.classList.contains('show-more-btn')
+                ? e.target
+                : e.target.closest('.show-more-btn');
+            e.preventDefault();
+            e.stopPropagation();
+            this.handleShowMore(btn);
+            return;
+        }
+
+        // Обработка кнопок "скрыть"
+        if (e.target.classList.contains('show-less-btn') ||
+            e.target.closest('.show-less-btn')) {
+            const btn = e.target.classList.contains('show-less-btn')
+                ? e.target
+                : e.target.closest('.show-less-btn');
+            e.preventDefault();
+            e.stopPropagation();
+            this.handleShowLess(btn);
+            return;
+        }
+
+        // Обработка кнопок "Голосовать"
+        if (e.target.classList.contains('vote-btn') ||
+            e.target.closest('.vote-btn')) {
+            const btn = e.target.classList.contains('vote-btn')
+                ? e.target
+                : e.target.closest('.vote-btn');
+
+            // Проверяем, не проголосовали ли уже
+            if (btn.classList.contains('voted')) {
+                return;
             }
 
-            // Обработка кнопок "скрыть"
-            if (e.target.classList.contains('show-less-btn') ||
-                e.target.closest('.show-less-btn')) {
-                const btn = e.target.classList.contains('show-less-btn')
-                    ? e.target
-                    : e.target.closest('.show-less-btn');
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Визуальная обратная связь
+            btn.classList.add('vote-tap');
+            setTimeout(() => {
+                btn.classList.remove('vote-tap');
+            }, 200);
+
+            this.handleVote(btn);
+            return;
+        }
+
+        // Клики по изображениям
+        if (e.target.classList.contains('product-img-clickable') ||
+            e.target.closest('.product-img-clickable')) {
+            const img = e.target.classList.contains('product-img-clickable')
+                ? e.target
+                : e.target.closest('.product-img-clickable');
+            e.preventDefault();
+            e.stopPropagation();
+            this.openImageModal(img.src, img.alt);
+            return;
+        }
+    }
+
+    handleTouchStart(e) {
+        const touch = e.touches[0];
+        const target = document.elementFromPoint(touch.clientX, touch.clientY);
+
+        if (target && (target.classList.contains('vote-btn') || target.closest('.vote-btn'))) {
+            const btn = target.classList.contains('vote-btn') ? target : target.closest('.vote-btn');
+            if (!btn.classList.contains('voted')) {
+                btn.classList.add('vote-tap');
+            }
+        }
+    }
+
+    handleTouchEnd(e) {
+        const touch = e.changedTouches[0];
+        const target = document.elementFromPoint(touch.clientX, touch.clientY);
+
+        if (target) {
+            const voteBtn = target.classList.contains('vote-btn')
+                ? target
+                : target.closest('.vote-btn');
+
+            if (voteBtn && !voteBtn.classList.contains('voted')) {
                 e.preventDefault();
-                this.handleShowLess(btn);
+                voteBtn.classList.remove('vote-tap');
+                this.handleVote(voteBtn);
+                return;
             }
 
-            // Обработка голосования
-            if (e.target.classList.contains('vote-btn') ||
-                e.target.closest('.vote-btn')) {
-                const btn = e.target.classList.contains('vote-btn')
-                    ? e.target
-                    : e.target.closest('.vote-btn');
-                e.preventDefault();
-                this.handleVote(btn);
-            }
-
-            // Обработка клика по изображению
-            if (e.target.classList.contains('product-img-clickable') ||
-                e.target.closest('.product-img-clickable')) {
-                const img = e.target.classList.contains('product-img-clickable')
-                    ? e.target
-                    : e.target.closest('.product-img-clickable');
-                e.preventDefault();
-                this.openImageModal(img.src, img.alt);
-            }
-        });
-
-        // Touch события для мобильных устройств
-        this.elements.productsContainer.addEventListener('touchstart', (e) => {
-            if (e.target.classList.contains('show-more-btn') ||
-                e.target.closest('.show-more-btn')) {
-                const btn = e.target.classList.contains('show-more-btn')
-                    ? e.target
-                    : e.target.closest('.show-more-btn');
-                e.preventDefault();
-                this.handleShowMore(btn);
-            }
-
-            if (e.target.classList.contains('show-less-btn') ||
-                e.target.closest('.show-less-btn')) {
-                const btn = e.target.classList.contains('show-less-btn')
-                    ? e.target
-                    : e.target.closest('.show-less-btn');
-                e.preventDefault();
-                this.handleShowLess(btn);
-            }
-        }, { passive: false });
+            // Убираем класс активного состояния
+            document.querySelectorAll('.vote-tap').forEach(btn => {
+                btn.classList.remove('vote-tap');
+            });
+        }
     }
 
     handleShowMore(button) {
@@ -1126,7 +1175,6 @@ class ProductCatalog {
         sectionTitle.style.display = 'none';
         fullElement.style.display = 'block';
 
-        // Прокручиваем к раскрытому контенту на мобильных
         if (window.innerWidth <= 768) {
             setTimeout(() => {
                 fullElement.scrollIntoView({
@@ -1151,56 +1199,729 @@ class ProductCatalog {
         sectionTitle.style.display = 'block';
     }
 
+    // ====================== ГОЛОСОВАНИЕ ======================
     handleVote(button) {
+        // Визуальная обратная связь
+        button.style.transform = 'scale(0.95)';
+
         const productId = button.getAttribute('data-product-id');
 
+        // Проверяем, не проголосовал ли уже пользователь
         if (button.classList.contains('voted')) {
+            this.showMessage('Вы уже отдали голос за этот товар!', 'warning');
             return;
         }
 
-        let productFound = false;
+        // Показываем индикатор загрузки
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+        button.disabled = true;
+
+        setTimeout(() => {
+            button.style.transform = '';
+            this.processVoteAction(button, productId, originalText);
+        }, 300);
+    }
+
+    processVoteAction(button, productId, originalText) {
+        const voteResult = this.processVote(productId);
+
+        if (!voteResult.success) {
+            this.showMessage(voteResult.message || 'Ошибка при обработке голоса', 'error');
+            button.innerHTML = originalText;
+            button.disabled = false;
+            return;
+        }
+
+        this.updateVoteButtonUI(button, true);
+        this.saveVoteToStorage(productId);
+        this.showMessage('Ваш голос успешно учтен! Спасибо за участие.', 'success');
+        this.sendVoteToServer(productId);
+    }
+
+    processVote(productId) {
         for (const company of this.state.companiesArray) {
             if (company.products) {
                 const productIndex = company.products.findIndex(p => p.id === productId);
                 if (productIndex !== -1) {
-                    productFound = true;
 
-                    let userVotes = JSON.parse(sessionStorage.getItem('userVotes') || '{}');
-
-                    if (userVotes[productId]) {
-                        this.showMessage('Вы уже отдали голос за этот товар!', 'warning');
-                        return;
+                    if (company.products[productIndex].hasVoted) {
+                        return {
+                            success: false,
+                            message: 'Вы уже отдали голос за этот товар!'
+                        };
                     }
 
                     company.products[productIndex].hasVoted = true;
-                    userVotes[productId] = true;
-                    sessionStorage.setItem('userVotes', JSON.stringify(userVotes));
+                    company.products[productIndex].voteCount = (company.products[productIndex].voteCount || 0) + 1;
+                    company.products[productIndex].lastVotedAt = new Date().toISOString();
 
-                    button.classList.add('voted');
-                    button.innerHTML = '<i class="fas fa-thumbs-up"></i> Голос отдан';
-                    button.disabled = true;
-                    button.setAttribute('aria-label', 'Голос уже отдан');
-
-                    this.showMessage('Ваш голос учтен! Спасибо за участие.', 'success');
-                    break;
+                    return {
+                        success: true,
+                        companyId: company.eventId,
+                        productIndex: productIndex
+                    };
                 }
             }
         }
 
-        if (!productFound) {
-            console.error('Продукт не найден:', productId);
+        return {
+            success: false,
+            message: 'Товар не найден'
+        };
+    }
+
+    updateVoteButtonUI(button, hasVoted) {
+        if (hasVoted) {
+            button.classList.add('voted');
+            button.innerHTML = '<i class="fas fa-thumbs-up"></i> Голос отдан';
+            button.disabled = true;
+            button.setAttribute('aria-disabled', 'true');
+            button.setAttribute('aria-label', 'Голос уже отдан');
+            button.style.cursor = 'default';
+            button.style.pointerEvents = 'none'; // Отключаем все взаимодействия
+
+            // Отключаем hover эффекты через CSS класс
+            button.classList.add('vote-disabled');
+
+            if (!button.querySelector('.vote-count')) {
+                const voteCount = document.createElement('span');
+                voteCount.className = 'vote-count';
+                voteCount.textContent = ' ✓';
+                voteCount.style.marginLeft = '5px';
+                voteCount.style.fontWeight = 'bold';
+                button.appendChild(voteCount);
+            }
+        } else {
+            button.classList.remove('voted');
+            button.innerHTML = '<i class="fas fa-thumbs-up"></i> Голосовать';
+            button.disabled = false;
+            button.removeAttribute('aria-disabled');
+            button.setAttribute('aria-label', 'Проголосовать за товар');
+            button.style.cursor = 'pointer';
+            button.style.pointerEvents = 'auto';
+            button.classList.remove('vote-disabled');
+
+            const voteCount = button.querySelector('.vote-count');
+            if (voteCount) {
+                voteCount.remove();
+            }
         }
+    }
+
+    saveVoteToStorage(productId) {
+        try {
+            let userVotes = JSON.parse(sessionStorage.getItem('userVotes') || '{}');
+
+            userVotes[productId] = {
+                voted: true,
+                votedAt: new Date().toISOString(),
+                productId: productId
+            };
+
+            sessionStorage.setItem('userVotes', JSON.stringify(userVotes));
+            this.saveVoteToLocalStorage(productId);
+
+            console.log('Голос сохранен для товара:', productId);
+            return true;
+        } catch (error) {
+            console.error('Ошибка при сохранении голоса:', error);
+            return false;
+        }
+    }
+
+    saveVoteToLocalStorage(productId) {
+        try {
+            let localVotes = JSON.parse(localStorage.getItem('productVotes') || '{}');
+
+            if (!localVotes[productId]) {
+                localVotes[productId] = {
+                    count: 0,
+                    voters: []
+                };
+            }
+
+            localVotes[productId].count += 1;
+            localVotes[productId].lastVote = new Date().toISOString();
+
+            localStorage.setItem('productVotes', JSON.stringify(localVotes));
+            return true;
+        } catch (error) {
+            console.error('Ошибка при сохранении в localStorage:', error);
+            return false;
+        }
+    }
+
+    async sendVoteToServer(productId) {
+        const voteData = {
+            productId: productId,
+            timestamp: new Date().toISOString(),
+            userId: this.getUserId(),
+            eventId: this.state.companiesArray[this.state.currentCompanyIndex]?.eventId
+        };
+
+        try {
+            console.log('Отправка голоса на сервер:', voteData);
+
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                        success: true,
+                        message: 'Голос успешно отправлен на сервер'
+                    });
+                }, 500);
+            });
+
+        } catch (error) {
+            console.error('Ошибка при отправке голоса на сервер:', error);
+            this.queueVoteForRetry(voteData);
+
+            return {
+                success: false,
+                error: error.message
+            };
+        }
+    }
+
+    queueVoteForRetry(voteData) {
+        try {
+            let pendingVotes = JSON.parse(localStorage.getItem('pendingVotes') || '[]');
+            pendingVotes.push({
+                ...voteData,
+                retryCount: 0,
+                lastTry: new Date().toISOString()
+            });
+
+            localStorage.setItem('pendingVotes', JSON.stringify(pendingVotes));
+            this.retryPendingVotes();
+
+        } catch (error) {
+            console.error('Ошибка при сохранении голоса для повторной отправки:', error);
+        }
+    }
+
+    async retryPendingVotes() {
+        try {
+            let pendingVotes = JSON.parse(localStorage.getItem('pendingVotes') || '[]');
+
+            if (pendingVotes.length === 0) return;
+
+            console.log(`Попытка повторной отправки ${pendingVotes.length} голосов...`);
+
+            for (let i = pendingVotes.length - 1; i >= 0; i--) {
+                const vote = pendingVotes[i];
+
+                try {
+                    await this.sendSingleVoteToServer(vote);
+                    pendingVotes.splice(i, 1);
+                    console.log('Голос успешно отправлен:', vote.productId);
+
+                } catch (error) {
+                    vote.retryCount += 1;
+                    vote.lastTry = new Date().toISOString();
+
+                    if (vote.retryCount >= 3) {
+                        console.warn('Превышено количество попыток для голоса:', vote.productId);
+                        pendingVotes.splice(i, 1);
+                    }
+                }
+            }
+
+            localStorage.setItem('pendingVotes', JSON.stringify(pendingVotes));
+
+        } catch (error) {
+            console.error('Ошибка при повторной отправке голосов:', error);
+        }
+    }
+
+    sendSingleVoteToServer(voteData) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (Math.random() > 0.1) {
+                    resolve({ success: true });
+                } else {
+                    reject(new Error('Ошибка сети'));
+                }
+            }, 300);
+        });
+    }
+
+    getUserId() {
+        let userId = localStorage.getItem('userId');
+
+        if (!userId) {
+            userId = 'user_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('userId', userId);
+        }
+
+        return userId;
+    }
+
+    // ====================== CSS ДЛЯ МОБИЛЬНОЙ ВЕРСИИ ======================
+    addMobileStyles() {
+        if (!document.getElementById('mobile-vote-styles')) {
+            const style = document.createElement('style');
+            style.id = 'mobile-vote-styles';
+            style.textContent = `
+                /* Стили для мобильной версии и кнопки голосования */
+                @media (max-width: 768px) {
+                    .vote-btn {
+                        min-height: 44px !important;
+                        min-width: 120px !important;
+                        font-size: 16px !important;
+                        padding: 12px 20px !important;
+                        margin: 8px 0 !important;
+                        border-radius: 8px !important;
+                        cursor: pointer !important;
+                        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
+                        touch-action: manipulation !important;
+                        user-select: none !important;
+                        transition: all 0.2s ease !important;
+                        display: inline-flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        gap: 8px !important;
+                        border: 2px solid transparent !important;
+                        outline: none !important;
+                    }
+                    
+                    /* Активная кнопка голосования */
+                    .vote-btn:not(.voted):not(.vote-disabled) {
+                        background: var(--primary-color, #007bff) !important;
+                        color: white !important;
+                        border-color: var(--primary-color, #007bff) !important;
+                    }
+                    
+                    .vote-btn:not(.voted):not(.vote-disabled):hover,
+                    .vote-btn:not(.voted):not(.vote-disabled):focus {
+                        background: var(--primary-color-dark, #0056b3) !important;
+                        border-color: var(--primary-color-dark, #0056b3) !important;
+                        transform: translateY(-2px) !important;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+                    }
+                    
+                    .vote-btn:not(.voted):not(.vote-disabled):active {
+                        transform: scale(0.95) !important;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+                    }
+                    
+                    /* Кнопка после голосования - БЕЗ ОБВОДКИ И HOVER ЭФФЕКТОВ */
+                    .vote-btn.voted {
+                        background: #28a745 !important;
+                        color: white !important;
+                        border-color: #28a745 !important;
+                        opacity: 0.9 !important;
+                        cursor: default !important;
+                        pointer-events: none !important;
+                    }
+                    
+                    /* ОТКЛЮЧАЕМ ВСЕ ЭФФЕКТЫ ПРИ НАВЕДЕНИИ НА КНОПКУ С КЛАССОМ .voted */
+                    .vote-btn.voted:hover,
+                    .vote-btn.voted:focus,
+                    .vote-btn.voted:active {
+                        background: #28a745 !important;
+                        color: white !important;
+                        border-color: #28a745 !important;
+                        transform: none !important;
+                        box-shadow: none !important;
+                        outline: none !important;
+                    }
+                    
+                    /* Класс для программного отключения эффектов */
+                    .vote-disabled {
+                        pointer-events: none !important;
+                        cursor: default !important;
+                    }
+                    
+                    /* Визуальная обратная связь при тапе */
+                    .vote-tap {
+                        background: var(--primary-color-dark, #0056b3) !important;
+                        transform: scale(0.95) !important;
+                        transition: all 0.1s !important;
+                    }
+                    
+                    /* Кнопки подробнее/скрыть */
+                    .show-more-btn, .show-less-btn {
+                        min-height: 36px !important;
+                        min-width: 100px !important;
+                        padding: 8px 12px !important;
+                        margin: 6px 0 !important;
+                        font-size: 14px !important;
+                        cursor: pointer !important;
+                        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
+                    }
+                    
+                    /* Анимация успешного голосования */
+                    @keyframes voteSuccess {
+                        0% { transform: scale(1); }
+                        50% { transform: scale(1.05); }
+                        100% { transform: scale(1); }
+                    }
+                    
+                    .vote-section {
+                        display: flex !important;
+                        justify-content: center !important;
+                        margin-top: 15px !important;
+                    }
+                }
+                
+                /* Для очень маленьких экранов */
+                @media (max-width: 480px) {
+                    .vote-btn {
+                        width: 100% !important;
+                        max-width: 280px !important;
+                        margin: 10px auto !important;
+                    }
+                }
+                
+                /* Общие стили для всех устройств */
+                .vote-btn.voted {
+                    opacity: 0.8 !important;
+                    filter: grayscale(20%) !important;
+                }
+                
+                /* Отключаем стандартные стили браузера */
+                button.vote-btn {
+                    -webkit-appearance: none !important;
+                    -moz-appearance: none !important;
+                    appearance: none !important;
+                    font-family: inherit !important;
+                }
+                
+                /* Убираем outline только для кнопок с голосованием */
+                .vote-btn.voted:focus {
+                    outline: none !important;
+                    box-shadow: none !important;
+                }
+                
+                /* Анимация загрузки */
+                .fa-spinner {
+                    animation: spin 1s linear infinite;
+                }
+                
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+
+    // ====================== ОБНОВЛЕНИЕ ДАННЫХ ======================
+    refreshData() {
+        this.state.currentCompanyIndex = 0;
+        this.initProductsData();
+        this.displayProducts();
+        this.showMessage('Данные успешно обновлены', 'success');
+        return true;
+    }
+
+    updateProductData(companyId, productIndex, newData) {
+        const company = this.state.companiesArray.find(c => c.eventId === companyId);
+
+        if (!company || !company.products || !company.products[productIndex]) {
+            this.showMessage('Продукт не найден', 'error');
+            return false;
+        }
+
+        Object.assign(company.products[productIndex], newData);
+        company.editedAt = new Date().toISOString();
+
+        if (this.state.currentCompanyIndex === this.state.companiesArray.indexOf(company)) {
+            this.displayProducts();
+        }
+
+        console.log('Данные продукта обновлены:', company.products[productIndex].productName);
+        return true;
+    }
+
+    addNewProduct(companyId, productData) {
+        const company = this.state.companiesArray.find(c => c.eventId === companyId);
+
+        if (!company) {
+            this.showMessage('Компания не найдена', 'error');
+            return false;
+        }
+
+        if (!company.products) {
+            company.products = [];
+        }
+
+        const productId = `company_${companyId}_product_${company.products.length}`;
+
+        const newProduct = {
+            ...productData,
+            id: productId,
+            hasVoted: false,
+            voteCount: 0
+        };
+
+        company.products.push(newProduct);
+
+        if (this.state.currentCompanyIndex === this.state.companiesArray.indexOf(company)) {
+            this.displayProducts();
+        }
+
+        this.showMessage('Новый продукт успешно добавлен', 'success');
+        return newProduct;
+    }
+
+    removeProduct(companyId, productIndex) {
+        const company = this.state.companiesArray.find(c => c.eventId === companyId);
+
+        if (!company || !company.products || !company.products[productIndex]) {
+            this.showMessage('Продукт не найден', 'error');
+            return false;
+        }
+
+        const removedProduct = company.products.splice(productIndex, 1)[0];
+
+        if (this.state.currentCompanyIndex === this.state.companiesArray.indexOf(company)) {
+            this.displayProducts();
+        }
+
+        this.showMessage(`Продукт "${removedProduct.productName}" удален`, 'info');
+        return removedProduct;
+    }
+
+    // ====================== ЭКСПОРТ ДАННЫХ ======================
+    exportData(format = 'json') {
+        const data = {
+            companies: this.state.companiesArray,
+            exportDate: new Date().toISOString(),
+            totalProducts: this.countTotalProducts(),
+            totalCompanies: this.state.companiesArray.length
+        };
+
+        switch (format.toLowerCase()) {
+            case 'json':
+                return this.exportAsJSON(data);
+            case 'csv':
+                return this.exportAsCSV(data);
+            case 'excel':
+                return this.exportAsExcel(data);
+            default:
+                return this.exportAsJSON(data);
+        }
+    }
+
+    exportAsJSON(data) {
+        const jsonString = JSON.stringify(data, null, 2);
+        const blob = new Blob([jsonString], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `products_export_${new Date().toISOString().split('T')[0]}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        URL.revokeObjectURL(url);
+
+        this.showMessage('Данные экспортированы в JSON', 'success');
+        return true;
+    }
+
+    exportAsCSV(data) {
+        let csvContent = "Компания,Товар,Цена,Категория,Голосов\n";
+
+        data.companies.forEach(company => {
+            company.products?.forEach(product => {
+                csvContent += `"${company.name}","${product.productName}",${product.price},"${product.category}",${product.voteCount || 0}\n`;
+            });
+        });
+
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `products_export_${new Date().toISOString().split('T')[0]}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        URL.revokeObjectURL(url);
+
+        this.showMessage('Данные экспортированы в CSV', 'success');
+        return true;
+    }
+
+    exportAsExcel(data) {
+        this.showMessage('Экспорт в Excel в разработке', 'info');
+        return false;
+    }
+
+    // ====================== ИМПОРТ ДАННЫХ ======================
+    importData(jsonData) {
+        try {
+            const parsedData = JSON.parse(jsonData);
+
+            if (!parsedData.companies || !Array.isArray(parsedData.companies)) {
+                throw new Error('Некорректный формат данных');
+            }
+
+            this.state.companiesArray = parsedData.companies;
+            this.initProductsData();
+            this.displayProducts();
+
+            this.showMessage('Данные успешно импортированы', 'success');
+            return true;
+
+        } catch (error) {
+            this.showMessage('Ошибка при импорте данных: ' + error.message, 'error');
+            return false;
+        }
+    }
+
+    // ====================== СБРОС ДАННЫХ ======================
+    resetVotes() {
+        if (!confirm('Вы уверены, что хотите сбросить все голоса? Это действие нельзя отменить.')) {
+            return false;
+        }
+
+        this.state.companiesArray.forEach(company => {
+            company.products?.forEach(product => {
+                product.hasVoted = false;
+                product.voteCount = 0;
+            });
+        });
+
+        sessionStorage.removeItem('userVotes');
+        localStorage.removeItem('productVotes');
+        localStorage.removeItem('pendingVotes');
+
+        this.displayProducts();
+        this.showMessage('Все голоса сброшены', 'info');
+        return true;
+    }
+
+    // ====================== СТАТИСТИКА ======================
+    getVoteStatistics() {
+        const stats = {
+            totalVotes: 0,
+            votedProducts: 0,
+            totalProducts: this.countTotalProducts(),
+            votePercentage: 0,
+            byCompany: {},
+            byCategory: {}
+        };
+
+        this.state.companiesArray.forEach(company => {
+            let companyVotes = 0;
+            let companyProducts = company.products?.length || 0;
+
+            company.products?.forEach(product => {
+                if (product.hasVoted) {
+                    stats.totalVotes++;
+                    stats.votedProducts++;
+                    companyVotes++;
+                }
+
+                if (product.category) {
+                    if (!stats.byCategory[product.category]) {
+                        stats.byCategory[product.category] = {
+                            votes: 0,
+                            products: 0
+                        };
+                    }
+                    stats.byCategory[product.category].products++;
+                    if (product.hasVoted) {
+                        stats.byCategory[product.category].votes++;
+                    }
+                }
+            });
+
+            if (companyProducts > 0) {
+                stats.byCompany[company.name] = {
+                    votes: companyVotes,
+                    products: companyProducts,
+                    percentage: (companyVotes / companyProducts * 100).toFixed(1)
+                };
+            }
+        });
+
+        if (stats.totalProducts > 0) {
+            stats.votePercentage = (stats.votedProducts / stats.totalProducts * 100).toFixed(1);
+        }
+
+        return stats;
+    }
+
+    showVoteStatistics() {
+        const stats = this.getVoteStatistics();
+
+        let message = `
+            <strong>Статистика голосования:</strong><br><br>
+            Всего товаров: ${stats.totalProducts}<br>
+            Проголосовано за: ${stats.votedProducts} товаров<br>
+            Процент голосования: ${stats.votePercentage}%<br><br>
+        `;
+
+        message += '<strong>По компаниям:</strong><br>';
+        Object.entries(stats.byCompany).forEach(([companyName, data]) => {
+            message += `${companyName}: ${data.votes}/${data.products} (${data.percentage}%)<br>`;
+        });
+
+        this.showMessage(message, 'info', 5000);
+    }
+
+    // ====================== УВЕДОМЛЕНИЯ ======================
+    showMessage(message, type = 'info', duration = 3000) {
+        const existingMessages = document.querySelectorAll('.app-message');
+        existingMessages.forEach(msg => msg.remove());
+
+        const colors = {
+            success: '#27ae60',
+            error: '#e74c3c',
+            warning: '#f39c12',
+            info: '#3498db'
+        };
+
+        const messageElement = document.createElement('div');
+        messageElement.className = `app-message ${type}`;
+        messageElement.innerHTML = `
+            <div style="
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${colors[type] || colors.info};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                animation: slideIn 0.3s ease;
+                max-width: 400px;
+                word-wrap: break-word;
+            ">
+                <i class="fas ${type === 'success' ? 'fa-check-circle' :
+                type === 'error' ? 'fa-exclamation-circle' :
+                    type === 'warning' ? 'fa-exclamation-triangle' :
+                        'fa-info-circle'}"></i>
+                ${message}
+            </div>
+        `;
+
+        document.body.appendChild(messageElement);
+
+        setTimeout(() => {
+            messageElement.remove();
+        }, duration);
     }
 
     // ====================== СКРОЛЛ И ПЕРЕТАСКИВАНИЕ ======================
     initHorizontalScroll() {
         if (!this.elements.productsContainer) return;
 
-        // Drag для контейнера
         this.elements.productsContainer.addEventListener('mousedown', (e) => this.startDrag(e));
         this.elements.productsContainer.addEventListener('touchstart', (e) => this.startDragTouch(e), { passive: false });
 
-        // Drag для ползунка
         if (this.elements.scrollLineThumb) {
             this.elements.scrollLineThumb.addEventListener('mousedown', (e) => {
                 this.startThumbDrag(e);
@@ -1215,10 +1936,8 @@ class ProductCatalog {
             });
         }
 
-        // Обработчик колеса мыши
         this.elements.productsContainer.addEventListener('wheel', (e) => this.handleWheelScroll(e), { passive: false });
 
-        // Обработчик скролла
         this.elements.productsContainer.addEventListener('scroll', () => {
             this.updateScrollLine();
             this.updateScrollButtonsVisibility();
@@ -1491,7 +2210,7 @@ class ProductCatalog {
         rightButton.style.pointerEvents = scrollLeft < maxScroll - 5 ? 'auto' : 'none';
     }
 
-    // ====================== МОДАЛЬНОЕ ОКНО ДЛЯ ИЗОБРАЖЕНИЙ ======================
+    // ====================== МОДАЛЬНОЕ ОКНО ======================
     createImageModal() {
         this.modal.overlay = document.createElement('div');
         this.modal.overlay.className = 'image-modal-overlay';
@@ -1563,14 +2282,12 @@ class ProductCatalog {
         this.modal.overlay.appendChild(closeBtn);
         document.body.appendChild(this.modal.overlay);
 
-        // Закрытие по клику
         this.modal.overlay.addEventListener('click', (e) => {
             if (e.target === this.modal.overlay || e.target === closeBtn) {
                 this.closeImageModal();
             }
         });
 
-        // Закрытие по Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.modal.overlay.style.display !== 'none') {
                 this.closeImageModal();
@@ -1607,59 +2324,7 @@ class ProductCatalog {
         }, 300);
     }
 
-    // ====================== УВЕДОМЛЕНИЯ ======================
-    showMessage(message, type = 'info') {
-        const existingMessages = document.querySelectorAll('.app-message');
-        existingMessages.forEach(msg => msg.remove());
-
-        const colors = {
-            success: '#27ae60',
-            error: '#e74c3c',
-            warning: '#f39c12',
-            info: '#3498db'
-        };
-
-        const messageElement = document.createElement('div');
-        messageElement.className = `app-message ${type}`;
-        messageElement.innerHTML = `
-            <div style="
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: ${colors[type] || colors.info};
-                color: white;
-                padding: 15px 25px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                z-index: 1000;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                animation: slideIn 0.3s ease;
-                max-width: 400px;
-                word-wrap: break-word;
-            ">
-                <i class="fas ${type === 'success' ? 'fa-check-circle' :
-                type === 'error' ? 'fa-exclamation-circle' :
-                    type === 'warning' ? 'fa-exclamation-triangle' :
-                        'fa-info-circle'}"></i>
-                ${message}
-            </div>
-        `;
-
-        document.body.appendChild(messageElement);
-
-        setTimeout(() => {
-            messageElement.remove();
-        }, 3000);
-    }
-
     // ====================== ПУБЛИЧНЫЕ МЕТОДЫ ======================
-    refresh() {
-        this.initProductsData();
-        this.displayProducts();
-    }
-
     getCurrentCompany() {
         return this.state.companiesArray[this.state.currentCompanyIndex];
     }
@@ -1671,13 +2336,25 @@ class ProductCatalog {
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function () {
-    // Создаем глобальную переменную для доступа к каталогу
     window.productCatalog = new ProductCatalog();
 
-    // Глобальная функция для обновления данных
-    window.refreshProducts = function () {
-        if (window.productCatalog) {
-            window.productCatalog.refresh();
+    // Глобальные функции
+    window.refreshProducts = () => window.productCatalog.refresh();
+    window.exportProducts = (format) => window.productCatalog.exportData(format);
+    window.resetAllVotes = () => window.productCatalog.resetVotes();
+    window.showVoteStats = () => window.productCatalog.showStatistics();
+
+    // Функция для тестирования
+    window.testVote = function (index = 0) {
+        const buttons = document.querySelectorAll('.vote-btn:not(.voted)');
+        if (buttons[index]) {
+            buttons[index].click();
+            console.log(`Голосование ${index + 1} выполнено`);
         }
     };
+
+    console.log('Приложение ProductCatalog загружено');
 });
+
+
+

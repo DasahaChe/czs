@@ -12,7 +12,7 @@ const STATUS_GROUPS = {
 const GROUP_COLORS = {
     "Активные заявки": "#4A6FFF", // синий
     "На согласовании": "#00a0c8", // голубой
-    "Требует внимания": "#FF6B6B" // красный
+    "Требует внимания": "#c9c180" // красный
 };
 
 // Главная функция инициализации диаграммы
@@ -318,12 +318,6 @@ function renderTreeChart() {
         const y = scaleY(value);
 
         // Горизонтальные линии сетки
-        ctx.beginPath();
-        ctx.moveTo(padding.left, y);
-        ctx.lineTo(padding.left + graphWidth, y);
-        ctx.strokeStyle = index === 3 ? '#D1D5DB' : 'rgba(243, 244, 246, 0.8)';
-        ctx.lineWidth = index === 3 ? 2 : 1;
-        ctx.stroke();
 
         // Подписи на оси Y
         let labelText;
@@ -370,7 +364,7 @@ function renderTreeChart() {
 
         // Текст суммы над столбцом
         ctx.fillStyle = GROUP_COLORS[group];
-        ctx.font = '11px TT Fors, Inter, Arial, sans-serif';
+        ctx.font = '12px TT Fors, Inter, Arial, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(formatCurrency(sumValue), sumX + columnWidth / 2, rectY - 6);
 
