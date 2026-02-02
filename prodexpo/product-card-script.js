@@ -603,8 +603,6 @@ const productsArray = [
     }
 ];
 
-
-
 class ProductCatalog {
     constructor(config = {}) {
         // Конфигурация
@@ -652,17 +650,6 @@ class ProductCatalog {
             overlay: null,
             image: null
         };
-
-        // Привязываем методы
-        this.refresh = this.refreshData.bind(this);
-        this.updateProduct = this.updateProductData.bind(this);
-        this.addProduct = this.addNewProduct.bind(this);
-        this.removeProduct = this.removeProduct.bind(this);
-        this.exportData = this.exportData.bind(this);
-        this.importData = this.importData.bind(this);
-        this.resetVotes = this.resetVotes.bind(this);
-        this.getStatistics = this.getVoteStatistics.bind(this);
-        this.showStatistics = this.showVoteStatistics.bind(this);
 
         this.init();
     }
@@ -1050,25 +1037,19 @@ class ProductCatalog {
     }
 
     addEventListeners() {
-        // Удаляем старые обработчики
-        this.removeEventListeners();
-
-        // Обработчик кликов
-        this.elements.productsContainer.addEventListener('click', this.handleContainerClick.bind(this));
+        // Используем делегирование событий
+        this.elements.productsContainer.addEventListener('click', (e) => this.handleContainerClick(e));
 
         // Touch события для мобильных
-        this.elements.productsContainer.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
-        this.elements.productsContainer.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: true });
-    }
-
-    removeEventListeners() {
-        // Можно очистить обработчики при необходимости
+        if ('ontouchstart' in window) {
+            this.elements.productsContainer.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
+            this.elements.productsContainer.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
+        }
     }
 
     handleContainerClick(e) {
-        // Обработка кнопок "подробнее"
-        if (e.target.classList.contains('show-more-btn') ||
-            e.target.closest('.show-more-btn')) {
+        // Кнопки "подробнее"
+        if (e.target.classList.contains('show-more-btn') || e.target.closest('.show-more-btn')) {
             const btn = e.target.classList.contains('show-more-btn')
                 ? e.target
                 : e.target.closest('.show-more-btn');
@@ -1078,9 +1059,8 @@ class ProductCatalog {
             return;
         }
 
-        // Обработка кнопок "скрыть"
-        if (e.target.classList.contains('show-less-btn') ||
-            e.target.closest('.show-less-btn')) {
+        // Кнопки "скрыть"
+        if (e.target.classList.contains('show-less-btn') || e.target.closest('.show-less-btn')) {
             const btn = e.target.classList.contains('show-less-btn')
                 ? e.target
                 : e.target.closest('.show-less-btn');
@@ -1090,14 +1070,12 @@ class ProductCatalog {
             return;
         }
 
-        // Обработка кнопок "Голосовать"
-        if (e.target.classList.contains('vote-btn') ||
-            e.target.closest('.vote-btn')) {
+        // Кнопки "Голосовать"
+        if (e.target.classList.contains('vote-btn') || e.target.closest('.vote-btn')) {
             const btn = e.target.classList.contains('vote-btn')
                 ? e.target
                 : e.target.closest('.vote-btn');
 
-            // Проверяем, не проголосовали ли уже
             if (btn.classList.contains('voted')) {
                 return;
             }
@@ -1116,8 +1094,7 @@ class ProductCatalog {
         }
 
         // Клики по изображениям
-        if (e.target.classList.contains('product-img-clickable') ||
-            e.target.closest('.product-img-clickable')) {
+        if (e.target.classList.contains('product-img-clickable') || e.target.closest('.product-img-clickable')) {
             const img = e.target.classList.contains('product-img-clickable')
                 ? e.target
                 : e.target.closest('.product-img-clickable');
@@ -1145,6 +1122,7 @@ class ProductCatalog {
         const target = document.elementFromPoint(touch.clientX, touch.clientY);
 
         if (target) {
+            // Проверяем кнопку голосования
             const voteBtn = target.classList.contains('vote-btn')
                 ? target
                 : target.closest('.vote-btn');
@@ -1153,6 +1131,28 @@ class ProductCatalog {
                 e.preventDefault();
                 voteBtn.classList.remove('vote-tap');
                 this.handleVote(voteBtn);
+                return;
+            }
+
+            // Проверяем кнопки "подробнее"
+            const moreBtn = target.classList.contains('show-more-btn')
+                ? target
+                : target.closest('.show-more-btn');
+
+            if (moreBtn) {
+                e.preventDefault();
+                this.handleShowMore(moreBtn);
+                return;
+            }
+
+            // Проверяем кнопки "скрыть"
+            const lessBtn = target.classList.contains('show-less-btn')
+                ? target
+                : target.closest('.show-less-btn');
+
+            if (lessBtn) {
+                e.preventDefault();
+                this.handleShowLess(lessBtn);
                 return;
             }
 
@@ -1172,9 +1172,12 @@ class ProductCatalog {
 
         if (!fullElement || !sectionTitle) return;
 
+        // Скрываем краткое описание
         sectionTitle.style.display = 'none';
+        // Показываем полное описание
         fullElement.style.display = 'block';
 
+        // Прокручиваем к раскрытому контенту на мобильных
         if (window.innerWidth <= 768) {
             setTimeout(() => {
                 fullElement.scrollIntoView({
@@ -1195,7 +1198,9 @@ class ProductCatalog {
 
         if (!fullElement || !sectionTitle) return;
 
+        // Скрываем полное описание
         fullElement.style.display = 'none';
+        // Показываем краткое описание
         sectionTitle.style.display = 'block';
     }
 
@@ -1279,9 +1284,7 @@ class ProductCatalog {
             button.setAttribute('aria-disabled', 'true');
             button.setAttribute('aria-label', 'Голос уже отдан');
             button.style.cursor = 'default';
-            button.style.pointerEvents = 'none'; // Отключаем все взаимодействия
-
-            // Отключаем hover эффекты через CSS класс
+            button.style.pointerEvents = 'none';
             button.classList.add('vote-disabled');
 
             if (!button.querySelector('.vote-count')) {
@@ -1463,7 +1466,7 @@ class ProductCatalog {
             const style = document.createElement('style');
             style.id = 'mobile-vote-styles';
             style.textContent = `
-                /* Стили для мобильной версии и кнопки голосования */
+                /* Стили для мобильной версии */
                 @media (max-width: 768px) {
                     .vote-btn {
                         min-height: 44px !important;
@@ -1487,15 +1490,14 @@ class ProductCatalog {
                     
                     /* Активная кнопка голосования */
                     .vote-btn:not(.voted):not(.vote-disabled) {
-                        background: var(--primary-color, #007bff) !important;
+                       
                         color: white !important;
-                        border-color: var(--primary-color, #007bff) !important;
+                       
                     }
                     
                     .vote-btn:not(.voted):not(.vote-disabled):hover,
                     .vote-btn:not(.voted):not(.vote-disabled):focus {
-                        background: var(--primary-color-dark, #0056b3) !important;
-                        border-color: var(--primary-color-dark, #0056b3) !important;
+                        
                         transform: translateY(-2px) !important;
                         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
                     }
@@ -1535,7 +1537,7 @@ class ProductCatalog {
                     
                     /* Визуальная обратная связь при тапе */
                     .vote-tap {
-                        background: var(--primary-color-dark, #0056b3) !important;
+                        background: var(--primary-color-dark, #ff014d) !important;
                         transform: scale(0.95) !important;
                         transition: all 0.1s !important;
                     }
@@ -1543,10 +1545,7 @@ class ProductCatalog {
                     /* Кнопки подробнее/скрыть */
                     .show-more-btn, .show-less-btn {
                         min-height: 36px !important;
-                        min-width: 100px !important;
-                        padding: 8px 12px !important;
-                        margin: 6px 0 !important;
-                        font-size: 14px !important;
+                        min-width: 100px !important;                        
                         cursor: pointer !important;
                         -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
                     }
@@ -1606,266 +1605,6 @@ class ProductCatalog {
             `;
             document.head.appendChild(style);
         }
-    }
-
-    // ====================== ОБНОВЛЕНИЕ ДАННЫХ ======================
-    refreshData() {
-        this.state.currentCompanyIndex = 0;
-        this.initProductsData();
-        this.displayProducts();
-        this.showMessage('Данные успешно обновлены', 'success');
-        return true;
-    }
-
-    updateProductData(companyId, productIndex, newData) {
-        const company = this.state.companiesArray.find(c => c.eventId === companyId);
-
-        if (!company || !company.products || !company.products[productIndex]) {
-            this.showMessage('Продукт не найден', 'error');
-            return false;
-        }
-
-        Object.assign(company.products[productIndex], newData);
-        company.editedAt = new Date().toISOString();
-
-        if (this.state.currentCompanyIndex === this.state.companiesArray.indexOf(company)) {
-            this.displayProducts();
-        }
-
-        console.log('Данные продукта обновлены:', company.products[productIndex].productName);
-        return true;
-    }
-
-    addNewProduct(companyId, productData) {
-        const company = this.state.companiesArray.find(c => c.eventId === companyId);
-
-        if (!company) {
-            this.showMessage('Компания не найдена', 'error');
-            return false;
-        }
-
-        if (!company.products) {
-            company.products = [];
-        }
-
-        const productId = `company_${companyId}_product_${company.products.length}`;
-
-        const newProduct = {
-            ...productData,
-            id: productId,
-            hasVoted: false,
-            voteCount: 0
-        };
-
-        company.products.push(newProduct);
-
-        if (this.state.currentCompanyIndex === this.state.companiesArray.indexOf(company)) {
-            this.displayProducts();
-        }
-
-        this.showMessage('Новый продукт успешно добавлен', 'success');
-        return newProduct;
-    }
-
-    removeProduct(companyId, productIndex) {
-        const company = this.state.companiesArray.find(c => c.eventId === companyId);
-
-        if (!company || !company.products || !company.products[productIndex]) {
-            this.showMessage('Продукт не найден', 'error');
-            return false;
-        }
-
-        const removedProduct = company.products.splice(productIndex, 1)[0];
-
-        if (this.state.currentCompanyIndex === this.state.companiesArray.indexOf(company)) {
-            this.displayProducts();
-        }
-
-        this.showMessage(`Продукт "${removedProduct.productName}" удален`, 'info');
-        return removedProduct;
-    }
-
-    // ====================== ЭКСПОРТ ДАННЫХ ======================
-    exportData(format = 'json') {
-        const data = {
-            companies: this.state.companiesArray,
-            exportDate: new Date().toISOString(),
-            totalProducts: this.countTotalProducts(),
-            totalCompanies: this.state.companiesArray.length
-        };
-
-        switch (format.toLowerCase()) {
-            case 'json':
-                return this.exportAsJSON(data);
-            case 'csv':
-                return this.exportAsCSV(data);
-            case 'excel':
-                return this.exportAsExcel(data);
-            default:
-                return this.exportAsJSON(data);
-        }
-    }
-
-    exportAsJSON(data) {
-        const jsonString = JSON.stringify(data, null, 2);
-        const blob = new Blob([jsonString], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `products_export_${new Date().toISOString().split('T')[0]}.json`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-
-        URL.revokeObjectURL(url);
-
-        this.showMessage('Данные экспортированы в JSON', 'success');
-        return true;
-    }
-
-    exportAsCSV(data) {
-        let csvContent = "Компания,Товар,Цена,Категория,Голосов\n";
-
-        data.companies.forEach(company => {
-            company.products?.forEach(product => {
-                csvContent += `"${company.name}","${product.productName}",${product.price},"${product.category}",${product.voteCount || 0}\n`;
-            });
-        });
-
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const url = URL.createObjectURL(blob);
-
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `products_export_${new Date().toISOString().split('T')[0]}.csv`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-
-        URL.revokeObjectURL(url);
-
-        this.showMessage('Данные экспортированы в CSV', 'success');
-        return true;
-    }
-
-    exportAsExcel(data) {
-        this.showMessage('Экспорт в Excel в разработке', 'info');
-        return false;
-    }
-
-    // ====================== ИМПОРТ ДАННЫХ ======================
-    importData(jsonData) {
-        try {
-            const parsedData = JSON.parse(jsonData);
-
-            if (!parsedData.companies || !Array.isArray(parsedData.companies)) {
-                throw new Error('Некорректный формат данных');
-            }
-
-            this.state.companiesArray = parsedData.companies;
-            this.initProductsData();
-            this.displayProducts();
-
-            this.showMessage('Данные успешно импортированы', 'success');
-            return true;
-
-        } catch (error) {
-            this.showMessage('Ошибка при импорте данных: ' + error.message, 'error');
-            return false;
-        }
-    }
-
-    // ====================== СБРОС ДАННЫХ ======================
-    resetVotes() {
-        if (!confirm('Вы уверены, что хотите сбросить все голоса? Это действие нельзя отменить.')) {
-            return false;
-        }
-
-        this.state.companiesArray.forEach(company => {
-            company.products?.forEach(product => {
-                product.hasVoted = false;
-                product.voteCount = 0;
-            });
-        });
-
-        sessionStorage.removeItem('userVotes');
-        localStorage.removeItem('productVotes');
-        localStorage.removeItem('pendingVotes');
-
-        this.displayProducts();
-        this.showMessage('Все голоса сброшены', 'info');
-        return true;
-    }
-
-    // ====================== СТАТИСТИКА ======================
-    getVoteStatistics() {
-        const stats = {
-            totalVotes: 0,
-            votedProducts: 0,
-            totalProducts: this.countTotalProducts(),
-            votePercentage: 0,
-            byCompany: {},
-            byCategory: {}
-        };
-
-        this.state.companiesArray.forEach(company => {
-            let companyVotes = 0;
-            let companyProducts = company.products?.length || 0;
-
-            company.products?.forEach(product => {
-                if (product.hasVoted) {
-                    stats.totalVotes++;
-                    stats.votedProducts++;
-                    companyVotes++;
-                }
-
-                if (product.category) {
-                    if (!stats.byCategory[product.category]) {
-                        stats.byCategory[product.category] = {
-                            votes: 0,
-                            products: 0
-                        };
-                    }
-                    stats.byCategory[product.category].products++;
-                    if (product.hasVoted) {
-                        stats.byCategory[product.category].votes++;
-                    }
-                }
-            });
-
-            if (companyProducts > 0) {
-                stats.byCompany[company.name] = {
-                    votes: companyVotes,
-                    products: companyProducts,
-                    percentage: (companyVotes / companyProducts * 100).toFixed(1)
-                };
-            }
-        });
-
-        if (stats.totalProducts > 0) {
-            stats.votePercentage = (stats.votedProducts / stats.totalProducts * 100).toFixed(1);
-        }
-
-        return stats;
-    }
-
-    showVoteStatistics() {
-        const stats = this.getVoteStatistics();
-
-        let message = `
-            <strong>Статистика голосования:</strong><br><br>
-            Всего товаров: ${stats.totalProducts}<br>
-            Проголосовано за: ${stats.votedProducts} товаров<br>
-            Процент голосования: ${stats.votePercentage}%<br><br>
-        `;
-
-        message += '<strong>По компаниям:</strong><br>';
-        Object.entries(stats.byCompany).forEach(([companyName, data]) => {
-            message += `${companyName}: ${data.votes}/${data.products} (${data.percentage}%)<br>`;
-        });
-
-        this.showMessage(message, 'info', 5000);
     }
 
     // ====================== УВЕДОМЛЕНИЯ ======================
@@ -2325,6 +2064,14 @@ class ProductCatalog {
     }
 
     // ====================== ПУБЛИЧНЫЕ МЕТОДЫ ======================
+    refresh() {
+        this.state.currentCompanyIndex = 0;
+        this.initProductsData();
+        this.displayProducts();
+        this.showMessage('Данные успешно обновлены', 'success');
+        return true;
+    }
+
     getCurrentCompany() {
         return this.state.companiesArray[this.state.currentCompanyIndex];
     }
@@ -2338,13 +2085,9 @@ class ProductCatalog {
 document.addEventListener('DOMContentLoaded', function () {
     window.productCatalog = new ProductCatalog();
 
-    // Глобальные функции
     window.refreshProducts = () => window.productCatalog.refresh();
-    window.exportProducts = (format) => window.productCatalog.exportData(format);
-    window.resetAllVotes = () => window.productCatalog.resetVotes();
-    window.showVoteStats = () => window.productCatalog.showStatistics();
 
-    // Функция для тестирования
+    // Тестовые функции
     window.testVote = function (index = 0) {
         const buttons = document.querySelectorAll('.vote-btn:not(.voted)');
         if (buttons[index]) {
@@ -2353,8 +2096,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
+    window.testShowMore = function (index = 0) {
+        const buttons = document.querySelectorAll('.show-more-btn');
+        if (buttons[index]) {
+            buttons[index].click();
+            console.log(`Раскрытие ${index + 1} выполнено`);
+        }
+    };
+
     console.log('Приложение ProductCatalog загружено');
 });
-
 
 
