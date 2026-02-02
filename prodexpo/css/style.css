@@ -627,6 +627,8 @@ textarea {
 .show-less-btn {
     color: #000000;
     cursor: pointer;
+    background: transparent;
+    border: none;
 }
 
 .show-more-btn:hover,
