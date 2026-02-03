@@ -524,16 +524,16 @@ function renderChart() {
   const canvas = document.createElement('canvas');
   canvas.id = 'incomeChart';
   canvas.style.width = '100%';
-  canvas.style.height = '200px'; // Уменьшил высоту графика
+  canvas.style.height = '280px'; // Уменьшил высоту графика
   canvas.width = chartContainer.clientWidth;
-  canvas.height = 200;
+  canvas.height = 280;
   chartContainer.appendChild(canvas);
 
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
   // Настройки графика
-  const padding = { top: 40, right: 30, bottom: 30, left: 80 }; // Уменьшил правый отступ
+  const padding = { top: 40, right: 30, bottom: 50, left: 80 }; // Уменьшил правый отступ
   const graphWidth = canvas.width - padding.left - padding.right;
   const graphHeight = canvas.height - padding.top - padding.bottom;
 
@@ -666,14 +666,14 @@ function renderChart() {
 function createLegendContainer(chartContainer, chartData) {
   const legendContainer = document.createElement('div');
   legendContainer.className = 'chart-legend';
-  legendContainer.style.marginTop = '15px';
-  legendContainer.style.padding = '12px';
-  legendContainer.style.backgroundColor = '#f8fafc';
-  legendContainer.style.borderRadius = '8px';
+  legendContainer.style.marginTop = '20px';
+  legendContainer.style.padding = '16px';
+  legendContainer.style.backgroundColor = '#ffffff';
+  legendContainer.style.borderRadius = '0 0 8px 8px';
   legendContainer.style.display = 'flex';
   legendContainer.style.justifyContent = 'center';
   legendContainer.style.alignItems = 'center';
-  legendContainer.style.gap = '20px';
+  legendContainer.style.gap = '24px';
   legendContainer.style.flexWrap = 'wrap';
 
   // Считаем общую сумму
@@ -700,8 +700,7 @@ function createLegendContainer(chartContainer, chartData) {
 
     const textContainer = document.createElement('div');
     textContainer.style.display = 'flex';
-    textContainer.style.flexDirection = 'column';
-    textContainer.style.gap = '2px';
+    textContainer.style.gap = '4px';
 
     const statusName = document.createElement('span');
     statusName.style.fontSize = '12px';
@@ -759,6 +758,18 @@ function addChartStyles() {
   const style = document.createElement('style');
   style.textContent = `
     /* Стили для графика */
+.chart-legend{
+marginTop:'20px';
+  padding:'16px';
+  backgroundColor:'#ffffff';
+  borderRadius:'8px';
+  display:'flex';
+  justifyContent:'center';
+  alignItems:'center';
+  gap:'24px';
+  flexWrap :'wrap';
+}
+
     .chart-card {
       overflow: hidden;
       position: relative;
