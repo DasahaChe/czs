@@ -413,7 +413,7 @@ width: 100%;
 
 .page-title {
   font-size: 54px;
-  font-weight: 500;
+  font-weight: 400;
   margin: 12px 0 24px 0;
 }
 
@@ -1107,7 +1107,6 @@ width: 100%;
 }
 .content {
   grid-row: 2/3;
-
 }
 .sidebar{
   max-width: 100%;
@@ -1135,6 +1134,15 @@ width: 100%;
 .nav,.sidebar__actions {
   display: none;
 }
+
+    .content {
+      padding: 0 32px;
+    }
+
+        .page-title {
+  font-size: 24px;
+  margin: 0 0 24px 0;
+}
 }
 
 @media (max-width: 760px) {
@@ -1159,4 +1167,167 @@ width: 100%;
         width: 36px;
     }
 
+.block__title {
+  font-size: 20px;
+}
+
+
+.chart-legend{
+    padding: 16px 8px;
+    display: flex;
+    justify-content: center;
+     align-items: start; 
+    gap: 8px;
+    flex-wrap: wrap;
+}
   }
+
+  /* Дополнительные стили для нижних графиков */
+.chart-legend-down {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.pie-chart-legend {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность для графиков */
+@media (max-width: 1480px) {
+    #downLineChart, #downPieChart {
+        height: 250px;
+    }
+    
+    .chart-legend-down, .pie-chart-legend {
+        padding: 12px;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    #downLineChart, #downPieChart {
+        height: 220px;
+    }
+    
+    .chart-legend-down {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .pie-chart-legend > div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+/* Стили для контейнера с круговой диаграммой */
+#all {
+    background: transparent;
+    min-height: 350px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.pie-chart-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.compact-legend {
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.compact-legend::-webkit-scrollbar {
+    width: 4px;
+}
+
+.compact-legend::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+}
+
+.compact-legend::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 2px;
+}
+
+.compact-legend::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.chart-summary {
+    background: #F9FAFB;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 1480px) {
+    .pie-chart-container {
+        padding: 16px;
+    }
+    
+    .compact-legend {
+        grid-template-columns: 1fr;
+        max-height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    #all {
+        min-height: 300px;
+    }
+    
+    #allPieChart {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .pie-chart-container h3 {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #allPieChart {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .compact-legend {
+        font-size: 11px;
+    }
+    
+    .chart-summary {
+        font-size: 11px;
+    }
+}

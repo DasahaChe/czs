@@ -758,18 +758,6 @@ function addChartStyles() {
   const style = document.createElement('style');
   style.textContent = `
     /* Стили для графика */
-.chart-legend{
-marginTop:'20px';
-  padding:'16px';
-  backgroundColor:'#ffffff';
-  borderRadius:'8px';
-  display:'flex';
-  justifyContent:'center';
-  alignItems:'center';
-  gap:'24px';
-  flexWrap :'wrap';
-}
-
     .chart-card {
       overflow: hidden;
       position: relative;
@@ -883,8 +871,6 @@ marginTop:'20px';
       
       .chart-legend {
         flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
       }
     }
   `;

@@ -1213,3 +1213,56 @@ export const procurementData = {
         }
     ]
 };
+
+// data.js
+export const testObject = {
+    "id": 1,
+    "product": 39200,
+    "supplier": 840,
+    "status": 39200,
+    "amount": 13367200,
+    "date": 1738540800000,
+    "deliveryDate": 1738540800000,
+    "category": 15
+};
+
+// Данные для графиков на основе testObject
+export const chartDataFromTestObject = {
+    // Разбиваем status на распределение по статусам
+    statusDistribution: {
+        "В процессе": Math.floor(testObject.status * 0.4), // 40%
+        "На согласовании": Math.floor(testObject.status * 0.25), // 25%
+        "Завершено": Math.floor(testObject.status * 0.2), // 20%
+        "Ожидается": Math.floor(testObject.status * 0.1), // 10%
+        "Просрочено": Math.floor(testObject.status * 0.05), // 5%
+    },
+
+    // Данные для временного графика (линейного)
+    timeSeriesData: {
+        // Генерируем 7 дней данных на основе amount
+        labels: ["01.02", "02.02", "03.02", "04.02", "05.02", "06.02", "07.02"],
+        values: [
+            Math.floor(testObject.amount * 0.1),
+            Math.floor(testObject.amount * 0.15),
+            Math.floor(testObject.amount * 0.25),
+            Math.floor(testObject.amount * 0.35),
+            Math.floor(testObject.amount * 0.45),
+            Math.floor(testObject.amount * 0.6),
+            Math.floor(testObject.amount * 0.8)
+        ],
+        categories: ["Общий объем", "Завершено", "В процессе"]
+    },
+
+    // Данные для круговой диаграммы по категориям
+    categoryData: {
+        labels: ["Молочная\nпродукция", "Овощи и\nфрукты", "Напитки", "Бакалея", "Мясо"],
+        values: [
+            Math.floor(testObject.category * 10000 * 0.35), // 35%
+            Math.floor(testObject.category * 10000 * 0.25), // 25%
+            Math.floor(testObject.category * 10000 * 0.2),  // 20%
+            Math.floor(testObject.category * 10000 * 0.12), // 12%
+            Math.floor(testObject.category * 10000 * 0.08)  // 8%
+        ],
+        colors: ["#4A6FFF", "#00a0c8", "#0a857e", "#FF6B6B", "#FFA726"]
+    }
+};
