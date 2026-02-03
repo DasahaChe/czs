@@ -220,28 +220,23 @@ select {
 /* ==========================================================================
    Layout
    ========================================================================== */
-
 .layout {
-  display: flex;
-  min-height: calc(100vh - 160px); /* Вычитаем высоту header и footer */
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Разные ширины колонок */
+  grid-template-rows: 1fr; /* Одна строка */
+  align-items: stretch; /* Выравнивание по высоте */
+  height: 100%; /* Или задайте фиксированную высоту */
   gap: 2em;
 }
-
 
 /* ==========================================================================
    Sidebar
    ========================================================================== */
-.sidebar,
-.content,
-.banners {
+.sidebar {
   display: flex;
   flex-direction: column;
-}
-
-.sidebar {
-  flex: 0 0 auto;
-  max-width: 24em;
   padding: 2em;
+  max-width: 24em;
   width: 100%;
   height: 100%;
   background: var(--blue-900);
@@ -394,10 +389,11 @@ width: 100%;
    banners
    ========================================================================== */
 .banners {
-  flex: 0 0 auto;
-  max-width: 24em;
+  display: flex;
+  flex-direction: column;
   padding: 2em 1em;
   gap: 1em;
+  max-width: 24em;
   width: 100%;
   height: 100%;
   background: var(--lightBlue);
@@ -405,7 +401,6 @@ width: 100%;
 
 .banner {
   display: flex;
-  min-width: 300px;
   width: 100%;
 }
 
@@ -413,8 +408,6 @@ width: 100%;
    Content
    ========================================================================== */
 .content {
-  flex: 1 1 auto;
-  min-width: 0; /* Для корректной работы flex-shrink */
   padding: 32px 0;
 }
 
@@ -1067,148 +1060,42 @@ width: 100%;
     width: 100%;
   }
 
+  .stat__title {
+    max-width: 100px;
+  }
 }
 
 @media (max-width: 1220px) {
-
-.stats-row {
-  flex-direction: column;
+.brand {
+    max-width: 180px;
 }
-.stat {
+
+.header__user-avatar {
+    width: 42px;
+}
+
+.search {
   width: 100%;
-  }
 }
 
-@media (max-width: 1480px) {
-  .layout {
-    gap: 1em;
-  }
+.layout{
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 900px 1fr;
+  row-gap: 0;
 }
 
-/* При расширении менее 1220px - мобильная адаптация */
-@media (max-width: 1220px) {
-  .layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;
-    gap: 1em;
-  }
-
-  /* Баннеры перемещаются под сайдбар */
-  .banners {
-    grid-row: 2;
-    grid-column: 1;
-    max-width: 100%;
-    height: auto;
-    padding: 1em;
-  }
-
-  /* Контент занимает всю ширину */
-  .content {
-    grid-row: 3;
-    grid-column: 1;
-    width: 100%;
-  }
-
-  /* Сайдбар сохраняет свою высоту на основе содержимого */
-  .sidebar {
-    grid-row: 1;
-    grid-column: 1;
-    max-width: 100%;
-    height: auto;
-    padding: 1em;
-  }
-
-  /* Корректируем высоту сайдбара */
-  .sidebar__fill {
-    height: 200px;
-  }
-
-  /* Статистические карточки в ряд */
-  .stats-row {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .stat {
-    width: calc(50% - 0.75em);
-  }
-}
-
-/* Дополнительная адаптация для очень маленьких экранов */
-@media (max-width: 768px) {
-  .layout {
-    padding: 0 1em;
-  }
-  
-  .stat {
-    width: 100%;
-  }
-  
-  .sidebar {
-    padding: 1em;
-  }
-  
-  .banners {
-    flex-direction: row;
-    overflow-x: auto;
-  }
-  
-  .banner {
-    min-width: 280px;
-    flex: 0 0 auto;
-  }
-}
-
-/* Обеспечиваем правильное отображение внутренних элементов */
-.sidebar__fill {
-  flex-grow: 1;
-}
-
-/* Убедимся, что навигация в сайдбаре не растягивается чрезмерно */
-.nav {
-  flex: 0 1 auto;
-}
-
-.sidebar__actions {
-  flex: 0 0 auto;
-}
-
-/* Для контента добавляем возможность скролла если контент слишком большой */
 .content {
-  overflow-y: auto;
-  padding: 32px 0;
+  grid-row: span 2 ;
+    padding: 32px 32px 32px 0;
 }
 
-/* Корректируем высоту табличного блока */
-.table-wrap {
-  max-height: calc(100vh - 400px);
+.banners{
+  background-color: var(--blue-900);
 }
 
-/* Для блоков с графиками */
-.chart-card {
-  flex: 2;
-  min-height: 300px;
 }
 
-.chart-info {
-  flex: 1;
-  min-height: 300px;
-}
+@media (max-width: 990px) {
 
-@media (max-width: 1480px) {
-  .chart-block {
-    flex-direction: row;
-  }
-  
-  .chart-info, 
-  .chart-card {
-    flex: 1;
-  }
-}
-
-@media (max-width: 768px) {
-  .chart-block {
-    flex-direction: column;
-  }
 }

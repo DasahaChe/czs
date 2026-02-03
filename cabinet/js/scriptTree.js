@@ -3,16 +3,18 @@ import { procurementData, getFilteredPurchases, STATUSES } from './scriptTable.j
 
 // Группировка статусов для диаграммы
 const STATUS_GROUPS = {
-    "Активные заявки": ["В процессе", "Завершено"],
+    "Активные заявки": ["В процессе", "Ожидается"],
     "На согласовании": ["На согласовании"],
-    "Требует внимания": ["Ожидается", "Просрочено"]
+    "Требует внимания": ["Просрочено"],
+    "Завершено": ["Завершено"]
 };
 
 // Цвета для столбцов
 const GROUP_COLORS = {
     "Активные заявки": "#4A6FFF", // синий
     "На согласовании": "#00a0c8", // голубой
-    "Требует внимания": "#c9c180" // красный
+    "Требует внимания": "#c9c180", // желтый
+    "Завершено": "#0a857e" // зеленый
 };
 
 // Главная функция инициализации диаграммы
@@ -66,14 +68,27 @@ function getTreeChartData() {
         const status = purchase.status;
 
         // Находим группу для этого статуса
+        let groupAssigned = false;
+
         for (const [groupName, statuses] of Object.entries(STATUS_GROUPS)) {
             if (statuses.includes(status)) {
                 chartData.sums[groupName] += amount;
                 chartData.counts[groupName] += 1;
+                groupAssigned = true;
                 break;
             }
         }
+
+        // Если статус не попал ни в одну группу, добавляем его в "Активные заявки"
+        if (!groupAssigned) {
+            console.warn(`Статус "${status}" не найден в группах, добавляем в "Активные заявки"`);
+            chartData.sums["Активные заявки"] += amount;
+            chartData.counts["Активные заявки"] += 1;
+        }
     });
+
+    // Отладочный вывод
+    console.log('Данные для диаграммы:', chartData);
 
     return chartData;
 }
@@ -192,6 +207,77 @@ function drawVerticalLegend(ctx, chartData, canvasWidth, canvasHeight, dpr, colu
     ctx.restore();
 }
 
+// Функция для рисования горизонтальной легенды (для экранов ≤1480px)
+function drawHorizontalLegend(ctx, chartData, canvasWidth, canvasHeight, dpr, columnBaseY) {
+    const legendHeight = 70; // Уменьшаем высоту для горизонтального расположения
+    const startY = columnBaseY + 30;
+
+    // Использую всю ширину
+    const startX = 10;
+    const legendWidth = canvasWidth - 20;
+
+    // Рисуем фон для легенды
+    ctx.save();
+    ctx.fillStyle = '#E6F4FF';
+    ctx.fillRect(startX, startY - 8, legendWidth, legendHeight - 12);
+
+    // Рисуем границу легенды
+    ctx.strokeStyle = '#E6F4FF';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(startX, startY - 8, legendWidth, legendHeight - 12);
+    ctx.restore();
+
+    // Настройки для горизонтального расположения
+    const itemsCount = chartData.groups.length;
+    const itemWidth = Math.min(180, (legendWidth - 40) / itemsCount); // Максимальная ширина элемента
+    const colorBoxSize = 12;
+    const textOffset = colorBoxSize + 8;
+    const itemSpacing = 10;
+
+    let currentX = startX + 20;
+
+    ctx.save();
+    ctx.font = '12px TT Fors, Inter, Arial, sans-serif'; // Уменьшаем шрифт для горизонтальной легенды
+    ctx.textAlign = 'center';
+
+    chartData.groups.forEach((group) => {
+        const itemCenterX = currentX + itemWidth / 2;
+
+        // Рисуем цветной квадратик
+        ctx.fillStyle = GROUP_COLORS[group];
+        ctx.fillRect(itemCenterX - colorBoxSize / 2, startY + 5, colorBoxSize, colorBoxSize);
+
+
+
+        // Рисуем название группы (центрируем под квадратиком)
+        ctx.fillStyle = '#374151';
+        const groupText = group;
+        ctx.fillText(groupText, itemCenterX, startY + 30);
+
+        // Рисуем количество записей под названием
+        ctx.fillStyle = '#6B7280';
+        const countText = `${chartData.counts[group]} шт`;
+        ctx.fillText(countText, itemCenterX, startY + 45);
+
+        currentX += itemWidth + itemSpacing;
+    });
+
+    ctx.restore();
+}
+
+// Функция для рисования вертикальной/горизонтальной легенды в зависимости от ширины экрана
+function drawLegend(ctx, chartData, canvasWidth, canvasHeight, dpr, columnBaseY) {
+    const isMobile = window.innerWidth <= 1480;
+
+    if (isMobile) {
+        // Горизонтальная легенда для экранов ≤1480px
+        drawHorizontalLegend(ctx, chartData, canvasWidth, canvasHeight, dpr, columnBaseY);
+    } else {
+        // Вертикальная легенда для широких экранов
+        drawVerticalLegend(ctx, chartData, canvasWidth, canvasHeight, dpr, columnBaseY);
+    }
+}
+
 // Функция для рисования одной надписи "Сумма" по центру выше легенды
 function drawSingleSumLabel(ctx, canvasWidth, columnBaseY) {
     // Рисуем надпись "Сумма" один раз по центру, между графиком и легендой
@@ -217,6 +303,27 @@ function calculateYValues(maxValue) {
         maxValue * 0.66, // средняя сумма2 (2/3 от максимума)
         maxValue // итог (максимум)
     ];
+}
+
+// Функция для расчета отступов в зависимости от ширины экрана
+function calculatePadding() {
+    const isMobile = window.innerWidth <= 1480;
+
+    if (isMobile) {
+        return {
+            top: 45, // Уменьшаем отступ сверху
+            right: 20,
+            bottom: 100, // Уменьшаем отступ снизу для горизонтальной легенды
+            left: 50
+        };
+    } else {
+        return {
+            top: 50,
+            right: 20,
+            bottom: 130,
+            left: 60
+        };
+    }
 }
 
 // Отрисовка столбчатой диаграммы
@@ -264,13 +371,9 @@ function renderTreeChart() {
     // Рисуем подпись сверху графика
     drawTotalApplicationsLabel(ctx, chartData, canvas.width / dpr, dpr);
 
-    // Отступы для диаграммы (увеличил сверху для подписи)
-    const padding = {
-        top: 50, // Увеличил отступ сверху для подписи
-        right: 20,
-        bottom: 130,
-        left: 60
-    };
+    // Определяем адаптивные отступы
+    const isMobile = window.innerWidth <= 1480;
+    const padding = calculatePadding();
 
     const graphWidth = (canvas.width / dpr) - padding.left - padding.right;
     const graphHeight = (canvas.height / dpr) - padding.top - padding.bottom;
@@ -284,7 +387,7 @@ function renderTreeChart() {
 
     // Количество групп и столбцов
     const groupCount = chartData.groups.length;
-    const columnWidth = Math.min((graphWidth * 0.7) / groupCount, 60);
+    const columnWidth = Math.min((graphWidth * 0.7) / groupCount, isMobile ? 50 : 60);
     const groupSpacing = (graphWidth - (columnWidth * groupCount)) / (groupCount + 1);
 
     // Высота области для столбцов (70% от общей высоты графика)
@@ -306,7 +409,7 @@ function renderTreeChart() {
     ctx.stroke();
 
     // Сетка и подписи на оси Y (4 отрезка) - синхронизировано с высотой столбцов
-    ctx.font = '12px TT Fors, Inter, Arial, sans-serif';
+    ctx.font = isMobile ? '12px TT Fors, Inter, Arial, sans-serif' : '12px TT Fors, Inter, Arial, sans-serif';
     ctx.textAlign = 'right';
     ctx.fillStyle = '#6B7280';
 
@@ -318,6 +421,12 @@ function renderTreeChart() {
         const y = scaleY(value);
 
         // Горизонтальные линии сетки
+        ctx.beginPath();
+        ctx.moveTo(padding.left, y);
+        ctx.lineTo(padding.left + graphWidth, y);
+        ctx.strokeStyle = '#E5E7EB';
+        ctx.lineWidth = 1;
+        ctx.stroke();
 
         // Подписи на оси Y
         let labelText;
@@ -364,7 +473,7 @@ function renderTreeChart() {
 
         // Текст суммы над столбцом
         ctx.fillStyle = GROUP_COLORS[group];
-        ctx.font = '12px TT Fors, Inter, Arial, sans-serif';
+        ctx.font = isMobile ? '12px TT Fors, Inter, Arial, sans-serif' : '12px TT Fors, Inter, Arial, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(formatCurrency(sumValue), sumX + columnWidth / 2, rectY - 6);
 
@@ -375,8 +484,8 @@ function renderTreeChart() {
     // Рисуем одну надпись "Сумма" по центру между графиком и легендой
     drawSingleSumLabel(ctx, canvas.width / dpr, columnBaseY + columnHeight);
 
-    // Рисуем вертикальную легенду с количеством записей (ниже графика)
-    drawVerticalLegend(ctx, chartData, canvas.width / dpr, canvas.height / dpr, dpr, columnBaseY + columnHeight);
+    // Рисуем легенду (вертикальную или горизонтальную в зависимости от ширины экрана)
+    drawLegend(ctx, chartData, canvas.width / dpr, canvas.height / dpr, dpr, columnBaseY + columnHeight);
 }
 
 // Добавляем кастомные стили для диаграммы
@@ -410,7 +519,18 @@ function addTreeChartStyles() {
       padding: 20px;
     }
     
-    /* Адаптивность */
+    /* Адаптивность для легенды при 1480px и меньше */
+    @media (max-width: 1480px) {
+      .chart-info {
+        min-height: 340px;
+      }
+      
+      #treeChart {
+        height: 340px;
+      }
+    }
+    
+    /* Дополнительная адаптивность для мобильных */
     @media (max-width: 768px) {
       .chart-info {
         min-height: 320px;
@@ -445,7 +565,7 @@ window.addEventListener('resize', function () {
         if (document.querySelector('.chart-info')) {
             renderTreeChart();
         }
-    }, 250);
+    }, 100);
 });
 
 // Экспортируем функции для обновления при изменении фильтров
