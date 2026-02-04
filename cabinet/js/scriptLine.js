@@ -1,3 +1,4 @@
+// scriptLine.js
 import { procurementData, getFilteredPurchases, STATUSES } from './scriptTable.js';
 
 // Константы для графика - только нужные статусы
@@ -524,16 +525,38 @@ function renderChart() {
   const canvas = document.createElement('canvas');
   canvas.id = 'incomeChart';
   canvas.style.width = '100%';
-  canvas.style.height = '280px'; // Уменьшил высоту графика
+  canvas.style.height = '280px';
   canvas.width = chartContainer.clientWidth;
   canvas.height = 280;
+  
+  // Адаптивная высота для мобильных
+  if (window.innerWidth <= 768) {
+    canvas.style.height = '220px';
+    canvas.height = 220;
+  }
+  
+  if (window.innerWidth <= 480) {
+    canvas.style.height = '180px';
+    canvas.height = 180;
+  }
+  
   chartContainer.appendChild(canvas);
 
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  // Настройки графика
-  const padding = { top: 40, right: 30, bottom: 50, left: 80 }; // Уменьшил правый отступ
+  // Настройки графика (адаптивные)
+  let padding = { top: 40, right: 30, bottom: 50, left: 80 };
+  
+  // Уменьшаем отступы для мобильных
+  if (window.innerWidth <= 768) {
+    padding = { top: 30, right: 20, bottom: 40, left: 60 };
+  }
+  
+  if (window.innerWidth <= 480) {
+    padding = { top: 20, right: 15, bottom: 35, left: 50 };
+  }
+  
   const graphWidth = canvas.width - padding.left - padding.right;
   const graphHeight = canvas.height - padding.top - padding.bottom;
 
@@ -567,20 +590,23 @@ function renderChart() {
   ctx.lineWidth = 2;
   ctx.stroke();
 
-  // Подписи осей
+  // Подписи осей (адаптивные шрифты)
+  let fontSize = window.innerWidth <= 480 ? 10 : window.innerWidth <= 768 ? 12 : 14;
+  let smallFontSize = window.innerWidth <= 480 ? 8 : window.innerWidth <= 768 ? 10 : 12;
+  
   ctx.fillStyle = '#374151';
-  ctx.font = '14px Inter, Arial, sans-serif';
+  ctx.font = `${fontSize}px Inter, Arial, sans-serif`;
   ctx.textAlign = 'center';
   ctx.fillText('время', (canvas.width - padding.right + padding.left) / 2, canvas.height - 10);
 
   ctx.save();
-  ctx.translate(30, canvas.height / 2);
+  ctx.translate(20, canvas.height / 2);
   ctx.rotate(-Math.PI / 2);
   ctx.fillText('вложения ₽', 0, 0);
   ctx.restore();
 
   // Сетка и подписи на оси Y
-  ctx.font = '12px TT Fors, Inter, Arial, sans-serif';
+  ctx.font = `${smallFontSize}px TT Fors, Inter, Arial, sans-serif`;
   ctx.textAlign = 'right';
   ctx.fillStyle = '#6B7280';
 
@@ -602,7 +628,7 @@ function renderChart() {
 
   // Подписи на оси X
   ctx.textAlign = 'center';
-  const step = Math.max(1, Math.floor(chartData.length / 10));
+  const step = Math.max(1, Math.floor(chartData.length / (window.innerWidth <= 480 ? 5 : window.innerWidth <= 768 ? 8 : 10)));
 
   chartData.forEach((point, index) => {
     const x = scaleX(index);
@@ -623,7 +649,7 @@ function renderChart() {
   // Рисуем графики для каждого видимого статуса
   VISIBLE_STATUSES.forEach(status => {
     ctx.beginPath();
-    ctx.lineWidth = 1;
+    ctx.lineWidth = window.innerWidth <= 480 ? 1.5 : 2;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
 
@@ -648,12 +674,9 @@ function renderChart() {
         const y = scaleY(point[status]);
 
         ctx.beginPath();
-        ctx.arc(x, y, 2, 0, Math.PI * 2);
+        ctx.arc(x, y, window.innerWidth <= 480 ? 2 : 3, 0, Math.PI * 2);
         ctx.fillStyle = STATUS_COLORS[status];
         ctx.fill();
-
-        // Белая обводка для точек
-
       }
     });
   });
@@ -666,15 +689,6 @@ function renderChart() {
 function createLegendContainer(chartContainer, chartData) {
   const legendContainer = document.createElement('div');
   legendContainer.className = 'chart-legend';
-  legendContainer.style.marginTop = '20px';
-  legendContainer.style.padding = '16px';
-  legendContainer.style.backgroundColor = '#ffffff';
-  legendContainer.style.borderRadius = '0 0 8px 8px';
-  legendContainer.style.display = 'flex';
-  legendContainer.style.justifyContent = 'center';
-  legendContainer.style.alignItems = 'center';
-  legendContainer.style.gap = '24px';
-  legendContainer.style.flexWrap = 'wrap';
 
   // Считаем общую сумму
   let totalSum = 0;
@@ -688,25 +702,18 @@ function createLegendContainer(chartContainer, chartData) {
   // Создаем элементы легенды
   VISIBLE_STATUSES.forEach(status => {
     const legendItem = document.createElement('div');
-    legendItem.style.display = 'flex';
-    legendItem.style.alignItems = 'center';
-    legendItem.style.gap = '8px';
+    legendItem.className = 'legend-item';
 
     const colorBox = document.createElement('div');
-    colorBox.style.width = '12px';
-    colorBox.style.height = '12px';
+    colorBox.className = 'legend-color';
     colorBox.style.backgroundColor = STATUS_COLORS[status];
-    colorBox.style.borderRadius = '2px';
 
     const textContainer = document.createElement('div');
-    textContainer.style.display = 'flex';
-    textContainer.style.gap = '4px';
+    textContainer.className = 'legend-text';
 
     const statusName = document.createElement('span');
-    statusName.style.fontSize = '12px';
-    statusName.style.color = '#374151';
-    statusName.style.fontWeight = '500';
-
+    statusName.className = 'legend-name';
+    
     let statusText = status;
     if (status === "В процессе") statusText = "Процесс";
     if (status === "На согласовании") statusText = "Согласование";
@@ -714,8 +721,7 @@ function createLegendContainer(chartContainer, chartData) {
     statusName.textContent = statusText;
 
     const valueElement = document.createElement('span');
-    valueElement.style.fontSize = '11px';
-    valueElement.style.color = '#6B7280';
+    valueElement.className = 'legend-value';
 
     const lastValue = chartData.length > 0 ? chartData[chartData.length - 1][status] : 0;
     valueElement.textContent = formatCurrencyShort(lastValue);
@@ -729,21 +735,14 @@ function createLegendContainer(chartContainer, chartData) {
 
   // Добавляем элемент с общей суммой
   const totalItem = document.createElement('div');
-  totalItem.style.display = 'flex';
-  totalItem.style.alignItems = 'center';
-  totalItem.style.gap = '8px';
-  totalItem.style.marginLeft = '20px';
+  totalItem.className = 'legend-total';
 
   const totalLabel = document.createElement('span');
-  totalLabel.style.fontSize = '12px';
-  totalLabel.style.color = '#374151';
-  totalLabel.style.fontWeight = '500';
+  totalLabel.className = 'legend-total-label';
   totalLabel.textContent = 'Всего:';
 
   const totalValue = document.createElement('span');
-  totalValue.style.fontSize = '12px';
-  totalValue.style.color = '#0B63A8';
-  totalValue.style.fontWeight = '600';
+  totalValue.className = 'legend-total-value';
   totalValue.textContent = formatCurrencyShort(totalSum);
 
   totalItem.appendChild(totalLabel);
@@ -753,133 +752,6 @@ function createLegendContainer(chartContainer, chartData) {
   chartContainer.appendChild(legendContainer);
 }
 
-// Добавляем кастомные стили для графика
-function addChartStyles() {
-  const style = document.createElement('style');
-  style.textContent = `
-    /* Стили для графика */
-    .chart-card {
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .no-data {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 400px;
-      color: var(--grey);
-      font-size: 16px;
-      background: var(--border);
-      border-radius: 8px;
-    }
-    
-    /* Кнопки периода */
-    .btn--outline.btn-active {
-      background-color: var(--blue-900);
-      color: white;
-      border-color: var(--blue-900);
-    }
-    
-    /* Стили для календаря */
-    .date-picker {
-      display: none;
-      margin-top: 16px;
-      padding: 20px;
-      background: var(--surface-soft);
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-    
-    .date-picker__container {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    
-    .date-picker__title {
-      font-weight: 400;
-      color: var(--bark);
-      margin-bottom: 8px;
-    }
-    
-    .date-picker__inputs {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    
-    .date-picker__input-group {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .date-picker__input-group label {
-      font-size: 16px;
-      color: var(--grey);
-      min-width: 32px;
-    }
-    
-    .date-input {
-      padding: 8px 16px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-family: 'TT Fors','Inter', sans-serif;
-      font-size: 16px;
-      background: white;
-      min-width: 150px;
-    }
-    
-    #applyDate, #cancelDate {
-      height: 40px;
-      padding: 0 16px;
-    }
-    
-    /* Стиль для chart-info (оставляем пустым или минимальным) */
-    .chart-info {
-      background: var(--lighGrey);
-      min-height: 200px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--grey);
-      font-size: 14px;
-    }
-    
-    /* Адаптивность */
-    @media (max-width: 768px) {
-      .date-picker__inputs {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      
-      .date-picker__input-group {
-        justify-content: space-between;
-      }
-      
-      .date-input {
-        min-width: auto;
-        flex: 1;
-      }
-      
-      .chart-info {
-        display: none; /* На мобильных можно скрыть */
-      }
-      
-      .chart-legend {
-        flex-direction: column;
-      }
-    }
-  `;
-  document.head.appendChild(style);
-}
-
-// Инициализация стилей
-addChartStyles();
-
 // Инициализация при изменении размера окна
 window.addEventListener('resize', function () {
   const chartContainer = document.getElementById('up');
@@ -887,3 +759,8 @@ window.addEventListener('resize', function () {
     renderChart();
   }
 });
+
+// Экспортируем функции для обновления
+export function updateChart() {
+  renderChart();
+}

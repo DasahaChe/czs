@@ -60,7 +60,7 @@ function renderLineChart(container) {
     const canvas = document.createElement('canvas');
     canvas.id = 'downLineChart';
     canvas.style.width = '100%';
-    canvas.style.height = '240px'; // Уменьшена высота canvas
+    canvas.style.height = '240px';
     canvas.width = container.clientWidth;
     canvas.height = 240;
     container.appendChild(canvas);
@@ -69,7 +69,7 @@ function renderLineChart(container) {
     if (!ctx) return;
 
     // Настройки графика
-    const padding = { top: 40, right: 30, bottom: 40, left: 90 }; // Уменьшены отступы
+    const padding = { top: 40, right: 30, bottom: 40, left: 90 };
     const graphWidth = canvas.width - padding.left - padding.right;
     const graphHeight = canvas.height - padding.top - padding.bottom;
 
@@ -95,7 +95,7 @@ function renderLineChart(container) {
 
     // Подписи осей
     ctx.fillStyle = '#374151';
-    ctx.font = '12px Inter, Arial, sans-serif'; // Уменьшен шрифт
+    ctx.font = '12px Inter, Arial, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Дата', (canvas.width - padding.right + padding.left) / 2, canvas.height - 10);
 
@@ -106,7 +106,7 @@ function renderLineChart(container) {
     ctx.restore();
 
     // Сетка и подписи на оси Y
-    ctx.font = '11px TT Fors, Inter, Arial, sans-serif'; // Уменьшен шрифт
+    ctx.font = '11px TT Fors, Inter, Arial, sans-serif';
     ctx.textAlign = 'right';
     ctx.fillStyle = '#6B7280';
 
@@ -182,15 +182,6 @@ function renderLineChart(container) {
 function createLineChartLegend(container, data) {
     const legendContainer = document.createElement('div');
     legendContainer.className = 'chart-legend-down';
-    legendContainer.style.marginTop = '0';
-    legendContainer.style.padding = '12px';
-    legendContainer.style.backgroundColor = '#ffffff';
-    legendContainer.style.borderRadius = '0 0 8px 8px';
-    legendContainer.style.display = 'flex';
-    legendContainer.style.justifyContent = 'center';
-    legendContainer.style.alignItems = 'center';
-    legendContainer.style.gap = '20px';
-    legendContainer.style.flexWrap = 'wrap';
 
     // Рассчитываем статистику
     const lastValue = data.values[data.values.length - 1];
@@ -199,40 +190,25 @@ function createLineChartLegend(container, data) {
 
     // Создаем элементы легенды
     const legendItem = document.createElement('div');
-    legendItem.style.display = 'flex';
-    legendItem.style.alignItems = 'center';
-    legendItem.style.gap = '10px';
+    legendItem.className = 'chart-legend-down-item';
 
     const colorBox = document.createElement('div');
-    colorBox.style.width = '16px';
-    colorBox.style.height = '3px';
+    colorBox.className = 'chart-legend-color';
     colorBox.style.backgroundColor = '#0B63A8';
-    colorBox.style.borderRadius = '2px';
 
     const textContainer = document.createElement('div');
-    textContainer.style.display = 'flex';
-    textContainer.style.gap = '6px';
-    textContainer.style.alignItems = 'center';
-    textContainer.style.fontSize = '13px';
+    textContainer.className = 'chart-legend-content';
 
     const title = document.createElement('span');
-    title.style.fontSize = '13px';
-    title.style.color = '#374151';
-    title.style.fontWeight = '500';
+    title.className = 'chart-legend-title';
     title.textContent = 'Общий объем закупок';
 
     const value = document.createElement('span');
-    value.style.fontSize = '13px';
-    value.style.color = '#0B63A8';
-    value.style.fontWeight = '600';
+    value.className = 'chart-legend-value';
     value.textContent = formatCurrency(lastValue);
 
     const growthBadge = document.createElement('span');
-    growthBadge.style.fontSize = '11px';
-    growthBadge.style.color = growth >= 0 ? '#0a857e' : '#EF5350';
-    growthBadge.style.backgroundColor = growth >= 0 ? '#D4EDDA' : '#F8D7DA';
-    growthBadge.style.padding = '2px 6px';
-    growthBadge.style.borderRadius = '10px';
+    growthBadge.className = 'chart-legend-badge ' + (growth >= 0 ? 'positive' : 'negative');
     growthBadge.textContent = growth >= 0 ? `+${growth}%` : `${growth}%`;
 
     textContainer.appendChild(title);
@@ -250,12 +226,6 @@ function createLineChartLegend(container, data) {
 function createCompactChartSummary(container, categoryData) {
     const summaryContainer = document.createElement('div');
     summaryContainer.className = 'compact-chart-summary';
-    summaryContainer.style.marginTop = '15px';
-    summaryContainer.style.padding = '10px 15px';
-    summaryContainer.style.backgroundColor = '#F9FAFB';
-    summaryContainer.style.borderRadius = '6px';
-    summaryContainer.style.border = '1px solid #E5E7EB';
-    summaryContainer.style.fontSize = '11px';
 
     const total = categoryData.values.reduce((sum, val) => sum + val, 0);
     const maxValue = Math.max(...categoryData.values);
@@ -265,9 +235,6 @@ function createCompactChartSummary(container, categoryData) {
 
     // Создаем таблицу с ключевыми показателями
     const statsTable = document.createElement('table');
-    statsTable.style.width = '100%';
-    statsTable.style.borderCollapse = 'collapse';
-    statsTable.style.fontSize = '11px';
 
     const stats = [
         { label: 'Общий объем', value: formatCurrency(total), color: '#0B63A8' },
@@ -288,24 +255,19 @@ function createCompactChartSummary(container, categoryData) {
             
             const stat = stats[index];
             const cell = document.createElement('td');
-            cell.style.padding = '4px 6px';
-            cell.style.borderBottom = '1px solid #E5E7EB';
             
             if (i === 1) {
                 cell.style.borderBottom = 'none';
             }
             
             const labelSpan = document.createElement('div');
+            labelSpan.className = 'compact-summary-label';
             labelSpan.textContent = stat.label;
-            labelSpan.style.color = '#6B7280';
-            labelSpan.style.marginBottom = '2px';
-            labelSpan.style.fontSize = '10px';
             
             const valueSpan = document.createElement('div');
-            valueSpan.textContent = stat.value;
+            valueSpan.className = 'compact-summary-value';
             valueSpan.style.color = stat.color;
-            valueSpan.style.fontWeight = '600';
-            valueSpan.style.fontSize = '11px';
+            valueSpan.textContent = stat.value;
             
             cell.appendChild(labelSpan);
             cell.appendChild(valueSpan);
@@ -335,50 +297,27 @@ function renderAllCharts(container) {
 function createPieChartSection(categoryData) {
     const section = document.createElement('div');
     section.className = 'pie-chart-container';
-    section.style.backgroundColor = '#ffffff';
-    section.style.borderRadius = '8px';
-    section.style.padding = '15px'; // Уменьшен padding
-    section.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-    section.style.height = '100%';
-    section.style.display = 'flex';
-    section.style.flexDirection = 'column';
 
     // Заголовок
     const title = document.createElement('h3');
+    title.className = 'pie-chart-title';
     title.textContent = 'Распределение закупок по категориям';
-    title.style.fontSize = '14px'; // Уменьшен шрифт
-    title.style.fontWeight = '600';
-    title.style.color = '#374151';
-    title.style.marginBottom = '15px';
-    title.style.textAlign = 'center';
-    title.style.flexShrink = '0';
 
     section.appendChild(title);
 
     // Основной контент - диаграмма и легенда
     const content = document.createElement('div');
-    content.style.display = 'flex';
-    content.style.flexDirection = 'column';
-    content.style.gap = '15px';
-    content.style.flex = '1';
-    content.style.overflow = 'hidden';
+    content.className = 'pie-chart-content';
 
     // Canvas для круговой диаграммы
     const canvasContainer = document.createElement('div');
-    canvasContainer.style.flex = '1';
-    canvasContainer.style.display = 'flex';
-    canvasContainer.style.justifyContent = 'center';
-    canvasContainer.style.alignItems = 'center';
-    canvasContainer.style.minHeight = '180px'; // Уменьшена высота
-    canvasContainer.style.position = 'relative';
+    canvasContainer.className = 'pie-canvas-container';
 
     const canvas = document.createElement('canvas');
     canvas.id = 'allPieChart';
-    canvas.width = 200; // Уменьшен размер
+    canvas.className = 'pie-canvas';
+    canvas.width = 200;
     canvas.height = 200;
-    canvas.style.width = '200px';
-    canvas.style.height = '200px';
-    canvas.style.maxWidth = '100%';
 
     canvasContainer.appendChild(canvas);
     content.appendChild(canvasContainer);
@@ -390,10 +329,6 @@ function createPieChartSection(categoryData) {
 
     // Легенда под диаграммой
     const legendContainer = createCompactLegend(categoryData);
-    legendContainer.style.flexShrink = '0';
-    legendContainer.style.maxHeight = '120px'; // Уменьшена высота
-    legendContainer.style.overflowY = 'auto';
-
     content.appendChild(legendContainer);
     section.appendChild(content);
 
@@ -452,12 +387,12 @@ function drawPieChart(canvas, data) {
 
     // Текст в центре
     ctx.fillStyle = '#374151';
-    ctx.font = 'bold 12px TT Fors, Inter, Arial, sans-serif'; // Уменьшен шрифт
+    ctx.font = 'bold 12px TT Fors, Inter, Arial, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Всего', centerX, centerY - 10);
 
     ctx.fillStyle = '#0B63A8';
-    ctx.font = 'bold 16px TT Fors, Inter, Arial, sans-serif'; // Уменьшен шрифт
+    ctx.font = 'bold 16px TT Fors, Inter, Arial, sans-serif';
     ctx.fillText(formatCurrency(total), centerX, centerY + 15);
 }
 
@@ -472,7 +407,7 @@ function drawSegmentLabel(ctx, angle, value, index, centerX, centerY, radius, da
     const y = centerY + Math.sin(angle) * labelRadius;
 
     ctx.fillStyle = '#374151';
-    ctx.font = 'bold 10px TT Fors, Inter, Arial, sans-serif'; // Уменьшен шрифт
+    ctx.font = 'bold 10px TT Fors, Inter, Arial, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(`${percentage}%`, x, y);
@@ -482,70 +417,46 @@ function drawSegmentLabel(ctx, angle, value, index, centerX, centerY, radius, da
 function createCompactLegend(data) {
     const legendContainer = document.createElement('div');
     legendContainer.className = 'compact-legend';
-    legendContainer.style.display = 'grid';
-    legendContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
-    legendContainer.style.gap = '8px'; // Уменьшен gap
-    legendContainer.style.padding = '8px'; // Уменьшен padding
 
     const total = data.values.reduce((sum, val) => sum + val, 0);
 
     data.labels.forEach((label, index) => {
         const percentage = ((data.values[index] / total) * 100).toFixed(1);
 
-        if (percentage > 0) { // Показываем только значимые сегменты
+        if (percentage > 0) {
             const legendItem = document.createElement('div');
-            legendItem.style.display = 'flex';
-            legendItem.style.alignItems = 'center';
-            legendItem.style.gap = '6px'; // Уменьшен gap
-            legendItem.style.padding = '5px'; // Уменьшен padding
-            legendItem.style.backgroundColor = '#F9FAFB';
-            legendItem.style.borderRadius = '6px';
-            legendItem.style.fontSize = '11px'; // Уменьшен шрифт
+            legendItem.className = 'compact-legend-item';
 
             const colorBox = document.createElement('div');
-            colorBox.style.width = '10px'; // Уменьшен размер
-            colorBox.style.height = '10px';
+            colorBox.className = 'compact-legend-color';
             colorBox.style.backgroundColor = data.colors[index];
-            colorBox.style.borderRadius = '2px';
-            colorBox.style.flexShrink = '0';
 
-            const labelContent = document.createElement('div');
-            labelContent.style.display = 'flex';
-            labelContent.style.flexDirection = 'column';
-            labelContent.style.flex = '1';
-            labelContent.style.minWidth = '0'; // Для правильного обрезания текста
+            const legendContent = document.createElement('div');
+            legendContent.className = 'compact-legend-content';
 
             const labelText = document.createElement('span');
+            labelText.className = 'compact-legend-label';
             labelText.textContent = label.replace('\n', ' ');
-            labelText.style.color = '#374151';
-            labelText.style.whiteSpace = 'nowrap';
-            labelText.style.overflow = 'hidden';
-            labelText.style.textOverflow = 'ellipsis';
-            labelText.style.fontSize = '10px'; // Уменьшен шрифт
 
             const stats = document.createElement('div');
-            stats.style.display = 'flex';
-            stats.style.justifyContent = 'space-between';
-            stats.style.fontSize = '10px'; // Уменьшен шрифт
-            stats.style.marginTop = '2px';
+            stats.className = 'compact-legend-stats';
 
             const valueText = document.createElement('span');
+            valueText.className = 'compact-legend-value';
             valueText.textContent = formatCurrency(data.values[index]);
-            valueText.style.color = '#0B63A8';
-            valueText.style.fontWeight = '600';
 
             const percentageText = document.createElement('span');
+            percentageText.className = 'compact-legend-percent';
             percentageText.textContent = `${percentage}%`;
-            percentageText.style.color = '#6B7280';
 
             stats.appendChild(valueText);
             stats.appendChild(percentageText);
 
-            labelContent.appendChild(labelText);
-            labelContent.appendChild(stats);
+            legendContent.appendChild(labelText);
+            legendContent.appendChild(stats);
 
             legendItem.appendChild(colorBox);
-            legendItem.appendChild(labelContent);
+            legendItem.appendChild(legendContent);
             legendContainer.appendChild(legendItem);
         }
     });
@@ -566,7 +477,6 @@ window.addEventListener('resize', function () {
         }
 
         if (allChartsContainer) {
-            // Перерисовываем круговую диаграмму
             const canvas = allChartsContainer.querySelector('#allPieChart');
             if (canvas) {
                 drawPieChart(canvas, chartDataFromTestObject.categoryData);
