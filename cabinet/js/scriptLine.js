@@ -623,7 +623,7 @@ function renderChart() {
   // Рисуем графики для каждого видимого статуса
   VISIBLE_STATUSES.forEach(status => {
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 1;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
 

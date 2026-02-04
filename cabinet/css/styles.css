@@ -1331,3 +1331,81 @@ width: 100%;
         font-size: 11px;
     }
 }
+
+/* Дополнительные стили для summary блока */
+.chart-block-summary {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.chart-block-summary h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.btn--wide:hover, .btn--pill:hover, .btn--outline.btn-active:hover{
+    background-color: var(--darkBlue);
+}
+/* Адаптивность для summary */
+@media (max-width: 1480px) {
+    .chart-block-summary {
+        padding: 16px;
+    }
+    
+    .chart-block-summary > div {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .chart-block-summary > div {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .chart-block-summary h3 {
+        font-size: 14px;
+    }
+}
+
+/* Стили для компактного summary */
+.compact-chart-summary {
+    font-size: 11px;
+    background: #F9FAFB;
+    border-radius: 6px;
+    border: 1px solid #E5E7EB;
+    margin-top: 15px;
+}
+
+.compact-chart-summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.compact-chart-summary td {
+    padding: 4px 6px;
+    border-bottom: 1px solid #E5E7EB;
+    vertical-align: top;
+}
+
+.compact-chart-summary tr:last-child td {
+    border-bottom: none;
+}
+
+/* Адаптивность */
+@media (max-width: 1480px) {
+    .compact-chart-summary {
+        padding: 8px 12px;
+    }
+    
+    .compact-chart-summary td {
+        padding: 3px 5px;
+    }
+}

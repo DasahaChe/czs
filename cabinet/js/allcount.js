@@ -60,16 +60,16 @@ function renderLineChart(container) {
     const canvas = document.createElement('canvas');
     canvas.id = 'downLineChart';
     canvas.style.width = '100%';
-    canvas.style.height = '280px';
+    canvas.style.height = '240px'; // Уменьшена высота canvas
     canvas.width = container.clientWidth;
-    canvas.height = 280;
+    canvas.height = 240;
     container.appendChild(canvas);
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
     // Настройки графика
-    const padding = { top: 40, right: 30, bottom: 50, left: 60 };
+    const padding = { top: 40, right: 30, bottom: 40, left: 90 }; // Уменьшены отступы
     const graphWidth = canvas.width - padding.left - padding.right;
     const graphHeight = canvas.height - padding.top - padding.bottom;
 
@@ -95,7 +95,7 @@ function renderLineChart(container) {
 
     // Подписи осей
     ctx.fillStyle = '#374151';
-    ctx.font = '14px Inter, Arial, sans-serif';
+    ctx.font = '12px Inter, Arial, sans-serif'; // Уменьшен шрифт
     ctx.textAlign = 'center';
     ctx.fillText('Дата', (canvas.width - padding.right + padding.left) / 2, canvas.height - 10);
 
@@ -106,7 +106,7 @@ function renderLineChart(container) {
     ctx.restore();
 
     // Сетка и подписи на оси Y
-    ctx.font = '12px TT Fors, Inter, Arial, sans-serif';
+    ctx.font = '11px TT Fors, Inter, Arial, sans-serif'; // Уменьшен шрифт
     ctx.textAlign = 'right';
     ctx.fillStyle = '#6B7280';
 
@@ -135,7 +135,7 @@ function renderLineChart(container) {
 
     // Рисуем основную линию графика
     ctx.beginPath();
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 1;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.strokeStyle = '#0B63A8';
@@ -159,34 +159,37 @@ function renderLineChart(container) {
         const y = scaleY(value);
 
         ctx.beginPath();
-        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.arc(x, y, 2, 0, Math.PI * 2);
         ctx.fillStyle = '#0B63A8';
         ctx.fill();
 
         // Белая обводка точек
         ctx.beginPath();
-        ctx.arc(x, y, 6, 0, Math.PI * 2);
+        ctx.arc(x, y, 3, 0, Math.PI * 2);
         ctx.strokeStyle = '#fff';
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 1;
         ctx.stroke();
     });
 
     // Легенда под графиком
     createLineChartLegend(container, data);
+    
+    // Добавляем компактный summary под легендой
+    createCompactChartSummary(container, chartDataFromTestObject.categoryData);
 }
 
 // Создание легенды для линейного графика
 function createLineChartLegend(container, data) {
     const legendContainer = document.createElement('div');
     legendContainer.className = 'chart-legend-down';
-    legendContainer.style.marginTop = '20px';
-    legendContainer.style.padding = '16px';
+    legendContainer.style.marginTop = '0';
+    legendContainer.style.padding = '12px';
     legendContainer.style.backgroundColor = '#ffffff';
     legendContainer.style.borderRadius = '0 0 8px 8px';
     legendContainer.style.display = 'flex';
     legendContainer.style.justifyContent = 'center';
     legendContainer.style.alignItems = 'center';
-    legendContainer.style.gap = '24px';
+    legendContainer.style.gap = '20px';
     legendContainer.style.flexWrap = 'wrap';
 
     // Рассчитываем статистику
@@ -198,37 +201,38 @@ function createLineChartLegend(container, data) {
     const legendItem = document.createElement('div');
     legendItem.style.display = 'flex';
     legendItem.style.alignItems = 'center';
-    legendItem.style.gap = '12px';
+    legendItem.style.gap = '10px';
 
     const colorBox = document.createElement('div');
-    colorBox.style.width = '20px';
-    colorBox.style.height = '4px';
+    colorBox.style.width = '16px';
+    colorBox.style.height = '3px';
     colorBox.style.backgroundColor = '#0B63A8';
     colorBox.style.borderRadius = '2px';
 
     const textContainer = document.createElement('div');
     textContainer.style.display = 'flex';
-    textContainer.style.gap = '8px';
+    textContainer.style.gap = '6px';
     textContainer.style.alignItems = 'center';
+    textContainer.style.fontSize = '13px';
 
     const title = document.createElement('span');
-    title.style.fontSize = '14px';
+    title.style.fontSize = '13px';
     title.style.color = '#374151';
     title.style.fontWeight = '500';
     title.textContent = 'Общий объем закупок';
 
     const value = document.createElement('span');
-    value.style.fontSize = '14px';
+    value.style.fontSize = '13px';
     value.style.color = '#0B63A8';
     value.style.fontWeight = '600';
     value.textContent = formatCurrency(lastValue);
 
     const growthBadge = document.createElement('span');
-    growthBadge.style.fontSize = '12px';
+    growthBadge.style.fontSize = '11px';
     growthBadge.style.color = growth >= 0 ? '#0a857e' : '#EF5350';
     growthBadge.style.backgroundColor = growth >= 0 ? '#D4EDDA' : '#F8D7DA';
-    growthBadge.style.padding = '2px 8px';
-    growthBadge.style.borderRadius = '12px';
+    growthBadge.style.padding = '2px 6px';
+    growthBadge.style.borderRadius = '10px';
     growthBadge.textContent = growth >= 0 ? `+${growth}%` : `${growth}%`;
 
     textContainer.appendChild(title);
@@ -240,6 +244,79 @@ function createLineChartLegend(container, data) {
     legendContainer.appendChild(legendItem);
 
     container.appendChild(legendContainer);
+}
+
+// Создание компактного summary
+function createCompactChartSummary(container, categoryData) {
+    const summaryContainer = document.createElement('div');
+    summaryContainer.className = 'compact-chart-summary';
+    summaryContainer.style.marginTop = '15px';
+    summaryContainer.style.padding = '10px 15px';
+    summaryContainer.style.backgroundColor = '#F9FAFB';
+    summaryContainer.style.borderRadius = '6px';
+    summaryContainer.style.border = '1px solid #E5E7EB';
+    summaryContainer.style.fontSize = '11px';
+
+    const total = categoryData.values.reduce((sum, val) => sum + val, 0);
+    const maxValue = Math.max(...categoryData.values);
+    const maxIndex = categoryData.values.indexOf(maxValue);
+    const avgValue = total / categoryData.values.length;
+    const minValue = Math.min(...categoryData.values);
+
+    // Создаем таблицу с ключевыми показателями
+    const statsTable = document.createElement('table');
+    statsTable.style.width = '100%';
+    statsTable.style.borderCollapse = 'collapse';
+    statsTable.style.fontSize = '11px';
+
+    const stats = [
+        { label: 'Общий объем', value: formatCurrency(total), color: '#0B63A8' },
+        { label: 'Категорий', value: categoryData.labels.length, color: '#0a857e' },
+        { label: 'Средняя сумма', value: formatCurrency(avgValue), color: '#00a0c8' },
+        { label: 'Максимум', value: formatCurrency(maxValue), color: '#4A6FFF' },
+        { label: 'Минимум', value: formatCurrency(minValue), color: '#EF5350' },
+        { label: 'Топ категория', value: categoryData.labels[maxIndex].replace('\n', ' '), color: '#FFA726' }
+    ];
+
+    // Создаем 2 строки по 3 столбца
+    for (let i = 0; i < 2; i++) {
+        const row = document.createElement('tr');
+        
+        for (let j = 0; j < 3; j++) {
+            const index = i * 3 + j;
+            if (index >= stats.length) break;
+            
+            const stat = stats[index];
+            const cell = document.createElement('td');
+            cell.style.padding = '4px 6px';
+            cell.style.borderBottom = '1px solid #E5E7EB';
+            
+            if (i === 1) {
+                cell.style.borderBottom = 'none';
+            }
+            
+            const labelSpan = document.createElement('div');
+            labelSpan.textContent = stat.label;
+            labelSpan.style.color = '#6B7280';
+            labelSpan.style.marginBottom = '2px';
+            labelSpan.style.fontSize = '10px';
+            
+            const valueSpan = document.createElement('div');
+            valueSpan.textContent = stat.value;
+            valueSpan.style.color = stat.color;
+            valueSpan.style.fontWeight = '600';
+            valueSpan.style.fontSize = '11px';
+            
+            cell.appendChild(labelSpan);
+            cell.appendChild(valueSpan);
+            row.appendChild(cell);
+        }
+        
+        statsTable.appendChild(row);
+    }
+
+    summaryContainer.appendChild(statsTable);
+    container.appendChild(summaryContainer);
 }
 
 // Отрисовка только круговой диаграммы в контейнере #all
@@ -260,7 +337,7 @@ function createPieChartSection(categoryData) {
     section.className = 'pie-chart-container';
     section.style.backgroundColor = '#ffffff';
     section.style.borderRadius = '8px';
-    section.style.padding = '20px';
+    section.style.padding = '15px'; // Уменьшен padding
     section.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
     section.style.height = '100%';
     section.style.display = 'flex';
@@ -269,10 +346,10 @@ function createPieChartSection(categoryData) {
     // Заголовок
     const title = document.createElement('h3');
     title.textContent = 'Распределение закупок по категориям';
-    title.style.fontSize = '16px';
+    title.style.fontSize = '14px'; // Уменьшен шрифт
     title.style.fontWeight = '600';
     title.style.color = '#374151';
-    title.style.marginBottom = '20px';
+    title.style.marginBottom = '15px';
     title.style.textAlign = 'center';
     title.style.flexShrink = '0';
 
@@ -282,7 +359,7 @@ function createPieChartSection(categoryData) {
     const content = document.createElement('div');
     content.style.display = 'flex';
     content.style.flexDirection = 'column';
-    content.style.gap = '20px';
+    content.style.gap = '15px';
     content.style.flex = '1';
     content.style.overflow = 'hidden';
 
@@ -292,15 +369,15 @@ function createPieChartSection(categoryData) {
     canvasContainer.style.display = 'flex';
     canvasContainer.style.justifyContent = 'center';
     canvasContainer.style.alignItems = 'center';
-    canvasContainer.style.minHeight = '200px';
+    canvasContainer.style.minHeight = '180px'; // Уменьшена высота
     canvasContainer.style.position = 'relative';
 
     const canvas = document.createElement('canvas');
     canvas.id = 'allPieChart';
-    canvas.width = 250;
-    canvas.height = 250;
-    canvas.style.width = '250px';
-    canvas.style.height = '250px';
+    canvas.width = 200; // Уменьшен размер
+    canvas.height = 200;
+    canvas.style.width = '200px';
+    canvas.style.height = '200px';
     canvas.style.maxWidth = '100%';
 
     canvasContainer.appendChild(canvas);
@@ -314,20 +391,11 @@ function createPieChartSection(categoryData) {
     // Легенда под диаграммой
     const legendContainer = createCompactLegend(categoryData);
     legendContainer.style.flexShrink = '0';
-    legendContainer.style.maxHeight = '150px';
+    legendContainer.style.maxHeight = '120px'; // Уменьшена высота
     legendContainer.style.overflowY = 'auto';
 
     content.appendChild(legendContainer);
     section.appendChild(content);
-
-    // Итоговая информация
-    const summary = createChartSummary(categoryData);
-    summary.style.flexShrink = '0';
-    summary.style.marginTop = '15px';
-    summary.style.paddingTop = '15px';
-    summary.style.borderTop = '1px solid #E5E7EB';
-
-    section.appendChild(summary);
 
     return section;
 }
@@ -384,12 +452,12 @@ function drawPieChart(canvas, data) {
 
     // Текст в центре
     ctx.fillStyle = '#374151';
-    ctx.font = 'bold 14px TT Fors, Inter, Arial, sans-serif';
+    ctx.font = 'bold 12px TT Fors, Inter, Arial, sans-serif'; // Уменьшен шрифт
     ctx.textAlign = 'center';
     ctx.fillText('Всего', centerX, centerY - 10);
 
     ctx.fillStyle = '#0B63A8';
-    ctx.font = 'bold 18px TT Fors, Inter, Arial, sans-serif';
+    ctx.font = 'bold 16px TT Fors, Inter, Arial, sans-serif'; // Уменьшен шрифт
     ctx.fillText(formatCurrency(total), centerX, centerY + 15);
 }
 
@@ -404,7 +472,7 @@ function drawSegmentLabel(ctx, angle, value, index, centerX, centerY, radius, da
     const y = centerY + Math.sin(angle) * labelRadius;
 
     ctx.fillStyle = '#374151';
-    ctx.font = 'bold 11px TT Fors, Inter, Arial, sans-serif';
+    ctx.font = 'bold 10px TT Fors, Inter, Arial, sans-serif'; // Уменьшен шрифт
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(`${percentage}%`, x, y);
@@ -416,8 +484,8 @@ function createCompactLegend(data) {
     legendContainer.className = 'compact-legend';
     legendContainer.style.display = 'grid';
     legendContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
-    legendContainer.style.gap = '10px';
-    legendContainer.style.padding = '10px';
+    legendContainer.style.gap = '8px'; // Уменьшен gap
+    legendContainer.style.padding = '8px'; // Уменьшен padding
 
     const total = data.values.reduce((sum, val) => sum + val, 0);
 
@@ -428,17 +496,17 @@ function createCompactLegend(data) {
             const legendItem = document.createElement('div');
             legendItem.style.display = 'flex';
             legendItem.style.alignItems = 'center';
-            legendItem.style.gap = '8px';
-            legendItem.style.padding = '6px';
+            legendItem.style.gap = '6px'; // Уменьшен gap
+            legendItem.style.padding = '5px'; // Уменьшен padding
             legendItem.style.backgroundColor = '#F9FAFB';
             legendItem.style.borderRadius = '6px';
-            legendItem.style.fontSize = '12px';
+            legendItem.style.fontSize = '11px'; // Уменьшен шрифт
 
             const colorBox = document.createElement('div');
-            colorBox.style.width = '12px';
-            colorBox.style.height = '12px';
+            colorBox.style.width = '10px'; // Уменьшен размер
+            colorBox.style.height = '10px';
             colorBox.style.backgroundColor = data.colors[index];
-            colorBox.style.borderRadius = '3px';
+            colorBox.style.borderRadius = '2px';
             colorBox.style.flexShrink = '0';
 
             const labelContent = document.createElement('div');
@@ -453,11 +521,12 @@ function createCompactLegend(data) {
             labelText.style.whiteSpace = 'nowrap';
             labelText.style.overflow = 'hidden';
             labelText.style.textOverflow = 'ellipsis';
+            labelText.style.fontSize = '10px'; // Уменьшен шрифт
 
             const stats = document.createElement('div');
             stats.style.display = 'flex';
             stats.style.justifyContent = 'space-between';
-            stats.style.fontSize = '11px';
+            stats.style.fontSize = '10px'; // Уменьшен шрифт
             stats.style.marginTop = '2px';
 
             const valueText = document.createElement('span');
@@ -482,66 +551,6 @@ function createCompactLegend(data) {
     });
 
     return legendContainer;
-}
-
-// Создание сводки по диаграмме
-function createChartSummary(data) {
-    const summary = document.createElement('div');
-    summary.className = 'chart-summary';
-
-    const total = data.values.reduce((sum, val) => sum + val, 0);
-    const maxValue = Math.max(...data.values);
-    const maxIndex = data.values.indexOf(maxValue);
-    const avgValue = total / data.values.length;
-
-    const stats = [
-        {
-            label: 'Всего категорий',
-            value: data.labels.length,
-            color: '#0B63A8'
-        },
-        {
-            label: 'Общая сумма',
-            value: formatCurrency(total),
-            color: '#0a857e'
-        },
-        {
-            label: 'Наибольшая категория',
-            value: data.labels[maxIndex].replace('\n', ' '),
-            color: '#FFA726'
-        },
-        {
-            label: 'Средняя сумма',
-            value: formatCurrency(avgValue),
-            color: '#00a0c8'
-        }
-    ];
-
-    stats.forEach(stat => {
-        const statItem = document.createElement('div');
-        statItem.style.display = 'flex';
-        statItem.style.justifyContent = 'space-between';
-        statItem.style.alignItems = 'center';
-        statItem.style.padding = '6px 0';
-        statItem.style.borderBottom = '1px solid #F3F4F6';
-
-        const label = document.createElement('span');
-        label.textContent = stat.label;
-        label.style.fontSize = '12px';
-        label.style.color = '#6B7280';
-
-        const value = document.createElement('span');
-        value.textContent = stat.value;
-        value.style.fontSize = '12px';
-        value.style.color = stat.color;
-        value.style.fontWeight = '600';
-
-        statItem.appendChild(label);
-        statItem.appendChild(value);
-        summary.appendChild(statItem);
-    });
-
-    return summary;
 }
 
 // Инициализация при изменении размера окна
