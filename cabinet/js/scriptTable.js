@@ -295,6 +295,7 @@ function populateTable(sortField = null, direction = 'asc') {
             display: inline-block;
             width: 8px;
             height: 8px;
+            border-radius: 2px;
             background-color: ${statusColor};
             flex-shrink: 0;
           "></span>
