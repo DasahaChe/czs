@@ -295,6 +295,16 @@
   .chart-info {
     width: 100%;
   }
+
+      .banners {
+        justify-items: center;
+        max-width: 100%;
+        flex-direction: row;
+      }
+
+      .banner {
+        width: 256px;
+      }
 }
 
 /* Еще более маленькие экраны (до 480px) */
