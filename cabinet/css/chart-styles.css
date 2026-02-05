@@ -76,7 +76,8 @@
   min-width: 150px;
 }
 
-#applyDate, #cancelDate {
+#applyDate,
+#cancelDate {
   height: 40px;
   padding: 0 16px;
 }
@@ -155,61 +156,62 @@
 
 /* Адаптивность для мобильных (до 768px) */
 @media (max-width: 768px) {
+
   /* График */
   #incomeChart {
     height: 220px !important;
   }
-  
+
   .chart-card {
     padding: 10px;
   }
-  
+
   /* Кнопки периода */
   .range-panel__buttons {
     flex-wrap: wrap;
     gap: 8px;
   }
-  
+
   .btn--outline {
     font-size: 11px;
     padding: 0 12px;
     height: 36px;
-    min-width: auto;
+    min-width: 160px;
     flex: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  
+
   /* Календарь */
   .date-picker {
     padding: 12px;
   }
-  
+
   .date-picker__inputs {
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
   }
-  
+
   .date-picker__input-group {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
   }
-  
+
   .date-picker__input-group label {
     font-size: 14px;
     min-width: auto;
   }
-  
+
   .date-input {
     width: 100%;
     min-width: auto;
     font-size: 14px;
     padding: 8px 12px;
   }
-  
+
   /* Легенда */
   .chart-legend {
     flex-direction: column;
@@ -218,17 +220,17 @@
     padding: 12px;
     margin-top: 15px;
   }
-  
+
   .legend-item {
     width: 100%;
     justify-content: space-between;
   }
-  
+
   .legend-text {
     flex: 1;
     justify-content: space-between;
   }
-  
+
   .legend-total {
     margin-left: 0;
     width: 100%;
@@ -236,75 +238,98 @@
     padding-top: 12px;
     border-top: 1px solid #E5E7EB;
   }
-  
+
   /* ИЗМЕНЕНИЕ: не скрываем chart-info, а делаем адаптивным */
   .chart-info {
-    display: flex; /* Принудительно показываем */
+    display: flex;
+    /* Принудительно показываем */
     width: 100%;
     min-height: 150px;
     font-size: 12px;
     text-align: center;
     box-sizing: border-box;
   }
-  
+
   /* Уменьшаем шрифты на графике */
   .chart-legend {
     font-size: 11px;
   }
-  
+
   /* Адаптация текста на кнопках */
-  #day, #week, #mouns, #quatro, #year {
+  #day,
+  #week,
+  #mouns,
+  #quatro,
+  #year {
     font-size: 10px;
     padding: 0 8px;
   }
-  
+
   #time {
     font-size: 10px;
     padding: 0 8px;
   }
-  
+
   .btn__icon {
     display: none;
   }
-  
+
   /* Уменьшаем отступы */
   .range-panel__title {
     font-size: 12px;
     margin-bottom: 8px;
   }
-  
+
   .range-panel__meta {
     font-size: 10px;
     margin-top: 8px;
   }
-  
+
   /* Кнопка "Показать" */
   .btn--primary.btn--wide {
     font-size: 11px;
     height: 36px;
     margin-top: 8px;
   }
-  
+
   /* Адаптируем блок с графиками */
   .chart-block {
     flex-direction: column;
     gap: 15px;
   }
-  
+
   .chart-card,
   .chart-info {
     width: 100%;
   }
 
-      .banners {
-        justify-items: center;
-        max-width: 100%;
-        flex-direction: row;
-      }
+  .banners {
+    justify-items: center;
+    max-width: 100%;
+    flex-direction: row;
+  }
 
-      .banner {
-        width: 256px;
-      }
+  .banner {
+    width: 256px;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-row {
+    flex-direction: column;
+  }
+
+  .stat {
+    width: 100%;
+  }
+
+  .stat__title {
+    max-width: 100%;
+  }
+
+  .stats-actions {
+    flex-direction: column;
+  }
 }
 
 /* Еще более маленькие экраны (до 480px) */
@@ -312,26 +337,26 @@
   #incomeChart {
     height: 180px !important;
   }
-  
+
   .btn--outline {
     font-size: 9px;
     padding: 0 6px;
     height: 32px;
   }
-  
+
   .chart-legend {
     padding: 8px;
     gap: 8px;
   }
-  
+
   .range-panel__buttons {
     gap: 4px;
   }
-  
+
   .range-panel__title {
     font-size: 11px;
   }
-  
+
   .no-data {
     height: 200px;
     font-size: 14px;

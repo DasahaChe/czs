@@ -490,8 +490,10 @@ select {
 }
 
 .range-panel__title {
+  display: inline-block;
   font-size: 14px;
   margin: 0 0 1em 0;
+  color: var(--dark);
 }
 
 .range-panel__buttons {
@@ -504,6 +506,14 @@ select {
 .range-panel__meta {
   margin: 1em 0 0 0;
   font-size: 12px;
+}
+
+.filtr {
+  display: flex;
+  gap: 16px;
+  color: var(--blue-900);
+  align-content: center;
+  margin-bottom: 8px;
 }
 
 /* ==========================================================================
@@ -540,6 +550,10 @@ select {
   justify-content: space-between;
 }
 
+
+#cancelDate{
+  height: 40px;
+}
 .btn__icon {
   display: flex;
   color: var(--blue-900);
@@ -1033,7 +1047,7 @@ select {
   margin-top: 15px;
   padding: 12px;
   background-color: #ffffff;
-  border-radius: 0 ;
+  border-radius: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1362,11 +1376,11 @@ select {
     background-color: var(--blue-900);
   }
 
-  .pie-chart-content{
+  .pie-chart-content {
     flex-direction: row;
   }
 
-  .compact-legend{
+  .compact-legend {
     width: 60%;
     min-height: 300px;
   }
@@ -1418,6 +1432,15 @@ select {
   .page-title {
     font-size: 24px;
     margin: 0 0 24px 0;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr 40px;
+  }
+
+  .banners {
+    display: none;
   }
 }
 
@@ -1482,9 +1505,11 @@ select {
   .compact-summary-value {
     font-size: 10px;
   }
-  .pie-chart-content{
+
+  .pie-chart-content {
     flex-direction: column;
   }
+
   .pie-canvas {
     width: 200px;
     height: 200px;
@@ -1518,13 +1543,24 @@ select {
     height: 220px;
   }
 
-  .pie-chart-container{
+  .pie-chart-container {
     width: 100%;
   }
 
-  .compact-legend{
-    width:100%;
+  .compact-legend {
+    width: 100%;
   }
+
+  .content {
+    padding: 0 16px;
+  }
+  .btn--primary {
+    max-width: 100%;
+  }
+.footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
 }
 
 @media (max-width: 480px) {
@@ -1540,5 +1576,10 @@ select {
   .chart-summary {
     font-size: 11px;
   }
-}
 
+  .range-panel__buttons {
+    display: none;
+  }
+
+  
+}

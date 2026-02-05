@@ -1,4 +1,5 @@
 import { procurementData } from './data.js';
+
 // Константы для работы с таблицей
 const STATUSES = ["На согласовании", "Ожидается", "Завершено", "В процессе", "Просрочено"];
 
@@ -14,6 +15,15 @@ const statusOrder = {
   "Ожидается": 3,
   "Завершено": 4,
   "Просрочено": 5
+};
+
+// Маппинг цветов для статусов (для кружков)
+const statusColors = {
+  "В процессе": "#0471ff",  
+  "На согласовании": "#98f040", 
+  "Ожидается": "#686868",  
+  "Завершено": "#0a837d",  
+  "Просрочено": "#e03456" 
 };
 
 // Главная функция инициализации таблицы
@@ -44,6 +54,95 @@ function initTable() {
       }
     });
   }
+  
+  // Инициализация адаптивных стилей
+  initResponsiveStyles();
+}
+
+// Инициализация адаптивных стилей
+function initResponsiveStyles() {
+  const style = document.createElement('style');
+  style.textContent = `
+    @media (max-width: 768px) {
+      .table {
+        font-size: 10px  ;
+      }
+      
+      .table th:nth-child(4),  /* Столбец "Сумма" */
+      .table td:nth-child(4),
+      .table th:nth-child(5),  /* Столбец "Дата" */
+      .table td:nth-child(5) {
+        width: 64px  ;
+        min-width: 64px  ;
+        max-width: 64px  ;
+      }
+      
+      .table th,
+      .table td {
+        padding: 4px 2px  ;
+      }
+      
+      .table-wrap {
+        overflow-x: auto;
+      }
+      
+      .status-text {
+        font-size: 9px  ;
+      }
+      
+      .status-indicator {
+        width: 6px  ;
+        height: 6px  ;
+        margin-right: 3px  ;
+      }
+    }
+    
+    @media (max-width: 460px) {
+      .table {
+        font-size: 9px  ;
+      }
+      
+      .status-container {
+        flex-direction: column  ;
+        align-items: center  ;
+        justify-content: center  ;
+        gap: 2px  ;
+      }
+      
+      .status-indicator {
+        margin-right: 0  ;
+        margin-bottom: 2px  ;
+        width: 8px  ;
+        height: 8px  ;
+      }
+      
+      .status-text {
+        font-size: 8px  ;
+        text-align: center  ;
+        line-height: 1  ;
+      }
+      
+      .table th,
+      .table td {
+        padding: 3px 1px  ;
+      }
+      
+      .table th:nth-child(4),
+      .table td:nth-child(4),
+      .table th:nth-child(5),
+      .table td:nth-child(5) {
+        width: 56px  ;
+        min-width: 56px  ;
+        max-width: 56px  ;
+      }
+      
+      .table th:nth-child(3),
+      .table td:nth-child(3) {
+        min-width: 70px  ;
+      }
+    }
+  `;
+  document.head.appendChild(style);
 }
 
 // Инициализация при полной загрузке страницы
@@ -173,25 +272,8 @@ function populateTable(sortField = null, direction = 'asc') {
   dataToDisplay.forEach(purchase => {
     const row = document.createElement('tr');
 
-    // Определяем класс статуса для CSS
-    let statusClass = '';
-    switch (purchase.status) {
-      case 'В процессе':
-        statusClass = 'status--progress';
-        break;
-      case 'На согласовании':
-        statusClass = 'status--approve';
-        break;
-      case 'Ожидается':
-        statusClass = 'status--wait';
-        break;
-      case 'Завершено':
-        statusClass = 'status--progress';
-        break;
-      case 'Просрочено':
-        statusClass = 'status--late';
-        break;
-    }
+    // Получаем цвет для статуса
+    const statusColor = statusColors[purchase.status] || '#cccccc';
 
     // Форматируем сумму с пробелами
     const formattedAmount = formatCurrency(parseInt(purchase.amount));
@@ -207,7 +289,18 @@ function populateTable(sortField = null, direction = 'asc') {
           ${purchase.supplier}
         </span>
       </td>
-      <td><span class="status ${statusClass}">${purchase.status}</span></td>
+      <td>
+        <div class="status-container" style="display: flex; align-items: center; gap: 6px;">
+          <span class="status-indicator" style="
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: ${statusColor};
+            flex-shrink: 0;
+          "></span>
+          <span class="status-text">${purchase.status}</span>
+        </div>
+      </td>
       <td>${formattedAmount} ₽</td>
       <td>${purchase.deliveryDate}</td>
     `;
@@ -310,8 +403,6 @@ function initializeTableSorting() {
           case 'Срок поставки':
             field = 'deliveryDate';
             break;
-          default:
-            return;
         }
 
         // Определяем направление сортировки
@@ -353,8 +444,6 @@ function updateSortIndicators(field, direction) {
       case 'Срок поставки':
         currentField = 'deliveryDate';
         break;
-      default:
-        return;
     }
 
     if (currentField === field) {
@@ -390,7 +479,6 @@ function initializeSupplierFilter() {
   filterInfo.className = 'supplier-filter-info';
   filterInfo.style.fontSize = '14px';
   filterInfo.style.color = '#666';
-  // Устанавливаем текст сразу при создании элемента
   filterInfo.textContent = 'Кликните на имя поставщика для фильтрации';
 
   filterControls.appendChild(resetButton);
@@ -400,7 +488,6 @@ function initializeSupplierFilter() {
   const tableBlock = document.querySelector('.table-block');
   const tableWrap = document.querySelector('.table-wrap');
   if (tableBlock && tableWrap) {
-    // Проверяем, не добавлены ли уже элементы управления
     const existingControls = tableBlock.querySelector('.supplier-filter-controls');
     if (!existingControls) {
       tableBlock.insertBefore(filterControls, tableWrap);
@@ -414,13 +501,11 @@ function initializeSupplierFilter() {
     populateTable();
     updateTableTitle();
     updateCounters();
-    // Обновляем график если он существует
     if (typeof renderChart === 'function') {
       renderChart();
     }
   });
 
-  // Инициализируем состояние кнопки фильтра
   updateSupplierFilterButton();
 }
 
@@ -434,7 +519,6 @@ function addSupplierClickHandlers() {
     link.style.textDecoration = 'underline';
     link.style.textDecorationStyle = 'dotted';
 
-    // Добавляем класс активного фильтра если нужно
     const supplier = link.getAttribute('data-supplier');
     if (currentSupplierFilter === supplier) {
       link.classList.add('active-filter');
@@ -446,7 +530,6 @@ function addSupplierClickHandlers() {
       e.preventDefault();
       const supplier = link.getAttribute('data-supplier');
 
-      // Если уже фильтруем по этому поставщику - сбрасываем фильтр
       if (currentSupplierFilter === supplier) {
         currentSupplierFilter = null;
       } else {
@@ -457,7 +540,6 @@ function addSupplierClickHandlers() {
       populateTable();
       updateTableTitle();
       updateCounters();
-      // Обновляем график если он существует
       if (typeof renderChart === 'function') {
         renderChart();
       }
@@ -492,12 +574,11 @@ function updateSupplierFilterButton() {
 function addTableStyles() {
   const style = document.createElement('style');
   style.textContent = `
-    /* Стили для сортировки таблицы */
     .table thead th[data-sortable="true"] {
       cursor: pointer;
       user-select: none;
       position: relative;
-      padding-right: 25px !important;
+      padding-right: 25px  ;
     }
     
     .table thead th[data-sortable="true"]:hover {
@@ -512,7 +593,6 @@ function addTableStyles() {
       transition: all 0.2s;
     }
     
-    /* Стили для таблицы с фиксированной высотой */
     .table-wrap {
       max-height: 340px;
       overflow-y: auto;
@@ -544,7 +624,6 @@ function addTableStyles() {
       box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1);
     }
     
-    /* Стили для ссылок поставщиков */
     .supplier-link {
       cursor: pointer;
       color: var(--blue-900);
@@ -561,7 +640,6 @@ function addTableStyles() {
       background-color: #f0f7ff;
     }
     
-    /* Стили для управления фильтрами */
     .supplier-filter-controls {
       margin-bottom: 16px;
       display: flex;
@@ -591,7 +669,6 @@ function addTableStyles() {
       transition: all 0.3s ease;
     }
     
-    /* Подсветка активного фильтра в таблице */
     .supplier-link.active-filter {
       color: var(--blue-900);
       background-color: var(--progress-soft);
@@ -600,9 +677,8 @@ function addTableStyles() {
       text-decoration: none;
     }
     
-    /* Статистические блоки - теперь отображаем количество записей */
     .stat__value {
-      font-size: 2.5rem !important;
+      font-size: 2.5rem  ;
       font-weight: 600;
       text-align: center;
       color: var(--grey);
@@ -612,12 +688,30 @@ function addTableStyles() {
       color: var(--danger);
     }
     
-    /* Убираем форматирование для больших чисел, так как теперь отображаем простое количество */
     .stat__value::after {
       content: '';
     }
     
-    /* Анимации */
+    .status-container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 20px;
+    }
+    
+    .status-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      flex-shrink: 0;
+    }
+    
+    .status-text {
+      font-size: 12px;
+      color: #1E1E1E;
+      line-height: 1.2;
+    }
+    
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -637,7 +731,6 @@ function addTableStyles() {
       content: "✅ ";
     }
     
-    /* Адаптивность */
     @media (max-width: 768px) {
       .supplier-filter-controls {
         flex-direction: column;
@@ -645,21 +738,110 @@ function addTableStyles() {
       }
       
       .table {
-        font-size: 12px;
+        font-size: 10px;
       }
       
       .table th,
       .table td {
-        padding: 6px 8px;
+        padding: 4px 2px;
+      }
+      
+      .table th:nth-child(4),
+      .table td:nth-child(4),
+      .table th:nth-child(5),
+      .table td:nth-child(5) {
+        width: 64px;
+        min-width: 64px;
+        max-width: 64px;
       }
       
       .stat__value {
-        font-size: 2rem !important;
+        font-size: 2rem  ;
       }
       
       .supplier-filter-info {
         width: 100%;
         text-align: center;
+        font-size: 12px;
+      }
+      
+      .status-text {
+        font-size: 9px;
+      }
+      
+      .status-indicator {
+        width: 6px;
+        height: 6px;
+        margin-right: 3px;
+      }
+      
+      .table-wrap {
+        overflow-x: auto;
+      }
+    }
+    
+    @media (max-width: 460px) {
+      .table {
+        font-size: 9px;
+      }
+      
+      .status-container {
+        flex-direction: column  ;
+        align-items: center  ;
+        justify-content: center  ;
+        gap: 2px  ;
+        min-height: 30px  ;
+      }
+      
+      .status-indicator {
+        margin-right: 0  ;
+        margin-bottom: 2px  ;
+        width: 8px  ;
+        height: 8px  ;
+        order: 1  ;
+      }
+      
+      .status-text {
+        font-size: 8px  ;
+        text-align: center  ;
+        line-height: 1  ;
+        order: 2  ;
+        max-width: 60px  ;
+        word-break: break-word  ;
+      }
+      
+      .table th,
+      .table td {
+        padding: 3px 1px  ;
+      }
+      
+      .table th:nth-child(4),
+      .table td:nth-child(4),
+      .table th:nth-child(5),
+      .table td:nth-child(5) {
+        width: 56px  ;
+        min-width: 56px  ;
+        max-width: 56px  ;
+      }
+      
+      .table th:nth-child(3),
+      .table td:nth-child(3) {
+        min-width: 70px  ;
+        max-width: 70px  ;
+      }
+      
+      .supplier-filter-controls {
+        margin-bottom: 10px  ;
+      }
+      
+      .supplier-filter-info {
+        padding: 6px 10px  ;
+        font-size: 10px  ;
+      }
+      
+      #resetSupplierFilter {
+        padding: 6px 10px  ;
+        font-size: 11px  ;
       }
     }
   `;
@@ -687,8 +869,6 @@ export {
   updateCounters
 };
 
-// Оставляем глобальную доступность для обратной совместимости
 window.getFilteredPurchases = getFilteredPurchases;
 window.STATUSES = STATUSES;
 window.procurementData = procurementData;
-

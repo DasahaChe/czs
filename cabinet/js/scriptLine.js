@@ -134,7 +134,7 @@ function showDatePicker() {
             <input type="date" id="endDate" class="date-input" value="${endDate.toISOString().split('T')[0]}">
           </div>
           <button class="btn btn--primary" id="applyDate">Применить</button>
-          <button class="btn btn--outline" id="cancelDate">Отмена</button>
+          <button class="btn btn--outline btn--del" id="cancelDate">Отмена</button>
         </div>
       </div>
     `;
@@ -587,7 +587,7 @@ function renderChart() {
   ctx.lineTo(padding.left, canvas.height - padding.bottom);
   ctx.lineTo(canvas.width - padding.right, canvas.height - padding.bottom);
   ctx.strokeStyle = '#D1D5DB';
-  ctx.lineWidth = 2;
+  ctx.lineWidth = 1;
   ctx.stroke();
 
   // Подписи осей (адаптивные шрифты)
@@ -649,7 +649,7 @@ function renderChart() {
   // Рисуем графики для каждого видимого статуса
   VISIBLE_STATUSES.forEach(status => {
     ctx.beginPath();
-    ctx.lineWidth = window.innerWidth <= 480 ? 1.5 : 2;
+    ctx.lineWidth = window.innerWidth <= 480 ? 1 : 1;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
 
@@ -674,7 +674,7 @@ function renderChart() {
         const y = scaleY(point[status]);
 
         ctx.beginPath();
-        ctx.arc(x, y, window.innerWidth <= 480 ? 2 : 3, 0, Math.PI * 2);
+        ctx.arc(x, y, window.innerWidth <= 480 ? 2 : 2, 0, Math.PI * 2);
         ctx.fillStyle = STATUS_COLORS[status];
         ctx.fill();
       }
