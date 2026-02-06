@@ -317,7 +317,7 @@ select {
 }
 
 .nav__item--active {
-  background: var(--blue);
+  background: var(--lightBlue);
   border: 1px solid;
 }
 
