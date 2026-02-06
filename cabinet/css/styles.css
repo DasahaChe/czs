@@ -1287,10 +1287,44 @@ select {
 .compact-legend::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
+.footer__img{
+min-width: 200px;
+}
+.footer-text{
+margin: 0;
+padding: 0;
+}
 
-/* ==========================================================================
-   Responsive Styles
-   ========================================================================== */
+.footer__img{
+  max-width: 200px;
+}
+
+.footer__icon {
+  /* Базовый вариант: наследование цвета родителя */
+  color: inherit;
+  
+  /* Вариант: цвет родителя + белый (смешивание) */
+  /* color: color-mix(in srgb, currentColor 70%, white 30%); */
+}
+
+.footer__icon:hover {
+  /* Пример изменения цвета при наведении */
+  color: var(--blue-900);
+}
+.footer__icon--bg {
+  background-color: #C9D7E7;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px; /* опционально - скругление углов */
+  padding: 4px; /* опционально - отступы */
+}
+
+.footer__icon--bg svg {
+  /* Можно уменьшить размер иконки, если нужно */
+  width: 40px;
+  height: 40px;
+}
 @media (max-width: 1480px) {
   .chart-block {
     flex-direction: column;
