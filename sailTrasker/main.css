@@ -1814,10 +1814,30 @@ html {
     height: 210mm;
     position: relative;
     padding: 10mm;
+    padding-top: 17mm;
     background-image: url(img/fonUZ.png);
     background-size: cover;
 }
 
+.logo-uz-main {
+    float: left;
+    margin-bottom: 16mm;
+    width: 87.5mm;
+    height: 24.0mm;
+}
+.text-uz-block {
+    position: relative;
+    padding: 10mm;
+    margin-bottom: 20mm;
+    width: 277mm;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 7mm;
+}
+
+.description-uz-bottom {
+    width: 277mm;
+    padding: 0;
+}
 .description-uz-subtitle {
     width: 272mm;
     height: 14mm;
