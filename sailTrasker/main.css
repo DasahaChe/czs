@@ -576,15 +576,9 @@ html {
 
 .strTitle-pr {
     float: left;
-<<<<<<< HEAD
-    width: 135mm;
-    font-size: 18pt;
-    line-height: 20pt;
-=======
     width: 120mm;
     font-size: 21pt;
     line-height: 1em;
->>>>>>> 44d968f90bc3eb98815f70c2300f3ab67a22b713
     color: #224e85;
 }
 
@@ -1812,4 +1806,28 @@ html {
     padding-left: 37mm;
     width: 80mm;
     height: 30mm;
+}
+
+/* indexUz */
+.a4-uz-container {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 10mm;
+    background-image: url(img/fonUZ.png);
+    background-size: cover;
+}
+
+.description-uz-subtitle {
+    width: 272mm;
+    height: 20mm;
+    font-size: 14pt;
+    color:#ffffff;
+}
+
+.description-uz-link {
+    width: 272mm;
+    height: 20mm;
+    font-size: 14pt;
+    color:#ffffff;
 }
