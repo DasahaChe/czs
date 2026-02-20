@@ -1821,13 +1821,26 @@ html {
 .description-uz-subtitle {
     width: 272mm;
     height: 20mm;
-    font-size: 14pt;
+    font-size: 16pt;
     color:#ffffff;
 }
 
 .description-uz-link {
     width: 272mm;
     height: 20mm;
-    font-size: 14pt;
-    color:#ffffff;
+    font-size: 16pt;
+    padding: 2mm 5mm 3mm;
+    margin-top: 4mm;
+    background-color: #fff;
+    border-radius: 5mm;
+    vertical-align: middle;
+    color: #224e85;
+}
+
+.subtitle-uz-text {
+    float: left;
+    width: 52mm;
+    margin-right: 2mm;
+    font-size: 16pt;
+    color: #fff;
 }
