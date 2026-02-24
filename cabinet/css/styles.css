@@ -75,6 +75,9 @@ select {
   font: inherit;
 }
 
+.flex{
+  display: flex;
+}
 /* ==========================================================================
    Animations
    ========================================================================== */
@@ -317,7 +320,7 @@ select {
 }
 
 .nav__item--active {
-  background: var(--lightBlue);
+  background: linear-gradient(45deg, var(--darkBlue), #a9e6f5);
   border: 1px solid;
 }
 
@@ -441,6 +444,13 @@ select {
   margin-bottom: 1.5em;
 }
 
+.block__left{
+  width: calc((100% / 3) * 2 - 16px);
+}
+
+.block__right{
+  width: calc((100% / 3) - 16px);
+}
 .block__title-row {
   display: flex;
   align-items: flex-end;

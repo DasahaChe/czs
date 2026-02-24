@@ -91,7 +91,7 @@
                 </div>
 
                 <nav class="nav">
-                    <a class="nav__item" href="#">
+                    <a class="nav__item" href="index.html">
                         <span class="nav__icon" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 36 36"
                                 fill="none">
@@ -109,7 +109,7 @@
                         <span class="nav__text">Дашборд</span>
                     </a>
 
-                    <a class="nav__item  nav__item--active" href="#">
+                    <a class="nav__item nav__item--active" href="vit.html">
                         <span class="nav__icon" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 38 30"
                                 fill="none">
@@ -121,7 +121,7 @@
                         <span class="nav__text">Витрина</span>
                     </a>
 
-                    <a class="nav__item" href="#">
+                    <a class="nav__item" href="buy.html">
                         <span class="nav__icon" aria-hidden="true">
                             <svg width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M7 6h14l-2 10H8L7 6Z" fill="none" stroke="currentColor" stroke-width="2"
@@ -137,7 +137,7 @@
                         <span class="nav__badge">3</span>
                     </a>
 
-                    <a class="nav__item" href="#">
+                    <a class="nav__item" href="bid.html">
                         <span class="nav__icon" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 40 35"
                                 fill="none">
@@ -159,7 +159,7 @@
                         <span class="nav__badge">4</span>
                     </a>
 
-                    <a class="nav__item" href="#">
+                    <a class="nav__item" href="events.html">
                         <span class="nav__icon" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 28 28"
                                 fill="none">
@@ -172,7 +172,7 @@
                         <span class="nav__badge">2</span>
                     </a>
 
-                    <a class="nav__item" href="#">
+                    <a class="nav__item" href="supplier.html">
                         <span class="nav__icon" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 40 40"
                                 fill="none">
@@ -185,7 +185,7 @@
                         <span class="nav__badge">5</span>
                     </a>
 
-                    <a class="nav__item" href="#">
+                    <a class="nav__item" href="analytics.html">
                         <span class="nav__icon" aria-hidden="true">
                             <svg width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M4 18V6m0 12h16" fill="none" stroke="currentColor" stroke-width="2"
@@ -198,7 +198,7 @@
                         <span class="nav__text">Аналитика</span>
                     </a>
 
-                    <a class="nav__item" href="#">
+                    <a class="nav__item" href="bills.html">
                         <span class="nav__icon" aria-hidden="true">
                             <svg width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M6 4h12v16H6z" fill="none" stroke="currentColor" stroke-width="2"></path>
@@ -234,642 +234,23 @@
 
             <!-- CONTENT -->
             <main class="content">
-                <h1 class="page-title">Ввод данных компании</h1>
+                <h1 class="page-title">Витрина</h1>
+                <!-- <p>Заполните информацию о компании для отображения на платформе</p> -->
+           <div class="block flex">
+               <div class="block__left">
+                <h2 class="page-title">Витрина</h2>
                 <p>Заполните информацию о компании для отображения на платформе</p>
-                <form class="form-container">
-                    <!-- Секция 1: Идентификация и юридические данные -->
-                    <div class="section">
-                        <div class="section-header">
-                            <h2><i class="fas fa-building"></i> Идентификация и юридические данные</h2>
-                        </div>
-                        <div class="section-content">
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="networkName" class="required">Название сети (для отображения на
-                                        платформе)</label>
-                                    <input type="text" id="networkName" class="form-control"
-                                        placeholder="Введите название сети" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="legalName" class="required">Юридическое наименование / группа
-                                        компаний</label>
-                                    <input type="text" id="legalName" class="form-control"
-                                        placeholder="Введите полное юридическое наименование" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="inn" class="required">ИНН</label>
-                                    <input type="text" id="inn" class="form-control" placeholder="10 или 12 цифр"
-                                        pattern="\d{10}|\d{12}" required>
-                                    <div class="form-hint">После заполнения этого поля ОГРН и юридический адрес
-                                        заполнятся автоматически</div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="ogrn">ОГРН (заполняется автоматически)</label>
-                                    <input type="text" id="ogrn" class="form-control"
-                                        placeholder="Заполнится автоматически после ввода ИНН" disabled>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="legalAddress">Юридический адрес (заполняется автоматически)</label>
-                                    <input type="text" id="legalAddress" class="form-control"
-                                        placeholder="Заполнится автоматически после ввода ИНН" disabled>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="bankDetails" class="required">Реквизиты</label>
-                                    <textarea id="bankDetails" class="form-control"
-                                        placeholder="Банковские реквизиты: расчетный счет, БИК, наименование банка"
-                                        required></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="edoId">Идентификатор ЭДО</label>
-                                    <input type="text" id="edoId" class="form-control"
-                                        placeholder="Идентификатор для электронного документооборота">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Секция 2: Публичный профиль и контакты -->
-                    <div class="section">
-                        <div class="section-header">
-                            <h2><i class="fas fa-globe"></i> Публичный профиль и контакты</h2>
-                        </div>
-                        <div class="section-content">
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="website">Сайт компании</label>
-                                    <input type="url" id="website" class="form-control"
-                                        placeholder="https://example.com">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="publicLinks">Публичные ссылки / каталоги / презентации</label>
-                                    <textarea id="publicLinks" class="form-control"
-                                        placeholder="Ссылки на каталоги товаров, презентации компании и т.д."></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="contactPerson" class="required">Контактное лицо</label>
-                                    <input type="text" id="contactPerson" class="form-control"
-                                        placeholder="ФИО контактного лица" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="contactPosition" class="required">Должность контактного лица</label>
-                                    <input type="text" id="contactPosition" class="form-control" placeholder="Должность"
-                                        required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="email" class="required">Email</label>
-                                    <input type="email" id="email" class="form-control" placeholder="email@example.com"
-                                        required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="phone" class="required">Телефон</label>
-                                    <input type="tel" id="phone" class="form-control" placeholder="+7 (XXX) XXX-XX-XX"
-                                        required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Секция 3: Бизнес-профиль компании -->
-                    <div class="section">
-                        <div class="section-header">
-                            <h2><i class="fas fa-chart-line"></i> Бизнес-профиль компании</h2>
-                        </div>
-                        <div class="section-content">
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="networkFormats" class="required">Форматы сети</label>
-                                    <select id="networkFormats" class="form-control" required>
-                                        <option value="">Выберите формат</option>
-                                        <option value="hyper">Гипермаркет</option>
-                                        <option value="super">Супермаркет</option>
-                                        <option value="discounter">Дискаунтер</option>
-                                        <option value="convenience">У дома</option>
-                                        <option value="ecom">E‑commerce</option>
-                                        <option value="specialty">Специализированный магазин</option>
-                                        <option value="cash_carry">Cash & Carry</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="storeCount" class="required">Количество торговых точек</label>
-                                    <input type="number" id="storeCount" class="form-control" placeholder="0" min="0"
-                                        required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="purchaseCategories" class="required">Категории закупок</label>
-                                    <textarea id="purchaseCategories" class="form-control"
-                                        placeholder="Опишите основные категории закупаемых товаров" required></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="labelingRequirements">Типовые требования к
-                                        маркировке/прослеживаемости</label>
-                                    <textarea id="labelingRequirements" class="form-control"
-                                        placeholder="Требования к маркировке товаров, прослеживаемости и т.д."></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="qualityRequirements">Типовые требования к качеству/сертификации
-                                        поставщиков</label>
-                                    <textarea id="qualityRequirements" class="form-control"
-                                        placeholder="Требования к сертификации, качеству продукции и т.д."></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="documentRequirements">Типовые требования к документам от
-                                        поставщика</label>
-                                    <textarea id="documentRequirements" class="form-control"
-                                        placeholder="Перечень необходимых документов от поставщиков"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="logisticsRequirements">Логистические требования и приемка</label>
-                                    <textarea id="logisticsRequirements" class="form-control"
-                                        placeholder="Требования к логистике, условиям приемки товара и т.д."></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="commercialTerms">Типовые коммерческие условия</label>
-                                    <textarea id="commercialTerms" class="form-control"
-                                        placeholder="Типовые условия оплаты, отсрочки, бонусы и т.д."></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Секция 4: География и инфраструктура -->
-                    <div class="section">
-                        <div class="section-header">
-                            <h2><i class="fas fa-map-marked-alt"></i> География и инфраструктура</h2>
-                        </div>
-                        <div class="section-content">
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="geography" class="required">География присутствия
-                                        (регионы/города)</label>
-                                    <textarea id="geography" class="form-control"
-                                        placeholder="Перечислите регионы и города присутствия" required></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="warehouses">РЦ/склады — города/регионы (список)</label>
-                                    <textarea id="warehouses" class="form-control"
-                                        placeholder="Распределительные центры и склады компании"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="supplyChannels">Каналы поставки</label>
-                                    <div class="checkbox-group">
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="direct" name="supplyChannels" value="direct">
-                                            <label for="direct">Прямые поставки от производителей</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="distributors" name="supplyChannels"
-                                                value="distributors">
-                                            <label for="distributors">Через дистрибьюторов</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="import" name="supplyChannels" value="import">
-                                            <label for="import">Импорт</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="local" name="supplyChannels" value="local">
-                                            <label for="local">Локальные производители</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Секция 5: Логистика и условия -->
-                    <div class="section">
-                        <div class="section-header">
-                            <h2><i class="fas fa-truck"></i> Логистика и условия</h2>
-                        </div>
-                        <div class="section-content">
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="deliveryModel" class="required">Модель доставки</label>
-                                    <select id="deliveryModel" class="form-control" required>
-                                        <option value="">Выберите модель</option>
-                                        <option value="pickup">Самовывоз поставщиком</option>
-                                        <option value="delivery">Доставка силами поставщика</option>
-                                        <option value="mixed">Смешанная модель</option>
-                                        <option value="logistics">Доставка через логистического оператора</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="temperatureRegimes">Температурные режимы</label>
-                                    <div class="checkbox-group">
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="ambient" name="temperatureRegimes"
-                                                value="ambient">
-                                            <label for="ambient">Сухой склад (ambient)</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="refrigerated" name="temperatureRegimes"
-                                                value="refrigerated">
-                                            <label for="refrigerated">Охлажденный (+2°C до +8°C)</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="frozen" name="temperatureRegimes" value="frozen">
-                                            <label for="frozen">Замороженный (-18°C и ниже)</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="fresh" name="temperatureRegimes" value="fresh">
-                                            <label for="fresh">Свежий товар (специальные условия)</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="minBatch">Минимальная партия</label>
-                                    <input type="text" id="minBatch" class="form-control"
-                                        placeholder="Например: 1 паллета, 100 кг и т.д.">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="shipmentFrequency">Кратность отгрузки</label>
-                                    <input type="text" id="shipmentFrequency" class="form-control"
-                                        placeholder="Например: ежедневно, 2 раза в неделю и т.д.">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="shipmentTerms">Сроки отгрузки</label>
-                                    <input type="text" id="shipmentTerms" class="form-control"
-                                        placeholder="Например: в течение 24 часов после заказа">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="logisticsComments">Логистические ограничения / комментарии</label>
-                                    <textarea id="logisticsComments" class="form-control"
-                                        placeholder="Дополнительные комментарии по логистике"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Секция 6: Сотрудники -->
-                    <div class="section">
-                        <div class="section-header">
-                            <h2><i class="fas fa-users"></i> Сотрудники</h2>
-                        </div>
-                        <div class="section-content">
-                            <div id="employees-container">
-                                <div class="multi-field">
-                                    <div class="multi-field-header">
-                                        <h3>Сотрудник 1</h3>
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                            onclick="removeEmployee(this)">
-                                            <i class="fas fa-trash"></i> Удалить
-                                        </button>
-                                    </div>
-
-                                    <div class="form-grid">
-                                        <div class="form-group">
-                                            <label for="employee1_name" class="required">ФИО</label>
-                                            <input type="text" id="employee1_name" class="form-control"
-                                                placeholder="Иванов Иван Иванович" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_position" class="required">Должность</label>
-                                            <input type="text" id="employee1_position" class="form-control"
-                                                placeholder="Менеджер по закупкам" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_role" class="required">Роль</label>
-                                            <select id="employee1_role" class="form-control" required>
-                                                <option value="">Выберите роль</option>
-                                                <option value="category_manager">Категорийный менеджер</option>
-                                                <option value="quality">Качество</option>
-                                                <option value="logistics">Логистика</option>
-                                                <option value="finance">Финансы</option>
-                                                <option value="lawyer">Юрист</option>
-                                                <option value="admin">Администратор</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_department">Подразделение / департамент</label>
-                                            <input type="text" id="employee1_department" class="form-control"
-                                                placeholder="Департамент закупок">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_email" class="required">Корпоративный email
-                                                (логин)</label>
-                                            <input type="email" id="employee1_email" class="form-control"
-                                                placeholder="ivanov@company.com" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_phone">Телефон</label>
-                                            <input type="tel" id="employee1_phone" class="form-control"
-                                                placeholder="+7 (XXX) XXX-XX-XX">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_categories">Категории ответственности</label>
-                                            <textarea id="employee1_categories" class="form-control"
-                                                placeholder="Категории товаров, за которые отвечает сотрудник"></textarea>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_regions">Регионы ответственности</label>
-                                            <textarea id="employee1_regions" class="form-control"
-                                                placeholder="Регионы, за которые отвечает сотрудник"></textarea>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_accessLevel" class="required">Уровень доступа</label>
-                                            <select id="employee1_accessLevel" class="form-control" required>
-                                                <option value="">Выберите уровень доступа</option>
-                                                <option value="admin">Администратор</option>
-                                                <option value="editor">Редактор</option>
-                                                <option value="viewer">Просмотр</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_permissions">Права доступа</label>
-                                            <div class="checkbox-group">
-                                                <div class="checkbox-item">
-                                                    <input type="checkbox" id="employee1_perm_org"
-                                                        name="employee1_permissions" value="org_management">
-                                                    <label for="employee1_perm_org">Управление организацией</label>
-                                                </div>
-                                                <div class="checkbox-item">
-                                                    <input type="checkbox" id="employee1_perm_emp"
-                                                        name="employee1_permissions" value="employee_management">
-                                                    <label for="employee1_perm_emp">Управление сотрудниками</label>
-                                                </div>
-                                                <div class="checkbox-item">
-                                                    <input type="checkbox" id="employee1_perm_app"
-                                                        name="employee1_permissions" value="applications">
-                                                    <label for="employee1_perm_app">Заявки</label>
-                                                </div>
-                                                <div class="checkbox-item">
-                                                    <input type="checkbox" id="employee1_perm_docs"
-                                                        name="employee1_permissions" value="documents">
-                                                    <label for="employee1_perm_docs">Документы</label>
-                                                </div>
-                                                <div class="checkbox-item">
-                                                    <input type="checkbox" id="employee1_perm_chat"
-                                                        name="employee1_permissions" value="negotiations_chat">
-                                                    <label for="employee1_perm_chat">Переговоры и чат</label>
-                                                </div>
-                                                <div class="checkbox-item">
-                                                    <input type="checkbox" id="employee1_perm_analytics"
-                                                        name="employee1_permissions" value="analytics">
-                                                    <label for="employee1_perm_analytics">Аналитика</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_status" class="required">Статус пользователя</label>
-                                            <select id="employee1_status" class="form-control" required>
-                                                <option value="active">Активен</option>
-                                                <option value="inactive">Неактивен</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style="margin-top: 20px; text-align: center;">
-                                <button type="button" class="btn btn-outline" onclick="addEmployee()">
-                                    <i class="fas fa-plus"></i> Добавить сотрудника
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Секция 7: Товар -->
-                    <div class="section">
-                        <div class="section-header">
-                            <h2><i class="fas fa-box"></i> Товар</h2>
-                        </div>
-                        <div class="section-content">
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="category" class="required">Категория</label>
-                                    <select id="category" class="form-control" required>
-                                        <option value="">Выберите категорию</option>
-                                        <option value="food">Продукты питания</option>
-                                        <option value="beverages">Напитки</option>
-                                        <option value="household">Бытовая химия</option>
-                                        <option value="cosmetics">Косметика</option>
-                                        <option value="electronics">Электроника</option>
-                                        <option value="housewares">Товары для дома</option>
-                                        <option value="other">Другое</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="subcategory">Подкатегория</label>
-                                    <input type="text" id="subcategory" class="form-control"
-                                        placeholder="Например: Молочные продукты">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="productName" class="required">Наименование товара</label>
-                                    <input type="text" id="productName" class="form-control"
-                                        placeholder="Полное наименование товара" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="reference">Референс/аналог</label>
-                                    <input type="text" id="reference" class="form-control"
-                                        placeholder="Артикул или код товара">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="allowedSubstitutes">Допустимые аналоги/замены</label>
-                                    <textarea id="allowedSubstitutes" class="form-control"
-                                        placeholder="Какие аналоги товара допустимы"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="weightVolumeRequirements">Требования к весу/объему</label>
-                                    <input type="text" id="weightVolumeRequirements" class="form-control"
-                                        placeholder="Например: точность +/- 1%">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="variantRequirements">Требования к варианту/линейке
-                                        (вкусы/форматы)</label>
-                                    <textarea id="variantRequirements" class="form-control"
-                                        placeholder="Допустимые варианты товара (вкусы, размеры и т.д.)"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="originRequirements">Требования к стране происхождения /
-                                        локализации</label>
-                                    <input type="text" id="originRequirements" class="form-control"
-                                        placeholder="Например: товар должен быть произведен в РФ">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="netWeight" class="required">Вес/объем нетто</label>
-                                    <input type="text" id="netWeight" class="form-control"
-                                        placeholder="Например: 500 г, 1 л" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="consumerPackaging">Упаковка потребительская (тип/материал)</label>
-                                    <input type="text" id="consumerPackaging" class="form-control"
-                                        placeholder="Например: ПЭТ-бутылка, картонная коробка">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="transportPackaging">Упаковка транспортная</label>
-                                    <input type="text" id="transportPackaging" class="form-control"
-                                        placeholder="Например: картонный короб, паллет">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="itemsPerBox">Кол-во в коробе</label>
-                                    <input type="number" id="itemsPerBox" class="form-control" placeholder="0" min="0">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="boxDimensions">Габариты/вес короба</label>
-                                    <input type="text" id="boxDimensions" class="form-control"
-                                        placeholder="Например: 400x300x200 мм, 10 кг">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="shelfLife">Срок годности</label>
-                                    <input type="text" id="shelfLife" class="form-control"
-                                        placeholder="Например: 12 месяцев, до 30.06.2024">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="temperatureRegimeProduct">Температурный режим</label>
-                                    <input type="text" id="temperatureRegimeProduct" class="form-control"
-                                        placeholder="Например: от +2°C до +8°C">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="composition">Состав</label>
-                                    <textarea id="composition" class="form-control"
-                                        placeholder="Состав продукта"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="allergens">Аллергены</label>
-                                    <textarea id="allergens" class="form-control"
-                                        placeholder="Содержащиеся аллергены"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="nutritionalValue">Пищевая ценность</label>
-                                    <textarea id="nutritionalValue" class="form-control"
-                                        placeholder="Пищевая ценность на 100 г продукта"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="specialProperties">Особые свойства</label>
-                                    <textarea id="specialProperties" class="form-control"
-                                        placeholder="Особые свойства товара (органический, без ГМО и т.д.)"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="productionStandard">Стандарт производства</label>
-                                    <input type="text" id="productionStandard" class="form-control"
-                                        placeholder="Например: ГОСТ, ТУ, ISO">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="labeling">Маркировка/прослеживаемость</label>
-                                    <textarea id="labeling" class="form-control"
-                                        placeholder="Требования к маркировке и прослеживаемости"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="certificates">Сертификаты/декларации/протоколы</label>
-                                    <textarea id="certificates" class="form-control"
-                                        placeholder="Необходимые сертификаты и документы"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="unitPrice" class="required">Цена за единицу</label>
-                                    <input type="number" id="unitPrice" class="form-control" placeholder="0.00"
-                                        step="0.01" min="0" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="vat" class="required">НДС</label>
-                                    <select id="vat" class="form-control" required>
-                                        <option value="0">0%</option>
-                                        <option value="10">10%</option>
-                                        <option value="20" selected>20%</option>
-                                        <option value="exempt">Без НДС</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="paymentTerms" class="required">Условия оплаты</label>
-                                    <input type="text" id="paymentTerms" class="form-control"
-                                        placeholder="Например: 30 дней после поставки" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="minBatchProduct">Минимальная партия</label>
-                                    <input type="text" id="minBatchProduct" class="form-control"
-                                        placeholder="Например: 100 шт., 1 паллет">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="requiredVolume">Необходимый объем</label>
-                                    <input type="text" id="requiredVolume" class="form-control"
-                                        placeholder="Например: 1000 шт. в месяц">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="deliveryFrequency">Периодичность поставок</label>
-                                    <input type="text" id="deliveryFrequency" class="form-control"
-                                        placeholder="Например: еженедельно, 2 раза в месяц">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Кнопки отправки формы -->
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-secondary">
-                            <i class="fas fa-times"></i> Отменить
-                        </button>
-
-                        <div style="display: flex; gap: 12px;">
-                            <button type="button" class="btn btn-outline">
-                                <i class="fas fa-save"></i> Сохранить черновик
-                            </button>
-
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-check"></i> Сохранить данные
-                            </button>
-                        </div>
-                    </div>
-                </form>
+               </div>
+               <div class="block__right">
+                <h2 class="page-title">В категории "молочная продукция" открыто</h2>
+                <ul>
+                    <li class="vit-cat-item">Молоко 2,5 %</li>
+                    <li class="vit-cat-item">Сметана</li>
+                    <li class="vit-cat-item">Масло</li>
+                </ul>
+               </div>
+           </div>
+           <div class="block"></div>
 
             </main>
 
@@ -881,28 +262,30 @@
 
         <!-- FOOTER -->
         <footer class="footer">
-            <div class="footer__left">ООО "Сейл трекер", 2025</div>
+            <div class="footer__left">
+                <img class="footer__img" aria-label="Сейл Трекер" src="img/Сейл Трекер_горизонт_белый_Sk.png"
+                    alt="Sale Tracker">
+                <p class="footer-text">ООО "Сейл трекер", 2025</p>
+            </div>
 
             <div class="footer__center">
-                офис: Санкт‑Петербург, Магнитогорская 23к1<br>
-                тел.: +7 800 000‑00‑00
+                <p class="footer-text">офис: Санкт‑Петербург, Магнитогорская 23к1</p>
+                <p class="footer-text">тел.: +7 800 000‑00‑00</p>
             </div>
 
             <div class="footer__right">
                 <div class="footer__icons" aria-label="Соцсети">
                     <span class="footer__icon" aria-hidden="true">
-                        <svg width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M4 12l8-7 8 7-8 7-8-7Z" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linejoin="round">
-                            </path>
-                            <path d="M12 13V8" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+                            <path fill="currentColor"
+                                d="M25,2c12.703,0,23,10.297,23,23S37.703,48,25,48S2,37.703,2,25S12.297,2,25,2z M32.934,34.375 c0.423-1.298,2.405-14.234,2.65-16.783c0.074-0.772-0.17-1.285-0.648-1.514c-0.578-0.278-1.434-0.139-2.427,0.219 c-1.362,0.491-18.774,7.884-19.78,8.312c-0.954,0.405-1.856,0.847-1.856,1.487c0,0.45,0.267,0.703,1.003,0.966 c0.766,0.273,2.695,0.858,3.834,1.172c1.097,0.303,2.346,0.04,3.046-0.395c0.742-0.461,9.305-6.191,9.92-6.693 c0.614-0.502,1.104,0.141,0.602,0.644c-0.502,0.502-6.38,6.207-7.155,6.997c-0.941,0.959-0.273,1.953,0.358,2.351 c0.721,0.454,5.906,3.932,6.687,4.49c0.781,0.558,1.573,0.811,2.298,0.811C32.191,36.439,32.573,35.484,32.934,34.375z" />
                         </svg>
                     </span>
-                    <span class="footer__icon" aria-hidden="true">
-                        <svg width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M7 17c6 0 10-5 10-10V5l-3 2c-2-2-7-2-9 1-2 3 1 7 2 9Z" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                    <span class="footer__icon footer__icon--bg" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="50px" height="50px">
+                            <!-- Без фона в SVG, фон будет через CSS -->
+                            <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M512.0947266,308.1917419c-99.421875-5.2137451-177.0074768,63.7746277-194.1162109,171.7529297  c-14.1681519,89.4194031,10.9517212,198.377655,32.4380493,203.8618469  c9.1132812,2.3260498,31.0438538-14.447998,46.9994507-29.4939575c2.9996643-2.8286133,7.5354309-3.3046265,11.0531616-1.1536255  c24.8721313,15.2089233,53.0321655,26.6383667,84.07724,28.2663574  c102.068512,5.352417,192.52005-74.5308838,197.8663025-176.6076965  C695.7590332,402.7408142,614.163208,313.5441895,512.0947266,308.1917419z M345.6054993,826.5784302  c-3.8494568-2.7254639-9.1531067-1.9857788-12.3791809,1.4550171  c-43.119812,45.9900513-153.4740906,78.2501221-158.5290833,15.4796143c0-49.1799927-11.0461426-90.6229248-23.2081757-136.2524414  c-14.8953705-55.8845825-31.4645691-118.0489502-31.4645691-208.3983765  c0-215.4476624,176.6943207-377.4747925,386.1940918-377.4747925S879.975708,291.3253784,879.975708,500.9545898  S710.4901733,876.3369751,508.2009583,876.3369751C436.4336243,876.3369751,401.6072693,866.2283936,345.6054993,826.5784302z" />
                         </svg>
                     </span>
                 </div>
@@ -911,7 +294,7 @@
         </footer>
     </div>
 
-    <script defer type="module" src="js/scriptVitLine.js"></script>
+    <script defer type="module" src="js/scriptVit.js"></script>
 </body>
 
 </html>
