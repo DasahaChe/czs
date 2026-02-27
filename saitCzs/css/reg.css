@@ -253,6 +253,184 @@
 }
 
 
+ .form-field input,
+        .form-field select,
+        .form-field .select2-container .select2-selection {
+            padding: 0.5em 0.75em;
+            min-height: 36px;
+            font-size: 14px;
+        }
+
+        /* Стили для множественного выбора */
+        .select2-container {
+            width: 100% !important;
+        }
+
+        .select2-selection {
+            min-height: 36px !important;
+            border: 1px solid var(--item-border) !important;
+            border-radius: 6px !important;
+            padding: 2px !important;
+        }
+
+        .select2-selection__choice {
+            background-color: var(--lightBlue) !important;
+            border: 1px solid var(--base-color-1) !important;
+            border-radius: 4px !important;
+            padding: 2px 6px !important;
+            margin: 2px !important;
+            font-size: 13px !important;
+        }
+
+        .select2-selection__choice__remove {
+            color: var(--error-color-4) !important;
+            margin-right: 4px !important;
+            font-size: 14px !important;
+        }
+
+        .select2-selection--multiple .select2-selection__rendered {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 3px !important;
+            margin: 0 0 12px 0;
+        }
+
+        /* Настройка выпадающих списков - всегда вниз */
+        .select2-dropdown {
+            border: 1px solid var(--item-border) !important;
+            border-radius: 6px !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+            margin-top: 2px !important;
+        }
+
+        .select2-container--open .select2-dropdown--below {
+            border-top-left-radius: 6px !important;
+            border-top-right-radius: 6px !important;
+        }
+
+        /* Отключаем автоматическое позиционирование вверх */
+        .select2-container--open.select2-container--above .select2-dropdown {
+            border-bottom-left-radius: 6px !important;
+            border-bottom-right-radius: 6px !important;
+        }
+
+        /* Принудительное позиционирование вниз */
+        .select2-container--open .select2-dropdown {
+            top: 100% !important;
+            bottom: auto !important;
+        }
+
+        .select2-results__option {
+            padding: 6px 10px !important;
+            font-size: 14px !important;
+        }
+
+        .select2-results__option--selected {
+            background-color: var(--lightBlue) !important;
+        }
+
+        .select2-results__option--highlighted {
+            background: linear-gradient(to right, var(--base-color-1), var(--base-color-2)) !important;
+            color: white !important;
+        }
+
+        /* Стили для автокомплита */
+        .ui-autocomplete {
+            max-height: 250px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background-color: white;
+            border: 1px solid var(--item-border);
+            border-radius: 6px;
+            font-family: var(--base-font);
+            font-size: 14px;
+            z-index: 1000;
+        }
+
+        .ui-menu-item {
+            padding: 6px 10px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--item-border);
+            font-size: 14px;
+        }
+
+        .ui-menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .ui-menu-item:hover,
+        .ui-state-focus {
+            background-color: var(--lightBlue) !important;
+            border: none !important;
+            margin: 0 !important;
+        }
+
+        .company-suggestion {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .company-suggestion .company-name {
+            font-weight: bold;
+            color: var(--grafite);
+            font-size: 14px;
+        }
+
+        .company-suggestion .company-details {
+            font-size: 12px;
+            color: var(--sub-text-color);
+        }
+
+        /* Уменьшаем отступы в карточке сотрудника */
+        .employee-card {
+            padding: 1rem;
+        }
+
+        .form-grid {
+            gap: 0.75rem;
+        }
+
+        .form-field label {
+            font-size: 13px;
+        }
+
+        .hint {
+            font-size: 11px;
+        }
+
+        /* Уменьшаем кнопки */
+        .reg_button,
+        .reset-btn {
+            padding: 0.6rem 1.5rem;
+            font-size: 14px;
+            min-width: 180px;
+        }
+
+        /* Поля с множественным выбором */
+        .multiselect-field {
+            grid-column: 1 / -1;
+        }
+.select2-container--default .select2-search--inline .select2-search__field {
+    margin: 8px 0 0 0;
+}
+        /* Адаптация для мобильных устройств */
+        @media (max-width: 750px) {
+
+            .form-field input,
+            .form-field select,
+            .form-field .select2-container .select2-selection {
+                font-size: 13px;
+                min-height: 34px;
+            }
+
+            .reg_button,
+            .reset-btn {
+                width: 100%;
+                padding: 0.5rem 1rem;
+                font-size: 13px;
+            }
+        }
+
         @media (max-width: 750px) {
 .registration-wrapper .title{
     font-size: 32px;

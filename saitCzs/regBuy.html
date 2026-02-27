@@ -26,61 +26,115 @@
     <title>СЕЙЛ ТРЕКЕР | Регистрация закупщика</title>
 
     <style>
-        /* Дополнительные стили для множественного выбора */
-        .select2-container {
-            width: 100% !important;
+        /* Стили для модального окна */
+        .modal-overlay {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
 
-        .select2-selection {
-            min-height: 40px !important;
-            border: 1px solid var(--item-border) !important;
-            border-radius: 8px !important;
-            padding: 5px !important;
+        .modal-window {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: modalFadeIn 0.3s ease;
         }
 
-        .select2-selection__choice {
-            background-color: var(--lightBlue) !important;
-            border: 1px solid var(--base-color-1) !important;
-            border-radius: 4px !important;
-            padding: 2px 8px !important;
-            margin: 2px !important;
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .select2-selection__choice__remove {
-            color: var(--error-color-4) !important;
-            margin-right: 5px !important;
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .select2-selection--multiple .select2-selection__rendered {
-            display: flex !important;
-            flex-wrap: wrap !important;
-            gap: 5px !important;
+        .modal-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
         }
 
-        .select2-dropdown {
-            border: 1px solid var(--item-border) !important;
-            border-radius: 8px !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--grafite);
+            margin-bottom: 1rem;
         }
 
-        .select2-results__option--selected {
-            background-color: var(--lightBlue) !important;
+        .modal-text {
+            font-size: 16px;
+            color: var(--newGray);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
         }
 
-        .select2-results__option--highlighted {
-            background: linear-gradient(to right, var(--base-color-1), var(--base-color-2)) !important;
-            color: white !important;
+        .modal-text p {
+            margin: 0.5rem 0;
         }
 
-        /* Стили для полей с множественным выбором */
-        .multiselect-field {
-            grid-column: 1 / -1;
+        .modal-button {
+            padding: 0.75rem 2rem;
+            font-size: 16px;
+            color: #fff;
+            border: 1px solid var(--base-color-6);
+            background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+            border-radius: 0;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.5s ease, background-color 0.5s ease;
+            min-width: 200px;
+            margin-top: 1rem;
         }
 
-        /* Адаптация для мобильных устройств */
+        .modal-button:hover {
+            color: #fff;
+            background: var(--base-color-2);
+            border-color: var(--base-color-2);
+        }
+
         @media (max-width: 750px) {
-            .multiselect-field {
-                grid-column: 1 / -1;
+            .modal-window {
+                padding: 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 20px;
+            }
+
+            .modal-text {
+                font-size: 14px;
+            }
+
+            .modal-button {
+                width: 100%;
+                padding: 0.6rem 1rem;
+                font-size: 14px;
             }
         }
     </style>
@@ -167,13 +221,13 @@
     <main class="registration-wrapper">
         <div class="container">
             <section class="title__block">
-                <h1 class="title">Регистрация компании-закупщика</h1>
+                <h1 class="title">Зарегистрироваться как закупщик</h1>
             </section>
 
             <form class="registration-form" id="companyRegistrationForm">
                 <!-- Секция идентификации и юридических данных -->
                 <section class="form-section">
-                    <h2>1.1 Идентификация и юридические данные</h2>
+                    <h2>Идентификация и юридические данные</h2>
                     <div class="form-grid">
                         <div class="form-field full-width">
                             <label for="legalName">Юридическое наименование / группа компаний <span
@@ -191,7 +245,7 @@
 
                 <!-- Секция бизнес-профиля компании -->
                 <section class="form-section">
-                    <h2>1.3 Бизнес‑профиль компании</h2>
+                    <h2>Бизнес‑профиль компании</h2>
                     <div class="form-grid">
                         <div class="form-field multiselect-field">
                             <label for="storeFormats">Форматы сети (гипер/супер/дискаунтер/у дома/e‑com и т.д.) <span
@@ -236,7 +290,7 @@
 
                 <!-- Секция географии и инфраструктуры -->
                 <section class="form-section">
-                    <h2>1.4 География и инфраструктура</h2>
+                    <h2>География и инфраструктура</h2>
                     <div class="form-grid">
                         <div class="form-field multiselect-field">
                             <label for="geography">География присутствия (регионы/города) <span
@@ -352,7 +406,7 @@
 
                 <!-- Секция сотрудников (только один сотрудник) -->
                 <section class="form-section">
-                    <h2>2. Сотрудники</h2>
+                    <h2>Сотрудник</h2>
                     <div class="employee-card">
                         <div class="form-grid">
                             <div class="form-field">
@@ -514,13 +568,60 @@
         </div>
     </footer>
 
+    <!-- Модальное окно успешной регистрации -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-window">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+                    <path
+                        d="M 25 2 C 12.309534 2 2 12.309534 2 25 C 2 37.690466 12.309534 48 25 48 C 37.690466 48 48 37.690466 48 25 C 48 12.309534 37.690466 2 25 2 z M 25 4 C 36.609534 4 46 13.390466 46 25 C 46 36.609534 36.609534 46 25 46 C 13.390466 46 4 36.609534 4 25 C 4 13.390466 13.390466 4 25 4 z M 34.988281 14.988281 A 1.0001 1.0001 0 0 0 34.171875 15.439453 L 23.970703 30.476562 L 16.679688 23.710938 A 1.0001 1.0001 0 1 0 15.320312 25.177734 L 24.316406 33.525391 L 35.828125 16.560547 A 1.0001 1.0001 0 0 0 34.988281 14.988281 z" />
+                </svg>
+            </div>
+            <h2 class="modal-title">Спасибо за регистрацию!</h2>
+            <div class="modal-text">
+                <p>Ваша учетная запись отправлена на модерацию.</p>
+                <p>С вами свяжется наш сотрудник для подтверждения данных.</p>
+            </div>
+            <button class="modal-button" onclick="closeModal()">Понятно</button>
+        </div>
+    </div>
+
     <script>
+        // Функции для работы с модальным окном
+        function showModal() {
+            document.getElementById('successModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+            document.body.style.overflow = ''; // Возвращаем прокрутку
+        }
+
+        // Закрытие по клику на оверлей
+        document.addEventListener('DOMContentLoaded', function () {
+            const modalOverlay = document.getElementById('successModal');
+            modalOverlay.addEventListener('click', function (e) {
+                if (e.target === modalOverlay) {
+                    closeModal();
+                }
+            });
+
+            // Закрытие по нажатию Escape
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
+                    closeModal();
+                }
+            });
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             // Инициализация Select2 для всех полей с множественным выбором
             $('select[multiple]').select2({
                 placeholder: 'Выберите значения',
                 allowClear: true,
                 width: '100%',
+                dropdownPosition: 'below', // Принудительное позиционирование вниз
                 language: {
                     noResults: function () {
                         return "Ничего не найдено";
@@ -704,7 +805,12 @@
                 }
 
                 console.log('Данные формы:', data);
-                alert('Форма отправлена (проверьте консоль для просмотра данных)');
+
+                // Вместо alert показываем модальное окно
+                // alert('Форма отправлена (проверьте консоль для просмотра данных)');
+
+                // Показываем модальное окно успешной регистрации
+                showModal();
 
                 // Здесь будет реальная отправка на сервер
                 // fetch('/api/register-buyer', { method: 'POST', body: formData })
