@@ -1,6 +1,7 @@
        .registration-wrapper {
             display: flex;
             justify-content: center;
+             min-height: calc(100vh - 400px); 
         }
 
         .registration-wrapper .container {
@@ -34,11 +35,26 @@
             margin-bottom: 2rem;
         }
 
-        .form-section {
+        .form-section, .regStart-section {
             background-color: var(--lightBlue);
             border-radius: 1em;
             padding: 2em;
         }
+
+        
+
+        .regStart-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: auto;
+    justify-content: space-between;
+    background: linear-gradient(135deg, var(--lightBlue) 20%, var(--base-color-6) 105%);
+    box-shadow: 0 0 10px rgba(73, 73, 77, 0.2);
+    background-clip: padding-box;
+    position: relative;
+}
+
 
         .form-section h2 {
             margin-top: 0;
@@ -154,12 +170,21 @@
             color: var(--grafite);
         }
 
-        .form-actions {
+        .form-actions, .btn-actions {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
         }
+.btn-actions {
+    flex-direction: column;
+}
 
+.reg-link{
+    display: flex;
+}
+.registration__text{
+    margin: 2em 0;
+}
         .submit-btn {
             padding: 1rem 2rem;
             font-size: calc(var(--base-font-size) * 1);
@@ -179,22 +204,6 @@
             border-color: var(--base-color-2);
         }
 
-        .reset-btn {
-            padding: 1rem 2rem;
-            font-size: calc(var(--base-font-size) * 1);
-            color: var(--grafite);
-            border: 1px solid var(--item-border);
-            background: white;
-            border-radius: 0;
-            outline: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .reset-btn:hover {
-            border-color: var(--error-color-4);
-            color: var(--error-color-4);
-        }
 
         .select-multiple {
             min-height: 100px;
@@ -215,6 +224,8 @@
         }
 
 .reg_button {
+    display: flex;
+    justify-content: center;
     padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
     width: 100%;
     font-size: calc(var(--base-font-size) * 1);
@@ -270,7 +281,7 @@
                 padding: 1.5em;
             }
 
-            .form-actions {
+            .form-actions, .btn-actions {
                 flex-direction: column;
             }
 
