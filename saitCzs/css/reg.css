@@ -1,0 +1,295 @@
+       .registration-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .registration-wrapper .container {
+            display: flex;
+            justify-content: center;
+            padding: 0 calc(var(--base-gap) * 5.25);
+            max-width: calc(var(--base-font-size) * 90);
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .registration-wrapper .title__block {
+            margin-bottom: 2rem;
+        }
+
+        .registration-wrapper .title {
+            padding: 0;
+            margin: 0 0 32px 0;
+            font-size: calc(var(--base-font-size) * 3.5);
+            line-height: calc(var(--base-font-size) * 3.5);
+            color: var(--newGray);
+        }
+
+        .registration-form {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            gap: 2rem;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .form-section {
+            background-color: var(--lightBlue);
+            border-radius: 1em;
+            padding: 2em;
+        }
+
+        .form-section h2 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: calc(var(--base-font-size) * 1.5);
+            color: var(--grafite);
+            font-weight: 700;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .form-grid .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            position: relative;
+        }
+
+        .form-field label {
+            font-size: calc(var(--base-font-size) * 0.9);
+            color: var(--grafite);
+            font-weight: 500;
+        }
+
+        .form-field label .required {
+            color: var(--error-color-4);
+            margin-left: 2px;
+        }
+
+        .form-field input,
+        .form-field select {
+            padding: 0.75em 1em;
+            font-family: inherit;
+            font-size: 90%;
+            line-height: 1.15;
+            width: 100%;
+            min-height: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--item-border);
+            background-color: white;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus {
+            border-color: var(--base-color-1);
+        }
+
+        /* Стили для автокомплита */
+        .ui-autocomplete {
+            max-height: 200px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background-color: white;
+            border: 1px solid var(--item-border);
+            border-radius: 8px;
+            font-family: var(--base-font);
+            z-index: 1000;
+        }
+
+        .ui-menu-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--item-border);
+        }
+
+        .ui-menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .ui-menu-item:hover,
+        .ui-state-focus {
+            background-color: var(--lightBlue) !important;
+            border: none !important;
+            margin: 0 !important;
+        }
+
+        .company-suggestion {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .company-suggestion .company-name {
+            font-weight: bold;
+            color: var(--grafite);
+        }
+
+        .company-suggestion .company-details {
+            font-size: 0.85rem;
+            color: var(--sub-text-color);
+        }
+
+        .employee-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            border: 1px solid var(--item-border);
+        }
+
+        .employee-card h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: calc(var(--base-font-size) * 1.1);
+            color: var(--grafite);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .submit-btn {
+            padding: 1rem 2rem;
+            font-size: calc(var(--base-font-size) * 1);
+            color: #fff;
+            border: 1px solid var(--base-color-6);
+            background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+            border-radius: 0;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.5s ease, background-color 0.5s ease;
+            min-width: 200px;
+        }
+
+        .submit-btn:hover {
+            color: #fff;
+            background: var(--base-color-2);
+            border-color: var(--base-color-2);
+        }
+
+        .reset-btn {
+            padding: 1rem 2rem;
+            font-size: calc(var(--base-font-size) * 1);
+            color: var(--grafite);
+            border: 1px solid var(--item-border);
+            background: white;
+            border-radius: 0;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            border-color: var(--error-color-4);
+            color: var(--error-color-4);
+        }
+
+        .select-multiple {
+            min-height: 100px;
+        }
+
+        .hint {
+            font-size: calc(var(--base-font-size) * 0.8);
+            color: var(--sub-text-color);
+            margin-top: 0.25rem;
+        }
+
+        .loading-indicator {
+            position: absolute;
+            right: 10px;
+            top: 35px;
+            color: var(--sub-text-color);
+            font-size: 0.85rem;
+        }
+
+.reg_button {
+    padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
+    width: 100%;
+    font-size: calc(var(--base-font-size) * 1);
+    color: #fff;
+    border: 1px solid var(--base-color-6);
+    border-radius: 4px;
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    outline: none;
+    transition: border-color 0.5s ease, background-color 0.5s ease;
+}
+
+.reset-btn{
+    display: flex;
+    justify-content: center;
+    padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
+    width: 100%;
+    color: var(--base-color-2d);
+    cursor: pointer;
+    border: 1px solid var(--base-color-2d);
+    font-size: calc(var(--base-font-size) * 1);
+    border-radius: 4px;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.5s ease, color 0.5s ease, background-color 0.5s ease;
+}
+
+
+        @media (max-width: 750px) {
+.registration-wrapper .title{
+    font-size: 32px;
+    line-height: 1em;
+}
+
+.form-section h2 {
+    line-height: 1em;
+}
+            .registration-wrapper .container {
+                padding: 0 calc(var(--base-gap) * 2);
+            }
+.reg_button, .reset-btn {
+        align-self: center;
+        padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);       
+        font-size: calc(var(--base-font-size) * 0.75);
+        width: 100%;
+    }
+
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-section {
+                padding: 1.5em;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .submit-btn,
+            .reset-btn {
+                width: 100%;
+            }
+        }
+@media (any-hover: hover) {
+
+    .regisration_page:hover, .reg_button:hover {
+        color: #fff;
+        background: var(--base-color-2);
+        border-color: var(--base-color-2);
+    }
+
+    .reset-btn:hover{
+        color: #fff;
+        background: var(--base-color-2);
+        border-color: var(--base-color-2);
+    }
+}
