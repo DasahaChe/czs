@@ -16,13 +16,74 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script defer src="js/scriptMain.js"></script>
 
-    <!-- Добавляем jQuery UI для автокомплита -->
+    <!-- Добавляем jQuery UI для автокомплита и Select2 для множественного выбора -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <title>СЕЙЛ ТРЕКЕР | Регистрация компании</title>
+    <title>СЕЙЛ ТРЕКЕР | Регистрация закупщика</title>
 
+    <style>
+        /* Дополнительные стили для множественного выбора */
+        .select2-container {
+            width: 100% !important;
+        }
+
+        .select2-selection {
+            min-height: 40px !important;
+            border: 1px solid var(--item-border) !important;
+            border-radius: 8px !important;
+            padding: 5px !important;
+        }
+
+        .select2-selection__choice {
+            background-color: var(--lightBlue) !important;
+            border: 1px solid var(--base-color-1) !important;
+            border-radius: 4px !important;
+            padding: 2px 8px !important;
+            margin: 2px !important;
+        }
+
+        .select2-selection__choice__remove {
+            color: var(--error-color-4) !important;
+            margin-right: 5px !important;
+        }
+
+        .select2-selection--multiple .select2-selection__rendered {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 5px !important;
+        }
+
+        .select2-dropdown {
+            border: 1px solid var(--item-border) !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .select2-results__option--selected {
+            background-color: var(--lightBlue) !important;
+        }
+
+        .select2-results__option--highlighted {
+            background: linear-gradient(to right, var(--base-color-1), var(--base-color-2)) !important;
+            color: white !important;
+        }
+
+        /* Стили для полей с множественным выбором */
+        .multiselect-field {
+            grid-column: 1 / -1;
+        }
+
+        /* Адаптация для мобильных устройств */
+        @media (max-width: 750px) {
+            .multiselect-field {
+                grid-column: 1 / -1;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -106,19 +167,18 @@
     <main class="registration-wrapper">
         <div class="container">
             <section class="title__block">
-                <h1 class="title">Регистрация компании</h1>
+                <h1 class="title">Регистрация компании-закупщика</h1>
             </section>
 
             <form class="registration-form" id="companyRegistrationForm">
-                <!-- Секция компании -->
+                <!-- Секция идентификации и юридических данных -->
                 <section class="form-section">
-                    <h2>Компания поставщика</h2>
+                    <h2>1.1 Идентификация и юридические данные</h2>
                     <div class="form-grid">
                         <div class="form-field full-width">
-                            <label for="companyName">Название компании (юридическое) <span
+                            <label for="legalName">Юридическое наименование / группа компаний <span
                                     class="required">*</span></label>
-                            <input type="text" id="companyName" name="companyName" required autocomplete="off">
-                            <div class="loading-indicator" id="companyLoading" style="display: none;">Загрузка...</div>
+                            <input type="text" id="legalName" name="legalName" required autocomplete="off">
                         </div>
                         <div class="form-field full-width">
                             <label for="inn">ИНН <span class="required">*</span></label>
@@ -129,9 +189,170 @@
                     </div>
                 </section>
 
+                <!-- Секция бизнес-профиля компании -->
+                <section class="form-section">
+                    <h2>1.3 Бизнес‑профиль компании</h2>
+                    <div class="form-grid">
+                        <div class="form-field multiselect-field">
+                            <label for="storeFormats">Форматы сети (гипер/супер/дискаунтер/у дома/e‑com и т.д.) <span
+                                    class="required">*</span></label>
+                            <select id="storeFormats" name="storeFormats[]" multiple="multiple" required
+                                style="width: 100%;">
+                                <option value="hypermarket">Гипермаркет</option>
+                                <option value="supermarket">Супермаркет</option>
+                                <option value="discounter">Дискаунтер</option>
+                                <option value="convenience">У дома</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="cash_and_carry">Cash & Carry</option>
+                                <option value="duty_free">Duty Free</option>
+                                <option value="specialized">Специализированный магазин</option>
+                            </select>
+                            <div class="hint">Можно выбрать несколько значений</div>
+                        </div>
+                        <div class="form-field multiselect-field">
+                            <label for="procurementCategories">Категории закупок <span class="required">*</span></label>
+                            <select id="procurementCategories" name="procurementCategories[]" multiple="multiple"
+                                required style="width: 100%;">
+                                <option value="food">Продукты питания</option>
+                                <option value="beverages">Напитки</option>
+                                <option value="household">Товары для дома</option>
+                                <option value="electronics">Бытовая техника и электроника</option>
+                                <option value="clothing">Одежда и обувь</option>
+                                <option value="cosmetics">Косметика и парфюмерия</option>
+                                <option value="children">Товары для детей</option>
+                                <option value="sports">Спортивные товары</option>
+                                <option value="auto">Автотовары</option>
+                                <option value="office">Офисные принадлежности</option>
+                                <option value="furniture">Мебель</option>
+                                <option value="building">Строительные материалы</option>
+                                <option value="pharmacy">Аптека и медицинские товары</option>
+                                <option value="pet">Зоотовары</option>
+                                <option value="garden">Сад и огород</option>
+                            </select>
+                            <div class="hint">Можно выбрать несколько значений</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Секция географии и инфраструктуры -->
+                <section class="form-section">
+                    <h2>1.4 География и инфраструктура</h2>
+                    <div class="form-grid">
+                        <div class="form-field multiselect-field">
+                            <label for="geography">География присутствия (регионы/города) <span
+                                    class="required">*</span></label>
+                            <select id="geography" name="geography[]" multiple="multiple" required style="width: 100%;">
+                                <optgroup label="Федеральные округа">
+                                    <option value="msk">Москва</option>
+                                    <option value="spb">Санкт-Петербург</option>
+                                    <option value="mo">Московская область</option>
+                                    <option value="lo">Ленинградская область</option>
+                                </optgroup>
+                                <optgroup label="Центральный ФО">
+                                    <option value="belgorod">Белгородская область</option>
+                                    <option value="bryansk">Брянская область</option>
+                                    <option value="vladimir">Владимирская область</option>
+                                    <option value="voronezh">Воронежская область</option>
+                                    <option value="ivanovo">Ивановская область</option>
+                                    <option value="kaluga">Калужская область</option>
+                                    <option value="kostroma">Костромская область</option>
+                                    <option value="kursk">Курская область</option>
+                                    <option value="lipetsk">Липецкая область</option>
+                                    <option value="orel">Орловская область</option>
+                                    <option value="ryazan">Рязанская область</option>
+                                    <option value="smolensk">Смоленская область</option>
+                                    <option value="tambov">Тамбовская область</option>
+                                    <option value="tver">Тверская область</option>
+                                    <option value="tula">Тульская область</option>
+                                    <option value="yaroslavl">Ярославская область</option>
+                                </optgroup>
+                                <optgroup label="Северо-Западный ФО">
+                                    <option value="karelia">Республика Карелия</option>
+                                    <option value="komi">Республика Коми</option>
+                                    <option value="arkhangelsk">Архангельская область</option>
+                                    <option value="vologda">Вологодская область</option>
+                                    <option value="kaliningrad">Калининградская область</option>
+                                    <option value="murmansk">Мурманская область</option>
+                                    <option value="novgorod">Новгородская область</option>
+                                    <option value="pskov">Псковская область</option>
+                                </optgroup>
+                                <optgroup label="Южный ФО">
+                                    <option value="adygea">Республика Адыгея</option>
+                                    <option value="kalmykia">Республика Калмыкия</option>
+                                    <option value="krasnodar">Краснодарский край</option>
+                                    <option value="astrakhan">Астраханская область</option>
+                                    <option value="volgograd">Волгоградская область</option>
+                                    <option value="rostov">Ростовская область</option>
+                                    <option value="crimea">Республика Крым</option>
+                                    <option value="sevastopol">Севастополь</option>
+                                </optgroup>
+                                <optgroup label="Северо-Кавказский ФО">
+                                    <option value="dagestan">Республика Дагестан</option>
+                                    <option value="ingushetia">Республика Ингушетия</option>
+                                    <option value="kabardino">Кабардино-Балкарская Республика</option>
+                                    <option value="karachay">Карачаево-Черкесская Республика</option>
+                                    <option value="ossetia">Республика Северная Осетия-Алания</option>
+                                    <option value="chechnya">Чеченская Республика</option>
+                                    <option value="stavropol">Ставропольский край</option>
+                                </optgroup>
+                                <optgroup label="Приволжский ФО">
+                                    <option value="bashkortostan">Республика Башкортостан</option>
+                                    <option value="mari">Республика Марий Эл</option>
+                                    <option value="mordovia">Республика Мордовия</option>
+                                    <option value="tatarstan">Республика Татарстан</option>
+                                    <option value="udmurtia">Удмуртская Республика</option>
+                                    <option value="chuvashia">Чувашская Республика</option>
+                                    <option value="kirov">Кировская область</option>
+                                    <option value="nizhny">Нижегородская область</option>
+                                    <option value="orenburg">Оренбургская область</option>
+                                    <option value="penza">Пензенская область</option>
+                                    <option value="perm">Пермский край</option>
+                                    <option value="samara">Самарская область</option>
+                                    <option value="saratov">Саратовская область</option>
+                                    <option value="ulyanovsk">Ульяновская область</option>
+                                </optgroup>
+                                <optgroup label="Уральский ФО">
+                                    <option value="kurgan">Курганская область</option>
+                                    <option value="sverdlovsk">Свердловская область</option>
+                                    <option value="tyumen">Тюменская область</option>
+                                    <option value="chelyabinsk">Челябинская область</option>
+                                    <option value="khanty">Ханты-Мансийский АО</option>
+                                    <option value="yamal">Ямало-Ненецкий АО</option>
+                                </optgroup>
+                                <optgroup label="Сибирский ФО">
+                                    <option value="altai">Республика Алтай</option>
+                                    <option value="tyva">Республика Тыва</option>
+                                    <option value="khakassia">Республика Хакасия</option>
+                                    <option value="altai_krai">Алтайский край</option>
+                                    <option value="krasnoyarsk">Красноярский край</option>
+                                    <option value="irkutsk">Иркутская область</option>
+                                    <option value="kemerovo">Кемеровская область</option>
+                                    <option value="novosibirsk">Новосибирская область</option>
+                                    <option value="omsk">Омская область</option>
+                                    <option value="tomsk">Томская область</option>
+                                </optgroup>
+                                <optgroup label="Дальневосточный ФО">
+                                    <option value="buryatia">Республика Бурятия</option>
+                                    <option value="sakha">Республика Саха (Якутия)</option>
+                                    <option value="zabaykalsk">Забайкальский край</option>
+                                    <option value="kamchatka">Камчатский край</option>
+                                    <option value="primorsky">Приморский край</option>
+                                    <option value="khabarovsk">Хабаровский край</option>
+                                    <option value="amur">Амурская область</option>
+                                    <option value="magadan">Магаданская область</option>
+                                    <option value="sakhalin">Сахалинская область</option>
+                                    <option value="jewish">Еврейская автономная область</option>
+                                    <option value="chukotka">Чукотский АО</option>
+                                </optgroup>
+                            </select>
+                            <div class="hint">Можно выбрать несколько регионов</div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Секция сотрудников (только один сотрудник) -->
                 <section class="form-section">
-                    <h2>Сотрудник</h2>
+                    <h2>2. Сотрудники</h2>
                     <div class="employee-card">
                         <div class="form-grid">
                             <div class="form-field">
@@ -152,27 +373,98 @@
                                 <input type="tel" id="employee_phone" name="employee_phone" required
                                     placeholder="+7 (___) ___-__-__">
                             </div>
-                            <div class="form-field">
+                            <div class="form-field multiselect-field">
                                 <label for="employee_category">Категории ответственности <span
                                         class="required">*</span></label>
-                                <select id="employee_category" name="employee_category" required>
-                                    <option value="">Выберите категорию</option>
-                                    <option value="category1">Категория 1</option>
-                                    <option value="category2">Категория 2</option>
-                                    <option value="category3">Категория 3</option>
-                                    <option value="category4">Категория 4</option>
+                                <select id="employee_category" name="employee_category[]" multiple="multiple" required
+                                    style="width: 100%;">
+                                    <option value="food">Продукты питания</option>
+                                    <option value="beverages">Напитки</option>
+                                    <option value="household">Товары для дома</option>
+                                    <option value="electronics">Бытовая техника и электроника</option>
+                                    <option value="clothing">Одежда и обувь</option>
+                                    <option value="cosmetics">Косметика и парфюмерия</option>
+                                    <option value="children">Товары для детей</option>
+                                    <option value="sports">Спортивные товары</option>
+                                    <option value="auto">Автотовары</option>
+                                    <option value="office">Офисные принадлежности</option>
+                                    <option value="furniture">Мебель</option>
+                                    <option value="building">Строительные материалы</option>
+                                    <option value="pharmacy">Аптека и медицинские товары</option>
+                                    <option value="pet">Зоотовары</option>
+                                    <option value="garden">Сад и огород</option>
                                 </select>
+                                <div class="hint">Можно выбрать несколько категорий</div>
                             </div>
-                            <div class="form-field">
+                            <div class="form-field multiselect-field">
                                 <label for="employee_region">Регионы ответственности <span
                                         class="required">*</span></label>
-                                <select id="employee_region" name="employee_region" required>
-                                    <option value="">Выберите регион</option>
-                                    <option value="region1">Москва и область</option>
-                                    <option value="region2">Санкт-Петербург и ЛО</option>
-                                    <option value="region3">Центральный федеральный округ</option>
-                                    <option value="region4">Сибирский федеральный округ</option>
+                                <select id="employee_region" name="employee_region[]" multiple="multiple" required
+                                    style="width: 100%;">
+                                    <optgroup label="Федеральные округа">
+                                        <option value="msk">Москва</option>
+                                        <option value="spb">Санкт-Петербург</option>
+                                        <option value="mo">Московская область</option>
+                                        <option value="lo">Ленинградская область</option>
+                                    </optgroup>
+                                    <optgroup label="Центральный ФО">
+                                        <option value="belgorod">Белгородская область</option>
+                                        <option value="bryansk">Брянская область</option>
+                                        <option value="vladimir">Владимирская область</option>
+                                        <option value="voronezh">Воронежская область</option>
+                                        <option value="ivanovo">Ивановская область</option>
+                                        <option value="kaluga">Калужская область</option>
+                                        <option value="kostroma">Костромская область</option>
+                                        <option value="kursk">Курская область</option>
+                                        <option value="lipetsk">Липецкая область</option>
+                                        <option value="orel">Орловская область</option>
+                                        <option value="ryazan">Рязанская область</option>
+                                        <option value="smolensk">Смоленская область</option>
+                                        <option value="tambov">Тамбовская область</option>
+                                        <option value="tver">Тверская область</option>
+                                        <option value="tula">Тульская область</option>
+                                        <option value="yaroslavl">Ярославская область</option>
+                                    </optgroup>
+                                    <optgroup label="Северо-Западный ФО">
+                                        <option value="karelia">Республика Карелия</option>
+                                        <option value="komi">Республика Коми</option>
+                                        <option value="arkhangelsk">Архангельская область</option>
+                                        <option value="vologda">Вологодская область</option>
+                                        <option value="kaliningrad">Калининградская область</option>
+                                        <option value="murmansk">Мурманская область</option>
+                                        <option value="novgorod">Новгородская область</option>
+                                        <option value="pskov">Псковская область</option>
+                                    </optgroup>
+                                    <optgroup label="Южный ФО">
+                                        <option value="adygea">Республика Адыгея</option>
+                                        <option value="kalmykia">Республика Калмыкия</option>
+                                        <option value="krasnodar">Краснодарский край</option>
+                                        <option value="astrakhan">Астраханская область</option>
+                                        <option value="volgograd">Волгоградская область</option>
+                                        <option value="rostov">Ростовская область</option>
+                                    </optgroup>
+                                    <optgroup label="Приволжский ФО">
+                                        <option value="bashkortostan">Республика Башкортостан</option>
+                                        <option value="tatarstan">Республика Татарстан</option>
+                                        <option value="nizhny">Нижегородская область</option>
+                                        <option value="samara">Самарская область</option>
+                                    </optgroup>
+                                    <optgroup label="Уральский ФО">
+                                        <option value="sverdlovsk">Свердловская область</option>
+                                        <option value="chelyabinsk">Челябинская область</option>
+                                        <option value="tyumen">Тюменская область</option>
+                                    </optgroup>
+                                    <optgroup label="Сибирский ФО">
+                                        <option value="novosibirsk">Новосибирская область</option>
+                                        <option value="krasnoyarsk">Красноярский край</option>
+                                        <option value="irkutsk">Иркутская область</option>
+                                    </optgroup>
+                                    <optgroup label="Дальневосточный ФО">
+                                        <option value="primorsky">Приморский край</option>
+                                        <option value="khabarovsk">Хабаровский край</option>
+                                    </optgroup>
                                 </select>
+                                <div class="hint">Можно выбрать несколько регионов</div>
                             </div>
                         </div>
                     </div>
@@ -180,12 +472,10 @@
 
                 <!-- Кнопки действий -->
                 <div class="form-actions">
-                    <button type="submit" class="reg_button">Зарегистрировать компанию</button>
+                    <button type="submit" class="reg_button">Зарегистрироваться</button>
                     <button type="reset" class="reset-btn">Очистить форму</button>
                 </div>
             </form>
-
-
         </div>
     </main>
 
@@ -200,7 +490,6 @@
                 <div class="footer__block-contact">
                     <p>saletracker.ru@gmail.com</p>
                     <a href="tel:+79213080573" class="footer__link clickable-phone">+7 921 308 0573</a>
-
                 </div>
                 <div class="footer__block-icon">
                     <a class="footer__link" href="https://t.me/czs_ru">
@@ -227,6 +516,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Инициализация Select2 для всех полей с множественным выбором
+            $('select[multiple]').select2({
+                placeholder: 'Выберите значения',
+                allowClear: true,
+                width: '100%',
+                language: {
+                    noResults: function () {
+                        return "Ничего не найдено";
+                    }
+                }
+            });
+
             // База данных компаний (имитация)
             const companiesDatabase = [
                 {
@@ -273,9 +574,8 @@
                 }
             ];
 
-            const companyNameInput = document.getElementById('companyName');
+            const legalNameInput = document.getElementById('legalName');
             const innInput = document.getElementById('inn');
-            const companyLoading = document.getElementById('companyLoading');
 
             // Функция для поиска компании по ИНН
             function findCompanyByINN(inn) {
@@ -291,7 +591,7 @@
             }
 
             // Настройка автокомплита для названия компании
-            $(companyNameInput).autocomplete({
+            $(legalNameInput).autocomplete({
                 source: function (request, response) {
                     const companies = findCompaniesByName(request.term);
                     response(companies.map(company => ({
@@ -308,11 +608,10 @@
                     // При выборе компании из списка заполняем ИНН
                     innInput.value = ui.item.inn;
 
-                    // Можно также сохранить дополнительные данные
-                    companyNameInput.dataset.selectedInn = ui.item.inn;
-                    companyNameInput.dataset.companyAddress = ui.item.address;
+                    // Сохраняем дополнительные данные
+                    legalNameInput.dataset.selectedInn = ui.item.inn;
+                    legalNameInput.dataset.companyAddress = ui.item.address;
 
-                    // Показываем уведомление (опционально)
                     console.log('Выбрана компания:', ui.item);
                 },
                 open: function () {
@@ -335,10 +634,7 @@
             innInput.addEventListener('input', function () {
                 const inn = this.value.trim();
 
-                // Показываем индикатор загрузки
                 if (inn.length >= 4) {
-                    companyLoading.style.display = 'block';
-
                     // Очищаем предыдущий таймаут
                     clearTimeout(innTimeout);
 
@@ -348,17 +644,13 @@
 
                         if (company) {
                             // Если компания найдена, заполняем название
-                            companyNameInput.value = company.name;
-                            companyNameInput.dataset.selectedInn = company.inn;
+                            legalNameInput.value = company.name;
+                            legalNameInput.dataset.selectedInn = company.inn;
 
                             // Показываем уведомление
                             alert(`Найдена компания: ${company.name}\nАдрес: ${company.address}`);
                         }
-
-                        companyLoading.style.display = 'none';
-                    }, 500); // Имитация задержки сервера
-                } else {
-                    companyLoading.style.display = 'none';
+                    }, 500);
                 }
             });
 
@@ -370,24 +662,13 @@
                 }
             });
 
-            // Обработка потери фокуса для ИНН
-            innInput.addEventListener('blur', function () {
-                const inn = this.value.trim();
-                if (inn.length >= 4) {
-                    const company = findCompanyByINN(inn);
-                    if (company && !companyNameInput.value) {
-                        companyNameInput.value = company.name;
-                    }
-                }
-            });
-
             // Обработка отправки формы
             document.getElementById('companyRegistrationForm').addEventListener('submit', function (e) {
                 e.preventDefault();
 
                 // Проверяем, что ИНН и название компании соответствуют друг другу
                 const inn = innInput.value.trim();
-                const companyName = companyNameInput.value.trim();
+                const companyName = legalNameInput.value.trim();
 
                 if (inn && companyName) {
                     const companyByINN = findCompanyByINN(inn);
@@ -406,27 +687,38 @@
                     }
                 }
 
-                // Здесь можно добавить валидацию и отправку данных
+                // Собираем данные формы
                 const formData = new FormData(this);
-                const data = {};
 
+                // Для select multiple значения приходят как массив, преобразуем в строку для отображения
+                const data = {};
                 for (let [key, value] of formData.entries()) {
-                    data[key] = value;
+                    if (key.endsWith('[]')) {
+                        if (!data[key]) {
+                            data[key] = [];
+                        }
+                        data[key].push(value);
+                    } else {
+                        data[key] = value;
+                    }
                 }
 
                 console.log('Данные формы:', data);
                 alert('Форма отправлена (проверьте консоль для просмотра данных)');
 
                 // Здесь будет реальная отправка на сервер
-                // fetch('/api/register-company', { method: 'POST', body: formData })
+                // fetch('/api/register-buyer', { method: 'POST', body: formData })
             });
 
             // Обработка сброса формы
             document.getElementById('companyRegistrationForm').addEventListener('reset', function () {
                 // Очищаем поля компании
-                companyNameInput.value = '';
+                legalNameInput.value = '';
                 innInput.value = '';
-                delete companyNameInput.dataset.selectedInn;
+                delete legalNameInput.dataset.selectedInn;
+
+                // Сбрасываем select2 поля
+                $('select[multiple]').val(null).trigger('change');
             });
         });
     </script>

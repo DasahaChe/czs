@@ -49,7 +49,7 @@
     height: 100%;
     margin-bottom: auto;
     justify-content: space-between;
-    background: linear-gradient(135deg, var(--lightBlue) 20%, var(--base-color-6) 105%);
+    background: linear-gradient(135deg, var(--lightBlue) 20%, #d3ecff 105%);
     box-shadow: 0 0 10px rgba(73, 73, 77, 0.2);
     background-clip: padding-box;
     position: relative;
