@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/chart-styles.css">
+  <link rel="stylesheet" href="css/bid.css">
 </head>
 
 <body>
@@ -218,8 +218,244 @@
 
       <!-- CONTENT -->
       <main class="content">
-        <h1 class="page-title">Заявки</h1>
-  
+        <h1 class="page-title">Мои заявки</h1>
+
+        <!-- Фильтры заявок -->
+        <div class="requests-filter">
+          <a href="#" class="requests-filter__link requests-filter__link--active">Все</a>
+          <a href="#" class="requests-filter__link">Открытые</a>
+          <a href="#" class="requests-filter__link">Черновики</a>
+          <a href="#" class="requests-filter__link">Закрытые</a>
+        </div>
+
+        <!-- Список заявок -->
+        <div class="requests-list">
+          <!-- Заявка 1: Печенье Курабье -->
+          <div class="request-card request-card--active">
+            <div class="request-card__header">
+              <h2 class="request-card__title">Печенье «Курабье» 200 г</h2>
+              <span class="request-card__category">Кондитерские изделия / Печенье</span>
+            </div>
+
+            <div class="request-card__content">
+              <div class="request-card__info">
+                <div class="request-card__regions">
+                  <span class="request-card__region">ЦФО</span>
+                  <span class="request-card__region">ПФО</span>
+                </div>
+                <div class="request-card__details">
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Объем:</span>
+                    <span class="request-card__detail-value">От 10.000 кг</span>
+                  </div>
+                  <div class="request-card__detail request-card__detail--deadline">
+                    <span class="request-card__detail-label">Дедлайн:</span>
+                    <span class="request-card__detail-value">15 марта</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="request-card__stats">
+                <div class="request-stats">
+                  <div class="request-stats__item">
+                    <span class="request-stats__label">Отклик:</span>
+                    <span class="request-stats__value">5</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--new">
+                    <span class="request-stats__label">Новых откликов:</span>
+                    <span class="request-stats__value">2</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--activity">
+                    <span class="request-stats__label">Последняя активность:</span>
+                    <span class="request-stats__value">Сегодня, 14:20</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__actions">
+              <button class="request-card__btn request-card__btn--primary">Смотреть отклики</button>
+              <button class="request-card__btn request-card__btn--secondary">Редактировать</button>
+            </div>
+          </div>
+
+          <!-- Заявка 2: Печенье овсяное -->
+          <div class="request-card request-card--active">
+            <div class="request-card__header">
+              <h2 class="request-card__title">Печенье овсяное 300–400 г</h2>
+              <span class="request-card__category">Кондитерские изделия / Печенье</span>
+            </div>
+
+            <div class="request-card__content">
+              <div class="request-card__info">
+                <div class="request-card__regions">
+                  <span class="request-card__region">ЦФО</span>
+                  <span class="request-card__region">СЗФО</span>
+                  <span class="request-card__region">ЮФО</span>
+                </div>
+                <div class="request-card__details">
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Объем:</span>
+                    <span class="request-card__detail-value">От 50.000 упаковок</span>
+                  </div>
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Цена:</span>
+                    <span class="request-card__detail-value">60–100 ₽/упаковка</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="request-card__stats">
+                <div class="request-stats">
+                  <div class="request-stats__item">
+                    <span class="request-stats__label">Отклик:</span>
+                    <span class="request-stats__value">8</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--new">
+                    <span class="request-stats__label">Новых откликов:</span>
+                    <span class="request-stats__value">3</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--activity">
+                    <span class="request-stats__label">Последняя активность:</span>
+                    <span class="request-stats__value">Сегодня, 13:45</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__actions">
+              <button class="request-card__btn request-card__btn--primary">Смотреть отклики</button>
+              <button class="request-card__btn request-card__btn--secondary">Редактировать</button>
+            </div>
+          </div>
+
+          <!-- Заявка 3: Чай черный пакетированный 25–100 шт -->
+          <div class="request-card">
+            <div class="request-card__header">
+              <h2 class="request-card__title">Чай черный пакетированный 25–100 шт</h2>
+              <span class="request-card__category">Чай, кофе / Чай</span>
+            </div>
+
+            <div class="request-card__content">
+              <div class="request-card__info">
+                <div class="request-card__regions">
+                  <span class="request-card__region">ЦФО</span>
+                </div>
+                <div class="request-card__details">
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Объем:</span>
+                    <span class="request-card__detail-value">От 10.000 упаковок</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="request-card__stats">
+                <div class="request-stats">
+                  <div class="request-stats__item">
+                    <span class="request-stats__label">Ориентир:</span>
+                    <span class="request-stats__value">6</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--activity">
+                    <span class="request-stats__label">Последняя активность:</span>
+                    <span class="request-stats__value">Сегодня, 13:45</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__actions">
+              <button class="request-card__btn request-card__btn--primary">Смотреть отклики</button>
+              <button class="request-card__btn request-card__btn--secondary">Редактировать</button>
+            </div>
+          </div>
+
+          <!-- Заявка 4: Чай черный пакетированный 25–100 гр -->
+          <div class="request-card">
+            <div class="request-card__header">
+              <h2 class="request-card__title">Чай черный пакетированный 25–100 гр</h2>
+              <span class="request-card__category">Чай, кофе / Чай</span>
+            </div>
+
+            <div class="request-card__content">
+              <div class="request-card__info">
+                <div class="request-card__regions">
+                  <span class="request-card__region">ПФО</span>
+                </div>
+                <div class="request-card__details">
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Объем:</span>
+                    <span class="request-card__detail-value">От 10.000 упаковок</span>
+                  </div>
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Цена:</span>
+                    <span class="request-card__detail-value">до 950 ₽</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="request-card__stats">
+                <div class="request-stats">
+                  <div class="request-stats__item request-stats__item--activity">
+                    <span class="request-stats__label">Последняя активность:</span>
+                    <span class="request-stats__value">17 апр, 11:15</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__actions">
+              <button class="request-card__btn request-card__btn--primary">Смотреть отклики</button>
+              <button class="request-card__btn request-card__btn--secondary">Редактировать</button>
+            </div>
+          </div>
+
+          <!-- Заявка 5: Шоколад молочный -->
+          <div class="request-card request-card--deadline">
+            <div class="request-card__header">
+              <h2 class="request-card__title">Шоколад, молочный плитка 90–100 г</h2>
+              <span class="request-card__category">Кондитерские изделия / Шоколад</span>
+            </div>
+
+            <div class="request-card__content">
+              <div class="request-card__info">
+                <div class="request-card__regions">
+                  <span class="request-card__region">ЦФО</span>
+                </div>
+                <div class="request-card__details">
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Объем:</span>
+                    <span class="request-card__detail-value">От 23.000 литров</span>
+                  </div>
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Цена:</span>
+                    <span class="request-card__detail-value">до 95 ₽/литр</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="request-card__stats">
+                <div class="request-stats">
+                  <div class="request-stats__item">
+                    <span class="request-stats__label">Отклик:</span>
+                    <span class="request-stats__value">11</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--activity">
+                    <span class="request-stats__label">Последняя активность:</span>
+                    <span class="request-stats__value">17 апр, 11:15</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--deadline">
+                    <span class="request-stats__label">Дедлайн</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__actions">
+              <button class="request-card__btn request-card__btn--primary">Смотреть отклики</button>
+              <button class="request-card__btn request-card__btn--secondary">Редактировать</button>
+            </div>
+          </div>
+        </div>
       </main>
 
       <aside class="banners">
@@ -264,7 +500,7 @@
     </footer>
   </div>
 
-  
+
 
 
 </body>

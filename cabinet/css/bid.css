@@ -1,0 +1,328 @@
+/* ==========================================================================
+   Мои заявки
+   ========================================================================== */
+
+/* Фильтры заявок */
+.requests-filter {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+.requests-filter__link {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 4px 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.requests-filter__link:hover {
+    color: var(--blue-900);
+}
+
+.requests-filter__link--active {
+    color: var(--blue-900);
+    font-weight: 600;
+}
+
+.requests-filter__link--active::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--blue-900);
+    border-radius: 3px 3px 0 0;
+}
+
+/* Список заявок */
+.requests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Карточка заявки */
+.request-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.request-card:hover {
+    box-shadow: 0 8px 24px rgba(11, 99, 168, 0.12);
+    border-color: var(--blue-900);
+    transform: translateY(-2px);
+}
+
+.request-card--active {
+    border-left: 4px solid var(--blue-900);
+    background: linear-gradient(to right, rgba(230, 244, 255, 0.3), #fff);
+}
+
+.request-card--deadline {
+    border-left: 4px solid var(--danger);
+    background: linear-gradient(to right, rgba(211, 47, 47, 0.05), #fff);
+}
+
+.request-card__header {
+    margin-bottom: 16px;
+}
+
+.request-card__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 4px;
+}
+
+.request-card__category {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.request-card__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.request-card__info {
+    flex: 2;
+    min-width: 280px;
+}
+
+.request-card__regions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.request-card__region {
+    background: var(--lightBlue);
+    color: var(--blue-900);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.request-card__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.request-card__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.request-card__detail--deadline .request-card__detail-value {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+.request-card__detail-label {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.request-card__detail-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--dark);
+}
+
+/* Статистика заявки */
+.request-card__stats {
+    flex: 1;
+    min-width: 240px;
+    width: 100%;
+    background: var(--lightBlue);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.request-stats {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.request-stats__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    padding: 4px 0;
+    border-bottom: 1px dashed rgba(11, 99, 168, 0.2);
+}
+
+.request-stats__item:last-child {
+    border-bottom: none;
+}
+
+.request-stats__item--new .request-stats__value {
+    color: var(--blue-900);
+    font-weight: 700;
+    background: rgba(11, 99, 168, 0.1);
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.request-stats__item--activity .request-stats__value {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.request-stats__item--deadline {
+    background: var(--danger-soft);
+    border-radius: 20px;
+    padding: 4px 12px;
+    justify-content: center;
+}
+
+.request-stats__item--deadline .request-stats__label {
+    color: var(--danger);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.request-stats__label {
+    color: var(--muted);
+}
+
+.request-stats__value {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* Действия с заявкой */
+.request-card__actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
+
+.request-card__btn {
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.request-card__btn--primary {
+    background: var(--blue-900);
+    color: white;
+}
+
+.request-card__btn--primary:hover {
+    background: #0a5490;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 99, 168, 0.3);
+}
+
+.request-card__btn--secondary {
+    background: transparent;
+    border: 1px solid var(--blue-900);
+    color: var(--blue-900);
+}
+
+.request-card__btn--secondary:hover {
+    background: var(--lightBlue);
+    transform: translateY(-2px);
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .request-card__content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .request-card__info,
+    .request-card__stats {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 32px;
+    }
+    
+    .requests-filter {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    
+    .requests-filter__link {
+        font-size: 15px;
+    }
+    
+    .request-card {
+        padding: 20px;
+    }
+    
+    .request-card__title {
+        font-size: 18px;
+    }
+    
+    .request-card__details {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .request-card__actions {
+        flex-direction: column;
+    }
+    
+    .request-card__btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .requests-filter {
+        gap: 12px;
+    }
+    
+    .requests-filter__link {
+        font-size: 14px;
+    }
+    
+    .request-card__regions {
+        gap: 6px;
+    }
+    
+    .request-card__region {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+    
+    .request-stats__item {
+        font-size: 13px;
+    }
+}

@@ -1,14 +1,97 @@
 /* ==========================================================================
-   Витрина желаний
+   CSS Variables & Reset (уже есть в вашем основном файле)
    ========================================================================== */
+
+/* ==========================================================================
+   ОБЩИЕ КОМПОНЕНТЫ (Shared Components)
+   ========================================================================== */
+
+/* Поиск и фильтры */
+.search-group {
+    width: 100%;
+}
+
+.search__select {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--lightGrey);
+    border-radius: 4px;
+    padding: 0 34px 0 12px;
+    outline: none;
+    background: #fff;
+}
+
+.search__input-vit {
+    min-height: 48px;
+}
+
+.search__btn-vit {
+    top: 84%;
+}
+
+.search__block {
+    display: flex;
+    margin: 32px 0 16px 0;
+    gap: 16px;
+}
+
+.search-span {
+    font-weight: 700;
+    color: #000;
+}
+
+/* Кнопки */
+.btn-blue {
+    max-width: 100px;
+}
+
+.btn-vit {
+    border-color: var(--blue-900);
+    background: var(--lightBlue);
+}
+
+/* Текстовые утилиты */
+.blue {
+    color: var(--blue-900);
+}
+
+/* Информационные ссылки */
+.info-links {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.info-link {
+    font-size: 16px;
+    color: var(--blue-900);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.info-link:hover {
+    color: var(--dark);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   ВИТРИНА ЖЕЛАНИЙ (Wishlist Page)
+   ========================================================================== */
+
+/* Поиск категорий */
 .category-search {
     margin-bottom: 32px;
 }
 
 .category-search__label {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--dark);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     line-height: 1.4;
 }
 
@@ -17,23 +100,25 @@
     max-width: 400px;
 }
 
+/* Заголовок раздела категорий */
 .categories-section__title {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 500;
     color: var(--blue-900);
     margin-bottom: 24px;
 }
 
+/* Группа категорий */
 .category-group {
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .category-group__header {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .category-group__title {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--dark);
     position: relative;
@@ -58,6 +143,7 @@
     gap: 8px;
 }
 
+/* Элемент категории */
 .category-item {
     display: flex;
     align-items: center;
@@ -80,7 +166,7 @@
 }
 
 .category-item__name {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--dark);
 }
@@ -92,7 +178,7 @@
     background: transparent;
     border: none;
     color: var(--blue-900);
-    font-size: 13px;
+    font-size: 16px;
     cursor: pointer;
     padding: 4px 8px;
     border-radius: 4px;
@@ -104,43 +190,41 @@
 }
 
 .category-item__add-icon {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 600;
     line-height: 1;
 }
 
-.request-card {
-    margin-left: 16px;
-    background: linear-gradient(135deg, var(--blue-900) 0%, #0a7ab3 100%);
-    border-radius: 16px;
+/* Карточка открытых категорий */
+.open-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    background: linear-gradient(135deg, var(--darkBlue), #a9e6f5);
+    border-radius: 8px;
     padding: 24px 20px;
     color: white;
     box-shadow: 0 8px 24px rgba(11, 99, 168, 0.25);
 }
 
-.request-card__title {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 12px;
+.request {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.request-card__text {
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    opacity: 0.9;
-}
-
+/* Кнопка создания заявки */
 .btn-request {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     background: white;
     border: none;
-    border-radius: 40px;
+    border-radius: 8px;
     padding: 12px 24px;
     color: var(--blue-900);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -164,31 +248,329 @@
     transform: translateX(4px);
 }
 
-.info-links {
+/* ==========================================================================
+   МОИ ЗАЯВКИ (My Requests Page)
+   ========================================================================== */
+
+/* Фильтры заявок */
+.requests-filter {
     display: flex;
     gap: 24px;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
+    margin-bottom: 32px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
 }
 
-.info-link {
-    font-size: 14px;
-    color: var(--blue-900);
+.requests-filter__link {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--muted);
     text-decoration: none;
+    padding: 4px 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.requests-filter__link:hover {
+    color: var(--blue-900);
+}
+
+.requests-filter__link--active {
+    color: var(--blue-900);
+    font-weight: 600;
+}
+
+.requests-filter__link--active::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--blue-900);
+    border-radius: 3px 3px 0 0;
+}
+
+/* Список заявок */
+.requests-list {
     display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.2s ease;
+    flex-direction: column;
+    gap: 24px;
 }
 
-.info-link:hover {
+/* Карточка заявки (базовые стили) */
+.request-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.request-card:hover {
+    box-shadow: 0 8px 24px rgba(11, 99, 168, 0.12);
+    border-color: var(--blue-900);
+    transform: translateY(-2px);
+}
+
+/* Модификаторы карточки */
+.request-card--active {
+    border-left: 4px solid var(--blue-900);
+    background: linear-gradient(to right, rgba(230, 244, 255, 0.3), #fff);
+}
+
+.request-card--deadline {
+    border-left: 4px solid var(--danger);
+    background: linear-gradient(to right, rgba(211, 47, 47, 0.05), #fff);
+}
+
+/* Шапка карточки */
+.request-card__header {
+    margin-bottom: 16px;
+}
+
+.request-card__category {
+    font-size: 24px;
+    font-weight: 600;
     color: var(--dark);
-    text-decoration: underline;
+    margin-bottom: 16px;
 }
 
-/* Адаптивность */
+.request-card__subcategory {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* Контент карточки */
+.request-card__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.request-card__info {
+    flex: 2;
+    min-width: 280px;
+}
+
+/* Регионы и предложения */
+.request-card__regions,
+.request-card__proposals {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.request-card__proposals {
+    font-size: 16px;
+    flex-direction: column;
+}
+
+.request-card__region {
+    background: var(--lightBlue);
+    color: var(--blue-900);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.request-card__proposal,
+.request-card__newPoposal {
+    font-weight: 600;
+    color: #000;
+}
+
+.poposal {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.request-proposal {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+}
+
+/* Детали заявки */
+.request-card__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.request-card__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.request-card__detail--deadline .request-card__detail-value {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+.request-card__detail-label {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.request-card__detail-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--dark);
+}
+
+/* Статистика заявки */
+.request-card__stats {
+    flex: 1;
+    min-width: 240px;
+    width: 100%;
+    background: var(--lightBlue);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.request-stats {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.request-stats__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-size: 16px;
+    padding: 4px 0;
+    border-bottom: 1px dashed rgba(11, 99, 168, 0.2);
+}
+
+.request-stats__item:last-child {
+    border-bottom: none;
+}
+
+.request-stats__item--new .request-stats__value {
+    color: var(--blue-900);
+    font-weight: 700;
+    background: rgba(11, 99, 168, 0.1);
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.request-stats__item--activity .request-stats__value {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.request-stats__item--deadline {
+    background: var(--danger-soft);
+    border-radius: 8px;
+    padding: 4px 12px;
+    justify-content: center;
+}
+
+.request-stats__item--deadline .request-stats__label {
+    color: var(--danger);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.request-stats__label {
+    color: var(--muted);
+}
+
+.request-stats__value {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* Действия с заявкой */
+.request-card__actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
+
+.request-card__btn {
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.request-card__btn--primary {
+    background: var(--blue-900);
+    color: white;
+}
+
+.request-card__btn--primary:hover {
+    background: #0a5490;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 99, 168, 0.3);
+}
+
+.request-card__btn--secondary {
+    background: transparent;
+    border: 1px solid var(--blue-900);
+    color: var(--blue-900);
+}
+
+.request-card__btn--secondary:hover {
+    background: var(--lightBlue);
+    transform: translateY(-2px);
+}
+
+
+
+.categories-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Расстояние между карточками */
+    margin-top: 24px;
+}
+.open-card {
+    margin-top: 20px; /* Отступ сверху внутри карточки */
+}
+
+/* ==========================================================================
+   АДАПТИВНОСТЬ (Media Queries)
+   ========================================================================== */
+
+/* Планшеты и средние экраны */
+@media (max-width: 1024px) {
+    .request-card__content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .request-card__info,
+    .request-card__stats {
+        width: 100%;
+    }
+}
+
+/* Мобильные устройства (до 768px) */
 @media (max-width: 768px) {
+    /* Общие */
+    .page-title {
+        font-size: 32px;
+    }
+    
+    /* Витрина */
     .category-group__title {
         font-size: 18px;
     }
@@ -211,11 +593,52 @@
         flex-direction: column;
         gap: 12px;
     }
+    
+    /* Мои заявки */
+    .requests-filter {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    
+    .requests-filter__link {
+        font-size: 15px;
+    }
+    
+    .request-card {
+        padding: 20px;
+    }
+    
+    .request-card__title {
+        font-size: 18px;
+    }
+    
+    .request-card__details {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .request-card__actions {
+        flex-direction: column;
+    }
+    
+    .request-card__btn {
+        width: 100%;
+        text-align: center;
+    }
+
+        .categories-section {
+        gap: 16px;
+    }
+    .open-card {
+        margin-top: 16px;
+    }
 }
 
+/* Маленькие мобильные устройства (до 480px) */
 @media (max-width: 480px) {
+    /* Витрина */
     .category-search__label {
-        font-size: 13px;
+        font-size: 12px;
     }
     
     .categories-section__title {
@@ -223,7 +646,7 @@
     }
     
     .category-item__name {
-        font-size: 14px;
+        font-size: 12px;
     }
     
     .category-item__add {
@@ -232,6 +655,34 @@
     
     .btn-request {
         padding: 10px 20px;
+        font-size: 16px;
+    }
+    
+    /* Мои заявки */
+    .requests-filter {
+        gap: 12px;
+    }
+    
+    .requests-filter__link {
         font-size: 14px;
     }
+    
+    .request-card__regions {
+        gap: 6px;
+    }
+    
+    .request-card__region {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+    
+    .request-stats__item {
+        font-size: 12px;
+    }
+
+        .categories-section {
+        gap: 12px;
+    }
 }
+
+
