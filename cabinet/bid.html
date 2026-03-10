@@ -271,46 +271,82 @@
 
         <!-- Список заявок -->
         <div class="requests-list">
-          <!-- Заявка 1: Печенье Курабье -->
+          <!-- Карточка 1: Кондитерские изделия / Печенье (Конфета) -->
           <div class="request-card request-card--active">
             <div class="request-card__header">
               <div class="request-card__header-left">
-                <h2 class="request-card__title">Печенье «Курабье» 200 г</h2>
+                <div class="request-card__title-wrapper">
+                  <svg class="request-card__category-icon" viewBox="0 0 20 20" fill="currentColor"
+                    style="color: #0B63A8;">
+                    <circle cx="10" cy="10" r="6" fill="#0B63A8" />
+                    <path d="M6 6 L14 14 M14 6 L6 14" stroke="#fff" stroke-width="1.5" />
+                    <circle cx="6" cy="6" r="1.5" fill="#fff" />
+                    <circle cx="14" cy="14" r="1.5" fill="#fff" />
+                  </svg>
+                  <h2 class="request-card__title">Печенье «Курабье» 200 г</h2>
+                </div>
                 <span class="request-card__category">Кондитерские изделия / Печенье</span>
               </div>
 
               <div class="request-card__header-right">
-                 <span class="request-card__status request-card__status--open">Открыта</span>
-                <!-- Для других статусов:
-    <span class="request-card__status request-card__status--closed">Закрыта</span>
-    <span class="request-card__status request-card__status--draft">Черновик</span>
-    <span class="request-card__status request-card__status--private">Приватная</span> -->
- 
-
-                <div class="request-card__menu">
-                  <button class="request-card__menu-trigger" aria-label="Меню действий">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <span class="request-card__status request-card__status--open">Открыта</span>
+                <div class="request-card__actions">
+                  <button class="request-card__action-btn request-card__action-btn--edit" aria-label="Редактировать">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z" stroke="currentColor"
+                        fill="none" />
+                      <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
                   </button>
-
-                  <div class="request-card__menu-dropdown">
-                    <ul class="request-card__menu-list">
-                      <li class="request-card__menu-item">
-                        <button class="request-card__menu-btn request-card__menu-btn--close">Закрыть</button>
-                      </li>
-                      <li class="request-card__menu-item">
-                        <button class="request-card__menu-btn request-card__menu-btn--edit">Редактировать</button>
-                      </li>
-                      <li class="request-card__menu-item">
-                        <button class="request-card__menu-btn request-card__menu-btn--duplicate">Дублировать</button>
-                      </li>
-                    </ul>
+                  <button class="request-card__action-btn request-card__action-btn--close" aria-label="Закрыть">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                      <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <div class="request-card__menu">
+                    <button class="request-card__menu-trigger" aria-label="Меню действий">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </button>
+                    <div class="request-card__menu-dropdown">
+                      <ul class="request-card__menu-list">
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--close">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                              <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Закрыть
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--edit">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z"
+                                stroke="currentColor" fill="none" />
+                              <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Редактировать
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--duplicate">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <rect x="5" y="3" width="8" height="8" rx="1" stroke="currentColor" fill="none" />
+                              <rect x="3" y="5" width="8" height="8" rx="1" stroke="currentColor" fill="none"
+                                opacity="0.5" />
+                            </svg>
+                            Дублировать
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-           
 
             <div class="request-card__content">
               <div class="request-card__info">
@@ -333,11 +369,11 @@
               <div class="request-card__stats">
                 <div class="request-stats">
                   <div class="request-stats__item">
-                    <span class="request-stats__label">Отклик:</span>
+                    <span class="request-stats__label">Откликов: </span>
                     <span class="request-stats__value">5</span>
                   </div>
                   <div class="request-stats__item request-stats__item--new">
-                    <span class="request-stats__label">Новых откликов:</span>
+                    <span class="request-stats__label">Новых откликов: </span>
                     <span class="request-stats__value">2</span>
                   </div>
                   <div class="request-stats__item request-stats__item--activity">
@@ -348,143 +384,86 @@
               </div>
             </div>
 
-            <div class="request-card__actions">
+            <div class="request-card__footer">
               <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
             </div>
           </div>
 
-          <!-- Заявка 2: Печенье овсяное -->
-          <div class="request-card request-card--active">
-            <div class="request-card__header">
-              <h2 class="request-card__title">Печенье овсяное 300–400 г</h2>
-              <span class="request-card__category">Кондитерские изделия / Печенье</span>
-            </div>
-
-            <div class="request-card__content">
-              <div class="request-card__info">
-                <div class="request-card__regions">
-                  <span class="request-card__region">ЦФО</span>
-                  <span class="request-card__region">СЗФО</span>
-                  <span class="request-card__region">ЮФО</span>
-                </div>
-                <div class="request-card__details">
-                  <div class="request-card__detail">
-                    <span class="request-card__detail-label">Объем:</span>
-                    <span class="request-card__detail-value">От 50.000 упаковок</span>
-                  </div>
-                  <div class="request-card__detail">
-                    <span class="request-card__detail-label">Цена:</span>
-                    <span class="request-card__detail-value">60–100 ₽/упаковка</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="request-card__stats">
-                <div class="request-stats">
-                  <div class="request-stats__item">
-                    <span class="request-stats__label">Отклик:</span>
-                    <span class="request-stats__value">8</span>
-                  </div>
-                  <div class="request-stats__item request-stats__item--new">
-                    <span class="request-stats__label">Новых откликов:</span>
-                    <span class="request-stats__value">3</span>
-                  </div>
-                  <div class="request-stats__item request-stats__item--activity">
-                    <span class="request-stats__label">Последняя активность:</span>
-                    <span class="request-stats__value">Сегодня, 13:45</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="request-card__actions">
-              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
-            </div>
-          </div>
-
-          <!-- Заявка 3: Чай черный пакетированный 25–100 шт -->
-          <div class="request-card">
-            <div class="request-card__header">
-              <h2 class="request-card__title">Чай черный пакетированный 25–100 шт</h2>
-              <span class="request-card__category">Чай, кофе / Чай</span>
-            </div>
-
-            <div class="request-card__content">
-              <div class="request-card__info">
-                <div class="request-card__regions">
-                  <span class="request-card__region">ЦФО</span>
-                </div>
-                <div class="request-card__details">
-                  <div class="request-card__detail">
-                    <span class="request-card__detail-label">Объем:</span>
-                    <span class="request-card__detail-value">От 10.000 упаковок</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="request-card__stats">
-                <div class="request-stats">
-                  <div class="request-stats__item">
-                    <span class="request-stats__label">Ориентир:</span>
-                    <span class="request-stats__value">6</span>
-                  </div>
-                  <div class="request-stats__item request-stats__item--activity">
-                    <span class="request-stats__label">Последняя активность:</span>
-                    <span class="request-stats__value">Сегодня, 13:45</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="request-card__actions">
-              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
-            </div>
-          </div>
-
-          <!-- Заявка 4: Чай черный пакетированный 25–100 гр -->
-          <div class="request-card">
-            <div class="request-card__header">
-              <h2 class="request-card__title">Чай черный пакетированный 25–100 гр</h2>
-              <span class="request-card__category">Чай, кофе / Чай</span>
-            </div>
-
-            <div class="request-card__content">
-              <div class="request-card__info">
-                <div class="request-card__regions">
-                  <span class="request-card__region">ПФО</span>
-                </div>
-                <div class="request-card__details">
-                  <div class="request-card__detail">
-                    <span class="request-card__detail-label">Объем:</span>
-                    <span class="request-card__detail-value">От 10.000 упаковок</span>
-                  </div>
-                  <div class="request-card__detail">
-                    <span class="request-card__detail-label">Цена:</span>
-                    <span class="request-card__detail-value">до 950 ₽</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="request-card__stats">
-                <div class="request-stats">
-                  <div class="request-stats__item request-stats__item--activity">
-                    <span class="request-stats__label">Последняя активность:</span>
-                    <span class="request-stats__value">17 апр, 11:15</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="request-card__actions">
-              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
-            </div>
-          </div>
-
-          <!-- Заявка 5: Шоколад молочный -->
+          <!-- Карточка 2: Кондитерские изделия / Шоколад (Конфета) -->
           <div class="request-card request-card--deadline">
             <div class="request-card__header">
-              <h2 class="request-card__title">Шоколад, молочный плитка 90–100 г</h2>
-              <span class="request-card__category">Кондитерские изделия / Шоколад</span>
+              <div class="request-card__header-left">
+                <div class="request-card__title-wrapper">
+                  <svg class="request-card__category-icon" viewBox="0 0 20 20" fill="currentColor"
+                    style="color: #0B63A8;">
+                    <circle cx="10" cy="10" r="6" fill="#0B63A8" />
+                    <path d="M6 6 L14 14 M14 6 L6 14" stroke="#fff" stroke-width="1.5" />
+                    <circle cx="6" cy="6" r="1.5" fill="#fff" />
+                    <circle cx="14" cy="14" r="1.5" fill="#fff" />
+                  </svg>
+                  <h2 class="request-card__title">Шоколад молочный плитка 90–100 г</h2>
+                </div>
+                <span class="request-card__category">Кондитерские изделия / Шоколад</span>
+              </div>
+
+              <div class="request-card__header-right">
+                <span class="request-card__status request-card__status--open">Открыта</span>
+                <div class="request-card__actions">
+                  <button class="request-card__action-btn request-card__action-btn--edit" aria-label="Редактировать">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z" stroke="currentColor"
+                        fill="none" />
+                      <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <button class="request-card__action-btn request-card__action-btn--close" aria-label="Закрыть">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                      <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <div class="request-card__menu">
+                    <button class="request-card__menu-trigger" aria-label="Меню действий">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </button>
+                    <div class="request-card__menu-dropdown">
+                      <ul class="request-card__menu-list">
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--close">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                              <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Закрыть
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--edit">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z"
+                                stroke="currentColor" fill="none" />
+                              <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Редактировать
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--duplicate">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <rect x="5" y="3" width="8" height="8" rx="1" stroke="currentColor" fill="none" />
+                              <rect x="3" y="5" width="8" height="8" rx="1" stroke="currentColor" fill="none"
+                                opacity="0.5" />
+                            </svg>
+                            Дублировать
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="request-card__content">
@@ -495,11 +474,11 @@
                 <div class="request-card__details">
                   <div class="request-card__detail">
                     <span class="request-card__detail-label">Объем:</span>
-                    <span class="request-card__detail-value">От 23.000 литров</span>
+                    <span class="request-card__detail-value">100 гр</span>
                   </div>
                   <div class="request-card__detail">
                     <span class="request-card__detail-label">Цена:</span>
-                    <span class="request-card__detail-value">до 95 ₽/литр</span>
+                    <span class="request-card__detail-value">до 95 ₽/шт</span>
                   </div>
                 </div>
               </div>
@@ -507,7 +486,7 @@
               <div class="request-card__stats">
                 <div class="request-stats">
                   <div class="request-stats__item">
-                    <span class="request-stats__label">Отклик:</span>
+                    <span class="request-stats__label">Откликов: </span>
                     <span class="request-stats__value">11</span>
                   </div>
                   <div class="request-stats__item request-stats__item--activity">
@@ -521,11 +500,700 @@
               </div>
             </div>
 
-            <div class="request-card__actions">
+            <div class="request-card__footer">
+              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
+            </div>
+          </div>
+
+          <!-- Карточка 3: Бакалея / Макароны (Круг с точками) -->
+          <div class="request-card request-card--active">
+            <div class="request-card__header">
+              <div class="request-card__header-left">
+                <div class="request-card__title-wrapper">
+                  <svg class="request-card__category-icon" viewBox="0 0 20 20" fill="currentColor"
+                    style="color: #0B63A8;">
+                    <circle cx="10" cy="10" r="7" fill="#0B63A8" />
+                    <circle cx="6" cy="7" r="1.5" fill="#fff" />
+                    <circle cx="14" cy="7" r="1.5" fill="#fff" />
+                    <circle cx="6" cy="13" r="1.5" fill="#fff" />
+                    <circle cx="14" cy="13" r="1.5" fill="#fff" />
+                    <circle cx="10" cy="10" r="1.5" fill="#fff" />
+                  </svg>
+                  <h2 class="request-card__title">Макароны "Fettuccine" 500 г</h2>
+                </div>
+                <span class="request-card__category">Бакалея / Макаронные изделия</span>
+              </div>
+
+              <div class="request-card__header-right">
+                <span class="request-card__status request-card__status--open">Открыта</span>
+                <div class="request-card__actions">
+                  <button class="request-card__action-btn request-card__action-btn--edit" aria-label="Редактировать">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z" stroke="currentColor"
+                        fill="none" />
+                      <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <button class="request-card__action-btn request-card__action-btn--close" aria-label="Закрыть">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                      <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <div class="request-card__menu">
+                    <button class="request-card__menu-trigger" aria-label="Меню действий">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </button>
+                    <div class="request-card__menu-dropdown">
+                      <ul class="request-card__menu-list">
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--close">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                              <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Закрыть
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--edit">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z"
+                                stroke="currentColor" fill="none" />
+                              <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Редактировать
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--duplicate">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <rect x="5" y="3" width="8" height="8" rx="1" stroke="currentColor" fill="none" />
+                              <rect x="3" y="5" width="8" height="8" rx="1" stroke="currentColor" fill="none"
+                                opacity="0.5" />
+                            </svg>
+                            Дублировать
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__content">
+              <div class="request-card__info">
+                <div class="request-card__regions">
+                  <span class="request-card__region">ЦФО</span>
+                  <span class="request-card__region">ПФО</span>
+                  <span class="request-card__region">ЮФО</span>
+                </div>
+                <div class="request-card__details">
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Объем:</span>
+                    <span class="request-card__detail-value">От 20.000 кг</span>
+                  </div>
+                  <div class="request-card__detail request-card__detail--deadline">
+                    <span class="request-card__detail-label">Дедлайн:</span>
+                    <span class="request-card__detail-value">25 марта</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="request-card__stats">
+                <div class="request-stats">
+                  <div class="request-stats__item">
+                    <span class="request-stats__label">Откликов: </span>
+                    <span class="request-stats__value">8</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--new">
+                    <span class="request-stats__label">Новых откликов: </span>
+                    <span class="request-stats__value">3</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--activity">
+                    <span class="request-stats__label">Последняя активность:</span>
+                    <span class="request-stats__value">Вчера, 16:40</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__footer">
+              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
+            </div>
+          </div>
+
+          <!-- Карточка 4: Напитки / Соки (Стаканчик) -->
+          <div class="request-card request-card--active">
+            <div class="request-card__header">
+              <div class="request-card__header-left">
+                <div class="request-card__title-wrapper">
+                  <svg class="request-card__category-icon" viewBox="0 0 20 20" fill="currentColor"
+                    style="color: #0B63A8;">
+                    <rect x="6" y="5" width="8" height="8" rx="1" fill="#0B63A8" />
+                    <path d="M5 13 L15 13 L13 17 L7 17 L5 13" fill="#0B63A8" />
+                    <circle cx="10" cy="9" r="1.5" fill="#fff" />
+                  </svg>
+                  <h2 class="request-card__title">Сок апельсиновый 1 л</h2>
+                </div>
+                <span class="request-card__category">Напитки / Соки</span>
+              </div>
+
+              <div class="request-card__header-right">
+                <span class="request-card__status request-card__status--open">Открыта</span>
+                <div class="request-card__actions">
+                  <button class="request-card__action-btn request-card__action-btn--edit" aria-label="Редактировать">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z" stroke="currentColor"
+                        fill="none" />
+                      <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <button class="request-card__action-btn request-card__action-btn--close" aria-label="Закрыть">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                      <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <div class="request-card__menu">
+                    <button class="request-card__menu-trigger" aria-label="Меню действий">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </button>
+                    <div class="request-card__menu-dropdown">
+                      <ul class="request-card__menu-list">
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--close">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                              <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Закрыть
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--edit">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z"
+                                stroke="currentColor" fill="none" />
+                              <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Редактировать
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--duplicate">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <rect x="5" y="3" width="8" height="8" rx="1" stroke="currentColor" fill="none" />
+                              <rect x="3" y="5" width="8" height="8" rx="1" stroke="currentColor" fill="none"
+                                opacity="0.5" />
+                            </svg>
+                            Дублировать
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__content">
+              <div class="request-card__info">
+                <div class="request-card__regions">
+                  <span class="request-card__region">ЦФО</span>
+                  <span class="request-card__region">СЗФО</span>
+                </div>
+                <div class="request-card__details">
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Объем:</span>
+                    <span class="request-card__detail-value">От 5.000 л</span>
+                  </div>
+                  <div class="request-card__detail request-card__detail--deadline">
+                    <span class="request-card__detail-label">Дедлайн:</span>
+                    <span class="request-card__detail-value">5 апреля</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="request-card__stats">
+                <div class="request-stats">
+                  <div class="request-stats__item">
+                    <span class="request-stats__label">Откликов: </span>
+                    <span class="request-stats__value">15</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--new">
+                    <span class="request-stats__label">Новых откликов: </span>
+                    <span class="request-stats__value">4</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--activity">
+                    <span class="request-stats__label">Последняя активность:</span>
+                    <span class="request-stats__value">Сегодня, 11:30</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__footer">
+              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
+            </div>
+          </div>
+
+          <!-- Карточка 5: Молочная продукция / Сыр (Кусок сыра) -->
+          <div class="request-card request-card--deadline">
+            <div class="request-card__header">
+              <div class="request-card__header-left">
+                <div class="request-card__title-wrapper">
+                  <svg class="request-card__category-icon" viewBox="0 0 20 20" fill="currentColor"
+                    style="color: #0B63A8;">
+                    <path d="M5 7 L15 7 L17 13 L3 13 L5 7" fill="#0B63A8" />
+                    <circle cx="8" cy="10" r="1.5" fill="#fff" />
+                    <circle cx="12" cy="10" r="1.5" fill="#fff" />
+                    <circle cx="10" cy="12" r="1" fill="#fff" />
+                  </svg>
+                  <h2 class="request-card__title">Сыр "Пармезан" 45% 250 г</h2>
+                </div>
+                <span class="request-card__category">Молочная продукция / Сыры</span>
+              </div>
+
+              <div class="request-card__header-right">
+                <span class="request-card__status request-card__status--open">Открыта</span>
+                <div class="request-card__actions">
+                  <button class="request-card__action-btn request-card__action-btn--edit" aria-label="Редактировать">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z" stroke="currentColor"
+                        fill="none" />
+                      <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <button class="request-card__action-btn request-card__action-btn--close" aria-label="Закрыть">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                      <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <div class="request-card__menu">
+                    <button class="request-card__menu-trigger" aria-label="Меню действий">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </button>
+                    <div class="request-card__menu-dropdown">
+                      <ul class="request-card__menu-list">
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--close">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                              <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Закрыть
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--edit">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z"
+                                stroke="currentColor" fill="none" />
+                              <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Редактировать
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--duplicate">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <rect x="5" y="3" width="8" height="8" rx="1" stroke="currentColor" fill="none" />
+                              <rect x="3" y="5" width="8" height="8" rx="1" stroke="currentColor" fill="none"
+                                opacity="0.5" />
+                            </svg>
+                            Дублировать
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__content">
+              <div class="request-card__info">
+                <div class="request-card__regions">
+                  <span class="request-card__region">ЦФО</span>
+                  <span class="request-card__region">ПФО</span>
+                </div>
+                <div class="request-card__details">
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Объем:</span>
+                    <span class="request-card__detail-value">От 1.000 кг</span>
+                  </div>
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Цена:</span>
+                    <span class="request-card__detail-value">до 850 ₽/кг</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="request-card__stats">
+                <div class="request-stats">
+                  <div class="request-stats__item">
+                    <span class="request-stats__label">Откликов: </span>
+                    <span class="request-stats__value">7</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--activity">
+                    <span class="request-stats__label">Последняя активность:</span>
+                    <span class="request-stats__value">15 апр, 09:20</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--deadline">
+                    <span class="request-stats__label">Дедлайн</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__footer">
+              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
+            </div>
+          </div>
+
+          <!-- Карточка 6: Бакалея / Крупы (Черновик) (Круг с точками) -->
+          <div class="request-card request-card--draft">
+            <div class="request-card__header">
+              <div class="request-card__header-left">
+                <div class="request-card__title-wrapper">
+                  <svg class="request-card__category-icon" viewBox="0 0 20 20" fill="currentColor"
+                    style="color: #0B63A8;">
+                    <circle cx="10" cy="10" r="7" fill="#0B63A8" />
+                    <circle cx="6" cy="7" r="1.5" fill="#fff" />
+                    <circle cx="14" cy="7" r="1.5" fill="#fff" />
+                    <circle cx="6" cy="13" r="1.5" fill="#fff" />
+                    <circle cx="14" cy="13" r="1.5" fill="#fff" />
+                    <circle cx="10" cy="10" r="1.5" fill="#fff" />
+                  </svg>
+                  <h2 class="request-card__title">Гречка "Зеленая" 800 г</h2>
+                </div>
+                <span class="request-card__category">Бакалея / Крупы</span>
+              </div>
+
+              <div class="request-card__header-right">
+                <span class="request-card__status request-card__status--draft">Черновик</span>
+                <div class="request-card__actions">
+                  <button class="request-card__action-btn request-card__action-btn--edit" aria-label="Редактировать">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z" stroke="currentColor"
+                        fill="none" />
+                      <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <button class="request-card__action-btn request-card__action-btn--close" aria-label="Закрыть">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                      <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <div class="request-card__menu">
+                    <button class="request-card__menu-trigger" aria-label="Меню действий">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </button>
+                    <div class="request-card__menu-dropdown">
+                      <ul class="request-card__menu-list">
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--edit">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z"
+                                stroke="currentColor" fill="none" />
+                              <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Редактировать
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--duplicate">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <rect x="5" y="3" width="8" height="8" rx="1" stroke="currentColor" fill="none" />
+                              <rect x="3" y="5" width="8" height="8" rx="1" stroke="currentColor" fill="none"
+                                opacity="0.5" />
+                            </svg>
+                            Дублировать
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__content">
+              <div class="request-card__info">
+                <div class="request-card__regions">
+                  <span class="request-card__region">ЦФО</span>
+                </div>
+                <div class="request-card__details">
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Объем:</span>
+                    <span class="request-card__detail-value">Не указан</span>
+                  </div>
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Цена:</span>
+                    <span class="request-card__detail-value">Не указана</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="request-card__stats">
+                <div class="request-stats">
+                  <div class="request-stats__item request-stats__item--activity">
+                    <span class="request-stats__label">Последняя активность:</span>
+                    <span class="request-stats__value">10 апр, 14:15</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__footer">
+              <button class="request-card__btn request-card__btn--primary">Продолжить заполнение</button>
+            </div>
+          </div>
+
+          <!-- Карточка 7: Напитки / Кофе (Закрыта) (Стаканчик) -->
+          <div class="request-card request-card--active">
+            <div class="request-card__header">
+              <div class="request-card__header-left">
+                <div class="request-card__title-wrapper">
+                  <svg class="request-card__category-icon" viewBox="0 0 20 20" fill="currentColor"
+                    style="color: #0B63A8;">
+                    <rect x="6" y="5" width="8" height="8" rx="1" fill="#0B63A8" />
+                    <path d="M5 13 L15 13 L13 17 L7 17 L5 13" fill="#0B63A8" />
+                    <circle cx="10" cy="9" r="1.5" fill="#fff" />
+                  </svg>
+                  <h2 class="request-card__title">Кофе молотый "Арабика" 250 г</h2>
+                </div>
+                <span class="request-card__category">Напитки / Кофе</span>
+              </div>
+
+              <div class="request-card__header-right">
+                <span class="request-card__status request-card__status--closed">Закрыта</span>
+                <div class="request-card__actions">
+                  <button class="request-card__action-btn request-card__action-btn--edit" aria-label="Редактировать">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z" stroke="currentColor"
+                        fill="none" />
+                      <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <button class="request-card__action-btn request-card__action-btn--close" aria-label="Закрыть">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                      <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <div class="request-card__menu">
+                    <button class="request-card__menu-trigger" aria-label="Меню действий">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </button>
+                    <div class="request-card__menu-dropdown">
+                      <ul class="request-card__menu-list">
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--close">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                              <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Закрыть
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--edit">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z"
+                                stroke="currentColor" fill="none" />
+                              <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Редактировать
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--duplicate">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <rect x="5" y="3" width="8" height="8" rx="1" stroke="currentColor" fill="none" />
+                              <rect x="3" y="5" width="8" height="8" rx="1" stroke="currentColor" fill="none"
+                                opacity="0.5" />
+                            </svg>
+                            Дублировать
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__content">
+              <div class="request-card__info">
+                <div class="request-card__regions">
+                  <span class="request-card__region">ЦФО</span>
+                  <span class="request-card__region">СЗФО</span>
+                </div>
+                <div class="request-card__details">
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Объем:</span>
+                    <span class="request-card__detail-value">От 2.000 кг</span>
+                  </div>
+                  <div class="request-card__detail request-card__detail--deadline">
+                    <span class="request-card__detail-label">Дедлайн:</span>
+                    <span class="request-card__detail-value">1 апреля</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="request-card__stats">
+                <div class="request-stats">
+                  <div class="request-stats__item">
+                    <span class="request-stats__label">Откликов: </span>
+                    <span class="request-stats__value">24</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--activity">
+                    <span class="request-stats__label">Последняя активность:</span>
+                    <span class="request-stats__value">1 апр, 18:30</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__footer">
+              <button class="request-card__btn request-card__btn--secondary" disabled>Запрос закрыт</button>
+            </div>
+          </div>
+
+          <!-- Карточка 8: Молочная продукция / Йогурт (Приватная) (Кусок сыра) -->
+          <div class="request-card request-card--active">
+            <div class="request-card__header">
+              <div class="request-card__header-left">
+                <div class="request-card__title-wrapper">
+                  <svg class="request-card__category-icon" viewBox="0 0 20 20" fill="currentColor"
+                    style="color: #0B63A8;">
+                    <path d="M5 7 L15 7 L17 13 L3 13 L5 7" fill="#0B63A8" />
+                    <circle cx="8" cy="10" r="1.5" fill="#fff" />
+                    <circle cx="12" cy="10" r="1.5" fill="#fff" />
+                    <circle cx="10" cy="12" r="1" fill="#fff" />
+                  </svg>
+                  <h2 class="request-card__title">Йогурт "Клубничный" 150 г</h2>
+                </div>
+                <span class="request-card__category">Молочная продукция / Йогурты</span>
+              </div>
+
+              <div class="request-card__header-right">
+                <span class="request-card__status request-card__status--private">Приватная</span>
+                <div class="request-card__actions">
+                  <button class="request-card__action-btn request-card__action-btn--edit" aria-label="Редактировать">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z" stroke="currentColor"
+                        fill="none" />
+                      <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <button class="request-card__action-btn request-card__action-btn--close" aria-label="Закрыть">
+                    <svg class="request-card__action-icon" viewBox="0 0 16 16" fill="currentColor">
+                      <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                      <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                  <div class="request-card__menu">
+                    <button class="request-card__menu-trigger" aria-label="Меню действий">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </button>
+                    <div class="request-card__menu-dropdown">
+                      <ul class="request-card__menu-list">
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--close">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <line x1="4" y1="4" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" />
+                              <line x1="12" y1="4" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Закрыть
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--edit">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <path d="M11.5 2.5L13.5 4.5M3 13L5.5 12.5L12.5 5.5L10.5 3.5L3.5 10.5L3 13Z"
+                                stroke="currentColor" fill="none" />
+                              <line x1="9" y1="5" x2="11" y2="7" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Редактировать
+                          </button>
+                        </li>
+                        <li class="request-card__menu-item">
+                          <button class="request-card__menu-btn request-card__menu-btn--duplicate">
+                            <svg class="request-card__menu-icon" viewBox="0 0 16 16" fill="currentColor">
+                              <rect x="5" y="3" width="8" height="8" rx="1" stroke="currentColor" fill="none" />
+                              <rect x="3" y="5" width="8" height="8" rx="1" stroke="currentColor" fill="none"
+                                opacity="0.5" />
+                            </svg>
+                            Дублировать
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__content">
+              <div class="request-card__info">
+                <div class="request-card__regions">
+                  <span class="request-card__region">ЦФО</span>
+                  <span class="request-card__region">ПФО</span>
+                </div>
+                <div class="request-card__details">
+                  <div class="request-card__detail">
+                    <span class="request-card__detail-label">Объем:</span>
+                    <span class="request-card__detail-value">От 10.000 шт</span>
+                  </div>
+                  <div class="request-card__detail request-card__detail--deadline">
+                    <span class="request-card__detail-label">Дедлайн:</span>
+                    <span class="request-card__detail-value">30 марта</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="request-card__stats">
+                <div class="request-stats">
+                  <div class="request-stats__item">
+                    <span class="request-stats__label">Откликов: </span>
+                    <span class="request-stats__value">4</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--new">
+                    <span class="request-stats__label">Новых откликов: </span>
+                    <span class="request-stats__value">1</span>
+                  </div>
+                  <div class="request-stats__item request-stats__item--activity">
+                    <span class="request-stats__label">Последняя активность:</span>
+                    <span class="request-stats__value">Сегодня, 10:05</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-card__footer">
               <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
             </div>
           </div>
         </div>
+
       </main>
 
       <aside class="banners">
