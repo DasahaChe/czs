@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Сейл Трекер — Сводные данные</title>
+  <title>Сейл Трекер | Заявки</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -224,8 +224,49 @@
         <div class="requests-filter">
           <a href="#" class="requests-filter__link requests-filter__link--active">Все</a>
           <a href="#" class="requests-filter__link">Открытые</a>
+          <a href="#" class="requests-filter__link">Приватные</a>
           <a href="#" class="requests-filter__link">Черновики</a>
           <a href="#" class="requests-filter__link">Закрытые</a>
+        </div>
+
+
+        <div class="search__block">
+          <div class="search search--categories">
+            <input class="search__input search__input-vit" type="search" placeholder="Поиск категорий...">
+            <button class="search__btn search__btn-vit" type="button" aria-label="Искать">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10.5 18.5a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" fill="none" stroke="currentColor" stroke-width="2">
+                </path>
+                <path d="M16.5 16.5 21 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                </path>
+              </svg>
+            </button>
+          </div>
+          <button class="search__btn-bid" type="button" aria-label="Новые отклики">С новыми откликами</button>
+
+          <select id="searchGroup" class="search__select search__input-vit" required>
+            <option value="" class="search__select-text"><span class="search-span">Сортировка по:</span>
+              предложения</option>
+            <option value="candy">Кондитерские изделия</option>
+            <option value="milk">Молочная продукция</option>
+            <option value="drink">Напитки</option>
+            <option value="outher">Бакалея</option>
+          </select>
+          <select id="searchGroup" class="search__select search__input-vit" required>
+            <option value="" class="search__select-text">Период</option>
+            <option value="candy">Декабрь</option>
+            <option value="milk">Январь</option>
+            <option value="drink">Февраль</option>
+            <option value="outher">Март</option>
+            <option value="candy">Апрель</option>
+            <option value="milk">Май</option>
+            <option value="drink">Июнь</option>
+            <option value="outher">Июль</option>
+            <option value="candy">Август</option>
+            <option value="milk">Сентябрь</option>
+            <option value="drink">Октябрь</option>
+            <option value="outher">Ноябрь</option>
+          </select>
         </div>
 
         <!-- Список заявок -->
@@ -233,9 +274,43 @@
           <!-- Заявка 1: Печенье Курабье -->
           <div class="request-card request-card--active">
             <div class="request-card__header">
-              <h2 class="request-card__title">Печенье «Курабье» 200 г</h2>
-              <span class="request-card__category">Кондитерские изделия / Печенье</span>
+              <div class="request-card__header-left">
+                <h2 class="request-card__title">Печенье «Курабье» 200 г</h2>
+                <span class="request-card__category">Кондитерские изделия / Печенье</span>
+              </div>
+
+              <div class="request-card__header-right">
+                 <span class="request-card__status request-card__status--open">Открыта</span>
+                <!-- Для других статусов:
+    <span class="request-card__status request-card__status--closed">Закрыта</span>
+    <span class="request-card__status request-card__status--draft">Черновик</span>
+    <span class="request-card__status request-card__status--private">Приватная</span> -->
+ 
+
+                <div class="request-card__menu">
+                  <button class="request-card__menu-trigger" aria-label="Меню действий">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </button>
+
+                  <div class="request-card__menu-dropdown">
+                    <ul class="request-card__menu-list">
+                      <li class="request-card__menu-item">
+                        <button class="request-card__menu-btn request-card__menu-btn--close">Закрыть</button>
+                      </li>
+                      <li class="request-card__menu-item">
+                        <button class="request-card__menu-btn request-card__menu-btn--edit">Редактировать</button>
+                      </li>
+                      <li class="request-card__menu-item">
+                        <button class="request-card__menu-btn request-card__menu-btn--duplicate">Дублировать</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
+           
 
             <div class="request-card__content">
               <div class="request-card__info">
@@ -274,8 +349,7 @@
             </div>
 
             <div class="request-card__actions">
-              <button class="request-card__btn request-card__btn--primary">Смотреть отклики</button>
-              <button class="request-card__btn request-card__btn--secondary">Редактировать</button>
+              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
             </div>
           </div>
 
@@ -324,8 +398,7 @@
             </div>
 
             <div class="request-card__actions">
-              <button class="request-card__btn request-card__btn--primary">Смотреть отклики</button>
-              <button class="request-card__btn request-card__btn--secondary">Редактировать</button>
+              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
             </div>
           </div>
 
@@ -364,8 +437,7 @@
             </div>
 
             <div class="request-card__actions">
-              <button class="request-card__btn request-card__btn--primary">Смотреть отклики</button>
-              <button class="request-card__btn request-card__btn--secondary">Редактировать</button>
+              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
             </div>
           </div>
 
@@ -404,8 +476,7 @@
             </div>
 
             <div class="request-card__actions">
-              <button class="request-card__btn request-card__btn--primary">Смотреть отклики</button>
-              <button class="request-card__btn request-card__btn--secondary">Редактировать</button>
+              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
             </div>
           </div>
 
@@ -451,8 +522,7 @@
             </div>
 
             <div class="request-card__actions">
-              <button class="request-card__btn request-card__btn--primary">Смотреть отклики</button>
-              <button class="request-card__btn request-card__btn--secondary">Редактировать</button>
+              <button class="request-card__btn request-card__btn--primary">Перейти к откликам</button>
             </div>
           </div>
         </div>
