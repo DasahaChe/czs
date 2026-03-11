@@ -3,9 +3,11 @@
    ========================================================================== */
 :root {
   --blue-900: #0B63A8;
-  --cyan-400: #08D3EA;
+  --cyan-400: #5bc5f2;
   --lightBlue: #E6F4FF;
   --blue: #e7f3ff;
+  --base-color-1: #0537c8;
+  --base-color-2: #5bc5f2;
 
   --text: #1E1E1E;
   --muted: #6D7A88;
@@ -75,9 +77,10 @@ select {
   font: inherit;
 }
 
-.flex{
+.flex {
   display: flex;
 }
+
 /* ==========================================================================
    Animations
    ========================================================================== */
@@ -442,13 +445,14 @@ select {
   margin-bottom: 1.5em;
 }
 
-.block__left{
+.block__left {
   width: calc((100% / 3) * 2 - 16px);
 }
 
-.block__right{
+.block__right {
   width: calc((100% / 3) - 16px);
 }
+
 .block__title-row {
   display: flex;
   align-items: flex-end;
@@ -559,9 +563,10 @@ select {
 }
 
 
-#cancelDate{
+#cancelDate {
   height: 40px;
 }
+
 .btn__icon {
   display: flex;
   color: var(--blue-900);
@@ -871,58 +876,69 @@ select {
 
 /* Поиск и фильтры */
 .search-group {
-    width: 100%;
-}
-.search-group .search__select {
-    width: 100%;}
-.search__select {
-    height: 100%;
-    border: 1px solid var(--lightGrey);
-    border-radius: 4px;
-    padding: 0 34px 0 12px;
-    outline: none;
-    color: var(--muted);
-    background: #fff;
+  width: 100%;
 }
 
-.search__input:focus, .search__select:focus {
-    outline: none;
-    border-color: var(--blue-900);
-    box-shadow: 0 0 0 3px rgba(11, 99, 168, 0.1);
+.search-group .search__select {
+  width: 100%;
 }
+
+.search__select {
+  height: 100%;
+  border: 1px solid var(--lightGrey);
+  border-radius: 4px;
+  padding: 0 34px 0 12px;
+  outline: none;
+  color: var(--muted);
+  background: #fff;
+}
+
+.search__input:focus,
+.search__select:focus {
+  outline: none;
+  border-color: var(--blue-900);
+  box-shadow: 0 0 0 3px rgba(11, 99, 168, 0.1);
+}
+
 .search__input-vit {
-    min-height: 48px;
+  min-height: 48px;
 }
 
 .search__btn-vit {
-    top: 84%;
+  top: 84%;
 }
 
 .search__block {
-    display: flex;
-    margin: 32px 0;
-    gap: 16px;
+  display: flex;
+  margin: 32px 0;
+  gap: 16px;
 }
 
 .search-span {
-    font-weight: 700;
-    color: #000;
+  font-weight: 700;
+  color: #000;
 }
 
 /* Кнопки */
 .btn-blue {
-    max-width: 100px;
+  max-width: 100px;
 }
 
 .btn-vit {
-    border-color: var(--blue-900);
-    background: var(--lightBlue);
+  border-color: var(--blue-900);
+  background: var(--lightBlue);
 }
 
 /* Текстовые утилиты */
 .blue {
-    color: var(--blue-900);
+  color: var(--blue-900);
 }
+
+.btn:hover, .stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 /* ==========================================================================
    Footer
    ========================================================================== */
@@ -1349,22 +1365,24 @@ select {
 .compact-legend::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
-.footer__img{
-min-width: 200px;
-}
-.footer-text{
-margin: 0;
-padding: 0;
+
+.footer__img {
+  min-width: 200px;
 }
 
-.footer__img{
+.footer-text {
+  margin: 0;
+  padding: 0;
+}
+
+.footer__img {
   max-width: 200px;
 }
 
 .footer__icon {
   /* Базовый вариант: наследование цвета родителя */
   color: inherit;
-  
+
   /* Вариант: цвет родителя + белый (смешивание) */
   /* color: color-mix(in srgb, currentColor 70%, white 30%); */
 }
@@ -1373,13 +1391,16 @@ padding: 0;
   /* Пример изменения цвета при наведении */
   color: var(--blue-900);
 }
+
 .footer__icon--bg {
   background-color: #C9D7E7;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px; /* опционально - скругление углов */
-  padding: 4px; /* опционально - отступы */
+  border-radius: 4px;
+  /* опционально - скругление углов */
+  padding: 4px;
+  /* опционально - отступы */
 }
 
 .footer__icon--bg svg {
@@ -1387,6 +1408,7 @@ padding: 0;
   width: 40px;
   height: 40px;
 }
+
 @media (max-width: 1480px) {
   .chart-block {
     flex-direction: column;
@@ -1650,13 +1672,15 @@ padding: 0;
   .content {
     padding: 0 16px;
   }
+
   .btn--primary {
     max-width: 100%;
   }
-.footer {
+
+  .footer {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-}
+  }
 }
 
 @media (max-width: 480px) {
@@ -1677,5 +1701,5 @@ padding: 0;
     display: none;
   }
 
-  
+
 }

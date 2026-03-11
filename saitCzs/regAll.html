@@ -23,121 +23,9 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <title>СЕЙЛ ТРЕКЕР | Регистрация закупщика</title>
+    <title>СЕЙЛ ТРЕКЕР | Регистрация</title>
 
-    <style>
-        /* Стили для модального окна */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
 
-        .modal-window {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            animation: modalFadeIn 0.3s ease;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-icon svg {
-            width: 40px;
-            height: 40px;
-            fill: white;
-        }
-
-        .modal-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--grafite);
-            margin-bottom: 1rem;
-        }
-
-        .modal-text {
-            font-size: 16px;
-            color: var(--newGray);
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-
-        .modal-text p {
-            margin: 0.5rem 0;
-        }
-
-        .modal-button {
-            padding: 0.75rem 2rem;
-            font-size: 16px;
-            color: #fff;
-            border: 1px solid var(--base-color-6);
-            background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
-            border-radius: 0;
-            outline: none;
-            cursor: pointer;
-            transition: border-color 0.5s ease, background-color 0.5s ease;
-            min-width: 200px;
-            margin-top: 1rem;
-        }
-
-        .modal-button:hover {
-            color: #fff;
-            background: var(--base-color-2);
-            border-color: var(--base-color-2);
-        }
-
-        @media (max-width: 750px) {
-            .modal-window {
-                padding: 1.5rem;
-            }
-
-            .modal-title {
-                font-size: 20px;
-            }
-
-            .modal-text {
-                font-size: 14px;
-            }
-
-            .modal-button {
-                width: 100%;
-                padding: 0.6rem 1rem;
-                font-size: 14px;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -221,10 +109,25 @@
     <main class="registration-wrapper">
         <div class="container">
             <section class="title__block">
-                <h1 class="title">Зарегистрироваться как закупщик</h1>
+                <h1 class="title">Зарегистрироваться</h1>
             </section>
 
-            <form class="registration-form" id="companyRegistrationForm">
+            <form class="registration-form" id="registrationForm">
+                <!-- Переключатель ролей -->
+                <section class="role-selector">
+                    <h2>Выберите роль <span class="required">*</span></h2>
+                    <div class="role-options">
+                        <label>
+                            <input type="radio" name="userRole" value="supplier" checked>
+                            Поставщик
+                        </label>
+                        <label>
+                            <input type="radio" name="userRole" value="buyer">
+                            Закупщик
+                        </label>
+                    </div>
+                </section>
+
                 <!-- Секция идентификации и юридических данных -->
                 <section class="form-section">
                     <h2>Идентификация и юридические данные</h2>
@@ -243,15 +146,14 @@
                     </div>
                 </section>
 
-                <!-- Секция бизнес-профиля компании -->
-                <section class="form-section">
+                <!-- Секция бизнес-профиля компании (только для закупщика) -->
+                <section class="form-section buyer-only" id="businessProfileSection">
                     <h2>Бизнес‑профиль компании</h2>
                     <div class="form-grid">
                         <div class="form-field multiselect-field">
                             <label for="storeFormats">Форматы сети (гипер/супер/дискаунтер/у дома/e‑com и т.д.) <span
                                     class="required">*</span></label>
-                            <select id="storeFormats" name="storeFormats[]" multiple="multiple" required
-                                style="width: 100%;">
+                            <select id="storeFormats" name="storeFormats[]" multiple="multiple" style="width: 100%;">
                                 <option value="hypermarket">Гипермаркет</option>
                                 <option value="supermarket">Супермаркет</option>
                                 <option value="discounter">Дискаунтер</option>
@@ -266,7 +168,7 @@
                         <div class="form-field multiselect-field">
                             <label for="procurementCategories">Категории закупок <span class="required">*</span></label>
                             <select id="procurementCategories" name="procurementCategories[]" multiple="multiple"
-                                required style="width: 100%;">
+                                style="width: 100%;">
                                 <option value="food">Продукты питания</option>
                                 <option value="beverages">Напитки</option>
                                 <option value="household">Товары для дома</option>
@@ -288,14 +190,14 @@
                     </div>
                 </section>
 
-                <!-- Секция географии и инфраструктуры -->
-                <section class="form-section">
+                <!-- Секция географии и инфраструктуры (только для закупщика) -->
+                <section class="form-section buyer-only" id="geographySection">
                     <h2>География и инфраструктура</h2>
                     <div class="form-grid">
                         <div class="form-field multiselect-field">
                             <label for="geography">География присутствия (регионы/города) <span
                                     class="required">*</span></label>
-                            <select id="geography" name="geography[]" multiple="multiple" required style="width: 100%;">
+                            <select id="geography" name="geography[]" multiple="multiple" style="width: 100%;">
                                 <optgroup label="Федеральные округа">
                                     <option value="msk">Москва</option>
                                     <option value="spb">Санкт-Петербург</option>
@@ -577,256 +479,321 @@
                         d="M 25 2 C 12.309534 2 2 12.309534 2 25 C 2 37.690466 12.309534 48 25 48 C 37.690466 48 48 37.690466 48 25 C 48 12.309534 37.690466 2 25 2 z M 25 4 C 36.609534 4 46 13.390466 46 25 C 46 36.609534 36.609534 46 25 46 C 13.390466 46 4 36.609534 4 25 C 4 13.390466 13.390466 4 25 4 z M 34.988281 14.988281 A 1.0001 1.0001 0 0 0 34.171875 15.439453 L 23.970703 30.476562 L 16.679688 23.710938 A 1.0001 1.0001 0 1 0 15.320312 25.177734 L 24.316406 33.525391 L 35.828125 16.560547 A 1.0001 1.0001 0 0 0 34.988281 14.988281 z" />
                 </svg>
             </div>
-            <h2 class="modal-title">Спасибо за регистрацию!</h2>
+            <h2 class="modal-title">Проверка email</h2>
             <div class="modal-text">
-                <p>Ваша учетная запись отправлена на модерацию.</p>
-                <p>С вами свяжется наш сотрудник для подтверждения данных.</p>
+                <p>Ваш электронный адрес отправлен на проверку, вы можете перейти по ссылке</p>
+                <p class="modal-link">https://mail.ru/page115295566.html</p>
             </div>
-            <button class="modal-button" onclick="closeModal()">Понятно</button>
+            <button class="modal-button" onclick="closeModal()">Закрыть</button>
         </div>
     </div>
 
     <script>
-        // Функции для работы с модальным окном
-        function showModal() {
-            document.getElementById('successModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
-        }
+        (function() {
+            'use strict';
 
-        function closeModal() {
-            document.getElementById('successModal').style.display = 'none';
-            document.body.style.overflow = ''; // Возвращаем прокрутку
-        }
-
-        // Закрытие по клику на оверлей
-        document.addEventListener('DOMContentLoaded', function () {
-            const modalOverlay = document.getElementById('successModal');
-            modalOverlay.addEventListener('click', function (e) {
-                if (e.target === modalOverlay) {
-                    closeModal();
+            // ==================== МОДАЛЬНОЕ ОКНО ====================
+            const ModalController = (() => {
+                const modal = document.getElementById('successModal');
+                
+                function show() {
+                    if (!modal) return;
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
                 }
-            });
 
-            // Закрытие по нажатию Escape
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
-                    closeModal();
+                function hide() {
+                    if (!modal) return;
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
                 }
-            });
-        });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Инициализация Select2 для всех полей с множественным выбором
-            $('select[multiple]').select2({
-                placeholder: 'Выберите значения',
-                allowClear: true,
-                width: '100%',
-                dropdownPosition: 'below', // Принудительное позиционирование вниз
-                language: {
-                    noResults: function () {
-                        return "Ничего не найдено";
-                    }
+                function init() {
+                    if (!modal) return;
+
+                    // Закрытие по клику на оверлей
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) hide();
+                    });
+
+                    // Закрытие по Escape
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape' && modal.style.display === 'flex') hide();
+                    });
                 }
-            });
 
-            // База данных компаний (имитация)
+                return { show, hide, init };
+            })();
+
+            // ==================== БАЗА ДАННЫХ КОМПАНИЙ ====================
             const companiesDatabase = [
-                {
-                    name: 'ООО "Ромашка"',
-                    inn: '7701234567',
-                    address: 'г. Москва, ул. Ленина, д. 1',
-                    kpp: '770101001',
-                    ogrn: '1027701234567'
-                },
-                {
-                    name: 'ООО "Ромашка-Сервис"',
-                    inn: '7707654321',
-                    address: 'г. Москва, ул. Пушкина, д. 10',
-                    kpp: '770201001',
-                    ogrn: '1037701234567'
-                },
-                {
-                    name: 'ПАО "Ромашка Групп"',
-                    inn: '7709123456',
-                    address: 'г. Москва, ул. Тверская, д. 5',
-                    kpp: '770301001',
-                    ogrn: '1047701234567'
-                },
-                {
-                    name: 'ООО "ТехноСервис"',
-                    inn: '7702234567',
-                    address: 'г. Москва, ул. Новый Арбат, д. 15',
-                    kpp: '770401001',
-                    ogrn: '1057701234567'
-                },
-                {
-                    name: 'АО "СтройИнвест"',
-                    inn: '7703345678',
-                    address: 'г. Москва, ул. Профсоюзная, д. 50',
-                    kpp: '770501001',
-                    ogrn: '1067701234567'
-                },
-                {
-                    name: 'ООО "Альфа-Групп"',
-                    inn: '7704456789',
-                    address: 'г. Москва, ул. Мясницкая, д. 20',
-                    kpp: '770601001',
-                    ogrn: '1077701234567'
-                }
+                { name: 'ООО "Ромашка"', inn: '7701234567', address: 'г. Москва, ул. Ленина, д. 1', kpp: '770101001', ogrn: '1027701234567' },
+                { name: 'ООО "Ромашка-Сервис"', inn: '7707654321', address: 'г. Москва, ул. Пушкина, д. 10', kpp: '770201001', ogrn: '1037701234567' },
+                { name: 'ПАО "Ромашка Групп"', inn: '7709123456', address: 'г. Москва, ул. Тверская, д. 5', kpp: '770301001', ogrn: '1047701234567' },
+                { name: 'ООО "ТехноСервис"', inn: '7702234567', address: 'г. Москва, ул. Новый Арбат, д. 15', kpp: '770401001', ogrn: '1057701234567' },
+                { name: 'АО "СтройИнвест"', inn: '7703345678', address: 'г. Москва, ул. Профсоюзная, д. 50', kpp: '770501001', ogrn: '1067701234567' },
+                { name: 'ООО "Альфа-Групп"', inn: '7704456789', address: 'г. Москва, ул. Мясницкая, д. 20', kpp: '770601001', ogrn: '1077701234567' }
             ];
 
-            const legalNameInput = document.getElementById('legalName');
-            const innInput = document.getElementById('inn');
+            // ==================== УПРАВЛЕНИЕ РОЛЯМИ ====================
+            const RoleManager = (() => {
+                const roleRadios = document.querySelectorAll('input[name="userRole"]');
+                const buyerSections = document.querySelectorAll('.buyer-only');
 
-            // Функция для поиска компании по ИНН
-            function findCompanyByINN(inn) {
-                return companiesDatabase.find(company => company.inn === inn);
-            }
-
-            // Функция для поиска компаний по названию
-            function findCompaniesByName(name) {
-                const searchTerm = name.toLowerCase();
-                return companiesDatabase.filter(company =>
-                    company.name.toLowerCase().includes(searchTerm)
-                );
-            }
-
-            // Настройка автокомплита для названия компании
-            $(legalNameInput).autocomplete({
-                source: function (request, response) {
-                    const companies = findCompaniesByName(request.term);
-                    response(companies.map(company => ({
-                        label: company.name,
-                        value: company.name,
-                        inn: company.inn,
-                        address: company.address,
-                        kpp: company.kpp,
-                        ogrn: company.ogrn
-                    })));
-                },
-                minLength: 2,
-                select: function (event, ui) {
-                    // При выборе компании из списка заполняем ИНН
-                    innInput.value = ui.item.inn;
-
-                    // Сохраняем дополнительные данные
-                    legalNameInput.dataset.selectedInn = ui.item.inn;
-                    legalNameInput.dataset.companyAddress = ui.item.address;
-
-                    console.log('Выбрана компания:', ui.item);
-                },
-                open: function () {
-                    $(this).removeClass('ui-corner-all').addClass('ui-corner-top');
-                },
-                close: function () {
-                    $(this).removeClass('ui-corner-top').addClass('ui-corner-all');
-                }
-            }).data('ui-autocomplete')._renderItem = function (ul, item) {
-                return $('<li>')
-                    .append(`<div class="company-suggestion">
-                        <span class="company-name">${item.label}</span>
-                        <span class="company-details">ИНН: ${item.inn}</span>
-                    </div>`)
-                    .appendTo(ul);
-            };
-
-            // Обработчик ввода ИНН
-            let innTimeout;
-            innInput.addEventListener('input', function () {
-                const inn = this.value.trim();
-
-                if (inn.length >= 4) {
-                    // Очищаем предыдущий таймаут
-                    clearTimeout(innTimeout);
-
-                    // Устанавливаем новый таймаут для имитации запроса к серверу
-                    innTimeout = setTimeout(() => {
-                        const company = findCompanyByINN(inn);
-
-                        if (company) {
-                            // Если компания найдена, заполняем название
-                            legalNameInput.value = company.name;
-                            legalNameInput.dataset.selectedInn = company.inn;
-
-                            // Показываем уведомление
-                            alert(`Найдена компания: ${company.name}\nАдрес: ${company.address}`);
+                function toggleSections(role) {
+                    buyerSections.forEach(section => {
+                        if (role === 'buyer') {
+                            section.style.display = 'block';
+                            // Добавляем required для полей закупщика
+                            section.querySelectorAll('select[multiple]').forEach(select => {
+                                select.setAttribute('required', 'required');
+                            });
+                        } else {
+                            section.style.display = 'none';
+                            // Убираем required для полей поставщика
+                            section.querySelectorAll('select[multiple]').forEach(select => {
+                                select.removeAttribute('required');
+                                // Очищаем выбранные значения
+                                $(select).val(null).trigger('change');
+                            });
                         }
-                    }, 500);
+                    });
                 }
-            });
 
-            // Валидация ИНН на лету
-            innInput.addEventListener('keypress', function (e) {
-                // Разрешаем только цифры
-                if (!/[0-9]/.test(e.key)) {
-                    e.preventDefault();
+                function init() {
+                    if (!roleRadios.length) return;
+
+                    roleRadios.forEach(radio => {
+                        radio.addEventListener('change', (e) => {
+                            toggleSections(e.target.value);
+                        });
+                    });
+
+                    // Устанавливаем начальное состояние (поставщик по умолчанию)
+                    toggleSections('supplier');
                 }
-            });
 
-            // Обработка отправки формы
-            document.getElementById('companyRegistrationForm').addEventListener('submit', function (e) {
-                e.preventDefault();
+                return { init };
+            })();
 
-                // Проверяем, что ИНН и название компании соответствуют друг другу
-                const inn = innInput.value.trim();
-                const companyName = legalNameInput.value.trim();
+            // ==================== УПРАВЛЕНИЕ ФОРМОЙ ====================
+            const FormManager = (() => {
+                const form = document.getElementById('registrationForm');
+                const legalNameInput = document.getElementById('legalName');
+                const innInput = document.getElementById('inn');
 
-                if (inn && companyName) {
-                    const companyByINN = findCompanyByINN(inn);
-                    const companiesByName = findCompaniesByName(companyName);
+                // Поиск компании по ИНН
+                function findCompanyByINN(inn) {
+                    return companiesDatabase.find(company => company.inn === inn);
+                }
 
-                    if (companyByINN && companiesByName.length > 0) {
-                        // Проверяем, есть ли компания с таким ИНН среди найденных по названию
-                        const matchFound = companiesByName.some(c => c.inn === inn);
+                // Поиск компаний по названию
+                function findCompaniesByName(name) {
+                    const searchTerm = name.toLowerCase();
+                    return companiesDatabase.filter(company =>
+                        company.name.toLowerCase().includes(searchTerm)
+                    );
+                }
 
-                        if (!matchFound) {
-                            const confirmSubmit = confirm('Внимание! ИНН не соответствует выбранному названию компании. Продолжить регистрацию?');
-                            if (!confirmSubmit) {
-                                return;
+                // Настройка автокомплита
+                function initAutocomplete() {
+                    if (!legalNameInput) return;
+
+                    $(legalNameInput).autocomplete({
+                        source: function(request, response) {
+                            const companies = findCompaniesByName(request.term);
+                            response(companies.map(company => ({
+                                label: company.name,
+                                value: company.name,
+                                inn: company.inn,
+                                address: company.address,
+                                kpp: company.kpp,
+                                ogrn: company.ogrn
+                            })));
+                        },
+                        minLength: 2,
+                        select: function(event, ui) {
+                            innInput.value = ui.item.inn;
+                            legalNameInput.dataset.selectedInn = ui.item.inn;
+                            legalNameInput.dataset.companyAddress = ui.item.address;
+                            console.log('Выбрана компания:', ui.item);
+                        },
+                        open: function() {
+                            $(this).removeClass('ui-corner-all').addClass('ui-corner-top');
+                        },
+                        close: function() {
+                            $(this).removeClass('ui-corner-top').addClass('ui-corner-all');
+                        }
+                    }).data('ui-autocomplete')._renderItem = function(ul, item) {
+                        return $('<li>')
+                            .append(`<div class="company-suggestion">
+                                <span class="company-name">${item.label}</span>
+                                <span class="company-details">ИНН: ${item.inn}</span>
+                            </div>`)
+                            .appendTo(ul);
+                    };
+                }
+
+                // Обработчик ввода ИНН
+                function initINNHandler() {
+                    if (!innInput) return;
+
+                    let innTimeout;
+                    innInput.addEventListener('input', function() {
+                        const inn = this.value.trim();
+
+                        if (inn.length >= 4) {
+                            clearTimeout(innTimeout);
+                            innTimeout = setTimeout(() => {
+                                const company = findCompanyByINN(inn);
+                                if (company && legalNameInput) {
+                                    legalNameInput.value = company.name;
+                                    legalNameInput.dataset.selectedInn = company.inn;
+                                    alert(`Найдена компания: ${company.name}\nАдрес: ${company.address}`);
+                                }
+                            }, 500);
+                        }
+                    });
+
+                    // Валидация ИНН (только цифры)
+                    innInput.addEventListener('keypress', function(e) {
+                        if (!/[0-9]/.test(e.key)) {
+                            e.preventDefault();
+                        }
+                    });
+                }
+
+                // Валидация перед отправкой
+                function validateForm(formData) {
+                    const role = formData.get('userRole');
+                    
+                    // Для поставщика проверяем только базовые поля
+                    if (role === 'supplier') {
+                        return true;
+                    }
+
+                    // Для закупщика проверяем дополнительные поля
+                    const storeFormats = formData.getAll('storeFormats[]');
+                    const procurementCategories = formData.getAll('procurementCategories[]');
+                    const geography = formData.getAll('geography[]');
+
+                    if (!storeFormats.length || !procurementCategories.length || !geography.length) {
+                        alert('Пожалуйста, заполните все поля бизнес-профиля и географии');
+                        return false;
+                    }
+
+                    return true;
+                }
+
+                // Обработка отправки формы
+                function initSubmitHandler() {
+                    if (!form) return;
+
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+
+                        // Проверка соответствия ИНН и названия
+                        const inn = innInput?.value.trim();
+                        const companyName = legalNameInput?.value.trim();
+
+                        if (inn && companyName) {
+                            const companyByINN = findCompanyByINN(inn);
+                            const companiesByName = findCompaniesByName(companyName);
+
+                            if (companyByINN && companiesByName.length > 0) {
+                                const matchFound = companiesByName.some(c => c.inn === inn);
+                                if (!matchFound) {
+                                    const confirmSubmit = confirm('Внимание! ИНН не соответствует выбранному названию компании. Продолжить регистрацию?');
+                                    if (!confirmSubmit) return;
+                                }
                             }
                         }
-                    }
-                }
 
-                // Собираем данные формы
-                const formData = new FormData(this);
+                        // Сбор данных формы
+                        const formData = new FormData(this);
+                        
+                        // Валидация
+                        if (!validateForm(formData)) return;
 
-                // Для select multiple значения приходят как массив, преобразуем в строку для отображения
-                const data = {};
-                for (let [key, value] of formData.entries()) {
-                    if (key.endsWith('[]')) {
-                        if (!data[key]) {
-                            data[key] = [];
+                        // Форматирование данных для отладки
+                        const data = {};
+                        for (let [key, value] of formData.entries()) {
+                            if (key.endsWith('[]')) {
+                                if (!data[key]) data[key] = [];
+                                data[key].push(value);
+                            } else {
+                                data[key] = value;
+                            }
                         }
-                        data[key].push(value);
-                    } else {
-                        data[key] = value;
-                    }
+
+                        console.log('Данные формы:', data);
+                        
+                        // Показываем модальное окно
+                        ModalController.show();
+
+                        // Здесь будет реальная отправка на сервер
+                        // fetch('/api/register', { method: 'POST', body: formData })
+                    });
                 }
 
-                console.log('Данные формы:', data);
+                // Обработка сброса формы
+                function initResetHandler() {
+                    if (!form) return;
 
-                // Вместо alert показываем модальное окно
-                // alert('Форма отправлена (проверьте консоль для просмотра данных)');
+                    form.addEventListener('reset', function() {
+                        if (legalNameInput) {
+                            legalNameInput.value = '';
+                            delete legalNameInput.dataset.selectedInn;
+                        }
+                        if (innInput) innInput.value = '';
 
-                // Показываем модальное окно успешной регистрации
-                showModal();
+                        // Сброс select2 полей
+                        $('select[multiple]').val(null).trigger('change');
 
-                // Здесь будет реальная отправка на сервер
-                // fetch('/api/register-buyer', { method: 'POST', body: formData })
+                        // Сброс роли на "поставщик" (по умолчанию)
+                        const supplierRadio = document.querySelector('input[name="userRole"][value="supplier"]');
+                        if (supplierRadio) {
+                            supplierRadio.checked = true;
+                            supplierRadio.dispatchEvent(new Event('change'));
+                        }
+                    });
+                }
+
+                function init() {
+                    initAutocomplete();
+                    initINNHandler();
+                    initSubmitHandler();
+                    initResetHandler();
+                }
+
+                return { init };
+            })();
+
+            // ==================== ИНИЦИАЛИЗАЦИЯ SELECT2 ====================
+            function initSelect2() {
+                $('select[multiple]').select2({
+                    placeholder: 'Выберите значения',
+                    allowClear: true,
+                    width: '100%',
+                    dropdownPosition: 'below',
+                    language: {
+                        noResults: () => "Ничего не найдено"
+                    }
+                });
+            }
+
+            // ==================== ГЛОБАЛЬНЫЕ ФУНКЦИИ ДЛЯ МОДАЛКИ ====================
+            window.closeModal = () => ModalController.hide();
+
+            // ==================== ЗАПУСК ПРИ ЗАГРУЗКЕ ====================
+            document.addEventListener('DOMContentLoaded', function() {
+                ModalController.init();
+                initSelect2();
+                RoleManager.init();
+                FormManager.init();
             });
 
-            // Обработка сброса формы
-            document.getElementById('companyRegistrationForm').addEventListener('reset', function () {
-                // Очищаем поля компании
-                legalNameInput.value = '';
-                innInput.value = '';
-                delete legalNameInput.dataset.selectedInn;
-
-                // Сбрасываем select2 поля
-                $('select[multiple]').val(null).trigger('change');
-            });
-        });
+        })();
     </script>
 </body>
 
