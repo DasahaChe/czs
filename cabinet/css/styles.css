@@ -200,7 +200,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1;
   color: #fff;
 }
@@ -340,7 +340,6 @@ select {
 
 .nav__text {
   font-size: 14px;
-  font-weight: 500;
   white-space: nowrap;
 }
 
@@ -354,7 +353,7 @@ select {
   border-radius: 999px;
   background: #E53935;
   color: #fff;
-  font-size: 11px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -390,7 +389,7 @@ select {
   align-items: center;
   justify-content: center;
   background: #EAF5FF;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 1;
   color: var(--blue-900);
 }
@@ -401,7 +400,6 @@ select {
 
 .side-action__text {
   font-size: 14px;
-  font-weight: 500;
 }
 
 .sidebar__fill {
@@ -593,7 +591,7 @@ select {
   background: #fff;
   max-width: 336px;
   width: 100%;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 /* Category row */
@@ -605,7 +603,7 @@ select {
 }
 
 .category-row__label {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--dark);
 }
 
@@ -625,7 +623,7 @@ select {
 }
 
 .stat__title {
-  font-size: 1.5em;
+  font-size: 24px;
   font-weight: 400;
   margin: 0 0 8px 0;
 }
@@ -648,7 +646,7 @@ select {
 }
 
 .stat__value {
-  font-size: 3rem;
+  font-size: 24px;
   font-weight: 600;
   text-align: center;
   color: var(--grey);
@@ -659,7 +657,7 @@ select {
 }
 
 .stat__note {
-  font-size: 1rem;
+  font-size: 14px;
   color: var(--grey);
 }
 
@@ -677,7 +675,7 @@ select {
 
 /* Table block */
 .table-block__title {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 600;
   margin: 0 0 10px 0;
 }
@@ -820,7 +818,7 @@ select {
 }
 
 .ad-card__peter-top {
-  font-size: 11px;
+  font-size: 12px;
   color: #6C7B8A;
   letter-spacing: .4px;
   margin-bottom: 10px;
@@ -847,13 +845,13 @@ select {
 }
 
 .ad-card__peter-place {
-  font-size: 11px;
+  font-size: 12px;
   color: #6C7B8A;
   margin-bottom: 6px;
 }
 
 .ad-card__peter-dates {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -883,12 +881,12 @@ select {
     border-radius: 4px;
     padding: 0 34px 0 12px;
     outline: none;
+    color: var(--muted);
     background: #fff;
 }
 
 .search__input:focus, .search__select:focus {
     outline: none;
-    color: var(--muted);
     border-color: var(--blue-900);
     box-shadow: 0 0 0 3px rgba(11, 99, 168, 0.1);
 }
@@ -1065,7 +1063,7 @@ select {
 }
 
 .date-picker__input-group label {
-  font-size: 14px;
+  font-size: 12px;
   color: #6B7280;
 }
 
@@ -1074,7 +1072,7 @@ select {
   border: 1px solid #D1D5DB;
   border-radius: 6px;
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   background: white;
 }
 
@@ -1084,7 +1082,7 @@ select {
   justify-content: center;
   height: 400px;
   color: #6B7280;
-  font-size: 14px;
+  font-size: 12px;
   background: #F9FAFB;
   border-radius: 8px;
 }
@@ -1136,23 +1134,23 @@ select {
   display: flex;
   gap: 6px;
   align-items: center;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .chart-legend-title {
-  font-size: 13px;
+  font-size: 12px;
   color: #374151;
   font-weight: 500;
 }
 
 .chart-legend-value {
-  font-size: 13px;
+  font-size: 12px;
   color: #0B63A8;
   font-weight: 600;
 }
 
 .chart-legend-badge {
-  font-size: 11px;
+  font-size: 12px;
   padding: 2px 6px;
   border-radius: 10px;
 }
@@ -1181,7 +1179,7 @@ select {
 }
 
 .pie-chart-title {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: #374151;
   margin-bottom: 15px;
@@ -1230,7 +1228,7 @@ select {
   padding: 5px;
   background-color: #F9FAFB;
   border-radius: 6px;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .compact-legend-color {
@@ -1278,7 +1276,7 @@ select {
   background-color: #F9FAFB;
   border-radius: 0 0 8px 8px;
   border: 1px solid #E5E7EB;
-  font-size: 11px;
+  font-size: 12px;
   animation: fadeIn 0.5s ease-out;
 }
 
@@ -1305,7 +1303,7 @@ select {
 
 .compact-summary-value {
   font-weight: 600;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 /* Chart summary block */
@@ -1326,7 +1324,7 @@ select {
 }
 
 .chart-block-summary h3 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: #374151;
   margin-bottom: 20px;
