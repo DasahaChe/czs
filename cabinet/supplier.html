@@ -4,10 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Сейл Трекер — Сводные данные</title>
+    <title>Сейл Трекер | Каталог поставщиков</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/supp.css">
 </head>
@@ -233,212 +237,718 @@
             <!-- CONTENT -->
             <main class="content">
                 <h1 class="page-title">Каталог поставщиков</h1>
-                <p class="page-title-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-
-                <!-- шапка -->
-
+                <!-- <p class="page-title-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p> -->
                 <div class="requests-filter">
                     <a href="#" class="requests-filter__link requests-filter__link--active">Рекомендуемые</a>
                     <a href="#" class="requests-filter__link">Все поставщики</a>
                     <a href="#" class="requests-filter__link">Избранные</a>
-                    <a href="#" class="requests-filter__link blue">Недавно просмотренные</a>
+                    <a href="#" class="requests-filter__link">Недавно просмотренные</a>
                 </div>
-                <!-- поисковая строка (как на эскизе) -->
-                 <!-- Верхняя панель с поиском и фильтрами -->
-                        <div class="category-search">
-                            <div class="search__block">
-                                <svg class="filtr-icn" xmlns="http://www.w3.org/2000/svg" version="1.0" width="16.000000pt"
-                                    height="16.000000pt" viewBox="0 0 512.000000 512.000000"
-                                    preserveAspectRatio="xMidYMid meet">
-                                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                                        fill="currentcolor" stroke="none">
-                                        <path
-                                            d="M3405 5104 c-38 -8 -108 -34 -155 -56 -69 -33 -100 -57 -170 -127 -86 -87 -127 -149 -160 -244 l-18 -52 -1399 -5 -1398 -5 -34 -24 c-79 -57 -93 -179 -28 -249 57 -61 -50 -57 1470 -62 l1388 -5 24 -58 c77 -190 228 -334 415 -397 43 -15 100 -24 171 -27 134 -7 227 12 341 69 141 71 273 222 324 372 l16 46 391 0 c436 0 443 1 500 69 64 77 38 204 -53 252 -32 18 -65 19 -435 19 l-400 0 -19 53 c-67 195 -243 361 -446 421 -80 24 -239 29 -325 10z" />
-                                        <path
-                                            d="M1552 3219 c-212 -32 -401 -169 -496 -360 -25 -50 -46 -100 -46 -110 0 -18 -14 -19 -435 -19 -481 0 -476 1 -532 -63 -56 -64 -56 -150 0 -214 56 -64 51 -63 532 -63 421 0 435 -1 435 -19 0 -10 21 -60 46 -110 75 -151 208 -269 368 -327 186 -67 401 -46 572 57 117 71 231 210 276 336 l23 63 1346 0 1346 0 43 23 c51 27 90 90 90 147 0 57 -39 120 -90 147 l-43 23 -1347 0 -1348 0 -7 28 c-12 51 -64 149 -110 208 -145 189 -390 288 -623 253z" />
-                                        <path
-                                            d="M2600 1311 c-194 -52 -344 -175 -430 -353 -20 -42 -40 -86 -43 -97 l-5 -21 -989 0 c-937 0 -990 -1 -1028 -19 -131 -59 -139 -236 -15 -302 33 -18 81 -19 1031 -19 l996 0 27 -70 c117 -297 420 -470 736 -419 224 36 428 205 507 419 l26 70 791 0 c751 0 793 1 826 19 124 66 116 243 -15 302 -38 18 -85 19 -821 19 l-782 0 -23 62 c-73 196 -252 356 -455 408 -98 25 -243 26 -334 1z" />
-                                    </g>
+
+                <!-- Верхняя панель с поиском и фильтрами -->
+                <div class="category-search">
+                    <div class="search__block">
+                        <svg class="filtr-icn" xmlns="http://www.w3.org/2000/svg" version="1.0" width="16.000000pt"
+                            height="16.000000pt" viewBox="0 0 512.000000 512.000000"
+                            preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="currentcolor"
+                                stroke="none">
+                                <path
+                                    d="M3405 5104 c-38 -8 -108 -34 -155 -56 -69 -33 -100 -57 -170 -127 -86 -87 -127 -149 -160 -244 l-18 -52 -1399 -5 -1398 -5 -34 -24 c-79 -57 -93 -179 -28 -249 57 -61 -50 -57 1470 -62 l1388 -5 24 -58 c77 -190 228 -334 415 -397 43 -15 100 -24 171 -27 134 -7 227 12 341 69 141 71 273 222 324 372 l16 46 391 0 c436 0 443 1 500 69 64 77 38 204 -53 252 -32 18 -65 19 -435 19 l-400 0 -19 53 c-67 195 -243 361 -446 421 -80 24 -239 29 -325 10z" />
+                                <path
+                                    d="M1552 3219 c-212 -32 -401 -169 -496 -360 -25 -50 -46 -100 -46 -110 0 -18 -14 -19 -435 -19 -481 0 -476 1 -532 -63 -56 -64 -56 -150 0 -214 56 -64 51 -63 532 -63 421 0 435 -1 435 -19 0 -10 21 -60 46 -110 75 -151 208 -269 368 -327 186 -67 401 -46 572 57 117 71 231 210 276 336 l23 63 1346 0 1346 0 43 23 c51 27 90 90 90 147 0 57 -39 120 -90 147 l-43 23 -1347 0 -1348 0 -7 28 c-12 51 -64 149 -110 208 -145 189 -390 288 -623 253z" />
+                                <path
+                                    d="M2600 1311 c-194 -52 -344 -175 -430 -353 -20 -42 -40 -86 -43 -97 l-5 -21 -989 0 c-937 0 -990 -1 -1028 -19 -131 -59 -139 -236 -15 -302 33 -18 81 -19 1031 -19 l996 0 27 -70 c117 -297 420 -470 736 -419 224 36 428 205 507 419 l26 70 791 0 c751 0 793 1 826 19 124 66 116 243 -15 302 -38 18 -85 19 -821 19 l-782 0 -23 62 c-73 196 -252 356 -455 408 -98 25 -243 26 -334 1z" />
+                            </g>
+                        </svg>
+
+                        <div class="search search--categories">
+                            <input class="search__input search__input-vit" type="search"
+                                placeholder="Поиск по названию, продукту, бренду, категорий...">
+                            <button class="search__btn search__btn-vit" type="button" aria-label="Искать">
+                                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M10.5 18.5a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" fill="none"
+                                        stroke="currentColor" stroke-width="2"></path>
+                                    <path d="M16.5 16.5 21 21" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round"></path>
                                 </svg>
-
-                                <div class="search search--categories">
-                                    <input class="search__input search__input-vit" type="search"
-                                        placeholder="Поиск по названию, продукту, бренду, категорий...">
-                                    <button class="search__btn search__btn-vit" type="button" aria-label="Искать">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path d="M10.5 18.5a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" fill="none"
-                                                stroke="currentColor" stroke-width="2"></path>
-                                            <path d="M16.5 16.5 21 21" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-
-                           
-
-                        </div>
-                
-                <!-- основная часть: фильтры слева + список справа -->
-                <div class="catalog__grid">
-                    <!-- ЛЕВАЯ КОЛОНКА ФИЛЬТРОВ (с максимальным соответствием эскизу) -->
-                    <div class="filters">
-                        <!-- строка: Пеннене / Производитель: CTM / Фотографы (7) -->
-                        <div class="filter-block">
-                            <div class="filter-item">
-                                <span><i class="fas fa-tag" style="color:#7f8fa5;"></i> Пеннене</span>
-                                <span class="filter-tag">Производитель: CTM <i class="fas fa-times"></i></span>
-                            </div>
-                            <div class="filter-item">
-                                <span></span>
-                                <span class="filter-tag">Фотографы (7) <i class="fas fa-times"></i></span>
-                            </div>
+                            </button>
                         </div>
 
-                        <!-- Категории (Пеннене, Производственные, Сбросить все) -->
-                        <div class="filter-block">
-                            <div class="filter-title">Категории</div>
-                            <div class="filter-item">
-                                <span><i class="far fa-circle"></i> Пеннене</span>
-                                <span>162</span>
-                            </div>
-                            <div class="filter-item">
-                                <span><i class="far fa-circle"></i> Производственные</span>
-                                <span>94</span>
-                            </div>
-                            <div style="margin-top: 12px;">
-                                <span class="clear-all">Сбросить все</span>
-                            </div>
-                        </div>
 
-                        <!-- Категории: Кондитерские изделия (вложенно) -->
-                        <div class="filter-block">
-                            <div class="filter-title">Категории: Кондитерские изделия</div>
-                            <div class="filter-item">
-                                <span><i class="far fa-check-square" style="color:#0b1b32;"></i> Пеннене</span>
-                                <span>42</span>
-                            </div>
-                            <div class="filter-item">
-                                <span><i class="far fa-square"></i> Производственные</span>
-                                <span>18</span>
-                            </div>
-                            <div class="filter-item">
-                                <span><i class="far fa-square"></i> В ипотечном зал</span>
-                                <span>7</span>
-                            </div>
-                        </div>
 
-                        <!-- Регионы поставки -->
-                        <div class="filter-block">
-                            <div class="filter-title">Регионы поставки:</div>
-                            <div class="region-item"><i class="far fa-square"></i> Производитель: CTM</div>
-                            <div class="region-item"><i class="fas fa-check-square" style="color:#0b1b32;"></i>
-                                Проверенные</div>
-                        </div>
-
-                        <!-- Формат работы -->
-                        <div class="filter-block">
-                            <div class="filter-title">Формат работы:</div>
-                            <div class="format-item"><i class="far fa-square"></i> CTM</div>
-                        </div>
-
-                        <!-- дополнительные фильтры (Проверенные / Есть образцы) -->
-                        <div class="filter-block">
-                            <div class="filter-check"><i class="fas fa-check-circle" style="color:#0b1b32;"></i>
-                                Проверенные</div>
-                            <div class="filter-check"><i class="far fa-circle"></i> Есть образцы</div>
-                        </div>
-
-                        <!-- кнопки Применить / Сбросить -->
-                        <div class="buttons-line">
-                            <button class="btn btn-primary" disabled>Применить</button>
-                            <button class="btn btn-secondary" disabled>Сбросить</button>
-                        </div>
-
-                        <!-- мелкая надп imitation "Найдено: 1.98 поставщиков" дублируется справа, но на эскизе есть и слева внизу? там просто текст, оставим для симметрии или уберём, но по макету есть блок "Найдено: 1.98 поставщиков  Сбросить все" справа — будет ниже. -->
                     </div>
 
-                    <!-- ПРАВАЯ КОЛОНКА (список поставщиков) -->
-                    <div class="results">
-                        <!-- верхняя строка найдено / настройки -->
-                        <div class="results-header">
-                            <div class="found">Найдено: 1.98 поставщиков <small>Сбросить все</small></div>
-                            <div class="results-actions">
-                                <span class="clear-link">Сбросить все</span>
-                                <span class="settings-link"><i class="fas fa-sliders-h"></i> Настройки всех</span>
+                    <!-- основная часть: фильтры слева + список справа -->
+                    <div class="catalog__grid">
+                        <!--  КОЛОНКА ФИЛЬТРОВ -->
+                        <div class="filters">
+                            <!-- строка: Пеннене / Производитель: CTM / Фотографы (7) -->
+                            <div class="filter-block">
+                                <div class="filter-item">
+                                    <span><i class="fas fa-tag" style="color:#7f8fa5;"></i> Пеннене</span>
+                                    <span class="filter-tag">Производитель: CTM <i class="fas fa-times"></i></span>
+                                </div>
+                                <div class="filter-item">
+                                    <span></span>
+                                    <span class="filter-tag">Фотографы (7) <i class="fas fa-times"></i></span>
+                                </div>
                             </div>
+
+                            <!-- Категории (Пеннене, Производственные, Сбросить все) -->
+                            <div class="filter-block">
+                                <div class="filter-title">Категории</div>
+                                <div class="filter-item">
+                                    <span><i class="far fa-circle"></i> Пеннене</span>
+                                    <span>162</span>
+                                </div>
+                                <div class="filter-item">
+                                    <span><i class="far fa-circle"></i> Производственные</span>
+                                    <span>94</span>
+                                </div>
+                                <div style="margin-top: 12px;">
+                                    <span class="clear-all">Сбросить все</span>
+                                </div>
+                            </div>
+
+                            <!-- Категории: Кондитерские изделия (вложенно) -->
+                            <div class="filter-block">
+                                <div class="filter-title">Категории: Кондитерские изделия</div>
+                                <div class="filter-item">
+                                    <span><i class="far fa-check-square" style="color:#0b1b32;"></i> Пеннене</span>
+                                    <span>42</span>
+                                </div>
+                                <div class="filter-item">
+                                    <span><i class="far fa-square"></i> Производственные</span>
+                                    <span>18</span>
+                                </div>
+                                <div class="filter-item">
+                                    <span><i class="far fa-square"></i> В ипотечном зал</span>
+                                    <span>7</span>
+                                </div>
+                            </div>
+
+                            <!-- Регионы поставки -->
+                            <div class="filter-block">
+                                <div class="filter-title">Регионы поставки:</div>
+                                <div class="region-item"><i class="far fa-square"></i> Производитель: CTM</div>
+                                <div class="region-item"><i class="fas fa-check-square" style="color:#0b1b32;"></i>
+                                    Проверенные</div>
+                            </div>
+
+                            <!-- Формат работы -->
+                            <div class="filter-block">
+                                <div class="filter-title">Формат работы:</div>
+                                <div class="format-item"><i class="far fa-square"></i> CTM</div>
+                            </div>
+
+                            <!-- дополнительные фильтры (Проверенные / Есть образцы) -->
+                            <div class="filter-block">
+                                <div class="filter-check"><i class="fas fa-check-circle" style="color:#0b1b32;"></i>
+                                    Проверенные</div>
+                                <div class="filter-check"><i class="far fa-circle"></i> Есть образцы</div>
+                            </div>
+
+                            <!-- кнопки Применить / Сбросить -->
+                            <div class="buttons-line">
+                                <button class="btn btn-primary" disabled>Применить</button>
+                                <button class="btn btn-secondary" disabled>Сбросить</button>
+                            </div>
+
+                            <!-- мелкая надп imitation "Найдено: 1.98 поставщиков" дублируется справа, но на эскизе есть и слева внизу? там просто текст, оставим для симметрии или уберём, но по макету есть блок "Найдено: 1.98 поставщиков  Сбросить все" справа — будет ниже. -->
                         </div>
 
-                        <!-- карточка: ООО Сладкая фабрика -->
-                        <div class="supplier-card">
-                            <div class="card-logo">
-                                <img src="img/logo/1.jpg" alt="logo"
-                                    onerror="this.src='https://via.placeholder.com/80x80?text=logo1'">
-                            </div>
-                            <div class="card-info">
-                                <div class="company-name">ООО Сладкая фабрика</div>
-                                <div class="company-badges">
-                                    <span class="badge-cat">Кондитерские изделия</span>
-                                    <span class="badge-cat">Кондитерские изделия</span>
-                                    <span class="badge-cat">Пеннене</span>
-                                    <span class="badge-cat">С2ФО</span>
-                                </div>
-                                <div class="meta-line">
-                                    <span><i class="far fa-clock"></i> Время ответа: 3 дня</span>
-                                    <span><i class="far fa-eye"></i> Аттрактость, быта сегодня</span>
-                                </div>
-                                <div class="contacts-row">
-                                    <span class="contact-item"><i class="fas fa-phone-alt"></i> Телефон / Email</span>
-                                    <span class="contact-item"><i class="fas fa-user"></i> Контакт в профиле</span>
-                                    <span class="contact-item"><i class="fas fa-envelope"></i> Контакт в профиле</span>
-                                </div>
-                                <div class="card-actions">
-                                    <button class="action-btn dark" disabled>Посмотреть профиль</button>
-                                    <button class="action-btn" disabled>Отправить сообщение</button>
+                        <!-- список поставщиков) -->
+                        <div class="results">
+                            <!-- верхняя строка найдено / настройки -->
+                            <div class="results-header">
+                                <div class="found">Найдено: 198 поставщиков</div>
+                                <div class="results-actions">
+                                    <span class="clear-link">Сбросить фильтры</span>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- карточка: ООО «Молочный берет» (имитация второй) -->
-                        <div class="supplier-card">
-                            <div class="card-logo">
-                                <img src="img/logo/2.jpg" alt="logo"
-                                    onerror="this.src='https://via.placeholder.com/80x80?text=logo2'">
-                            </div>
-                            <div class="card-info">
-                                <div class="company-name">ООО «Молочный берет»</div>
-                                <div class="company-badges">
-                                    <span class="badge-cat">Кондитерские изделия</span>
-                                    <span class="badge-cat">Пеннене</span>
-                                    <span class="badge-cat">СЗВО</span>
-                                </div>
-                                <div class="meta-line">
-                                    <span><i class="far fa-clock"></i> Время ответа: 3 дня</span>
-                                    <span><i class="far fa-eye"></i> Аттрактость, быта сегодня</span>
-                                </div>
-                                <div class="contacts-row">
-                                    <span class="contact-item"><i class="fas fa-phone-alt"></i> Телефон / Email</span>
-                                    <span class="contact-item"><i class="fas fa-user"></i> Контакт в профиле</span>
-                                    <span class="contact-item"><i class="fas fa-envelope"></i> Контакт в профиле</span>
-                                </div>
-                                <div class="card-actions">
-                                    <button class="action-btn dark" disabled>Посмотреть профиль</button>
-                                    <button class="action-btn" disabled>Отправить сообщение</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- можно добавить третью карточку для демонстрации, но по эскизу две, оставим так -->
+<div class="supplier-list">
+    <!-- Карточка 1: ООО Сладкая фабрика (проверенный поставщик) -->
+    <div class="supplier-card">
+        <div class="card-logo">
+            <img src="img/logo/1.jpg" alt="logo">
+        </div>
+        <div class="card-info">
+            <div class="card-header">
+                <div class="company-name">
+                    <span>ООО Сладкая фабрика</span>
+                    <span class="verified-badge" title="Проверенный поставщик">
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                </div>
+                <div class="rating-badge">
+                    <span>Подходит 92%</span>
+                    <span class="rating-star">★</span>
+                    <span>4,7</span>
+                </div>
+            </div>
+            <div class="request">
+                <div class="request-card__proposals">
+                    <div class="company-badges">
+                        <span class="badge-cat">Кондитерские изделия</span>
+                        <span class="badge-cat">Конфеты</span>
+                        <span class="badge-cat">Печенье</span>
+                    </div>
+                    <div class="requestD-card__regions">
+                        <span class="request-card__region">ЦФО</span>
+                        <span class="request-card__region">ПФО</span>
+                    </div>
+                    <div class="meta-line">
+                        <span><i class="far fa-clock"></i> Cреднее время ответа: 3 дня</span>
+                        <span><i class="far fa-eye"></i> Активность: был сегодня</span>
                     </div>
                 </div>
-
-                <!-- совсем нижняя строка не обязательна, но на эскизе больше ничего нет. Добавим тонкую линию чтобы не обрывалось -->
-                <div
-                    style="margin-top: 20px; border-top: 1px solid #ecf2f9; padding-top: 16px; display: flex; justify-content: space-between; font-size: 13px; color:#8b9bb5;">
-                    <span>1–2 из 1.98 поставщиков</span>
-                    <span><i class="far fa-star"></i> Избранное · <i class="far fa-history"></i> Недавние</span>
+                <div class="btn-sup">
+                    <div class="btn-sup-block">
+                        <button class="btn--chat">
+                            <i class="fas fa-comment"></i> Чат
+                        </button>
+                        <button class="btn btn--primary request-card__btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Открыть профиль
+                        </button>
+                        <div class="dropdown-container">
+                            <button class="btn--icon" onclick="toggleDropdown(this)">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <div class="btn-card dropdown-menu">
+                                <a href="#" class="sub-link">
+                                    <i class="fas fa-envelope"></i> Пригласить в заявку
+                                </a>
+                                <a href="#" class="sub-link">
+                                    <i class="far fa-star"></i> Добавить в избранное
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- небольшая заметка: логотипы подставляются из папки img/logo/ с номерами 1.jpg ... 35.jpg. В примерах использованы 1.jpg и 2.jpg; если файлы отсутствуют, показывается плейсхолдер. -->
+            </div>
+            <div class="contacts-row">
+                <span class="contact-item"><i class="fas fa-phone-alt"></i> Телефон / Email</span>
+                <span class="contact-item"><i class="fas fa-user"></i> Контакты в профиле 4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка 2: ООО «Молочная долина» (обычный) -->
+    <div class="supplier-card">
+        <div class="card-logo">
+            <img src="img/logo/2.jpg" alt="logo">
+        </div>
+        <div class="card-info">
+            <div class="card-header">
+                <div class="company-name">
+                    <span>ООО «Молочная долина»</span>
+                </div>
+                <div class="rating-badge">
+                    <span>Подходит 89%</span>
+                    <span class="rating-star">★</span>
+                    <span>4,5</span>
+                </div>
+            </div>
+            <div class="request">
+                <div class="request-card__proposals">
+                    <div class="company-badges">
+                        <span class="badge-cat">Молочная продукция и сыры</span>
+                        <span class="badge-cat">Творог</span>
+                        <span class="badge-cat">Сметана</span>
+                    </div>
+                    <div class="requestD-card__regions">
+                        <span class="request-card__region">ЦФО</span>
+                    </div>
+                    <div class="meta-line">
+                        <span><i class="far fa-clock"></i> Время ответа: 2 часа</span>
+                        <span><i class="far fa-eye"></i> Активность: был сегодня</span>
+                    </div>
+                </div>
+                <div class="btn-sup">
+                    <div class="btn-sup-block">
+                        <button class="btn--chat">
+                            <i class="fas fa-comment"></i> Чат
+                        </button>
+                        <button class="btn btn--primary request-card__btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Открыть профиль
+                        </button>
+                        <div class="dropdown-container">
+                            <button class="btn--icon" onclick="toggleDropdown(this)">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <div class="btn-card dropdown-menu">
+                                <a href="#" class="sub-link">
+                                    <i class="fas fa-envelope"></i> Пригласить в заявку
+                                </a>
+                                <a href="#" class="sub-link">
+                                    <i class="far fa-star"></i> Добавить в избранное
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts-row">
+                <span class="contact-item"><i class="fas fa-phone-alt"></i> Телефон / Email</span>
+                <span class="contact-item"><i class="fas fa-user"></i> Контакты в профиле 5</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка 3: ООО «Сырный сомелье» (проверенный поставщик) -->
+    <div class="supplier-card">
+        <div class="card-logo">
+            <img src="img/logo/4.png" alt="logo">
+        </div>
+        <div class="card-info">
+            <div class="card-header">
+                <div class="company-name">
+                    <span>ООО «Сырный сомелье»</span>
+                    <span class="verified-badge" title="Проверенный поставщик">
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                </div>
+                <div class="rating-badge">
+                    <span>Подходит 95%</span>
+                    <span class="rating-star">★</span>
+                    <span>4,9</span>
+                </div>
+            </div>
+            <div class="request">
+                <div class="request-card__proposals">
+                    <div class="company-badges">
+                        <span class="badge-cat">Молочная продукция и сыры</span>
+                        <span class="badge-cat">Сыры с плесенью</span>
+                        <span class="badge-cat">Твёрдые сыры</span>
+                    </div>
+                    <div class="requestD-card__regions">
+                        <span class="request-card__region">СЗФО</span>
+                    </div>
+                    <div class="meta-line">
+                        <span><i class="far fa-clock"></i> Время ответа: 1 день</span>
+                        <span><i class="far fa-eye"></i> Активность: был вчера</span>
+                    </div>
+                </div>
+                <div class="btn-sup">
+                    <div class="btn-sup-block">
+                        <button class="btn--chat">
+                            <i class="fas fa-comment"></i> Чат
+                        </button>
+                        <button class="btn btn--primary request-card__btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Открыть профиль
+                        </button>
+                        <div class="dropdown-container">
+                            <button class="btn--icon" onclick="toggleDropdown(this)">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <div class="btn-card dropdown-menu">
+                                <a href="#" class="sub-link">
+                                    <i class="fas fa-envelope"></i> Пригласить в заявку
+                                </a>
+                                <a href="#" class="sub-link">
+                                    <i class="far fa-star"></i> Добавить в избранное
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts-row">
+                <span class="contact-item"><i class="fas fa-phone-alt"></i> Телефон / Email</span>
+                <span class="contact-item"><i class="fas fa-user"></i> Контакты в профиле 3</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка 4: АО «Напитки мира» (обычный) -->
+    <div class="supplier-card">
+        <div class="card-logo">
+            <img src="img/logo/5.jpg" alt="logo">
+        </div>
+        <div class="card-info">
+            <div class="card-header">
+                <div class="company-name">
+                    <span>АО «Напитки мира»</span>
+                </div>
+                <div class="rating-badge">
+                    <span>Подходит 88%</span>
+                    <span class="rating-star">★</span>
+                    <span>4,4</span>
+                </div>
+            </div>
+            <div class="request">
+                <div class="request-card__proposals">
+                    <div class="company-badges">
+                        <span class="badge-cat">Напитки</span>
+                        <span class="badge-cat">Соки</span>
+                        <span class="badge-cat">Вода</span>
+                    </div>
+                    <div class="requestD-card__regions">
+                        <span class="request-card__region">ЮФО</span>
+                    </div>
+                    <div class="meta-line">
+                        <span><i class="far fa-clock"></i> Время ответа: 3 часа</span>
+                        <span><i class="far fa-eye"></i> Активность: был сегодня</span>
+                    </div>
+                </div>
+                <div class="btn-sup">
+                    <div class="btn-sup-block">
+                        <button class="btn--chat">
+                            <i class="fas fa-comment"></i> Чат
+                        </button>
+                        <button class="btn btn--primary request-card__btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Открыть профиль
+                        </button>
+                        <div class="dropdown-container">
+                            <button class="btn--icon" onclick="toggleDropdown(this)">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <div class="btn-card dropdown-menu">
+                                <a href="#" class="sub-link">
+                                    <i class="fas fa-envelope"></i> Пригласить в заявку
+                                </a>
+                                <a href="#" class="sub-link">
+                                    <i class="far fa-star"></i> Добавить в избранное
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts-row">
+                <span class="contact-item"><i class="fas fa-phone-alt"></i> Телефон / Email</span>
+                <span class="contact-item"><i class="fas fa-user"></i> Контакты в профиле 6</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка 5: ООО «Чистая вода» (обычный) -->
+    <div class="supplier-card">
+        <div class="card-logo">
+            <img src="img/logo/6.jpg" alt="logo">
+        </div>
+        <div class="card-info">
+            <div class="card-header">
+                <div class="company-name">
+                    <span>ООО «Чистая вода»</span>
+                </div>
+                <div class="rating-badge">
+                    <span>Подходит 86%</span>
+                    <span class="rating-star">★</span>
+                    <span>4,3</span>
+                </div>
+            </div>
+            <div class="request">
+                <div class="request-card__proposals">
+                    <div class="company-badges">
+                        <span class="badge-cat">Напитки</span>
+                        <span class="badge-cat">Минеральная вода</span>
+                        <span class="badge-cat">Лимонады</span>
+                    </div>
+                    <div class="requestD-card__regions">
+                        <span class="request-card__region">СФО</span>
+                    </div>
+                    <div class="meta-line">
+                        <span><i class="far fa-clock"></i> Время ответа: 5 часов</span>
+                        <span><i class="far fa-eye"></i> Активность: был 2 часа назад</span>
+                    </div>
+                </div>
+                <div class="btn-sup">
+                    <div class="btn-sup-block">
+                        <button class="btn--chat">
+                            <i class="fas fa-comment"></i> Чат
+                        </button>
+                        <button class="btn btn--primary request-card__btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Открыть профиль
+                        </button>
+                        <div class="dropdown-container">
+                            <button class="btn--icon" onclick="toggleDropdown(this)">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <div class="btn-card dropdown-menu">
+                                <a href="#" class="sub-link">
+                                    <i class="fas fa-envelope"></i> Пригласить в заявку
+                                </a>
+                                <a href="#" class="sub-link">
+                                    <i class="far fa-star"></i> Добавить в избранное
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts-row">
+                <span class="contact-item"><i class="fas fa-phone-alt"></i> Телефон / Email</span>
+                <span class="contact-item"><i class="fas fa-user"></i> Контакты в профиле 2</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка 6: Птицефабрика «Заря» (проверенный поставщик) -->
+    <div class="supplier-card">
+        <div class="card-logo">
+            <img src="img/logo/7.jpg" alt="logo">
+        </div>
+        <div class="card-info">
+            <div class="card-header">
+                <div class="company-name">
+                    <span>Птицефабрика «Заря»</span>
+                    <span class="verified-badge" title="Проверенный поставщик">
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                </div>
+                <div class="rating-badge">
+                    <span>Подходит 91%</span>
+                    <span class="rating-star">★</span>
+                    <span>4,6</span>
+                </div>
+            </div>
+            <div class="request">
+                <div class="request-card__proposals">
+                    <div class="company-badges">
+                        <span class="badge-cat">Мясо и птица</span>
+                        <span class="badge-cat">Курица</span>
+                        <span class="badge-cat">Индейка</span>
+                    </div>
+                    <div class="requestD-card__regions">
+                        <span class="request-card__region">ПФО</span>
+                    </div>
+                    <div class="meta-line">
+                        <span><i class="far fa-clock"></i> Время ответа: 1 день</span>
+                        <span><i class="far fa-eye"></i> Активность: был сегодня</span>
+                    </div>
+                </div>
+                <div class="btn-sup">
+                    <div class="btn-sup-block">
+                        <button class="btn--chat">
+                            <i class="fas fa-comment"></i> Чат
+                        </button>
+                        <button class="btn btn--primary request-card__btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Открыть профиль
+                        </button>
+                        <div class="dropdown-container">
+                            <button class="btn--icon" onclick="toggleDropdown(this)">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <div class="btn-card dropdown-menu">
+                                <a href="#" class="sub-link">
+                                    <i class="fas fa-envelope"></i> Пригласить в заявку
+                                </a>
+                                <a href="#" class="sub-link">
+                                    <i class="far fa-star"></i> Добавить в избранное
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts-row">
+                <span class="contact-item"><i class="fas fa-phone-alt"></i> Телефон / Email</span>
+                <span class="contact-item"><i class="fas fa-user"></i> Контакты в профиле 4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка 7: Мясокомбинат «Сибирский» (обычный) -->
+    <div class="supplier-card">
+        <div class="card-logo">
+            <img src="img/logo/8.jpg" alt="logo">
+        </div>
+        <div class="card-info">
+            <div class="card-header">
+                <div class="company-name">
+                    <span>Мясокомбинат «Сибирский»</span>
+                </div>
+                <div class="rating-badge">
+                    <span>Подходит 87%</span>
+                    <span class="rating-star">★</span>
+                    <span>4,2</span>
+                </div>
+            </div>
+            <div class="request">
+                <div class="request-card__proposals">
+                    <div class="company-badges">
+                        <span class="badge-cat">Мясо и птица</span>
+                        <span class="badge-cat">Говядина</span>
+                        <span class="badge-cat">Свинина</span>
+                    </div>
+                    <div class="requestD-card__regions">
+                        <span class="request-card__region">УРФО</span>
+                    </div>
+                    <div class="meta-line">
+                        <span><i class="far fa-clock"></i> Время ответа: 4 часа</span>
+                        <span><i class="far fa-eye"></i> Активность: был 30 мин назад</span>
+                    </div>
+                </div>
+                <div class="btn-sup">
+                    <div class="btn-sup-block">
+                        <button class="btn--chat">
+                            <i class="fas fa-comment"></i> Чат
+                        </button>
+                        <button class="btn btn--primary request-card__btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Открыть профиль
+                        </button>
+                        <div class="dropdown-container">
+                            <button class="btn--icon" onclick="toggleDropdown(this)">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <div class="btn-card dropdown-menu">
+                                <a href="#" class="sub-link">
+                                    <i class="fas fa-envelope"></i> Пригласить в заявку
+                                </a>
+                                <a href="#" class="sub-link">
+                                    <i class="far fa-star"></i> Добавить в избранное
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts-row">
+                <span class="contact-item"><i class="fas fa-phone-alt"></i> Телефон / Email</span>
+                <span class="contact-item"><i class="fas fa-user"></i> Контакты в профиле 7</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка 8: ООО «Бакалея Опт» (обычный) -->
+    <div class="supplier-card">
+        <div class="card-logo">
+            <img src="img/logo/9.png" alt="logo">
+        </div>
+        <div class="card-info">
+            <div class="card-header">
+                <div class="company-name">
+                    <span>ООО «Бакалея Опт»</span>
+                </div>
+                <div class="rating-badge">
+                    <span>Подходит 84%</span>
+                    <span class="rating-star">★</span>
+                    <span>4,1</span>
+                </div>
+            </div>
+            <div class="request">
+                <div class="request-card__proposals">
+                    <div class="company-badges">
+                        <span class="badge-cat">Бакалея</span>
+                        <span class="badge-cat">Крупы</span>
+                        <span class="badge-cat">Макароны</span>
+                    </div>
+                    <div class="requestD-card__regions">
+                        <span class="request-card__region">ЦФО</span>
+                    </div>
+                    <div class="meta-line">
+                        <span><i class="far fa-clock"></i> Время ответа: 1 день</span>
+                        <span><i class="far fa-eye"></i> Активность: был вчера</span>
+                    </div>
+                </div>
+                <div class="btn-sup">
+                    <div class="btn-sup-block">
+                        <button class="btn--chat">
+                            <i class="fas fa-comment"></i> Чат
+                        </button>
+                        <button class="btn btn--primary request-card__btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Открыть профиль
+                        </button>
+                        <div class="dropdown-container">
+                            <button class="btn--icon" onclick="toggleDropdown(this)">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <div class="btn-card dropdown-menu">
+                                <a href="#" class="sub-link">
+                                    <i class="fas fa-envelope"></i> Пригласить в заявку
+                                </a>
+                                <a href="#" class="sub-link">
+                                    <i class="far fa-star"></i> Добавить в избранное
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts-row">
+                <span class="contact-item"><i class="fas fa-phone-alt"></i> Телефон / Email</span>
+                <span class="contact-item"><i class="fas fa-user"></i> Контакты в профиле 3</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка 9: ТД «Золотая бакалея» (проверенный поставщик) -->
+    <div class="supplier-card">
+        <div class="card-logo">
+            <img src="img/logo/10.jpg" alt="logo">
+        </div>
+        <div class="card-info">
+            <div class="card-header">
+                <div class="company-name">
+                    <span>ТД «Золотая бакалея»</span>
+                    <span class="verified-badge" title="Проверенный поставщик">
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                </div>
+                <div class="rating-badge">
+                    <span>Подходит 93%</span>
+                    <span class="rating-star">★</span>
+                    <span>4,8</span>
+                </div>
+            </div>
+            <div class="request">
+                <div class="request-card__proposals">
+                    <div class="company-badges">
+                        <span class="badge-cat">Бакалея</span>
+                        <span class="badge-cat">Масло</span>
+                        <span class="badge-cat">Консервы</span>
+                    </div>
+                    <div class="requestD-card__regions">
+                        <span class="request-card__region">ЮФО</span>
+                    </div>
+                    <div class="meta-line">
+                        <span><i class="far fa-clock"></i> Время ответа: 2 часа</span>
+                        <span><i class="far fa-eye"></i> Активность: был сегодня</span>
+                    </div>
+                </div>
+                <div class="btn-sup">
+                    <div class="btn-sup-block">
+                        <button class="btn--chat">
+                            <i class="fas fa-comment"></i> Чат
+                        </button>
+                        <button class="btn btn--primary request-card__btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Открыть профиль
+                        </button>
+                        <div class="dropdown-container">
+                            <button class="btn--icon" onclick="toggleDropdown(this)">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <div class="btn-card dropdown-menu">
+                                <a href="#" class="sub-link">
+                                    <i class="fas fa-envelope"></i> Пригласить в заявку
+                                </a>
+                                <a href="#" class="sub-link">
+                                    <i class="far fa-star"></i> Добавить в избранное
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts-row">
+                <span class="contact-item"><i class="fas fa-phone-alt"></i> Телефон / Email</span>
+                <span class="contact-item"><i class="fas fa-user"></i> Контакты в профиле 5</span>
+            </div>
+        </div>
+    </div>
+</div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="info-links">
+                        <span>1–2 из 198 поставщиков</span>
+                        <a href="#" class="info-link">Избранное</a>
+                        <a href="#" class="info-link">Недавние</a>
+                    </div>
+                    <!-- небольшая заметка: логотипы подставляются из папки img/logo/ с номерами 1.jpg ... 35.jpg. В примерах использованы 1.jpg и 2.jpg; если файлы отсутствуют, показывается плейсхолдер. -->
 
 
             </main>
@@ -485,6 +995,31 @@
         </footer>
     </div>
 
+    <script>
+        function toggleDropdown(button) {
+            const dropdown = button.nextElementSibling;
+            const isVisible = dropdown.style.display === 'flex';
+
+            // Закрываем все открытые дропдауны
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                if (menu !== dropdown) {
+                    menu.style.display = 'none';
+                }
+            });
+
+            // Переключаем текущий
+            dropdown.style.display = isVisible ? 'none' : 'flex';
+        }
+
+        // Закрываем дропдаун при клике вне его
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.dropdown-container')) {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.style.display = 'none';
+                });
+            }
+        });
+    </script>
 
 
 
