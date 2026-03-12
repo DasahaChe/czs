@@ -441,6 +441,10 @@ select {
   margin: 12px 0 24px 0;
 }
 
+.page-title-text {
+  margin: 0 0 16px 0;
+}
+
 .block {
   margin-bottom: 1.5em;
 }
@@ -519,6 +523,11 @@ select {
   margin: 1em 0 0 0;
   font-size: 12px;
 }
+.filtr-icn {
+  display: flex;
+  align-self: center;
+  color: var(--blue-900);
+}
 
 .filtr {
   display: flex;
@@ -528,12 +537,51 @@ select {
   margin-bottom: 8px;
 }
 
+/* Фильтры заявок */
+.requests-filter {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.requests-filter__link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 4px 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.requests-filter__link:hover {
+  color: var(--blue-900);
+}
+
+.requests-filter__link--active {
+  color: var(--blue-900);
+  font-weight: 600;
+}
+
+.requests-filter__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--blue-900);
+  border-radius: 3px 3px 0 0;
+}
+
 /* ==========================================================================
    Buttons / Inputs
    ========================================================================== */
 .btn {
   height: 40px;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid var(--grey);
   background: #fff;
   color: var(--grey);
@@ -554,8 +602,9 @@ select {
 }
 
 .btn:hover {
-  background: var(--blue);
-  filter: brightness(.99);
+  color: #fff;
+  background-color: var(--darkBlue);
+  border-color: var(--darkBlue);
 }
 
 .btn--outline {
@@ -912,6 +961,7 @@ select {
   display: flex;
   margin: 32px 0;
   gap: 16px;
+  height: 48px;
 }
 
 .search-span {
@@ -934,7 +984,8 @@ select {
   color: var(--blue-900);
 }
 
-.btn:hover, .stat:hover {
+.btn:hover,
+.stat:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -1022,8 +1073,7 @@ select {
 }
 
 .btn--wide:hover,
-.btn--pill:hover,
-.btn--outline.btn-active:hover {
+.btn--pill:hover {
   background-color: var(--darkBlue);
 }
 

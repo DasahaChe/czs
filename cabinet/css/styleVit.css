@@ -195,44 +195,6 @@
    МОИ ЗАЯВКИ (My Requests Page)
    ========================================================================== */
 
-/* Фильтры заявок */
-.requests-filter {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 32px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-}
-
-.requests-filter__link {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--muted);
-    text-decoration: none;
-    padding: 4px 0;
-    position: relative;
-    transition: color 0.2s ease;
-}
-
-.requests-filter__link:hover {
-    color: var(--blue-900);
-}
-
-.requests-filter__link--active {
-    color: var(--blue-900);
-    font-weight: 600;
-}
-
-.requests-filter__link--active::after {
-    content: '';
-    position: absolute;
-    bottom: -9px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--blue-900);
-    border-radius: 3px 3px 0 0;
-}
 
 /* Список заявок */
 .requests-list {
