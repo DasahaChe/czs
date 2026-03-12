@@ -32,6 +32,7 @@
   --grey: #6c7a93;
   --lightGrey: #C9D7E7;
   --darkBlue: #7DB3E3;
+  --gray-light: #ffffff;
 }
 
 * {
@@ -56,10 +57,8 @@
 
 html,
 body {
+  background-color: var(--gray-light);
   height: 100%;
-}
-
-body {
   margin: 0;
   font-family: 'TT Fors', 'Roboto', Arial, sans-serif;
   color: var(--text);
