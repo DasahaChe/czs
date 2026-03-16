@@ -91,10 +91,7 @@ margin-top: 4px;
     gap: 16px;
 }
 
-.token-badge {
-    font-size: 24px;
-    font-weight: 600;
-}
+
 
 .token-desc {
     color: var(--muted);
@@ -236,12 +233,16 @@ hr {
     color: var(--blue-900);
 }
 
-.tariff-title {
+.tariff-title, .token-badge{
     font-size: 24px;
     font-weight: 400;
     color: var(--dark);
+    padding: 0;
+    margin: 0;
 }
-
+.token-badge-Num{
+    font-size: 54px;
+}
 .tariff-title span{
     font-size: 14px;
     font-weight: 400;
