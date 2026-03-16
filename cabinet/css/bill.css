@@ -1,0 +1,23 @@
+
+.btn-bill {
+    display: flex;
+    font-size: 14px;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-bill-block {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Дропдаун меню */
+
+
+.header-page{
+    display: flex;
+    justify-content: space-between;
+}
