@@ -1,7 +1,5 @@
 /* ========== ПЕРЕМЕННЫЕ ========== */
 :root {
-    --success: #28a745;
-    --warning: #ffb800;
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.05);
@@ -373,7 +371,7 @@ body {
     display: flex;
     align-items: center;
     gap: 4px;
-    color: #2f3e5a;
+    color: var(--blue-hover);
     font-size: 14px;
 }
 
@@ -390,7 +388,7 @@ body {
 
 .meta-line i {
     margin-right: 6px;
-    color: #8fa0bc;
+    color:var(--muted);
     width: 16px;
 }
 
@@ -426,7 +424,7 @@ body {
     font-size: 14px;
     background: white;
     border: 1px solid #cfdae8;
-    color: #1f2a41;
+    color: var(--blue-hover);
     cursor: default;
     transition: none;
 }

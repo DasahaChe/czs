@@ -5,7 +5,7 @@
   --blue-900: #0B63A8;
   --blue-hover: #064a81;
   --cyan-400: #5bc5f2;
-  --lightBlue: #E6F4FF;
+  --lightBlue: #e6f4ff;
   --blue: #e7f3ff;
   --base-color-1: #0537c8;
   --base-color-2: #5bc5f2;
@@ -23,10 +23,11 @@
   --danger: #D32F2F;
   --danger-soft: #F6C8D1;
 
+  --success:#079b3f;
   --success-soft: #DDF4C6;
   --progress-soft: #BFDDF8;
   --wait-soft: #EAEAEA;
-
+  --warning: #ffb800;
   --shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 
   --dark: #242d27;

@@ -5,16 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Сейл Трекер | Счета и оплата</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/supp.css">
-    <link rel="stylesheet" href="css/bill.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/supp.css">
+  <link rel="stylesheet" href="css/bill.css">
 </head>
 
 <body>
@@ -223,35 +223,188 @@
 
       <!-- CONTENT -->
       <main class="content">
-        <div class="header-page">
         <h1 class="page-title">Счета и оплата</h1>
-        <!-- <div class="btn-bill">
-                    <div class="btn-bill-block">
-                        <button class="btn btn--primary request-card__btn--primary">
-                            <i class="fas fa-external-link-alt"></i> Открыть счет
-                        </button>
-                        <div class="dropdown-container">
-                            <button class="btn--icon" onclick="toggleDropdown(this)">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </button>
-                            <div class="btn-card dropdown-menu">
-                                <a href="#" class="sub-link">
-                                    <i class="fas fa-envelope"></i> Пригласить в заявку
-                                </a>
-                                <a href="#" class="sub-link">
-                                    <i class="far fa-star"></i> Добавить в избранное
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+
+        <div class="requests-filter">
+          <a href="#" class="requests-filter__link requests-filter__link--active">Все счета</a>
+          <a href="#" class="requests-filter__link">Не оплаченые</a>
+          <a href="#" class="requests-filter__link">Оплаченые</a>
         </div>
 
-         <div class="requests-filter">
-                    <a href="#" class="requests-filter__link requests-filter__link--active">Все счета</a>
-                    <a href="#" class="requests-filter__link">Не оплаченые</a>
-                    <a href="#" class="requests-filter__link">Оплаченые</a>
+        <div class="tariff-block">
+          <div class="current-tariff">
+            <div class="tariff-info">
+              <div class="tariff-header">
+                <div class="tariff-header--title">
+                  <h3 class="tariff-subtitle">Текущий тариф</h3>
+                  <h2 class="tariff-title">Стандарт <span>Активен</span></h2>
                 </div>
+                <div class="tariff-header--more"><i class="fas fa-info-circle"></i>
+                  Активное время | 29.06.2026
+                </div>
+              </div>
+
+              <div class="tariff-detail-item-time"><span class="tariff-detail-label">Действует до</span><span
+                  class="tariff-detail-value">30.06.2026</span></div>
+
+              <div class="tariff-progress-line">
+                <div class="tariff-progress-line__bg">
+                  <div class="tariff-progress-line__fill" style="width: 75%;"></div>
+                </div>
+                <span class="tariff-progress-line__text">Осталось 15 дней</span>
+              </div>
+
+              <div class="tariff-details">
+                <div class="tariff-detail-block">
+                  <div class="tariff-detail-item"><span class="tariff-detail-label tariff-detail-label-title">Включено мест</span><span
+                      class="tariff-detail-value">5</span></div>
+                  <div class="tariff-detail-item"><span class="tariff-detail-label">Количество мест</span><span
+                      class="tariff-detail-value">15</span></div>
+                </div>
+                <div class="tariff-detail-block">
+                  <div class="tariff-detail-item"><span class="tariff-detail-label tariff-detail-label-title">Занято</span><span
+                      class="tariff-detail-value">3</span></div>
+                  <div class="tariff-detail-item"><span class="tariff-detail-label">Токенный баланс</span><span
+                      class="tariff-detail-value">110</span></div>
+                </div>
+
+              </div>
+            </div>
+            <div class="tariff-actions">
+              <button class="btn btn--primary ">Продлить</button>
+              <button class="btn btn-outline">Сменить тариф</button>
+            </div>
+          </div>
+
+          <!-- Блок баланса токенов (первый) -->
+          <div class="token-balance token-balance-block">
+            <div class="token-row">
+              <span class="token-badge">Баланс токенов: 120</span>
+              <span class="token-desc"><i class="fas fa-info-circle"></i> Токени: Дополнительно для Ракеинов продлений,
+                Аналитики</span>
+              <button class="btn-link"><i class="fas fa-chart-line"></i> Формировать табло +100</button>
+            </div>
+          </div>
+        </div>
+        <!-- Второй блок баланса токенов с пакетами (как в эскизе) -->
+        <div class="token-balance">
+          <div style="margin-bottom:12px; font-weight:500;">Баланс токенов</div>
+          <div class="token-packages">
+            <span class="package-item">50 токенов <span class="package-price">3 000 ₽</span> <button
+                class="btn-package">Купить</button></span>
+            <span class="package-item">100 токенов <span class="package-price">5 000 ₽</span> <button
+                class="btn-package">Купить</button></span>
+            <span class="package-item">250 токенов <span class="package-price">10 000 ₽</span> <button
+                class="btn-package">Купить</button></span>
+            <span class="package-item">300 токенов <span class="package-price">—</span> <button
+                class="btn-package outline">Запросить</button></span>
+          </div>
+        </div>
+
+        <!-- Заголовок "Все счета" -->
+        <h2 class="section-title">Все счета</h2>
+
+        <!-- первая таблица (апрельские даты) -->
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Дата</th>
+                <th>Продукт</th>
+                <th>Период</th>
+                <th>Сумма</th>
+                <th>Статус</th>
+                <th>Действие</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>20.04.2026</td>
+                <td>Тариф-Стандарт<br>Апрель, 2026</td>
+                <td>Апрель 2026</td>
+                <td>9 900 ₽</td>
+                <td><span class="status-badge orange">Оплатить</span></td>
+                <td><a href="#" class="action-link">Скачать счет</a></td>
+              </tr>
+              <tr>
+                <td>20.05.2026</td>
+                <td>100 токенов</td>
+                <td>20.05.2026</td>
+                <td>5 000 ₽</td>
+                <td><span class="status-badge blue">Ожидает оплаты</span></td>
+                <td><a href="#" class="action-link">Скачать счет</a></td>
+              </tr>
+              <tr>
+                <td>12.05.2026</td>
+                <td>Дополнительно-место</td>
+                <td>12.05.2026</td>
+                <td>2 000 ₽</td>
+                <td><span class="status-badge blue">Ожидает оплаты</span></td>
+                <td><a href="#" class="action-link">Скачать счет</a></td>
+              </tr>
+              <tr>
+                <td>01.05.2026</td>
+                <td>Слот ЦЗС</td>
+                <td>01.05.2026</td>
+                <td>1 310.25 ₽</td>
+                <td><span class="status-badge blue">Ожидает оплаты</span></td>
+                <td><a href="#" class="action-link">Скачать счет</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Разделитель / второй заголовок "Все счета" по эскизу (повтор) -->
+        <h2 class="section-title" style="margin-top:48px;">Все счета</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Дата</th>
+                <th>Продукт</th>
+                <th>Период</th>
+                <th>Сумма</th>
+                <th>Статус</th>
+                <th>Действие</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>20.04.2026</td>
+                <td>Тариф-Стандарт<br>Апрель, 2026</td>
+                <td>Апрель 2026</td>
+                <td>9 900 ₽</td>
+                <td><span class="status-badge orange">Оплатить</span></td>
+                <td><a href="#" class="action-link">Скачать счет</a></td>
+              </tr>
+              <tr>
+                <td>20.05.2026</td>
+                <td>100 токенов</td>
+                <td>Март 2026</td>
+                <td>5 000 ₽</td>
+                <td><span class="status-badge blue">Ожидает оплаты</span></td>
+                <td><a href="#" class="action-link">Скачать счет</a></td>
+              </tr>
+              <tr>
+                <td>12.05.2026</td>
+                <td>Дополнительно-место</td>
+                <td>Март 2026</td>
+                <td>2 000 ₽</td>
+                <td><span class="status-badge blue">Ожидает оплаты</span></td>
+                <td><a href="#" class="action-link">Скачать счет</a></td>
+              </tr>
+              <tr>
+                <td>01.05.2026</td>
+                <td>Слот ЦЗС</td>
+                <td>Январь 2026</td>
+                <td>1 310.25 ₽</td>
+                <td><span class="status-badge blue">Ожидает оплаты</span></td>
+                <td><a href="#" class="action-link">Скачать счет</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </main>
 
       <aside class="banners">
@@ -296,31 +449,31 @@
     </footer>
   </div>
 
-      <script>
-        function toggleDropdown(button) {
-            const dropdown = button.nextElementSibling;
-            const isVisible = dropdown.style.display === 'flex';
+  <script>
+    function toggleDropdown(button) {
+      const dropdown = button.nextElementSibling;
+      const isVisible = dropdown.style.display === 'flex';
 
-            // Закрываем все открытые дропдауны
-            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                if (menu !== dropdown) {
-                    menu.style.display = 'none';
-                }
-            });
-
-            // Переключаем текущий
-            dropdown.style.display = isVisible ? 'none' : 'flex';
+      // Закрываем все открытые дропдауны
+      document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        if (menu !== dropdown) {
+          menu.style.display = 'none';
         }
+      });
 
-        // Закрываем дропдаун при клике вне его
-        document.addEventListener('click', function (e) {
-            if (!e.target.closest('.dropdown-container')) {
-                document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                    menu.style.display = 'none';
-                });
-            }
+      // Переключаем текущий
+      dropdown.style.display = isVisible ? 'none' : 'flex';
+    }
+
+    // Закрываем дропдаун при клике вне его
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.dropdown-container')) {
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+          menu.style.display = 'none';
         });
-    </script>
+      }
+    });
+  </script>
 
 </body>
 

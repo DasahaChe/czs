@@ -1,23 +1,296 @@
-
-.btn-bill {
+/* Дополнительные стили для блока счетов (из эскиза) */
+.tariff-block {
     display: flex;
-    font-size: 14px;
+    gap: 16px;
+}
+
+.current-tariff {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    width: calc(((100% / 3) * 2) - 16px);
+    background: linear-gradient(135deg, #ffffff, rgb(230, 244, 255, 0.8));
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--border);
+}
+
+.tariff-info {
+    display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 8px;
 }
 
-.btn-bill-block {
+
+
+.tariff-details {
     display: flex;
-    gap: 8px;
-    align-items: center;
-    width: 100%;
-    position: relative;
+    gap: 32px;
+    flex-wrap: wrap;
 }
 
-/* Дропдаун меню */
+.tariff-details-block{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
 
-.header-page{
+.tariff-detail-item, .tariff-detail-item-time {
+    display: flex;
+    gap: 16px;
+}
+.tariff-detail-item:not(:first-child){
+border-top: 1px dashed var(--muted);
+margin-top: 4px;
+}
+.tariff-detail-label {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.tariff-detail-value {
+    font-weight: 500;
+}
+
+.tariff-detail-label-title{
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 500;
+    
+}
+.tariff-actions {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    justify-content: flex-end;
+}
+.tariff-btn{
+    max-width: 100%;
+}
+
+.token-balance {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px;
+
+}
+
+.token-balance-block {
+    width: calc(100% / 3 - 16px);
+}
+
+.token-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.token-badge {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.token-desc {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.token-packages {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    border-top: 1px dashed var(--border);
+    padding-top: 20px;
+}
+
+.package-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f2f6fc;
+    padding: 8px 16px;
+    border-radius: 40px;
+}
+
+.package-price {
+    font-weight: 600;
+}
+
+.table-wrap {
+    border: 1px solid var(--lightGrey);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 24px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.table th {
+    background: #f2f6fc;
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 500;
+    color: #1f2a41;
+    border-bottom: 1px solid var(--border);
+}
+
+.table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #ecf1f7;
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background: #f9fcff;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-badge.orange {
+    background: #fff2d9;
+    color: #b85e00;
+}
+
+.status-badge.green {
+    background: #e1f7e6;
+    color: var(--success);
+}
+
+.status-badge.blue {
+    background: #e1edfc;
+    color: var(--blue-900);
+}
+
+.action-link {
+    color: var(--blue-900);
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: var(--blue-900);
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-link i {
+    font-size: 12px;
+}
+
+hr {
+    margin: 24px 0;
+    border: none;
+    border-top: 1px solid var(--border);
+}
+
+.text-small {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* для повторяющихся заголовков как в эскизе */
+.section-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 32px 0 16px 0;
+}
+
+/* компактные кнопки покупки */
+.btn-package {
+    background: var(--blue-900);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 6px 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-package.outline {
+    background: transparent;
+    border: 1px solid var(--blue-900);
+    color: var(--blue-900);
+}
+
+.tariff-title {
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--dark);
+}
+
+.tariff-title span{
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--blue-900);
+}
+
+.tariff-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.tariff-header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    gap: 16px;
+}
+
+.tariff-header--more {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.tariff-progress-line {
+    margin: 16px 0 0 0;
+    width: 100%;
+}
+
+.tariff-progress-line__bg {
+    width: 100%;
+    height: 4px;
+    background-color: var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.tariff-progress-line__fill {
+    height: 100%;
+    background-color: var(--cyan-400);
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+.tariff-progress-line__text {
+    font-size: 12px;
+    color: var(--muted);
+    display: block;
+    text-align: right;
 }
