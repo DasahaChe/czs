@@ -888,9 +888,9 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
-    .future__btn:hover {
+    .future__button:hover {
         color: #fff;
-        background: var(--darkBlue);
+        background: var(--blue-hover);
     }
 
     .event__btn:hover .event__btn-img {

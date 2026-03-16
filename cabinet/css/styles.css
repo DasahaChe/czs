@@ -3,6 +3,7 @@
    ========================================================================== */
 :root {
   --blue-900: #0B63A8;
+  --blue-hover: #064a81;
   --cyan-400: #5bc5f2;
   --lightBlue: #E6F4FF;
   --blue: #e7f3ff;
@@ -763,7 +764,7 @@ select {
 }
 
 .request-card__btn--primary:hover {
-  background: #0a5490;
+  background: var(--blue-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(11, 99, 168, 0.3);
 }
@@ -801,18 +802,16 @@ select {
 .btn-active {
   color: var(--blue-900);
   border-color: var(--blue-900);
-  background: var(--lightBlue);
+  background-color: var(--lightBlue);
 }
 
-.btn:hover {
-  color: #fff;
-  background-color: var(--darkBlue);
-  border-color: var(--darkBlue);
-}
+
+
 
 .btn--outline {
   justify-content: space-between;
 }
+
 
 
 #cancelDate {
@@ -1188,7 +1187,6 @@ select {
   color: var(--blue-900);
 }
 
-.btn:hover,
 .stat:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -1685,6 +1683,19 @@ select {
   /* Можно уменьшить размер иконки, если нужно */
   width: 40px;
   height: 40px;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: var(--darkBlue);
+  border-color: var(--darkBlue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.btn--primary:hover{
+background-color: var(--blue-hover);
 }
 
 @media (max-width: 1480px) {

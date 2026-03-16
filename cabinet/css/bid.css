@@ -522,7 +522,7 @@
 }
 
 .requestD-card__btn--primary:hover {
-  background: #0a5490;
+  background: var(--blue-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(11, 99, 168, 0.3);
 }

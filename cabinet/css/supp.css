@@ -6,12 +6,6 @@
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.05);
     --transition: all 0.3s ease;
-    --border-radius-sm: 6px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 20px;
-    --border-radius-xl: 24px;
-    --border-radius-full: 40px;
-    --border-radius-circle: 60px;
 }
 
 /* ========== БАЗОВЫЕ СТИЛИ ========== */
@@ -30,7 +24,7 @@ body {
     max-width: 1280px;
     width: 100%;
     background-color: var(--white);
-    border-radius: var(--border-radius-xl);
+    border-radius: 24px;
     box-shadow: var(--shadow-lg);
     padding: 28px 32px;
 }
@@ -96,7 +90,7 @@ body {
 .search-input-wrapper input {
     width: 100%;
     padding: 14px 20px 14px 48px;
-    border-radius: var(--border-radius-circle);
+    border-radius: 60px;
     border: 1px solid #d0d9e8;
     background-color: var(--white);
     font-size: 14px;
@@ -270,7 +264,7 @@ body {
     gap: 16px;
     background: #fff;
     border: 1px solid var(--border);
-    border-radius: var(--border-radius-md);
+    border-radius: 8px;
     padding: 24px;
     transition: var(--transition);
     box-shadow: var(--shadow-sm);
@@ -371,7 +365,7 @@ body {
     font-size: 13px;
     font-weight: 500;
     padding: 4px 10px;
-    border-radius: var(--border-radius-lg);
+    border-radius: 20px;
     display: inline-block;
 }
 
@@ -407,7 +401,7 @@ body {
     min-width: 240px;
     width: 100%;
     background: var(--lightBlue);
-    border-radius: var(--border-radius-md);
+    border-radius: var(8px);
     padding: 16px;
 }
 
@@ -427,7 +421,7 @@ body {
 
 .action-btn {
     padding: 10px 24px;
-    border-radius: var(--border-radius-full);
+    border-radius: 40px;
     font-weight: 600;
     font-size: 14px;
     background: white;
@@ -468,7 +462,7 @@ body {
     gap: 6px;
     padding: 10px 16px;
     border: 1px solid #e2e8f0;
-    border-radius: var(--border-radius-sm);
+    border-radius:6px;
     color: var(--muted);
     background: white;
     cursor: pointer;
@@ -481,7 +475,7 @@ body {
     width: 40px;
     height: 40px;
     border: 1px solid #e2e8f0;
-    border-radius: var(--border-radius-sm);
+    border-radius:6px;
     color: var(--muted);
     background: white;
     cursor: pointer;
@@ -493,12 +487,12 @@ body {
 .request-card__btn--primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(11, 99, 168, 0.3);
-    color: var(--blue-900);
+    color: var(--blue-hover);
 }
 
 .btn--primary:hover,
 .request-card__btn--primary:hover {
-    background: var(--blue-900);
+    background: var(--blue-hover);
     color: white;
 }
 
@@ -515,7 +509,7 @@ body {
     gap: 8px;
     padding: 12px;
     border: 1px solid var(--border);
-    border-radius: var(--border-radius-md);
+    border-radius: var(8px);
     background: white;
     box-shadow: var(--shadow-md);
     z-index: 1000;
@@ -539,11 +533,7 @@ body {
 }
 
 /* Ховер эффекты для карточек */
-.btn-card:hover,
-.contacts-row:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(11, 99, 168, 0.3);
-}
+
 
 /* Список поставщиков */
 .supplier-list {

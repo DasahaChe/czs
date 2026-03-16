@@ -20,9 +20,8 @@
 
 /* Кнопки периода */
 .btn--outline.btn-active {
-  background-color: var(--blue-900);
+  background-color: var(--darkBlue);
   color: white;
-  border-color: var(--blue-900);
 }
 
 /* Стили для календаря */
