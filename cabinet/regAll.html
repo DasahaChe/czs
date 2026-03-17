@@ -312,8 +312,16 @@
                     <div class="employee-card">
                         <div class="form-grid">
                             <div class="form-field">
-                                <label for="employee_name">ФИО <span class="required">*</span></label>
+                                <label for="employee_name">Фамилия <span class="required">*</span></label>
                                 <input type="text" id="employee_name" name="employee_name" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="employee_name">Имя <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="employee_name">Отчество</label>
+                                <input type="text" id="employee" name="employee" required>
                             </div>
                             <div class="form-field">
                                 <label for="employee_position">Должность <span class="required">*</span></label>
@@ -421,6 +429,11 @@
                                     </optgroup>
                                 </select>
                                 <div class="hint">Можно выбрать несколько регионов</div>
+                            </div>
+                            <div class="form-field">
+                                <label for="employee_password">Пароль <span class="required">*</span></label>
+                                <input type="password" id="password" name="passworde" required>
+                                <div class="hint">Пароль должен содержать не менее 8 символов, заглавные и строчные буквы. Дополнительные знаки</div>
                             </div>
                         </div>
                     </div>
