@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider, CssBaseline, Box, useMediaQuery } from '@mui/material';
 import { theme } from './theme';
 
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import Dashboard from './components/Content/Dashboard';
-import Banners from './components/Banners';
-import Footer from './components/Footer';
+import Header from './Header';
+import Sidebar from './Sidebar';
+import Dashboard from './Content/Dashboard';
+import Banners from './Banners';
+import Footer from './Footer';
 
 import { procurementData } from './utils/data';
 
