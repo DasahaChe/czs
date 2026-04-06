@@ -472,30 +472,7 @@
                                         <option value="logistics">Доставка через логистического оператора</option>
                                     </select>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="temperatureRegimes">Температурные режимы</label>
-                                    <div class="checkbox-group">
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="ambient" name="temperatureRegimes"
-                                                value="ambient">
-                                            <label for="ambient">Сухой склад (ambient)</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="refrigerated" name="temperatureRegimes"
-                                                value="refrigerated">
-                                            <label for="refrigerated">Охлажденный (+2°C до +8°C)</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="frozen" name="temperatureRegimes" value="frozen">
-                                            <label for="frozen">Замороженный (-18°C и ниже)</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="fresh" name="temperatureRegimes" value="fresh">
-                                            <label for="fresh">Свежий товар (специальные условия)</label>
-                                        </div>
-                                    </div>
-                                </div>
+                               
 
                                 <div class="form-group">
                                     <label for="minBatch">Минимальная партия</label>
@@ -519,6 +496,30 @@
                                     <label for="logisticsComments">Логистические ограничения / комментарии</label>
                                     <textarea id="logisticsComments" class="form-control"
                                         placeholder="Дополнительные комментарии по логистике"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="temperatureRegimes">Температурные режимы</label>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="ambient" name="temperatureRegimes"
+                                                value="ambient">
+                                            <label for="ambient">Сухой склад (ambient)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="refrigerated" name="temperatureRegimes"
+                                                value="refrigerated">
+                                            <label for="refrigerated">Охлажденный (+2°C до +8°C)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="frozen" name="temperatureRegimes" value="frozen">
+                                            <label for="frozen">Замороженный (-18°C и ниже)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="fresh" name="temperatureRegimes" value="fresh">
+                                            <label for="fresh">Свежий товар (специальные условия)</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -583,19 +584,7 @@
                                             <label for="employee1_phone">Телефон</label>
                                             <input type="tel" id="employee1_phone" class="form-control"
                                                 placeholder="+7 (XXX) XXX-XX-XX">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_categories">Категории ответственности</label>
-                                            <textarea id="employee1_categories" class="form-control"
-                                                placeholder="Категории товаров, за которые отвечает сотрудник"></textarea>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="employee1_regions">Регионы ответственности</label>
-                                            <textarea id="employee1_regions" class="form-control"
-                                                placeholder="Регионы, за которые отвечает сотрудник"></textarea>
-                                        </div>
+                                        </div>                                        
 
                                         <div class="form-group">
                                             <label for="employee1_accessLevel" class="required">Уровень доступа</label>
@@ -605,6 +594,25 @@
                                                 <option value="editor">Редактор</option>
                                                 <option value="viewer">Просмотр</option>
                                             </select>
+                                        </div>                                       
+
+                                        <div class="form-group">
+                                            <label for="employee1_status" class="required">Статус пользователя</label>
+                                            <select id="employee1_status" class="form-control" required>
+                                                <option value="active">Активен</option>
+                                                <option value="inactive">Неактивен</option>
+                                            </select>
+                                        </div>
+<div class="form-group">
+                                            <label for="employee1_categories">Категории ответственности</label>
+                                            <textarea id="employee1_categories" class="form-control"
+                                                placeholder="Категории товаров, за которые отвечает сотрудник"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="employee1_regions">Регионы ответственности</label>
+                                            <textarea id="employee1_regions" class="form-control"
+                                                placeholder="Регионы, за которые отвечает сотрудник"></textarea>
                                         </div>
 
                                         <div class="form-group">
@@ -643,13 +651,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="employee1_status" class="required">Статус пользователя</label>
-                                            <select id="employee1_status" class="form-control" required>
-                                                <option value="active">Активен</option>
-                                                <option value="inactive">Неактивен</option>
-                                            </select>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
