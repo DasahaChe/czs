@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Империя B2B | Платформа для ритейлеров и поставщиков</title>
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts: Inter & Playfair Display for modern yet business style -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fefcf8;
+            /* warm off-white */
+            color: #1a2a2f;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* typography */
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #d4af37;
+            border-radius: 2px;
+        }
+
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        /* Hero stats block */
+        .hero-stats {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f5ed 100%);
+            border-radius: 32px;
+            padding: 40px 32px;
+            margin-top: 32px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge-sub {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #b8860b;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .main-title {
+            font-size: 2.7rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1e2c30;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 28px;
+            margin-top: 48px;
+        }
+
+        .stat-card {
+            text-align: center;
+            background: white;
+            padding: 24px 12px;
+            border-radius: 28px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s;
+            border: 1px solid #f0e9de;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #b8860b;
+            font-family: 'Inter', sans-serif;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a5b62;
+            margin-top: 12px;
+        }
+
+        .stat-small {
+            font-size: 0.75rem;
+            color: #7f8c8d;
+            margin-top: 6px;
+        }
+
+        .highlight-percent {
+            background: #fef2e0;
+            border-radius: 40px;
+            padding: 6px 16px;
+            display: inline-block;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* two columns layout */
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: flex-start;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .feature-list {
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            margin-bottom: 32px;
+        }
+
+        .feature-title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 12px;
+            color: #1e2c30;
+        }
+
+        .feature-desc {
+            color: #3e5a64;
+            line-height: 1.5;
+        }
+
+        .record-highlight {
+            background: #faf6ea;
+            border-left: 5px solid #d4af37;
+            padding: 16px 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        /* logos row */
+        .logos-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0 20px;
+            filter: grayscale(0.2);
+            opacity: 0.8;
+        }
+
+        .logo-placeholder {
+            font-weight: 600;
+            font-size: 1.1rem;
+            background: #eae3d6;
+            padding: 8px 18px;
+            border-radius: 40px;
+            color: #2c3e2f;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+
+        /* testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin: 32px 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 28px;
+            border-radius: 28px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid #f1e6d8;
+        }
+
+        .quote-icon {
+            color: #d4af37;
+            font-size: 2rem;
+            margin-bottom: 12px;
+            opacity: 0.6;
+        }
+
+        .testimonial-text {
+            font-style: normal;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #2d434c;
+        }
+
+        .author {
+            font-weight: 700;
+            color: #b8860b;
+        }
+
+        /* events & stats section */
+        .events-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .event-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 20px 20px;
+            flex: 1;
+            min-width: 180px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #efe3d2;
+            transition: all 0.2s;
+        }
+
+        .event-date {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #b8860b;
+            letter-spacing: 0.5px;
+        }
+
+        .event-name {
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .categories-block {
+            background: #faf6ef;
+            border-radius: 32px;
+            padding: 28px;
+            margin-top: 24px;
+        }
+
+        .cat-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .cat-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #e2d4c2;
+            padding: 10px 0;
+            font-weight: 500;
+        }
+
+        .cat-price {
+            font-weight: 700;
+            color: #b37b2e;
+        }
+
+        .top-buyers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+            justify-content: space-between;
+        }
+
+        .buyer {
+            background: white;
+            border-radius: 60px;
+            padding: 8px 20px;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e7dccc;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .btn-primary {
+            background: #b8860b;
+            color: white;
+            border: none;
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: #9a6e09;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #b8860b;
+            color: #b8860b;
+            padding: 12px 36px;
+            border-radius: 60px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: #b8860b10;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0 30px;
+            font-size: 0.8rem;
+            color: #6c7e87;
+            border-top: 1px solid #e9dfd1;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .main-title {
+                font-size: 1.9rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+        }
+
+        .inline-icon {
+            margin-right: 8px;
+            color: #d4af37;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- main hero block similar to "Розничные сети и поставщики находят друг друга здесь за 2 недели вместо 6 месяцев" -->
+        <div class="hero-stats">
+            <div class="badge-sub">B2B ПЛАТФОРМА | ИМПЕРИЯ</div>
+            <h1 class="main-title">Розничные сети и поставщики находят друг друга здесь <br>за <span
+                    style="color:#b8860b;">2 недели</span> вместо <span style="color:#b8860b;">6 месяцев</span></h1>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number"><span class="highlight-percent">83%</span></div>
+                    <div class="stat-label">Успешных переговоров</div>
+                    <div class="stat-small">В 2 раза выше среднего по рынку</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">747,0 млрд ₽</div>
+                    <div class="stat-label">Общая сумма контрактов</div>
+                    <div class="stat-small">заключенных на мероприятиях (янв 2024 — май 2026)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40 820</div>
+                    <div class="stat-label">Проведенных переговоров</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">33 903</div>
+                    <div class="stat-label">Подписанных предконтрактов</div>
+                </div>
+            </div>
+            <div class="stat-small" style="text-align:center; margin-top: 12px;">*сумма рассчитана по данным с января
+                2024г по 27.05.2026</div>
+        </div>
+
+        <!-- Почему именно мы section -->
+        <div class="section">
+            <h2>Почему именно мы</h2>
+            <div class="two-columns">
+                <div class="col">
+                    <div class="feature-item">
+                        <div class="feature-title">25 лет на рынке B2B</div>
+                        <div class="feature-desc">Компания является частью группы Империя. Ежегодно KBC «ИМПЕРИЯ»
+                            проводит более 100 b2b-мероприятий, включая 50 международных и всероссийских форумов и
+                            конференций.</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">6000 встреч за 1 день</div>
+                        <div class="feature-desc">В 2013 году на мероприятии было организовано 6000 деловых встреч на
+                            одной площадке в течение одного дня. Этот результат вошел в <strong>Книгу рекордов
+                                России</strong>.</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="feature-item">
+                        <div class="feature-title">3 500+ компаний наша база</div>
+                        <div class="feature-desc">2 000+ поставщиков и 1 500+ закупщиков проводят переговоры с помощью
+                            наших сервисов. Десятки нужных вам ритейлеров за 1 день. Регулярные встречи и нетворкинги.
+                        </div>
+                    </div>
+                    <div class="record-highlight">
+                        <i class="fas fa-chart-line" style="color:#b8860b; margin-right: 8px;"></i>
+                        <strong>Эффективность:</strong> Встречи лицом к лицу сокращают цикл сделки до 2 недель.
+                    </div>
+                </div>
+            </div>
+            <!-- логотипы / с нами работают -->
+            <div class="logos-row">
+                <span class="logo-placeholder"><i class="fas fa-store"></i> Магнит</span>
+                <span class="logo-placeholder"><i class="fas fa-shopping-basket"></i> Пятёрочка</span>
+                <span class="logo-placeholder"><i class="fas fa-chart-simple"></i> Ашан</span>
+                <span class="logo-placeholder"><i class="fas fa-tag"></i> Лента</span>
+                <span class="logo-placeholder"><i class="fas fa-barcode"></i> METRO</span>
+                <span class="logo-placeholder"><i class="fas fa-leaf"></i> ВкусВилл</span>
+            </div>
+            <div class="stat-small" style="margin-top: 8px;"><i class="fas fa-check-circle inline-icon"></i>С нами
+                работают ведущие ритейлеры и тысячи поставщиков</div>
+        </div>
+
+        <!-- Отзывы (3 отзыва с картинки) -->
+        <div class="section">
+            <h2>Реальные результаты</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <div class="testimonial-text">“За полтора часа переговоров на ЦЗС, они уже получили на почту
+                        реальные контракты на подписку. Да-да, не просто договорённости, а выход на полки федеральных
+                        сетей вроде Магнита и Пятерочки.”</div>
+                    <div class="author">— Руководитель отдела продаж, Поставщик</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <div class="testimonial-text">“Очень рад принимать участие в ЦЗС организаторов. Лучший формат в моей
+                        практике. Спасибо за своевременную помощь в организации встреч и планировании рабочего дня.
+                        Идеальное сочетание время/польза.”</div>
+                    <div class="author">— Иван, Сеть «Командор»</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <div class="testimonial-text">“Наши цели в процессе переговоров были достигнуты, к нам пришло много
+                        локальных производителей, что хорошо для региона, где представлен производитель. Это поднимает
+                        продажи, так как людям знаком вкус с детства.”</div>
+                    <div class="author">— Региональный ритейлер, отдел закупок</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ближайшие мероприятия -->
+        <div class="section">
+            <h2>Ближайшие мероприятия</h2>
+            <div class="events-row">
+                <div class="event-card">
+                    <div class="event-date">17—18 июня 2026</div>
+                    <div class="event-name">НЕДЕЛЯ ЗАКУПОК НА НЕВЕ</div><i class="fas fa-calendar-alt"
+                        style="color:#b8860b;"></i> Санкт-Петербург
+                </div>
+                <div class="event-card">
+                    <div class="event-date">17—18 июня 2026</div>
+                    <div class="event-name">ДОБРОБНОЕ</div><i class="fas fa-handshake"></i> Производство/ритейл
+                </div>
+                <div class="event-card">
+                    <div class="event-date">7—9 сентября 2026</div>
+                    <div class="event-name">ЦВЕТЫЖСКОГО-2026</div><i class="fas fa-seedling"></i> Инновации
+                </div>
+                <div class="event-card">
+                    <div class="event-date">15—18 сентября 2026</div>
+                    <div class="event-name">WORLD FOOD 2026</div><i class="fas fa-globe"></i> Международный форум
+                </div>
+            </div>
+            <div class="event-card" style="display: inline-block; width: auto; margin-top: 8px;">
+                <div class="event-date">15—18 сентября 2026</div>
+                <div class="event-name">Топ 5 покупателей + сессия нетворкинга</div>
+            </div>
+        </div>
+
+        <!-- Статистика: топ категорий + топ покупателей + суммы -->
+        <div class="section">
+            <h2>Статистика закупок</h2>
+            <div class="categories-block">
+                <h3 style="font-family: 'Inter'; font-weight: 700; margin-bottom: 16px;"><i
+                        class="fas fa-chart-pie inline-icon"></i> Топ 5 категорий в закупке</h3>
+                <div class="cat-list">
+                    <div class="cat-item"><span>1. Кондитерская, хлебопекарная продукция</span><span
+                            class="cat-price">75,2 млрд ₽</span></div>
+                    <div class="cat-item"><span>2. Безалкогольные напитки, соусы, воды</span><span
+                            class="cat-price">73,9 млрд ₽</span></div>
+                    <div class="cat-item"><span>3. Снек, орехи, сухофрукты</span><span class="cat-price">37,3 млрд
+                            ₽</span></div>
+                    <div class="cat-item"><span>4. Бакалея, зернопродукты</span><span class="cat-price">36,5 млрд
+                            ₽</span></div>
+                    <div class="cat-item"><span>5. Здоровое питание, спортивное питание, БАДы</span><span
+                            class="cat-price">27,4 млрд ₽</span></div>
+                </div>
+                <div style="margin-top: 32px;">
+                    <h3 style="font-family: 'Inter'; font-weight: 700; margin-bottom: 20px;"><i
+                            class="fas fa-trophy inline-icon"></i> Топ 5 покупателей (ритейлеры)</h3>
+                    <div class="top-buyers">
+                        <span class="buyer">1. Ашан</span>
+                        <span class="buyer">2. Манго</span>
+                        <span class="buyer">3. Верхний</span>
+                        <span class="buyer">4. Командор</span>
+                        <span class="buyer">5. Метро</span>
+                    </div>
+                </div>
+                <div class="stat-small" style="margin-top: 24px;"><i class="fas fa-chart-simple"></i> Данные основаны на
+                    реальных контрактах участников платформы 2024-2026</div>
+            </div>
+        </div>
+
+        <!-- World Food и дополнительная секция -->
+        <div class="section"
+            style="background: linear-gradient(100deg, #fffaf2, transparent); border-radius: 48px; margin-bottom: 20px;">
+            <div class="two-columns">
+                <div class="col">
+                    <h2 style="margin-bottom: 16px;">WORLD FOOD 2026</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 16px;">Крупнейшая международная площадка для
+                        контрактации. Присоединяйтесь к 3000+ участников из 40 стран.</p>
+                    <div><i class="fas fa-clock"></i> 15—18 сентября 2026 · Москва</div>
+                    <div class="cta-buttons" style="margin-top: 28px;">
+                        <a href="#" class="btn-primary">СТАТЬ КЛИЕНТОМ ПЛАТФОРМЫ</a>
+                        <a href="#" class="btn-outline">УЗНАТЬ СТАТИСТИКУ В СВОЕЙ КАТЕГОРИИ</a>
+                    </div>
+                </div>
+                <div class="col" style="background: #f6efe3; border-radius: 32px; padding: 24px;">
+                    <i class="fas fa-chart-line" style="font-size: 2.5rem; color:#b8860b;"></i>
+                    <h3 style="margin: 12px 0 8px;">Ускорьте выход на полки</h3>
+                    <p>Участники платформы заключают контракты на 40% быстрее. Присоединяйтесь к сообществу
+                        профессионалов.</p>
+                    <div style="font-weight: bold; margin-top: 20px;">+7 495 000 00 00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Футер с контактами и дополнительной информацией -->
+        <footer>
+            <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 24px;">
+                <span>© Империя B2B, 2026</span>
+                <span><i class="fas fa-envelope"></i> partners@imperia.ru</span>
+                <span><i class="fas fa-phone-alt"></i> 8 800 500-88-22</span>
+                <span><i class="fab fa-telegram"></i> @imperia_b2b</span>
+            </div>
+            <div class="stat-small">*Все статистические данные основаны на внутреннем аудите KBC «ИМПЕРИЯ» за период
+                январь 2024 — май 2026</div>
+        </footer>
+    </div>
+    <!-- небольшая анимация кнопок для интерактива (просто стиль) -->
+</body>
+
+</html>
