@@ -474,30 +474,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="temperatureRegimes">Температурные режимы</label>
-                                    <div class="checkbox-group">
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="ambient" name="temperatureRegimes"
-                                                value="ambient">
-                                            <label for="ambient">Сухой склад (ambient)</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="refrigerated" name="temperatureRegimes"
-                                                value="refrigerated">
-                                            <label for="refrigerated">Охлажденный (+2°C до +8°C)</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="frozen" name="temperatureRegimes" value="frozen">
-                                            <label for="frozen">Замороженный (-18°C и ниже)</label>
-                                        </div>
-                                        <div class="checkbox-item">
-                                            <input type="checkbox" id="fresh" name="temperatureRegimes" value="fresh">
-                                            <label for="fresh">Свежий товар (специальные условия)</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
                                     <label for="minBatch">Минимальная партия</label>
                                     <input type="text" id="minBatch" class="form-control"
                                         placeholder="Например: 1 паллета, 100 кг и т.д.">
@@ -519,6 +495,30 @@
                                     <label for="logisticsComments">Логистические ограничения / комментарии</label>
                                     <textarea id="logisticsComments" class="form-control"
                                         placeholder="Дополнительные комментарии по логистике"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="temperatureRegimes">Температурные режимы</label>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="ambient" name="temperatureRegimes"
+                                                value="ambient">
+                                            <label for="ambient">Сухой склад (ambient)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="refrigerated" name="temperatureRegimes"
+                                                value="refrigerated">
+                                            <label for="refrigerated">Охлажденный (+2°C до +8°C)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="frozen" name="temperatureRegimes" value="frozen">
+                                            <label for="frozen">Замороженный (-18°C и ниже)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="fresh" name="temperatureRegimes" value="fresh">
+                                            <label for="fresh">Свежий товар (специальные условия)</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -584,6 +584,23 @@
                                             <input type="tel" id="employee1_phone" class="form-control"
                                                 placeholder="+7 (XXX) XXX-XX-XX">
                                         </div>
+                                        <div class="form-group">
+                                            <label for="employee1_accessLevel" class="required">Уровень доступа</label>
+                                            <select id="employee1_accessLevel" class="form-control" required>
+                                                <option value="">Выберите уровень доступа</option>
+                                                <option value="admin">Администратор</option>
+                                                <option value="editor">Редактор</option>
+                                                <option value="viewer">Просмотр</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="employee1_status" class="required">Статус пользователя</label>
+                                            <select id="employee1_status" class="form-control" required>
+                                                <option value="active">Активен</option>
+                                                <option value="inactive">Неактивен</option>
+                                            </select>
+                                        </div>
 
                                         <div class="form-group">
                                             <label for="employee1_categories">Категории ответственности</label>
@@ -597,15 +614,7 @@
                                                 placeholder="Регионы, за которые отвечает сотрудник"></textarea>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="employee1_accessLevel" class="required">Уровень доступа</label>
-                                            <select id="employee1_accessLevel" class="form-control" required>
-                                                <option value="">Выберите уровень доступа</option>
-                                                <option value="admin">Администратор</option>
-                                                <option value="editor">Редактор</option>
-                                                <option value="viewer">Просмотр</option>
-                                            </select>
-                                        </div>
+
 
                                         <div class="form-group">
                                             <label for="employee1_permissions">Права доступа</label>
@@ -643,13 +652,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="employee1_status" class="required">Статус пользователя</label>
-                                            <select id="employee1_status" class="form-control" required>
-                                                <option value="active">Активен</option>
-                                                <option value="inactive">Неактивен</option>
-                                            </select>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -916,14 +919,14 @@
     <script>
         let employeeCount = 1;
 
-// Функция для добавления нового сотрудника
-function addEmployee() {
-    employeeCount++;
-    const container = document.getElementById('employees-container');
+        // Функция для добавления нового сотрудника
+        function addEmployee() {
+            employeeCount++;
+            const container = document.getElementById('employees-container');
 
-    const newEmployee = document.createElement('div');
-    newEmployee.className = 'multi-field';
-    newEmployee.innerHTML = `
+            const newEmployee = document.createElement('div');
+            newEmployee.className = 'multi-field';
+            newEmployee.innerHTML = `
     <div class="multi-field-header">
         <h3>Сотрудник ${employeeCount}</h3>
         <button type="button" class="btn btn-danger btn-sm" onclick="removeEmployee(this)">
@@ -1030,83 +1033,83 @@ function addEmployee() {
     </div>
     `;
 
-    container.appendChild(newEmployee);
+            container.appendChild(newEmployee);
 
-    // Прокручиваем к новому элементу
-    newEmployee.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
+            // Прокручиваем к новому элементу
+            newEmployee.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
 
-// Функция для удаления сотрудника
-function removeEmployee(button) {
-    const container = document.getElementById('employees-container');
-    const employeeFields = container.querySelectorAll('.multi-field');
+        // Функция для удаления сотрудника
+        function removeEmployee(button) {
+            const container = document.getElementById('employees-container');
+            const employeeFields = container.querySelectorAll('.multi-field');
 
-    // Не удаляем, если остался только один сотрудник
-    if (employeeFields.length > 1) {
-        const employeeToRemove = button.closest('.multi-field');
-        employeeToRemove.remove();
+            // Не удаляем, если остался только один сотрудник
+            if (employeeFields.length > 1) {
+                const employeeToRemove = button.closest('.multi-field');
+                employeeToRemove.remove();
 
-        // Обновляем заголовки оставшихся сотрудников
-        const remainingEmployees = container.querySelectorAll('.multi-field');
-        remainingEmployees.forEach((field, index) => {
-            const header = field.querySelector('h3');
-            header.textContent = `Сотрудник ${index + 1}`;
+                // Обновляем заголовки оставшихся сотрудников
+                const remainingEmployees = container.querySelectorAll('.multi-field');
+                remainingEmployees.forEach((field, index) => {
+                    const header = field.querySelector('h3');
+                    header.textContent = `Сотрудник ${index + 1}`;
+                });
+
+                employeeCount = remainingEmployees.length;
+            } else {
+                alert('Должен быть как минимум один сотрудник');
+            }
+        }
+
+        // Автозаполнение ОГРН и юридического адреса при вводе ИНН
+        document.getElementById('inn').addEventListener('change', function () {
+            const inn = this.value;
+
+            // Эмуляция автозаполнения (в реальном приложении здесь был бы запрос к API)
+            if (inn && inn.length >= 10) {
+                document.getElementById('ogrn').value = '1234567890123';
+                document.getElementById('legalAddress').value = 'г. Москва, ул. Примерная, д. 1';
+            }
         });
 
-        employeeCount = remainingEmployees.length;
-    } else {
-        alert('Должен быть как минимум один сотрудник');
-    }
-}
+        // Обработка отправки формы
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
 
-// Автозаполнение ОГРН и юридического адреса при вводе ИНН
-document.getElementById('inn').addEventListener('change', function () {
-    const inn = this.value;
+            // Здесь должна быть логика валидации и отправки данных
+            // Для демонстрации просто показываем сообщение
 
-    // Эмуляция автозаполнения (в реальном приложении здесь был бы запрос к API)
-    if (inn && inn.length >= 10) {
-        document.getElementById('ogrn').value = '1234567890123';
-        document.getElementById('legalAddress').value = 'г. Москва, ул. Примерная, д. 1';
-    }
-});
+            // Проверяем обязательные поля
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
 
-// Обработка отправки формы
-document.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault();
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = 'var(--danger)';
+                } else {
+                    field.style.borderColor = '';
+                }
+            });
 
-    // Здесь должна быть логика валидации и отправки данных
-    // Для демонстрации просто показываем сообщение
+            if (isValid) {
+                alert('Данные успешно сохранены!');
+                // В реальном приложении здесь была бы отправка данных на сервер
+                // this.submit();
+            } else {
+                alert('Пожалуйста, заполните все обязательные поля (помечены *)');
+            }
+        });
 
-    // Проверяем обязательные поля
-    const requiredFields = this.querySelectorAll('[required]');
-    let isValid = true;
-
-    requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-            isValid = false;
-            field.style.borderColor = 'var(--danger)';
-        } else {
-            field.style.borderColor = '';
-        }
-    });
-
-    if (isValid) {
-        alert('Данные успешно сохранены!');
-        // В реальном приложении здесь была бы отправка данных на сервер
-        // this.submit();
-    } else {
-        alert('Пожалуйста, заполните все обязательные поля (помечены *)');
-    }
-});
-
-// Сброс стилей при изменении поля
-document.querySelectorAll('.form-control').forEach(field => {
-    field.addEventListener('input', function () {
-        if (this.hasAttribute('required') && this.value.trim()) {
-            this.style.borderColor = '';
-        }
-    });
-});
+        // Сброс стилей при изменении поля
+        document.querySelectorAll('.form-control').forEach(field => {
+            field.addEventListener('input', function () {
+                if (this.hasAttribute('required') && this.value.trim()) {
+                    this.style.borderColor = '';
+                }
+            });
+        });
 
     </script>
 </body>
