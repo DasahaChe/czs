@@ -52,7 +52,11 @@ body {
         radial-gradient(circle at 40% 70%, #0537c8 0%, transparent 35%),
         radial-gradient(circle at 75% 85%, #5bc5f2 0%, transparent 40%),
         radial-gradient(circle at 10% 50%, #3762CF 0%, transparent 20%),
+<<<<<<< HEAD
         linear-gradient(135deg, #0e7eff 0%, #ffffff 100%);
+=======
+        linear-gradient(135deg, #002679 0%, #ffffff 100%); 
+>>>>>>> 196d19a8d8bffaedfb5e8eaa5781505457593787
     background-blend-mode: overlay, screen, color-dodge, lighten, overlay;
     background-attachment: fixed;
     position: relative;
