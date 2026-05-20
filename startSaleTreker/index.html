@@ -24,11 +24,11 @@
                     <img src="img/logo-blueZ (1).svg" alt="logo">
                 </div>
                 <nav class="nav">
-                    <a class="nav-link" href="#">Главная</a>
-                    <a class="nav-link" href="#">Почему&nbsp;мы</a>
-                    <a class="nav-link" href="#">Отзывы</a>
-                    <a class="nav-link" href="#">Мероприятия</a>
-                    <a class="nav-link" href="#">Статистика</a>
+                    <a class="nav-link" href="#hero">Главная</a>
+                    <a class="nav-link" href="#why">Почему&nbsp;мы</a>
+                    <a class="nav-link" href="#seti">Отзывы</a>
+                    <a class="nav-link" href="#events">Мероприятия</a>
+                    <a class="nav-link" href="#stat">Статистика</a>
                     <a class="btn btn-white" href="#">Зарегистрироваться</a>
                     <div class="btn btn-blue" href="#">Войти</div>
                 </nav>
@@ -37,7 +37,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -58,12 +58,12 @@
                     <h3 class="login-box-title">Добро пожаловать на платформу</h3>
                     <form class="login-form">
                         <div class="form-group">
-                            <label>Email address</label>
-                            <input type="email" placeholder="john@gmail.com">
+                            <label>Электронная почта</label>
+                            <input type="email" placeholder="Введите почту">
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" placeholder="••••••••••">
+                            <label>Пароль</label>
+                            <input type="password" placeholder="Введите пароль">
                         </div>
                         <button type="submit" class="btn btn-blue">ВОЙТИ</button>
                         <div class="forgot-password">
@@ -99,7 +99,7 @@
 
     <!-- Main Content -->
     <div class="container">
-        <div class="main-content">
+        <div class="main-content" id="why">
 
             <!-- Why Us -->
             <h2 class="section-title">Почему именно мы</h2>
@@ -124,22 +124,15 @@
             </div>
 
             <!-- Partners -->
-            <div class="partners-section">
+            <div class="partners-section" id="seti">
                 <div class="partners-title">С нами работают</div>
-                <div class="partners-logos">
-                    <span style="font-weight: 600; color: #666;">Яндекс Лавка</span>
-                    <span style="font-weight: 600; color: #666;">МАГНОЛИЯ</span>
-                    <span style="font-weight: 600; color: #666;">Верный</span>
-                    <span style="font-weight: 600; color: #666;">АЗБУКА ВКУСА</span>
-                    <span style="font-weight: 600; color: #666;">МАГНИТ</span>
-                    <span style="font-weight: 600; color: #666;">7 CONTINENT</span>
-                    <span style="font-weight: 600; color: #666;">familia</span>
-                    <span style="font-weight: 600; color: #666;">самокат</span>
+                <div class="partners-logos" id="partners-logos">
+                    
                 </div>
             </div>
 
             <!-- Video Testimonials -->
-            <div class="video-section">
+            <div class="video-section" id="rewiev">
                 <div >
                     <!-- Video Testimonials -->
                     <div class="video-section">
@@ -210,76 +203,76 @@
             </div>
 
             <!-- Events -->
-            <div class="events-section">
+            <div class="events-section" id="events">
                 <h2 class="section-title">Ближайшие мероприятия</h2>
 
                 <div class="events-grid">
-                    <div class="event-card">
+                    <a href="https://buyersweek.ru/czs#channels"><div class="event-card">
                         <div class="event-image">
                             <img src="img/neva.png" alt="NEVA BUYERS WEEK">
 
                         </div>
                         <div class="event-content">
                             <div class="event-title">НЕДЕЛЯ ЗАКУПОК НА НЕВЕ 2026</div>
-                            <div class="event-info"><img src="img/calendar-days.svg" alt="data"> 17—18 июня 2026</div>
+                            <div class="event-info"><img  class="event-icon" src="img/calendar-days.svg" alt="data"> 17—18 июня 2026</div>
                             <div class="event-info-map">
-                                <div class="event-info"><img src="img/map-pin-house.svg" alt="map"> DAA EXPO</div>
+                                <div class="event-info"><img  class="event-icon" src="img/map-pin-house.svg" alt="map"> DAA EXPO</div>
                                 <p class="event-info">г. Санкт-Петербург, Красногвардейская площадь, 3Е</p>
                             </div>
-                            <a href="#" class="event-link">Подробнее →</a>
+                            <div class="event-link">Подробнее →</div>
                             <div class="days-left">До события осталось: <strong>0 дней</strong></div>
                         </div>
-                    </div>
+                    </div></a>
 
-                    <div class="event-card">
+                    <a href="https://www.flowers-expo.ru/"><div class="event-card">
                         <div class="event-image">
                             <img src="img/flouwerExpo.png" alt="FLOWERS EXPO">
 
                         </div>
                         <div class="event-content">
                             <div class="event-title">ЦВЕТЫЭКСПО-2026</div>
-                            <div class="event-info"><img src="img/calendar-days.svg" alt="data"> 7—9 сентября 2026</div>
+                            <div class="event-info"><img  class="event-icon" src="img/calendar-days.svg" alt="data"> 7—9 сентября 2026</div>
                             <div class="event-info-map">
-                                <div class="event-info"><img src="img/map-pin-house.svg" alt="map"> МВЦ «Крокус Экспо»
+                                <div class="event-info"><img  class="event-icon" src="img/map-pin-house.svg" alt="map"> МВЦ «Крокус Экспо»
                                     пав.
                                     1, зал 1,3,4</div>
                                 <p class="event-info">г. Красногорск, ул.
                                     Международная, 16</p>
                             </div>
-                            <a href="#" class="event-link">Подробнее →</a>
+                            <div class="event-link">Подробнее →</div>
                             <div class="days-left">До события осталось: <strong>0 дней</strong></div>
                         </div>
-                    </div>
+                    </div></a>
 
-                    <div class="event-card">
+                    <a href="https://world-food.ru/ru/centr-zakupok-setey/"><div class="event-card">
                         <div class="event-image">
                             <img src="img/worldFood.png" alt="WORLD FOOD">
 
                         </div>
                         <div class="event-content">
                             <div class="event-title">WORLD FOOD 2026</div>
-                            <div class="event-info"><img src="img/calendar-days.svg" alt="data"> 15—18 сентября 2026
+                            <div class="event-info"><img  class="event-icon" src="img/calendar-days.svg" alt="data"> 15—18 сентября 2026
                             </div>
                             <div class="event-info-map">
-                                <div class="event-info"><img src="img/map-pin-house.svg" alt="map"> МВЦ «Крокус Экспо»
+                                <div class="event-info"><img  class="event-icon" src="img/map-pin-house.svg" alt="map"> МВЦ «Крокус Экспо»
                                     павильон 3</div>
                                 <p class="event-info">г. Красногорск, ул.
                                     Международная, 16</p>
                             </div>
-                            <a href="#" class="event-link">Подробнее →</a>
+                            <div class="event-link">Подробнее →</div>
                             <div class="days-left">До события осталось: <strong>0 дней</strong></div>
                         </div>
-                    </div>
+                    </div></a>
                 </div>
                 
 
                 <div class="btn-center">
-                    <button class="btn-primary">УЗНАТЬ БОЛЬШЕ О МЕРОПРИЯТИЯХ</button>
+                    <a href="https://platforma-czs.ru/"><button class="btn-primary">УЗНАТЬ БОЛЬШЕ О МЕРОПРИЯТИЯХ</button></a>
                 </div>
             </div>
 
             <!-- Statistics -->
-            <div class="stats-section">
+            <div class="stats-section" id="stat">
                 <h2 class="section-title">Статистика</h2>
 
                 <!-- <div class="stats-grid-2">
@@ -404,7 +397,7 @@
                 </div>
 
                 <div class="footer-buttons">
-                    <button class="btn-large btn-blue">СТАТЬ КЛИЕНТОМ ПЛАТФОРМЫ</button>
+                    <a href="#"><button class="btn-large btn-blue">СТАТЬ КЛИЕНТОМ ПЛАТФОРМЫ</button></a>
                     <!-- <button class="btn-large btn-white">УЗНАТЬ СТАТИСТИКУ В СВОЕЙ КАТЕГОРИИ</button> -->
                 </div>
             </div>
@@ -444,6 +437,7 @@
     <script src="js/chart-builder.js"></script>
     <script src="js/event-countdown.js"></script>
     <script src="js/photo.js"></script>
+    <script src="js/logo.js"></script>
 </body>
 
 
