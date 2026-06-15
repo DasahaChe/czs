@@ -1,28 +1,16 @@
-/* ========================================
-   CSS Custom Properties (Variables)
-   ======================================== */
 :root {
-    /* Основные цвета */
     --primary-blue: #005BAA;
     --primary-blue-hover: #064A81;
-    
-    /* Второстепенные синие */
     --secondary-blue: #5bc5f2;
     --secondary-blue-muted: #7DB3E3;
     --secondary-blue-subtle: #e6f4ff;
     --secondary-blue-surface: rgba(230, 244, 255, 0.2);
     --secondary-blue-border: #C9D7E7;
-    
-    /* Нейтральные */
     --grey: #6D7A88;
     --dark: #242a2d;
-    
-    /* Дополнительные акценты */
     --blue: #0537c8;
     --navy-blue: #000080;
     --blue-bright: #035afc;
-    
-    /* Дополнительные переменные для удобства */
     --white: #ffffff;
     --black: #000000;
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
@@ -35,9 +23,6 @@
     --transition-normal: 0.3s ease;
 }
 
-/* ========================================
-   Base Styles
-   ======================================== */
 * {
     margin: 0;
     padding: 0;
@@ -60,9 +45,6 @@ body {
     line-height: 1.5;
 }
 
-/* ========================================
-   Typography
-   ======================================== */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.3;
@@ -79,18 +61,12 @@ a:hover {
     color: var(--primary-blue-hover);
 }
 
-/* ========================================
-   Layout Utilities
-   ======================================== */
 .container {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
-/* ========================================
-   Header
-   ======================================== */
 .header {
     background: var(--white);
     padding: 16px 0;
@@ -145,9 +121,6 @@ a:hover {
     color: var(--primary-blue);
 }
 
-/* ========================================
-   Hero Section
-   ======================================== */
 .hero {
     padding: 80px 0 64px 0;
     color: var(--white);
@@ -235,9 +208,6 @@ a:hover {
     color: var(--black);
 }
 
-/* ========================================
-   Login Form
-   ======================================== */
 .login-box {
     display: flex;
     flex-direction: column;
@@ -307,14 +277,14 @@ a:hover {
     background-color: var(--white);
     color: var(--primary-blue);
     border: 1px solid var(--secondary-blue-border);
-    transition: background-color .3s ease-in-out, color .3s ease-in-out , border-color .3s ease-in-out;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out, border-color .3s ease-in-out;
 }
 
 .btn-pull {
     background-color: var(--primary-blue);
     color: var(--white);
     border: 1px solid var(--primary-blue);
-    transition: background-color .3s ease-in-out, color .3s ease-in-out , border-color .3s ease-in-out;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out, border-color .3s ease-in-out;
 }
 
 .btn-outline:hover,
@@ -340,9 +310,6 @@ a:hover {
     color: var(--grey);
 }
 
-/* ========================================
-   Main Content
-   ======================================== */
 .main-content {
     background: var(--white);
     margin: 40px auto;
@@ -358,9 +325,13 @@ a:hover {
     font-weight: 400;
 }
 
-/* ========================================
-   Why Us Section
-   ======================================== */
+.why-kp {
+    font-size: 16px;
+    color: var(--grey);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
 .why-us-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -391,9 +362,6 @@ a:hover {
     color: var(--dark);
 }
 
-/* ========================================
-   Partners Section
-   ======================================== */
 .partners-section {
     margin-bottom: 40px;
 }
@@ -409,17 +377,15 @@ a:hover {
     display: flex;
     gap: 24px;
     align-items: center;
-    flex-wrap: nowrap; /* Отключаем перенос для бегущей строки */    
+    flex-wrap: nowrap;
     height: 96px;
     overflow: hidden;
     position: relative;
     padding: 0 24px;
-    /* Маска для плавного появления/исчезновения по краям */
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-/* Контейнер для анимации */
 .partners-logos__track {
     display: flex;
     gap: 24px;
@@ -428,12 +394,10 @@ a:hover {
     will-change: transform;
 }
 
-/* Пауза анимации при наведении — улучшает UX */
 .partners-logos:hover .partners-logos__track {
     animation-play-state: paused;
 }
 
-/* Сами изображения */
 .partners-logos__track img {
     height: 48px;
     width: auto;
@@ -445,23 +409,20 @@ a:hover {
     transition: filter 0.3s ease;
 }
 
-/* Эффект при наведении на логотип */
 .partners-logos__track img:hover {
     filter: grayscale(0%);
     opacity: 1;
 }
 
-/* Ключевые кадры анимации */
 @keyframes scroll-left {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%); /* Сдвигаем на 50% — половина контента (дубликаты) */
+        transform: translateX(-50%);
     }
 }
 
-/* Адаптив для мобильных */
 @media (max-width: 768px) {
     .partners-logos {
         height: 32px;
@@ -478,9 +439,6 @@ a:hover {
     }
 }
 
-/* ========================================
-   Video Cards
-   ======================================== */
 .video-section {
     margin-bottom: 50px;
 }
@@ -544,7 +502,6 @@ a:hover {
     margin-bottom: 10px;
 }
 
-/* Video Wrapper для адаптивности */
 .video-wrapper {
     position: relative;
     padding-bottom: 56.25%;
@@ -562,22 +519,23 @@ a:hover {
     border: 0;
 }
 
-/* ========================================
-   Events Section
-   ======================================== */
 .events-grid {
     display: flex;
     gap: 24px;
     margin-bottom: 40px;
-    align-items: stretch; /* Явно растягиваем карточки по высоте */
-    flex-wrap: wrap; /* Чтобы на мобильных карточки переносились */
+    align-items: stretch;
+    flex-wrap: wrap;
 }
 
-/* Важно: ссылка-обёртка должна тоже растягиваться */
 .events-grid > a {
     display: flex;
-    flex: 1 1 300px; /* Адаптивная ширина: мин. 300px, но может расти */
-    min-width: 0; /* Предотвращает переполнение флекс-элементов */
+    flex: 1 1 calc(33.3333% - 16px);
+    max-width: calc(33.3333% - 16px);
+    min-width: 0;
+}
+
+.events-grid > a.none {
+    display: none;
 }
 
 .event-card {
@@ -588,7 +546,7 @@ a:hover {
     overflow: hidden;
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     background: var(--white);
-    height: 100%; /* Карточка занимает всю высоту родителя-ссылки */
+    height: 100%;
     width: 100%;
 }
 
@@ -597,7 +555,6 @@ a:hover {
     box-shadow: var(--shadow-lg);
 }
 
-
 .event-image {
     height: 443px;
     background: var(--secondary-blue-subtle);
@@ -605,7 +562,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     position: relative;
-    flex-shrink: 0; /* Запрещаем сжимать изображение */
+    flex-shrink: 0;
 }
 
 .event-image img {
@@ -618,13 +575,13 @@ a:hover {
     padding: 24px;
     display: flex;
     flex-direction: column;
-    flex: 1; /* Контент растягивается на всё доступное пространство */
+    flex: 1;
 }
 
 .event-title {
     font-size: 24px;
     font-weight: 600;
-    min-height: 72px; /* Фиксируем высоту заголовка для выравнивания */
+    min-height: 72px;
     color: var(--dark);
     margin-bottom: 16px;
 }
@@ -644,10 +601,12 @@ a:hover {
     min-height: 80px;
     margin-bottom: 8px;
 }
-.event-icon{    
+
+.event-icon {    
     width: 20px;
     height: 20px;
 }
+
 .event-link {
     width: 100%;
     color: var(--primary-blue);
@@ -661,14 +620,8 @@ a:hover {
     margin-top: auto;
 }
 
-/* Ключевой момент: прижимаем футер карточки к низу */
 .days-left {
-    margin-top: auto; /* Автоматический отступ сверху толкает элемент вниз */
-    font-size: 14px;
-    color: var(--grey);
-}
-
-.days-left {
+    margin-top: auto;
     font-size: 12px;
     color: var(--dark);
 }
@@ -699,9 +652,6 @@ a:hover {
     background: var(--primary-blue-hover);
 }
 
-/* ========================================
-   Statistics Section
-   ======================================== */
 .stats-section {
     margin-bottom: 40px;
 }
@@ -783,9 +733,6 @@ a:hover {
     border-radius: var(--radius-md);
 }
 
-/* ========================================
-   Footer Buttons
-   ======================================== */
 .footer-buttons {
     display: flex;
     gap: 20px;
@@ -823,9 +770,6 @@ a:hover {
     border-color: var(--primary-blue);
 }
 
-/* ========================================
-   Photo Carousel
-   ======================================== */
 .photo-carousel-section {
     margin-bottom: 40px;
 }
@@ -926,9 +870,6 @@ a:hover {
     background: var(--primary-blue-hover);
 }
 
-/* ========================================
-   Lightbox Modal
-   ======================================== */
 .lightbox {
     position: fixed;
     top: 0;
@@ -1064,9 +1005,6 @@ a:hover {
     font-size: 13px;
 }
 
-/* ========================================
-   Responsive Design
-   ======================================== */
 @media (max-width: 1024px) {
     .events-grid {
         flex-direction: column;
@@ -1074,6 +1012,7 @@ a:hover {
     
     .events-grid > a {
         flex: 1 1 100%;
+        max-width: 100%;
     }
 }
 
@@ -1151,4 +1090,3 @@ a:hover {
         height: 40px;
     }
 }
-
