@@ -652,7 +652,7 @@ a:hover {
 
 .event-link-wrapper.today .event-card {
     border-color: var(--primary-blue);
-    box-shadow: 0 0 0 1px #121217;
+    box-shadow: 0 0 0 1px var(--grey-light)
 }
 
 .btn-center {
