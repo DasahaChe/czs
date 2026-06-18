@@ -5,16 +5,16 @@ class PhotoCarousel {
         this.dotsContainer = document.getElementById('carouselDots');
         this.prevBtn = document.querySelector('.carousel-btn-prev');
         this.nextBtn = document.querySelector('.carousel-btn-next');
+        this.container = this.track ? this.track.parentElement : null;
 
         this.photos = this.generatePhotoList();
-        this.photosPerView = this.getPhotosPerView();
         this.currentIndex = 0;
-        this.touchStartX = 0;
+        this.lightboxIndex = 0;
 
         this.init();
     }
 
-    // Генерация списка фото
+    // Список фото
     generatePhotoList() {
         return [
             { src: 'img/photo/DSC02669_resized.jpg', alt: 'Фото 1' },
@@ -32,16 +32,23 @@ class PhotoCarousel {
         ];
     }
 
-    // Определяем количество видимых слайдов по ширине экрана
+    // ВАЖНО: брейкпоинты синхронизированы с CSS
     getPhotosPerView() {
-        if (window.innerWidth <= 768) return 1;   // мобильный - 1 слайд
-        if (window.innerWidth <= 1024) return 2;  // планшет - 2 слайда
-        return 3;                                  // десктоп - 3 слайда
+        const w = window.innerWidth;
+        if (w <= 640) return 1;
+        if (w <= 1024) return 2;
+        return 3;
     }
 
-    // Максимальный индекс (до которого можно листать)
-    getMaxIndex() {
-        return Math.max(0, this.photos.length - this.photosPerView);
+    getGap() {
+        const w = window.innerWidth;
+        if (w <= 640) return 12;
+        if (w <= 1024) return 16;
+        return 20;
+    }
+
+    get totalSlides() {
+        return Math.max(1, Math.ceil(this.photos.length / this.getPhotosPerView()));
     }
 
     init() {
@@ -50,68 +57,78 @@ class PhotoCarousel {
         this.updateCarousel();
         this.addEventListeners();
 
-        // Обработка изменения размера окна
-        let resizeTimeout;
+        // Debounced resize
+        let resizeTimer;
         window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                const newPhotosPerView = this.getPhotosPerView();
-                if (newPhotosPerView !== this.photosPerView) {
-                    this.photosPerView = newPhotosPerView;
-                    // Ограничиваем текущий индекс
-                    if (this.currentIndex > this.getMaxIndex()) {
-                        this.currentIndex = this.getMaxIndex();
-                    }
-                    this.renderDots();
-                    this.updateCarousel();
-                } else {
-                    // Даже если количество не изменилось, нужно пересчитать смещение
-                    this.updateCarousel();
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Если вышли за границы — корректируем
+                if (this.currentIndex >= this.totalSlides) {
+                    this.currentIndex = this.totalSlides - 1;
                 }
-            }, 150);
+                this.renderDots();
+                this.updateCarousel();
+            }, 120);
         });
     }
 
-    // ВАЖНО: НЕ устанавливаем inline min-width — он переопределяет CSS медиа-запросы!
     renderSlides() {
+        if (!this.track) return;
         this.track.innerHTML = '';
+
+        const frag = document.createDocumentFragment();
+        const perView = this.getPhotosPerView();
 
         this.photos.forEach((photo, index) => {
             const slide = document.createElement('div');
             slide.className = 'carousel-slide';
-            slide.dataset.index = index;
-            slide.style.cursor = 'pointer';
+            slide.setAttribute('role', 'button');
+            slide.setAttribute('tabindex', '0');
+            slide.setAttribute('aria-label', photo.alt);
 
             const img = document.createElement('img');
             img.src = photo.src;
             img.alt = photo.alt;
-            img.loading = index < this.photosPerView ? 'eager' : 'lazy';
-
-            // Обработка ошибки загрузки
+            img.loading = index < perView ? 'eager' : 'lazy';
+            img.decoding = 'async';
             img.onerror = () => {
                 console.warn(`Не удалось загрузить: ${photo.src}`);
                 img.src = 'img/photo/photo1.jpg';
             };
 
-            // Клик открывает лайтбокс
-            slide.addEventListener('click', () => {
-                this.openLightbox(index);
+            slide.appendChild(img);
+
+            // Клик → лайтбокс
+            slide.addEventListener('click', () => this.openLightbox(index));
+            slide.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.openLightbox(index);
+                }
             });
 
-            slide.appendChild(img);
-            this.track.appendChild(slide);
+            frag.appendChild(slide);
         });
+
+        this.track.appendChild(frag);
     }
 
     renderDots() {
+        if (!this.dotsContainer) return;
         this.dotsContainer.innerHTML = '';
-        const maxIndex = this.getMaxIndex();
-        const dotsCount = maxIndex + 1;
 
-        for (let i = 0; i < dotsCount; i++) {
+        const total = this.totalSlides;
+        // Если слайд всего один — точки не нужны
+        if (total <= 1) {
+            this.dotsContainer.style.display = 'none';
+            return;
+        }
+        this.dotsContainer.style.display = 'flex';
+
+        for (let i = 0; i < total; i++) {
             const dot = document.createElement('button');
             dot.className = 'carousel-dot' + (i === this.currentIndex ? ' active' : '');
-            dot.setAttribute('aria-label', `Перейти к слайду ${i + 1}`);
+            dot.setAttribute('aria-label', `Перейти к слайду ${i + 1} из ${total}`);
             dot.addEventListener('click', () => {
                 this.currentIndex = i;
                 this.updateCarousel();
@@ -120,85 +137,96 @@ class PhotoCarousel {
         }
     }
 
-    // Расчёт смещения через реальные пиксели
     updateCarousel() {
-        const slides = this.track.querySelectorAll('.carousel-slide');
-        if (slides.length === 0) return;
+        if (!this.track) return;
 
-        // Получаем реальные размеры
-        const slideWidth = slides[0].offsetWidth;
-        const gap = parseInt(getComputedStyle(this.track).gap) || 20;
-        const offset = this.currentIndex * (slideWidth + gap);
+        // КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ: правильная формула сдвига
+        // Каждая "страница" = 100% ширины контейнера + gap между страницами
+        const gap = this.getGap();
+        const offset = `calc(-${this.currentIndex * 100}% - ${this.currentIndex * gap}px)`;
+        this.track.style.transform = `translateX(${offset})`;
 
-        this.track.style.transform = `translateX(-${offset}px)`;
+        // Состояние кнопок
+        const total = this.totalSlides;
+        if (this.prevBtn) this.prevBtn.disabled = this.currentIndex === 0;
+        if (this.nextBtn) this.nextBtn.disabled = this.currentIndex >= total - 1;
 
-        // Обновление кнопок
-        const maxIndex = this.getMaxIndex();
-        this.prevBtn.disabled = this.currentIndex === 0;
-        this.nextBtn.disabled = this.currentIndex >= maxIndex;
-
-        // Обновление точек
-        const dots = this.dotsContainer.querySelectorAll('.carousel-dot');
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentIndex);
+        // Активная точка
+        this.dotsContainer?.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === this.currentIndex);
         });
     }
 
     addEventListeners() {
-        this.prevBtn.addEventListener('click', () => {
+        this.prevBtn?.addEventListener('click', () => {
             if (this.currentIndex > 0) {
                 this.currentIndex--;
                 this.updateCarousel();
             }
         });
 
-        this.nextBtn.addEventListener('click', () => {
-            if (this.currentIndex < this.getMaxIndex()) {
+        this.nextBtn?.addEventListener('click', () => {
+            if (this.currentIndex < this.totalSlides - 1) {
                 this.currentIndex++;
                 this.updateCarousel();
             }
         });
 
-        // Свайпы для мобильных
+        // Свайпы (с проверкой направления — чтобы не конфликтовать со скроллом страницы)
+        let startX = 0, startY = 0, isDragging = false;
+
         this.track.addEventListener('touchstart', (e) => {
-            this.touchStartX = e.touches[0].clientX;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isDragging = true;
         }, { passive: true });
 
         this.track.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
             const endX = e.changedTouches[0].clientX;
-            this.handleSwipe(endX);
-        }, { passive: true });
-    }
+            const endY = e.changedTouches[0].clientY;
+            const diffX = startX - endX;
+            const diffY = startY - endY;
 
-    handleSwipe(endX) {
-        const swipeThreshold = 50;
-        const diff = this.touchStartX - endX;
-
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0 && this.currentIndex < this.getMaxIndex()) {
-                this.currentIndex++;
-            } else if (diff < 0 && this.currentIndex > 0) {
-                this.currentIndex--;
+            // Срабатывает только если свайп горизонтальный
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                if (diffX > 0 && this.currentIndex < this.totalSlides - 1) {
+                    this.currentIndex++;
+                } else if (diffX < 0 && this.currentIndex > 0) {
+                    this.currentIndex--;
+                }
+                this.updateCarousel();
             }
-            this.updateCarousel();
-        }
+            isDragging = false;
+        }, { passive: true });
+
+        // Клавиатура по track
+        this.track?.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && this.currentIndex > 0) {
+                this.currentIndex--;
+                this.updateCarousel();
+            } else if (e.key === 'ArrowRight' && this.currentIndex < this.totalSlides - 1) {
+                this.currentIndex++;
+                this.updateCarousel();
+            }
+        });
     }
 
-    // ========== LIGHTBOX METHODS ==========
-
+    // ========== LIGHTBOX ==========
     openLightbox(index) {
         this.lightboxIndex = index;
         const photo = this.photos[index];
-
         const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImage');
-        const lightboxCaption = document.getElementById('lightboxCaption');
-        const lightboxCounter = document.getElementById('lightboxCounter');
+        if (!lightbox) return;
 
-        lightboxImg.src = photo.src;
-        lightboxImg.alt = photo.alt;
-        lightboxCaption.textContent = photo.alt;
-        lightboxCounter.textContent = `${index + 1} / ${this.photos.length}`;
+        const img = document.getElementById('lightboxImage');
+        const caption = document.getElementById('lightboxCaption');
+        const counter = document.getElementById('lightboxCounter');
+
+        img.src = photo.src;
+        img.alt = photo.alt;
+        caption.textContent = photo.alt;
+        counter.textContent = `${index + 1} / ${this.photos.length}`;
 
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
@@ -209,12 +237,14 @@ class PhotoCarousel {
 
     closeLightbox() {
         const lightbox = document.getElementById('lightbox');
+        if (!lightbox) return;
         lightbox.classList.remove('active');
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
 
         setTimeout(() => {
-            document.getElementById('lightboxImage').src = '';
+            const img = document.getElementById('lightboxImage');
+            if (img) img.src = '';
         }, 300);
     }
 
@@ -243,18 +273,18 @@ class PhotoCarousel {
         const lightbox = document.getElementById('lightbox');
         if (!lightbox) return;
 
-        document.getElementById('lightboxOverlay').addEventListener('click', () => this.closeLightbox());
-        document.getElementById('lightboxClose').addEventListener('click', () => this.closeLightbox());
-
-        document.getElementById('lightboxPrev').addEventListener('click', (e) => {
+        document.getElementById('lightboxOverlay')?.addEventListener('click', () => this.closeLightbox());
+        document.getElementById('lightboxClose')?.addEventListener('click', () => this.closeLightbox());
+        document.getElementById('lightboxPrev')?.addEventListener('click', (e) => {
             e.stopPropagation();
             this.prevLightboxImage();
         });
-        document.getElementById('lightboxNext').addEventListener('click', (e) => {
+        document.getElementById('lightboxNext')?.addEventListener('click', (e) => {
             e.stopPropagation();
             this.nextLightboxImage();
         });
 
+        // Глобальная клавиатура
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
             if (e.key === 'Escape') this.closeLightbox();
@@ -263,14 +293,12 @@ class PhotoCarousel {
         });
 
         // Свайпы в лайтбоксе
-        let lightboxStartX = 0;
+        let startX = 0;
         lightbox.addEventListener('touchstart', (e) => {
-            lightboxStartX = e.touches[0].clientX;
+            startX = e.touches[0].clientX;
         }, { passive: true });
-
         lightbox.addEventListener('touchend', (e) => {
-            const endX = e.changedTouches[0].clientX;
-            const diff = lightboxStartX - endX;
+            const diff = startX - e.changedTouches[0].clientX;
             if (Math.abs(diff) > 50) {
                 diff > 0 ? this.nextLightboxImage() : this.prevLightboxImage();
             }
