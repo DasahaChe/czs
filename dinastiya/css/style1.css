@@ -30,6 +30,7 @@
     --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.12);
     --shadow-xl: 0 20px 40px rgba(15, 23, 42, 0.15);
 
+    /* Дополнительные переменные */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
@@ -70,6 +71,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Стили для выделения текста */
 ::selection {
     background-color: var(--accent-color);
     color: var(--white);
@@ -80,6 +82,7 @@ body {
     color: var(--white);
 }
 
+/* Кастомный скроллбар */
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -133,7 +136,6 @@ h2 {
     align-items: center;
     gap: 12px;
     font-weight: 700;
-    flex-wrap: wrap;
 }
 
 h2>svg {
@@ -186,6 +188,7 @@ a:focus-visible {
     border-radius: 2px;
 }
 
+/* Списки */
 ul,
 ol {
     margin-top: 0;
@@ -197,6 +200,7 @@ li {
     margin-bottom: 8px;
 }
 
+/* Цитаты */
 blockquote {
     margin: 24px 0;
     padding: 16px 24px;
@@ -206,6 +210,7 @@ blockquote {
     color: var(--text-muted);
 }
 
+/* Код */
 code {
     background-color: var(--bg-light);
     padding: 2px 6px;
@@ -230,12 +235,14 @@ pre code {
     padding: 0;
 }
 
+/* Горизонтальная линия */
 hr {
     border: none;
     border-top: 1px solid var(--border-color);
     margin: 32px 0;
 }
 
+/* Изображения и медиа */
 img,
 video,
 svg,
@@ -249,6 +256,7 @@ img {
     border-style: none;
 }
 
+/* Таблицы */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -282,6 +290,7 @@ tbody tr:hover {
     background-color: var(--bg-light);
 }
 
+/* Формы */
 input,
 textarea,
 select,
@@ -335,6 +344,7 @@ textarea {
     min-height: 100px;
 }
 
+/* Чекбоксы и радиокнопки */
 input[type="checkbox"],
 input[type="radio"] {
     width: auto;
@@ -342,6 +352,7 @@ input[type="radio"] {
     cursor: pointer;
 }
 
+/* Кнопки (базовые) */
 button {
     cursor: pointer;
     border: none;
@@ -420,6 +431,7 @@ button:disabled {
     color: var(--accent-color);
     border-color: var(--accent-color);
 }
+
 
 .btn-outline:active {
     transform: translateY(0);
@@ -521,11 +533,6 @@ button:disabled {
     color: var(--text-muted);
 }
 
-.nav-block {
-    display: flex;
-    gap: 8px;
-}
-
 .nav-list {
     display: flex;
     list-style: none;
@@ -562,6 +569,7 @@ button:disabled {
     color: var(--white);
 }
 
+/* Бургер-меню */
 .burger-btn {
     display: none;
     background: none;
@@ -592,7 +600,7 @@ button:disabled {
    4. HERO-СЕКЦИЯ
    ========================================================================== */
 .hero {
-    background-image: url(../img/photo.png);
+    background-image: url(./img/photo.png);
     background-size: cover;
     color: var(--white);
     padding: 80px 0 100px;
@@ -607,17 +615,21 @@ button:disabled {
     left: 0;
     right: 0;
     bottom: 0;
+    /* Добавляем сплошное черное затемнение 50% первым слоем */
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
         radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0.3) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.2) 0%, transparent 50%);
     pointer-events: none;
     z-index: 1;
+    /* Гарантирует, что оверлей будет над картинкой */
 }
+
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     max-width: 720px;
+    z-index: 2;
 }
 
 .hero-badge {
@@ -698,6 +710,7 @@ button:disabled {
     border-bottom: 1px solid var(--border-color);
 }
 
+
 .news-card:hover {
     border-color: var(--accent-color);
     box-shadow: var(--shadow-md);
@@ -758,6 +771,7 @@ button:disabled {
     color: var(--text-main);
 }
 
+/* Боковой виджет */
 .alert-sidebar {
     display: flex;
     flex-direction: column;
@@ -830,6 +844,7 @@ button:disabled {
     margin-bottom: 20px;
 }
 
+/* Быстрые контакты */
 .quick-contacts {
     background-color: var(--bg-light);
     border-radius: var(--radius);
@@ -916,6 +931,7 @@ button:disabled {
     margin-bottom: 24px;
 }
 
+/* Поиск по документам */
 .docs-search {
     position: relative;
     max-width: 480px;
@@ -950,6 +966,7 @@ button:disabled {
     box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
 }
 
+/* Блок собрания */
 .meeting-block {
     background-color: var(--white);
     border: 1px solid var(--border-color);
@@ -1014,9 +1031,10 @@ button:disabled {
     font-size: 0.95rem;
 }
 
+/* Сетка групп документов */
 .docs-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
 }
 
@@ -1053,27 +1071,6 @@ button:disabled {
     margin: 0;
 }
 
-/* ==========================================================================
-   ★★★ ГЛАВНОЕ ИЗМЕНЕНИЕ: meeting-results — СПИСОК ПО ОДНОЙ ССЫЛКЕ ★★★
-   ========================================================================== */
-.meeting-results .docs-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.meeting-results .docs-list .doc-link {
-    width: 100%;
-}
-
-/* Убираем grid-сетку для meeting-results */
-.meeting-results .docs-list {
-    grid-template-columns: none;
-}
-
-/* ==========================================================================
-   ДОКУМЕНТЫ (продолжение)
-   ========================================================================== */
 .doc-link {
     display: flex;
     align-items: center;
@@ -1164,6 +1161,7 @@ button:disabled {
     font-size: 1rem;
 }
 
+/* Скрытие документов при поиске */
 .doc-link.hidden {
     display: none;
 }
@@ -1218,7 +1216,7 @@ button:disabled {
 
 .steps-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 20px;
     margin-bottom: 32px;
 }
@@ -1231,6 +1229,7 @@ button:disabled {
     position: relative;
     transition: var(--transition);
 }
+
 
 .step-num {
     background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
@@ -1264,7 +1263,7 @@ button:disabled {
 }
 
 /* ==========================================================================
-   8. ПРАВЛЕНИЕ — ПОЛНОСТЬЮ ПЕРЕРАБОТАНО
+   8. ПРАВЛЕНИЕ
    ========================================================================== */
 .board-section {
     margin-bottom: 80px;
@@ -1272,38 +1271,28 @@ button:disabled {
 
 .board-grid {
     display: flex;
-    flex-direction: row;
-    gap: 32px;
     margin-bottom: 24px;
+    gap: 0px;
 }
 
 .board-card {
-    flex: 1;
-    min-width: 0;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    padding: 0;
+    padding-right: 32px;
     transition: var(--transition);
 }
 
 .board-card-big {
-    flex: 2;
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    gap: 32px;
     padding-left: 32px;
     border-left: 1px solid var(--border-color);
-    min-width: 0;
+
 }
 
-.board-card-big>div {
+.board-card-big div {
     display: flex;
-    flex-direction: column;
-    padding: 8px 0;
-}
-
-.board-card-big>div:not(:last-child) {
-    border-bottom: 1px solid var(--border-color);
 }
 
 .board-avatar {
@@ -1329,7 +1318,7 @@ button:disabled {
     margin-bottom: 4px;
 }
 
-.board-role {
+.board-card .role {
     font-weight: 600;
     color: var(--accent-color);
     font-size: 0.85rem;
@@ -1346,9 +1335,7 @@ button:disabled {
 }
 
 .board-since {
-    margin-bottom: 0;
-    color: var(--text-muted);
-    font-size: 0.85rem;
+    margin-bottom: 0px;
 }
 
 .contact-link {
@@ -1386,10 +1373,6 @@ button:disabled {
     height: 16px;
 }
 
-.btn-docs-link {
-    margin-top: 8px;
-}
-
 /* ==========================================================================
    9. ПОДВАЛ
    ========================================================================== */
@@ -1404,7 +1387,7 @@ button:disabled {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1.5fr;
+    grid-template-columns: 1fr;
     gap: 40px;
     padding-bottom: 40px;
 }
@@ -1496,6 +1479,7 @@ button:disabled {
     line-height: 1.6;
 }
 
+/* Реквизиты — details/summary */
 .requisites-details summary {
     cursor: pointer;
     padding: 10px 14px;
@@ -1566,167 +1550,13 @@ button:disabled {
 
 .bottom-flex {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
 }
 
 /* ==========================================================================
-   ГАЛЕРЕЯ
-   ========================================================================== */
-.complex-gallery {
-    margin-top: 60px;
-    margin-bottom: 80px;
-}
-
-.gallery-lead {
-    color: var(--text-muted);
-    margin-top: -16px;
-    margin-bottom: 32px;
-    font-style: italic;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.gallery-item {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-    border: 1px solid #e8e2dc;
-    cursor: pointer;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(26, 17, 11, 0.75);
-    border: 2px solid var(--accent-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.gallery-overlay span {
-    color: var(--white);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-    border-bottom: 1px solid var(--accent-color);
-    padding-bottom: 4px;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.05);
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.alert-box {
-    background-color: var(--primary-color);
-    border: 2px solid var(--accent-color);
-    color: var(--white);
-}
-
-.alert-box h3 {
-    color: var(--accent-color);
-}
-
-/* ==========================================================================
-   10. СТРАНИЦА ДОКУМЕНТОВ (dok.html)
-   ========================================================================== */
-.doc-page-section {
-    padding: 40px 0 60px 0;
-}
-
-.doc-page-section h2 {
-    margin-top: 40px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--border-color);
-}
-
-.doc-page-section h2:first-of-type {
-    margin-top: 0;
-}
-
-.doc-page-section h3 {
-    margin-top: 28px;
-    font-size: 1.2rem;
-    color: var(--accent-color);
-}
-
-.doc-page-section .doc-link {
-    margin-bottom: 4px;
-}
-
-.doc-page-section .docs-list-simple {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 16px 0;
-}
-
-.doc-page-section .docs-list-simple li {
-    margin-bottom: 6px;
-}
-
-.doc-page-section .docs-list-simple a {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-main);
-    text-decoration: none;
-    transition: var(--transition);
-    font-size: 0.95rem;
-}
-
-.doc-page-section .docs-list-simple a:hover {
-    color: var(--accent-hover);
-    padding-left: 6px;
-}
-
-.doc-page-section .docs-list-simple a svg {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-}
-
-.doc-page-section .sub-section {
-    background-color: var(--bg-light);
-    border-radius: var(--radius);
-    padding: 24px;
-    margin-bottom: 24px;
-}
-
-.doc-page-section .sub-section h3 {
-    margin-top: 0;
-}
-
-.doc-columns {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 40px;
-}
-
-/* ==========================================================================
-   11. УТИЛИТАРНЫЕ КЛАССЫ
+   УТИЛИТАРНЫЕ КЛАССЫ
    ========================================================================== */
 .text-center {
     text-align: center;
@@ -1801,7 +1631,7 @@ button:disabled {
 }
 
 /* ==========================================================================
-   12. АНИМАЦИИ
+   АНИМАЦИИ
    ========================================================================== */
 @keyframes fadeIn {
     from {
@@ -1849,39 +1679,88 @@ button:disabled {
     animation: slideDown 0.4s ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-    }
+.complex-gallery {
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
 
-    [data-aos] {
-        opacity: 1 !important;
-        transform: none !important;
-    }
+.gallery-lead {
+    color: var(--text-muted);
+    margin-top: -16px;
+    margin-bottom: 32px;
+    font-style: italic;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    border: 1px solid #e8e2dc;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+/* Золотисто-черный оверлей при наведении */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 17, 11, 0.75);
+    /* Шоколадно-черная вуаль */
+    border: 2px solid var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-overlay span {
+    color: var(--white);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 4px;
+}
+
+/* Эффекты при наведении на фото */
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.alert-box {
+    background-color: var(--primary-color);
+    border: 2px solid var(--accent-color);
+    color: var(--white);
+}
+
+.alert-box h3 {
+    color: var(--accent-color);
 }
 
 /* ==========================================================================
-   13. АДАПТИВНОСТЬ — ВСЕ БРЕЙКПОИНТЫ
+   10. АДАПТИВНОСТЬ
    ========================================================================== */
-
-/* --- Планшеты и маленькие ноутбуки (до 1024px) --- */
-@media (max-width: 1024px) {
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .footer-col:nth-child(3) {
-        grid-column: span 2;
-    }
-
-    .doc-columns {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-}
-
-/* --- Мобильные устройства и планшеты (до 968px) --- */
 @media (max-width: 968px) {
     .burger-btn {
         display: block;
@@ -1940,250 +1819,71 @@ button:disabled {
     h3 {
         font-size: 1.3rem;
     }
+}
 
-    .board-grid {
-        flex-direction: column;
-        gap: 24px;
-    }
-
-    .board-card-big {
-        padding-left: 0;
-        border-left: none;
-        padding-top: 24px;
-        border-top: 1px solid var(--border-color);
-    }
-
-    .board-card {
-        width: 100%;
-    }
-
-    .docs-grid {
-        grid-template-columns: 1fr;
+@media (min-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr 360px;
     }
 
     .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    .docs-grid {
         grid-template-columns: 1fr 1fr;
     }
 
-    .info-grid {
-        grid-template-columns: 1fr;
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-col:nth-child(3) {
+        grid-column: span 2;
+    }
+
+    .bottom-flex {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .requisites-details summary {
+        display: none;
+    }
+
+    .requisites-details {
+        display: block !important;
     }
 }
 
-/* --- Маленькие планшеты и большие телефоны (до 768px) --- */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 16px;
-    }
-
-    .meeting-block {
-        padding: 20px;
-    }
-
-    .meeting-title-row h3 {
-        font-size: 1.1rem;
-        min-width: auto;
-    }
-
-    .counters-section {
-        padding: 32px 20px;
-    }
-
-    .steps-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
+@media (min-width: 1024px) {
 
     .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        grid-template-columns: 1fr 1fr 1.5fr;
     }
 
     .footer-col:nth-child(3) {
         grid-column: span 1;
     }
-
-    .bottom-flex {
-        flex-direction: column;
-        text-align: center;
-        gap: 8px;
-    }
-
-    .req-grid {
-        grid-template-columns: 1fr;
-        gap: 4px;
-    }
-
-    /* ★★★ ИСПРАВЛЕНИЕ: отступы для страницы документов ★★★ */
-    .doc-page-section {
-        padding: 20px 20px 40px 20px;
-    }
-
-    .doc-page-section .sub-section {
-        padding: 16px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .gallery-item {
-        height: 160px;
-    }
-
-    .warning-banner {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    /* ★★★ meeting-results гарантированно в одну колонку ★★★ */
-    .meeting-results .docs-list {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .meeting-results .docs-list .doc-link {
-        width: 100%;
-    }
 }
 
-/* --- Маленькие телефоны (до 480px) --- */
-@media (max-width: 480px) {
-    .logo-title {
-        font-size: 0.95rem;
+/* Уменьшаем анимации для пользователей, предпочитающих это */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 
-    .logo-address {
-        font-size: 0.7rem;
-    }
-
-    .logo-icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .logo-icon svg {
-        width: 20px;
-        height: 20px;
-    }
-
-    .hero h1 {
-        font-size: 1.6rem;
-    }
-
-    .hero-lead {
-        font-size: 1rem;
-    }
-
-    .hero-badge {
-        font-size: 0.75rem;
-        padding: 4px 12px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-    }
-
-    .gallery-item {
-        height: 130px;
-    }
-
-    .gallery-overlay span {
-        font-size: 0.7rem;
-    }
-
-    .btn-accent,
-    .btn-secondary,
-    .btn-outline,
-    .btn-emergency {
-        padding: 10px 16px;
-        font-size: 0.85rem;
-    }
-
-    .meeting-badge {
-        font-size: 0.65rem;
-        padding: 3px 10px;
-    }
-
-    .doc-icon {
-        width: 32px;
-        height: 32px;
-    }
-
-    .doc-icon svg {
-        width: 16px;
-        height: 16px;
-    }
-
-    .doc-name {
-        font-size: 0.85rem;
-    }
-
-    .docs-search input {
-        padding: 12px 14px 12px 40px;
-        font-size: 0.9rem;
-    }
-
-    .docs-search svg {
-        left: 12px;
-        width: 18px;
-        height: 18px;
-    }
-
-    .footer-contacts li {
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    .footer-contacts .icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .phone-highlight {
-        font-size: 1rem;
-    }
-
-    .work-time {
-        display: block;
-        margin-left: 0;
-        margin-top: 4px;
-    }
-
-    .board-card h3 {
-        font-size: 1rem;
-    }
-
-    .board-avatar {
-        width: 48px;
-        height: 48px;
-    }
-
-    .board-avatar svg {
-        width: 24px;
-        height: 24px;
-    }
-
-    /* ★★★ ИСПРАВЛЕНИЕ: отступы для страницы документов ★★★ */
-    .doc-page-section {
-        padding: 16px 16px 40px 16px;
-    }
-
-    /* ★★★ meeting-results гарантированно в одну колонку ★★★ */
-    .meeting-results .docs-list {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .meeting-results .docs-list .doc-link {
-        width: 100%;
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }
 
 /* ==========================================================================
-   14. СТИЛИ ДЛЯ ПЕЧАТИ
+   СТИЛИ ДЛЯ ПЕЧАТИ
    ========================================================================== */
 @media print {
 
@@ -2207,335 +1907,5 @@ button:disabled {
 
     .container {
         max-width: 100%;
-    }
-}
-
-/* ==========================================================================
-   ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ (УПРОЩЕННАЯ)
-   ========================================================================== */
-
-/* Кнопка переключения */
-.eye-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    color: var(--text-muted);
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.85rem;
-    transition: var(--transition);
-    border: none;
-    font-family: inherit;
-    white-space: nowrap;
-}
-
-.eye-toggle:hover {
-    background: var(--accent-hover);
-    color: var(--white);
-}
-
-.eye-toggle svg {
-    width: 20px;
-    height: 20px;
-    color: var(--text-muted) !important;
-    /* Иконка всегда белая */
-}
-
-.eye-toggle.active {
-    background: var(--accent-hover);
-}
-
-.eye-toggle.active svg {
-    color: var(--text-muted) !important;
-    /* Иконка всегда белая даже в активном состоянии */
-}
-
-/* ============================================================
-   АКТИВНАЯ ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ
-   ============================================================ */
-
-/* Базовые стили для body в режиме слабовидящих */
-body.eye-mode-active {
-    font-size: 18px !important;
-    line-height: 2 !important;
-    color: #000000 !important;
-}
-
-/* Все элементы наследуют размер шрифта и интерлиньяж */
-body.eye-mode-active * {
-    font-size: inherit !important;
-    line-height: inherit !important;
-}
-
-/* ============================================================
-   ЦВЕТА ТЕКСТА - ВСЕ ЧЕРНЫЕ
-   ============================================================ */
-
-body.eye-mode-active,
-body.eye-mode-active p,
-body.eye-mode-active h1,
-body.eye-mode-active h2,
-body.eye-mode-active h3,
-body.eye-mode-active h4,
-body.eye-mode-active h5,
-body.eye-mode-active h6,
-body.eye-mode-active span,
-body.eye-mode-active div,
-body.eye-mode-active li,
-body.eye-mode-active a,
-body.eye-mode-active time,
-body.eye-mode-active strong,
-body.eye-mode-active b,
-body.eye-mode-active em,
-body.eye-mode-active i,
-body.eye-mode-active .text-muted,
-body.eye-mode-active .text-main,
-body.eye-mode-active .news-meta time,
-body.eye-mode-active .board-since,
-body.eye-mode-active .meeting-desc,
-body.eye-mode-active .step-card p,
-body.eye-mode-active .footer-address,
-body.eye-mode-active .footer-col a,
-body.eye-mode-active .footer-contacts li,
-body.eye-mode-active .doc-name,
-body.eye-mode-active .doc-meta,
-body.eye-mode-active .meeting-lead,
-body.eye-mode-active .logo-title,
-body.eye-mode-active .logo-address,
-body.eye-mode-active .nav-list a,
-body.eye-mode-active .phone-highlight,
-body.eye-mode-active .footer-col h4,
-body.eye-mode-active .footer-bottom p,
-body.eye-mode-active .alert-box,
-body.eye-mode-active .alert-box * {
-    color: #000000 !important;
-}
-
-/* Ссылки с подчеркиванием */
-body.eye-mode-active a {
-    text-decoration: underline !important;
-    text-underline-offset: 3px !important;
-    text-decoration-thickness: 2px !important;
-}
-
-body.eye-mode-active a:hover {
-    text-decoration: underline !important;
-    opacity: 0.7;
-}
-
-/* ============================================================
-   ФОНЫ - СВЕТЛЫЕ
-   ============================================================ */
-
-body.eye-mode-active .main-header {
-    background-color: #ffffff !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: none !important;
-    border-bottom: 2px solid #000000 !important;
-}
-
-body.eye-mode-active .hero {
-    background-color: #f5f5f5 !important;
-    background-image: none !important;
-}
-
-body.eye-mode-active .hero::before {
-    display: none !important;
-}
-
-body.eye-mode-active .hero h1,
-body.eye-mode-active .hero-lead,
-body.eye-mode-active .hero-badge {
-    color: #000000 !important;
-}
-
-body.eye-mode-active .hero-badge {
-    background-color: #e0e0e0 !important;
-    border-color: #000000 !important;
-}
-
-body.eye-mode-active .main-footer {
-    background-color: #f0f0f0 !important;
-    border-top-color: #000000 !important;
-}
-
-body.eye-mode-active .footer-bottom {
-    background-color: #e0e0e0 !important;
-}
-
-body.eye-mode-active .footer-col h4 {
-    border-bottom-color: #000000 !important;
-}
-
-body.eye-mode-active .footer-contacts .icon {
-    background-color: #cccccc !important;
-}
-
-body.eye-mode-active .footer-contacts .icon svg {
-    color: #000000 !important;
-}
-
-/* ============================================================
-   КАРТОЧКИ И БЛОКИ
-   ============================================================ */
-
-body.eye-mode-active .news-card,
-body.eye-mode-active .meeting-block,
-body.eye-mode-active .step-card,
-body.eye-mode-active .doc-group,
-body.eye-mode-active .sub-section,
-body.eye-mode-active .alert-box,
-body.eye-mode-active .board-card,
-body.eye-mode-active .quick-contacts {
-    background-color: #ffffff !important;
-    border-color: #000000 !important;
-    box-shadow: none !important;
-}
-
-body.eye-mode-active .counters-section {
-    background-color: #f5f5f5 !important;
-}
-
-body.eye-mode-active .warning-banner {
-    background-color: #ffffff !important;
-    border-color: #000000 !important;
-    color: #000000 !important;
-}
-
-body.eye-mode-active .step-num {
-    background: #000000 !important;
-    color: #ffffff !important;
-}
-
-/* ============================================================
-   КНОПКИ
-   ============================================================ */
-
-body.eye-mode-active .btn-accent {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-    border-color: #000000 !important;
-}
-
-body.eye-mode-active .btn-accent:hover {
-    background-color: #333333 !important;
-    color: #ffffff !important;
-}
-
-body.eye-mode-active .btn-outline {
-    border-color: #000000 !important;
-    color: #000000 !important;
-    background-color: transparent !important;
-}
-
-body.eye-mode-active .btn-outline:hover {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-}
-
-body.eye-mode-active .btn-emergency {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-    border-color: #000000 !important;
-}
-
-body.eye-mode-active .btn-secondary {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-}
-
-/* ============================================================
-   ИКОНКИ - ОСОБОЕ ВНИМАНИЕ
-   ============================================================ */
-
-/* Все иконки становятся черными, кроме иконки глаза */
-body.eye-mode-active svg:not(.keep-color):not(.eye-toggle svg) {
-    color: #000000 !important;
-}
-
-/* Иконка глаза всегда белая */
-.eye-toggle svg,
-.eye-toggle.active svg,
-body.eye-mode-active .eye-toggle svg,
-body.eye-mode-active .eye-toggle.active svg {
-    color: var(--text-muted) !important;
-}
-
-body.eye-mode-active .logo-icon {
-    background: #000000 !important;
-}
-
-body.eye-mode-active .logo-icon svg {
-    color: var(--text-muted) !important;
-}
-
-/* ============================================================
-   ДОКУМЕНТЫ И ССЫЛКИ
-   ============================================================ */
-
-body.eye-mode-active .doc-link {
-    border-color: #dddddd !important;
-}
-
-body.eye-mode-active .doc-link:hover {
-    border-color: #000000 !important;
-    background-color: #f0f0f0 !important;
-}
-
-body.eye-mode-active .doc-icon {
-    background-color: #e0e0e0 !important;
-}
-
-body.eye-mode-active .meeting-badge {
-    background-color: #e0e0e0 !important;
-    color: #000000 !important;
-}
-
-/* ============================================================
-   ПОИСК И ФОРМЫ
-   ============================================================ */
-
-body.eye-mode-active .docs-search input {
-    border-color: #000000 !important;
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-body.eye-mode-active .docs-search input:focus {
-    border-color: #000000 !important;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* ============================================================
-   ГАЛЕРЕЯ
-   ============================================================ */
-
-body.eye-mode-active .gallery-item {
-    border-color: #000000 !important;
-}
-
-body.eye-mode-active .gallery-overlay {
-    background: rgba(0, 0, 0, 0.7) !important;
-    border-color: #000000 !important;
-}
-
-body.eye-mode-active .gallery-overlay span {
-    color: #ffffff !important;
-}
-
-/* ============================================================
-   АДАПТИВ
-   ============================================================ */
-
-@media (max-width: 768px) {
-    .eye-toggle span {
-        display: none;
-    }
-
-    .eye-toggle {
-        padding: 8px 12px;
     }
 }
