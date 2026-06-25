@@ -1,0 +1,162 @@
+.a4-main-container {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 10mm;
+    background: linear-gradient(133deg, rgba(26, 91, 175, 1) 6%, rgba(55, 170, 225, 1) 22%, rgba(50, 170, 240, 1) 32%, rgba(41, 124, 207, 1) 44%, rgba(44, 139, 205, 1) 52%, rgba(34, 107, 201, 1) 64%, rgba(44, 139, 205, 1) 75%, rgba(39, 157, 242, 1) 88%, rgba(12, 94, 194, 1) 99%);
+    border: 1px solid #000;
+}
+
+
+
+.logo-main-img {
+    width: 87.5mm;
+    height: 24.0mm;
+}
+
+.logo-main-line {
+    width: 80mm;
+}
+
+.right-top-main-container {
+    float: right;
+    width: 80mm;
+    height: 24mm;
+}
+
+
+.text-main-block {
+    position: relative;
+    padding: 10mm;
+    margin-bottom: 15mm;
+    width: 277mm;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 7mm;
+}
+
+.name-main-bottom {
+    color: #fff;
+    margin-bottom: 10mm;
+}
+
+.name-main-text {
+    margin: 0;
+    padding: 0;
+}
+
+.bottom-main-container {
+    text-align: center;
+}
+
+.description-main-left {
+    float: left;
+    width: 12mm;
+    height: 6mm;
+    padding: 2mm 5mm;
+    margin-top: 4mm;
+    background-color: #fff;
+    border-radius: 5mm;
+    vertical-align: middle;
+    color: #224e85;
+}
+
+.description-main {
+    float: left;
+    width: 40mm;
+    height: 6mm;
+    padding: 2mm 5mm;
+    margin-top: 4mm;
+    background-color: #fff;
+    border-radius: 5mm;
+    vertical-align: middle;
+    color: #224e85;
+}
+
+.description-main-right {
+    float: left;
+    min-width: 10mm;
+    height: 6mm;
+    padding: 2mm 5mm;
+    margin-top: 4mm;
+    background-color: #fff;
+    border-radius: 5mm;
+    vertical-align: middle;
+    color: #224e85;
+}
+
+/* изменения в коде */
+
+.clogan {
+    margin-bottom: 10mm;
+    font-size: 2.6em;
+    line-height: 1.2em;
+    color: #fff;
+    font-weight: bold;
+}
+
+.logo-main {
+    float: left;
+    margin-bottom: 10mm;
+    width: 87.5mm;
+    height: 24.0mm;
+}
+
+.name-main-top {
+    margin-bottom: 2mm;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.description-event-subtitle {
+    width: 272mm;
+    height: 40mm;
+}
+
+.data-event-text {
+    font-size: 16pt;
+    color: #fff;
+    text-align: left;
+}
+
+.subtitle-event-text {
+    float: left;
+    width: 67mm;
+    margin-right: 8mm;
+    font-size: 14pt;
+    color: #fff;
+}
+
+.subtitle-eventNum-text {
+    float: left;
+    width: 150mm;
+    margin-top: 5mm;
+    font-size: 14pt;
+    color: #fff;    
+}
+
+.logoLoc-event-block{
+    float: left;
+    width: 180mm;
+    height: 30mm;
+}
+.logoLoc-event {
+    float: left;
+    width: 22mm;
+    height: 20mm;
+}
+
+.logoLoc-event-img {
+    max-width:20mm;
+    max-height: 20mm;
+}
+
+.description-event-bottom {
+    width: 277mm;
+    padding: 0 0 0 10mm;
+}
+
+.description-event-data {
+    float: left;
+    width: 197mm;
+    height: 26mm;
+}

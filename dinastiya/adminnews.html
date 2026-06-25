@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Панель управления — ТСЖ «Династия»</title>
+    <!-- Подключаем те же шрифты и стили, что и на основном сайте -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css" />
+    <style>
+        /* ===== БАЗОВЫЕ ПЕРЕМЕННЫЕ (как на сайте) ===== */
+        :root {
+            --primary-color: #1e293b;
+            --accent-color: #79072b;
+            --accent-hover: #340a0d;
+            --alert-bg: #cabab6;
+            --alert-border: #71091f;
+            --bg-light: #f8fafc;
+            --text-main: #555555;
+            --text-muted: #797c82;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+            --red: #950728;
+            --bright-red: #e20540;
+            --choko: #370303;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius: 10px;
+            --radius-sm: 6px;
+            --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+            --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
+            --transition: all 0.25s ease;
+            --header-height: 80px;
+            --container-max: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-light);
+            color: var(--text-main);
+            padding-top: var(--header-height);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== ШАПКА (упрощённая) ===== */
+        .admin-header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        .admin-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .admin-header h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .admin-header h1 small {
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-left: 8px;
+        }
+        .back-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            background: var(--accent-color);
+            color: var(--white);
+            border-color: var(--accent-color);
+        }
+
+        /* ===== КАРТОЧКА УПРАВЛЕНИЯ ===== */
+        .admin-panel {
+            margin: 40px 0 60px;
+        }
+
+        .panel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .panel-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ФОРМА ===== */
+        .form-card {
+            background: var(--white);
+            padding: 28px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+        .form-card h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 12px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+        .form-group label .required {
+            color: var(--red);
+            margin-left: 4px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(121, 7, 43, 0.08);
+        }
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .file-input-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .file-input-wrapper input[type="file"] {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 0;
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius-sm);
+            background: var(--bg-light);
+            cursor: pointer;
+        }
+        .file-input-wrapper input[type="file"]:hover {
+            border-color: var(--accent-color);
+        }
+        .file-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+        .preview-thumbs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .preview-thumb {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: var(--bg-light);
+        }
+        .preview-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .preview-thumb .remove-img {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--red);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        .preview-thumb .remove-img:hover {
+            transform: scale(1.15);
+        }
+
+        .btn-submit {
+            background: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: 14px 32px;
+            font-weight: 600;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-submit:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-submit:disabled {
+            opacity: 0.6;
+            transform: none;
+        }
+
+        /* ===== СПИСОК НОВОСТЕЙ ===== */
+        .news-list-card {
+            background: var(--white);
+            padding: 28px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+        .news-list-card h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 12px;
+        }
+        .news-list-card h2 span {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        .news-item {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-item .item-info {
+            flex: 1;
+            min-width: 200px;
+        }
+        .news-item .item-info .item-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+        .news-item .item-info .item-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .news-item .item-info .item-meta .date {
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+        .news-item .item-thumbs {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .news-item .item-thumbs img {
+            width: 44px;
+            height: 44px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+        }
+        .news-item .item-actions {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .btn-icon {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-muted);
+        }
+        .btn-icon:hover {
+            background: var(--bg-light);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+        .btn-icon.danger:hover {
+            background: #fee2e2;
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .empty-msg {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+        }
+
+        /* ===== МОДАЛЬНОЕ ОКНО (редактирование) ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-box {
+            background: var(--white);
+            max-width: 700px;
+            width: 100%;
+            border-radius: var(--radius-lg);
+            padding: 30px 35px;
+            box-shadow: var(--shadow-xl);
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.25s ease;
+        }
+        .modal-box h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: var(--transition);
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: var(--red);
+            transform: rotate(90deg);
+        }
+        .modal-box .form-group:last-of-type {
+            margin-bottom: 24px;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* утилиты */
+        .mt-2 { margin-top: 16px; }
+        .flex { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+        .text-muted { color: var(--text-muted); }
+        .text-sm { font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== ШАПКА АДМИНКИ ===== -->
+    <header class="admin-header">
+        <div class="container">
+            <h1>
+                🏠 Панель управления
+                <small>ТСЖ «Династия»</small>
+            </h1>
+            <a href="#" class="back-link" onclick="alert('Вернуться на главную')">← На сайт</a>
+        </div>
+    </header>
+
+    <main class="container admin-panel">
+        <div class="panel-grid">
+
+            <!-- ===== ЛЕВАЯ КОЛОНКА: ФОРМА ДОБАВЛЕНИЯ ===== -->
+            <section class="form-card" id="addFormCard">
+                <h2 id="formTitle">✏️ Добавить новость</h2>
+                <form id="newsForm" enctype="multipart/form-data">
+                    <input type="hidden" id="editId" value="" />
+
+                    <div class="form-group">
+                        <label for="newsDate">Дата <span class="required">*</span></label>
+                        <input type="date" id="newsDate" class="form-control" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newsTitle">Заголовок <span class="required">*</span></label>
+                        <input type="text" id="newsTitle" class="form-control" placeholder="Например: Отключение горячей воды" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newsText">Текст новости <span class="required">*</span></label>
+                        <textarea id="newsText" class="form-control" placeholder="Подробное описание..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Изображения (до 4 шт.)</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="newsImages" class="form-control" accept="image/*" multiple />
+                        </div>
+                        <div class="file-hint">Можно выбрать несколько файлов (jpg, png, webp). Максимум 4.</div>
+                        <div class="preview-thumbs" id="imagePreview"></div>
+                        <!-- скрытое поле для хранения имён уже загруженных картинок при редактировании -->
+                        <input type="hidden" id="existingImages" value="" />
+                    </div>
+
+                    <div class="flex">
+                        <button type="submit" class="btn-submit" id="submitBtn">➕ Опубликовать</button>
+                        <button type="reset" class="btn-icon" style="padding:12px 20px;" onclick="resetForm()">Сбросить</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- ===== ПРАВАЯ КОЛОНКА: СПИСОК НОВОСТЕЙ ===== -->
+            <section class="news-list-card">
+                <h2>
+                    📰 Все новости
+                    <span id="newsCount">0</span>
+                </h2>
+                <div id="newsListContainer">
+                    <!-- Список будет рендериться через JS -->
+                    <div class="empty-msg">Новостей пока нет. Добавьте первую!</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО (редактирование) ===== -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal-box">
+            <h3>
+                ✏️ Редактировать новость
+                <button class="modal-close" onclick="closeEditModal()">&times;</button>
+            </h3>
+            <form id="editForm" enctype="multipart/form-data">
+                <input type="hidden" id="editModalId" />
+
+                <div class="form-group">
+                    <label for="editDate">Дата <span class="required">*</span></label>
+                    <input type="date" id="editDate" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="editTitle">Заголовок <span class="required">*</span></label>
+                    <input type="text" id="editTitle" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="editText">Текст <span class="required">*</span></label>
+                    <textarea id="editText" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Изображения (до 4 шт.)</label>
+                    <input type="file" id="editImages" class="form-control" accept="image/*" multiple />
+                    <div class="file-hint">Добавьте новые файлы, чтобы заменить существующие.</div>
+                    <div class="preview-thumbs" id="editPreview"></div>
+                    <input type="hidden" id="editExistingImages" value="" />
+                </div>
+                <div class="flex">
+                    <button type="submit" class="btn-submit">💾 Сохранить</button>
+                    <button type="button" class="btn-icon" style="padding:12px 20px;" onclick="closeEditModal()">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ===== ХРАНИЛИЩЕ (localStorage) =====
+        const STORAGE_KEY = 'tsj_news_data';
+
+        // ===== ИНИЦИАЛИЗАЦИЯ =====
+        let newsData = [];
+
+        function loadFromStorage() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) {
+                    newsData = JSON.parse(raw);
+                } else {
+                    // Добавим пару демо-новостей для наглядности
+                    newsData = [
+                        {
+                            id: '1',
+                            date: '2026-05-26',
+                            title: 'Отключение горячей воды',
+                            text: '27 мая 2026 с 9:00 до 15:00 будет отключено горячее водоснабжение. Ремонтные работы.',
+                            images: []
+                        },
+                        {
+                            id: '2',
+                            date: '2026-05-22',
+                            title: 'Озеленение двора',
+                            text: 'Везем сирень и петунии! Через час можно приходить и брать 🪴. Отдаем только тем, кто принес бюллетень.',
+                            images: []
+                        }
+                    ];
+                    saveToStorage();
+                }
+            } catch (e) {
+                console.warn('Ошибка загрузки', e);
+                newsData = [];
+            }
+            renderNewsList();
+        }
+
+        function saveToStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(newsData));
+            } catch (e) {
+                console.warn('Ошибка сохранения', e);
+            }
+            renderNewsList();
+        }
+
+        // ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
+        function generateId() {
+            return Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+        }
+
+        function formatDate(dateStr) {
+            const d = new Date(dateStr + 'T00:00:00');
+            const months = ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+            return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+        }
+
+        // ===== РЕНДЕР СПИСКА НОВОСТЕЙ =====
+        function renderNewsList() {
+            const container = document.getElementById('newsListContainer');
+            const countSpan = document.getElementById('newsCount');
+
+            if (!newsData.length) {
+                container.innerHTML = `<div class="empty-msg">Новостей пока нет. Добавьте первую!</div>`;
+                countSpan.textContent = '0';
+                return;
+            }
+
+            // сортировка по дате (новые сверху)
+            const sorted = [...newsData].sort((a, b) => (a.date < b.date ? 1 : -1));
+
+            let html = '';
+            sorted.forEach(item => {
+                const images = item.images || [];
+                const thumbsHtml = images.slice(0, 4).map(img => 
+                    `<img src="${img}" alt="preview" loading="lazy" />`
+                ).join('');
+
+                html += `
+                    <div class="news-item" data-id="${item.id}">
+                        <div class="item-info">
+                            <div class="item-title">${escapeHtml(item.title)}</div>
+                            <div class="item-meta">
+                                <span class="date">${formatDate(item.date)}</span>
+                                ${images.length ? ` · ${images.length} фото` : ''}
+                            </div>
+                            <div class="text-sm text-muted" style="margin-top:4px; max-width:300px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                                ${escapeHtml(item.text)}
+                            </div>
+                        </div>
+                        ${images.length ? `<div class="item-thumbs">${thumbsHtml}</div>` : ''}
+                        <div class="item-actions">
+                            <button class="btn-icon" onclick="editNews('${item.id}')">✏️</button>
+                            <button class="btn-icon danger" onclick="deleteNews('${item.id}')">🗑️</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            countSpan.textContent = newsData.length;
+        }
+
+        // простой экранирование
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // ===== ДОБАВЛЕНИЕ НОВОСТИ =====
+        document.getElementById('newsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const date = document.getElementById('newsDate').value.trim();
+            const title = document.getElementById('newsTitle').value.trim();
+            const text = document.getElementById('newsText').value.trim();
+            const editId = document.getElementById('editId').value;
+
+            if (!date || !title || !text) {
+                alert('Заполните дату, заголовок и текст!');
+                return;
+            }
+
+            // Получаем файлы
+            const fileInput = document.getElementById('newsImages');
+            const files = fileInput.files;
+            let imageUrls = [];
+
+            // Если редактируем — берём существующие картинки из скрытого поля
+            if (editId) {
+                const existing = document.getElementById('existingImages').value;
+                if (existing) {
+                    imageUrls = existing.split(',').filter(Boolean);
+                }
+            }
+
+            // Добавляем новые файлы (имитация загрузки — сохраняем как dataURL)
+            if (files.length) {
+                const newImages = [];
+                const maxFiles = 4 - imageUrls.length;
+                const toProcess = Math.min(files.length, maxFiles);
+
+                for (let i = 0; i < toProcess; i++) {
+                    const file = files[i];
+                    if (file && file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.readAsDataURL(file);
+                        // Для синхронности используем Promise
+                        // но в цикле for с readAsDataURL асинхронно — проще собрать через Promise.all
+                        // Сделаем по-простому: сохраним файлы в массив для последующей обработки
+                        newImages.push(file);
+                    }
+                }
+
+                // Если есть новые файлы, обрабатываем их через Promise.all
+                if (newImages.length) {
+                    const readers = newImages.map(file => {
+                        return new Promise((resolve) => {
+                            const reader = new FileReader();
+                            reader.onload = (e) => resolve(e.target.result);
+                            reader.readAsDataURL(file);
+                        });
+                    });
+
+                    Promise.all(readers).then(results => {
+                        // Добавляем к уже существующим (не более 4)
+                        let all = [...imageUrls, ...results];
+                        if (all.length > 4) all = all.slice(0, 4);
+                        imageUrls = all;
+                        // Сохраняем новость с обновлёнными картинками
+                        saveNews(date, title, text, imageUrls, editId);
+                    }).catch(err => {
+                        console.warn('Ошибка чтения файлов', err);
+                        saveNews(date, title, text, imageUrls, editId);
+                    });
+                    return; // Ждём Promise
+                }
+            }
+
+            // Если нет новых файлов — сохраняем сразу
+            saveNews(date, title, text, imageUrls, editId);
+        });
+
+        function saveNews(date, title, text, images, editId) {
+            if (editId) {
+                // Редактирование
+                const index = newsData.findIndex(n => n.id === editId);
+                if (index !== -1) {
+                    newsData[index] = { ...newsData[index], date, title, text, images };
+                }
+            } else {
+                // Добавление
+                const newItem = {
+                    id: generateId(),
+                    date,
+                    title,
+                    text,
+                    images: images.slice(0, 4)
+                };
+                newsData.push(newItem);
+            }
+
+            saveToStorage();
+            resetForm();
+            renderNewsList();
+            alert(editId ? 'Новость обновлена!' : 'Новость добавлена!');
+        }
+
+        // ===== УДАЛЕНИЕ =====
+        function deleteNews(id) {
+            if (!confirm('Удалить новость?')) return;
+            newsData = newsData.filter(n => n.id !== id);
+            saveToStorage();
+            renderNewsList();
+            // Если редактировали эту — сбросить форму
+            if (document.getElementById('editId').value === id) {
+                resetForm();
+            }
+        }
+        window.deleteNews = deleteNews;
+
+        // ===== РЕДАКТИРОВАНИЕ (открыть модалку) =====
+        function editNews(id) {
+            const item = newsData.find(n => n.id === id);
+            if (!item) return;
+
+            // Заполняем модальную форму
+            document.getElementById('editModalId').value = item.id;
+            document.getElementById('editDate').value = item.date;
+            document.getElementById('editTitle').value = item.title;
+            document.getElementById('editText').value = item.text;
+
+            // Превью существующих картинок
+            const images = item.images || [];
+            const previewContainer = document.getElementById('editPreview');
+            previewContainer.innerHTML = images.map(img => `
+                <div class="preview-thumb">
+                    <img src="${img}" alt="preview" />
+                    <button type="button" class="remove-img" onclick="removeEditImage('${img}')">×</button>
+                </div>
+            `).join('');
+
+            // Сохраняем список существующих картинок в скрытое поле (для удаления)
+            document.getElementById('editExistingImages').value = images.join(',');
+
+            // Очищаем поле выбора файлов
+            document.getElementById('editImages').value = '';
+
+            // Показываем модалку
+            document.getElementById('editModal').classList.add('active');
+        }
+        window.editNews = editNews;
+
+        // ===== УДАЛЕНИЕ КАРТИНКИ ПРИ РЕДАКТИРОВАНИИ =====
+        function removeEditImage(imgSrc) {
+            let existing = document.getElementById('editExistingImages').value;
+            if (!existing) return;
+            let arr = existing.split(',').filter(Boolean);
+            arr = arr.filter(src => src !== imgSrc);
+            document.getElementById('editExistingImages').value = arr.join(',');
+
+            // Обновить превью
+            const preview = document.getElementById('editPreview');
+            const thumbs = preview.querySelectorAll('.preview-thumb');
+            for (let el of thumbs) {
+                const img = el.querySelector('img');
+                if (img && img.src === imgSrc) {
+                    el.remove();
+                    break;
+                }
+            }
+        }
+        window.removeEditImage = removeEditImage;
+
+        // ===== СОХРАНЕНИЕ РЕДАКТИРОВАНИЯ =====
+        document.getElementById('editForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const id = document.getElementById('editModalId').value;
+            const date = document.getElementById('editDate').value.trim();
+            const title = document.getElementById('editTitle').value.trim();
+            const text = document.getElementById('editText').value.trim();
+
+            if (!date || !title || !text) {
+                alert('Заполните все поля!');
+                return;
+            }
+
+            // Получаем существующие картинки из скрытого поля
+            let existingImages = document.getElementById('editExistingImages').value;
+            let imageArr = existingImages ? existingImages.split(',').filter(Boolean) : [];
+
+            // Новые файлы из input
+            const fileInput = document.getElementById('editImages');
+            const files = fileInput.files;
+
+            if (files.length) {
+                const newFiles = [];
+                const maxAdd = 4 - imageArr.length;
+                for (let i = 0; i < Math.min(files.length, maxAdd); i++) {
+                    const file = files[i];
+                    if (file && file.type.startsWith('image/')) {
+                        newFiles.push(file);
+                    }
+                }
+
+                if (newFiles.length) {
+                    const readers = newFiles.map(file => {
+                        return new Promise((resolve) => {
+                            const reader = new FileReader();
+                            reader.onload = (e) => resolve(e.target.result);
+                            reader.readAsDataURL(file);
+                        });
+                    });
+
+                    Promise.all(readers).then(results => {
+                        let all = [...imageArr, ...results];
+                        if (all.length > 4) all = all.slice(0, 4);
+                        // Обновляем новость
+                        updateNewsItem(id, date, title, text, all);
+                    }).catch(err => {
+                        console.warn('Ошибка чтения файлов', err);
+                        updateNewsItem(id, date, title, text, imageArr);
+                    });
+                    return;
+                }
+            }
+
+            // Если новых файлов нет
+            updateNewsItem(id, date, title, text, imageArr);
+        });
+
+        function updateNewsItem(id, date, title, text, images) {
+            const index = newsData.findIndex(n => n.id === id);
+            if (index !== -1) {
+                newsData[index] = { ...newsData[index], date, title, text, images };
+                saveToStorage();
+                renderNewsList();
+                closeEditModal();
+                alert('Новость обновлена!');
+            }
+        }
+
+        // ===== ЗАКРЫТЬ МОДАЛКУ =====
+        function closeEditModal() {
+            document.getElementById('editModal').classList.remove('active');
+        }
+        window.closeEditModal = closeEditModal;
+
+        // Закрытие по клику на оверлей
+        document.getElementById('editModal').addEventListener('click', function(e) {
+            if (e.target === this) closeEditModal();
+        });
+
+        // ===== СБРОС ФОРМЫ =====
+        function resetForm() {
+            document.getElementById('newsForm').reset();
+            document.getElementById('editId').value = '';
+            document.getElementById('existingImages').value = '';
+            document.getElementById('imagePreview').innerHTML = '';
+            document.getElementById('formTitle').innerHTML = '✏️ Добавить новость';
+            document.getElementById('submitBtn').innerHTML = '➕ Опубликовать';
+            // Очищаем превью
+            document.getElementById('newsImages').value = '';
+        }
+        window.resetForm = resetForm;
+
+        // ===== ПРЕВЬЮ ФАЙЛОВ ПРИ ДОБАВЛЕНИИ =====
+        document.getElementById('newsImages').addEventListener('change', function(e) {
+            const container = document.getElementById('imagePreview');
+            container.innerHTML = '';
+            const files = e.target.files;
+            if (!files.length) return;
+
+            const max = 4;
+            for (let i = 0; i < Math.min(files.length, max); i++) {
+                const file = files[i];
+                if (file && file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (ev) => {
+                        const div = document.createElement('div');
+                        div.className = 'preview-thumb';
+                        div.innerHTML = `<img src="${ev.target.result}" alt="preview" />`;
+                        container.appendChild(div);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+
+        // ===== ПРЕВЬЮ ПРИ РЕДАКТИРОВАНИИ (заполняется в editNews) =====
+
+        // ===== ЗАГРУЗКА ПРИ СТАРТЕ =====
+        loadFromStorage();
+
+        // ===== УСТАНОВКА СЕГОДНЯШНЕЙ ДАТЫ ПО УМОЛЧАНИЮ =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().slice(0, 10);
+            document.getElementById('newsDate').value = today;
+            document.getElementById('editDate').value = today;
+        });
+
+        console.log('✅ Панель управления загружена. Данные хранятся в localStorage.');
+    </script>
+</body>
+</html>

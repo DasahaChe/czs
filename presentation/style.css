@@ -1,0 +1,744 @@
+@font-face {
+    font-family: 'TT Fors';
+    src: local('TT Fors'), url('../fonts/fors/TT\ Fors\ Trial\ Regular.woff') format('woff'), url('../fonts/TT\ Fors\ Trial\ Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fors ExtraBold';
+    src: local('TT Fors ExtraBold'), url('../fonts/fors/TT\ Fors\ Trial\ ExtraBold.woff') format('woff'), url('../fonts/fors/TT\ Fors\ Trial\ ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    font-family: 'TT Fors', Arial, sans-serif;
+    background: #fff;
+}
+
+.clear {
+    clear: both;
+}
+
+.main-container {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 20mm;
+    background: url(img/fon00.jpg) no-repeat;
+    background-size: cover;
+}
+
+.logo-main {
+    float: left;
+    width: 145mm;
+    height: 50mm;
+}
+
+.logo-main-imgCZS {
+    width: 120mm;
+}
+
+.logo-main-right {
+    float: left;
+    width: 150mm;
+    height: 50mm;
+
+}
+
+.logo-main-imgS {
+    width: 80mm;
+}
+
+.logo-main-text {
+    float: left;
+    width: 62mm;
+    padding-top: 4mm;
+    font-size: 14pt;
+    color: #fff;
+}
+
+.logo {
+    margin-top: 20mm;
+    float: left;
+    width: 80mm;
+    height: 60mm;
+    margin-left: 20mm;
+}
+
+.logo-img {
+    width: 60mm;
+}
+
+.title-main {
+    margin-top: 20mm;
+    float: left;
+    width: 150mm;
+    height: 60mm;
+    font-size: 32pt;
+    font-weight: bold;
+}
+
+.main-text {
+    color: #fff;
+    font-weight: bold;
+}
+
+.logo-event {
+    float: left;
+    width: 80mm;
+    margin-left: 20mm;
+    margin-top: 20mm;
+}
+
+.logo-event-img {
+    width: 60mm;
+    opacity: 0.8;
+}
+
+.role,
+.country {
+    float: right;
+    width: 80mm;
+    height: 16mm;
+    text-align: right;
+    font-size: 14pt;
+    color: #fff;
+}
+
+.description-data {
+    margin-top: 20mm;
+    float: left;
+    width: 100mm;
+    height: 40mm;
+    padding-left: 16mm;
+    background: url(img/evenD.png) no-repeat 0 top;
+    background-size: 12mm;
+}
+
+.data-text {
+    float: left;
+    width: 95mm;
+    font-size: 16pt;
+    color: #fff;
+}
+
+.description-place {
+    margin-top: 20mm;
+    float: left;
+    width: 65mm;
+    height: 40mm;
+    padding-left: 16mm;
+    background: url(img/evenP.png) no-repeat 0 top;
+    background-size: 12mm;
+}
+
+.place-text {
+    float: left;
+    width: 65mm;
+    font-size: 16pt;
+    color: #fff;
+}
+
+
+/* предложение */
+.offer-container {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 20mm 10mm;
+    background: #fff url(img/fon01.jpg) no-repeat;
+    background-size: contain;
+}
+
+.left-block-offer {
+    float: left;
+    width: 120mm;
+}
+
+.right-block-offer {
+    float: right;
+    width: 177mm;
+}
+
+.logo-block-offer {
+    float: left;
+    width: 110mm;
+    margin-right: 10mm;
+}
+
+.product-offer {
+    margin-top: 20mm;
+    float: left;
+    width: 110mm;
+}
+
+.logo-czs-offer {
+    float: left;
+    width: 75mm;
+}
+
+.logo-sail-offer {
+    float: left;
+    width: 60mm;
+    margin-top: 5mm;
+}
+
+
+.title-offer {
+    width: 170mm;
+    margin-left: 10mm;
+    font-size: 36pt;
+    font-weight: bold;
+    color: #000;
+}
+
+.table-offer {
+    float: left;
+    width: 165mm;
+    margin: 10mm 0 0 10mm;
+}
+
+.table-row-offer {
+    float: left;
+    width: 165mm;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.table-cell-left-offer {
+    float: left;
+    width: 55mm;
+    min-height: 10mm;
+    padding-top: 4mm;
+    color: #595959;
+    font-size: 14pt;
+}
+
+.table-cell-right-offer {
+    float: left;
+    width: 106mm;
+    min-height: 6mm;
+    padding: 4mm 0 4mm 4mm;
+    font-size: 14pt;
+}
+
+/* производство */
+.product-container {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 20mm 10mm;
+    background: #fff url(img/fon01.jpg) no-repeat;
+    background-size: contain;
+}
+
+.left-block-product {
+    float: left;
+    width: 120mm;
+}
+
+.right-block-product {
+    float: right;
+    width: 177mm;
+}
+
+.logo-block-product {
+    float: left;
+    width: 110mm;
+    margin-right: 10mm;
+}
+
+.product-product {
+    margin-top: 20mm;
+    float: left;
+    width: 110mm;
+}
+
+.logo-czs-product {
+    float: left;
+    width: 75mm;
+}
+
+.logo-sail-product {
+    float: left;
+    width: 60mm;
+    margin-top: 5mm;
+}
+
+
+.title-product {
+    width: 170mm;
+    margin-left: 10mm;
+    font-size: 36pt;
+    font-weight: bold;
+    color: #000;
+}
+
+.table-product {
+    float: left;
+    width: 165mm;
+    margin: 10mm 0 0 10mm;
+}
+
+.table-row-product {
+    float: left;
+    width: 165mm;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.table-cell-left-product {
+    float: left;
+    width: 55mm;
+    min-height: 10mm;
+    padding-top: 4mm;
+    color: #595959;
+    font-size: 14pt;
+}
+
+.table-cell-right-product {
+    float: left;
+    width: 106mm;
+    min-height: 6mm;
+    padding: 4mm 0 4mm 4mm;
+    font-size: 14pt;
+}
+
+/* описание */
+
+.description-container {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 10mm;
+    background: #fff url(img/fon02.jpg) no-repeat;
+    background-size: contain;
+}
+
+.left-block-description {
+    float: left;
+    width: 87mm;
+    height: 41mm;
+}
+
+.right-block-description {
+    float: right;
+    width: 210mm;
+    height: 41mm;
+}
+
+.logo-block-description {
+    float: left;
+    width: 80mm;
+}
+
+.logo-czs-description {
+    float: left;
+    width: 75mm;
+}
+
+.logo-sail-description {
+    float: left;
+    width: 60mm;
+    margin-top: 2mm;
+}
+
+.title-description {
+    width: 190mm;
+    margin: 7mm 0;
+    font-size: 36pt;
+    font-weight: bold;
+    color: #fff;
+}
+
+.description-text {
+    margin-top: 10mm;
+    font-size: 14pt;
+    line-height: 24pt;
+    color: #595959;
+    padding: 0 10mm;
+}
+
+/* клиенты */
+
+
+.client-container {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 20mm 10mm;
+    background: #fff url(img/fon01.jpg) no-repeat;
+    background-size: contain;
+}
+
+.left-block-client {
+    float: left;
+    width: 120mm;
+}
+
+.right-block-client {
+    float: right;
+    width: 177mm;
+}
+
+.logo-block-client {
+    float: left;
+    width: 110mm;
+    margin-right: 10mm;
+}
+
+.product-client {
+    margin-top: 20mm;
+    float: left;
+    width: 110mm;
+}
+
+.logo-czs-client {
+    float: left;
+    width: 75mm;
+}
+
+.logo-sail-client {
+    float: left;
+    width: 60mm;
+    margin-top: 5mm;
+}
+
+
+.title-client {
+    width: 170mm;
+    margin-left: 10mm;
+    font-size: 36pt;
+    font-weight: bold;
+    color: #000;
+}
+
+.table-client {
+    float: left;
+    width: 165mm;
+    margin: 10mm 0 0 10mm;
+}
+
+.table-row-client {
+    float: left;
+    width: 165mm;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.table-cell-left-client {
+    float: left;
+    width: 55mm;
+    min-height: 10mm;
+    padding-top: 4mm;
+    color: #595959;
+    font-size: 14pt;
+}
+
+.table-cell-right-client {
+    float: left;
+    width: 106mm;
+    min-height: 6mm;
+    padding: 4mm 0 4mm 4mm;
+    font-size: 14pt;
+}
+
+.client-list {
+    list-style: none;
+    margin-top: 10mm;
+    padding-left: 10mm;
+}
+
+.client-item {
+    font-size: 18pt;
+    line-height: 20pt;
+    color: #595959;
+    height: 12mm;
+}
+
+.client-list li {
+    position: relative;
+    padding-left: 1.2em;
+}
+
+.client-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    font-size: 0.8em;
+    color: #555;
+}
+
+/* контакты */
+
+.contakt-container {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 20mm 0mm;
+    background: #fff url(img/fon01.jpg) no-repeat;
+    background-size: contain;
+}
+
+.left-block-contakt {
+    float: left;
+    width: 110mm;
+    margin-left: 10mm;
+}
+
+.right-block-contakt {
+    float: right;
+    width: 167mm;
+}
+
+.logo-block-contakt {
+    float: left;
+    width: 100mm;
+    margin-right: 10mm;
+}
+
+.product-contakt {
+    margin-top: 20mm;
+    float: left;
+    width: 110mm;
+}
+
+.logo-czs-contakt {
+    float: left;
+    width: 75mm;
+}
+
+.logo-sail-contakt {
+    float: left;
+    width: 60mm;
+    margin-top: 5mm;
+}
+
+
+.title-contakt {
+    float: left;
+    width: 100mm;
+    margin-left: 10mm;
+    font-size: 36pt;
+    font-weight: bold;
+    color: #000;
+}
+
+.table-contakt {
+    float: left;
+    width: 217mm;
+    margin: 10mm 0 0 0;
+    padding: 10mm 40mm;
+    background: linear-gradient(145deg, rgba(87, 118, 255, 0.99) 16%, rgba(52, 85, 250, 1) 92%);
+}
+
+.table-row-contakt {
+    float: left;
+    width: 257mm;
+
+}
+
+.table-cell-right-contakt {
+    float: left;
+    width: 147mm;
+    min-height: 6mm;
+    padding: 8mm 0 8mm 10mm;
+    font-size: 20pt;
+    color: #fff;
+}
+
+.logo-contakt {
+    float: left;
+    width: 40mm;
+}
+
+.logo-img-contakt {
+    width: 40mm;
+}
+
+.table-cell-name-contakt {
+    float: left;
+    width: 60mm;
+    min-height: 10mm;
+    padding: 8mm 0mm 8mm 30mm;
+    color: #fff;
+    font-size: 18pt;
+    
+}
+
+
+.table-cell-tel-contakt {
+    float: left;
+    width: 43mm;
+    min-height: 10mm;
+    padding: 8mm 0mm 8mm 47mm;
+    color: #fff;
+    font-size: 18pt;
+    background: url(img/tel.png) no-repeat 115px center;
+    background-size: 8mm;
+}
+.table-cell-mail-contakt{
+    float: left;
+    width: 35mm;
+    min-height: 10mm;
+    padding: 8mm 0mm 8mm 55mm;
+    color: #fff;
+    font-size: 18pt;
+    background: url(img/mail.png) no-repeat 115px center;
+    background-size: 8mm;
+}
+.table-cell-sait-contakt{
+    float: left;
+    width: 30mm;
+    min-height: 10mm;
+    padding: 8mm 0mm 8mm 60mm;
+    color: #fff;
+    font-size: 18pt;
+    background: url(img/sait.png) no-repeat 115px center;
+    background-size: 8mm;
+}
+
+.contakt-text{
+    font-size: 16pt;
+    color: #2043a5;
+    padding: 10mm 0 0 20mm;
+}
+
+/* контакты c картой*/
+
+.contakt1-container {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 20mm 10mm;
+    background: #0f1991 url(img/fon03.jpg) no-repeat;
+    background-size: cover;
+}
+
+.left-block-contakt1 {
+    float: left;
+    width: 200mm;
+    margin-left: 10mm;
+}
+
+.right-block-contakt1 {
+    float: left;
+    width: 80mm;
+}
+
+.logo-block-contakt1 {
+    float: left;
+    width: 90mm;
+    margin-right: 10mm;
+}
+
+.product-contakt1 {
+    margin-top: 20mm;
+    float: left;
+    width: 110mm;
+}
+
+.logo-czs-contakt1 {
+    float: left;
+    width: 80mm;
+}
+
+.logo-sail-contakt1 {
+    float: left;
+    width: 75mm;
+}
+
+
+.title-contakt1 {
+    float: left;
+    width: 100mm;
+    margin: 0 0 10mm 10mm;
+    font-size: 36pt;
+    font-weight: bold;
+    color: #fff;
+}
+
+.table-contakt1 {
+    float: left;
+    width: 217mm;
+    margin: 10mm 0 0 0;
+   
+}
+
+.table-row-contakt1 {
+    float: left;
+    width: 257mm;
+
+}
+
+.table-cell-right-contakt1 {
+    float: left;
+    width: 147mm;
+    min-height: 6mm;
+    padding: 8mm 0 8mm 10mm;
+    font-size: 20pt;
+    color: #fff;
+}
+
+.logo-contakt1 {
+    float: left;
+    width: 50mm;
+}
+
+.logo-img-contakt1 {
+    width: 50mm;
+}
+
+.table-cell-name-contakt1 {
+    float: left;
+    width: 60mm;
+    min-height: 10mm;
+    padding: 8mm 0mm 8mm 30mm;
+    color: #fff;
+    font-size: 18pt;
+    
+}
+
+
+.table-cell-tel-contakt1 {
+    float: left;
+    width: 43mm;
+    min-height: 10mm;
+    padding: 8mm 0mm 8mm 47mm;
+    color: #fff;
+    font-size: 18pt;
+    background: url(img/tel.png) no-repeat 113px center;
+    background-size: 8mm;
+}
+.table-cell-mail-contakt1{
+    float: left;
+    width: 43mm;
+    min-height: 10mm;
+    padding: 8mm 0mm 8mm 47mm;
+    color: #fff;
+    font-size: 18pt;
+    background: url(img/mail.png) no-repeat 113px center;
+    background-size: 8mm;
+}
+.table-cell-sait-contakt1{
+    float: left;
+    width: 42mm;
+    min-height: 10mm;
+    padding: 8mm 0mm 8mm 48mm;
+    color: #fff;
+    font-size: 18pt;
+    background: url(img/sait.png) no-repeat 113px center;
+    background-size: 8mm;
+}
+
+.contakt1-text{
+    font-size: 16pt;
+    color: #2043a5;
+    padding-bottom: 2mm;
+    color: #fff;
+}

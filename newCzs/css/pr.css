@@ -1,0 +1,131 @@
+.pr__block {
+    margin-bottom: 96px;
+}
+
+
+.pr__block .pr__title-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 64px;
+}
+
+.pr__block .pr__title-num {
+    display: inline-block;
+    margin-right: 24px;
+    font-size: 152px;
+    line-height: 1em;
+    font-weight: 600;
+    color: var(--base-color-1);
+}
+
+.pr__block .pr__title-text {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-size: 64px;
+    line-height: 1em;
+    font-weight: 400;
+    color: var(--base-color-1);
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pr__block .pr__description {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    row-gap: 96px;
+}
+
+.pr__block .pr__description-block {
+    width: calc((100% - 32px) / 3);
+}
+
+.pr__des-textMain,
+.pr__block .pr__des-block-min {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-size: 32px;
+    line-height: 1em;
+    color: #000;
+
+}
+
+.pr__block .pr__des-textMain {
+    margin-bottom: 0;
+}
+
+.pr__block .pr__des-span {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-size: 64px;
+    line-height: 1em;
+    color: var(--base-color-1);
+}
+
+.pr__block .pr__des-textMain {
+    text-align: center;
+}
+
+.pr__des-text {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: var(--grafite);
+}
+
+.pr__block .pr__description-text {
+    padding: 0;
+    margin: 0 0 64px 0;
+    font-size: 32px;
+    line-height: 1em;
+    color: #000;
+}
+
+@media (max-width: 1640px) {
+    .pr__block .pr__title-text {
+        font-size: 48px;
+    }
+
+    .pr__des-textMain {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 1020px) {
+    .pr__block .pr__title-num {
+        font-size: 96px;
+    }
+
+    .pr__block .pr__description {
+        flex-direction: column;
+    }
+
+    .pr__block .pr__description-block {
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+    .pr__block {
+        margin-bottom: 64px;
+    }
+
+    .pr__block .pr__title-num {
+        font-size: 64px;
+        margin-right: 16px;
+    }
+
+    .pr__block .pr__title-text {
+        font-size: 32px;
+    }
+
+    .pr__block .pr__description {
+        row-gap: 64px;
+    }
+
+
+}

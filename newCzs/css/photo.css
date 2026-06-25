@@ -1,0 +1,114 @@
+.photo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 64px;
+}
+
+.photo__title {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 64px;
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: 600;
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.photo .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Контейнер для галереи */
+.gallery-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.swiper {
+    width: 100%;
+    height: 400px;
+}
+
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px;
+    overflow: hidden;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+
+}
+
+.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1.1);
+    z-index: 1;
+    filter: none;
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    transform: scale(0.9);
+    filter: grayscale(10%);
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--base-color-6);
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-slide-prev:hover,
+.swiper-slide-next:hover {
+    color: #333333;
+}
+
+@media (max-width: 1640px) {
+    .photo__title {
+        margin-bottom: 64px;
+        font-size: 48px;
+        line-height: 1em;
+    }}
+@media (max-width: 1020px) {
+    .photo .container {
+        padding: 0 calc(var(--base-gap) * 3.5);
+    }
+}
+
+@media (max-width: 750px) {
+    .photo .container {
+        padding: 0 32px;
+    }
+
+    .photo .photo__title {
+        margin-bottom: 64px;
+        font-size: 32px;
+        line-height: 1em;
+    }
+}

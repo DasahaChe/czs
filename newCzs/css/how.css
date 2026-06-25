@@ -1,0 +1,165 @@
+.how {
+    margin-bottom: 96px;
+}
+
+
+.how__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.how-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc((100% - 32px) / 2);
+    padding: 64px 32px;
+    padding-left: 200px;
+    background: url(../img/fon01.jpg) no-repeat 0px 0px;
+    background-size: 160px;
+    min-height: 240px;
+    border: 1px solid var(--item-border);
+    border-radius: 16px;
+}
+
+.how1 {
+    background: url(../img/step1.jpg) no-repeat 0px 0px;
+    background-size: 168px;
+}
+
+.how2 {
+    background: url(../img/step2.jpg) no-repeat 0px 0px;
+    background-size: 168px;
+}
+
+.how3 {
+    background: url(../img/step3.jpg) no-repeat 0px 0px;
+    background-size: 168px;
+}
+
+.how4 {
+    background: url(../img/step4.jpg) no-repeat 0px 0px;
+    background-size: 168px;
+}
+
+.how .how__title {
+    margin: 0;
+    margin-bottom: 96px;
+    padding: 0;
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: 600;
+    background: linear-gradient(to right, var(--base-color-1), var(--base-color-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.how .how__subtitle {
+    margin: 0 0 32px 0;
+    padding: 0;
+    font-size: 32px;
+    line-height: 32px;
+    color: var(--newGray);
+}
+
+.how__button {
+    padding: var(--base-font-size) calc(var(--base-font-size) * 1.5);
+    min-width: calc(var(--base-font-size) * 17);
+    color: var(--base-color-6);
+    border: 1px solid var(--base-color-6);
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.5s ease, color 0.5s ease, background-color 0.5s ease;
+}
+
+
+.how__button-main {
+    color: #fff;
+    background: var(--svgGradient);
+}
+
+@media (max-width: 1640px) {
+    .how .how__title {
+        margin-bottom: 64px;
+        font-size: 48px;
+        line-height: 1em;
+    }
+
+    .how .how__subtitle {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .how-block {
+        padding: 24px;
+        padding-left: 154px;
+        background-size: 160px;
+    }
+
+    .how1 {
+        background-size: 134px;
+    }
+
+    .how2 {
+        background-size: 134px;
+    }
+
+    .how3 {
+        background-size: 134px;
+    }
+
+    .how4 {
+        background-size: 134px;
+    }
+
+    .how__button {
+        padding: 8px 16px;
+        min-width: 100px;
+        height: 54px;
+    }
+}
+
+@media (max-width: 1020px) {
+
+    .how-block {
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+    .how .how__title {
+        margin-bottom: 64px;
+        font-size: 32px;
+        line-height: 1em;
+    }
+
+    .how-block {
+        padding: 24px;
+        padding-top: 55%;
+        min-height: 240px;
+        border: 1px solid var(--item-border);
+        border-radius: 16px;
+    }
+
+    .how1 {
+        background: url(../img/step1m.jpg) no-repeat 0px 0px;
+        background-size: contain;
+    }
+
+    .how2 {
+        background: url(../img/step2m.jpg) no-repeat 0px 0px;
+        background-size: contain;
+    }
+
+    .how3 {
+        background: url(../img/step3m.jpg) no-repeat 0px 0px;
+        background-size: contain;
+    }
+
+    .how4 {
+        background: url(../img/step4m.jpg) no-repeat 0px 0px;
+        background-size: contain;
+    }
+}

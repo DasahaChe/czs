@@ -1,0 +1,113 @@
+:root {
+    --base-font: 'Fors';
+    --base-bold-font: 'Fors ExtraBold';
+    --base-font-size: 1em;
+    --base-font-line-height: 1em;
+    --base-gap: 1em;   
+    --fon: #f6f6f6; 
+    --grey: #ABABAB;
+    --pfYelow: #fecd4b;
+    --pfGrey: #444444;
+    --blue: #005BAA;  
+}
+
+@font-face {
+    font-family: 'Fors';
+    src: local('TT Fors'), url('../fonts/TT\ Fors\ Trial\ Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fors ExtraBold';
+    src: local('TT Fors ExtraBold'), url('../fonts/TT\ Fors\ Trial\ ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+body{
+    padding: 4em 6em;
+    background-color: var(--fon);
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.title{    
+    display: flex;
+    gap: 3em;
+    margin-bottom: 2.5em;
+}
+
+.title__img{    
+    width: 506px;
+
+}
+
+.title__text{ 
+    margin-top: 0.25em;
+    font-size: 3em;
+    line-height: 1em;
+    color: var(--grey);
+    font-family: var(--base-font);
+    text-transform: uppercase;
+}
+.main{
+    display: flex;
+    gap: 0em;
+}
+.main__block{
+    display: flex;
+    gap: 2em;
+}
+
+.main__block-text{
+    display: flex;
+    flex-direction: column;
+    margin: 4em 0 0 0;
+    gap: 0.5em;
+}
+
+.main__text{
+    font-size: 2em;
+    font-family: var(--base-font);
+    color:#000;
+    line-height: 1em;
+}
+
+.prod{
+    position: relative;
+    margin-left: 3em;
+    width: 100%;
+}
+
+.qr{
+    text-align: center;
+    align-items: center;
+    width: 41em;
+    flex-direction: column;
+    margin-top: 4em;
+   gap: 0;
+}
+
+.qr .main__img{
+    width: 8em;
+    height: 8em;
+}
+
+.qr .main__block-text{
+    margin-top: 0.5em;   
+}
+
+.qr .main__text{
+    padding-top: 0.8em;
+    font-size: 1.25em;
+    background-image: url(../img/arrow.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 1.6em;
+}
+.uz{
+    position: absolute;
+    top: 31.5em;
+    left: 45em;
+}
